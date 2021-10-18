@@ -6144,3 +6144,19 @@ Processing by OrdersController#new as HTML
 Completed 200 OK in 51ms (Views: 47.8ms | ActiveRecord: 1.4ms)
 
 
+Started GET "/orders/new" for ::1 at 2021-10-18 14:43:23 +0600
+Processing by OrdersController#new as HTML
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mClient Load (0.6ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/orders/_form.html.erb:16
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:6
+  Rendered orders/_order_product_fields.html.erb (12.6ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:6
+  Rendered orders/_order_product_fields.html.erb (3.9ms)
+  Rendered orders/_form.html.erb (26.0ms)
+  Rendered orders/new.html.erb within layouts/application (28.2ms)
+Completed 200 OK in 56ms (Views: 52.9ms | ActiveRecord: 1.5ms)
+
+
