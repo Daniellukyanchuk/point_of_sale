@@ -15,8 +15,8 @@ development:
   <<: *default
   database: pos_development
   port: 5432
-  password: Nathanael
-  username: postgres
+  username: <%= ENV['POSTGRES_USERNAME'] %>
+  password: <%= ENV['POSTGRES_PASSWORD'] %>
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
