@@ -1,0 +1,36 @@
+<%= form_with(model: order, local: true) do |form| %>
+    <% if order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+      <ul>
+      <% order.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+  <%= form.fields_for :clients_fields do |builder| %>
+      <% form.collection_select :client_id, Client.all, :id, :name %>
+      <% end %>
+  </div>
+
+  <%= form.fields_for :order_products_fields do |builder| %>
+      <%= render 'order_product_fields', form: builder %>
+      <% end %>
+      <%= link_to_add_fields "Add Product", form, :order_products %>
+
+
+  <div class="field">
+    <%= form.label :grand_total %>
+    <%= form.text_field :grand_total %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+

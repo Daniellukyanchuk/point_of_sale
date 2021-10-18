@@ -1,0 +1,29 @@
+
+    <h2>Add Product</h2>
+
+    <div class="field">
+    <%= form.fields_for :products_fields do |builder| %>
+        <% form.collection_select :product_id, Product.all, :id, :product_name %>
+        <% end %>
+    </div>
+  
+    <div class="field">
+      <%= form.label :quantity %>
+      <%= form.number_field :quantity %>
+    </div>
+
+    <div class="field">
+      <%= form.label :sale_price %>
+      <%= form.number_field :sale_price %>
+    </div>
+
+    <div class="field">
+      <%= form.label :subtotal %>
+      <%= form.number_field :subtotal %>
+    </div>
+  
+    
+
+
+
+  
