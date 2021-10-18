@@ -6160,3 +6160,102 @@ Processing by OrdersController#new as HTML
 Completed 200 OK in 56ms (Views: 52.9ms | ActiveRecord: 1.5ms)
 
 
+Started POST "/orders" for ::1 at 2021-10-18 14:45:19 +0600
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TFI+o7cGyuZMaeJhAkppy4LB8FMWkiUnG4pT0IL53NeuxF/De813W4JKWy620PXn2sF6BqQXFC/hfzd2dIbnrA==", "order"=>{"client_id"=>"1", "order_products_fields"=>{"product_id"=>"1", "quantity"=>"1", "sale_price"=>"110", "subtotal"=>"232"}, "order_products_attributes"=>{"1634546685757"=>{"product_id"=>"1", "quantity"=>"", "sale_price"=>"", "subtotal"=>""}}, "grand_total"=>""}, "commit"=>"Create Order"}
+Unpermitted parameter: :order_products_fields
+Completed 500 Internal Server Error in 46ms (ActiveRecord: 0.0ms)
+
+
+
+ActiveModel::UnknownAttributeError - unknown attribute 'order_id' for OrderProduct.:
+  app/controllers/orders_controller.rb:25:in `create'
+
+Started POST "/__better_errors/18a75b2ac6b7287a/variables" for ::1 at 2021-10-18 14:45:19 +0600
+Started POST "/orders" for ::1 at 2021-10-18 14:45:45 +0600
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TFI+o7cGyuZMaeJhAkppy4LB8FMWkiUnG4pT0IL53NeuxF/De813W4JKWy620PXn2sF6BqQXFC/hfzd2dIbnrA==", "order"=>{"client_id"=>"1", "order_products_fields"=>{"product_id"=>"1", "quantity"=>"1", "sale_price"=>"110", "subtotal"=>"232"}, "order_products_attributes"=>{"1634546685757"=>{"product_id"=>"1", "quantity"=>"", "sale_price"=>"", "subtotal"=>""}}, "grand_total"=>""}, "commit"=>"Create Order"}
+Unpermitted parameter: :order_products_fields
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 16.7ms)
+
+
+
+ActiveModel::UnknownAttributeError - unknown attribute 'order_id' for OrderProduct.:
+  app/controllers/orders_controller.rb:25:in `create'
+
+Started POST "/__better_errors/9fab24c72ef4020f/variables" for ::1 at 2021-10-18 14:45:45 +0600
+Started POST "/__better_errors/9fab24c72ef4020f/eval" for ::1 at 2021-10-18 14:45:52 +0600
+Started POST "/__better_errors/9fab24c72ef4020f/eval" for ::1 at 2021-10-18 14:45:56 +0600
+Unpermitted parameter: :order_products_fields
+Started GET "/orders/new" for ::1 at 2021-10-18 14:46:01 +0600
+Processing by OrdersController#new as HTML
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mClient Load (0.5ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/orders/_form.html.erb:16
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:6
+  Rendered orders/_order_product_fields.html.erb (31.2ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:6
+  Rendered orders/_order_product_fields.html.erb (3.0ms)
+  Rendered orders/_form.html.erb (64.6ms)
+  Rendered orders/new.html.erb within layouts/application (67.4ms)
+Completed 200 OK in 115ms (Views: 102.1ms | ActiveRecord: 10.0ms)
+
+
+Started POST "/orders" for ::1 at 2021-10-18 14:46:13 +0600
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ig+mtAW8AVWoXx43ytZi7zk7hSCaWSlOK7JNTifv7lhomcfUyXe86GZ8p3h+TP7DYTsPdSjcGEbRRyno0ZDVIw==", "order"=>{"client_id"=>"1", "order_products_fields"=>{"product_id"=>"1", "quantity"=>"1", "sale_price"=>"110", "subtotal"=>"112"}, "grand_total"=>""}, "commit"=>"Create Order"}
+Unpermitted parameter: :order_products_fields
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:28
+  [1m[36mClient Load (0.7ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:28
+  [1m[36mOrder Create (1.6ms)[0m  [1m[32mINSERT INTO "orders" ("client_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["client_id", 1], ["created_at", "2021-10-18 08:46:13.465987"], ["updated_at", "2021-10-18 08:46:13.465987"]]
+  ↳ app/controllers/orders_controller.rb:28
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:28
+Redirected to http://localhost:3000/orders/1
+Completed 302 Found in 20ms (ActiveRecord: 3.5ms)
+
+
+Started GET "/orders/1" for ::1 at 2021-10-18 14:46:13 +0600
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:63
+  Rendering orders/show.html.erb within layouts/application
+  Rendered orders/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 71ms (Views: 48.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/orders" for ::1 at 2021-10-18 14:46:15 +0600
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/views/orders/index.html.erb:18
+  [1m[36mClient Load (0.5ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:22
+  Rendered orders/index.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 39ms (Views: 36.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/orders/1/edit" for ::1 at 2021-10-18 14:46:17 +0600
+Processing by OrdersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:63
+  Rendering orders/edit.html.erb within layouts/application
+  [1m[36mClient Load (0.5ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/orders/_form.html.erb:16
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:6
+  Rendered orders/_order_product_fields.html.erb (10.9ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:6
+  Rendered orders/_order_product_fields.html.erb (3.1ms)
+  Rendered orders/_form.html.erb (22.4ms)
+  Rendered orders/edit.html.erb within layouts/application (24.9ms)
+Completed 200 OK in 52ms (Views: 47.1ms | ActiveRecord: 1.9ms)
+
+
