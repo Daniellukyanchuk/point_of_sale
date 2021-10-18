@@ -6259,3 +6259,14 @@ Processing by OrdersController#edit as HTML
 Completed 200 OK in 52ms (Views: 47.1ms | ActiveRecord: 1.9ms)
 
 
+Started GET "/orders" for ::1 at 2021-10-18 14:52:42 +0600
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (1.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/views/orders/index.html.erb:18
+  [1m[36mClient Load (0.6ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:22
+  Rendered orders/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 44ms (Views: 39.9ms | ActiveRecord: 2.3ms)
+
+
