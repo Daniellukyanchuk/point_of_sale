@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2021_10_12_084951) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "clients", force: :cascade do |t|
     t.string "name"
     t.string "phone"
@@ -22,6 +25,7 @@ ActiveRecord::Schema.define(version: 2021_10_12_084951) do
   end
 
   create_table "order_products", force: :cascade do |t|
+    t.integer "order_id"
     t.string "product_id"
     t.string "quantity"
     t.float "sale_price"
@@ -31,7 +35,6 @@ ActiveRecord::Schema.define(version: 2021_10_12_084951) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer "order_id"
     t.integer "client_id"
     t.float "grand_total"
     t.datetime "created_at", null: false
