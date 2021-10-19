@@ -1,9 +1,9 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: %i[ show edit update destroy ]
-
+  helper_method :sort_column, :sort_direction
   # GET /orders or /orders.json
   def index
-    @orders = Order.all
+    @orders = Order.order(sort_column + " " + sort_direction)
   end
 
   # GET /orders/1 or /orders/1.json
@@ -39,6 +39,7 @@ class OrdersController < ApplicationController
 
   # PATCH/PUT /orders/1 or /orders/1.json
   def update
+    @order = Order.find(params[:id])
     respond_to do |format|
       if @order.update(order_params)
         format.html { redirect_to @order, notice: "Order was successfully updated." }
@@ -61,6 +62,14 @@ class OrdersController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def sort_column
+      Order.column_names.include?(params[:sort]) ? params[:sort] : "client_id"
+    end
+
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+    end
+
     def set_order
       @order = Order.find(params[:id])
     end
@@ -69,5 +78,7 @@ class OrdersController < ApplicationController
     def order_params
       # params["order"]
        params.require(:order).permit(:client_id, :grand_total, order_products_attributes: [:product_id, :sale_price, :quantity, :subtotal] )
+    
     end
+
 end

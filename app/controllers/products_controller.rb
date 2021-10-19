@@ -1,9 +1,8 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: %i[ show edit update destroy ]
-
-  # GET /products or /products.json
+  helper_method :sort_column, :sort_direction
   def index
-    @products = Product.all
+    @products = Product.order(sort_column + " " + sort_direction)
   end
 
   # GET /products/1 or /products/1.json
@@ -58,6 +57,14 @@ class ProductsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def sort_column
+      params[:sort] || "created_at"
+    end
+
+    def sort_direction
+        %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+    end
+
     def set_product
       @product = Product.find(params[:id])
     end

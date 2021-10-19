@@ -21,9 +21,13 @@
       <%= form.label :subtotal %>
       <%= form.number_field :subtotal %>
     </div>
-  
     
+    <div>
+      <%= form.hidden_field :_destroy %>
+      <%= link_to "Remove", "#", class: 'remove-fields' %>
+    </div>
 
+   
 
 
   
