@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
 
   # GET /orders or /orders.json
   def index
-    @orders = Order.all
+    @orders = Order.order(sort_column + ' ' + sort_direction)
   end
 
   # GET /orders/1 or /orders/1.json
@@ -70,4 +70,13 @@ class OrdersController < ApplicationController
        order_products_attributes: [:product_id, :order_id, :sale_price, :quantity, :subtotal], 
        product_attributes: [:unit, :price, :product_name])
     end
+
+    def sort_column
+      params[:sort] || "created_at"
+    end
+    
+    def sort_direction
+      params[:direction] || "asc"
+    end        
+
 end

@@ -3,7 +3,7 @@ class ClientsController < ApplicationController
 
   # GET /clients or /clients.json
   def index
-    @clients = Client.all
+    @clients = Client.order(sort_column + ' ' + sort_direction)
   end
 
   # GET /clients/1 or /clients/1.json
@@ -66,4 +66,13 @@ class ClientsController < ApplicationController
     def client_params
       params.require(:client).permit(:id, :name, :phone, :address, :city)
     end
+
+    def sort_column
+      params[:sort] || "created_at"
+    end
+    
+    def sort_direction
+      params[:direction] || "asc"
+    end        
+
 end
