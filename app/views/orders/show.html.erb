@@ -1,13 +1,19 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Order:</strong>
-  <%= @order.order_id %>
+  <strong>Order Id:</strong>
+  <%= @order.id %>
 </p>
 
 <p>
   <strong>Client:</strong>
-  <%= @order.client_id %>
+  <%= @order.client_id %> |
+  <%= @order.client.name %>
+</p>
+
+<p>
+  <strong>Date ordered:</strong>
+  <%= @order.created_at.strftime("%d %b %Y") %> 
 </p>
 
 <p>
