@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
 
   # GET /products or /products.json
   def index
-    @products = Product.all
+    @products = Product.order(sort_column + ' ' + sort_direction)
   end
 
   # GET /products/1 or /products/1.json
@@ -64,6 +64,15 @@ class ProductsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def product_params
-      params.require(:product).permit(:product_id, :product_name, :price, :unit)
+      params.require(:product).permit(:id, :product_name, :price, :unit)
     end
+
+    def sort_column
+      params[:sort] || "created_at"
+    end
+    
+    def sort_direction
+      params[:direction] || "asc"
+    end        
+
 end

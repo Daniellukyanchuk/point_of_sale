@@ -5,9 +5,9 @@
 <table>
   <thead>
     <tr>
-      <th>Product name</th>
-      <th>Price</th>
-      <th>Unit</th>
+    <th><%= sortable "product_name", "Product Name" %></th>
+    <th><%= sortable "price", "Price" %></th>
+    <th><%= sortable "unit", "Unit" %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -29,3 +29,6 @@
 <br>
 
 <%= link_to 'New Product', new_product_path %>
+
+
+<th><%= sortable "id", "ID" %></th>
