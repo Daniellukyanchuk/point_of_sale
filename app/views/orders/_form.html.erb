@@ -19,8 +19,8 @@
 
   <%= form.fields_for :order_products_fields do |builder| %>
       <%= render 'order_product_fields', form: builder %>
-      <% end %>
       <%= link_to_add_fields "Add Product", form, :order_products %>
+  <% end %>
 
 
   <div class="field">
@@ -30,7 +30,7 @@
 
   <div class="actions">
     <%= form.submit %>
-  </div>
+    </div>
 <% end %>
 
 
