@@ -8,24 +8,21 @@ class OrdersController < ApplicationController
 
   # GET /orders/1 or /orders/1.json
   def show
-    @order = Order.find(params[:id])
   end
 
   # GET /orders/new
   def new
     @order = Order.new
+    @order.order_products.new
   end
 
   # GET /orders/1/edit
   def edit
-    @order = Order.find(params[:id])
   end
 
   # POST /orders or /orders.json
   def create
-
     @order = Order.new(order_params)
-
     respond_to do |format|
       if @order.save
         format.html { redirect_to @order, notice: "Order was successfully created." }
@@ -39,7 +36,6 @@ class OrdersController < ApplicationController
 
   # PATCH/PUT /orders/1 or /orders/1.json
   def update
-    @order = Order.find(params[:id])
     respond_to do |format|
       if @order.update(order_params)
         format.html { redirect_to @order, notice: "Order was successfully updated." }
@@ -77,7 +73,7 @@ class OrdersController < ApplicationController
     # Only allow a list of trusted parameters through.
     def order_params
       # params["order"]
-       params.require(:order).permit(:client_id, :grand_total, order_products_attributes: [:product_id, :sale_price, :quantity, :subtotal] )
+       params.require(:order).permit(:client_id, :grand_total, order_products_attributes: [:id, :product_id, :order_id, :sale_price, :quantity, :subtotal, :_destroy] )
     
     end
 
