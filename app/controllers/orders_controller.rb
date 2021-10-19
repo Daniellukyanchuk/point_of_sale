@@ -67,8 +67,8 @@ class OrdersController < ApplicationController
     def order_params
       # params["order"]
        params.require(:order).permit(:id, :client_id, :grand_total, 
-       order_products_attributes: [:product_id, :order_id, :sale_price, :quantity, :subtotal], 
-       product_attributes: [:unit, :price, :product_name])
+       order_products_attributes: [:id, :product_id, :order_id, :sale_price, :quantity, :subtotal], 
+       product_attributes: [:id, :unit, :price, :product_name])
     end
 
     def sort_column
