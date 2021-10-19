@@ -13,6 +13,7 @@ class OrdersController < ApplicationController
   # GET /orders/new
   def new
     @order = Order.new
+    @order.order_products.new
   end
 
   # GET /orders/1/edit
@@ -22,8 +23,10 @@ class OrdersController < ApplicationController
   # POST /orders or /orders.json
   def create
 
+    #@order = orders.new order_params 
+    #@order.order_products.first
     @order = Order.new(order_params)
-
+    
     respond_to do |format|
       if @order.save
         format.html { redirect_to @order, notice: "Order was successfully created." }
@@ -66,13 +69,13 @@ class OrdersController < ApplicationController
     # Only allow a list of trusted parameters through.
     def order_params
       # params["order"]
-       params.require(:order).permit(:id, :client_id, :grand_total, 
-       order_products_attributes: [:id, :product_id, :order_id, :sale_price, :quantity, :subtotal], 
-       product_attributes: [:id, :unit, :price, :product_name])
+       params.require(:order).permit(:client_id, :grand_total, 
+       order_products_attributes: [:id, :product_id, :order_id, :sale_price, :quantity, :subtotal, :_destroy], 
+       products_attributes: [:id, :unit, :price, :product_name])
     end
 
     def sort_column
-      params[:sort] || "created_at"
+     params[:sort] || "created_at"
     end
     
     def sort_direction

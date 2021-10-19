@@ -2,9 +2,8 @@
     <h2>Add Product</h2>
 
     <div class="field">
-    <%= form.fields_for :products_fields do |builder| %>
-        <% form.collection_select :product_id, Product.all, :id, :product_name %>
-        <% end %>
+        <%= form.collection_select :product_id, Product.all, :id, :product_name %>
+        
     </div>
   
     <div class="field">
