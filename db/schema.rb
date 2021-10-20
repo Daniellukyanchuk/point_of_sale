@@ -26,8 +26,8 @@ ActiveRecord::Schema.define(version: 2021_10_12_084951) do
 
   create_table "order_products", force: :cascade do |t|
     t.integer "order_id"
-    t.string "product_id"
-    t.string "quantity"
+    t.integer "product_id"
+    t.integer "quantity"
     t.float "sale_price"
     t.float "subtotal"
     t.datetime "created_at", null: false
