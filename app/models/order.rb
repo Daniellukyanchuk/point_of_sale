@@ -6,14 +6,12 @@ class Order < ApplicationRecord
     
     def set_grand_total
 
-        grand_total = 0 
-        
+        self.grand_total = 0
         order_products.each do |op|
             op.set_subtotal
-        if op.set_subtotal > 0
-            grand_total = op.subtotal
-        end 
-        end   
+
+            self.grand_total = grand_total + op.subtotal
+        end    
 
     
     end
