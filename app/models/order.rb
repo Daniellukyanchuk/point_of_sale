@@ -10,9 +10,10 @@ class Order < ApplicationRecord
         
         order_products.each do |op|
             op.set_subtotal
-            
+        if op.set_subtotal > 0
             grand_total = op.subtotal
-        end    
+        end 
+        end   
 
     
     end
