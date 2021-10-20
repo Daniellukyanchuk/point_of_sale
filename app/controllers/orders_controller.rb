@@ -23,8 +23,6 @@ class OrdersController < ApplicationController
   # POST /orders or /orders.json
   def create
 
-    #@order = orders.new order_params 
-    #@order.order_products.first
     @order = Order.new(order_params)
     
     respond_to do |format|

@@ -3,23 +3,27 @@
 
     <div class="field">
         <%= form.collection_select :product_id, Product.all, :id, :product_name %>
-        
     </div>
   
     <div class="field">
       <%= form.label :quantity %>
-      <%= form.number_field :quantity %>
+      <%= form.number_field :quantity, id: 'quantity' %>
     </div>
 
     <div class="field">
       <%= form.label :sale_price %>
-      <%= form.number_field :sale_price %>
+      <%= form.number_field :sale_price, id: 'sale_price' %>
     </div>
 
     <div class="field">
       <%= form.label :subtotal %>
-      <%= form.number_field :subtotal %>
+      <%= form.number_field :subtotal, id: 'subtotal' %>
     </div>
+
+
+
+    
+
   
     
 

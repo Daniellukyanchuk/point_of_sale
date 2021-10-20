@@ -1,4 +1,8 @@
 module ApplicationHelper
+    def link_to_remove_fields(name, form)
+      form.hidden_field(:_destroy) + link_to_function(name, "remove_fields(this)")
+    end
+
     def link_to_add_fields(name, form, association)
       new_object = form.object.send(association).klass.new
       id = new_object.object_id

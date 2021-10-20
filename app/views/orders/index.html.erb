@@ -9,7 +9,6 @@
       <th><%= sortable "created_at", "Date Ordered" %></th>
       <th><%= sortable "client_id", "Client ID" %></th>
       <th><%= sortable "client_id", "Client Name" %></th>
-      <th><%= sortable "id", "Products Ordered" %></th>
       <th><%= sortable "grand_total", "Grand Total" %></th>
       <th colspan="6"></th>
     </tr>
@@ -22,7 +21,6 @@
         <td><%= order.created_at.strftime("%d %b %Y") %></td> 
         <td><%= order.client_id %></td>
         <td><%= order.client.name %></td>
-        <td></td>
         <td><%= order.grand_total %></td>
         <td><%= link_to 'Show', order %></td>
         <td><%= link_to 'Edit', edit_order_path(order) %></td>

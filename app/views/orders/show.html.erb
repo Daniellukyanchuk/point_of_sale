@@ -16,6 +16,26 @@
   <%= @order.created_at.strftime("%d %b %Y") %> 
 </p>
 
+<% @order.order_products.each do |op| %>
+  <hr>
+    <p>
+      <strong>Product Id: </strong>
+      <%= op.product_id %>, 
+    </p>
+    <p>
+      <strong>Quantity: </strong>
+      <%= op.quantity %> 
+    </p>
+    <p>
+      <strong>Sale Price: </strong>
+      <%= op.sale_price %>
+    </p>
+    <p>
+      <strong>Subtotal: </strong>
+      <%= op.subtotal %>
+    </p>
+  <% end %>
+
 <p>
   <strong>Grand total:</strong>
   <%= @order.grand_total %>
