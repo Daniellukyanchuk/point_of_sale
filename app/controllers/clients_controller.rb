@@ -4,7 +4,7 @@ class ClientsController < ApplicationController
 
   # GET /clients or /clients.json
   def index
-    @clients = Client.order(sort_column + " " + sort_direction)
+    @clients = Client.search(params[:search]).order(sort_column + " " + sort_direction)
   end
 
   # GET /clients/1 or /clients/1.json

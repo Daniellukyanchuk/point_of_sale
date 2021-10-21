@@ -31743,3 +31743,2086 @@ Processing by OrdersController#show as HTML
 Completed 200 OK in 39ms (Views: 35.5ms | ActiveRecord: 1.1ms)
 
 
+Started GET "/orders" for ::1 at 2021-10-21 09:09:31 +0600
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY client_id asc[0m
+  ↳ app/views/orders/index.html.erb:18
+  [1m[36mClient Load (0.7ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:22
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:22
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:22
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:22
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:22
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:22
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:22
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:22
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:22
+  Rendered orders/index.html.erb within layouts/application (25.0ms)
+Completed 200 OK in 171ms (Views: 148.6ms | ActiveRecord: 12.1ms)
+
+
+Started DELETE "/orders/41" for ::1 at 2021-10-21 09:09:35 +0600
+Processing by OrdersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"kndXmRnk1hutfZL3X7/ZfbdTR1eJbiWSni62p37IxRG7pLvg3viQHkDante4uMBsOjADatlEdnOfFjqyhuUnEg==", "id"=>"41"}
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:70
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:52
+  [1m[36mOrder Destroy (0.8ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 41]]
+  ↳ app/controllers/orders_controller.rb:52
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:52
+Redirected to http://localhost:3000/orders
+Completed 302 Found in 12ms (ActiveRecord: 4.3ms)
+
+
+Started GET "/orders" for ::1 at 2021-10-21 09:09:35 +0600
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY client_id asc[0m
+  ↳ app/views/orders/index.html.erb:18
+  [1m[36mClient Load (0.3ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:22
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:22
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:22
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:22
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:22
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:22
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:22
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:22
+  Rendered orders/index.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 32ms (Views: 29.5ms | ActiveRecord: 1.0ms)
+
+
+Started DELETE "/orders/42" for ::1 at 2021-10-21 09:09:37 +0600
+Processing by OrdersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"gUDyEJeI5MCI2niPTxc/BnjBOym6wj4T/grtYSNPdxyokx5pUJSixWV9dK+oECYX9aJ/FOrobfL/MmF022KVHw==", "id"=>"42"}
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:70
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:52
+  [1m[36mOrder Destroy (0.7ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 42]]
+  ↳ app/controllers/orders_controller.rb:52
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:52
+Redirected to http://localhost:3000/orders
+Completed 302 Found in 8ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/orders" for ::1 at 2021-10-21 09:09:37 +0600
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY client_id asc[0m
+  ↳ app/views/orders/index.html.erb:18
+  [1m[36mClient Load (0.3ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:22
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:22
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:22
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:22
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:22
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:22
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:22
+  Rendered orders/index.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 35ms (Views: 32.5ms | ActiveRecord: 1.0ms)
+
+
+Started DELETE "/orders/43" for ::1 at 2021-10-21 09:09:39 +0600
+Processing by OrdersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"hi20yLhq3pqGbzs1ghTAAL3i20r2cePz55VCTB9+7dOv/lixf3aYn2vINxVlE9kRMIGfd6ZbsBLmrc5Z51MP0A==", "id"=>"43"}
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 43], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:70
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:52
+  [1m[36mOrder Destroy (0.6ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 43]]
+  ↳ app/controllers/orders_controller.rb:52
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:52
+Redirected to http://localhost:3000/orders
+Completed 302 Found in 6ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/orders" for ::1 at 2021-10-21 09:09:39 +0600
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY client_id asc[0m
+  ↳ app/views/orders/index.html.erb:18
+  [1m[36mClient Load (0.4ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:22
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:22
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:22
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:22
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:22
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:22
+  Rendered orders/index.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 31ms (Views: 27.3ms | ActiveRecord: 1.1ms)
+
+
+Started DELETE "/orders/44" for ::1 at 2021-10-21 09:09:41 +0600
+Processing by OrdersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"4uZfi577f/qdGp81eJrTpQiHLqCv5o0DvPmu9fOBsFjLNbPyWec5/3C9kxWfncq0heRqnf/M3uK9wSLgC6xSWw==", "id"=>"44"}
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:70
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:52
+  [1m[36mOrder Destroy (0.5ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 44]]
+  ↳ app/controllers/orders_controller.rb:52
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:52
+Redirected to http://localhost:3000/orders
+Completed 302 Found in 6ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/orders" for ::1 at 2021-10-21 09:09:41 +0600
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY client_id asc[0m
+  ↳ app/views/orders/index.html.erb:18
+  [1m[36mClient Load (0.6ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:22
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:22
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:22
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:22
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:22
+  Rendered orders/index.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 37ms (Views: 33.8ms | ActiveRecord: 1.4ms)
+
+
+Started DELETE "/orders/45" for ::1 at 2021-10-21 09:09:42 +0600
+Processing by OrdersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"yavGjyCRHoIJHK/DyGaON/eiv4iJFb7sEtlSjtnDzsHgeCr2541Yh+S7o+MvYZcmesH7tdk/7Q0T4d6bIe4swg==", "id"=>"45"}
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:70
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:52
+  [1m[36mOrder Destroy (0.5ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 45]]
+  ↳ app/controllers/orders_controller.rb:52
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:52
+Redirected to http://localhost:3000/orders
+Completed 302 Found in 6ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/orders" for ::1 at 2021-10-21 09:09:42 +0600
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY client_id asc[0m
+  ↳ app/views/orders/index.html.erb:18
+  [1m[36mClient Load (0.4ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:22
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:22
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:22
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:22
+  Rendered orders/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 32ms (Views: 28.5ms | ActiveRecord: 1.0ms)
+
+
+Started DELETE "/orders/46" for ::1 at 2021-10-21 09:09:44 +0600
+Processing by OrdersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Oh+hCJwW3gvTdZ5lRd0EQdXUYdSQo9TkqCZFGX496w8TzE1xWwqYDj7SkkWi2h1QWLcl6cCJhwWpHskMhhAJDA==", "id"=>"46"}
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 46], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:70
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:52
+  [1m[36mOrder Destroy (0.7ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 46]]
+  ↳ app/controllers/orders_controller.rb:52
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:52
+Redirected to http://localhost:3000/orders
+Completed 302 Found in 7ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/orders" for ::1 at 2021-10-21 09:09:44 +0600
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY client_id asc[0m
+  ↳ app/views/orders/index.html.erb:18
+  [1m[36mClient Load (0.2ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:22
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:22
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:22
+  Rendered orders/index.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 46ms (Views: 43.6ms | ActiveRecord: 1.0ms)
+
+
+Started DELETE "/orders/47" for ::1 at 2021-10-21 09:09:45 +0600
+Processing by OrdersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"GDHolz8xsYbzhner2gp+8B1GSyQSaRvpPrrk0I1WYLQx4gTu+C33gx4he4s9DWfhkCUPGUJDSAg/gmjFdXuCtw==", "id"=>"47"}
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:70
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:52
+  [1m[36mOrder Destroy (0.5ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 47]]
+  ↳ app/controllers/orders_controller.rb:52
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:52
+Redirected to http://localhost:3000/orders
+Completed 302 Found in 6ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/orders" for ::1 at 2021-10-21 09:09:45 +0600
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY client_id asc[0m
+  ↳ app/views/orders/index.html.erb:18
+  [1m[36mClient Load (0.2ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:22
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:22
+  Rendered orders/index.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 31ms (Views: 28.2ms | ActiveRecord: 0.8ms)
+
+
+Started DELETE "/orders/48" for ::1 at 2021-10-21 09:09:47 +0600
+Processing by OrdersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"FIxUXmYOYbIokNBglp9YOByAHOrDvFdGILbLA0MJb7w9X7gnoRInt8U33EBxmEEpkeNY15OWBKchjkcWuySNvw==", "id"=>"48"}
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:70
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:52
+  [1m[36mOrder Destroy (0.5ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 48]]
+  ↳ app/controllers/orders_controller.rb:52
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:52
+Redirected to http://localhost:3000/orders
+Completed 302 Found in 7ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/orders" for ::1 at 2021-10-21 09:09:47 +0600
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY client_id asc[0m
+  ↳ app/views/orders/index.html.erb:18
+  [1m[36mClient Load (0.3ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:22
+  Rendered orders/index.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 31ms (Views: 28.5ms | ActiveRecord: 0.9ms)
+
+
+Started DELETE "/orders/49" for ::1 at 2021-10-21 09:09:48 +0600
+Processing by OrdersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"0D1TDu72qWHAlS+o0kUoWSHAUuNiHSCcIIWIievUXs357r93KervZC0yI4g1QjFIrKMW3jI3c30hvQScE/m8zg==", "id"=>"49"}
+  [1m[36mOrder Load (0.8ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:70
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:52
+  [1m[36mOrder Destroy (1.0ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 49]]
+  ↳ app/controllers/orders_controller.rb:52
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:52
+Redirected to http://localhost:3000/orders
+Completed 302 Found in 14ms (ActiveRecord: 3.7ms)
+
+
+Started GET "/orders" for ::1 at 2021-10-21 09:09:48 +0600
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY client_id asc[0m
+  ↳ app/views/orders/index.html.erb:18
+  Rendered orders/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 26ms (Views: 23.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/orders/new" for ::1 at 2021-10-21 09:09:49 +0600
+Processing by OrdersController#new as HTML
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mClient Load (0.6ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/orders/_form.html.erb:15
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (17.4ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (1.1ms)
+  Rendered orders/_form.html.erb (25.1ms)
+  Rendered orders/new.html.erb within layouts/application (26.2ms)
+Completed 200 OK in 94ms (Views: 31.0ms | ActiveRecord: 11.7ms)
+
+
+Started POST "/orders" for ::1 at 2021-10-21 09:10:51 +0600
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"T2iyeKBirEg3T+jbyWynwui5/CZJm+TIRqmkBOZp3jUtB/r3P6z/tRFQ0gBwZrS2GogrvzeLwC5pGzpRMJwgAQ==", "order"=>{"client_id"=>"2", "order_products_attributes"=>{"0"=>{"product_id"=>"2", "quantity"=>"10", "sale_price"=>"50", "subtotal"=>"", "_destroy"=>"false"}, "1634785807760"=>{"product_id"=>"1", "quantity"=>"10", "sale_price"=>"100", "subtotal"=>"", "_destroy"=>"false"}, "1634785818710"=>{"product_id"=>"3", "quantity"=>"5", "sale_price"=>"100", "subtotal"=>"", "_destroy"=>"false"}, "1634785832335"=>{"product_id"=>"4", "quantity"=>"3", "sale_price"=>"150", "subtotal"=>"", "_destroy"=>"false"}, "1634785842650"=>{"product_id"=>"5", "quantity"=>"5", "sale_price"=>"50", "subtotal"=>"", "_destroy"=>"false"}}, "grand_total"=>""}, "commit"=>"Create Order"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:27
+  [1m[36mClient Load (0.3ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:27
+  [1m[36mOrder Create (2.3ms)[0m  [1m[32mINSERT INTO "orders" ("client_id", "grand_total", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["client_id", 2], ["grand_total", 2700.0], ["created_at", "2021-10-21 03:10:51.964760"], ["updated_at", "2021-10-21 03:10:51.964760"]]
+  ↳ app/controllers/orders_controller.rb:27
+  [1m[36mOrderProduct Create (1.2ms)[0m  [1m[32mINSERT INTO "order_products" ("order_id", "product_id", "quantity", "sale_price", "subtotal", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["order_id", 50], ["product_id", 2], ["quantity", 10], ["sale_price", 50.0], ["subtotal", 500.0], ["created_at", "2021-10-21 03:10:51.970546"], ["updated_at", "2021-10-21 03:10:51.970546"]]
+  ↳ app/controllers/orders_controller.rb:27
+  [1m[36mOrderProduct Create (0.8ms)[0m  [1m[32mINSERT INTO "order_products" ("order_id", "product_id", "quantity", "sale_price", "subtotal", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["order_id", 50], ["product_id", 1], ["quantity", 10], ["sale_price", 100.0], ["subtotal", 1000.0], ["created_at", "2021-10-21 03:10:51.973886"], ["updated_at", "2021-10-21 03:10:51.973886"]]
+  ↳ app/controllers/orders_controller.rb:27
+  [1m[36mOrderProduct Create (0.6ms)[0m  [1m[32mINSERT INTO "order_products" ("order_id", "product_id", "quantity", "sale_price", "subtotal", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["order_id", 50], ["product_id", 3], ["quantity", 5], ["sale_price", 100.0], ["subtotal", 500.0], ["created_at", "2021-10-21 03:10:51.998388"], ["updated_at", "2021-10-21 03:10:51.998388"]]
+  ↳ app/controllers/orders_controller.rb:27
+  [1m[36mOrderProduct Create (0.4ms)[0m  [1m[32mINSERT INTO "order_products" ("order_id", "product_id", "quantity", "sale_price", "subtotal", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["order_id", 50], ["product_id", 4], ["quantity", 3], ["sale_price", 150.0], ["subtotal", 450.0], ["created_at", "2021-10-21 03:10:52.000946"], ["updated_at", "2021-10-21 03:10:52.000946"]]
+  ↳ app/controllers/orders_controller.rb:27
+  [1m[36mOrderProduct Create (0.4ms)[0m  [1m[32mINSERT INTO "order_products" ("order_id", "product_id", "quantity", "sale_price", "subtotal", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["order_id", 50], ["product_id", 5], ["quantity", 5], ["sale_price", 50.0], ["subtotal", 250.0], ["created_at", "2021-10-21 03:10:52.002641"], ["updated_at", "2021-10-21 03:10:52.002641"]]
+  ↳ app/controllers/orders_controller.rb:27
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:27
+Redirected to http://localhost:3000/orders/50
+Completed 302 Found in 54ms (ActiveRecord: 7.4ms)
+
+
+Started GET "/orders/50" for ::1 at 2021-10-21 09:10:52 +0600
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"50"}
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:70
+  Rendering orders/show.html.erb within layouts/application
+  [1m[36mOrderProduct Load (0.6ms)[0m  [1m[34mSELECT "order_products".* FROM "order_products" WHERE "order_products"."order_id" = $1[0m  [["order_id", 50]]
+  ↳ app/views/orders/show.html.erb:14
+  Rendered orders/show.html.erb within layouts/application (27.4ms)
+Completed 200 OK in 54ms (Views: 50.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/orders" for ::1 at 2021-10-21 09:11:11 +0600
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.8ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY client_id asc[0m
+  ↳ app/views/orders/index.html.erb:18
+  [1m[36mClient Load (0.4ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:22
+  Rendered orders/index.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 41ms (Views: 37.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/orders" for ::1 at 2021-10-21 09:26:36 +0600
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (1.8ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY client_id asc[0m
+  ↳ app/views/orders/index.html.erb:18
+  [1m[36mClient Load (0.7ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:22
+  Rendered orders/index.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 47ms (Views: 42.5ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/orders/new" for ::1 at 2021-10-21 09:26:38 +0600
+Processing by OrdersController#new as HTML
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mClient Load (0.6ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/orders/_form.html.erb:15
+  [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (184.1ms)
+  Rendered orders/_form.html.erb (189.1ms)
+  Rendered orders/new.html.erb within layouts/application (191.1ms)
+Completed 500 Internal Server Error in 198ms (ActiveRecord: 1.6ms)
+
+
+
+NoMethodError - undefined method `input_field' for #<ActionView::Helpers::FormBuilder:0x00007fbc05d04350>:
+  app/views/orders/_order_product_fields.html.erb:25:in `_app_views_orders__order_product_fields_html_erb___377811348846523996_70222764079060'
+  app/views/orders/_form.html.erb:19:in `block (2 levels) in _app_views_orders__form_html_erb___539831778733665210_70222764030000'
+  app/views/orders/_form.html.erb:18:in `block in _app_views_orders__form_html_erb___539831778733665210_70222764030000'
+  app/views/orders/_form.html.erb:1:in `_app_views_orders__form_html_erb___539831778733665210_70222764030000'
+  app/views/orders/new.html.erb:3:in `_app_views_orders_new_html_erb___1267663745770365990_70222763995060'
+
+Started POST "/__better_errors/eebea92ad2b8aed8/variables" for ::1 at 2021-10-21 09:26:38 +0600
+Started GET "/orders/new" for ::1 at 2021-10-21 09:27:52 +0600
+Processing by OrdersController#new as HTML
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mClient Load (0.7ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/orders/_form.html.erb:15
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (5.0ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (2.8ms)
+  Rendered orders/_form.html.erb (17.1ms)
+  Rendered orders/new.html.erb within layouts/application (19.2ms)
+Completed 200 OK in 45ms (Views: 40.4ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/orders/new" for ::1 at 2021-10-21 09:27:59 +0600
+Processing by OrdersController#new as HTML
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mClient Load (0.6ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/orders/_form.html.erb:15
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (5.0ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (3.0ms)
+  Rendered orders/_form.html.erb (17.4ms)
+  Rendered orders/new.html.erb within layouts/application (19.7ms)
+Completed 200 OK in 46ms (Views: 41.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/orders/new" for ::1 at 2021-10-21 09:28:06 +0600
+Processing by OrdersController#new as HTML
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mClient Load (0.5ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/orders/_form.html.erb:15
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (4.2ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (3.0ms)
+  Rendered orders/_form.html.erb (16.1ms)
+  Rendered orders/new.html.erb within layouts/application (18.2ms)
+Completed 200 OK in 37ms (Views: 34.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/orders/new" for ::1 at 2021-10-21 09:32:48 +0600
+Processing by OrdersController#new as HTML
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mClient Load (0.9ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/orders/_form.html.erb:15
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (5.2ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (3.2ms)
+  Rendered orders/_form.html.erb (18.0ms)
+  Rendered orders/new.html.erb within layouts/application (20.3ms)
+Completed 200 OK in 52ms (Views: 47.3ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/orders" for ::1 at 2021-10-21 09:32:59 +0600
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY client_id asc[0m
+  ↳ app/views/orders/index.html.erb:18
+  [1m[36mClient Load (0.6ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:22
+  Rendered orders/index.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 38ms (Views: 34.6ms | ActiveRecord: 1.3ms)
+
+
+Started DELETE "/orders/50" for ::1 at 2021-10-21 09:33:02 +0600
+Processing by OrdersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Pml8lHFeLpJ1n1dbcYs9eYrG5r2Cs4Jtk+ZjGnGlIKEXupDttkJol5g4W3uWjCRoB6WigNKZ0YyS3u8PiYjCog==", "id"=>"50"}
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:70
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:52
+  [1m[36mOrder Destroy (0.8ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 50]]
+  ↳ app/controllers/orders_controller.rb:52
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:52
+Redirected to http://localhost:3000/orders
+Completed 302 Found in 8ms (ActiveRecord: 2.7ms)
+
+
+Started GET "/orders" for ::1 at 2021-10-21 09:33:02 +0600
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY client_id asc[0m
+  ↳ app/views/orders/index.html.erb:18
+  Rendered orders/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 38ms (Views: 34.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/orders/new" for ::1 at 2021-10-21 09:33:05 +0600
+Processing by OrdersController#new as HTML
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mClient Load (0.6ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/orders/_form.html.erb:15
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (4.3ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (2.7ms)
+  Rendered orders/_form.html.erb (16.2ms)
+  Rendered orders/new.html.erb within layouts/application (18.1ms)
+Completed 200 OK in 49ms (Views: 45.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/orders/new" for ::1 at 2021-10-21 09:34:12 +0600
+Processing by OrdersController#new as HTML
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mClient Load (0.5ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/orders/_form.html.erb:15
+  [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:6
+  Rendered orders/_order_product_fields.html.erb (5.9ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:6
+  Rendered orders/_order_product_fields.html.erb (3.0ms)
+  Rendered orders/_form.html.erb (17.6ms)
+  Rendered orders/new.html.erb within layouts/application (19.6ms)
+Completed 200 OK in 65ms (Views: 60.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/orders/new" for ::1 at 2021-10-21 09:34:25 +0600
+Processing by OrdersController#new as HTML
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mClient Load (0.6ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/orders/_form.html.erb:15
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:6
+  Rendered orders/_order_product_fields.html.erb (7.1ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:6
+  Rendered orders/_order_product_fields.html.erb (3.7ms)
+  Rendered orders/_form.html.erb (19.7ms)
+  Rendered orders/new.html.erb within layouts/application (21.6ms)
+Completed 200 OK in 49ms (Views: 43.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/orders/new" for ::1 at 2021-10-21 09:35:22 +0600
+Processing by OrdersController#new as HTML
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mClient Load (0.6ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/orders/_form.html.erb:15
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (6.0ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (3.2ms)
+  Rendered orders/_form.html.erb (18.6ms)
+  Rendered orders/new.html.erb within layouts/application (20.8ms)
+Completed 200 OK in 45ms (Views: 41.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/orders/new" for ::1 at 2021-10-21 09:36:22 +0600
+Processing by OrdersController#new as HTML
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mClient Load (0.5ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/orders/_form.html.erb:15
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (3.8ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (2.8ms)
+  Rendered orders/_form.html.erb (14.6ms)
+  Rendered orders/new.html.erb within layouts/application (16.7ms)
+Completed 200 OK in 34ms (Views: 30.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/orders/new" for ::1 at 2021-10-21 09:36:26 +0600
+Processing by OrdersController#new as HTML
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mClient Load (0.5ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/orders/_form.html.erb:15
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (5.6ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (2.8ms)
+  Rendered orders/_form.html.erb (16.9ms)
+  Rendered orders/new.html.erb within layouts/application (18.7ms)
+Completed 200 OK in 49ms (Views: 44.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/orders/new" for ::1 at 2021-10-21 09:36:37 +0600
+Processing by OrdersController#new as HTML
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mClient Load (0.7ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/orders/_form.html.erb:15
+  [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (6.4ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (2.9ms)
+  Rendered orders/_form.html.erb (19.4ms)
+  Rendered orders/new.html.erb within layouts/application (21.8ms)
+Completed 200 OK in 62ms (Views: 57.5ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/orders/new" for ::1 at 2021-10-21 09:43:46 +0600
+Processing by OrdersController#new as HTML
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mClient Load (1.2ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/orders/_form.html.erb:15
+  [1m[36mProduct Load (1.1ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (7.5ms)
+  Rendered orders/_form.html.erb (13.7ms)
+  Rendered orders/new.html.erb within layouts/application (15.8ms)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 2.3ms)
+
+
+
+ArgumentError - wrong number of arguments (given 0, expected 1):
+  app/views/orders/_order_product_fields.html.erb:24:in `_app_views_orders__order_product_fields_html_erb___377811348846523996_70222499425340'
+  app/views/orders/_form.html.erb:19:in `block (2 levels) in _app_views_orders__form_html_erb___539831778733665210_70222499378000'
+  app/views/orders/_form.html.erb:18:in `block in _app_views_orders__form_html_erb___539831778733665210_70222499378000'
+  app/views/orders/_form.html.erb:1:in `_app_views_orders__form_html_erb___539831778733665210_70222499378000'
+  app/views/orders/new.html.erb:3:in `_app_views_orders_new_html_erb___1267663745770365990_70222499343020'
+
+Started POST "/__better_errors/b70b271d5ab42f7c/variables" for ::1 at 2021-10-21 09:43:47 +0600
+Started GET "/orders/new" for ::1 at 2021-10-21 09:44:04 +0600
+Processing by OrdersController#new as HTML
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mClient Load (0.5ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/orders/_form.html.erb:15
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (168.8ms)
+  Rendered orders/_form.html.erb (172.6ms)
+  Rendered orders/new.html.erb within layouts/application (173.9ms)
+Completed 500 Internal Server Error in 178ms (ActiveRecord: 1.0ms)
+
+
+
+NameError - undefined local variable or method `check' for #<#<Class:0x00007fbbe6886130>:0x00007fbbc621e420>
+Did you mean?  check_box:
+  app/views/orders/_order_product_fields.html.erb:24:in `_app_views_orders__order_product_fields_html_erb___377811348846523996_70222229945400'
+  app/views/orders/_form.html.erb:19:in `block (2 levels) in _app_views_orders__form_html_erb___539831778733665210_70222229896860'
+  app/views/orders/_form.html.erb:18:in `block in _app_views_orders__form_html_erb___539831778733665210_70222229896860'
+  app/views/orders/_form.html.erb:1:in `_app_views_orders__form_html_erb___539831778733665210_70222229896860'
+  app/views/orders/new.html.erb:3:in `_app_views_orders_new_html_erb___1267663745770365990_70222229862000'
+
+Started POST "/__better_errors/db0dd191008f962d/variables" for ::1 at 2021-10-21 09:44:04 +0600
+Started GET "/orders/new" for ::1 at 2021-10-21 09:44:15 +0600
+Processing by OrdersController#new as HTML
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mClient Load (0.9ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/orders/_form.html.erb:15
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (5.1ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (2.9ms)
+  Rendered orders/_form.html.erb (17.6ms)
+  Rendered orders/new.html.erb within layouts/application (19.6ms)
+Completed 200 OK in 46ms (Views: 41.6ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/orders/new" for ::1 at 2021-10-21 09:50:27 +0600
+Processing by OrdersController#new as HTML
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mClient Load (1.0ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/orders/_form.html.erb:15
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (204.2ms)
+  Rendered orders/_form.html.erb (209.5ms)
+  Rendered orders/new.html.erb within layouts/application (211.5ms)
+Completed 500 Internal Server Error in 218ms (ActiveRecord: 1.8ms)
+
+
+
+NameError - undefined local variable or method `post' for #<#<Class:0x00007fbbe6886130>:0x00007fbbe613e6e8>:
+  app/views/orders/_order_product_fields.html.erb:24:in `_app_views_orders__order_product_fields_html_erb___377811348846523996_70222501623320'
+  app/views/orders/_form.html.erb:19:in `block (2 levels) in _app_views_orders__form_html_erb___539831778733665210_70222501476700'
+  app/views/orders/_form.html.erb:18:in `block in _app_views_orders__form_html_erb___539831778733665210_70222501476700'
+  app/views/orders/_form.html.erb:1:in `_app_views_orders__form_html_erb___539831778733665210_70222501476700'
+  app/views/orders/new.html.erb:3:in `_app_views_orders_new_html_erb___1267663745770365990_70222497791360'
+
+Started POST "/__better_errors/1cb4fa141168fb6b/variables" for ::1 at 2021-10-21 09:50:27 +0600
+Started GET "/orders/new" for ::1 at 2021-10-21 09:50:47 +0600
+Processing by OrdersController#new as HTML
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mClient Load (0.7ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/orders/_form.html.erb:15
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (238.7ms)
+  Rendered orders/_form.html.erb (245.0ms)
+  Rendered orders/new.html.erb within layouts/application (246.7ms)
+Completed 500 Internal Server Error in 252ms (ActiveRecord: 1.3ms)
+
+
+
+NoMethodError - undefined method `model_name' for #<ActionView::Helpers::FormBuilder:0x00007fbc05dd4230>:
+  app/views/orders/_order_product_fields.html.erb:24:in `_app_views_orders__order_product_fields_html_erb___377811348846523996_70222764504940'
+  app/views/orders/_form.html.erb:19:in `block (2 levels) in _app_views_orders__form_html_erb___539831778733665210_70222764455140'
+  app/views/orders/_form.html.erb:18:in `block in _app_views_orders__form_html_erb___539831778733665210_70222764455140'
+  app/views/orders/_form.html.erb:1:in `_app_views_orders__form_html_erb___539831778733665210_70222764455140'
+  app/views/orders/new.html.erb:3:in `_app_views_orders_new_html_erb___1267663745770365990_70222764419820'
+
+Started POST "/__better_errors/cb9709d2cda6246a/variables" for ::1 at 2021-10-21 09:50:48 +0600
+Started GET "/orders/new" for ::1 at 2021-10-21 09:51:17 +0600
+Processing by OrdersController#new as HTML
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mClient Load (0.9ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/orders/_form.html.erb:15
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (281.8ms)
+  Rendered orders/_form.html.erb (287.4ms)
+  Rendered orders/new.html.erb within layouts/application (289.7ms)
+Completed 500 Internal Server Error in 296ms (ActiveRecord: 1.4ms)
+
+
+
+NoMethodError - undefined method `model_name' for #<ActionView::Helpers::FormBuilder:0x00007fbc05cf5dc8>:
+  app/views/orders/_order_product_fields.html.erb:24:in `_app_views_orders__order_product_fields_html_erb___377811348846523996_70222764025200'
+  app/views/orders/_form.html.erb:19:in `block (2 levels) in _app_views_orders__form_html_erb___539831778733665210_70222763978800'
+  app/views/orders/_form.html.erb:18:in `block in _app_views_orders__form_html_erb___539831778733665210_70222763978800'
+  app/views/orders/_form.html.erb:1:in `_app_views_orders__form_html_erb___539831778733665210_70222763978800'
+  app/views/orders/new.html.erb:3:in `_app_views_orders_new_html_erb___1267663745770365990_70222763947500'
+
+Started POST "/__better_errors/72e3130f2c6fd82f/variables" for ::1 at 2021-10-21 09:51:18 +0600
+Started GET "/orders/new" for ::1 at 2021-10-21 09:51:26 +0600
+Processing by OrdersController#new as HTML
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mClient Load (0.4ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/orders/_form.html.erb:15
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (1.3ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (0.7ms)
+  Rendered orders/_form.html.erb (4.5ms)
+  Rendered orders/new.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 20ms (Views: 18.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/orders" for ::1 at 2021-10-21 09:56:02 +0600
+Processing by OrdersController#index as HTML
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY client_id asc LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/models/order.rb:19
+Completed 404 Not Found in 20ms (ActiveRecord: 12.4ms)
+
+
+
+ActiveRecord::RecordNotFound - Couldn't find Order with 'id'=all:
+  app/models/order.rb:19:in `search'
+  app/controllers/orders_controller.rb:6:in `index'
+
+Started POST "/__better_errors/935f7d074118ac08/variables" for ::1 at 2021-10-21 09:56:03 +0600
+Started GET "/orders" for ::1 at 2021-10-21 09:57:30 +0600
+Processing by OrdersController#index as HTML
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY client_id asc LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/models/order.rb:19
+Completed 404 Not Found in 4ms (ActiveRecord: 0.7ms)
+
+
+
+ActiveRecord::RecordNotFound - Couldn't find Order with 'id'=all:
+  app/models/order.rb:19:in `search'
+  app/controllers/orders_controller.rb:6:in `index'
+
+Started POST "/__better_errors/4d066718c8f83d54/variables" for ::1 at 2021-10-21 09:57:30 +0600
+Started GET "/orders" for ::1 at 2021-10-21 10:00:21 +0600
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  Rendered orders/index.html.erb within layouts/application (4.0ms)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 3.1ms)
+
+
+
+NoMethodError - undefined method `each' for nil:NilClass:
+  app/views/orders/index.html.erb:25:in `_app_views_orders_index_html_erb___38914352468143265_70222764226500'
+
+Started POST "/__better_errors/1438152342158b04/variables" for ::1 at 2021-10-21 10:00:21 +0600
+Started GET "/orders" for ::1 at 2021-10-21 10:01:08 +0600
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  Rendered orders/index.html.erb within layouts/application (3.0ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 2.3ms)
+
+
+
+NoMethodError - undefined method `each' for nil:NilClass:
+  app/views/orders/index.html.erb:25:in `_app_views_orders_index_html_erb___38914352468143265_70222499215520'
+
+Started POST "/__better_errors/4d9c71b494463269/variables" for ::1 at 2021-10-21 10:01:08 +0600
+Started GET "/orders" for ::1 at 2021-10-21 10:01:22 +0600
+Processing by OrdersController#index as HTML
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 2.1ms)
+
+
+  [1m[36mCACHE Order Load (0.0ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Order Load (0.0ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+
+NoMethodError - undefined method `search' for #<ActiveRecord::Relation []>
+Did you mean?  each:
+  app/controllers/orders_controller.rb:6:in `index'
+
+Started POST "/__better_errors/7f376bd73a8baee1/variables" for ::1 at 2021-10-21 10:01:23 +0600
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Order Load (0.0ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Started GET "/orders" for ::1 at 2021-10-21 10:01:57 +0600
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY client_id asc[0m
+  ↳ app/views/orders/index.html.erb:25
+  Rendered orders/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 32ms (Views: 25.5ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/orders/new" for ::1 at 2021-10-21 10:02:34 +0600
+Processing by OrdersController#new as HTML
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mClient Load (0.5ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/orders/_form.html.erb:15
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (14.9ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (1.4ms)
+  Rendered orders/_form.html.erb (38.4ms)
+  Rendered orders/new.html.erb within layouts/application (40.0ms)
+Completed 200 OK in 106ms (Views: 45.4ms | ActiveRecord: 20.8ms)
+
+
+Started POST "/orders" for ::1 at 2021-10-21 10:02:52 +0600
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9M8xtde20GygsF9DI8OZ/bpHnL7nvIiMWWq5Pf1oLfOWoHk6SHiDkYavZZiayYqJSHZLJ5msrGp22CdoK53Txw==", "order"=>{"client_id"=>"1", "order_products_attributes"=>{"0"=>{"product_id"=>"1", "quantity"=>"1", "sale_price"=>"100", "subtotal"=>"", "_destroy"=>"false"}, "1634788963885"=>{"product_id"=>"2", "quantity"=>"1", "sale_price"=>"50", "subtotal"=>"", "_destroy"=>"false"}}, "grand_total"=>""}, "commit"=>"Create Order"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:28
+  [1m[36mClient Load (0.4ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:28
+  [1m[36mOrder Create (1.4ms)[0m  [1m[32mINSERT INTO "orders" ("client_id", "grand_total", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["client_id", 1], ["grand_total", 150.0], ["created_at", "2021-10-21 04:02:52.669606"], ["updated_at", "2021-10-21 04:02:52.669606"]]
+  ↳ app/controllers/orders_controller.rb:28
+  [1m[36mOrderProduct Create (0.9ms)[0m  [1m[32mINSERT INTO "order_products" ("order_id", "product_id", "quantity", "sale_price", "subtotal", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["order_id", 51], ["product_id", 1], ["quantity", 1], ["sale_price", 100.0], ["subtotal", 100.0], ["created_at", "2021-10-21 04:02:52.672056"], ["updated_at", "2021-10-21 04:02:52.672056"]]
+  ↳ app/controllers/orders_controller.rb:28
+  [1m[36mOrderProduct Create (0.5ms)[0m  [1m[32mINSERT INTO "order_products" ("order_id", "product_id", "quantity", "sale_price", "subtotal", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["order_id", 51], ["product_id", 2], ["quantity", 1], ["sale_price", 50.0], ["subtotal", 50.0], ["created_at", "2021-10-21 04:02:52.674558"], ["updated_at", "2021-10-21 04:02:52.674558"]]
+  ↳ app/controllers/orders_controller.rb:28
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:28
+Redirected to http://localhost:3000/orders/51
+Completed 302 Found in 36ms (ActiveRecord: 5.9ms)
+
+
+Started GET "/orders/51" for ::1 at 2021-10-21 10:02:52 +0600
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"51"}
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:71
+  Rendering orders/show.html.erb within layouts/application
+  [1m[36mOrderProduct Load (0.7ms)[0m  [1m[34mSELECT "order_products".* FROM "order_products" WHERE "order_products"."order_id" = $1[0m  [["order_id", 51]]
+  ↳ app/views/orders/show.html.erb:14
+  Rendered orders/show.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 59ms (Views: 52.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/orders" for ::1 at 2021-10-21 10:02:55 +0600
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY client_id asc[0m
+  ↳ app/views/orders/index.html.erb:25
+  [1m[36mClient Load (0.5ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:29
+  Rendered orders/index.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 60ms (Views: 56.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/orders/new" for ::1 at 2021-10-21 10:02:56 +0600
+Processing by OrdersController#new as HTML
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mClient Load (0.9ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/orders/_form.html.erb:15
+  [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (6.0ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (3.4ms)
+  Rendered orders/_form.html.erb (19.4ms)
+  Rendered orders/new.html.erb within layouts/application (22.3ms)
+Completed 200 OK in 55ms (Views: 49.6ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/orders" for ::1 at 2021-10-21 10:03:13 +0600
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jWiTYt3VLrIvaekmEA8Gc2vahF2r1ibolCbqA6v8XSjvB9vtQht9Twl20/2pBRUHmetTxNXGAg67lHRWfQmjHA==", "order"=>{"client_id"=>"2", "order_products_attributes"=>{"0"=>{"product_id"=>"1", "quantity"=>"1", "sale_price"=>"100", "subtotal"=>"", "_destroy"=>"false"}, "1634788987277"=>{"product_id"=>"3", "quantity"=>"1", "sale_price"=>"100", "subtotal"=>"", "_destroy"=>"false"}}, "grand_total"=>""}, "commit"=>"Create Order"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:28
+  [1m[36mClient Load (0.8ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:28
+  [1m[36mOrder Create (0.6ms)[0m  [1m[32mINSERT INTO "orders" ("client_id", "grand_total", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["client_id", 2], ["grand_total", 200.0], ["created_at", "2021-10-21 04:03:13.458365"], ["updated_at", "2021-10-21 04:03:13.458365"]]
+  ↳ app/controllers/orders_controller.rb:28
+  [1m[36mOrderProduct Create (0.9ms)[0m  [1m[32mINSERT INTO "order_products" ("order_id", "product_id", "quantity", "sale_price", "subtotal", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["order_id", 52], ["product_id", 1], ["quantity", 1], ["sale_price", 100.0], ["subtotal", 100.0], ["created_at", "2021-10-21 04:03:13.460986"], ["updated_at", "2021-10-21 04:03:13.460986"]]
+  ↳ app/controllers/orders_controller.rb:28
+  [1m[36mOrderProduct Create (0.9ms)[0m  [1m[32mINSERT INTO "order_products" ("order_id", "product_id", "quantity", "sale_price", "subtotal", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["order_id", 52], ["product_id", 3], ["quantity", 1], ["sale_price", 100.0], ["subtotal", 100.0], ["created_at", "2021-10-21 04:03:13.464032"], ["updated_at", "2021-10-21 04:03:13.464032"]]
+  ↳ app/controllers/orders_controller.rb:28
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:28
+Redirected to http://localhost:3000/orders/52
+Completed 302 Found in 41ms (ActiveRecord: 4.8ms)
+
+
+Started GET "/orders/52" for ::1 at 2021-10-21 10:03:13 +0600
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"52"}
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 52], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:71
+  Rendering orders/show.html.erb within layouts/application
+  [1m[36mOrderProduct Load (0.5ms)[0m  [1m[34mSELECT "order_products".* FROM "order_products" WHERE "order_products"."order_id" = $1[0m  [["order_id", 52]]
+  ↳ app/views/orders/show.html.erb:14
+  Rendered orders/show.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 40ms (Views: 35.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/orders" for ::1 at 2021-10-21 10:03:16 +0600
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY client_id asc[0m
+  ↳ app/views/orders/index.html.erb:25
+  [1m[36mClient Load (0.3ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:29
+  [1m[36mClient Load (0.2ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:29
+  Rendered orders/index.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 50ms (Views: 26.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/orders?utf8=%E2%9C%93&search=max" for ::1 at 2021-10-21 10:03:20 +0600
+Processing by OrdersController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"max"}
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.9ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY client_id asc[0m
+  ↳ app/views/orders/index.html.erb:25
+  [1m[36mClient Load (0.5ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:29
+  [1m[36mClient Load (0.3ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:29
+  Rendered orders/index.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 43ms (Views: 39.0ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/orders?utf8=%E2%9C%93&search=max" for ::1 at 2021-10-21 10:03:22 +0600
+Processing by OrdersController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"max"}
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY client_id asc[0m
+  ↳ app/views/orders/index.html.erb:25
+  [1m[36mClient Load (0.4ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:29
+  [1m[36mClient Load (0.3ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:29
+  Rendered orders/index.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 40ms (Views: 36.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/orders?utf8=%E2%9C%93&search=max" for ::1 at 2021-10-21 10:03:23 +0600
+Processing by OrdersController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"max"}
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (1.0ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY client_id asc[0m
+  ↳ app/views/orders/index.html.erb:25
+  [1m[36mClient Load (0.3ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:29
+  [1m[36mClient Load (0.4ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:29
+  Rendered orders/index.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 65ms (Views: 61.0ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/orders?utf8=%E2%9C%93&search=John" for ::1 at 2021-10-21 10:03:29 +0600
+Processing by OrdersController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"John"}
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY client_id asc[0m
+  ↳ app/views/orders/index.html.erb:25
+  [1m[36mClient Load (0.4ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:29
+  [1m[36mClient Load (0.4ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:29
+  Rendered orders/index.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 40ms (Views: 36.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/orders?utf8=%E2%9C%93&search=John" for ::1 at 2021-10-21 10:08:03 +0600
+Processing by OrdersController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"John"}
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (3.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE (client_id like '%John%' or client_name like '%John%' or id = 'John') ORDER BY client_id asc[0m
+  ↳ app/views/orders/index.html.erb:25
+  Rendered orders/index.html.erb within layouts/application (5.6ms)
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 7.2ms)
+
+
+
+ActiveRecord::StatementInvalid - PG::UndefinedFunction: ERROR:  operator does not exist: integer ~~ unknown
+LINE 1: SELECT "orders".* FROM "orders" WHERE (client_id like '%John...
+                                                         ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+: SELECT "orders".* FROM "orders" WHERE (client_id like '%John%' or client_name like '%John%' or id = 'John') ORDER BY client_id asc:
+  app/views/orders/index.html.erb:25:in `_app_views_orders_index_html_erb___38914352468143265_70222500094200'
+
+Started POST "/__better_errors/706665bc9a1f4f6b/variables" for ::1 at 2021-10-21 10:08:03 +0600
+  [1m[36mOrder Load (0.8ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (client_id like '%John%' or client_name like '%John%' or id = 'John') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (client_id like '%John%' or client_name like '%John%' or id = 'John') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (client_id like '%John%' or client_name like '%John%' or id = 'John') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (0.8ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (client_id like '%John%' or client_name like '%John%' or id = 'John') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (client_id like '%John%' or client_name like '%John%' or id = 'John') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Started GET "/orders" for ::1 at 2021-10-21 10:09:10 +0600
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY client_id asc[0m
+  ↳ app/views/orders/index.html.erb:25
+  [1m[36mClient Load (0.2ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:29
+  [1m[36mClient Load (0.3ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:29
+  Rendered orders/index.html.erb within layouts/application (42.9ms)
+Completed 200 OK in 57ms (Views: 45.1ms | ActiveRecord: 9.0ms)
+
+
+Started GET "/orders?direction=desc&sort=client_id" for ::1 at 2021-10-21 10:09:21 +0600
+Processing by OrdersController#index as HTML
+  Parameters: {"direction"=>"desc", "sort"=>"client_id"}
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY client_id desc[0m
+  ↳ app/views/orders/index.html.erb:25
+  [1m[36mClient Load (0.3ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:29
+  [1m[36mClient Load (0.3ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:29
+  Rendered orders/index.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 55ms (Views: 51.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/orders?direction=asc&sort=client_id" for ::1 at 2021-10-21 10:09:22 +0600
+Processing by OrdersController#index as HTML
+  Parameters: {"direction"=>"asc", "sort"=>"client_id"}
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY client_id asc[0m
+  ↳ app/views/orders/index.html.erb:25
+  [1m[36mClient Load (0.3ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:29
+  [1m[36mClient Load (0.2ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:29
+  Rendered orders/index.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 39ms (Views: 35.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/orders?utf8=%E2%9C%93&search=John" for ::1 at 2021-10-21 10:10:00 +0600
+Processing by OrdersController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"John"}
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (1.7ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE (client_id like 'John' or client_name like '%John%' or id = 'John') ORDER BY client_id asc[0m
+  ↳ app/views/orders/index.html.erb:25
+  Rendered orders/index.html.erb within layouts/application (5.3ms)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 4.0ms)
+
+
+
+ActiveRecord::StatementInvalid - PG::UndefinedFunction: ERROR:  operator does not exist: integer ~~ unknown
+LINE 1: SELECT "orders".* FROM "orders" WHERE (client_id like 'John'...
+                                                         ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+: SELECT "orders".* FROM "orders" WHERE (client_id like 'John' or client_name like '%John%' or id = 'John') ORDER BY client_id asc:
+  app/views/orders/index.html.erb:25:in `_app_views_orders_index_html_erb___38914352468143265_70222502175240'
+
+Started POST "/__better_errors/bcd6d256b25d5cc1/variables" for ::1 at 2021-10-21 10:10:00 +0600
+  [1m[36mOrder Load (0.8ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (client_id like 'John' or client_name like '%John%' or id = 'John') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (client_id like 'John' or client_name like '%John%' or id = 'John') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (client_id like 'John' or client_name like '%John%' or id = 'John') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (0.8ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (client_id like 'John' or client_name like '%John%' or id = 'John') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (client_id like 'John' or client_name like '%John%' or id = 'John') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Started GET "/orders?utf8=%E2%9C%93&search=John" for ::1 at 2021-10-21 10:13:26 +0600
+Processing by OrdersController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"John"}
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (2.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE (client_id = 'John' or client_name like '%John%' or id = 'John') ORDER BY client_id asc[0m
+  ↳ app/views/orders/index.html.erb:25
+  Rendered orders/index.html.erb within layouts/application (5.9ms)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 4.9ms)
+
+
+
+ActiveRecord::StatementInvalid - PG::InvalidTextRepresentation: ERROR:  invalid input syntax for type integer: "John"
+LINE 1: ...ELECT "orders".* FROM "orders" WHERE (client_id = 'John' or ...
+                                                             ^
+: SELECT "orders".* FROM "orders" WHERE (client_id = 'John' or client_name like '%John%' or id = 'John') ORDER BY client_id asc:
+  app/views/orders/index.html.erb:25:in `_app_views_orders_index_html_erb___38914352468143265_70222506007580'
+
+Started POST "/__better_errors/6eee2a630afa817f/variables" for ::1 at 2021-10-21 10:13:26 +0600
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (client_id = 'John' or client_name like '%John%' or id = 'John') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (client_id = 'John' or client_name like '%John%' or id = 'John') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (client_id = 'John' or client_name like '%John%' or id = 'John') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (client_id = 'John' or client_name like '%John%' or id = 'John') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (client_id = 'John' or client_name like '%John%' or id = 'John') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Started GET "/orders" for ::1 at 2021-10-21 10:13:41 +0600
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY client_id asc[0m
+  ↳ app/views/orders/index.html.erb:25
+  [1m[36mClient Load (0.3ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:29
+  [1m[36mClient Load (0.4ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:29
+  Rendered orders/index.html.erb within layouts/application (58.7ms)
+Completed 200 OK in 86ms (Views: 73.3ms | ActiveRecord: 11.1ms)
+
+
+Started GET "/orders?utf8=%E2%9C%93&search=1" for ::1 at 2021-10-21 10:13:48 +0600
+Processing by OrdersController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"1"}
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (2.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE (client_id = '1' or client_name like '%1%' or id = '1') ORDER BY client_id asc[0m
+  ↳ app/views/orders/index.html.erb:25
+  Rendered orders/index.html.erb within layouts/application (8.7ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 2.4ms)
+
+
+
+ActiveRecord::StatementInvalid - PG::UndefinedColumn: ERROR:  column "client_name" does not exist
+LINE 1: ...orders".* FROM "orders" WHERE (client_id = '1' or client_nam...
+                                                             ^
+: SELECT "orders".* FROM "orders" WHERE (client_id = '1' or client_name like '%1%' or id = '1') ORDER BY client_id asc:
+  app/views/orders/index.html.erb:25:in `_app_views_orders_index_html_erb___38914352468143265_70222763223020'
+
+Started POST "/__better_errors/591788af60bbfd7a/variables" for ::1 at 2021-10-21 10:13:48 +0600
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (client_id = '1' or client_name like '%1%' or id = '1') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (0.9ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (client_id = '1' or client_name like '%1%' or id = '1') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (client_id = '1' or client_name like '%1%' or id = '1') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (0.8ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (client_id = '1' or client_name like '%1%' or id = '1') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (client_id = '1' or client_name like '%1%' or id = '1') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Started POST "/__better_errors/591788af60bbfd7a/eval" for ::1 at 2021-10-21 10:14:12 +0600
+  [1m[36mOrder Load (2.1ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (client_id = '1' or client_name like '%1%' or id = '1') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (2.1ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (client_id = '1' or client_name like '%1%' or id = '1') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Started POST "/__better_errors/591788af60bbfd7a/eval" for ::1 at 2021-10-21 10:14:18 +0600
+Started POST "/__better_errors/591788af60bbfd7a/eval" for ::1 at 2021-10-21 10:14:24 +0600
+  [1m[36mOrder Load (1.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (client_id = '1' or client_name like '%1%' or id = '1') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (1.5ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (client_id = '1' or client_name like '%1%' or id = '1') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Started POST "/__better_errors/591788af60bbfd7a/eval" for ::1 at 2021-10-21 10:14:30 +0600
+  [1m[36mOrder Load (1.8ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (client_id = '1' or client_name like '%1%' or id = '1') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (1.6ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (client_id = '1' or client_name like '%1%' or id = '1') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Started GET "/orders?utf8=%E2%9C%93&search=1" for ::1 at 2021-10-21 10:15:35 +0600
+Processing by OrdersController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"1"}
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (1.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE (client_name like '%1%' or id = '1' or client_id = '1') ORDER BY client_id asc[0m
+  ↳ app/views/orders/index.html.erb:25
+  Rendered orders/index.html.erb within layouts/application (3.4ms)
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 5.1ms)
+
+
+
+ActiveRecord::StatementInvalid - PG::UndefinedColumn: ERROR:  column "client_name" does not exist
+LINE 1: SELECT "orders".* FROM "orders" WHERE (client_name like '%1%...
+                                               ^
+: SELECT "orders".* FROM "orders" WHERE (client_name like '%1%' or id = '1' or client_id = '1') ORDER BY client_id asc:
+  app/views/orders/index.html.erb:25:in `_app_views_orders_index_html_erb___38914352468143265_70222768069660'
+
+Started POST "/__better_errors/c5969b3c47aa8525/variables" for ::1 at 2021-10-21 10:15:36 +0600
+  [1m[36mOrder Load (1.0ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (client_name like '%1%' or id = '1' or client_id = '1') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (client_name like '%1%' or id = '1' or client_id = '1') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (client_name like '%1%' or id = '1' or client_id = '1') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (0.8ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (client_name like '%1%' or id = '1' or client_id = '1') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (client_name like '%1%' or id = '1' or client_id = '1') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Started GET "/orders" for ::1 at 2021-10-21 10:15:40 +0600
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY client_id asc[0m
+  ↳ app/views/orders/index.html.erb:25
+  [1m[36mClient Load (0.2ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:29
+  [1m[36mClient Load (0.5ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:29
+  Rendered orders/index.html.erb within layouts/application (38.0ms)
+Completed 200 OK in 62ms (Views: 50.9ms | ActiveRecord: 9.3ms)
+
+
+Started GET "/orders?utf8=%E2%9C%93&search=max" for ::1 at 2021-10-21 10:15:47 +0600
+Processing by OrdersController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"max"}
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (1.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE (client_name like '%max%' or id = 'max' or client_id = 'max') ORDER BY client_id asc[0m
+  ↳ app/views/orders/index.html.erb:25
+  Rendered orders/index.html.erb within layouts/application (4.4ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 1.6ms)
+
+
+
+ActiveRecord::StatementInvalid - PG::UndefinedColumn: ERROR:  column "client_name" does not exist
+LINE 1: SELECT "orders".* FROM "orders" WHERE (client_name like '%ma...
+                                               ^
+: SELECT "orders".* FROM "orders" WHERE (client_name like '%max%' or id = 'max' or client_id = 'max') ORDER BY client_id asc:
+  app/views/orders/index.html.erb:25:in `_app_views_orders_index_html_erb___38914352468143265_70222761802720'
+
+Started POST "/__better_errors/72bc4c310d2367ad/variables" for ::1 at 2021-10-21 10:15:47 +0600
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (client_name like '%max%' or id = 'max' or client_id = 'max') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (client_name like '%max%' or id = 'max' or client_id = 'max') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (client_name like '%max%' or id = 'max' or client_id = 'max') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (0.8ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (client_name like '%max%' or id = 'max' or client_id = 'max') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (client_name like '%max%' or id = 'max' or client_id = 'max') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Started GET "/orders" for ::1 at 2021-10-21 10:16:09 +0600
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY client_id asc[0m
+  ↳ app/views/orders/index.html.erb:25
+  [1m[36mClient Load (0.3ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:29
+  [1m[36mClient Load (0.4ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:29
+  Rendered orders/index.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 39ms (Views: 35.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/orders?utf8=%E2%9C%93&search=52" for ::1 at 2021-10-21 10:16:17 +0600
+Processing by OrdersController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"52"}
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (2.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE (client_name like '%52%' or id = '52' or client_id = '52') ORDER BY client_id asc[0m
+  ↳ app/views/orders/index.html.erb:25
+  Rendered orders/index.html.erb within layouts/application (7.4ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 2.4ms)
+
+
+
+ActiveRecord::StatementInvalid - PG::UndefinedColumn: ERROR:  column "client_name" does not exist
+LINE 1: SELECT "orders".* FROM "orders" WHERE (client_name like '%52...
+                                               ^
+: SELECT "orders".* FROM "orders" WHERE (client_name like '%52%' or id = '52' or client_id = '52') ORDER BY client_id asc:
+  app/views/orders/index.html.erb:25:in `_app_views_orders_index_html_erb___38914352468143265_70222498587940'
+
+Started POST "/__better_errors/8da8f22fd1b8eb19/variables" for ::1 at 2021-10-21 10:16:17 +0600
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (client_name like '%52%' or id = '52' or client_id = '52') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (client_name like '%52%' or id = '52' or client_id = '52') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (client_name like '%52%' or id = '52' or client_id = '52') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (0.9ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (client_name like '%52%' or id = '52' or client_id = '52') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (client_name like '%52%' or id = '52' or client_id = '52') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Started GET "/orders?utf8=%E2%9C%93&search=52" for ::1 at 2021-10-21 10:16:51 +0600
+Processing by OrdersController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"52"}
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (3.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE (client.name like '%52%' or id = '52' or client_id = '52') ORDER BY client_id asc[0m
+  ↳ app/views/orders/index.html.erb:25
+  Rendered orders/index.html.erb within layouts/application (6.4ms)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 6.3ms)
+
+
+
+ActiveRecord::StatementInvalid - PG::UndefinedTable: ERROR:  missing FROM-clause entry for table "client"
+LINE 1: SELECT "orders".* FROM "orders" WHERE (client.name like '%52...
+                                               ^
+: SELECT "orders".* FROM "orders" WHERE (client.name like '%52%' or id = '52' or client_id = '52') ORDER BY client_id asc:
+  app/views/orders/index.html.erb:25:in `_app_views_orders_index_html_erb___38914352468143265_70222229923320'
+
+Started POST "/__better_errors/32e68192ace83d09/variables" for ::1 at 2021-10-21 10:16:51 +0600
+  [1m[36mOrder Load (0.8ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (client.name like '%52%' or id = '52' or client_id = '52') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (client.name like '%52%' or id = '52' or client_id = '52') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (client.name like '%52%' or id = '52' or client_id = '52') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (client.name like '%52%' or id = '52' or client_id = '52') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (client.name like '%52%' or id = '52' or client_id = '52') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Started GET "/orders" for ::1 at 2021-10-21 10:16:54 +0600
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.8ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY client_id asc[0m
+  ↳ app/views/orders/index.html.erb:25
+  [1m[36mClient Load (0.6ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:29
+  [1m[36mClient Load (0.3ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:29
+  Rendered orders/index.html.erb within layouts/application (50.2ms)
+Completed 200 OK in 85ms (Views: 71.2ms | ActiveRecord: 12.1ms)
+
+
+Started GET "/orders?utf8=%E2%9C%93&search=Max" for ::1 at 2021-10-21 10:16:58 +0600
+Processing by OrdersController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"Max"}
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (2.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE (client.name like '%Max%' or id = 'Max' or client_id = 'Max') ORDER BY client_id asc[0m
+  ↳ app/views/orders/index.html.erb:25
+  Rendered orders/index.html.erb within layouts/application (8.6ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 2.4ms)
+
+
+
+ActiveRecord::StatementInvalid - PG::UndefinedTable: ERROR:  missing FROM-clause entry for table "client"
+LINE 1: SELECT "orders".* FROM "orders" WHERE (client.name like '%Ma...
+                                               ^
+: SELECT "orders".* FROM "orders" WHERE (client.name like '%Max%' or id = 'Max' or client_id = 'Max') ORDER BY client_id asc:
+  app/views/orders/index.html.erb:25:in `_app_views_orders_index_html_erb___38914352468143265_70222498902900'
+
+Started POST "/__better_errors/59a2e0090ad43119/variables" for ::1 at 2021-10-21 10:16:58 +0600
+  [1m[36mOrder Load (0.8ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (client.name like '%Max%' or id = 'Max' or client_id = 'Max') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (1.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (client.name like '%Max%' or id = 'Max' or client_id = 'Max') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (client.name like '%Max%' or id = 'Max' or client_id = 'Max') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (0.8ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (client.name like '%Max%' or id = 'Max' or client_id = 'Max') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (client.name like '%Max%' or id = 'Max' or client_id = 'Max') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Started POST "/__better_errors/59a2e0090ad43119/eval" for ::1 at 2021-10-21 10:23:45 +0600
+  [1m[36mOrder Load (3.5ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (client.name like '%Max%' or id = 'Max' or client_id = 'Max') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (1.7ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (client.name like '%Max%' or id = 'Max' or client_id = 'Max') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Started POST "/__better_errors/59a2e0090ad43119/eval" for ::1 at 2021-10-21 10:23:54 +0600
+  [1m[36mOrder Load (1.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE (client.name like '%Max%' or id = 'Max' or client_id = 'Max') ORDER BY client_id asc[0m
+  ↳ app/views/orders/index.html.erb:25
+Started POST "/__better_errors/59a2e0090ad43119/eval" for ::1 at 2021-10-21 10:24:16 +0600
+Started POST "/__better_errors/59a2e0090ad43119/eval" for ::1 at 2021-10-21 10:24:22 +0600
+  [1m[36mOrder Load (1.8ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (client.name like '%Max%' or id = 'Max' or client_id = 'Max') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (1.6ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (client.name like '%Max%' or id = 'Max' or client_id = 'Max') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Started POST "/__better_errors/59a2e0090ad43119/eval" for ::1 at 2021-10-21 10:24:30 +0600
+  [1m[36mOrder Load (1.3ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (client.name like '%Max%' or id = 'Max' or client_id = 'Max') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Started GET "/orders" for ::1 at 2021-10-21 10:24:46 +0600
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.8ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY client_id asc[0m
+  ↳ app/views/orders/index.html.erb:25
+  [1m[36mClient Load (0.6ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:29
+  [1m[36mClient Load (0.3ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:29
+  Rendered orders/index.html.erb within layouts/application (23.4ms)
+Completed 200 OK in 49ms (Views: 29.8ms | ActiveRecord: 15.9ms)
+
+
+Started GET "/clients" for ::1 at 2021-10-21 10:28:16 +0600
+Processing by ClientsController#index as HTML
+  Rendering clients/index.html.erb within layouts/application
+  [1m[36mClient Load (0.8ms)[0m  [1m[34mSELECT "clients".* FROM "clients" ORDER BY name asc[0m
+  ↳ app/views/clients/index.html.erb:24
+  Rendered clients/index.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 26ms (Views: 15.5ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/clients?utf8=%E2%9C%93&search=max" for ::1 at 2021-10-21 10:28:19 +0600
+Processing by ClientsController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"max"}
+  Rendering clients/index.html.erb within layouts/application
+  [1m[36mClient Load (2.2ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE (first_name like '%max%' or last_name like '%max%' or address like '%max%' or id = 'max') ORDER BY name asc[0m
+  ↳ app/views/clients/index.html.erb:24
+  Rendered clients/index.html.erb within layouts/application (6.9ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 2.2ms)
+
+
+
+ActiveRecord::StatementInvalid - PG::UndefinedColumn: ERROR:  column "first_name" does not exist
+LINE 1: SELECT "clients".* FROM "clients" WHERE (first_name like '%m...
+                                                 ^
+: SELECT "clients".* FROM "clients" WHERE (first_name like '%max%' or last_name like '%max%' or address like '%max%' or id = 'max') ORDER BY name asc:
+  app/views/clients/index.html.erb:24:in `_app_views_clients_index_html_erb___2895076813726382264_70222764387240'
+
+Started POST "/__better_errors/b7bbc0ab36111948/variables" for ::1 at 2021-10-21 10:28:19 +0600
+  [1m[36mClient Load (0.7ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE (first_name like '%max%' or last_name like '%max%' or address like '%max%' or id = 'max') ORDER BY name asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mClient Load (0.4ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE (first_name like '%max%' or last_name like '%max%' or address like '%max%' or id = 'max') ORDER BY name asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mClient Load (0.4ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE (first_name like '%max%' or last_name like '%max%' or address like '%max%' or id = 'max') ORDER BY name asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mClient Load (0.9ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE (first_name like '%max%' or last_name like '%max%' or address like '%max%' or id = 'max') ORDER BY name asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mClient Load (0.7ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE (first_name like '%max%' or last_name like '%max%' or address like '%max%' or id = 'max') ORDER BY name asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Started GET "/clients" for ::1 at 2021-10-21 10:28:38 +0600
+Processing by ClientsController#index as HTML
+  Rendering clients/index.html.erb within layouts/application
+  [1m[36mClient Load (0.7ms)[0m  [1m[34mSELECT "clients".* FROM "clients" ORDER BY name asc[0m
+  ↳ app/views/clients/index.html.erb:24
+  Rendered clients/index.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 53ms (Views: 50.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/clients?utf8=%E2%9C%93&search=Max" for ::1 at 2021-10-21 10:29:43 +0600
+Processing by ClientsController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"Max"}
+  Rendering clients/index.html.erb within layouts/application
+  [1m[36mClient Load (2.4ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE (name like '%Max%' or address like '%Max%' or id = 'Max') ORDER BY name asc[0m
+  ↳ app/views/clients/index.html.erb:24
+  Rendered clients/index.html.erb within layouts/application (5.8ms)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 6.8ms)
+
+
+
+ActiveRecord::StatementInvalid - PG::InvalidTextRepresentation: ERROR:  invalid input syntax for type bigint: "Max"
+LINE 1: ...name like '%Max%' or address like '%Max%' or id = 'Max') ORD...
+                                                             ^
+: SELECT "clients".* FROM "clients" WHERE (name like '%Max%' or address like '%Max%' or id = 'Max') ORDER BY name asc:
+  app/views/clients/index.html.erb:24:in `_app_views_clients_index_html_erb___2895076813726382264_70222506183700'
+
+Started POST "/__better_errors/77c0db2aa926263f/variables" for ::1 at 2021-10-21 10:29:44 +0600
+  [1m[36mClient Load (0.8ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE (name like '%Max%' or address like '%Max%' or id = 'Max') ORDER BY name asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mClient Load (0.6ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE (name like '%Max%' or address like '%Max%' or id = 'Max') ORDER BY name asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mClient Load (0.5ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE (name like '%Max%' or address like '%Max%' or id = 'Max') ORDER BY name asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mClient Load (0.7ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE (name like '%Max%' or address like '%Max%' or id = 'Max') ORDER BY name asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mClient Load (0.5ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE (name like '%Max%' or address like '%Max%' or id = 'Max') ORDER BY name asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Started POST "/__better_errors/77c0db2aa926263f/eval" for ::1 at 2021-10-21 10:30:17 +0600
+  [1m[36mClient Load (1.3ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE (name like '%Max%' or address like '%Max%' or id = 'Max') ORDER BY name asc[0m
+  ↳ app/views/clients/index.html.erb:24
+Started GET "/clients" for ::1 at 2021-10-21 10:30:48 +0600
+Processing by ClientsController#index as HTML
+  Rendering clients/index.html.erb within layouts/application
+  [1m[36mClient Load (0.9ms)[0m  [1m[34mSELECT "clients".* FROM "clients" ORDER BY name asc[0m
+  ↳ app/views/clients/index.html.erb:24
+  Rendered clients/index.html.erb within layouts/application (22.3ms)
+Completed 200 OK in 50ms (Views: 40.5ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/clients?utf8=%E2%9C%93&search=83+st." for ::1 at 2021-10-21 10:31:21 +0600
+Processing by ClientsController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"83 st."}
+  Rendering clients/index.html.erb within layouts/application
+  [1m[36mClient Load (2.5ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE (name like '%83 st.%' or address like '%83 st.%' or id = '83 st.') ORDER BY name asc[0m
+  ↳ app/views/clients/index.html.erb:24
+  Rendered clients/index.html.erb within layouts/application (7.8ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 2.5ms)
+
+
+
+ActiveRecord::StatementInvalid - PG::InvalidTextRepresentation: ERROR:  invalid input syntax for type bigint: "83 st."
+LINE 1: ...ike '%83 st.%' or address like '%83 st.%' or id = '83 st.') ...
+                                                             ^
+: SELECT "clients".* FROM "clients" WHERE (name like '%83 st.%' or address like '%83 st.%' or id = '83 st.') ORDER BY name asc:
+  app/views/clients/index.html.erb:24:in `_app_views_clients_index_html_erb___2895076813726382264_70222635207440'
+
+Started POST "/__better_errors/33d4ade93ca836fb/variables" for ::1 at 2021-10-21 10:31:21 +0600
+  [1m[36mClient Load (0.9ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE (name like '%83 st.%' or address like '%83 st.%' or id = '83 st.') ORDER BY name asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mClient Load (0.8ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE (name like '%83 st.%' or address like '%83 st.%' or id = '83 st.') ORDER BY name asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mClient Load (0.7ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE (name like '%83 st.%' or address like '%83 st.%' or id = '83 st.') ORDER BY name asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mClient Load (0.8ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE (name like '%83 st.%' or address like '%83 st.%' or id = '83 st.') ORDER BY name asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mClient Load (0.6ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE (name like '%83 st.%' or address like '%83 st.%' or id = '83 st.') ORDER BY name asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Started POST "/__better_errors/33d4ade93ca836fb/eval" for ::1 at 2021-10-21 10:33:29 +0600
+Started POST "/__better_errors/33d4ade93ca836fb/eval" for ::1 at 2021-10-21 10:33:36 +0600
+  [1m[36mClient Load (2.4ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE (name like '%83 st.%' or address like '%83 st.%' or id = '83 st.') ORDER BY name asc[0m
+  ↳ app/views/clients/index.html.erb:24
+Started GET "/clients?utf8=%E2%9C%93&search=83+st." for ::1 at 2021-10-21 10:34:31 +0600
+Processing by ClientsController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"83 st."}
+  Rendering clients/index.html.erb within layouts/application
+  [1m[36mClient Load (0.8ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE (name like '%83 st.%' or address like '%83 st.%' or id = 83) ORDER BY name asc[0m
+  ↳ app/views/clients/index.html.erb:24
+  Rendered clients/index.html.erb within layouts/application (12.7ms)
+Completed 200 OK in 44ms (Views: 29.6ms | ActiveRecord: 8.5ms)
+
+
+Started GET "/clients?utf8=%E2%9C%93&search=83+st." for ::1 at 2021-10-21 10:34:49 +0600
+Processing by ClientsController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"83 st."}
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 0.0ms)
+
+
+
+NameError - undefined local variable or method `jk' for #<Class:0x00007fbbe656e420>
+Did you mean?  j:
+  app/models/client.rb:10:in `search'
+  app/controllers/clients_controller.rb:7:in `index'
+
+Started POST "/__better_errors/461b907d87d7c057/variables" for ::1 at 2021-10-21 10:34:49 +0600
+Started POST "/__better_errors/461b907d87d7c057/eval" for ::1 at 2021-10-21 10:34:54 +0600
+Started POST "/__better_errors/461b907d87d7c057/eval" for ::1 at 2021-10-21 10:35:01 +0600
+Started GET "/clients?utf8=%E2%9C%93&search=83+st." for ::1 at 2021-10-21 10:35:28 +0600
+Processing by ClientsController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"83 st."}
+  Rendering clients/index.html.erb within layouts/application
+  [1m[36mClient Load (0.7ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE (name like '%83 st.%' or address like '%83 st.%' or id = 83) ORDER BY name asc[0m
+  ↳ app/views/clients/index.html.erb:24
+  Rendered clients/index.html.erb within layouts/application (12.7ms)
+Completed 200 OK in 43ms (Views: 24.2ms | ActiveRecord: 12.7ms)
+
+
+Started GET "/clients?utf8=%E2%9C%93&search=" for ::1 at 2021-10-21 10:35:32 +0600
+Processing by ClientsController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>""}
+  Rendering clients/index.html.erb within layouts/application
+  [1m[36mClient Load (1.0ms)[0m  [1m[34mSELECT "clients".* FROM "clients" ORDER BY name asc[0m
+  ↳ app/views/clients/index.html.erb:24
+  Rendered clients/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 39ms (Views: 35.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/clients?utf8=%E2%9C%93&search=Harold" for ::1 at 2021-10-21 10:35:38 +0600
+Processing by ClientsController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"Harold"}
+  Rendering clients/index.html.erb within layouts/application
+  [1m[36mClient Load (0.7ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE (name like '%Harold%' or address like '%Harold%' or id = 0) ORDER BY name asc[0m
+  ↳ app/views/clients/index.html.erb:24
+  Rendered clients/index.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 55ms (Views: 51.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/orders" for ::1 at 2021-10-21 10:35:54 +0600
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY client_id asc[0m
+  ↳ app/views/orders/index.html.erb:25
+  [1m[36mClient Load (0.2ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:29
+  [1m[36mClient Load (0.2ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:29
+  Rendered orders/index.html.erb within layouts/application (19.8ms)
+Completed 200 OK in 37ms (Views: 23.9ms | ActiveRecord: 9.2ms)
+
+
+Started GET "/orders?utf8=%E2%9C%93&search=Max" for ::1 at 2021-10-21 10:36:00 +0600
+Processing by OrdersController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"Max"}
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (2.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE (client_name like '%Max%' or id = 'Max' or client_id = 'Max') ORDER BY client_id asc[0m
+  ↳ app/views/orders/index.html.erb:25
+  Rendered orders/index.html.erb within layouts/application (7.4ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 2.1ms)
+
+
+
+ActiveRecord::StatementInvalid - PG::UndefinedColumn: ERROR:  column "client_name" does not exist
+LINE 1: SELECT "orders".* FROM "orders" WHERE (client_name like '%Ma...
+                                               ^
+: SELECT "orders".* FROM "orders" WHERE (client_name like '%Max%' or id = 'Max' or client_id = 'Max') ORDER BY client_id asc:
+  app/views/orders/index.html.erb:25:in `_app_views_orders_index_html_erb___38914352468143265_70222494754920'
+
+Started POST "/__better_errors/f7c0f71c735d51ed/variables" for ::1 at 2021-10-21 10:36:00 +0600
+  [1m[36mOrder Load (1.1ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (client_name like '%Max%' or id = 'Max' or client_id = 'Max') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (client_name like '%Max%' or id = 'Max' or client_id = 'Max') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (client_name like '%Max%' or id = 'Max' or client_id = 'Max') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (1.0ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (client_name like '%Max%' or id = 'Max' or client_id = 'Max') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (client_name like '%Max%' or id = 'Max' or client_id = 'Max') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Started POST "/__better_errors/f7c0f71c735d51ed/eval" for ::1 at 2021-10-21 10:36:08 +0600
+  [1m[36mOrder Load (1.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE (client_name like '%Max%' or id = 'Max' or client_id = 'Max') ORDER BY client_id asc[0m
+  ↳ app/views/orders/index.html.erb:25
+Started GET "/orders" for ::1 at 2021-10-21 10:37:06 +0600
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY client_id asc[0m
+  ↳ app/views/orders/index.html.erb:25
+  [1m[36mClient Load (0.7ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:29
+  [1m[36mClient Load (0.4ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:29
+  Rendered orders/index.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 44ms (Views: 39.9ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/orders" for ::1 at 2021-10-21 10:52:06 +0600
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (1.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY client_id asc[0m
+  ↳ app/views/orders/index.html.erb:25
+  [1m[36mClient Load (0.6ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:29
+  [1m[36mClient Load (0.4ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:29
+  Rendered orders/index.html.erb within layouts/application (37.2ms)
+Completed 200 OK in 71ms (Views: 40.7ms | ActiveRecord: 23.6ms)
+
+
+Started GET "/orders?utf8=%E2%9C%93&search=1" for ::1 at 2021-10-21 10:52:10 +0600
+Processing by OrdersController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"1"}
+  Rendering orders/index.html.erb within layouts/application
+  Rendered orders/index.html.erb within layouts/application (17.1ms)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 0.0ms)
+
+
+
+ActiveRecord::ConfigurationError - Can't join 'Order' to association named 'clients'; perhaps you misspelled it?:
+  app/views/orders/index.html.erb:25:in `_app_views_orders_index_html_erb___38914352468143265_70222228913280'
+
+Started POST "/__better_errors/9817e6df629373db/variables" for ::1 at 2021-10-21 10:52:10 +0600
+Started GET "/orders?utf8=%E2%9C%93&search=1" for ::1 at 2021-10-21 10:52:36 +0600
+Processing by OrdersController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"1"}
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (3.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders" INNER JOIN "clients" ON "clients"."id" = "orders"."client_id" WHERE (client_name like '%1%' or id = '1' or client_id = '1') ORDER BY client_id asc[0m
+  ↳ app/views/orders/index.html.erb:25
+  Rendered orders/index.html.erb within layouts/application (16.0ms)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 9.8ms)
+
+
+
+ActiveRecord::StatementInvalid - PG::UndefinedColumn: ERROR:  column "client_name" does not exist
+LINE 1: ..." ON "clients"."id" = "orders"."client_id" WHERE (client_nam...
+                                                             ^
+: SELECT "orders".* FROM "orders" INNER JOIN "clients" ON "clients"."id" = "orders"."client_id" WHERE (client_name like '%1%' or id = '1' or client_id = '1') ORDER BY client_id asc:
+  app/views/orders/index.html.erb:25:in `_app_views_orders_index_html_erb___38914352468143265_70222493845440'
+
+Started POST "/__better_errors/66e2b5a78ca38f21/variables" for ::1 at 2021-10-21 10:52:36 +0600
+  [1m[36mOrder Load (0.8ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" INNER JOIN "clients" ON "clients"."id" = "orders"."client_id" WHERE (client_name like '%1%' or id = '1' or client_id = '1') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" INNER JOIN "clients" ON "clients"."id" = "orders"."client_id" WHERE (client_name like '%1%' or id = '1' or client_id = '1') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" INNER JOIN "clients" ON "clients"."id" = "orders"."client_id" WHERE (client_name like '%1%' or id = '1' or client_id = '1') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (1.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" INNER JOIN "clients" ON "clients"."id" = "orders"."client_id" WHERE (client_name like '%1%' or id = '1' or client_id = '1') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" INNER JOIN "clients" ON "clients"."id" = "orders"."client_id" WHERE (client_name like '%1%' or id = '1' or client_id = '1') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Started GET "/orders" for ::1 at 2021-10-21 10:52:45 +0600
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY client_id asc[0m
+  ↳ app/views/orders/index.html.erb:25
+  [1m[36mClient Load (0.5ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:29
+  [1m[36mClient Load (0.5ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:29
+  Rendered orders/index.html.erb within layouts/application (36.9ms)
+Completed 200 OK in 56ms (Views: 46.7ms | ActiveRecord: 7.4ms)
+
+
+Started GET "/orders?utf8=%E2%9C%93&search=max" for ::1 at 2021-10-21 10:52:59 +0600
+Processing by OrdersController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"max"}
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (2.0ms)[0m  [1m[34mSELECT "orders".* FROM "orders" INNER JOIN "clients" ON "clients"."id" = "orders"."client_id" WHERE (client_name like '%max%' or id = 'max' or client_id = 'max') ORDER BY client_id asc[0m
+  ↳ app/views/orders/index.html.erb:25
+  Rendered orders/index.html.erb within layouts/application (7.1ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 2.0ms)
+
+
+
+ActiveRecord::StatementInvalid - PG::UndefinedColumn: ERROR:  column "client_name" does not exist
+LINE 1: ..." ON "clients"."id" = "orders"."client_id" WHERE (client_nam...
+                                                             ^
+: SELECT "orders".* FROM "orders" INNER JOIN "clients" ON "clients"."id" = "orders"."client_id" WHERE (client_name like '%max%' or id = 'max' or client_id = 'max') ORDER BY client_id asc:
+  app/views/orders/index.html.erb:25:in `_app_views_orders_index_html_erb___38914352468143265_70222494126700'
+
+Started POST "/__better_errors/4ff6c01f8bddce28/variables" for ::1 at 2021-10-21 10:52:59 +0600
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" INNER JOIN "clients" ON "clients"."id" = "orders"."client_id" WHERE (client_name like '%max%' or id = 'max' or client_id = 'max') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" INNER JOIN "clients" ON "clients"."id" = "orders"."client_id" WHERE (client_name like '%max%' or id = 'max' or client_id = 'max') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" INNER JOIN "clients" ON "clients"."id" = "orders"."client_id" WHERE (client_name like '%max%' or id = 'max' or client_id = 'max') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" INNER JOIN "clients" ON "clients"."id" = "orders"."client_id" WHERE (client_name like '%max%' or id = 'max' or client_id = 'max') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" INNER JOIN "clients" ON "clients"."id" = "orders"."client_id" WHERE (client_name like '%max%' or id = 'max' or client_id = 'max') ORDER BY client_id asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Started GET "/orders?utf8=%E2%9C%93&search=max" for ::1 at 2021-10-21 10:53:25 +0600
+Processing by OrdersController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"max"}
+  Rendering orders/index.html.erb within layouts/application
+  Rendered orders/index.html.erb within layouts/application (3.4ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 2.0ms)
+
+
+
+ActiveRecord::ConfigurationError - Can't join 'Order' to association named 'clients'; perhaps you misspelled it?:
+  app/views/orders/index.html.erb:25:in `_app_views_orders_index_html_erb___38914352468143265_70222499375660'
+
+Started POST "/__better_errors/86e7cc1394fa435a/variables" for ::1 at 2021-10-21 10:53:25 +0600
+Started POST "/__better_errors/86e7cc1394fa435a/eval" for ::1 at 2021-10-21 10:53:34 +0600
+Started POST "/__better_errors/86e7cc1394fa435a/eval" for ::1 at 2021-10-21 10:53:37 +0600
+Started POST "/__better_errors/86e7cc1394fa435a/eval" for ::1 at 2021-10-21 10:53:43 +0600
+Started POST "/__better_errors/86e7cc1394fa435a/eval" for ::1 at 2021-10-21 10:53:49 +0600
+Started POST "/__better_errors/86e7cc1394fa435a/eval" for ::1 at 2021-10-21 10:53:52 +0600
+Started GET "/products" for ::1 at 2021-10-21 11:18:08 +0600
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (1.7ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY created_at asc[0m
+  ↳ app/views/products/index.html.erb:24
+  Rendered products/index.html.erb within layouts/application (15.3ms)
+Completed 200 OK in 37ms (Views: 23.1ms | ActiveRecord: 9.5ms)
+
+
+Started GET "/clients?utf8=%E2%9C%93&search=coffee" for ::1 at 2021-10-21 11:18:14 +0600
+Processing by ClientsController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"coffee"}
+  Rendering clients/index.html.erb within layouts/application
+  [1m[36mClient Load (2.3ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE (name like '%coffee%' or address like '%coffee%' or id = 0) ORDER BY name asc[0m
+  ↳ app/views/clients/index.html.erb:24
+  Rendered clients/index.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 52ms (Views: 34.9ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/products" for ::1 at 2021-10-21 11:18:25 +0600
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY created_at asc[0m
+  ↳ app/views/products/index.html.erb:24
+  Rendered products/index.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 36ms (Views: 33.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/clients?utf8=%E2%9C%93&search=coffee" for ::1 at 2021-10-21 11:18:29 +0600
+Processing by ClientsController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"coffee"}
+  Rendering clients/index.html.erb within layouts/application
+  [1m[36mClient Load (0.7ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE (name like '%coffee%' or address like '%coffee%' or id = 0) ORDER BY name asc[0m
+  ↳ app/views/clients/index.html.erb:24
+  Rendered clients/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 54ms (Views: 51.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products" for ::1 at 2021-10-21 11:18:35 +0600
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY created_at asc[0m
+  ↳ app/views/products/index.html.erb:24
+  Rendered products/index.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 36ms (Views: 33.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/products" for ::1 at 2021-10-21 11:18:47 +0600
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY created_at asc[0m
+  ↳ app/views/products/index.html.erb:24
+  Rendered products/index.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 54ms (Views: 50.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/products?utf8=%E2%9C%93&search=coffee" for ::1 at 2021-10-21 11:18:50 +0600
+Processing by ProductsController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"coffee"}
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (3.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE (name like '%coffee%' or address like '%coffee%' or id = 0) ORDER BY created_at asc[0m
+  ↳ app/views/products/index.html.erb:24
+  Rendered products/index.html.erb within layouts/application (9.6ms)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 3.7ms)
+
+
+
+ActiveRecord::StatementInvalid - PG::UndefinedColumn: ERROR:  column "name" does not exist
+LINE 1: SELECT "products".* FROM "products" WHERE (name like '%coffe...
+                                                   ^
+: SELECT "products".* FROM "products" WHERE (name like '%coffee%' or address like '%coffee%' or id = 0) ORDER BY created_at asc:
+  app/views/products/index.html.erb:24:in `_app_views_products_index_html_erb__166084931561664931_70222506292600'
+
+Started POST "/__better_errors/60d0f1c3ff2b5165/variables" for ::1 at 2021-10-21 11:18:50 +0600
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE (name like '%coffee%' or address like '%coffee%' or id = 0) ORDER BY created_at asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE (name like '%coffee%' or address like '%coffee%' or id = 0) ORDER BY created_at asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE (name like '%coffee%' or address like '%coffee%' or id = 0) ORDER BY created_at asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE (name like '%coffee%' or address like '%coffee%' or id = 0) ORDER BY created_at asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE (name like '%coffee%' or address like '%coffee%' or id = 0) ORDER BY created_at asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Started GET "/products" for ::1 at 2021-10-21 11:18:59 +0600
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY created_at asc[0m
+  ↳ app/views/products/index.html.erb:24
+  Rendered products/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 26ms (Views: 23.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/products" for ::1 at 2021-10-21 11:19:20 +0600
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY created_at asc[0m
+  ↳ app/views/products/index.html.erb:24
+  Rendered products/index.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 24ms (Views: 15.7ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/products?utf8=%E2%9C%93&search=coffee" for ::1 at 2021-10-21 11:19:23 +0600
+Processing by ProductsController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"coffee"}
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (2.9ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE (product_name like '%coffee%' or address like '%coffee%' or id = 0) ORDER BY created_at asc[0m
+  ↳ app/views/products/index.html.erb:24
+  Rendered products/index.html.erb within layouts/application (9.1ms)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 2.9ms)
+
+
+
+ActiveRecord::StatementInvalid - PG::UndefinedColumn: ERROR:  column "address" does not exist
+LINE 1: ..."products" WHERE (product_name like '%coffee%' or address li...
+                                                             ^
+: SELECT "products".* FROM "products" WHERE (product_name like '%coffee%' or address like '%coffee%' or id = 0) ORDER BY created_at asc:
+  app/views/products/index.html.erb:24:in `_app_views_products_index_html_erb__166084931561664931_70222506086400'
+
+Started POST "/__better_errors/30a00e93e9590bf1/variables" for ::1 at 2021-10-21 11:19:23 +0600
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE (product_name like '%coffee%' or address like '%coffee%' or id = 0) ORDER BY created_at asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE (product_name like '%coffee%' or address like '%coffee%' or id = 0) ORDER BY created_at asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE (product_name like '%coffee%' or address like '%coffee%' or id = 0) ORDER BY created_at asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE (product_name like '%coffee%' or address like '%coffee%' or id = 0) ORDER BY created_at asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE (product_name like '%coffee%' or address like '%coffee%' or id = 0) ORDER BY created_at asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Started GET "/products" for ::1 at 2021-10-21 11:19:44 +0600
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY created_at asc[0m
+  ↳ app/views/products/index.html.erb:24
+  Rendered products/index.html.erb within layouts/application (18.1ms)
+Completed 200 OK in 42ms (Views: 27.8ms | ActiveRecord: 8.0ms)
+
+
+Started GET "/products?utf8=%E2%9C%93&search=coffee" for ::1 at 2021-10-21 11:19:50 +0600
+Processing by ProductsController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"coffee"}
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE (product_name like '%coffee%' or id = 0) ORDER BY created_at asc[0m
+  ↳ app/views/products/index.html.erb:24
+  Rendered products/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 39ms (Views: 34.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/products?utf8=%E2%9C%93&search=Coffee" for ::1 at 2021-10-21 11:20:00 +0600
+Processing by ProductsController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"Coffee"}
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE (product_name like '%Coffee%' or id = 0) ORDER BY created_at asc[0m
+  ↳ app/views/products/index.html.erb:24
+  Rendered products/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 39ms (Views: 36.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products" for ::1 at 2021-10-21 11:20:19 +0600
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY created_at asc[0m
+  ↳ app/views/products/index.html.erb:24
+  Rendered products/index.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 38ms (Views: 35.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?utf8=%E2%9C%93&search=muffins" for ::1 at 2021-10-21 11:20:23 +0600
+Processing by ProductsController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"muffins"}
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE (product_name like '%muffins%' or id = 0) ORDER BY created_at asc[0m
+  ↳ app/views/products/index.html.erb:24
+  Rendered products/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 22ms (Views: 19.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/products?utf8=%E2%9C%93&search=Muffins" for ::1 at 2021-10-21 11:20:26 +0600
+Processing by ProductsController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"Muffins"}
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE (product_name like '%Muffins%' or id = 0) ORDER BY created_at asc[0m
+  ↳ app/views/products/index.html.erb:24
+  Rendered products/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 36ms (Views: 33.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products?utf8=%E2%9C%93&search=Muffins" for ::1 at 2021-10-21 11:20:43 +0600
+Processing by ProductsController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"Muffins"}
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (1.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE (product_name ilike '%Muffins%' or id = 0) ORDER BY created_at asc[0m
+  ↳ app/views/products/index.html.erb:24
+  Rendered products/index.html.erb within layouts/application (17.2ms)
+Completed 200 OK in 40ms (Views: 25.3ms | ActiveRecord: 9.2ms)
+
+
+Started GET "/products?utf8=%E2%9C%93&search=muffins" for ::1 at 2021-10-21 11:20:49 +0600
+Processing by ProductsController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"muffins"}
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE (product_name ilike '%muffins%' or id = 0) ORDER BY created_at asc[0m
+  ↳ app/views/products/index.html.erb:24
+  Rendered products/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 39ms (Views: 36.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products" for ::1 at 2021-10-21 11:20:59 +0600
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY created_at asc[0m
+  ↳ app/views/products/index.html.erb:24
+  Rendered products/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 33ms (Views: 29.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?utf8=%E2%9C%93&search=croissant" for ::1 at 2021-10-21 11:21:06 +0600
+Processing by ProductsController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"croissant"}
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE (product_name ilike '%croissant%' or id = 0) ORDER BY created_at asc[0m
+  ↳ app/views/products/index.html.erb:24
+  Rendered products/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 38ms (Views: 35.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/clients" for ::1 at 2021-10-21 11:21:11 +0600
+Processing by ClientsController#index as HTML
+  Rendering clients/index.html.erb within layouts/application
+  [1m[36mClient Load (0.6ms)[0m  [1m[34mSELECT "clients".* FROM "clients" ORDER BY name asc[0m
+  ↳ app/views/clients/index.html.erb:24
+  Rendered clients/index.html.erb within layouts/application (17.2ms)
+Completed 200 OK in 56ms (Views: 41.1ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/clients?utf8=%E2%9C%93&search=harold" for ::1 at 2021-10-21 11:21:15 +0600
+Processing by ClientsController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"harold"}
+  Rendering clients/index.html.erb within layouts/application
+  [1m[36mClient Load (0.9ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE (name like '%harold%' or address like '%harold%' or id = 0) ORDER BY name asc[0m
+  ↳ app/views/clients/index.html.erb:24
+  Rendered clients/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 36ms (Views: 33.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/clients?utf8=%E2%9C%93&search=harold" for ::1 at 2021-10-21 11:21:33 +0600
+Processing by ClientsController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"harold"}
+  Rendering clients/index.html.erb within layouts/application
+  [1m[36mClient Load (0.7ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE (name ilike '%harold%' or address like '%harold%' or id = 0) ORDER BY name asc[0m
+  ↳ app/views/clients/index.html.erb:24
+  Rendered clients/index.html.erb within layouts/application (12.5ms)
+Completed 200 OK in 38ms (Views: 25.6ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/clients/new" for ::1 at 2021-10-21 11:21:35 +0600
+Processing by ClientsController#new as HTML
+  Rendering clients/new.html.erb within layouts/application
+  Rendered clients/_form.html.erb (4.1ms)
+  Rendered clients/new.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 56ms (Views: 52.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/clients" for ::1 at 2021-10-21 11:21:36 +0600
+Processing by ClientsController#index as HTML
+  Rendering clients/index.html.erb within layouts/application
+  [1m[36mClient Load (0.6ms)[0m  [1m[34mSELECT "clients".* FROM "clients" ORDER BY name asc[0m
+  ↳ app/views/clients/index.html.erb:24
+  Rendered clients/index.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 37ms (Views: 33.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/orders" for ::1 at 2021-10-21 11:27:46 +0600
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (1.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY client_id asc[0m
+  ↳ app/views/orders/index.html.erb:25
+  [1m[36mClient Load (0.5ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:29
+  [1m[36mClient Load (0.2ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:29
+  Rendered orders/index.html.erb within layouts/application (20.1ms)
+Completed 200 OK in 52ms (Views: 35.5ms | ActiveRecord: 10.8ms)
+
+
+Started GET "/orders?utf8=%E2%9C%93&search=Max" for ::1 at 2021-10-21 11:27:51 +0600
+Processing by OrdersController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"Max"}
+  Rendering orders/index.html.erb within layouts/application
+  Rendered orders/index.html.erb within layouts/application (5.2ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms)
+
+
+
+ActiveRecord::ConfigurationError - Can't join 'Order' to association named 'clients'; perhaps you misspelled it?:
+  app/views/orders/index.html.erb:25:in `_app_views_orders_index_html_erb___38914352468143265_70222764403140'
+
+Started POST "/__better_errors/d88235ed09166b94/variables" for ::1 at 2021-10-21 11:27:51 +0600
+Started GET "/orders?utf8=%E2%9C%93&search=Max" for ::1 at 2021-10-21 11:29:09 +0600
+Processing by OrdersController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"Max"}
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `join' for #<Class:0x00007fbbe64161e0>
+Did you mean?  joins:
+  app/models/order.rb:18:in `search'
+  app/controllers/orders_controller.rb:6:in `index'
+
+Started POST "/__better_errors/5fe99475bc6940b4/variables" for ::1 at 2021-10-21 11:29:09 +0600
+Started GET "/orders?utf8=%E2%9C%93&search=Max" for ::1 at 2021-10-21 11:29:27 +0600
+Processing by OrdersController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"Max"}
+  Rendering orders/index.html.erb within layouts/application
+  Rendered orders/index.html.erb within layouts/application (4.2ms)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 2.9ms)
+
+
+
+ActiveRecord::ConfigurationError - Can't join 'Order' to association named 'clients'; perhaps you misspelled it?:
+  app/views/orders/index.html.erb:25:in `_app_views_orders_index_html_erb___38914352468143265_70222228778440'
+
+Started POST "/__better_errors/d7041ba3ca4e161b/variables" for ::1 at 2021-10-21 11:29:27 +0600
