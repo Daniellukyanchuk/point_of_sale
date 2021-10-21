@@ -1,6 +1,6 @@
 class Order < ApplicationRecord
     has_many :order_products
-    belongs_to :client    
+    belongs_to :client  
     accepts_nested_attributes_for :order_products, allow_destroy: true
     before_save :set_grand_total
     
@@ -13,13 +13,13 @@ class Order < ApplicationRecord
     end
 
    def self.search(search)
-    if !search.blank?
+      if !search.blank?
 
-      return Order.left_joins(:clients).where("client_name like ? or id = ? or client_id = ?", "%#{search.strip}%", search, search)
+      return Order.joins(:client).where("clients.name ilike ? or clients.id = ? or client_id = ?", "%#{search.strip}%", search.to_i, search.to_i)
     
       else
         Order.all
-    end
+      end
   end
     
         
