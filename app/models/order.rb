@@ -13,15 +13,31 @@ class Order < ApplicationRecord
     end
 
     def self.search(search)
+
+      # sql = """
+      #       select distinct client_id, name, max(grand_total) 
+      #       from orders 
+      #       WHERE
+      #           client_id = #{search.to_i}
+      #       join clients on orders.client_id = clients.id
+      #       group by client_id, name 
+      #       order by max(grand_total) desc;
+      #   """
+      #   # result = ActiveRecord::Base.connection.execute(sql)
+
+        # stop
+
+
       if !search.blank?
 
-      return Order.joins(:client).where("clients.name ilike ? or clients.id = ? or client_id = ?", "%#{search.strip}%", search.to_i, search.to_i)
+        return Order.joins(:client).where("clients.name ilike ? or clients.id = ? or client_id = ?", "%#{search.strip}%", search.to_i, search.to_i)
     
       else
-        Order.all
+        return Order.all
       end
-    end
     
+
         
 
+    end
 end
