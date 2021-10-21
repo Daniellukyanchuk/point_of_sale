@@ -15,6 +15,7 @@
 
     <%= form.fields_for :order_products do |builder| %>
       <%= render 'order_product_fields', form: builder %>
+      <%= link_to_remove_fields "Remove Product", form, :order_products %>
     <% end %>
 
       <%= link_to_add_fields "Add Product", form, :order_products %>

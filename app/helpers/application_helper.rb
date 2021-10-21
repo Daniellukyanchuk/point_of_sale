@@ -1,5 +1,5 @@
 module ApplicationHelper
-    def link_to_remove_fields(name, form)
+    def link_to_remove_fields(name, form, association)
       form.hidden_field(:_destroy) + link_to_function(name, "remove_fields(this)")
     end
 
