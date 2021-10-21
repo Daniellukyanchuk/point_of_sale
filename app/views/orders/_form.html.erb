@@ -15,13 +15,11 @@
       <%= form.collection_select :client_id, Client.all, :id, :name %>
  
 
-  <%= form.fields_for :order_products do |builder| %>
+<%= form.fields_for :order_products do |builder| %>
       <%= render 'order_product_fields', form: builder %>
       <% end %>
 
       <%= link_to_add_fields "Add Product", form, :order_products %>
-
-  
 
   <div class="field">
     <%= form.label :grand_total %>

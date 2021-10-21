@@ -34169,3 +34169,673 @@ Processing by OrdersController#index as HTML
 Completed 200 OK in 42ms (Views: 38.4ms | ActiveRecord: 1.5ms)
 
 
+Started GET "/orders/new" for ::1 at 2021-10-21 13:45:25 +0600
+Processing by OrdersController#new as HTML
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mClient Load (1.0ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/orders/_form.html.erb:15
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (21.9ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (1.7ms)
+  Rendered orders/_form.html.erb (30.1ms)
+  Rendered orders/new.html.erb within layouts/application (31.5ms)
+Completed 200 OK in 93ms (Views: 42.4ms | ActiveRecord: 19.9ms)
+
+
+Started GET "/orders/new" for ::1 at 2021-10-21 13:46:01 +0600
+Processing by OrdersController#new as HTML
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mClient Load (1.1ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/orders/_form.html.erb:15
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (5.8ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (3.3ms)
+  Rendered orders/_form.html.erb (19.1ms)
+  Rendered orders/new.html.erb within layouts/application (21.4ms)
+Completed 200 OK in 49ms (Views: 44.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/orders/new" for ::1 at 2021-10-21 13:46:04 +0600
+Processing by OrdersController#new as HTML
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mClient Load (0.8ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/orders/_form.html.erb:15
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (5.2ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (3.9ms)
+  Rendered orders/_form.html.erb (18.6ms)
+  Rendered orders/new.html.erb within layouts/application (21.6ms)
+Completed 200 OK in 48ms (Views: 44.0ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/orders/new" for ::1 at 2021-10-21 13:46:47 +0600
+Processing by OrdersController#new as HTML
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mClient Load (0.7ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/orders/_form.html.erb:15
+  [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (6.0ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (3.0ms)
+  Rendered orders/_form.html.erb (20.4ms)
+  Rendered orders/new.html.erb within layouts/application (23.0ms)
+Completed 200 OK in 56ms (Views: 51.3ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/orders/new" for ::1 at 2021-10-21 13:47:21 +0600
+Processing by OrdersController#new as HTML
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mClient Load (0.6ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/orders/_form.html.erb:15
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (7.4ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (3.0ms)
+  Rendered orders/_form.html.erb (19.2ms)
+  Rendered orders/new.html.erb within layouts/application (21.2ms)
+Completed 200 OK in 48ms (Views: 43.7ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/orders/new" for ::1 at 2021-10-21 13:47:30 +0600
+Processing by OrdersController#new as HTML
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mClient Load (0.9ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/orders/_form.html.erb:15
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (6.8ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (2.9ms)
+  Rendered orders/_form.html.erb (20.6ms)
+  Rendered orders/new.html.erb within layouts/application (22.9ms)
+Completed 200 OK in 50ms (Views: 45.7ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/orders/new" for ::1 at 2021-10-21 13:47:36 +0600
+Processing by OrdersController#new as HTML
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mClient Load (1.2ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/orders/_form.html.erb:15
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (6.8ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (3.6ms)
+  Rendered orders/_form.html.erb (20.9ms)
+  Rendered orders/new.html.erb within layouts/application (23.3ms)
+Completed 200 OK in 49ms (Views: 44.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/orders/new" for ::1 at 2021-10-21 13:48:08 +0600
+Processing by OrdersController#new as HTML
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mClient Load (0.7ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/orders/_form.html.erb:15
+  [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (6.4ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (3.1ms)
+  Rendered orders/_form.html.erb (20.1ms)
+  Rendered orders/new.html.erb within layouts/application (22.6ms)
+Completed 200 OK in 49ms (Views: 44.8ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/orders/new" for ::1 at 2021-10-21 13:48:13 +0600
+Processing by OrdersController#new as HTML
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mClient Load (0.6ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/orders/_form.html.erb:15
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (5.5ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (4.0ms)
+  Rendered orders/_form.html.erb (18.4ms)
+  Rendered orders/new.html.erb within layouts/application (20.7ms)
+Completed 200 OK in 64ms (Views: 59.8ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/orders/new" for ::1 at 2021-10-21 13:48:22 +0600
+Processing by OrdersController#new as HTML
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mClient Load (0.6ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/orders/_form.html.erb:15
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (3.5ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (1.6ms)
+  Rendered orders/_form.html.erb (11.7ms)
+  Rendered orders/new.html.erb within layouts/application (13.3ms)
+Completed 200 OK in 34ms (Views: 31.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/orders/new" for ::1 at 2021-10-21 13:48:37 +0600
+Processing by OrdersController#new as HTML
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mClient Load (0.7ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/orders/_form.html.erb:15
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (3.0ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (1.8ms)
+  Rendered orders/_form.html.erb (11.9ms)
+  Rendered orders/new.html.erb within layouts/application (13.6ms)
+Completed 200 OK in 32ms (Views: 28.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/orders/new" for ::1 at 2021-10-21 13:49:12 +0600
+Processing by OrdersController#new as HTML
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mClient Load (0.7ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/orders/_form.html.erb:15
+  [1m[36mProduct Load (1.1ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (6.8ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (2.9ms)
+  Rendered orders/_form.html.erb (18.5ms)
+  Rendered orders/new.html.erb within layouts/application (21.0ms)
+Completed 200 OK in 51ms (Views: 46.0ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/orders/new" for ::1 at 2021-10-21 13:49:17 +0600
+Processing by OrdersController#new as HTML
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mClient Load (0.6ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/orders/_form.html.erb:15
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (28.1ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (1.8ms)
+  Rendered orders/_form.html.erb (38.1ms)
+  Rendered orders/new.html.erb within layouts/application (40.1ms)
+Completed 200 OK in 63ms (Views: 58.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/orders/new" for ::1 at 2021-10-21 13:49:37 +0600
+Processing by OrdersController#new as HTML
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mClient Load (0.5ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/orders/_form.html.erb:15
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (4.9ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (3.3ms)
+  Rendered orders/_form.html.erb (17.8ms)
+  Rendered orders/new.html.erb within layouts/application (19.8ms)
+Completed 200 OK in 48ms (Views: 43.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/orders/new" for ::1 at 2021-10-21 13:58:10 +0600
+Processing by OrdersController#new as HTML
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mClient Load (1.3ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/orders/_form.html.erb:15
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (5.3ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (2.5ms)
+  Rendered orders/_form.html.erb (17.6ms)
+  Rendered orders/new.html.erb within layouts/application (20.1ms)
+Completed 200 OK in 53ms (Views: 47.2ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/orders/new" for ::1 at 2021-10-21 13:58:17 +0600
+Processing by OrdersController#new as HTML
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mClient Load (0.5ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/orders/_form.html.erb:15
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (5.6ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (3.1ms)
+  Rendered orders/_form.html.erb (17.9ms)
+  Rendered orders/new.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 47ms (Views: 43.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/orders/new" for ::1 at 2021-10-21 13:58:23 +0600
+Processing by OrdersController#new as HTML
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mClient Load (0.9ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/orders/_form.html.erb:15
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (3.9ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (2.0ms)
+  Rendered orders/_form.html.erb (13.1ms)
+  Rendered orders/new.html.erb within layouts/application (15.1ms)
+Completed 200 OK in 38ms (Views: 33.8ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/orders/new" for ::1 at 2021-10-21 13:58:24 +0600
+Processing by OrdersController#new as HTML
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mClient Load (0.5ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/orders/_form.html.erb:15
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (5.6ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (2.9ms)
+  Rendered orders/_form.html.erb (17.2ms)
+  Rendered orders/new.html.erb within layouts/application (19.1ms)
+Completed 200 OK in 45ms (Views: 41.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/orders/new" for ::1 at 2021-10-21 13:58:24 +0600
+Processing by OrdersController#new as HTML
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mClient Load (0.6ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/orders/_form.html.erb:15
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (6.2ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (2.9ms)
+  Rendered orders/_form.html.erb (18.8ms)
+  Rendered orders/new.html.erb within layouts/application (20.8ms)
+Completed 200 OK in 47ms (Views: 42.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/orders/new" for ::1 at 2021-10-21 13:58:25 +0600
+Processing by OrdersController#new as HTML
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mClient Load (0.6ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/orders/_form.html.erb:15
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (4.8ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (2.8ms)
+  Rendered orders/_form.html.erb (16.4ms)
+  Rendered orders/new.html.erb within layouts/application (18.1ms)
+Completed 200 OK in 64ms (Views: 60.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/orders/new" for ::1 at 2021-10-21 13:58:25 +0600
+Processing by OrdersController#new as HTML
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mClient Load (0.5ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/orders/_form.html.erb:15
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (5.9ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (2.9ms)
+  Rendered orders/_form.html.erb (17.1ms)
+  Rendered orders/new.html.erb within layouts/application (19.1ms)
+Completed 200 OK in 39ms (Views: 34.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/orders/new" for ::1 at 2021-10-21 13:58:26 +0600
+Processing by OrdersController#new as HTML
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mClient Load (0.5ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/orders/_form.html.erb:15
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (4.0ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (3.4ms)
+  Rendered orders/_form.html.erb (15.3ms)
+  Rendered orders/new.html.erb within layouts/application (16.9ms)
+Completed 200 OK in 46ms (Views: 42.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/orders/new" for ::1 at 2021-10-21 13:58:27 +0600
+Processing by OrdersController#new as HTML
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mClient Load (0.6ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/orders/_form.html.erb:15
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (5.9ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (3.1ms)
+  Rendered orders/_form.html.erb (17.8ms)
+  Rendered orders/new.html.erb within layouts/application (19.7ms)
+Completed 200 OK in 47ms (Views: 42.1ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/orders/new" for ::1 at 2021-10-21 13:58:27 +0600
+Processing by OrdersController#new as HTML
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mClient Load (0.6ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/orders/_form.html.erb:15
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (4.9ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (3.3ms)
+  Rendered orders/_form.html.erb (17.5ms)
+  Rendered orders/new.html.erb within layouts/application (19.5ms)
+Completed 200 OK in 62ms (Views: 57.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/orders/new" for ::1 at 2021-10-21 13:58:28 +0600
+Processing by OrdersController#new as HTML
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mClient Load (0.5ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/orders/_form.html.erb:15
+  [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (6.7ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (2.6ms)
+  Rendered orders/_form.html.erb (18.3ms)
+  Rendered orders/new.html.erb within layouts/application (20.5ms)
+Completed 200 OK in 48ms (Views: 43.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/orders" for ::1 at 2021-10-21 14:00:55 +0600
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (1.7ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY client_id asc[0m
+  ↳ app/views/orders/index.html.erb:25
+  [1m[36mClient Load (0.5ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:29
+  [1m[36mClient Load (0.4ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:29
+  Rendered orders/index.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 42ms (Views: 36.9ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/orders/52" for ::1 at 2021-10-21 14:00:59 +0600
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"52"}
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 52], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:70
+  Rendering orders/show.html.erb within layouts/application
+  [1m[36mOrderProduct Load (0.8ms)[0m  [1m[34mSELECT "order_products".* FROM "order_products" WHERE "order_products"."order_id" = $1[0m  [["order_id", 52]]
+  ↳ app/views/orders/show.html.erb:14
+  Rendered orders/show.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 56ms (Views: 50.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/orders" for ::1 at 2021-10-21 14:01:04 +0600
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY client_id asc[0m
+  ↳ app/views/orders/index.html.erb:25
+  [1m[36mClient Load (0.5ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:29
+  [1m[36mClient Load (0.4ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:29
+  Rendered orders/index.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 44ms (Views: 39.6ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/products" for ::1 at 2021-10-21 14:01:09 +0600
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (1.2ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY created_at asc[0m
+  ↳ app/views/products/index.html.erb:24
+  Rendered products/index.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 23ms (Views: 19.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/products/1" for ::1 at 2021-10-21 14:01:20 +0600
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:69
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 36ms (Views: 30.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products" for ::1 at 2021-10-21 14:01:22 +0600
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY created_at asc[0m
+  ↳ app/views/products/index.html.erb:24
+  Rendered products/index.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 38ms (Views: 35.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products/2" for ::1 at 2021-10-21 14:01:23 +0600
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:69
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 34ms (Views: 30.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/products" for ::1 at 2021-10-21 14:01:24 +0600
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY created_at asc[0m
+  ↳ app/views/products/index.html.erb:24
+  Rendered products/index.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 38ms (Views: 34.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/products/5" for ::1 at 2021-10-21 14:01:35 +0600
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:69
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 34ms (Views: 30.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products" for ::1 at 2021-10-21 14:01:37 +0600
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY created_at asc[0m
+  ↳ app/views/products/index.html.erb:24
+  Rendered products/index.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 52ms (Views: 49.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/clients" for ::1 at 2021-10-21 14:01:40 +0600
+Processing by ClientsController#index as HTML
+  Rendering clients/index.html.erb within layouts/application
+  [1m[36mClient Load (1.3ms)[0m  [1m[34mSELECT "clients".* FROM "clients" ORDER BY name asc[0m
+  ↳ app/views/clients/index.html.erb:24
+  Rendered clients/index.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 27ms (Views: 23.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/orders" for ::1 at 2021-10-21 14:01:46 +0600
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY client_id asc[0m
+  ↳ app/views/orders/index.html.erb:25
+  [1m[36mClient Load (0.4ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:29
+  [1m[36mClient Load (0.6ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:29
+  Rendered orders/index.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 43ms (Views: 39.1ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/orders/new" for ::1 at 2021-10-21 14:05:11 +0600
+Processing by OrdersController#new as HTML
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mClient Load (0.7ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/orders/_form.html.erb:15
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (5.0ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (2.9ms)
+  Rendered orders/_form.html.erb (17.4ms)
+  Rendered orders/new.html.erb within layouts/application (19.5ms)
+Completed 200 OK in 47ms (Views: 42.0ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/orders/new" for ::1 at 2021-10-21 14:05:15 +0600
+Processing by OrdersController#new as HTML
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mClient Load (0.6ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/orders/_form.html.erb:15
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (4.6ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (3.8ms)
+  Rendered orders/_form.html.erb (17.6ms)
+  Rendered orders/new.html.erb within layouts/application (19.5ms)
+Completed 200 OK in 48ms (Views: 44.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/orders/new" for ::1 at 2021-10-21 14:05:17 +0600
+Processing by OrdersController#new as HTML
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mClient Load (0.9ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/orders/_form.html.erb:15
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (6.0ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (2.9ms)
+  Rendered orders/_form.html.erb (18.6ms)
+  Rendered orders/new.html.erb within layouts/application (20.8ms)
+Completed 200 OK in 47ms (Views: 42.6ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/orders/new" for ::1 at 2021-10-21 14:05:18 +0600
+Processing by OrdersController#new as HTML
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mClient Load (0.6ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/orders/_form.html.erb:15
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (6.5ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (3.1ms)
+  Rendered orders/_form.html.erb (19.1ms)
+  Rendered orders/new.html.erb within layouts/application (21.4ms)
+Completed 200 OK in 48ms (Views: 43.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/orders/new" for ::1 at 2021-10-21 14:05:26 +0600
+Processing by OrdersController#new as HTML
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mClient Load (0.6ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/orders/_form.html.erb:15
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (5.1ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (3.7ms)
+  Rendered orders/_form.html.erb (17.9ms)
+  Rendered orders/new.html.erb within layouts/application (19.9ms)
+Completed 200 OK in 49ms (Views: 44.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/orders/new" for ::1 at 2021-10-21 14:35:46 +0600
+Processing by OrdersController#new as HTML
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mClient Load (1.0ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/orders/_form.html.erb:15
+  [1m[36mProduct Load (1.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (15.1ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (1.0ms)
+  Rendered orders/_form.html.erb (35.3ms)
+  Rendered orders/new.html.erb within layouts/application (36.4ms)
+Completed 200 OK in 266ms (Views: 209.9ms | ActiveRecord: 30.2ms)
+
+
+Started GET "/orders/new" for ::1 at 2021-10-21 14:35:52 +0600
+Processing by OrdersController#new as HTML
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mClient Load (1.6ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/orders/_form.html.erb:15
+  [1m[36mProduct Load (1.1ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (7.2ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (3.5ms)
+  Rendered orders/_form.html.erb (22.4ms)
+  Rendered orders/new.html.erb within layouts/application (24.5ms)
+Completed 200 OK in 67ms (Views: 61.8ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/orders/new" for ::1 at 2021-10-21 14:35:55 +0600
+Processing by OrdersController#new as HTML
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mClient Load (0.6ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/orders/_form.html.erb:15
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (5.0ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:5
+  Rendered orders/_order_product_fields.html.erb (3.6ms)
+  Rendered orders/_form.html.erb (17.4ms)
+  Rendered orders/new.html.erb within layouts/application (19.8ms)
+Completed 200 OK in 49ms (Views: 44.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/orders/new" for ::1 at 2021-10-21 14:37:40 +0600
+Processing by OrdersController#new as HTML
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mClient Load (0.6ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/orders/_form.html.erb:15
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:6
+  Rendered orders/_order_product_fields.html.erb (25.4ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/orders/_order_product_fields.html.erb:6
+  Rendered orders/_order_product_fields.html.erb (2.0ms)
+  Rendered orders/_form.html.erb (35.8ms)
+  Rendered orders/new.html.erb within layouts/application (37.7ms)
+Completed 200 OK in 61ms (Views: 56.7ms | ActiveRecord: 1.3ms)
+
+

@@ -5,14 +5,14 @@ class Order < ApplicationRecord
     before_save :set_grand_total
     
     def set_grand_total
-        self.grand_total = 0
-        order_products.each do |op|
-            op.set_subtotal
-            self.grand_total = self.grand_total + op.subtotal
-        end    
+      self.grand_total = 0
+      order_products.each do |op|
+        op.set_subtotal
+        self.grand_total = self.grand_total + op.subtotal
+      end    
     end
 
-   def self.search(search)
+    def self.search(search)
       if !search.blank?
 
       return Order.joins(:client).where("clients.name ilike ? or clients.id = ? or client_id = ?", "%#{search.strip}%", search.to_i, search.to_i)
@@ -20,7 +20,7 @@ class Order < ApplicationRecord
       else
         Order.all
       end
-  end
+    end
     
         
 

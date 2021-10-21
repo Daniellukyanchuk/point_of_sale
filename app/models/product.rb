@@ -5,13 +5,12 @@ class Product < ApplicationRecord
 
 
    def self.search(search)
+     if !search.blank?
 
-      if !search.blank?
-
-      return Product.where("product_name ilike ? or id = ?", "%#{search.strip}%", search.to_i)
+     return Product.where("product_name ilike ? or id = ?", "%#{search.strip}%", search.to_i)
     
-      else
-        Product.all
-      end
-    end
+     else
+       Product.all
+     end
+   end
 end
