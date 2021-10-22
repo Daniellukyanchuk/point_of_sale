@@ -1,0 +1,31 @@
+<h1>Product's Report</h1>
+<p>Here you can find things like:
+What products are sold the most?</p>
+
+<table>
+  
+  <thead>
+    <tr>
+      <th><%= "product_name" %></th>
+      <th><%= "price" %></th>
+      <th><%= "amount_sold" %></th>
+      <th><%= "amount_made" %></th>
+      <th><%= "average_price_per_unit" %></th>
+      <th colspan="5"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @product_report.each do |product| %>
+     <tr>
+       <td><%= product["product_name"] %></td>
+       <td><%= product["price"] %></td>
+       <td><%= product["amount_sold"] %></td>
+       <td><%= product["amount_made"] %></td>
+       <td><%= product["avg"] %></td>
+     </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Back to Orders', orders_path %>

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'order_report/client_report'
+  get 'order_report/product_report'
   resources :orders
 
   root to: 'orders#index'

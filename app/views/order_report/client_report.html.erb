@@ -1,0 +1,31 @@
+<h1>Client's Report</h1>
+<p>Here you can find things like:
+Who are your big clients?</p>
+<table>
+  
+  <thead>
+    <tr>
+      <th><%= "client_id" %></th>
+      <th><%= "client_name" %></th>
+      <th><%= "total_money_spent" %></th>
+      <th><%= "number_of_orders" %></th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @client_report.each do |client| %>
+     <tr>
+       <td><%= client["client_id"] %></td>
+       <td><%= client["clients_name"] %></td>
+       <td><%= client["total_money_spent"] %></td>
+       <td><%= client["number_of_orders"] %></td>
+     </tr>
+    <% end %>
+  </tbody>
+</table>
+
+  
+
+
+<%= link_to 'Back to Orders', orders_path %>

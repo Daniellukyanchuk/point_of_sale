@@ -14,20 +14,6 @@ class Order < ApplicationRecord
 
     def self.search(search)
 
-      # sql = """
-      #       select distinct client_id, name, max(grand_total) 
-      #       from orders 
-      #       WHERE
-      #           client_id = #{search.to_i}
-      #       join clients on orders.client_id = clients.id
-      #       group by client_id, name 
-      #       order by max(grand_total) desc;
-      #   """
-      #   # result = ActiveRecord::Base.connection.execute(sql)
-
-        # stop
-
-
       if !search.blank?
 
         return Order.joins(:client).where("clients.name ilike ? or clients.id = ? or client_id = ?", "%#{search.strip}%", search.to_i, search.to_i)
@@ -35,9 +21,29 @@ class Order < ApplicationRecord
       else
         return Order.all
       end
-    
-
-        
 
     end
+
+    def self.client_report
+       sql = """
+            SELECT DISTINCT(client_id), clients.name AS clients_name, SUM(grand_total) AS total_money_spent, COUNT(orders.id) AS number_of_orders FROM orders
+            JOIN clients ON orders.client_id=clients.id
+            GROUP BY client_id, clients.name
+            ORDER BY SUM(grand_total)
+        """
+        result = ActiveRecord::Base.connection.execute(sql)
+
+      
+    end
+
+    def self.product_report
+      sql = """
+           SELECT DISTINCT(product_name), products.price, COUNT(quantity) AS amount_sold, SUM(subtotal) AS amount_made, AVG(sale_price) FROM products
+           JOIN order_products ON products.id=order_products.product_id
+           GROUP BY product_name, price
+           ORDER BY COUNT(quantity)
+        """
+        result = ActiveRecord::Base.connection.execute(sql)
+    end
+
 end
