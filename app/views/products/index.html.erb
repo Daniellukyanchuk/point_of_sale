@@ -12,6 +12,13 @@
     </tr>
   </thead>
 
+  <%= form_tag orders_path, :method => 'get' do %>
+    <p>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Search" :client_name => nil %>
+    </p>
+  <% end %>
+
   <tbody>
     <% @products.each do |product| %>
       <tr>
