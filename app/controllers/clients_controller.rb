@@ -1,9 +1,10 @@
 class ClientsController < ApplicationController
   before_action :set_client, only: %i[ show edit update destroy ]
+  helper_method :sort_column, :sort_direction
 
   # GET /clients or /clients.json
   def index
-    @clients = Client.order(sort_column + ' ' + sort_direction)
+    @clients = Client.search(params[:search]).order(sort_column + " " + sort_direction)
   end
 
   # GET /clients/1 or /clients/1.json

@@ -5,7 +5,7 @@ class Client < ApplicationRecord
 
     def self.search(search)
       if !search.blank?
-          return Client.where("name ilike ? or address like ? or id = ?", "%#{search.strip}%", "%#{search.strip}%", search.to_i)
+          return Client.where("name ilike ? or address ilike ? or id = ?", "%#{search.strip}%", "%#{search.strip}%", search.to_i)
       else
       Client.all
       end

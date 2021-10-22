@@ -17,7 +17,7 @@ class Order < ApplicationRecord
 
     def self.search(search)
         if !search.blank?
-            return Order.joins(:client).where("clients.name ilike ? or clients.id like ? or client_id = ?", "%#{search.strip}%", search.to_i, search.to_i)
+            return Order.joins(:client).where("clients.name ilike ? or clients.id = ? or client_id = ?", "%#{search.strip}%", search.to_i, search.to_i)
         else
         Order.all
       end
