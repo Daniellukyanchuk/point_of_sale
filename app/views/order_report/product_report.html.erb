@@ -1,16 +1,18 @@
 <h1>Product's Report</h1>
 <p>Here you can find things like:
-What products are sold the most?</p>
+What products are sold the most</p>
+<p>What is the average price per unit</p>
+
 
 <table>
   
   <thead>
     <tr>
-      <th><%= "product_name" %></th>
-      <th><%= "price" %></th>
-      <th><%= "amount_sold" %></th>
-      <th><%= "amount_made" %></th>
-      <th><%= "average_price_per_unit" %></th>
+      <th><%= sortable "product_name" %></th>
+      <th><%= sortable "price" %></th>
+      <th><%= sortable "amount_sold" %></th>
+      <th><%= sortable "amount_made" %></th>
+      <th><%= sortable "average_price_per_unit" %></th>
       <th colspan="5"></th>
     </tr>
   </thead>
