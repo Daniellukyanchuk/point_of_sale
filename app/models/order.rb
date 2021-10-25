@@ -19,6 +19,14 @@ class Order < ApplicationRecord
         Order.all
         end
       end
+    
+    def products_report
+        @products_reports = Order.products_report()
+    end
+
+    def clients_report
+        @clients_reports = Order.clients_report()
+    end
 
 end
 

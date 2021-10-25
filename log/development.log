@@ -7794,3 +7794,53 @@ Processing by OrdersController#index as HTML
 Completed 200 OK in 116ms (Views: 105.0ms | ActiveRecord: 2.1ms)
 
 
+Started GET "/reports/products_report.html" for ::1 at 2021-10-25 02:56:10 -0700
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by ReportsController#products_report as HTML
+  Rendering reports/products_report.html.erb within layouts/application
+  Rendered reports/products_report.html.erb within layouts/application (12.5ms)
+Completed 500 Internal Server Error in 37ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `each' for nil:NilClass:
+  app/views/reports/products_report.html.erb:17:in `_app_views_reports_products_report_html_erb___3196236575748230533_70368272473400'
+
+Started POST "/__better_errors/4c4d7920845b8af2/variables" for ::1 at 2021-10-25 02:56:11 -0700
+Started GET "/reports/products_report.html" for ::1 at 2021-10-25 02:56:35 -0700
+Processing by ReportsController#products_report as HTML
+  Rendering reports/products_report.html.erb within layouts/application
+  Rendered reports/products_report.html.erb within layouts/application (6.3ms)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `each' for nil:NilClass:
+  app/views/reports/products_report.html.erb:17:in `_app_views_reports_products_report_html_erb___3196236575748230533_70368271680760'
+
+Started POST "/__better_errors/d4dab3d25eb7ceca/variables" for ::1 at 2021-10-25 02:56:36 -0700
+Started GET "/reports/products_report.html" for ::1 at 2021-10-25 02:56:48 -0700
+Processing by ReportsController#products_report as HTML
+  Rendering reports/products_report.html.erb within layouts/application
+  Rendered reports/products_report.html.erb within layouts/application (3.7ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `each' for nil:NilClass:
+  app/views/reports/products_report.html.erb:17:in `_app_views_reports_products_report_html_erb___3196236575748230533_70368273532600'
+
+Started POST "/__better_errors/3b771fd169993b81/variables" for ::1 at 2021-10-25 02:56:48 -0700
+Started GET "/reports/products_report.html" for ::1 at 2021-10-25 02:59:20 -0700
+Processing by ReportsController#products_report as HTML
+  Rendering reports/products_report.html.erb within layouts/application
+  Rendered reports/products_report.html.erb within layouts/application (4.5ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `each' for nil:NilClass:
+  app/views/reports/products_report.html.erb:17:in `_app_views_reports_products_report_html_erb___3196236575748230533_69843640046380'
+
+Started POST "/__better_errors/84def9da46b500df/variables" for ::1 at 2021-10-25 02:59:20 -0700
