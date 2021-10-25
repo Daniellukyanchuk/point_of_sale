@@ -49707,3 +49707,20 @@ LINE 6:
   app/controllers/order_report_controller.rb:11:in `product_report'
 
 Started POST "/__better_errors/8d4634e03c9ef45d/variables" for ::1 at 2021-10-25 15:57:07 +0600
+Started POST "/__better_errors/8d4634e03c9ef45d/eval" for ::1 at 2021-10-25 16:52:22 +0600
+Started POST "/__better_errors/8d4634e03c9ef45d/eval" for ::1 at 2021-10-25 16:52:29 +0600
+Started POST "/__better_errors/8d4634e03c9ef45d/eval" for ::1 at 2021-10-25 16:52:42 +0600
+Started POST "/__better_errors/8d4634e03c9ef45d/eval" for ::1 at 2021-10-25 16:52:52 +0600
+Started POST "/__better_errors/8d4634e03c9ef45d/eval" for ::1 at 2021-10-25 16:52:58 +0600
+Started POST "/__better_errors/8d4634e03c9ef45d/eval" for ::1 at 2021-10-25 16:53:02 +0600
+  [1m[36mOrder Load (0.9ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Started POST "/__better_errors/8d4634e03c9ef45d/eval" for ::1 at 2021-10-25 16:56:51 +0600
+Started POST "/__better_errors/8d4634e03c9ef45d/eval" for ::1 at 2021-10-25 16:56:54 +0600
+Started POST "/__better_errors/8d4634e03c9ef45d/eval" for ::1 at 2021-10-25 16:57:00 +0600
+Started POST "/__better_errors/8d4634e03c9ef45d/eval" for ::1 at 2021-10-25 16:57:13 +0600
+Started POST "/__better_errors/8d4634e03c9ef45d/eval" for ::1 at 2021-10-25 16:57:22 +0600
+Started POST "/__better_errors/8d4634e03c9ef45d/eval" for ::1 at 2021-10-25 16:57:30 +0600
+Started POST "/__better_errors/8d4634e03c9ef45d/eval" for ::1 at 2021-10-25 16:57:33 +0600
+Started POST "/__better_errors/8d4634e03c9ef45d/eval" for ::1 at 2021-10-25 16:57:37 +0600
+Started POST "/__better_errors/8d4634e03c9ef45d/eval" for ::1 at 2021-10-25 16:57:43 +0600
