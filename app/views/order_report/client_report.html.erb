@@ -6,9 +6,9 @@ Who are your big clients?</p>
   <thead>
     <tr>
       <th><%= sortable "client_id" %></th>
-      <th><%= sortable "client_name" %></th>
-      <th><%= sortable "total_money_spent" %></th>
-      <th><%= sortable "number_of_orders" %></th>
+      <th><%= sortable "name", "Client_name" %></th>
+      <th><%= sortable "grand_total", "total_money_spent" %></th>
+      <th><%= sortable "id", "number_of_orders" %></th>
       <th colspan="4"></th>
     </tr>
   </thead>
@@ -28,4 +28,4 @@ Who are your big clients?</p>
   
 
 
-<%= link_to 'Back to Orders', orders_path %>
+<%= link_to 'Back', orders_path %>

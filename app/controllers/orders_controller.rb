@@ -59,7 +59,12 @@ class OrdersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def sort_column
-      Order.column_names.include?(params[:sort]) ? params[:sort] : "client_id"
+      if params[:sort].blank?
+        "client_id"
+      else
+        params[:sort]
+      end
+      # Order.column_names.include?(params[:sort]) ? params[:sort] : "client_id"
     end
 
     def sort_direction

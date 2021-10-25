@@ -19,7 +19,7 @@ class Order < ApplicationRecord
         return Order.joins(:client).where("clients.name ilike ? or clients.id = ? or client_id = ?", "%#{search.strip}%", search.to_i, search.to_i)
     
       else
-        return Order.all
+        return Order.joins(:client).all
       end
 
     end
@@ -29,20 +29,30 @@ class Order < ApplicationRecord
             SELECT DISTINCT(client_id), clients.name AS clients_name, SUM(grand_total) AS total_money_spent, COUNT(orders.id) AS number_of_orders FROM orders
             JOIN clients ON orders.client_id=clients.id
             GROUP BY client_id, clients.name
-            ORDER BY SUM(grand_total)
+            ORDER BY SUM(grand_total) 
         """
         result = ActiveRecord::Base.connection.execute(sql)
 
       
     end
 
-    def self.product_report
+    def self.product_report(sortable)
       sql = """
            SELECT DISTINCT(product_name), products.price, COUNT(quantity) AS amount_sold, SUM(subtotal) AS amount_made, AVG(sale_price) FROM products
            JOIN order_products ON products.id=order_products.product_id
            GROUP BY product_name, price
-           ORDER BY COUNT(quantity)
+           ORDER BY #{sortable}
         """
+        
+        # greeting = "Hi there Bob"
+        # greeting = "Hi" + " there " + " Bob"
+        # name = "Bob"
+        # greeting = "Hi there " + name + " fsdfds"
+        # greeting = "Hi there #{name}"
+
+
+
+
         result = ActiveRecord::Base.connection.execute(sql)
     end
 
