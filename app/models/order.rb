@@ -12,7 +12,6 @@ class Order < ApplicationRecord
         end
     
         self.grand_total = self.grand_total + op.set_subtotal
-
     end
 
     def self.search(search)
@@ -20,7 +19,7 @@ class Order < ApplicationRecord
             return Order.joins(:client).where("clients.name ilike ? or clients.id = ? or client_id = ?", "%#{search.strip}%", search.to_i, search.to_i)
         else
         Order.all
-      end
+        end
     end
 
 end

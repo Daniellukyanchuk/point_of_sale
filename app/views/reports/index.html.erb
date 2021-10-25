@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Product Sales Report</h1>
+
+<table>
+  <thead>
+    <tr>
+    <th><%= sortable "product_id", "Id" %></th>
+    <th><%= sortable "product_name", "Product Name" %></th>
+    <th><%= sortable "units_sold", "Units Sold" %></th>
+    <th><%= sortable "total_revenue", "Total Revenue" %></th>
+    <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @product_reports.each do |pr| %>
+      <tr>
+        <td><%= clients["clients_id"] %></td>
+        <td><%= clients["product_name"] %></td>
+        <td><%= units_sold %></td>
+        <td><%= total_revenue %></td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>
