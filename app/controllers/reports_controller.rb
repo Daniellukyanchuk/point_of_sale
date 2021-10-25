@@ -1,11 +1,11 @@
 class ReportsController < ApplicationController
 
     def index
-        @product_reports = Order.products_report()
+        @product_reports = Order.product_report()
     end
 
     def index
-        @clients_reports = Order.clients_report()
+        @client_reports = Order.client_report()
     end
 
 end
