@@ -13,15 +13,11 @@ class Order < ApplicationRecord
     end
 
     def self.search(search)
-
       if !search.blank?
-
-        return Order.joins(:client).where("clients.name ilike ? or clients.id = ? or client_id = ?", "%#{search.strip}%", search.to_i, search.to_i)
-    
+        return Order.joins(:client).where("clients.name ilike ? or clients.id = ? or client_id = ?", "%#{search.strip}%", search.to_i, search.to_i)    
       else
         return Order.joins(:client).all
       end
-
     end
 
     def self.client_report
@@ -31,9 +27,7 @@ class Order < ApplicationRecord
             GROUP BY client_id, clients.name
             ORDER BY SUM(grand_total) 
         """
-        result = ActiveRecord::Base.connection.execute(sql)
-
-      
+        result = ActiveRecord::Base.connection.execute(sql)      
     end
 
     def self.product_report(sortable)
@@ -43,16 +37,6 @@ class Order < ApplicationRecord
            GROUP BY product_name, price
            ORDER BY #{sortable}
         """
-        
-        # greeting = "Hi there Bob"
-        # greeting = "Hi" + " there " + " Bob"
-        # name = "Bob"
-        # greeting = "Hi there " + name + " fsdfds"
-        # greeting = "Hi there #{name}"
-
-
-
-
         result = ActiveRecord::Base.connection.execute(sql)
     end
 

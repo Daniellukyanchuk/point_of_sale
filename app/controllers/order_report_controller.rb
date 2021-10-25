@@ -6,9 +6,7 @@ class OrderReportController < ApplicationController
   end
 
   def product_report
-
-    
-     @product_report = Order.product_report(params["#{:sort}"])
+     @product_report = Order.product_report(params[:sort])
   end
   
   private
