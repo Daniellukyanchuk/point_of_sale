@@ -35,9 +35,20 @@ class Order < ApplicationRecord
            SELECT DISTINCT(product_name), products.price, COUNT(quantity) AS amount_sold, SUM(subtotal) AS amount_made, AVG(sale_price) FROM products
            JOIN order_products ON products.id=order_products.product_id
            GROUP BY product_name, price
-           ORDER BY #{sortable}
+           ORDER BY
+           (CASE 
+              WHEN products.product_name THEN #{sortable}
+              WHEN products.price THEN #{sortable}
+              WHEN quantity THEN #{sortable}
+              WHEN order_products.subtotal THEN #{sortable}
+              WHEN products.unit THEN #{sortable}
+              ELSE products.product_name
+           END);
+           
         """
         result = ActiveRecord::Base.connection.execute(sql)
     end
 
 end
+
+
