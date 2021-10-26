@@ -14,7 +14,7 @@ class Order < ApplicationRecord
 
     def self.product_report
       sql = """
-      SELECT product_id, COUNT(subtotal), SUM(subtotal)
+      SELECT product_id, SUM(quantity) AS units_sold , SUM(subtotal) AS total_revenue
       FROM order_products
       GROUP BY product_id
       ORDER BY SUM(subtotal) DESC
@@ -24,7 +24,7 @@ class Order < ApplicationRecord
   
     def self.client_report
       sql = """
-      SELECT client_id, COUNT(grand_total), SUM(grand_total)
+      SELECT client_id, COUNT(grand_total) AS orders_placed, SUM(grand_total) AS total_spent
       FROM orders
       GROUP BY client_id
       ORDER BY COUNT(grand_total) DESC

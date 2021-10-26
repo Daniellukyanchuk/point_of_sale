@@ -6,7 +6,6 @@
   <thead>
     <tr>
     <th><%= sortable "product_id", "Id" %></th>
-    <th><%= sortable "product_name", "Product Name" %></th>
     <th><%= sortable "units_sold", "Units Sold" %></th>
     <th><%= sortable "total_revenue", "Total Revenue" %></th>
     <th colspan="4"></th>
@@ -14,13 +13,12 @@
   </thead>
 
   <tbody>
-  
-      <tr>
-        <td>001</td>
-        <td>Almonds</td>
-        <td>2236</td>
-        <td>368648</td>
-        </tr>
-    
+    <tr>
+      <% @product_reports.each do |p_report| %>      
+        <td><%= product_id %></td>
+        <td><%= units_sold %></td>
+        <td><%= total_revenue %></td>
+       <% end %>
+    </tr>
   </tbody>
 </table>
