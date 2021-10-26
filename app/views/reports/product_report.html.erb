@@ -14,11 +14,11 @@
 
   <tbody>
     <tr>
-      <% @product_reports.each do |p_report| %>      
-        <td><%= product_id %></td>
-        <td><%= units_sold %></td>
-        <td><%= total_revenue %></td>
-       <% end %>
+      <% @product_report.each do |p_report| %>      
+        <td><%= p_report[product_id] %></td>
+        <td><%= p_report[units_sold] %></td>
+        <td><%= p_report[total_revenue] %></td>
+        <% end %>
     </tr>
   </tbody>
 </table>
