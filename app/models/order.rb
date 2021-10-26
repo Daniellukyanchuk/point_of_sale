@@ -20,12 +20,12 @@ class Order < ApplicationRecord
       end
     end
 
-    def self.client_report
+    def self.client_report(sortable)
        sql = """
             SELECT DISTINCT(client_id), clients.name AS clients_name, SUM(grand_total) AS total_money_spent, COUNT(orders.id) AS number_of_orders FROM orders
             JOIN clients ON orders.client_id=clients.id
             GROUP BY client_id, clients.name
-            ORDER BY SUM(grand_total) 
+            ORDER BY #{sortable} 
         """
         result = ActiveRecord::Base.connection.execute(sql)      
     end
@@ -35,15 +35,8 @@ class Order < ApplicationRecord
            SELECT DISTINCT(product_name), products.price, COUNT(quantity) AS amount_sold, SUM(subtotal) AS amount_made, AVG(sale_price) FROM products
            JOIN order_products ON products.id=order_products.product_id
            GROUP BY product_name, price
-           ORDER BY
-           (CASE 
-              WHEN products.product_name THEN #{sortable}
-              WHEN products.price THEN #{sortable}
-              WHEN quantity THEN #{sortable}
-              WHEN order_products.subtotal THEN #{sortable}
-              WHEN products.unit THEN #{sortable}
-              ELSE products.product_name
-           END);
+           ORDER BY #{sortable}
+           
            
         """
         result = ActiveRecord::Base.connection.execute(sql)

@@ -50364,3 +50364,971 @@ LINE 8:               WHEN products.price THEN
   app/controllers/order_report_controller.rb:9:in `product_report'
 
 Started POST "/__better_errors/d0a84a37e2eb848a/variables" for ::1 at 2021-10-26 09:39:52 +0600
+Started GET "/orders" for ::1 at 2021-10-26 13:07:23 +0600
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/daniellukyanchuk/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (1.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" INNER JOIN "clients" ON "clients"."id" = "orders"."client_id" ORDER BY client_id asc[0m
+  ↳ app/views/orders/index.html.erb:32
+  [1m[36mClient Load (0.2ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  [1m[36mClient Load (0.1ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  [1m[36mClient Load (0.1ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  [1m[36mClient Load (0.1ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  Rendered orders/index.html.erb within layouts/application (38.8ms)
+Completed 200 OK in 176ms (Views: 153.6ms | ActiveRecord: 14.3ms)
+
+
+Started GET "/order_report/client_report" for ::1 at 2021-10-26 13:44:16 +0600
+Processing by OrderReportController#client_report as HTML
+  [1m[35m (3.2ms)[0m  [1m[34m
+            SELECT DISTINCT(client_id), clients.name AS clients_name, SUM(grand_total) AS total_money_spent, COUNT(orders.id) AS number_of_orders FROM orders
+            JOIN clients ON orders.client_id=clients.id
+            GROUP BY client_id, clients.name
+            ORDER BY SUM(grand_total) 
+        [0m
+  ↳ app/models/order.rb:30
+  Rendering order_report/client_report.html.erb within layouts/application
+  Rendered order_report/client_report.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 34ms (Views: 28.5ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/order_report/client_report?direction=asc&sort=grand_total" for ::1 at 2021-10-26 13:44:17 +0600
+Processing by OrderReportController#client_report as HTML
+  Parameters: {"direction"=>"asc", "sort"=>"grand_total"}
+  [1m[35m (1.8ms)[0m  [1m[34m
+            SELECT DISTINCT(client_id), clients.name AS clients_name, SUM(grand_total) AS total_money_spent, COUNT(orders.id) AS number_of_orders FROM orders
+            JOIN clients ON orders.client_id=clients.id
+            GROUP BY client_id, clients.name
+            ORDER BY SUM(grand_total) 
+        [0m
+  ↳ app/models/order.rb:30
+  Rendering order_report/client_report.html.erb within layouts/application
+  Rendered order_report/client_report.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 37ms (Views: 31.7ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/order_report/client_report?direction=desc&sort=grand_total" for ::1 at 2021-10-26 13:44:17 +0600
+Processing by OrderReportController#client_report as HTML
+  Parameters: {"direction"=>"desc", "sort"=>"grand_total"}
+  [1m[35m (1.3ms)[0m  [1m[34m
+            SELECT DISTINCT(client_id), clients.name AS clients_name, SUM(grand_total) AS total_money_spent, COUNT(orders.id) AS number_of_orders FROM orders
+            JOIN clients ON orders.client_id=clients.id
+            GROUP BY client_id, clients.name
+            ORDER BY SUM(grand_total) 
+        [0m
+  ↳ app/models/order.rb:30
+  Rendering order_report/client_report.html.erb within layouts/application
+  Rendered order_report/client_report.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 31ms (Views: 26.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/order_report/client_report?direction=asc&sort=grand_total" for ::1 at 2021-10-26 13:44:17 +0600
+Processing by OrderReportController#client_report as HTML
+  Parameters: {"direction"=>"asc", "sort"=>"grand_total"}
+  [1m[35m (0.9ms)[0m  [1m[34m
+            SELECT DISTINCT(client_id), clients.name AS clients_name, SUM(grand_total) AS total_money_spent, COUNT(orders.id) AS number_of_orders FROM orders
+            JOIN clients ON orders.client_id=clients.id
+            GROUP BY client_id, clients.name
+            ORDER BY SUM(grand_total) 
+        [0m
+  ↳ app/models/order.rb:30
+  Rendering order_report/client_report.html.erb within layouts/application
+  Rendered order_report/client_report.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 41ms (Views: 36.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/order_report/client_report?direction=desc&sort=grand_total" for ::1 at 2021-10-26 13:44:18 +0600
+Processing by OrderReportController#client_report as HTML
+  Parameters: {"direction"=>"desc", "sort"=>"grand_total"}
+  [1m[35m (1.8ms)[0m  [1m[34m
+            SELECT DISTINCT(client_id), clients.name AS clients_name, SUM(grand_total) AS total_money_spent, COUNT(orders.id) AS number_of_orders FROM orders
+            JOIN clients ON orders.client_id=clients.id
+            GROUP BY client_id, clients.name
+            ORDER BY SUM(grand_total) 
+        [0m
+  ↳ app/models/order.rb:30
+  Rendering order_report/client_report.html.erb within layouts/application
+  Rendered order_report/client_report.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 37ms (Views: 32.9ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/order_report/client_report?direction=asc&sort=name" for ::1 at 2021-10-26 13:44:18 +0600
+Processing by OrderReportController#client_report as HTML
+  Parameters: {"direction"=>"asc", "sort"=>"name"}
+  [1m[35m (2.7ms)[0m  [1m[34m
+            SELECT DISTINCT(client_id), clients.name AS clients_name, SUM(grand_total) AS total_money_spent, COUNT(orders.id) AS number_of_orders FROM orders
+            JOIN clients ON orders.client_id=clients.id
+            GROUP BY client_id, clients.name
+            ORDER BY SUM(grand_total) 
+        [0m
+  ↳ app/models/order.rb:30
+  Rendering order_report/client_report.html.erb within layouts/application
+  Rendered order_report/client_report.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 47ms (Views: 39.1ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/order_report/client_report?direction=desc&sort=name" for ::1 at 2021-10-26 13:44:18 +0600
+Processing by OrderReportController#client_report as HTML
+  Parameters: {"direction"=>"desc", "sort"=>"name"}
+  [1m[35m (0.8ms)[0m  [1m[34m
+            SELECT DISTINCT(client_id), clients.name AS clients_name, SUM(grand_total) AS total_money_spent, COUNT(orders.id) AS number_of_orders FROM orders
+            JOIN clients ON orders.client_id=clients.id
+            GROUP BY client_id, clients.name
+            ORDER BY SUM(grand_total) 
+        [0m
+  ↳ app/models/order.rb:30
+  Rendering order_report/client_report.html.erb within layouts/application
+  Rendered order_report/client_report.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 40ms (Views: 36.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/order_report/client_report?direction=asc&sort=name" for ::1 at 2021-10-26 13:44:18 +0600
+Processing by OrderReportController#client_report as HTML
+  Parameters: {"direction"=>"asc", "sort"=>"name"}
+  [1m[35m (1.0ms)[0m  [1m[34m
+            SELECT DISTINCT(client_id), clients.name AS clients_name, SUM(grand_total) AS total_money_spent, COUNT(orders.id) AS number_of_orders FROM orders
+            JOIN clients ON orders.client_id=clients.id
+            GROUP BY client_id, clients.name
+            ORDER BY SUM(grand_total) 
+        [0m
+  ↳ app/models/order.rb:30
+  Rendering order_report/client_report.html.erb within layouts/application
+  Rendered order_report/client_report.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 59ms (Views: 56.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/order_report/client_report?direction=desc&sort=name" for ::1 at 2021-10-26 13:44:18 +0600
+Processing by OrderReportController#client_report as HTML
+  Parameters: {"direction"=>"desc", "sort"=>"name"}
+  [1m[35m (1.2ms)[0m  [1m[34m
+            SELECT DISTINCT(client_id), clients.name AS clients_name, SUM(grand_total) AS total_money_spent, COUNT(orders.id) AS number_of_orders FROM orders
+            JOIN clients ON orders.client_id=clients.id
+            GROUP BY client_id, clients.name
+            ORDER BY SUM(grand_total) 
+        [0m
+  ↳ app/models/order.rb:30
+  Rendering order_report/client_report.html.erb within layouts/application
+  Rendered order_report/client_report.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 32ms (Views: 28.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/order_report/client_report?direction=asc&sort=name" for ::1 at 2021-10-26 13:44:19 +0600
+Processing by OrderReportController#client_report as HTML
+  Parameters: {"direction"=>"asc", "sort"=>"name"}
+  [1m[35m (1.2ms)[0m  [1m[34m
+            SELECT DISTINCT(client_id), clients.name AS clients_name, SUM(grand_total) AS total_money_spent, COUNT(orders.id) AS number_of_orders FROM orders
+            JOIN clients ON orders.client_id=clients.id
+            GROUP BY client_id, clients.name
+            ORDER BY SUM(grand_total) 
+        [0m
+  ↳ app/models/order.rb:30
+  Rendering order_report/client_report.html.erb within layouts/application
+  Rendered order_report/client_report.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 36ms (Views: 32.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/order_report/client_report?direction=desc&sort=name" for ::1 at 2021-10-26 13:44:19 +0600
+Processing by OrderReportController#client_report as HTML
+  Parameters: {"direction"=>"desc", "sort"=>"name"}
+  [1m[35m (0.8ms)[0m  [1m[34m
+            SELECT DISTINCT(client_id), clients.name AS clients_name, SUM(grand_total) AS total_money_spent, COUNT(orders.id) AS number_of_orders FROM orders
+            JOIN clients ON orders.client_id=clients.id
+            GROUP BY client_id, clients.name
+            ORDER BY SUM(grand_total) 
+        [0m
+  ↳ app/models/order.rb:30
+  Rendering order_report/client_report.html.erb within layouts/application
+  Rendered order_report/client_report.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 39ms (Views: 34.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/order_report/client_report?direction=asc&sort=name" for ::1 at 2021-10-26 13:44:20 +0600
+Processing by OrderReportController#client_report as HTML
+  Parameters: {"direction"=>"asc", "sort"=>"name"}
+  [1m[35m (2.2ms)[0m  [1m[34m
+            SELECT DISTINCT(client_id), clients.name AS clients_name, SUM(grand_total) AS total_money_spent, COUNT(orders.id) AS number_of_orders FROM orders
+            JOIN clients ON orders.client_id=clients.id
+            GROUP BY client_id, clients.name
+            ORDER BY SUM(grand_total) 
+        [0m
+  ↳ app/models/order.rb:30
+  Rendering order_report/client_report.html.erb within layouts/application
+  Rendered order_report/client_report.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 39ms (Views: 34.2ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/order_report/client_report?direction=desc&sort=name" for ::1 at 2021-10-26 13:44:20 +0600
+Processing by OrderReportController#client_report as HTML
+  Parameters: {"direction"=>"desc", "sort"=>"name"}
+  [1m[35m (0.8ms)[0m  [1m[34m
+            SELECT DISTINCT(client_id), clients.name AS clients_name, SUM(grand_total) AS total_money_spent, COUNT(orders.id) AS number_of_orders FROM orders
+            JOIN clients ON orders.client_id=clients.id
+            GROUP BY client_id, clients.name
+            ORDER BY SUM(grand_total) 
+        [0m
+  ↳ app/models/order.rb:30
+  Rendering order_report/client_report.html.erb within layouts/application
+  Rendered order_report/client_report.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 36ms (Views: 32.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/order_report/client_report?direction=asc&sort=id" for ::1 at 2021-10-26 13:44:21 +0600
+Processing by OrderReportController#client_report as HTML
+  Parameters: {"direction"=>"asc", "sort"=>"id"}
+  [1m[35m (1.0ms)[0m  [1m[34m
+            SELECT DISTINCT(client_id), clients.name AS clients_name, SUM(grand_total) AS total_money_spent, COUNT(orders.id) AS number_of_orders FROM orders
+            JOIN clients ON orders.client_id=clients.id
+            GROUP BY client_id, clients.name
+            ORDER BY SUM(grand_total) 
+        [0m
+  ↳ app/models/order.rb:30
+  Rendering order_report/client_report.html.erb within layouts/application
+  Rendered order_report/client_report.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 55ms (Views: 50.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/order_report/client_report?direction=desc&sort=id" for ::1 at 2021-10-26 13:44:21 +0600
+Processing by OrderReportController#client_report as HTML
+  Parameters: {"direction"=>"desc", "sort"=>"id"}
+  [1m[35m (0.7ms)[0m  [1m[34m
+            SELECT DISTINCT(client_id), clients.name AS clients_name, SUM(grand_total) AS total_money_spent, COUNT(orders.id) AS number_of_orders FROM orders
+            JOIN clients ON orders.client_id=clients.id
+            GROUP BY client_id, clients.name
+            ORDER BY SUM(grand_total) 
+        [0m
+  ↳ app/models/order.rb:30
+  Rendering order_report/client_report.html.erb within layouts/application
+  Rendered order_report/client_report.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 40ms (Views: 36.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/order_report/client_report?direction=asc&sort=id" for ::1 at 2021-10-26 13:44:21 +0600
+Processing by OrderReportController#client_report as HTML
+  Parameters: {"direction"=>"asc", "sort"=>"id"}
+  [1m[35m (1.1ms)[0m  [1m[34m
+            SELECT DISTINCT(client_id), clients.name AS clients_name, SUM(grand_total) AS total_money_spent, COUNT(orders.id) AS number_of_orders FROM orders
+            JOIN clients ON orders.client_id=clients.id
+            GROUP BY client_id, clients.name
+            ORDER BY SUM(grand_total) 
+        [0m
+  ↳ app/models/order.rb:30
+  Rendering order_report/client_report.html.erb within layouts/application
+  Rendered order_report/client_report.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 36ms (Views: 31.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/order_report/client_report?direction=desc&sort=id" for ::1 at 2021-10-26 13:44:22 +0600
+Processing by OrderReportController#client_report as HTML
+  Parameters: {"direction"=>"desc", "sort"=>"id"}
+  [1m[35m (0.9ms)[0m  [1m[34m
+            SELECT DISTINCT(client_id), clients.name AS clients_name, SUM(grand_total) AS total_money_spent, COUNT(orders.id) AS number_of_orders FROM orders
+            JOIN clients ON orders.client_id=clients.id
+            GROUP BY client_id, clients.name
+            ORDER BY SUM(grand_total) 
+        [0m
+  ↳ app/models/order.rb:30
+  Rendering order_report/client_report.html.erb within layouts/application
+  Rendered order_report/client_report.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 38ms (Views: 35.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/order_report/client_report?direction=asc&sort=id" for ::1 at 2021-10-26 13:44:35 +0600
+Processing by OrderReportController#client_report as HTML
+  Parameters: {"direction"=>"asc", "sort"=>"id"}
+  [1m[35m (1.2ms)[0m  [1m[34m
+            SELECT DISTINCT(client_id), clients.name AS clients_name, SUM(grand_total) AS total_money_spent, COUNT(orders.id) AS number_of_orders FROM orders
+            JOIN clients ON orders.client_id=clients.id
+            GROUP BY client_id, clients.name
+            ORDER BY SUM(grand_total) 
+        [0m
+  ↳ app/models/order.rb:30
+  Rendering order_report/client_report.html.erb within layouts/application
+  Rendered order_report/client_report.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 33ms (Views: 29.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/order_report/client_report?direction=desc&sort=id" for ::1 at 2021-10-26 13:44:36 +0600
+Processing by OrderReportController#client_report as HTML
+  Parameters: {"direction"=>"desc", "sort"=>"id"}
+  [1m[35m (0.9ms)[0m  [1m[34m
+            SELECT DISTINCT(client_id), clients.name AS clients_name, SUM(grand_total) AS total_money_spent, COUNT(orders.id) AS number_of_orders FROM orders
+            JOIN clients ON orders.client_id=clients.id
+            GROUP BY client_id, clients.name
+            ORDER BY SUM(grand_total) 
+        [0m
+  ↳ app/models/order.rb:30
+  Rendering order_report/client_report.html.erb within layouts/application
+  Rendered order_report/client_report.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 29ms (Views: 26.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/order_report/client_report?direction=asc&sort=id" for ::1 at 2021-10-26 13:46:05 +0600
+Processing by OrderReportController#client_report as HTML
+  Parameters: {"direction"=>"asc", "sort"=>"id"}
+  [1m[35m (1.0ms)[0m  [1m[34m
+            SELECT DISTINCT(client_id), clients.name AS clients_name, SUM(grand_total) AS total_money_spent, COUNT(orders.id) AS number_of_orders FROM orders
+            JOIN clients ON orders.client_id=clients.id
+            GROUP BY client_id, clients.name
+            ORDER BY SUM(grand_total) 
+        [0m
+  ↳ app/models/order.rb:30
+  Rendering order_report/client_report.html.erb within layouts/application
+  Rendered order_report/client_report.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 36ms (Views: 32.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/order_report/client_report?direction=desc&sort=id" for ::1 at 2021-10-26 13:46:06 +0600
+Processing by OrderReportController#client_report as HTML
+  Parameters: {"direction"=>"desc", "sort"=>"id"}
+  [1m[35m (2.5ms)[0m  [1m[34m
+            SELECT DISTINCT(client_id), clients.name AS clients_name, SUM(grand_total) AS total_money_spent, COUNT(orders.id) AS number_of_orders FROM orders
+            JOIN clients ON orders.client_id=clients.id
+            GROUP BY client_id, clients.name
+            ORDER BY SUM(grand_total) 
+        [0m
+  ↳ app/models/order.rb:30
+  Rendering order_report/client_report.html.erb within layouts/application
+  Rendered order_report/client_report.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 33ms (Views: 27.7ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/order_report/client_report?direction=asc&sort=id" for ::1 at 2021-10-26 13:46:10 +0600
+Processing by OrderReportController#client_report as HTML
+  Parameters: {"direction"=>"asc", "sort"=>"id"}
+  [1m[35m (1.4ms)[0m  [1m[34m
+            SELECT DISTINCT(client_id), clients.name AS clients_name, SUM(grand_total) AS total_money_spent, COUNT(orders.id) AS number_of_orders FROM orders
+            JOIN clients ON orders.client_id=clients.id
+            GROUP BY client_id, clients.name
+            ORDER BY SUM(grand_total) 
+        [0m
+  ↳ app/models/order.rb:30
+  Rendering order_report/client_report.html.erb within layouts/application
+  Rendered order_report/client_report.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 37ms (Views: 33.1ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/orders" for ::1 at 2021-10-26 13:47:48 +0600
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (1.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders" INNER JOIN "clients" ON "clients"."id" = "orders"."client_id" ORDER BY client_id asc[0m
+  ↳ app/views/orders/index.html.erb:32
+  [1m[36mClient Load (0.4ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  [1m[36mClient Load (0.4ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  [1m[36mClient Load (0.6ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  [1m[36mClient Load (0.5ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  Rendered orders/index.html.erb within layouts/application (25.1ms)
+Completed 200 OK in 45ms (Views: 39.3ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/order_report/product_report" for ::1 at 2021-10-26 13:47:49 +0600
+Processing by OrderReportController#product_report as HTML
+  [1m[35m (3.6ms)[0m  [1m[34m
+           SELECT DISTINCT(product_name), products.price, COUNT(quantity) AS amount_sold, SUM(subtotal) AS amount_made, AVG(sale_price) FROM products
+           JOIN order_products ON products.id=order_products.product_id
+           GROUP BY product_name, price
+           ORDER BY
+           (CASE 
+              WHEN products.product_name THEN 
+              WHEN products.price THEN 
+              WHEN quantity THEN 
+              WHEN order_products.subtotal THEN 
+              WHEN products.unit THEN 
+              ELSE products.product_name
+           END);
+           
+        [0m
+  ↳ app/models/order.rb:49
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 3.6ms)
+
+
+
+ActiveRecord::StatementInvalid - PG::SyntaxError: ERROR:  syntax error at or near "WHEN"
+LINE 8:               WHEN products.price THEN 
+                      ^
+: 
+           SELECT DISTINCT(product_name), products.price, COUNT(quantity) AS amount_sold, SUM(subtotal) AS amount_made, AVG(sale_price) FROM products
+           JOIN order_products ON products.id=order_products.product_id
+           GROUP BY product_name, price
+           ORDER BY
+           (CASE 
+              WHEN products.product_name THEN 
+              WHEN products.price THEN 
+              WHEN quantity THEN 
+              WHEN order_products.subtotal THEN 
+              WHEN products.unit THEN 
+              ELSE products.product_name
+           END);:
+  app/models/order.rb:49:in `product_report'
+  app/controllers/order_report_controller.rb:9:in `product_report'
+
+Started POST "/__better_errors/23291806bb39d544/variables" for ::1 at 2021-10-26 13:47:49 +0600
+Started GET "/order_report/product_report" for ::1 at 2021-10-26 13:48:14 +0600
+Processing by OrderReportController#product_report as HTML
+  [1m[35m (1.1ms)[0m  [1m[34m
+           SELECT DISTINCT(product_name), products.price, COUNT(quantity) AS amount_sold, SUM(subtotal) AS amount_made, AVG(sale_price) FROM products
+           JOIN order_products ON products.id=order_products.product_id
+           GROUP BY product_name, price
+           ORDER BY 
+           
+           
+        [0m
+  ↳ app/models/order.rb:42
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 1.1ms)
+
+
+
+ActiveRecord::StatementInvalid - PG::SyntaxError: ERROR:  syntax error at end of input
+LINE 8:         
+                ^
+: 
+           SELECT DISTINCT(product_name), products.price, COUNT(quantity) AS amount_sold, SUM(subtotal) AS amount_made, AVG(sale_price) FROM products
+           JOIN order_products ON products.id=order_products.product_id
+           GROUP BY product_name, price
+           ORDER BY:
+  app/models/order.rb:42:in `product_report'
+  app/controllers/order_report_controller.rb:9:in `product_report'
+
+Started POST "/__better_errors/240204144d53f020/variables" for ::1 at 2021-10-26 13:48:14 +0600
+Started GET "/orders" for ::1 at 2021-10-26 13:48:16 +0600
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" INNER JOIN "clients" ON "clients"."id" = "orders"."client_id" ORDER BY client_id asc[0m
+  ↳ app/views/orders/index.html.erb:32
+  [1m[36mClient Load (0.3ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  [1m[36mClient Load (0.4ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  [1m[36mClient Load (0.1ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  [1m[36mClient Load (0.1ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  Rendered orders/index.html.erb within layouts/application (40.2ms)
+Completed 200 OK in 56ms (Views: 35.9ms | ActiveRecord: 17.5ms)
+
+
+Started GET "/order_report/product_report" for ::1 at 2021-10-26 13:48:18 +0600
+Processing by OrderReportController#product_report as HTML
+  [1m[35m (1.6ms)[0m  [1m[34m
+           SELECT DISTINCT(product_name), products.price, COUNT(quantity) AS amount_sold, SUM(subtotal) AS amount_made, AVG(sale_price) FROM products
+           JOIN order_products ON products.id=order_products.product_id
+           GROUP BY product_name, price
+           ORDER BY 
+           
+           
+        [0m
+  ↳ app/models/order.rb:42
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 1.6ms)
+
+
+
+ActiveRecord::StatementInvalid - PG::SyntaxError: ERROR:  syntax error at end of input
+LINE 8:         
+                ^
+: 
+           SELECT DISTINCT(product_name), products.price, COUNT(quantity) AS amount_sold, SUM(subtotal) AS amount_made, AVG(sale_price) FROM products
+           JOIN order_products ON products.id=order_products.product_id
+           GROUP BY product_name, price
+           ORDER BY:
+  app/models/order.rb:42:in `product_report'
+  app/controllers/order_report_controller.rb:9:in `product_report'
+
+Started POST "/__better_errors/6a76c95a74b38197/variables" for ::1 at 2021-10-26 13:48:18 +0600
+Started GET "/order_report/product_report" for ::1 at 2021-10-26 13:49:48 +0600
+Processing by OrderReportController#product_report as HTML
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+
+
+ArgumentError - wrong number of arguments (given 1, expected 0):
+  app/models/order.rb:33:in `product_report'
+  app/controllers/order_report_controller.rb:9:in `product_report'
+
+Started POST "/__better_errors/96724c9a09373ca6/variables" for ::1 at 2021-10-26 13:49:48 +0600
+Started GET "/orders" for ::1 at 2021-10-26 13:49:59 +0600
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" INNER JOIN "clients" ON "clients"."id" = "orders"."client_id" ORDER BY client_id asc[0m
+  ↳ app/views/orders/index.html.erb:32
+  [1m[36mClient Load (0.2ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  [1m[36mClient Load (0.4ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  [1m[36mClient Load (0.3ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  [1m[36mClient Load (0.1ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  Rendered orders/index.html.erb within layouts/application (46.1ms)
+Completed 200 OK in 69ms (Views: 54.0ms | ActiveRecord: 12.1ms)
+
+
+Started GET "/order_report/client_report" for ::1 at 2021-10-26 13:50:01 +0600
+Processing by OrderReportController#client_report as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+
+ArgumentError - wrong number of arguments (given 0, expected 1):
+  app/models/order.rb:23:in `client_report'
+  app/controllers/order_report_controller.rb:5:in `client_report'
+
+Started POST "/__better_errors/42cc39b860475452/variables" for ::1 at 2021-10-26 13:50:01 +0600
+Started GET "/order_report/client_report" for ::1 at 2021-10-26 13:50:31 +0600
+Processing by OrderReportController#client_report as HTML
+  [1m[35m (1.1ms)[0m  [1m[34m
+            SELECT DISTINCT(client_id), clients.name AS clients_name, SUM(grand_total) AS total_money_spent, COUNT(orders.id) AS number_of_orders FROM orders
+            JOIN clients ON orders.client_id=clients.id
+            GROUP BY client_id, clients.name
+            ORDER BY  
+        [0m
+  ↳ app/models/order.rb:30
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 1.1ms)
+
+
+
+ActiveRecord::StatementInvalid - PG::SyntaxError: ERROR:  syntax error at end of input
+LINE 6:         
+                ^
+: 
+            SELECT DISTINCT(client_id), clients.name AS clients_name, SUM(grand_total) AS total_money_spent, COUNT(orders.id) AS number_of_orders FROM orders
+            JOIN clients ON orders.client_id=clients.id
+            GROUP BY client_id, clients.name
+            ORDER BY:
+  app/models/order.rb:30:in `client_report'
+  app/controllers/order_report_controller.rb:5:in `client_report'
+
+Started POST "/__better_errors/be272b1b863bb8eb/variables" for ::1 at 2021-10-26 13:50:31 +0600
+Started GET "/orders" for ::1 at 2021-10-26 13:50:37 +0600
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" INNER JOIN "clients" ON "clients"."id" = "orders"."client_id" ORDER BY client_id asc[0m
+  ↳ app/views/orders/index.html.erb:32
+  [1m[36mClient Load (0.2ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  [1m[36mClient Load (0.4ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  [1m[36mClient Load (0.2ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  [1m[36mClient Load (0.2ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  Rendered orders/index.html.erb within layouts/application (46.6ms)
+Completed 200 OK in 73ms (Views: 55.0ms | ActiveRecord: 14.9ms)
+
+
+Started GET "/order_report/client_report" for ::1 at 2021-10-26 13:50:39 +0600
+Processing by OrderReportController#client_report as HTML
+  [1m[35m (1.4ms)[0m  [1m[34m
+            SELECT DISTINCT(client_id), clients.name AS clients_name, SUM(grand_total) AS total_money_spent, COUNT(orders.id) AS number_of_orders FROM orders
+            JOIN clients ON orders.client_id=clients.id
+            GROUP BY client_id, clients.name
+            ORDER BY  
+        [0m
+  ↳ app/models/order.rb:30
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 1.4ms)
+
+
+
+ActiveRecord::StatementInvalid - PG::SyntaxError: ERROR:  syntax error at end of input
+LINE 6:         
+                ^
+: 
+            SELECT DISTINCT(client_id), clients.name AS clients_name, SUM(grand_total) AS total_money_spent, COUNT(orders.id) AS number_of_orders FROM orders
+            JOIN clients ON orders.client_id=clients.id
+            GROUP BY client_id, clients.name
+            ORDER BY:
+  app/models/order.rb:30:in `client_report'
+  app/controllers/order_report_controller.rb:5:in `client_report'
+
+Started POST "/__better_errors/7c52f822a61402b1/variables" for ::1 at 2021-10-26 13:50:39 +0600
+Started GET "/order_report/client_report" for ::1 at 2021-10-26 13:51:05 +0600
+Processing by OrderReportController#client_report as HTML
+  [1m[35m (1.2ms)[0m  [1m[34m
+            SELECT DISTINCT(client_id), clients.name AS clients_name, SUM(grand_total) AS total_money_spent, COUNT(orders.id) AS number_of_orders FROM orders
+            JOIN clients ON orders.client_id=clients.id
+            GROUP BY client_id, clients.name
+            ORDER BY  
+        [0m
+  ↳ app/models/order.rb:30
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 1.2ms)
+
+
+
+ActiveRecord::StatementInvalid - PG::SyntaxError: ERROR:  syntax error at end of input
+LINE 6:         
+                ^
+: 
+            SELECT DISTINCT(client_id), clients.name AS clients_name, SUM(grand_total) AS total_money_spent, COUNT(orders.id) AS number_of_orders FROM orders
+            JOIN clients ON orders.client_id=clients.id
+            GROUP BY client_id, clients.name
+            ORDER BY:
+  app/models/order.rb:30:in `client_report'
+  app/controllers/order_report_controller.rb:5:in `client_report'
+
+Started POST "/__better_errors/bf9dce367d9e0ca6/variables" for ::1 at 2021-10-26 13:51:05 +0600
+Started GET "/orders" for ::1 at 2021-10-26 13:51:11 +0600
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" INNER JOIN "clients" ON "clients"."id" = "orders"."client_id" ORDER BY client_id asc[0m
+  ↳ app/views/orders/index.html.erb:32
+  [1m[36mClient Load (0.2ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  [1m[36mClient Load (0.4ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  [1m[36mClient Load (0.2ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  [1m[36mClient Load (0.2ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  Rendered orders/index.html.erb within layouts/application (45.8ms)
+Completed 200 OK in 73ms (Views: 57.2ms | ActiveRecord: 13.2ms)
+
+
+Started GET "/order_report/product_report" for ::1 at 2021-10-26 13:51:13 +0600
+Processing by OrderReportController#product_report as HTML
+  [1m[35m (2.2ms)[0m  [1m[34m
+           SELECT DISTINCT(product_name), products.price, COUNT(quantity) AS amount_sold, SUM(subtotal) AS amount_made, AVG(sale_price) FROM products
+           JOIN order_products ON products.id=order_products.product_id
+           GROUP BY product_name, price
+           ORDER BY count(quantity)
+           
+           
+        [0m
+  ↳ app/models/order.rb:42
+  Rendering order_report/product_report.html.erb within layouts/application
+  Rendered order_report/product_report.html.erb within layouts/application (91.8ms)
+Completed 500 Internal Server Error in 102ms (ActiveRecord: 2.2ms)
+
+
+
+NoMethodError - undefined method `sort_column' for #<OrderReportController:0x00007ffce0b08328>:
+  app/helpers/application_helper.rb:13:in `sortable'
+  app/views/order_report/product_report.html.erb:10:in `_app_views_order_report_product_report_html_erb__3996121442749841956_70362039127880'
+
+Started POST "/__better_errors/1ef7a028dcb929b2/variables" for ::1 at 2021-10-26 13:51:13 +0600
+Started GET "/orders" for ::1 at 2021-10-26 13:51:17 +0600
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (2.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" INNER JOIN "clients" ON "clients"."id" = "orders"."client_id" ORDER BY client_id asc[0m
+  ↳ app/views/orders/index.html.erb:32
+  [1m[36mClient Load (0.4ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  [1m[36mClient Load (0.4ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  [1m[36mClient Load (0.2ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  [1m[36mClient Load (0.1ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  Rendered orders/index.html.erb within layouts/application (19.4ms)
+Completed 200 OK in 85ms (Views: 78.8ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/order_report/client_report" for ::1 at 2021-10-26 13:51:18 +0600
+Processing by OrderReportController#client_report as HTML
+  [1m[35m (4.0ms)[0m  [1m[34m
+            SELECT DISTINCT(client_id), clients.name AS clients_name, SUM(grand_total) AS total_money_spent, COUNT(orders.id) AS number_of_orders FROM orders
+            JOIN clients ON orders.client_id=clients.id
+            GROUP BY client_id, clients.name
+            ORDER BY  
+        [0m
+  ↳ app/models/order.rb:30
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 4.0ms)
+
+
+
+ActiveRecord::StatementInvalid - PG::SyntaxError: ERROR:  syntax error at end of input
+LINE 6:         
+                ^
+: 
+            SELECT DISTINCT(client_id), clients.name AS clients_name, SUM(grand_total) AS total_money_spent, COUNT(orders.id) AS number_of_orders FROM orders
+            JOIN clients ON orders.client_id=clients.id
+            GROUP BY client_id, clients.name
+            ORDER BY:
+  app/models/order.rb:30:in `client_report'
+  app/controllers/order_report_controller.rb:5:in `client_report'
+
+Started POST "/__better_errors/c7cea1a94dd7ce38/variables" for ::1 at 2021-10-26 13:51:18 +0600
+Started GET "/order_report/client_report" for ::1 at 2021-10-26 13:53:06 +0600
+Processing by OrderReportController#client_report as HTML
+  [1m[35m (1.0ms)[0m  [1m[34m
+            SELECT DISTINCT(client_id), clients.name AS clients_name, SUM(grand_total) AS total_money_spent, COUNT(orders.id) AS number_of_orders FROM orders
+            JOIN clients ON orders.client_id=clients.id
+            GROUP BY client_id, clients.name
+            ORDER BY  
+        [0m
+  ↳ app/models/order.rb:30
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 1.0ms)
+
+
+
+ActiveRecord::StatementInvalid - PG::SyntaxError: ERROR:  syntax error at end of input
+LINE 6:         
+                ^
+: 
+            SELECT DISTINCT(client_id), clients.name AS clients_name, SUM(grand_total) AS total_money_spent, COUNT(orders.id) AS number_of_orders FROM orders
+            JOIN clients ON orders.client_id=clients.id
+            GROUP BY client_id, clients.name
+            ORDER BY:
+  app/models/order.rb:30:in `client_report'
+  app/controllers/order_report_controller.rb:5:in `client_report'
+
+Started POST "/__better_errors/e45f24184aa094ed/variables" for ::1 at 2021-10-26 13:53:06 +0600
+Started GET "/order_report/client_report" for ::1 at 2021-10-26 14:04:15 +0600
+Processing by OrderReportController#client_report as HTML
+  [1m[35m (1.8ms)[0m  [1m[34m
+            SELECT DISTINCT(client_id), clients.name AS clients_name, SUM(grand_total) AS total_money_spent, COUNT(orders.id) AS number_of_orders FROM orders
+            JOIN clients ON orders.client_id=clients.id
+            GROUP BY client_id, clients.name
+            ORDER BY  
+        [0m
+  ↳ app/models/order.rb:30
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 1.8ms)
+
+
+
+ActiveRecord::StatementInvalid - PG::SyntaxError: ERROR:  syntax error at end of input
+LINE 6:         
+                ^
+: 
+            SELECT DISTINCT(client_id), clients.name AS clients_name, SUM(grand_total) AS total_money_spent, COUNT(orders.id) AS number_of_orders FROM orders
+            JOIN clients ON orders.client_id=clients.id
+            GROUP BY client_id, clients.name
+            ORDER BY:
+  app/models/order.rb:30:in `client_report'
+  app/controllers/order_report_controller.rb:5:in `client_report'
+
+Started POST "/__better_errors/3d3b41c389d57c6b/variables" for ::1 at 2021-10-26 14:04:15 +0600
+Started GET "/order_report/client_report" for ::1 at 2021-10-26 14:07:45 +0600
+
+SyntaxError - syntax error, unexpected end-of-input, expecting end:
+  app/controllers/order_report_controller.rb:25:in `'
+
+Started POST "/__better_errors/7e74664d3cc15a58/variables" for ::1 at 2021-10-26 14:07:45 +0600
+Started GET "/order_report/client_report" for ::1 at 2021-10-26 14:07:57 +0600
+Processing by OrderReportController#client_report as HTML
+  [1m[35m (1.1ms)[0m  [1m[34m
+            SELECT DISTINCT(client_id), clients.name AS clients_name, SUM(grand_total) AS total_money_spent, COUNT(orders.id) AS number_of_orders FROM orders
+            JOIN clients ON orders.client_id=clients.id
+            GROUP BY client_id, clients.name
+            ORDER BY  
+        [0m
+  ↳ app/models/order.rb:30
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 1.1ms)
+
+
+
+ActiveRecord::StatementInvalid - PG::SyntaxError: ERROR:  syntax error at end of input
+LINE 6:         
+                ^
+: 
+            SELECT DISTINCT(client_id), clients.name AS clients_name, SUM(grand_total) AS total_money_spent, COUNT(orders.id) AS number_of_orders FROM orders
+            JOIN clients ON orders.client_id=clients.id
+            GROUP BY client_id, clients.name
+            ORDER BY:
+  app/models/order.rb:30:in `client_report'
+  app/controllers/order_report_controller.rb:5:in `client_report'
+
+Started POST "/__better_errors/36f82cb0afa7085b/variables" for ::1 at 2021-10-26 14:07:57 +0600
+Started GET "/order_report/client_report" for ::1 at 2021-10-26 14:08:38 +0600
+Processing by OrderReportController#client_report as HTML
+  [1m[35m (0.9ms)[0m  [1m[34m
+            SELECT DISTINCT(client_id), clients.name AS clients_name, SUM(grand_total) AS total_money_spent, COUNT(orders.id) AS number_of_orders FROM orders
+            JOIN clients ON orders.client_id=clients.id
+            GROUP BY client_id, clients.name
+            ORDER BY  
+        [0m
+  ↳ app/models/order.rb:30
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.9ms)
+
+
+
+ActiveRecord::StatementInvalid - PG::SyntaxError: ERROR:  syntax error at end of input
+LINE 6:         
+                ^
+: 
+            SELECT DISTINCT(client_id), clients.name AS clients_name, SUM(grand_total) AS total_money_spent, COUNT(orders.id) AS number_of_orders FROM orders
+            JOIN clients ON orders.client_id=clients.id
+            GROUP BY client_id, clients.name
+            ORDER BY:
+  app/models/order.rb:30:in `client_report'
+  app/controllers/order_report_controller.rb:5:in `client_report'
+
+Started POST "/__better_errors/e9cf2b7012809a06/variables" for ::1 at 2021-10-26 14:08:38 +0600
+Started GET "/order_report/client_report" for ::1 at 2021-10-26 14:09:48 +0600
+
+SyntaxError - syntax error, unexpected ':', expecting end
+      return params[:sort] : "name"
+                           ^:
+  app/controllers/order_report_controller.rb:7:in `'
+
+Started POST "/__better_errors/1b9d63b1b349d91c/variables" for ::1 at 2021-10-26 14:09:48 +0600
+Started GET "/order_report/client_report" for ::1 at 2021-10-26 14:15:04 +0600
+
+SyntaxError - syntax error, unexpected ':', expecting end
+      return params[:sort] : "name"
+                           ^:
+  app/controllers/order_report_controller.rb:7:in `'
+
+Started POST "/__better_errors/53d24be7634d6263/variables" for ::1 at 2021-10-26 14:15:04 +0600
+Started GET "/orders" for ::1 at 2021-10-26 14:15:39 +0600
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (1.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" INNER JOIN "clients" ON "clients"."id" = "orders"."client_id" ORDER BY client_id asc[0m
+  ↳ app/views/orders/index.html.erb:32
+  [1m[36mClient Load (0.2ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  [1m[36mClient Load (0.3ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  [1m[36mClient Load (0.2ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  [1m[36mClient Load (0.2ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  Rendered orders/index.html.erb within layouts/application (33.7ms)
+Completed 200 OK in 52ms (Views: 29.5ms | ActiveRecord: 17.0ms)
+
+
+Started GET "/order_report/client_report" for ::1 at 2021-10-26 14:15:42 +0600
+
+SyntaxError - syntax error, unexpected ':', expecting end
+      return params[:sort] : "name"
+                           ^:
+  app/controllers/order_report_controller.rb:7:in `'
+
+Started POST "/__better_errors/21a3d6aa25aa344a/variables" for ::1 at 2021-10-26 14:15:42 +0600
+Started GET "/order_report/client_report" for ::1 at 2021-10-26 14:16:01 +0600
+
+SyntaxError - syntax error, unexpected ':', expecting end
+      return params[:sort] : "name"
+                           ^:
+  app/controllers/order_report_controller.rb:7:in `'
+
+Started POST "/__better_errors/6474406d92ca92b6/variables" for ::1 at 2021-10-26 14:16:01 +0600
+Started GET "/order_report/client_report" for ::1 at 2021-10-26 14:16:58 +0600
+Processing by OrderReportController#client_report as HTML
+  [1m[35m (0.9ms)[0m  [1m[34m
+            SELECT DISTINCT(client_id), clients.name AS clients_name, SUM(grand_total) AS total_money_spent, COUNT(orders.id) AS number_of_orders FROM orders
+            JOIN clients ON orders.client_id=clients.id
+            GROUP BY client_id, clients.name
+            ORDER BY  
+        [0m
+  ↳ app/models/order.rb:30
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.9ms)
+
+
+
+ActiveRecord::StatementInvalid - PG::SyntaxError: ERROR:  syntax error at end of input
+LINE 6:         
+                ^
+: 
+            SELECT DISTINCT(client_id), clients.name AS clients_name, SUM(grand_total) AS total_money_spent, COUNT(orders.id) AS number_of_orders FROM orders
+            JOIN clients ON orders.client_id=clients.id
+            GROUP BY client_id, clients.name
+            ORDER BY:
+  app/models/order.rb:30:in `client_report'
+  app/controllers/order_report_controller.rb:5:in `client_report'
+
+Started POST "/__better_errors/c3c0557a3dca9630/variables" for ::1 at 2021-10-26 14:16:58 +0600
+Started GET "/orders" for ::1 at 2021-10-26 14:17:06 +0600
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" INNER JOIN "clients" ON "clients"."id" = "orders"."client_id" ORDER BY client_id asc[0m
+  ↳ app/views/orders/index.html.erb:32
+  [1m[36mClient Load (0.2ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  [1m[36mClient Load (0.3ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  [1m[36mClient Load (0.2ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  [1m[36mCACHE Client Load (0.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  [1m[36mClient Load (0.2ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:36
+  Rendered orders/index.html.erb within layouts/application (46.6ms)
+Completed 200 OK in 72ms (Views: 55.2ms | ActiveRecord: 13.6ms)
+
+
+Started GET "/order_report/product_report" for ::1 at 2021-10-26 14:17:07 +0600
+Processing by OrderReportController#product_report as HTML
+  [1m[35m (1.7ms)[0m  [1m[34m
+           SELECT DISTINCT(product_name), products.price, COUNT(quantity) AS amount_sold, SUM(subtotal) AS amount_made, AVG(sale_price) FROM products
+           JOIN order_products ON products.id=order_products.product_id
+           GROUP BY product_name, price
+           ORDER BY 
+           
+           
+        [0m
+  ↳ app/models/order.rb:42
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 1.7ms)
+
+
+
+ActiveRecord::StatementInvalid - PG::SyntaxError: ERROR:  syntax error at end of input
+LINE 8:         
+                ^
+: 
+           SELECT DISTINCT(product_name), products.price, COUNT(quantity) AS amount_sold, SUM(subtotal) AS amount_made, AVG(sale_price) FROM products
+           JOIN order_products ON products.id=order_products.product_id
+           GROUP BY product_name, price
+           ORDER BY:
+  app/models/order.rb:42:in `product_report'
+  app/controllers/order_report_controller.rb:9:in `product_report'
+
+Started POST "/__better_errors/e1b3d7462e9f47a8/variables" for ::1 at 2021-10-26 14:17:07 +0600
