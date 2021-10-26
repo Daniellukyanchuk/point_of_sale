@@ -7844,3 +7844,361 @@ NoMethodError - undefined method `each' for nil:NilClass:
   app/views/reports/products_report.html.erb:17:in `_app_views_reports_products_report_html_erb___3196236575748230533_69843640046380'
 
 Started POST "/__better_errors/84def9da46b500df/variables" for ::1 at 2021-10-25 02:59:20 -0700
+Started GET "/product_reports" for ::1 at 2021-10-25 04:13:43 -0700
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+
+AbstractController::ActionNotFound - The action 'index' could not be found for ProductReportsController:
+
+Started POST "/__better_errors/8ce8a805e778fc33/variables" for ::1 at 2021-10-25 04:13:43 -0700
+Started POST "/__better_errors/8ce8a805e778fc33/variables" for ::1 at 2021-10-25 04:13:50 -0700
+Started GET "/product_report" for ::1 at 2021-10-25 04:13:53 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/product_report"):
+  
+actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.6) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/product_reports" for ::1 at 2021-10-25 04:13:58 -0700
+
+AbstractController::ActionNotFound - The action 'index' could not be found for ProductReportsController:
+
+Started POST "/__better_errors/2d5fab0462428a20/variables" for ::1 at 2021-10-25 04:13:58 -0700
+Started GET "/product_reports" for ::1 at 2021-10-25 05:08:11 -0700
+
+AbstractController::ActionNotFound - The action 'index' could not be found for ProductReportsController:
+
+Started POST "/__better_errors/0115fca32a765438/variables" for ::1 at 2021-10-25 05:08:11 -0700
+Started GET "/product_reports" for ::1 at 2021-10-25 05:08:13 -0700
+
+AbstractController::ActionNotFound - The action 'index' could not be found for ProductReportsController:
+
+Started POST "/__better_errors/a4a1f475b64fef50/variables" for ::1 at 2021-10-25 05:08:13 -0700
+Started GET "/product_reports" for ::1 at 2021-10-25 10:39:12 -0700
+
+AbstractController::ActionNotFound - The action 'index' could not be found for ProductReportsController:
+
+Started POST "/__better_errors/579ac311a20e8d69/variables" for ::1 at 2021-10-25 10:39:13 -0700
+Started GET "/product_reports" for ::1 at 2021-10-25 10:44:10 -0700
+
+ActionController::RoutingError - uninitialized constant ProductReportsController:
+
+Started POST "/__better_errors/c68e2ddbc4cbe59a/variables" for ::1 at 2021-10-25 10:44:10 -0700
+Started GET "/product_reports" for ::1 at 2021-10-25 10:48:30 -0700
+
+ActionController::RoutingError - uninitialized constant ProductReportsController:
+
+Started POST "/__better_errors/b9c1c77bc5e3e60c/variables" for ::1 at 2021-10-25 10:48:30 -0700
+Started GET "/product_reports" for ::1 at 2021-10-25 10:49:13 -0700
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+
+ActionController::RoutingError - uninitialized constant ProductReportsController:
+
+Started POST "/__better_errors/efd1889655d8fc5c/variables" for ::1 at 2021-10-25 10:49:13 -0700
+Started GET "/reports" for ::1 at 2021-10-25 10:49:20 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/reports"):
+  
+actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.6) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/products" for ::1 at 2021-10-25 10:49:27 -0700
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (2.7ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY created_at asc[0m
+  ↳ app/views/products/index.html.erb:23
+  Rendered products/index.html.erb within layouts/application (46.0ms)
+Completed 200 OK in 514ms (Views: 461.3ms | ActiveRecord: 34.5ms)
+
+
+Started GET "/product_reports" for ::1 at 2021-10-25 10:49:31 -0700
+
+ActionController::RoutingError - uninitialized constant ProductReportsController:
+
+Started POST "/__better_errors/7dfa671e929f07aa/variables" for ::1 at 2021-10-25 10:49:32 -0700
+Started GET "/product_reports" for ::1 at 2021-10-25 10:52:51 -0700
+
+ActionController::RoutingError - uninitialized constant ProductReportsController:
+
+Started GET "/product_reports" for 127.0.0.1 at 2021-10-25 10:53:01 -0700
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+
+ActionController::RoutingError - uninitialized constant ProductReportsController:
+
+Started POST "/__better_errors/12d5ea371fe9f8fb/variables" for 127.0.0.1 at 2021-10-25 10:53:01 -0700
+Started GET "/product_reports" for 127.0.0.1 at 2021-10-25 10:53:04 -0700
+
+ActionController::RoutingError - uninitialized constant ProductReportsController:
+
+Started POST "/__better_errors/cfc64d0194b621d0/variables" for 127.0.0.1 at 2021-10-25 10:53:04 -0700
+Started GET "/product_reports" for ::1 at 2021-10-25 10:55:46 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/product_reports"):
+  
+actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.6) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/product_report" for ::1 at 2021-10-25 10:57:03 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/product_report"):
+  
+actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.6) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/product_report" for ::1 at 2021-10-25 10:58:58 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/product_report"):
+  
+actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.6) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/product_reports" for ::1 at 2021-10-25 10:59:02 -0700
+
+ActionController::RoutingError - uninitialized constant ProductReportsController:
+
+Started POST "/__better_errors/09e3aef15fb096e9/variables" for ::1 at 2021-10-25 10:59:03 -0700
+Started GET "/reports/product_reports" for ::1 at 2021-10-25 10:59:11 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/reports/product_reports"):
+  
+actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.6) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/reports/product_report" for ::1 at 2021-10-25 10:59:48 -0700
+Processing by ReportsController#product_report as HTML
+  Rendering reports/product_report.html.erb within layouts/application
+  Rendered reports/product_report.html.erb within layouts/application (4.9ms)
+Completed 500 Internal Server Error in 54ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `each' for nil:NilClass:
+  app/views/reports/product_report.html.erb:17:in `_app_views_reports_product_report_html_erb___415570785602757754_70159566628000'
+
+Started POST "/__better_errors/b4e748b0dd9525cf/variables" for ::1 at 2021-10-25 10:59:48 -0700
+Started GET "/reports/product_report" for ::1 at 2021-10-25 11:01:20 -0700
+Processing by ReportsController#product_report as HTML
+  Rendering reports/product_report.html.erb within layouts/application
+  Rendered reports/product_report.html.erb within layouts/application (3.3ms)
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 0.0ms)
+
+
+
+SyntaxError - syntax error, unexpected ensure, expecting end-of-input
+          ensure
+          ^~~~~~:
+  app/views/reports/product_report.html.erb:28:in `'
+
+Started POST "/__better_errors/69f2c926b2f6bf75/variables" for ::1 at 2021-10-25 11:01:20 -0700
+Started GET "/reports/product_report" for ::1 at 2021-10-25 11:01:41 -0700
+Processing by ReportsController#product_report as HTML
+  Rendering reports/product_report.html.erb within layouts/application
+  Rendered reports/product_report.html.erb within layouts/application (301.3ms)
+Completed 500 Internal Server Error in 324ms (ActiveRecord: 0.0ms)
+
+
+
+NameError - undefined local variable or method `clients' for #<#<Class:0x00007f9e98187c50>:0x00007f9e8c0c3078>
+Did you mean?  clients_url:
+  app/views/reports/product_report.html.erb:19:in `_app_views_reports_product_report_html_erb___415570785602757754_70159465585800'
+
+Started POST "/__better_errors/4dcedc5593dc61c1/variables" for ::1 at 2021-10-25 11:01:42 -0700
+Started GET "/reports/product_report" for ::1 at 2021-10-25 11:02:01 -0700
+Processing by ReportsController#product_report as HTML
+  Rendering reports/product_report.html.erb within layouts/application
+  Rendered reports/product_report.html.erb within layouts/application (277.6ms)
+Completed 500 Internal Server Error in 309ms (ActiveRecord: 0.0ms)
+
+
+
+NameError - undefined local variable or method `clients' for #<#<Class:0x00007f9e98187c50>:0x00007f9e901fb978>
+Did you mean?  clients_url:
+  app/views/reports/product_report.html.erb:19:in `_app_views_reports_product_report_html_erb___415570785602757754_70159499788900'
+
+Started POST "/__better_errors/61531f62c78fefe2/variables" for ::1 at 2021-10-25 11:02:02 -0700
+Started GET "/reports/product_report" for ::1 at 2021-10-25 22:10:59 -0700
+Processing by ReportsController#product_report as HTML
+  Rendering reports/product_report.html.erb within layouts/application
+  Rendered reports/product_report.html.erb within layouts/application (325.0ms)
+Completed 500 Internal Server Error in 373ms (ActiveRecord: 0.0ms)
+
+
+
+NameError - undefined local variable or method `clients' for #<#<Class:0x00007f9e8c2513e0>:0x00007f9e8c25b9f8>
+Did you mean?  clients_url:
+  app/views/reports/product_report.html.erb:19:in `_app_views_reports_product_report_html_erb___415570785602757754_70159466401220'
+
+Started POST "/__better_errors/8804f29162f1f12d/variables" for ::1 at 2021-10-25 22:11:01 -0700
+Started GET "/reports/product_report" for ::1 at 2021-10-25 22:12:18 -0700
+Processing by ReportsController#product_report as HTML
+  Rendering reports/product_report.html.erb within layouts/application
+  Rendered reports/product_report.html.erb within layouts/application (343.2ms)
+Completed 500 Internal Server Error in 354ms (ActiveRecord: 0.0ms)
+
+
+
+NameError - undefined local variable or method `clients' for #<#<Class:0x00007f9e8c2513e0>:0x00007f9e901c27e0>
+Did you mean?  clients_url:
+  app/views/reports/product_report.html.erb:19:in `_app_views_reports_product_report_html_erb___415570785602757754_70159499663420'
+
+Started POST "/__better_errors/3a6355c4cd2284fa/variables" for ::1 at 2021-10-25 22:12:19 -0700
+Started GET "/reports/product_report" for ::1 at 2021-10-25 22:13:47 -0700
+Processing by ReportsController#product_report as HTML
+  Rendering reports/product_report.html.erb within layouts/application
+  Rendered reports/product_report.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 944ms (Views: 941.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reports/product_report" for ::1 at 2021-10-26 01:40:58 -0700
+Processing by ReportsController#product_report as HTML
+  Rendering reports/product_report.html.erb within layouts/application
+  Rendered reports/product_report.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 168ms (Views: 148.7ms | ActiveRecord: 0.0ms)
+
+
