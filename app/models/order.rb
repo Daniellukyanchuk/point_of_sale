@@ -13,25 +13,25 @@ class Order < ApplicationRecord
     end
 
     def self.product_report(sortable)
-
       if !["product_id", "product_name", "units_sold", "total_revenue"].include?(sortable)
         sortable = "total_revenue"
+      end
       
-        if  sort_direction == "desc"
-          "desc"
-        else
-          sort_direction = "asc"
-        end
-        
-        sql = """
-        SELECT product_id,product_name,unit, SUM(quantity) AS units_sold, SUM(subtotal) AS total_revenue
-        FROM order_products
-        INNER JOIN products
-        ON order_products.product_id = products.id
-        GROUP BY product_id,product_name,unit
-        ORDER BY #{sortable} #{direction}}
-        """
-        result = ActiveRecord::Base.connection.execute(sql)      
+      if  sort_direction == "desc"
+        "desc"
+      else
+        sort_direction = "asc"
+      end
+      
+      sql = """
+      SELECT product_id,product_name,unit, SUM(quantity) AS units_sold, SUM(subtotal) AS total_revenue
+      FROM order_products
+      INNER JOIN products
+      ON order_products.product_id = products.id
+      GROUP BY product_id,product_name,unit
+      ORDER BY #{sortable} #{direction}
+      """
+      result = ActiveRecord::Base.connection.execute(sql)      
           
     end
 
@@ -40,26 +40,28 @@ class Order < ApplicationRecord
 
       if !["client_id", "name", "orders_placed", "total_spent"].include?(sortable)
         sortable = "total_spent"
-
-        if  sort_direction == "desc"
-          "desc"
-        else
-          sort_direction = "asc"
-        end
-
-        sql = """
-        SELECT client_id,name, COUNT(grand_total) AS orders_placed, 
-        SUM(grand_total) AS total_spent, AVG(grand_total) AS avg_spent
-        FROM orders
-        INNER JOIN clients
-        ON orders.client_id = clients.id
-        GROUP BY client_id,name
-        ORDER BY #{sortable} #{direction}
-        """
-        result = ActiveRecord::Base.connection.execute(sql)
       end
-      
+
+      if  sort_direction == "desc"
+        "desc"
+      else
+        sort_direction = "asc"
+      end
+
+      sql = """
+      SELECT client_id,name, COUNT(grand_total) AS orders_placed, 
+      SUM(grand_total) AS total_spent, AVG(grand_total) AS avg_spent
+      FROM orders
+      INNER JOIN clients
+      ON orders.client_id = clients.id
+      GROUP BY client_id,name
+      ORDER BY #{sortable} #{direction}
+      """
+      result = ActiveRecord::Base.connection.execute(sql)
+
     end
+      
+    
 
     def self.search(search)
 
