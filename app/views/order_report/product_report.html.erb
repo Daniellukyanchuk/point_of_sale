@@ -7,11 +7,11 @@ What products are sold the most</p>
 <table>  
   <thead>
     <tr>
-      <th><%= sortable "name", "Product's name" %></th>
+      <th><%= sortable "product_name", "Product's name" %></th>
       <th><%= sortable "price", "Price" %></th>
-      <th><%= sortable "quantity", "Amount sold" %></th>
-      <th><%= sortable "subtotal", "Amount made" %></th>
-      <th><%= sortable "unit", "Avg price per unit" %></th>
+      <th><%= sortable "amount_sold", "Amount sold" %></th>
+      <th><%= sortable "amount_made", "Amount made" %></th>
+      <th><%= sortable "avg(sale_price)", "Avg price per unit" %></th>
       <th colspan="5"></th>
     </tr>
   </thead>

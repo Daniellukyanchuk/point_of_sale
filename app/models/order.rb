@@ -30,7 +30,9 @@ class Order < ApplicationRecord
         result = ActiveRecord::Base.connection.execute(sql)      
     end
 
+    # sortable must be a column this report
     def self.product_report(sortable)
+
       sql = """
            SELECT DISTINCT(product_name), products.price, COUNT(quantity) AS amount_sold, SUM(subtotal) AS amount_made, AVG(sale_price) FROM products
            JOIN order_products ON products.id=order_products.product_id
