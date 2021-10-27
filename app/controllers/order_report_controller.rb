@@ -10,7 +10,15 @@ class OrderReportController < ApplicationController
        params[:sort]
      end
 
-     @client_report = Order.client_report(params[:sort])
+     if params[:direction] == "desc"
+
+      "desc"
+       
+    else
+      params[:direction] = "asc"
+    end
+
+     @client_report = Order.client_report(params[:sort] + " " + params[:direction])
   end
 
   def product_report
@@ -24,13 +32,15 @@ class OrderReportController < ApplicationController
     end
 
     if params[:direction] == "desc"
+
+      "desc"
        
     else
-      params[:direction] = "desc"
+      params[:direction] = "asc"
     end
 
     # col_name = params[:sort] if params[:sort] 
-     @product_report = Order.product_report(params[:sort])
+     @product_report = Order.product_report(params[:sort] + " " + params[:direction])
   end
   
   private
@@ -42,6 +52,6 @@ class OrderReportController < ApplicationController
 
   def sort_direction
   
-   %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+   params[:direction]
   end
 end
