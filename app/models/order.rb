@@ -12,23 +12,43 @@ class Order < ApplicationRecord
       end    
     end
 
+    
+
+
+
     def self.product_report
       sql = """
-      SELECT product_id, SUM(quantity) AS units_sold , SUM(subtotal) AS total_revenue
+      SELECT product_id,product_name,unit, SUM(quantity) AS units_sold, SUM(subtotal) AS total_revenue
       FROM order_products
-      GROUP BY product_id
+      INNER JOIN products
+      ON order_products.product_id = products.id
+      GROUP BY product_id,product_name,unit
       ORDER BY SUM(subtotal) DESC
       """
-
+      result = ActiveRecord::Base.connection.execute(sql)
+    
     end
-  
-    def self.client_report
+
+      
+    def self.client_report(sortable)
+
+      if params[:sort].blank?
+
+        params[:sort] = "avg_spent"
+      else
+        params[:sort]
+              
       sql = """
-      SELECT client_id, COUNT(grand_total) AS orders_placed, SUM(grand_total) AS total_spent
+      SELECT client_id,name, COUNT(grand_total) AS orders_placed, 
+      SUM(grand_total) AS total_spent, AVG(grand_total) AS avg_spent
       FROM orders
-      GROUP BY client_id
-      ORDER BY COUNT(grand_total) DESC
+      INNER JOIN clients
+      ON orders.client_id = clients.id
+      GROUP BY client_id,name
+      ORDER BY #{sortable}
       """
+      result = ActiveRecord::Base.connection.execute(sql)
+      end
     end
 
     def self.search(search)
@@ -40,7 +60,5 @@ class Order < ApplicationRecord
       else
         return Order.all
       end
-   
-
-    end    
+     end    
 end

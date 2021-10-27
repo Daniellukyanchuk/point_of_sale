@@ -1,19 +1,28 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Product Sales Report</h1>
+<h1>Client Purchase Report</h1>
 
 <table>
   <thead>
     <tr>
-    <th><%= sortable "product_id", "Id" %></th>
-    <th><%= sortable "product_name", "Product Name" %></th>
-    <th><%= sortable "units_sold", "Units Sold" %></th>
-    <th><%= sortable "total_revenue", "Total Revenue" %></th>
+    <th><%= sortable "client_id", "Id" %></th>
+    <th><%= sortable "name", "Client Name" %></th>
+    <th><%= sortable "orders_placed", "Orders Placed" %></th>
+    <th><%= sortable "total_spent", "Total Spent" %></th>
+    <th><%= sortable "avg_spent", "Avg. Spent" %></th>
     <th colspan="4"></th>
     </tr>
   </thead>
 
   <tbody>
-  
+    <% @client_reports.each do |c_report| %> 
+      <tr>     
+        <td><%= c_report["client_id"] %></td>
+        <td><%= c_report["name"] %></td>
+        <td><%= c_report["orders_placed"] %></td>
+        <td><%= c_report["total_spent"] %></td>
+        <td><%= c_report["avg_spent"] %></td>
+      </tr>
+      <% end %>
   </tbody>
 </table>

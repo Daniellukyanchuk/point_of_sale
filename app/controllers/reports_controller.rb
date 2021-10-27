@@ -1,4 +1,5 @@
 class ReportsController < ApplicationController
+    
 
     def product_report
         @product_reports = Order.product_report()
