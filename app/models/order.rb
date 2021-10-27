@@ -12,14 +12,27 @@ class Order < ApplicationRecord
       end    
     end
 
-    def self.product_report
+    def self.product_report(sortable)
+
+      if !["product_id", "product_name", "units_sold", "total_revenue"].include[:direction]
+      else
+      sortable = "product_id"
+
+      
+        direction == desc
+      else
+        direction = asc
+
+
+      
+
       sql = """
       SELECT product_id,product_name,unit, SUM(quantity) AS units_sold, SUM(subtotal) AS total_revenue
       FROM order_products
       INNER JOIN products
       ON order_products.product_id = products.id
       GROUP BY product_id,product_name,unit
-      ORDER BY SUM(subtotal) DESC
+      ORDER BY #{sortable} #{direction}}
       """
       result = ActiveRecord::Base.connection.execute(sql)
     
@@ -28,8 +41,7 @@ class Order < ApplicationRecord
       
     def self.client_report(sortable)
 
-      
-      
+       
       sql = """
       SELECT client_id,name, COUNT(grand_total) AS orders_placed, 
       SUM(grand_total) AS total_spent, AVG(grand_total) AS avg_spent
@@ -37,10 +49,10 @@ class Order < ApplicationRecord
       INNER JOIN clients
       ON orders.client_id = clients.id
       GROUP BY client_id,name
-      ORDER BY #{sortable}
+      ORDER BY #{sortable} #{direction}
       """
       result = ActiveRecord::Base.connection.execute(sql)
-      end
+      
     end
 
     def self.search(search)
@@ -52,5 +64,6 @@ class Order < ApplicationRecord
       else
         return Order.all
       end
+
      end    
 end
