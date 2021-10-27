@@ -20,4 +20,8 @@ class OrderReportController < ApplicationController
   def sort_direction  
     params[:direction]
   end
+
+  def search_product
+    params[:search]
+  end
 end

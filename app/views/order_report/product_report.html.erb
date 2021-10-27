@@ -3,6 +3,12 @@
 What products are sold the most</p>
 <p>What is the average price per unit</p>
 
+<%= form_tag order_report_product_report_path, :method => 'get' do %>
+    <p>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Search", :name => nil %>
+    </p>
+<% end %>
 
 <table>  
   <thead>
