@@ -24,8 +24,6 @@ class Order < ApplicationRecord
         direction = asc
 
 
-      
-
       sql = """
       SELECT product_id,product_name,unit, SUM(quantity) AS units_sold, SUM(subtotal) AS total_revenue
       FROM order_products
