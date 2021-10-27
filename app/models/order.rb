@@ -20,24 +20,48 @@ class Order < ApplicationRecord
       end
     end
 
-    def self.client_report(sortable)
+    def self.client_report(sortable, sort_direction)       
+       if !["client_id", "clients_name", "total_money_spent", "number_of_orders"].include?(sortable)
+         sortable = "client_id"  
+       end
+
+       if sort_direction == "desc"
+         "desc"       
+       else
+         sort_direction = "asc"
+       end
+
        sql = """
             SELECT DISTINCT(client_id), clients.name AS clients_name, SUM(grand_total) AS total_money_spent, COUNT(orders.id) AS number_of_orders FROM orders
             JOIN clients ON orders.client_id=clients.id
             GROUP BY client_id, clients.name
-            ORDER BY #{sortable} 
+            ORDER BY #{sortable} #{sort_direction}
         """
         result = ActiveRecord::Base.connection.execute(sql)      
     end
 
     # sortable must be a column this report
-    def self.product_report(sortable)
+    def self.product_report(search_product, sortable, sort_direction)
+      if !["product_name", "price", "amount_sold", "amount_made", "avg(sale_price)"].include?(sortable)
+        sortable = "product_name"  
+      end      
 
+      if sort_direction  == "desc"
+        "desc"      
+      else
+        sort_direction = "asc"
+      end
+
+      sql = ""
+      if search_product.blank?
+      else
+      end
       sql = """
            SELECT DISTINCT(product_name), products.price, COUNT(quantity) AS amount_sold, SUM(subtotal) AS amount_made, AVG(sale_price) FROM products
            JOIN order_products ON products.id=order_products.product_id
+           where product_name = #{search_product} 
            GROUP BY product_name, price
-           ORDER BY #{sortable}
+           ORDER BY #{sortable} #{sort_direction}
            
            
         """
