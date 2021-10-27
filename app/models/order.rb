@@ -12,10 +12,6 @@ class Order < ApplicationRecord
       end    
     end
 
-    
-
-
-
     def self.product_report
       sql = """
       SELECT product_id,product_name,unit, SUM(quantity) AS units_sold, SUM(subtotal) AS total_revenue
@@ -32,12 +28,8 @@ class Order < ApplicationRecord
       
     def self.client_report(sortable)
 
-      if params[:sort].blank?
-
-        params[:sort] = "avg_spent"
-      else
-        params[:sort]
-              
+      
+      
       sql = """
       SELECT client_id,name, COUNT(grand_total) AS orders_placed, 
       SUM(grand_total) AS total_spent, AVG(grand_total) AS avg_spent
