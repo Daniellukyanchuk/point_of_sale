@@ -14,54 +14,60 @@ class Order < ApplicationRecord
 
     def self.product_report(sortable)
 
-      if !["product_id", "product_name", "units_sold", "total_revenue"].include[:direction]
-      else
-      sortable = "product_id"
-
+      if !["product_id", "product_name", "units_sold", "total_revenue"].include?(sortable)
+        sortable = "total_revenue"
       
-        direction == desc
-      else
-        direction = asc
-
-
-      sql = """
-      SELECT product_id,product_name,unit, SUM(quantity) AS units_sold, SUM(subtotal) AS total_revenue
-      FROM order_products
-      INNER JOIN products
-      ON order_products.product_id = products.id
-      GROUP BY product_id,product_name,unit
-      ORDER BY #{sortable} #{direction}}
-      """
-      result = ActiveRecord::Base.connection.execute(sql)
-    
+        if  sort_direction == "desc"
+          "desc"
+        else
+          sort_direction = "asc"
+        end
+        
+        sql = """
+        SELECT product_id,product_name,unit, SUM(quantity) AS units_sold, SUM(subtotal) AS total_revenue
+        FROM order_products
+        INNER JOIN products
+        ON order_products.product_id = products.id
+        GROUP BY product_id,product_name,unit
+        ORDER BY #{sortable} #{direction}}
+        """
+        result = ActiveRecord::Base.connection.execute(sql)      
+          
     end
 
       
     def self.client_report(sortable)
 
-       
-      sql = """
-      SELECT client_id,name, COUNT(grand_total) AS orders_placed, 
-      SUM(grand_total) AS total_spent, AVG(grand_total) AS avg_spent
-      FROM orders
-      INNER JOIN clients
-      ON orders.client_id = clients.id
-      GROUP BY client_id,name
-      ORDER BY #{sortable} #{direction}
-      """
-      result = ActiveRecord::Base.connection.execute(sql)
+      if !["client_id", "name", "orders_placed", "total_spent"].include?(sortable)
+        sortable = "total_spent"
+
+        if  sort_direction == "desc"
+          "desc"
+        else
+          sort_direction = "asc"
+        end
+
+        sql = """
+        SELECT client_id,name, COUNT(grand_total) AS orders_placed, 
+        SUM(grand_total) AS total_spent, AVG(grand_total) AS avg_spent
+        FROM orders
+        INNER JOIN clients
+        ON orders.client_id = clients.id
+        GROUP BY client_id,name
+        ORDER BY #{sortable} #{direction}
+        """
+        result = ActiveRecord::Base.connection.execute(sql)
+      end
       
     end
 
     def self.search(search)
 
       if !search.blank?
-
         return Order.joins(:client).where("clients.name ilike ? or clients.id = ? or client_id = ?", "%#{search.strip}%", search.to_i, search.to_i)
-    
-      else
+          else
         return Order.all
       end
+     end  
 
-     end    
 end
