@@ -3,6 +3,13 @@
 Who are your big clients?</p>
 <table>
   
+<%= form_tag order_report_client_report_path, :method => 'get' do %>
+    <p>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Search", :name => nil %>
+    </p>
+<% end %>
+
   <thead>
     <tr>
       <th><%= sortable "client_id" %></th>

@@ -4,7 +4,7 @@ class OrderReportController < ApplicationController
   
 
   def client_report
-     @client_report = Order.client_report(params[:sort], params[:direction])
+     @client_report = Order.client_report(params[:search], params[:sort], params[:direction])
   end
 
   def product_report
@@ -22,6 +22,10 @@ class OrderReportController < ApplicationController
   end
 
   def search_product
+    params[:search]
+  end
+
+  def search_client
     params[:search]
   end
 end
