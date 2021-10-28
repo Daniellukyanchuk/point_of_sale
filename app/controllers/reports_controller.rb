@@ -2,11 +2,11 @@ class ReportsController < ApplicationController
     
 
     def product_report
-        @product_reports = Order.search(params[:search]).product_report(params[:sort], params[:direction])
+        @product_reports = Order.product_report(params[:search], params[:sort], params[:direction])
     end
 
     def client_report
-        @client_reports = Order.search(params[:search]).client_report(params[:sort], params[:direction])
+        @client_reports = Order.client_report(params[:search], params[:sort], params[:direction])
     end
 
     private
@@ -19,4 +19,11 @@ class ReportsController < ApplicationController
         params[:direction]
     end
 
+    def search_product
+        params[:search]
+    end
+
+    def search_client
+        params[:search]
+    end
 end

@@ -12,7 +12,7 @@ class Order < ApplicationRecord
       end    
     end
 
-    def self.product_report(sortable, sort_direction)
+    def self.product_report(search_product, sortable, sort_direction)
       if !["product_id", "product_name", "units_sold", "total_revenue"].include?(sortable)
         sortable = "total_revenue"
       end
@@ -22,12 +22,19 @@ class Order < ApplicationRecord
       else
         sort_direction = "asc"
       end
+
+      where_search = "WHERE product_name ILIKE '%#{search_product}%'"
+      
+      if search_product.blank?
+        where_search = ""
+      end  
       
       sql = """
             SELECT product_id,product_name,unit, SUM(quantity) AS units_sold, SUM(subtotal)::numeric(15,2) AS total_revenue
             FROM order_products
             INNER JOIN products
             ON order_products.product_id = products.id
+            #{where_search}
             GROUP BY product_id,product_name,unit
             ORDER BY #{sortable} #{sort_direction}
       """
@@ -48,7 +55,7 @@ class Order < ApplicationRecord
         sort_direction = "asc"
       end
 
-      where_search = "WHERE name = '#{search_client}'"
+      where_search = "WHERE name ILIKE '%#{search_client}%'"
       
       if search_client.blank?
         where_search = ""
@@ -58,9 +65,9 @@ class Order < ApplicationRecord
               SELECT client_id,name, COUNT(grand_total) AS orders_placed, 
               SUM(grand_total)::numeric(15,2) AS total_spent, AVG(grand_total)::numeric(15,2) AS avg_spent
               FROM orders
-              #{where_search}
               INNER JOIN clients
               ON orders.client_id = clients.id
+              #{where_search}
               GROUP BY client_id,name
               ORDER BY #{sortable} #{sort_direction}
         """
