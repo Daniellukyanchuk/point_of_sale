@@ -31,7 +31,7 @@ class Order < ApplicationRecord
         sort_direction = "asc"
       end
       
-      where_clause = "WHERE clients.name ILIKE '%#{search_product}%' OR grand_total = #{search_product.to_i}"
+      where_clause = "WHERE clients.name ILIKE '%#{search_product}%' OR grand_total = #{search_product.to_i} OR client_id = #{search_product.to_i}"
 
       if search_product.blank?
         where_clause = ""
