@@ -13,11 +13,11 @@ What products are sold the most</p>
 <table>  
   <thead>
     <tr>
-      <th><%= sortable "product_name", "Product's name" %></th>
+      <th><%= sortable "product_name", "products_name" %></th>
       <th><%= sortable "price", "Price" %></th>
-      <th><%= sortable "amount_sold", "Amount sold" %></th>
-      <th><%= sortable "amount_made", "Amount made" %></th>
-      <th><%= sortable "avg(sale_price)", "Avg price per unit" %></th>
+      <th><%= sortable "amount_sold", "amount_sold" %></th>
+      <th><%= sortable "amount_made", "amount_made" %></th>
+      <th><%= sortable "average_unit_price"%></th>
       <th colspan="5"></th>
     </tr>
   </thead>
@@ -29,7 +29,7 @@ What products are sold the most</p>
        <td><%= product["price"] %></td>
        <td><%= product["amount_sold"] %></td>
        <td><%= product["amount_made"] %></td>
-       <td><%= product["avg"] %></td>
+       <td><%= product["average_unit_price"] %></td>
      </tr>
     <% end %>
   </tbody>

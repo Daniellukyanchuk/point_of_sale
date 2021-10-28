@@ -1,7 +1,7 @@
 <h1>Client's Report</h1>
 <p>Here you can find things like:
 Who are your big clients?</p>
-<table>
+
   
 <%= form_tag order_report_client_report_path, :method => 'get' do %>
     <p>
@@ -10,6 +10,8 @@ Who are your big clients?</p>
     </p>
 <% end %>
 
+
+<table>
   <thead>
     <tr>
       <th><%= sortable "client_id" %></th>

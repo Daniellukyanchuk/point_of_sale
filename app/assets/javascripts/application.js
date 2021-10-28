@@ -14,26 +14,25 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
-require('./nested-forms/addFields')
-require('./nested-forms/removeFields')
 
-// $(document).on('turbolinks:load', function() {
+
+$(document).on('turbolinks:load', function() {
   
-//   jQuery(function() {
-// 	    $('form').on('click', '.remove_fields', function(event) {
-// 	      $(this).prev('input[type=hidden]').val('1');
-// 	      $(this).closest('fieldset').hide();
-// 	      return event.preventDefault();
-// 	    });
-// 	    return $('form').on('click', '.add_fields', function(event) {
-// 	      var regexp, time;
-// 	      time = new Date().getTime();
-// 	      regexp = new RegExp($(this).data('id'), 'g');
-// 	      $(this).before($(this).data('fields').replace(regexp, time));
-// 	      return event.preventDefault();
-// 	    });
-// 	  });
-// })
+  jQuery(function() {
+    $(document).off('click', 'form .remove_fields').on('click', 'form .remove_fields', function(event) {
+      $(this).prev('input[type=hidden]').val('1');
+      $(this).closest('fieldset').hide();
+      return event.preventDefault();
+    });
+    $(document).off('click', 'form .add_fields').on('click', 'form .add_fields', function(event) {
+      var regexp, time;
+      time = new Date().getTime();
+      regexp = new RegExp($(this).data('id'), 'g');
+      $(this).before($(this).data('fields').replace(regexp, time));
+      return event.preventDefault();
+    });
+  });
+})
 
 
 

@@ -20,7 +20,7 @@ class Order < ApplicationRecord
       end
     end
 
-    def self.client_report(search_product, sortable, sort_direction)       
+    def self.client_report(search_client, sortable, sort_direction)       
       if !["client_id", "clients_name", "total_money_spent", "number_of_orders"].include?(sortable)
         sortable = "client_id"  
       end
@@ -31,18 +31,26 @@ class Order < ApplicationRecord
         sort_direction = "asc"
       end
       
-      where_clause = "WHERE clients.name ILIKE '%#{search_product}%' OR grand_total = #{search_product.to_i} OR client_id = #{search_product.to_i}"
-
-      if search_product.blank?
+      where_clause = "WHERE clients_name ILIKE '%#{search_client}%' OR total_money_spent = #{search_client.to_d} OR client_id = #{search_client.to_i} OR number_of_orders = #{search_client.to_ix}"
+# stop
+      if search_client.blank?
         where_clause = ""
       end
 
+
+
       sql = """
-          SELECT DISTINCT(client_id), clients.name AS clients_name, SUM(grand_total) AS total_money_spent, COUNT(orders.id) AS number_of_orders FROM orders
-          JOIN clients ON orders.client_id=clients.id
+
+          SELECT *
+          FROM (
+            SELECT DISTINCT(client_id), clients.name AS clients_name, SUM(grand_total) AS total_money_spent, COUNT(orders.id) AS number_of_orders 
+            FROM orders           
+            JOIN clients ON orders.client_id=clients.id
+            GROUP BY client_id, clients.name     
+          ) report
           #{where_clause}
-          GROUP BY client_id, clients.name
           ORDER BY #{sortable} #{sort_direction}
+
         """
       result = ActiveRecord::Base.connection.execute(sql)      
     end
@@ -59,17 +67,19 @@ class Order < ApplicationRecord
         sort_direction = "asc"
       end
 
-      where_clause = "WHERE product_name ILIKE '%#{search_product}%' OR price = #{search_product.to_i}"     
+      where_clause = "WHERE product_name ILIKE '%#{search_product}%' OR price = #{search_product.to_d} OR amount_sold = #{search_product.to_d} OR amount_made = #{search_product.to_d} OR average_unit_price = #{search_product.to_d}"     
       
       if search_product.blank?
         where_clause = ""
       end
 
       sql = """
-           SELECT DISTINCT(product_name), products.price, COUNT(quantity) AS amount_sold, SUM(subtotal) AS amount_made, AVG(sale_price) FROM products
-           JOIN order_products ON products.id=order_products.product_id
-           #{where_clause} 
-           GROUP BY product_name, price
+           SELECT * FROM (
+             SELECT DISTINCT(product_name), products.price, COUNT(quantity) AS amount_sold, SUM(subtotal) AS amount_made, ROUND(AVG(sale_price)::numeric, 2) AS average_unit_price FROM products
+             JOIN order_products ON products.id=order_products.product_id
+             GROUP BY product_name, price
+            ) report
+           #{where_clause}            
            ORDER BY #{sortable} #{sort_direction}
            
            
