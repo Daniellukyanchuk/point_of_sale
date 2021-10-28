@@ -36,7 +36,7 @@ class Order < ApplicationRecord
     end
 
       
-    def self.client_report(sortable, sort_direction)
+    def self.client_report(search_client, sortable, sort_direction)
 
       if !["client_id", "name", "orders_placed", "total_spent"].include?(sortable)
         sortable = "total_spent"
@@ -48,10 +48,17 @@ class Order < ApplicationRecord
         sort_direction = "asc"
       end
 
+      where_search = "WHERE name = '#{search_client}'"
+      
+      if search_client.blank?
+        where_search = ""
+      end  
+
         sql = """
               SELECT client_id,name, COUNT(grand_total) AS orders_placed, 
               SUM(grand_total)::numeric(15,2) AS total_spent, AVG(grand_total)::numeric(15,2) AS avg_spent
               FROM orders
+              #{where_search}
               INNER JOIN clients
               ON orders.client_id = clients.id
               GROUP BY client_id,name
