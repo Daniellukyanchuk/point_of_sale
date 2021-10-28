@@ -30,8 +30,8 @@ class Order < ApplicationRecord
       else
         sort_direction = "asc"
       end
-
-      where_clause = "WHERE clients.name = '#{search_product}'"
+      
+      where_clause = "WHERE clients.name ILIKE '%#{search_product}%' OR grand_total = #{search_product.to_i}"
 
       if search_product.blank?
         where_clause = ""
@@ -47,7 +47,7 @@ class Order < ApplicationRecord
       result = ActiveRecord::Base.connection.execute(sql)      
     end
 
-    # sortable must be a column this report
+    # sortable must be a column in this report
     def self.product_report(search_product, sortable, sort_direction)
       if !["product_name", "price", "amount_sold", "amount_made", "avg(sale_price)"].include?(sortable)
         sortable = "product_name"  
@@ -59,8 +59,8 @@ class Order < ApplicationRecord
         sort_direction = "asc"
       end
 
-      where_clause = "WHERE product_name = '#{search_product}'"
-
+      where_clause = "WHERE product_name ILIKE '%#{search_product}%' OR price = #{search_product.to_i}"     
+      
       if search_product.blank?
         where_clause = ""
       end
@@ -68,7 +68,7 @@ class Order < ApplicationRecord
       sql = """
            SELECT DISTINCT(product_name), products.price, COUNT(quantity) AS amount_sold, SUM(subtotal) AS amount_made, AVG(sale_price) FROM products
            JOIN order_products ON products.id=order_products.product_id
-           #{where_clause}
+           #{where_clause} 
            GROUP BY product_name, price
            ORDER BY #{sortable} #{sort_direction}
            
