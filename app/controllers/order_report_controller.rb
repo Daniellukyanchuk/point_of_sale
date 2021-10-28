@@ -1,8 +1,6 @@
 class OrderReportController < ApplicationController
   helper_method :sort_column, :sort_direction
   
-  
-
   def client_report
      @client_report = Order.client_report(params[:search], params[:sort], params[:direction])
   end

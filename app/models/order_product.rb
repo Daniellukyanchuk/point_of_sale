@@ -6,4 +6,3 @@ class OrderProduct < ApplicationRecord
       self.subtotal = quantity * sale_price
     end
 end
-

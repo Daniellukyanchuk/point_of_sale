@@ -10,7 +10,6 @@
   <%= @order.client_id %>
 </p>
 
-
 <% @order.order_products.each do |op| %>
   <hr>
   <p>
@@ -33,7 +32,5 @@
   <strong>Grand total: <%= number_to_currency(@order.grand_total) %></strong>
 </p>
 
-
 <%= link_to 'Edit', edit_order_path(@order) %> |
 <%= link_to 'Back', orders_path %>
-
