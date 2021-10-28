@@ -23,15 +23,15 @@ class Order < ApplicationRecord
         sort_direction = "asc"
       end
       
-        sql = """
-        SELECT product_id,product_name,unit, SUM(quantity) AS units_sold, SUM(subtotal) AS total_revenue
-        FROM order_products
-        INNER JOIN products
-        ON order_products.product_id = products.id
-        GROUP BY product_id,product_name,unit
-        ORDER BY #{sortable} #{direction}
-        """
-        result = ActiveRecord::Base.connection.execute(sql)      
+      sql = """
+            SELECT product_id,product_name,unit, SUM(quantity) AS units_sold, SUM(subtotal)::numeric(15,2) AS total_revenue
+            FROM order_products
+            INNER JOIN products
+            ON order_products.product_id = products.id
+            GROUP BY product_id,product_name,unit
+            ORDER BY #{sortable} #{sort_direction}
+      """
+      result = ActiveRecord::Base.connection.execute(sql)      
           
     end
 
@@ -49,13 +49,13 @@ class Order < ApplicationRecord
       end
 
         sql = """
-        SELECT client_id,name, COUNT(grand_total) AS orders_placed, 
-        SUM(grand_total) AS total_spent, AVG(grand_total) AS avg_spent
-        FROM orders
-        INNER JOIN clients
-        ON orders.client_id = clients.id
-        GROUP BY client_id,name
-        ORDER BY #{sortable} #{direction}
+              SELECT client_id,name, COUNT(grand_total) AS orders_placed, 
+              SUM(grand_total)::numeric(15,2) AS total_spent, AVG(grand_total)::numeric(15,2) AS avg_spent
+              FROM orders
+              INNER JOIN clients
+              ON orders.client_id = clients.id
+              GROUP BY client_id,name
+              ORDER BY #{sortable} #{sort_direction}
         """
         result = ActiveRecord::Base.connection.execute(sql)
 

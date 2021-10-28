@@ -5,8 +5,8 @@
 <table>
   <thead>
     <tr>
-    <th><%= sortable "client_id", "Id" %></th>
-    <th><%= sortable "name", "Client Name" %></th>
+    <th class="align_left"><%= sortable "client_id", "Id" %></th>
+    <th class="align_left"><%= sortable "name", "Client Name" %></th>
     <th><%= sortable "orders_placed", "Orders Placed" %></th>
     <th><%= sortable "total_spent", "Total Spent" %></th>
     <th><%= sortable "avg_spent", "Avg. Spent" %></th>
@@ -18,10 +18,10 @@
     <% @client_reports.each do |c_report| %> 
       <tr>     
         <td><%= c_report["client_id"] %></td>
-        <td><%= c_report["name"] %></td>
-        <td><%= c_report["orders_placed"] %></td>
-        <td><%= c_report["total_spent"] %></td>
-        <td><%= c_report["avg_spent"] %></td>
+        <td ><%= c_report["name"] %></td>
+        <td class="align_center"><%= c_report["orders_placed"] %></td>
+        <td class="align_right"><%= c_report["total_spent"] %></td>
+        <td class="align_right"><%= c_report["avg_spent"] %></td>
       </tr>
       <% end %>
   </tbody>

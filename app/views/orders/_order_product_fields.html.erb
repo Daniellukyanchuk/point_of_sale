@@ -21,10 +21,10 @@
 
       <div class="field">
         <%= form.label :subtotal %>
-        <%= form.number_field :subtotal, id: 'subtotal' %>
+        <%= form.number_field :subtotal, id: 'subtotal', :class => "greyed_out", :readonly => true  %>
       </div>
       <div>
-        <%= link_to "Remove", "#", class: "remove_fields" %>
+        <%= link_to "Remove", "#", class: "remove_fields", :class => "small_button" %>
       </div>
   </div>
 

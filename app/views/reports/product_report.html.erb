@@ -5,10 +5,10 @@
 <table>
   <thead>
     <tr>
-    <th><%= sortable "product_id", "Id" %></th>
-    <th><%= sortable "product_name", "Product Name" %></th>
-    <th><%= sortable "units_sold", "Units Sold" %></th>
-    <th><%= sortable "unit", "Unit" %></th>
+    <th class="align_left"><%= sortable "product_id", "Id" %></th>
+    <th class="align_left"><%= sortable "product_name", "Product Name" %></th>
+    <th class="align_right"><%= sortable "units_sold", "Units Sold" %></th>
+    <th class="align_left"><%= sortable "unit", "Unit" %></th>
     <th><%= sortable "total_revenue", "Total Revenue" %></th>
     <th colspan="4"></th>
     </tr>
@@ -19,9 +19,9 @@
       <tr>     
         <td><%= p_report["product_id"] %></td>
         <td><%= p_report["product_name"] %></td>
-        <td><%= p_report["units_sold"] %></td>
+        <td class="align_right"><%= p_report["units_sold"] %></td>
         <td><%= p_report["unit"] %></td>
-        <td><%= p_report["total_revenue"] %></td>
+        <td class="align_right"><%= p_report["total_revenue"] %></td>
       </tr>
       <% end %>
   </tbody>

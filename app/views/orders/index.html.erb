@@ -12,7 +12,7 @@
 <table>
   <thead>
     <tr>
-      <th><%= sortable "id", "ID" %></th>
+      <th class="align_right"><%= sortable "id", "ID" %></th>
       <th><%= sortable "created_at", "Date Ordered" %></th>
       <th><%= sortable "client_id", "Client ID" %></th>
       <th><%= sortable "client_id", "Client Name" %></th>
@@ -24,11 +24,11 @@
   <tbody>
     <% @orders.each do |order| %>
       <tr>
-        <td><%= order.id %></td>
+        <td class="align_right"><%= order.id %></td>
         <td><%= order.created_at.strftime("%d %b %Y") %></td> 
-        <td><%= order.client_id %></td>
+        <td class="align_center"><%= order.client_id %></td>
         <td><%= order.client.name %></td>
-        <td><%= order.grand_total %></td>
+        <td class="align_right"><%= order.grand_total %></td>
         <td><%= link_to 'Show', order %></td>
         <td><%= link_to 'Edit', edit_order_path(order) %></td>
         <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
