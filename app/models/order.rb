@@ -23,7 +23,8 @@ class Order < ApplicationRecord
         sort_direction = "asc"
       end
 
-      where_search = "WHERE product_name ILIKE '%#{search_product}%' OR unit ILIKE '%#{search_product}%' OR product_id = #{search_product.to_i} OR quantity = #{search_product.to_f} OR subtotal = #{search_product.to_f}"
+      where_search = "WHERE product_name ILIKE '%#{search_product}%' OR unit ILIKE '%#{search_product}%' OR product_id = #{search_product.to_i} 
+                      OR quantity = #{search_product.to_f} OR subtotal = #{search_product.to_f}"
       
       if search_product.blank?
         where_search = ""
