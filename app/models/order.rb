@@ -23,14 +23,14 @@ class Order < ApplicationRecord
         sort_direction = "asc"
       end
 
-      where_search = "WHERE product_name ILIKE '%#{search_product}%'"
+      where_search = "WHERE product_name ILIKE '%#{search_product}%' OR unit ILIKE '%#{search_product}%' OR units_sold = ISNUMERIC(#{search_product})"
       
       if search_product.blank?
         where_search = ""
       end  
       
       sql = """
-            SELECT product_id,product_name,unit, SUM(quantity) AS units_sold, SUM(subtotal)::numeric(15,2) AS total_revenue
+            SELECT product_id,product_name,unit, SUM(quantity) AS units_sold, SUM(subtotal)::numeric(12,2) AS total_revenue
             FROM order_products
             INNER JOIN products
             ON order_products.product_id = products.id
@@ -63,7 +63,7 @@ class Order < ApplicationRecord
 
         sql = """
               SELECT client_id,name, COUNT(grand_total) AS orders_placed, 
-              SUM(grand_total)::numeric(15,2) AS total_spent, AVG(grand_total)::numeric(15,2) AS avg_spent
+              SUM(grand_total)::numeric(12,2) AS total_spent, AVG(grand_total)::numeric(12,2) AS avg_spent
               FROM orders
               INNER JOIN clients
               ON orders.client_id = clients.id
