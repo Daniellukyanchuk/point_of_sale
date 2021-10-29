@@ -24,19 +24,21 @@ class Order < ApplicationRecord
       end
 
       where_search = "WHERE product_name ILIKE '%#{search_product}%' OR unit ILIKE '%#{search_product}%' OR product_id = #{search_product.to_i} 
-                      OR quantity = #{search_product.to_f} OR subtotal = #{search_product.to_f}"
+                      OR units_sold = #{search_product.to_f} OR total_revenue = #{search_product.to_f}"
       
       if search_product.blank?
         where_search = ""
       end  
       
       sql = """
+            SELECT * FROM (
             SELECT product_id,product_name,unit, SUM(quantity)::numeric(10,2) AS units_sold, SUM(subtotal)::numeric(12,2) AS total_revenue
             FROM order_products
             INNER JOIN products
             ON order_products.product_id = products.id
-            #{where_search}
             GROUP BY product_id,product_name,unit
+            ) report
+            #{where_search}            
             ORDER BY #{sortable} #{sort_direction}
       """
       result = ActiveRecord::Base.connection.execute(sql)      
@@ -56,20 +58,21 @@ class Order < ApplicationRecord
         sort_direction = "asc"
       end
 
-      where_search = "WHERE name ILIKE '%#{search_client}%'"
-      
+      where_search = "WHERE name ILIKE '%#{search_client}%' OR client_id = #{search_client.to_i} OR orders_placed = #{search_client.to_d} OR total_spent = #{search_client.to_d}"
       if search_client.blank?
         where_search = ""
       end  
 
         sql = """
+              SELECT * FROM (
               SELECT client_id,name, COUNT(grand_total) AS orders_placed, 
               SUM(grand_total)::numeric(12,2) AS total_spent, AVG(grand_total)::numeric(12,2) AS avg_spent
               FROM orders
               INNER JOIN clients
               ON orders.client_id = clients.id
-              #{where_search}
               GROUP BY client_id,name
+              ) report
+              #{where_search}              
               ORDER BY #{sortable} #{sort_direction}
         """
         result = ActiveRecord::Base.connection.execute(sql)
