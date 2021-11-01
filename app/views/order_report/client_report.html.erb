@@ -1,10 +1,12 @@
 <h1>Client's Report</h1>
 <p>Here you can find things like:
 Who are your big clients?</p>
-  
 <%= form_tag order_report_client_report_path, :method => 'get' do %>
-    <p>
+    <p>   
       <%= text_field_tag :search, params[:search] %>
+      <% options = Client.all.collect{ |u| [u.name, u.id] } %>
+        <% options = [["Select All", nil]] + options %>
+      <%= select_tag 'client_select[]', options_for_select(options, params[:client_select]), :multiple => :multiple, :class => "chosen-select"%>
       <%= submit_tag "Search", :name => nil %>
     </p>
 <% end %>
@@ -31,5 +33,10 @@ Who are your big clients?</p>
     <% end %>
   </tbody>
 </table>
-
+<script type="text/javascript">
+  
+  $(".chosen-select").chosen({
+  no_results_text: "Oops, nothing found!"
+  })
+</script>
 <%= link_to 'Back', orders_path %>
