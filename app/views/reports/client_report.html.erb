@@ -4,10 +4,20 @@
 
 <%= form_tag reports_client_report_path, :method => 'get' do %>
   <p>
+
     <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
   </p>
-<% end %>
+
+  <% options = Client.all.collect{ |u| [u.name, u.id] } %>
+  <% options = [["Show All", nil]] + options %>
+  <%= select_tag 'client_select[]', options_for_select(options, params[:client_select]), :multiple => :multiple %>
+
+  <p>OR</p>
+
+  <%= submit_tag "Search", :name => nil %>
+  <% end %>
+
+  
 
 <table>
   <thead>
@@ -25,7 +35,7 @@
     <% @client_reports.each do |c_report| %> 
       <tr>     
         <td><%= c_report["client_id"] %></td>
-        <td ><%= c_report["name"] %></td>
+        <td><%= c_report["name"] %></td>
         <td class="align_center"><%= c_report["orders_placed"] %></td>
         <td class="align_right"><%= c_report["total_spent"] %></td>
         <td class="align_right"><%= c_report["avg_spent"] %></td>
