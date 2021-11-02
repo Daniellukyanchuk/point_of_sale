@@ -20,7 +20,7 @@ class Order < ApplicationRecord
       end
     end
 
-    def self.client_report(search_client, sortable, sort_direction)       
+    def self.client_report(search_text, client_ids, sortable, sort_direction)       
       if !["client_id", "clients_name", "total_money_spent", "number_of_orders"].include?(sortable)
         sortable = "client_id"  
       end
@@ -31,11 +31,44 @@ class Order < ApplicationRecord
         sort_direction = "asc"
       end
       
-      where_clause = "WHERE clients_name ILIKE '%#{search_client}%' OR total_money_spent = #{search_client.to_d} OR client_id = #{search_client.to_i} OR number_of_orders = #{search_client.to_i}"
+      search_text_where = "clients_name ILIKE '%#{search_text}%' OR total_money_spent = #{search_text.to_d} OR client_id = #{search_text.to_i} OR number_of_orders = #{search_text.to_i}"
 
-      if search_client.blank?
-        where_clause = ""
+      if search_text.blank?
+        search_text_where = ""
       end
+
+      if client_ids.blank? || client_ids == [""]
+        client_id_where = ""
+      else
+        client_id_where = "client_id IN (#{client_ids.join(", ")})"
+      end
+
+
+      where_clause = WhereBuilder.build([client_id_where, search_text_where])
+
+      # where_clause = ""
+
+      # if client_id_where.blank? && search_text_where.blank?
+      #   where_clause = ""  
+      # else 
+      #   where_clause = "WHERE"
+      # end 
+      
+      # if client_id_where.blank? || search_text_where.blank?
+      #   joiner = ""
+      # else
+      #   joiner = "OR"
+      # end
+
+      # where_clause += " #{client_id_where} #{joiner} #{search_text_where}"
+
+
+
+
+
+
+
+      # where_clause += " #{client_id_where} or #{search_text_where}"  
 
       sql = """
 
@@ -46,7 +79,7 @@ class Order < ApplicationRecord
             JOIN clients ON orders.client_id=clients.id
             GROUP BY client_id, clients.name     
           ) report
-          #{where_clause}
+          #{where_clause} 
           ORDER BY #{sortable} #{sort_direction}
 
         """
