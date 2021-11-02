@@ -20,9 +20,8 @@
       <%= link_to_add_fields "Add Product", form, :order_products %>
   <br><br>
   <div class="field">
-    <%= form.label :grand_total, "Hi THere" %>
+    <%= form.label :grand_total %>
     <%= form.text_field :grand_total, :class => "greyed_out", :readonly => true %>
-    <%= text_field_tag("order[grand_total]", order.grand_total, class: "greyed_out", readonly: "readonly") %>
   </div>
 
   <div> 

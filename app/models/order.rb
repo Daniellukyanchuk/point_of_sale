@@ -25,19 +25,21 @@ class Order < ApplicationRecord
         sort_direction = "asc"
       end
 
-      where_search = "WHERE product_name ILIKE '%#{search_product}%' OR unit ILIKE '%#{search_product}%' OR product_id = #{search_product.to_i} 
-                      OR units_sold = #{search_product.to_f} OR total_revenue = #{search_product.to_f}"
+      where_search = " (product_name ILIKE '%#{search_product}%' OR unit ILIKE '%#{search_product}%' OR product_id = #{search_product.to_i} 
+                      OR units_sold = #{search_product.to_f} OR total_revenue = #{search_product.to_f})"
     
       if search_product.blank?
         where_search = ""
       end  
 
-     
+        
       if pick_product.blank? || pick_product == [""] 
         where_picker = ""
       else
-        where_picker = "WHERE product_id IN (#{pick_product.join(",")})"
+        where_picker = " product_id IN (#{pick_product.join(",")})"
       end
+      
+      where_statement = WhereBuilder.build([where_search, where_picker])
            
       sql = """
             SELECT * FROM (
@@ -47,7 +49,7 @@ class Order < ApplicationRecord
             ON order_products.product_id = products.id
             GROUP BY product_id,product_name,unit
             ) report
-            #{where_search} #{where_picker}           
+            #{where_statement}           
             ORDER BY #{sortable} #{sort_direction}
       """
       result = ActiveRecord::Base.connection.execute(sql)      
@@ -67,7 +69,7 @@ class Order < ApplicationRecord
         sort_direction = "asc"
       end
 
-      where_search = " name ILIKE '%#{search_client}%' OR client_id = #{search_client.to_i} OR orders_placed = #{search_client.to_d} OR total_spent = #{search_client.to_d}"
+      where_search = " (name ILIKE '%#{search_client}%' OR client_id = #{search_client.to_i} OR orders_placed = #{search_client.to_d} OR total_spent = #{search_client.to_d})"
       if search_client.blank?
         where_search = ""
       end  
@@ -76,21 +78,11 @@ class Order < ApplicationRecord
         where_picker = ""
 
       else
-        where_picker = "client_id IN (#{pick_client.join(",")})"
+        where_picker = " client_id IN (#{pick_client.join(",")})"
       end
 
-      if !where_search.blank? || !where_picker.blank?
-        where_statement = "WHERE"
-      else
-        where_statement = ""
-      end
-
-      if !where_search.blank? && !where_picker.blank?
-        and_statement = "AND"
-      else
-        and_statement = ""
-      end
-  
+      where_statement = WhereBuilder.build([where_search, where_picker])
+      
 
         sql = """
               SELECT * FROM (
@@ -101,7 +93,7 @@ class Order < ApplicationRecord
               ON orders.client_id = clients.id
               GROUP BY client_id,name
               ) report
-              #{where_statement} #{where_search} #{and_statement} #{where_picker}             
+              #{where_statement}              
               ORDER BY #{sortable} #{sort_direction}
         """
         result = ActiveRecord::Base.connection.execute(sql)

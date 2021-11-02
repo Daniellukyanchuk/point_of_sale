@@ -5,7 +5,7 @@
 <%= form_tag reports_product_report_path, :method => 'get' do %>
   
   <%= text_field_tag :search, params[:search] %> 
-  or
+  AND
   <% options = Product.all.collect{ |p| [p.product_name, p.id] } %>
   <% options = [["Show All", nil]] + options %>
   <%= select_tag 'product_select[]', options_for_select(options, params[:product_select]), :multiple => :multiple, :size => 10, :class => "chosen-select" %>

@@ -7,7 +7,7 @@
 <%= form_tag reports_client_report_path, :method => 'get' do %>
   
   <%= text_field_tag :search, params[:search] %>
-  or
+  and
   <% options = Client.all.collect{ |c| [c.name, c.id] } %>
   <% options = [["Show All", nil]] + options %>
   <%= select_tag 'client_select[]', options_for_select(options, params[:client_select]), :multiple => :multiple, :size => 10, :class => "chosen-select" %>
