@@ -1,23 +1,21 @@
+
+
 <p id="notice"><%= notice %></p>
 
 <h1>Client Purchase Report</h1>
 
 <%= form_tag reports_client_report_path, :method => 'get' do %>
-  <p>
-
+  
     <%= text_field_tag :search, params[:search] %>
-  </p>
+  
+  or
 
   <% options = Client.all.collect{ |u| [u.name, u.id] } %>
   <% options = [["Show All", nil]] + options %>
-  <%= select_tag 'client_select[]', options_for_select(options, params[:client_select]), :multiple => :multiple %>
-
-  <p>OR</p>
+  <%= select_tag 'client_select[]', options_for_select(options, params[:client_select]), :multiple => :multiple, :size => 10, :class => "chosen-select" %>
 
   <%= submit_tag "Search", :name => nil %>
-  <% end %>
-
-  
+  <% end %><br><br>  
 
 <table>
   <thead>
@@ -43,3 +41,11 @@
       <% end %>
   </tbody>
 </table>
+
+<script type="text/javascript">
+
+$(".chosen-select").chosen({
+  no_results_text: "Oops, nothing found!"
+})
+
+</script>
