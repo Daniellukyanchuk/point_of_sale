@@ -5,21 +5,31 @@ class WhereBuilder
     # if the statements array is empty or has empty strings then return an empty string
 	def self.build(statements)
 
+
+	  # the build method should take the statments I just made and combine them
+      # if there are blank nothing should come back
+      # if one of them has sql then it should say "WHERE #{_that_statement_here}"
+      # if both of them have sql then they should be combined by the "AND" operator
+      # WhereBuilder.build([client_id_where, search_text_where])
+
+      # when done this should be the whole WHERE section of sql
 	  where_clause = ""
 
-      if @client_report.client_id_where.blank? && @client_report.search_text_where.blank?
-        where_clause = ""  
-      else 
-        where_clause = "WHERE"
-      end 
-      
-      if @client_report.client_id_where.blank? || @client_report.search_text_where.blank?
-        joiner = ""
-      else
-        joiner = "OR"
-      end
+	  # statements = ["client_id IN (1, 2)", ""]
+	  
+	  statements = statements.reject { |c| c.empty? }
 
-      where_clause += " #{client_id_where} #{joiner} #{search_text_where}"
+	  # statements = ["", ""]
+	  if statements == []
+	  	return ""
+      else
+      	where_clause = "WHERE "
+	  end
+
+	  # I want to join statements by AND 
+      where_clause += statements.join(" AND ")
+
+	  return where_clause
 
 	end
 end

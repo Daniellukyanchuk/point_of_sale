@@ -43,32 +43,13 @@ class Order < ApplicationRecord
         client_id_where = "client_id IN (#{client_ids.join(", ")})"
       end
 
+      # the where_clause variable needs to be a string that is the sql where statement
+      # for example WHERE client_id in (1,2,4) and clients_name like '%Max%'
+      # I have the client_id_where which is either blank or it could be "client_id In (1,2,3)"
+      # I also the search_text_where which is blank or "clients_name ILIKE '%Max%'
+
 
       where_clause = WhereBuilder.build([client_id_where, search_text_where])
-
-      # where_clause = ""
-
-      # if client_id_where.blank? && search_text_where.blank?
-      #   where_clause = ""  
-      # else 
-      #   where_clause = "WHERE"
-      # end 
-      
-      # if client_id_where.blank? || search_text_where.blank?
-      #   joiner = ""
-      # else
-      #   joiner = "OR"
-      # end
-
-      # where_clause += " #{client_id_where} #{joiner} #{search_text_where}"
-
-
-
-
-
-
-
-      # where_clause += " #{client_id_where} or #{search_text_where}"  
 
       sql = """
 
