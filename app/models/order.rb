@@ -55,7 +55,9 @@ class Order < ApplicationRecord
 
           SELECT *
           FROM (
-            SELECT DISTINCT(client_id), clients.name AS clients_name, SUM(grand_total) AS total_money_spent, COUNT(orders.id) AS number_of_orders 
+            SELECT DISTINCT(client_id), clients.name AS clients_name,
+            SUM(grand_total) AS total_money_spent,
+            COUNT(orders.id) AS number_of_orders 
             FROM orders           
             JOIN clients ON orders.client_id=clients.id
             GROUP BY client_id, clients.name     
@@ -68,7 +70,7 @@ class Order < ApplicationRecord
     end
 
     # sortable must be a column in this report
-    def self.product_report(search_product, sortable, sort_direction)
+    def self.product_report(search_text, product_ids, date_one, date_two, sortable, sort_direction)
       if !["product_name", "price", "amount_sold", "amount_made", "avg(sale_price)"].include?(sortable)
         sortable = "product_name"  
       end      
@@ -79,19 +81,48 @@ class Order < ApplicationRecord
         sort_direction = "asc"
       end
 
-      where_clause = "WHERE product_name ILIKE '%#{search_product}%' OR price = #{search_product.to_d} OR amount_sold = #{search_product.to_d} OR amount_made = #{search_product.to_d} OR average_unit_price = #{search_product.to_d}"     
+      search_text_where = " (product_name ILIKE '%#{search_text}%' OR price = #{search_text.to_d} OR amount_sold = #{search_text.to_d} OR amount_made = #{search_text.to_d} OR average_unit_price = #{search_text.to_d} OR product_id = #{search_text.to_i} )"     
       
-      if search_product.blank?
-        where_clause = ""
+      if search_text.blank?
+        search_text_where = ""
+      end
+
+
+      if product_ids.blank? || product_ids == [""]
+        product_id_where = ""
+      else
+        product_id_where = "(product_id IN (#{product_ids.join(", ")}) )"
+      end
+
+      where_clause = WhereBuilder.build([product_id_where, search_text_where])
+
+      if date_one.blank? && date_two.blank?
+        date_filter = ""
+      else
+        date_filter = "WHERE order_products.created_at BETWEEN '#{date_one}' AND '#{date_two}'"
+      end
+
+      if date_one.blank? || date_two.blank?
+        date_filter = ""
+      else
+        date_filter = "WHERE order_products.created_at BETWEEN '#{date_one}' AND '#{date_two}'"
       end
 
       sql = """
            SELECT * FROM (
-             SELECT DISTINCT(product_name), products.price, COUNT(quantity) AS amount_sold, SUM(subtotal) AS amount_made, ROUND(AVG(sale_price)::numeric, 2) AS average_unit_price FROM products
+             SELECT 
+                DISTINCT(product_name), 
+                products.price, 
+                COUNT(quantity) AS amount_sold, 
+                SUM(subtotal) AS amount_made, 
+                ROUND(AVG(sale_price)::numeric, 2) AS average_unit_price,
+                products.id AS product_id
+             FROM products
              JOIN order_products ON products.id=order_products.product_id
-             GROUP BY product_name, price
-            ) report
-           #{where_clause}            
+             #{date_filter}
+             GROUP BY product_name, price, products.id
+            ) report    
+            #{where_clause}   
            ORDER BY #{sortable} #{sort_direction}
                       
         """

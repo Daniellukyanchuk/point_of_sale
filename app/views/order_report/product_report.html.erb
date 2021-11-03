@@ -6,9 +6,20 @@ What products are sold the most</p>
 <%= form_tag order_report_product_report_path, :method => 'get' do %>
     <p>
       <%= text_field_tag :search, params[:search] %>
+      <% options = Product.all.collect{ |u| [u.product_name, u.id] } %>
+        <% options = [["Select All", nil]] + options %>
+      <%= select_tag 'product_select[]', options_for_select(options, params[:product_select]), :multiple => :multiple, :class => "chosen-select"%>
       <%= submit_tag "Search", :name => nil %>
     </p>
 <% end %>
+
+<%= form_tag order_report_product_report_path, method: :get do %>
+  <p>Choose the date:</p>
+  <%= text_field_tag 'start_date', params[:start_date], placeholder: "Enter From"%>
+  <%= text_field_tag 'end_date', params[:end_date], placeholder: "Enter To"%>
+  <%= submit_tag 'Search'%>
+<% end %>
+
 
 <table>  
   <thead>
@@ -36,5 +47,10 @@ What products are sold the most</p>
 </table>
 
 
-
+<script type="text/javascript">
+  
+  $(".chosen-select").chosen({
+  no_results_text: "Oops, nothing found!"
+  })
+</script>
 <%= link_to 'Back', orders_path %>
