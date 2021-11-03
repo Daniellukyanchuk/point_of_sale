@@ -70,7 +70,7 @@ class Order < ApplicationRecord
     end
 
     # sortable must be a column in this report
-    def self.product_report(search_text, product_ids, date_one, date_two, sortable, sort_direction)
+    def self.product_report(search_text, product_ids, start_date, end_date, sortable, sort_direction)
       if !["product_name", "price", "amount_sold", "amount_made", "avg(sale_price)"].include?(sortable)
         sortable = "product_name"  
       end      
@@ -94,19 +94,13 @@ class Order < ApplicationRecord
         product_id_where = "(product_id IN (#{product_ids.join(", ")}) )"
       end
 
+      if start_date.blank? || end_date.blank?
+        date_filter_where = ""
+      else
+        date_filter_where = "WHERE order_products.created_at >= #{SqlHelper.escape_sql_param start_date.to_datetime} AND order_products.created_at <= #{SqlHelper.escape_sql_param end_date.to_datetime}"
+      end
+
       where_clause = WhereBuilder.build([product_id_where, search_text_where])
-
-      if date_one.blank? && date_two.blank?
-        date_filter = ""
-      else
-        date_filter = "WHERE order_products.created_at BETWEEN '#{date_one}' AND '#{date_two}'"
-      end
-
-      if date_one.blank? || date_two.blank?
-        date_filter = ""
-      else
-        date_filter = "WHERE order_products.created_at BETWEEN '#{date_one}' AND '#{date_two}'"
-      end
 
       sql = """
            SELECT * FROM (
@@ -119,7 +113,7 @@ class Order < ApplicationRecord
                 products.id AS product_id
              FROM products
              JOIN order_products ON products.id=order_products.product_id
-             #{date_filter}
+             #{date_filter_where}
              GROUP BY product_name, price, products.id
             ) report    
             #{where_clause}   

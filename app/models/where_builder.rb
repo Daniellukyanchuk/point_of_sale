@@ -28,7 +28,7 @@ class WhereBuilder
 
 	  # I want to join statements by AND 
       where_clause += statements.join(" AND ")
-
+      
 	  return where_clause
 
 	end
