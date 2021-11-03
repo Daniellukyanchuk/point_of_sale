@@ -14,7 +14,10 @@ class Order < ApplicationRecord
       end    
     end
 
-    def self.product_report(search_product, pick_product, sortable, sort_direction)
+    def self.product_report(search_product, pick_product, sortable, sort_direction, datefilter_start, datefilter_end)
+
+#column sorting 
+
       if !["product_id", "product_name", "units_sold", "total_revenue"].include?(sortable)
         sortable = "total_revenue"
       end
@@ -25,6 +28,8 @@ class Order < ApplicationRecord
         sort_direction = "asc"
       end
 
+#search box
+
       where_search = " (product_name ILIKE '%#{search_product}%' OR unit ILIKE '%#{search_product}%' OR product_id = #{search_product.to_i} 
                       OR units_sold = #{search_product.to_f} OR total_revenue = #{search_product.to_f})"
     
@@ -32,26 +37,39 @@ class Order < ApplicationRecord
         where_search = ""
       end  
 
+#product multi-select
         
       if pick_product.blank? || pick_product == [""] 
         where_picker = ""
       else
-        where_picker = " product_id IN (#{pick_product.join(",")})"
+        where_picker = "product_id IN (#{pick_product.join(",")})"
       end
-      
-      where_statement = WhereBuilder.build([where_search, where_picker])
+
+#filter by time period    
+
+      if datefilter_start.blank? || datefilter_end.blank?
+        where_time_period = "order_date >= todays_date - interval '30' day"
+      else
+        where_time_period = "order_date >= #{SqlHelper.escape_sql_param(datefilter_start)} AND order_date <= #{SqlHelper.escape_sql_param(datefilter_end)}"
+      end
+
+      where_statement = WhereBuilder.build([where_search, where_picker, where_time_period])
            
       sql = """
             SELECT * FROM (
-            SELECT product_id,product_name,unit, SUM(quantity)::numeric(10,2) AS units_sold, SUM(subtotal)::numeric(12,2) AS total_revenue
-            FROM order_products
-            INNER JOIN products
-            ON order_products.product_id = products.id
-            GROUP BY product_id,product_name,unit
+                SELECT product_id,product_name,unit, 
+                CAST(order_products.created_at AS DATE) AS order_date, 
+                SUM(quantity)::numeric(10,2) AS units_sold, 
+                SUM(subtotal)::numeric(12,2) AS total_revenue,
+                CAST(NOW() AS DATE) as todays_date
+                FROM order_products
+                INNER JOIN products ON order_products.product_id = products.id
+                GROUP BY product_id,product_name,unit,order_products.created_at
             ) report
-            #{where_statement}           
+            #{where_statement}            
             ORDER BY #{sortable} #{sort_direction}
       """
+
       result = ActiveRecord::Base.connection.execute(sql)      
           
     end

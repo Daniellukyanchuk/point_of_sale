@@ -2,11 +2,13 @@ class ReportsController < ApplicationController
     
 
     def product_report
-        @product_reports = Order.product_report(params[:search], params[:product_select], params[:sort], params[:direction])
+        @product_reports = Order.product_report(params[:search], params[:product_select], params[:sort], 
+        params[:direction], params[:from_date], params[:to_date])
     end
 
     def client_report
-        @client_reports = Order.client_report(params[:search], params[:client_select], params[:sort], params[:direction])
+        @client_reports = Order.client_report(params[:search], params[:client_select], params[:sort], 
+        params[:direction], params[:from_date], params[:to_date])
     end
  
     private
@@ -34,4 +36,13 @@ class ReportsController < ApplicationController
     def pick_product
         params[:product_select]
     end
+
+    def datefilter_start
+        params[:from_date]
+    end
+
+    def datefilter_end
+        params[:to_date]
+    end
+            
 end
