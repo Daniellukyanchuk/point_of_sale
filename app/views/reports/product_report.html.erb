@@ -9,10 +9,17 @@
   <% options = Product.all.collect{ |p| [p.product_name, p.id] } %>
   <% options = [["Show All", nil]] + options %>
   <%= select_tag 'product_select[]', options_for_select(options, params[:product_select]), :multiple => :multiple, :size => 10, :class => "chosen-select" %>
+  <br><br>
+
+  FROM (dd-mm-yyyy)
+  <%= text_field_tag :from_date, params[:from_date], :class => "date_entry" %>
+  TO (dd-mm-yyyy)
+  <%= text_field_tag :to_date, params[:to_date], :class => "date_entry" %>
+
 
   <%= submit_tag "Search", :product_name => nil %>
 <% end %>
-
+<br>
 <table>
   <thead>
     <tr>
