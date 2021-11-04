@@ -45,26 +45,27 @@ class Order < ApplicationRecord
         where_picker = "product_id IN (#{pick_product.join(",")})"
       end
 
-#filter by time period    
+#filter by time period  
+
+      
 
       if datefilter_start.blank? || datefilter_end.blank?
-        where_time_period = "order_date >= todays_date - interval '30' day"
+        where_time_period = "WHERE order_products.created_at >= CAST(NOW() AS DATE) - interval '30' day"
       else
-        where_time_period = "order_date >= #{SqlHelper.escape_sql_param(datefilter_start)} AND order_date <= #{SqlHelper.escape_sql_param(datefilter_end)}"
+        where_time_period = "WHERE order_products.created_at >= #{SqlHelper.escape_sql_param(datefilter_start.to_date)} AND order_products.created_at <= #{SqlHelper.escape_sql_param(datefilter_end.to_date)}"
       end
 
-      where_statement = WhereBuilder.build([where_search, where_picker, where_time_period])
+      where_statement = WhereBuilder.build([where_search, where_picker])
            
       sql = """
             SELECT * FROM (
                 SELECT product_id,product_name,unit, 
-                CAST(order_products.created_at AS DATE) AS order_date, 
                 SUM(quantity)::numeric(10,2) AS units_sold, 
-                SUM(subtotal)::numeric(12,2) AS total_revenue,
-                CAST(NOW() AS DATE) as todays_date
+                SUM(subtotal)::numeric(12,2) AS total_revenue
                 FROM order_products
                 INNER JOIN products ON order_products.product_id = products.id
-                GROUP BY product_id,product_name,unit,order_products.created_at
+                #{where_time_period} 
+                GROUP BY product_id,product_name,unit
             ) report
             #{where_statement}            
             ORDER BY #{sortable} #{sort_direction}
