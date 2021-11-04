@@ -95,7 +95,7 @@ class Order < ApplicationRecord
       end
 
       if start_date.blank? || end_date.blank?
-        date_filter_where = ""
+        date_filter_where = "WHERE order_products.created_at >= cast(now() as date) - interval '30' day" 
       else
         date_filter_where = "WHERE order_products.created_at >= #{SqlHelper.escape_sql_param start_date.to_datetime} AND order_products.created_at <= #{SqlHelper.escape_sql_param end_date.to_datetime}"
       end
@@ -110,7 +110,7 @@ class Order < ApplicationRecord
                 COUNT(quantity) AS amount_sold, 
                 SUM(subtotal) AS amount_made, 
                 ROUND(AVG(sale_price)::numeric, 2) AS average_unit_price,
-                products.id AS product_id
+                products.id AS product_id 
              FROM products
              JOIN order_products ON products.id=order_products.product_id
              #{date_filter_where}
