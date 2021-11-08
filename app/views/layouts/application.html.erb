@@ -8,12 +8,50 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+   
     <script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script>
     <link href="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.min.css" rel="stylesheet"/>
+ 
   </head>
 
   <body>
     <%= yield %>
   </body>
 </html>
+
+<script>
+  $( function() {
+    var dateFormat = "mm/dd/yy",
+      from = $( "#from" )
+        .datepicker({
+          defaultDate: "+1w",
+          changeMonth: true,
+          numberOfMonths: 3
+        })
+        .on( "change", function() {
+          to.datepicker( "option", "minDate", getDate( this ) );
+        }),
+      to = $( "#to" ).datepicker({
+        defaultDate: "+1w",
+        changeMonth: true,
+        numberOfMonths: 3
+      })
+      .on( "change", function() {
+        from.datepicker( "option", "maxDate", getDate( this ) );
+      });
+ 
+    function getDate( element ) {
+      var date;
+      try {
+        date = $.datepicker.parseDate( dateFormat, element.value );
+      } catch( error ) {
+        date = null;
+      }
+ 
+      return date;
+    }
+  } );
+  </script>

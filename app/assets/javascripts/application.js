@@ -15,8 +15,6 @@
 //= require turbolinks
 //= require_tree .
 
-require('./addFields')
-require('./removeFields')
 
 // Calculation for subtotal
 

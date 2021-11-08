@@ -11,10 +11,8 @@
   <%= select_tag 'product_select[]', options_for_select(options, params[:product_select]), :multiple => :multiple, :size => 10, :class => "chosen-select" %>
   <br><br>
 
-  FROM (less recent)
-  <%= text_field_tag :from_date, params[:from_date], :class => "date_entry" %>
-  TO (more recent)
-  <%= text_field_tag :to_date, params[:to_date], :class => "date_entry" %>
+  From: <input type="text" id="from" name="from_date" autocomplete = 'off'>
+  to: <input type="text" id="to" name="to_date" autocomplete = 'off'>
 
 
   <%= submit_tag "Search", :product_name => nil %>
@@ -47,6 +45,37 @@
 </table>
 
 <script type="text/javascript">
+
+  $( function() {
+    var dateFormat = "mm/dd/yy",
+      from = $( "#from" )
+        .datepicker({
+          changeMonth: true,
+          numberOfMonths: 1
+        })
+        .on( "change", function() {
+          to.datepicker( "option", "minDate", getDate( this ) );
+        }),
+      to = $( "#to" ).datepicker({
+        changeMonth: true,
+        numberOfMonths: 1
+      })
+      .on( "change", function() {
+        from.datepicker( "option", "maxDate", getDate( this ) );
+      });
+ 
+    function getDate( element ) {
+      var date;
+      try {
+        date = $.datepicker.parseDate( dateFormat, element.value );
+      } catch( error ) {
+        date = null;
+      }
+ 
+      return date;
+    }
+  } );
+  
 
 $(".chosen-select").chosen({
   no_results_text: "Oops, nothing found!"

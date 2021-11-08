@@ -8473,3 +8473,328 @@ Processing by ReportsController#product_report as HTML
 Completed 200 OK in 114ms (Views: 89.8ms | ActiveRecord: 13.7ms)
 
 
+Started GET "/reports/product_report" for ::1 at 2021-11-08 00:29:27 -0800
+  [1m[35m (3.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by ReportsController#product_report as HTML
+  [1m[35m (9.3ms)[0m  [1m[34m
+            SELECT * FROM (
+                SELECT product_id,product_name,unit, 
+                SUM(quantity)::numeric(10,2) AS units_sold, 
+                SUM(subtotal)::numeric(12,2) AS total_revenue
+                FROM order_products
+                INNER JOIN products ON order_products.product_id = products.id
+                WHERE order_products.created_at >= CAST(NOW() AS DATE) - interval '30' day 
+                GROUP BY product_id,product_name,unit
+            ) report
+                        
+            ORDER BY total_revenue asc
+      [0m
+  ↳ app/models/order.rb:74
+  Rendering reports/product_report.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/reports/product_report.html.erb:9
+  Rendered reports/product_report.html.erb within layouts/application (45.3ms)
+Completed 200 OK in 1131ms (Views: 1059.6ms | ActiveRecord: 17.5ms)
+
+
+Started GET "/reports/product_report" for ::1 at 2021-11-08 00:30:08 -0800
+Processing by ReportsController#product_report as HTML
+  [1m[35m (0.8ms)[0m  [1m[34m
+            SELECT * FROM (
+                SELECT product_id,product_name,unit, 
+                SUM(quantity)::numeric(10,2) AS units_sold, 
+                SUM(subtotal)::numeric(12,2) AS total_revenue
+                FROM order_products
+                INNER JOIN products ON order_products.product_id = products.id
+                WHERE order_products.created_at >= CAST(NOW() AS DATE) - interval '30' day 
+                GROUP BY product_id,product_name,unit
+            ) report
+                        
+            ORDER BY total_revenue asc
+      [0m
+  ↳ app/models/order.rb:74
+  Rendering reports/product_report.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/reports/product_report.html.erb:9
+  Rendered reports/product_report.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 224ms (Views: 206.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/reports/product_report" for ::1 at 2021-11-08 00:37:49 -0800
+Processing by ReportsController#product_report as HTML
+  [1m[35m (10.1ms)[0m  [1m[34m
+            SELECT * FROM (
+                SELECT product_id,product_name,unit, 
+                SUM(quantity)::numeric(10,2) AS units_sold, 
+                SUM(subtotal)::numeric(12,2) AS total_revenue
+                FROM order_products
+                INNER JOIN products ON order_products.product_id = products.id
+                WHERE order_products.created_at >= CAST(NOW() AS DATE) - interval '30' day 
+                GROUP BY product_id,product_name,unit
+            ) report
+                        
+            ORDER BY total_revenue asc
+      [0m
+  ↳ app/models/order.rb:74
+  Rendering reports/product_report.html.erb within layouts/application
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/reports/product_report.html.erb:9
+  Rendered reports/product_report.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 170ms (Views: 114.3ms | ActiveRecord: 10.8ms)
+
+
+Started GET "/reports/product_report" for ::1 at 2021-11-08 00:38:03 -0800
+Processing by ReportsController#product_report as HTML
+  [1m[35m (2.3ms)[0m  [1m[34m
+            SELECT * FROM (
+                SELECT product_id,product_name,unit, 
+                SUM(quantity)::numeric(10,2) AS units_sold, 
+                SUM(subtotal)::numeric(12,2) AS total_revenue
+                FROM order_products
+                INNER JOIN products ON order_products.product_id = products.id
+                WHERE order_products.created_at >= CAST(NOW() AS DATE) - interval '30' day 
+                GROUP BY product_id,product_name,unit
+            ) report
+                        
+            ORDER BY total_revenue asc
+      [0m
+  ↳ app/models/order.rb:74
+  Rendering reports/product_report.html.erb within layouts/application
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/reports/product_report.html.erb:9
+  Rendered reports/product_report.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 178ms (Views: 122.5ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/reports/product_report" for ::1 at 2021-11-08 00:38:47 -0800
+Processing by ReportsController#product_report as HTML
+  [1m[35m (0.8ms)[0m  [1m[34m
+            SELECT * FROM (
+                SELECT product_id,product_name,unit, 
+                SUM(quantity)::numeric(10,2) AS units_sold, 
+                SUM(subtotal)::numeric(12,2) AS total_revenue
+                FROM order_products
+                INNER JOIN products ON order_products.product_id = products.id
+                WHERE order_products.created_at >= CAST(NOW() AS DATE) - interval '30' day 
+                GROUP BY product_id,product_name,unit
+            ) report
+                        
+            ORDER BY total_revenue asc
+      [0m
+  ↳ app/models/order.rb:74
+  Rendering reports/product_report.html.erb within layouts/application
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/reports/product_report.html.erb:9
+  Rendered reports/product_report.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 96ms (Views: 80.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/reports/product_report" for ::1 at 2021-11-08 00:38:54 -0800
+Processing by ReportsController#product_report as HTML
+  [1m[35m (1.9ms)[0m  [1m[34m
+            SELECT * FROM (
+                SELECT product_id,product_name,unit, 
+                SUM(quantity)::numeric(10,2) AS units_sold, 
+                SUM(subtotal)::numeric(12,2) AS total_revenue
+                FROM order_products
+                INNER JOIN products ON order_products.product_id = products.id
+                WHERE order_products.created_at >= CAST(NOW() AS DATE) - interval '30' day 
+                GROUP BY product_id,product_name,unit
+            ) report
+                        
+            ORDER BY total_revenue asc
+      [0m
+  ↳ app/models/order.rb:74
+  Rendering reports/product_report.html.erb within layouts/application
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/reports/product_report.html.erb:9
+  Rendered reports/product_report.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 159ms (Views: 113.9ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/reports/product_report" for ::1 at 2021-11-08 00:39:10 -0800
+Processing by ReportsController#product_report as HTML
+  [1m[35m (0.7ms)[0m  [1m[34m
+            SELECT * FROM (
+                SELECT product_id,product_name,unit, 
+                SUM(quantity)::numeric(10,2) AS units_sold, 
+                SUM(subtotal)::numeric(12,2) AS total_revenue
+                FROM order_products
+                INNER JOIN products ON order_products.product_id = products.id
+                WHERE order_products.created_at >= CAST(NOW() AS DATE) - interval '30' day 
+                GROUP BY product_id,product_name,unit
+            ) report
+                        
+            ORDER BY total_revenue asc
+      [0m
+  ↳ app/models/order.rb:74
+  Rendering reports/product_report.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/reports/product_report.html.erb:9
+  Rendered reports/product_report.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 117ms (Views: 99.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/reports/product_report" for ::1 at 2021-11-08 00:39:21 -0800
+Processing by ReportsController#product_report as HTML
+  [1m[35m (0.7ms)[0m  [1m[34m
+            SELECT * FROM (
+                SELECT product_id,product_name,unit, 
+                SUM(quantity)::numeric(10,2) AS units_sold, 
+                SUM(subtotal)::numeric(12,2) AS total_revenue
+                FROM order_products
+                INNER JOIN products ON order_products.product_id = products.id
+                WHERE order_products.created_at >= CAST(NOW() AS DATE) - interval '30' day 
+                GROUP BY product_id,product_name,unit
+            ) report
+                        
+            ORDER BY total_revenue asc
+      [0m
+  ↳ app/models/order.rb:74
+  Rendering reports/product_report.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/reports/product_report.html.erb:9
+  Rendered reports/product_report.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 104ms (Views: 87.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/reports/product_report" for ::1 at 2021-11-08 00:40:45 -0800
+Processing by ReportsController#product_report as HTML
+  [1m[35m (0.7ms)[0m  [1m[34m
+            SELECT * FROM (
+                SELECT product_id,product_name,unit, 
+                SUM(quantity)::numeric(10,2) AS units_sold, 
+                SUM(subtotal)::numeric(12,2) AS total_revenue
+                FROM order_products
+                INNER JOIN products ON order_products.product_id = products.id
+                WHERE order_products.created_at >= CAST(NOW() AS DATE) - interval '30' day 
+                GROUP BY product_id,product_name,unit
+            ) report
+                        
+            ORDER BY total_revenue asc
+      [0m
+  ↳ app/models/order.rb:74
+  Rendering reports/product_report.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/reports/product_report.html.erb:9
+  Rendered reports/product_report.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 110ms (Views: 93.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/reports/product_report" for ::1 at 2021-11-08 00:40:57 -0800
+Processing by ReportsController#product_report as HTML
+  [1m[35m (2.4ms)[0m  [1m[34m
+            SELECT * FROM (
+                SELECT product_id,product_name,unit, 
+                SUM(quantity)::numeric(10,2) AS units_sold, 
+                SUM(subtotal)::numeric(12,2) AS total_revenue
+                FROM order_products
+                INNER JOIN products ON order_products.product_id = products.id
+                WHERE order_products.created_at >= CAST(NOW() AS DATE) - interval '30' day 
+                GROUP BY product_id,product_name,unit
+            ) report
+                        
+            ORDER BY total_revenue asc
+      [0m
+  ↳ app/models/order.rb:74
+  Rendering reports/product_report.html.erb within layouts/application
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/reports/product_report.html.erb:9
+  Rendered reports/product_report.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 151ms (Views: 100.7ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/reports/product_report" for ::1 at 2021-11-08 00:43:04 -0800
+Processing by ReportsController#product_report as HTML
+  [1m[35m (2.3ms)[0m  [1m[34m
+            SELECT * FROM (
+                SELECT product_id,product_name,unit, 
+                SUM(quantity)::numeric(10,2) AS units_sold, 
+                SUM(subtotal)::numeric(12,2) AS total_revenue
+                FROM order_products
+                INNER JOIN products ON order_products.product_id = products.id
+                WHERE order_products.created_at >= CAST(NOW() AS DATE) - interval '30' day 
+                GROUP BY product_id,product_name,unit
+            ) report
+                        
+            ORDER BY total_revenue asc
+      [0m
+  ↳ app/models/order.rb:74
+  Rendering reports/product_report.html.erb within layouts/application
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/reports/product_report.html.erb:9
+  Rendered reports/product_report.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 163ms (Views: 108.2ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/reports/product_report" for ::1 at 2021-11-08 00:43:22 -0800
+Processing by ReportsController#product_report as HTML
+  [1m[35m (2.1ms)[0m  [1m[34m
+            SELECT * FROM (
+                SELECT product_id,product_name,unit, 
+                SUM(quantity)::numeric(10,2) AS units_sold, 
+                SUM(subtotal)::numeric(12,2) AS total_revenue
+                FROM order_products
+                INNER JOIN products ON order_products.product_id = products.id
+                WHERE order_products.created_at >= CAST(NOW() AS DATE) - interval '30' day 
+                GROUP BY product_id,product_name,unit
+            ) report
+                        
+            ORDER BY total_revenue asc
+      [0m
+  ↳ app/models/order.rb:74
+  Rendering reports/product_report.html.erb within layouts/application
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/reports/product_report.html.erb:9
+  Rendered reports/product_report.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 181ms (Views: 121.4ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/reports/product_report" for ::1 at 2021-11-08 00:43:57 -0800
+Processing by ReportsController#product_report as HTML
+  [1m[35m (0.8ms)[0m  [1m[34m
+            SELECT * FROM (
+                SELECT product_id,product_name,unit, 
+                SUM(quantity)::numeric(10,2) AS units_sold, 
+                SUM(subtotal)::numeric(12,2) AS total_revenue
+                FROM order_products
+                INNER JOIN products ON order_products.product_id = products.id
+                WHERE order_products.created_at >= CAST(NOW() AS DATE) - interval '30' day 
+                GROUP BY product_id,product_name,unit
+            ) report
+                        
+            ORDER BY total_revenue asc
+      [0m
+  ↳ app/models/order.rb:74
+  Rendering reports/product_report.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/reports/product_report.html.erb:9
+  Rendered reports/product_report.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 97ms (Views: 80.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/reports/product_report?utf8=%E2%9C%93&search=&from_date=11%2F01%2F2021&to_date=11%2F02%2F2021&commit=Search" for ::1 at 2021-11-08 00:44:09 -0800
+Processing by ReportsController#product_report as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"", "from_date"=>"11/01/2021", "to_date"=>"11/02/2021", "commit"=>"Search"}
+  [1m[35m (1.0ms)[0m  [1m[34m
+            SELECT * FROM (
+                SELECT product_id,product_name,unit, 
+                SUM(quantity)::numeric(10,2) AS units_sold, 
+                SUM(subtotal)::numeric(12,2) AS total_revenue
+                FROM order_products
+                INNER JOIN products ON order_products.product_id = products.id
+                WHERE order_products.created_at >= '2021-01-11' AND order_products.created_at <= '2021-02-11' 
+                GROUP BY product_id,product_name,unit
+            ) report
+                        
+            ORDER BY total_revenue asc
+      [0m
+  ↳ app/models/order.rb:74
+  Rendering reports/product_report.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/reports/product_report.html.erb:9
+  Rendered reports/product_report.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 127ms (Views: 74.8ms | ActiveRecord: 1.4ms)
+
+
