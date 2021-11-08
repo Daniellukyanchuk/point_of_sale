@@ -1,27 +1,27 @@
 <h1>Product's Report</h1>
-<p>Here you can find things like:
-What products are sold the most</p>
-<p>What is the average price per unit</p>
 
 
 
 <%= form_tag order_report_product_report_path, :method => 'get' do %>
-    <p>
-      <%= text_field_tag :search, params[:search] %>
+    <p>Type in a Product:
+      <%= text_field_tag :search, params[:search], placeholder: "Type in the Product" %>
+    </p>
+    <p>Select Products:
       <% options = Product.all.collect{ |u| [u.product_name, u.id] } %>
         <% options = [["Select All", nil]] + options %>
       <%= select_tag 'product_select[]', options_for_select(options, params[:product_select]), :multiple => :multiple, :class => "chosen-select"%>
-      <p>Choose the date: 
-        <%= text_field_tag 'start_date', params[:start_date], placeholder: "Enter From", :class => "datepicker", :autocomplete => "off"%>
-        <%= text_field_tag 'end_date', params[:end_date], placeholder: "Enter To", :class => "datepicker", :autocomplete => "off"%>
+    <p>Choose the date range: 
+        <%= text_field_tag 'start_date', params[:start_date], :class => "datepicker", :autocomplete => "off", :placeholder => 1.month.ago.strftime("%d - %m - %y")%>
+        <%= text_field_tag 'end_date', params[:end_date], :class => "datepicker", :autocomplete => "off", :placeholder => Date.today.strftime("%d - %m - %y")%>
         <%= submit_tag "Search", :name => nil %>
-      </p>
+        
+    </p>
     </p>
 <% end %>
 
 <script>
     $( function() {
-      $( ".datepicker" ).datepicker({ dateFormat: 'dd-mm-yy' });
+      $( ".datepicker" ).datepicker({ dateFormat: 'dd-mm-yy'});
     } );
 </script>
 

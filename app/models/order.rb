@@ -93,7 +93,9 @@ class Order < ApplicationRecord
       else
         product_id_where = "(product_id IN (#{product_ids.join(", ")}) )"
       end
-
+      
+      date_filter_where = "WHERE order_products.created_at >= cast(now() as date) - interval '30' day"
+      
       if start_date.blank? || end_date.blank?
         date_filter_where = "WHERE order_products.created_at >= cast(now() as date) - interval '30' day" 
       else
@@ -120,7 +122,7 @@ class Order < ApplicationRecord
            ORDER BY #{sortable} #{sort_direction}
                       
         """
-        
+
       result = ActiveRecord::Base.connection.execute(sql)
     end
 end
