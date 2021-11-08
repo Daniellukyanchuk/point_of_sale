@@ -34,4 +34,12 @@ class OrderReportController < ApplicationController
   def search_multiple
     params[:product_select]
   end
+
+  def start_date
+    params[:start_date]
+  end
+
+  def end_date
+    params[:end_date]
+  end
 end

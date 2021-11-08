@@ -3,18 +3,29 @@
 What products are sold the most</p>
 <p>What is the average price per unit</p>
 
+
+
 <%= form_tag order_report_product_report_path, :method => 'get' do %>
     <p>
       <%= text_field_tag :search, params[:search] %>
       <% options = Product.all.collect{ |u| [u.product_name, u.id] } %>
         <% options = [["Select All", nil]] + options %>
       <%= select_tag 'product_select[]', options_for_select(options, params[:product_select]), :multiple => :multiple, :class => "chosen-select"%>
-      <p>Choose the date:</p>
-      <%= text_field_tag 'start_date', params[:start_date], placeholder: "Enter From"%>
-      <%= text_field_tag 'end_date', params[:end_date], placeholder: "Enter To"%>
-      <%= submit_tag 'Search', :name => nil%>
+      <p>Choose the date: 
+        <%= text_field_tag 'start_date', params[:start_date], placeholder: "Enter From", :class => "datepicker", :autocomplete => "off"%>
+        <%= text_field_tag 'end_date', params[:end_date], placeholder: "Enter To", :class => "datepicker", :autocomplete => "off"%>
+        <%= submit_tag "Search", :name => nil %>
+      </p>
     </p>
 <% end %>
+
+<script>
+    $( function() {
+      $( ".datepicker" ).datepicker({ dateFormat: 'dd-mm-yy' });
+    } );
+</script>
+
+
 
 
 <table>  
@@ -43,8 +54,8 @@ What products are sold the most</p>
 </table>
 
 
-<script type="text/javascript">
-  
+
+<script type="text/javascript">  
   $(".chosen-select").chosen({
   no_results_text: "Oops, nothing found!"
   })

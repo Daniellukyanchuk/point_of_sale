@@ -16,6 +16,9 @@
 //= require_tree .
 
 
+
+
+
 $(document).on('turbolinks:load', function() {
   
   jQuery(function() {
@@ -33,6 +36,8 @@ $(document).on('turbolinks:load', function() {
     });
   });
 })
+
+
 
 
 
