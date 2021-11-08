@@ -87,7 +87,6 @@ class Order < ApplicationRecord
         search_text_where = ""
       end
 
-
       if product_ids.blank? || product_ids == [""]
         product_id_where = ""
       else
@@ -95,7 +94,7 @@ class Order < ApplicationRecord
       end
       
       date_filter_where = "WHERE order_products.created_at >= cast(now() as date) - interval '30' day"
-      
+
       if start_date.blank? || end_date.blank?
         date_filter_where = "WHERE order_products.created_at >= cast(now() as date) - interval '30' day" 
       else
@@ -119,8 +118,7 @@ class Order < ApplicationRecord
              GROUP BY product_name, price, products.id
             ) report    
             #{where_clause}   
-           ORDER BY #{sortable} #{sort_direction}
-                      
+           ORDER BY #{sortable} #{sort_direction}                      
         """
 
       result = ActiveRecord::Base.connection.execute(sql)

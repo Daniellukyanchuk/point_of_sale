@@ -1,7 +1,5 @@
 <h1>Product's Report</h1>
 
-
-
 <%= form_tag order_report_product_report_path, :method => 'get' do %>
     <p>Type in a Product:
       <%= text_field_tag :search, params[:search], placeholder: "Type in the Product" %>
@@ -11,10 +9,9 @@
         <% options = [["Select All", nil]] + options %>
       <%= select_tag 'product_select[]', options_for_select(options, params[:product_select]), :multiple => :multiple, :class => "chosen-select"%>
     <p>Choose the date range: 
-        <%= text_field_tag 'start_date', params[:start_date], :class => "datepicker", :autocomplete => "off", :placeholder => 1.month.ago.strftime("%d - %m - %y")%>
-        <%= text_field_tag 'end_date', params[:end_date], :class => "datepicker", :autocomplete => "off", :placeholder => Date.today.strftime("%d - %m - %y")%>
-        <%= submit_tag "Search", :name => nil %>
-        
+        <%= text_field_tag 'start_date', params[:start_date], :class => "datepicker", :autocomplete => "off", :placeholder => 1.month.ago.strftime("%a, %d - %b - %Y")%>
+        <%= text_field_tag 'end_date', params[:end_date], :class => "datepicker", :autocomplete => "off", :placeholder => Date.today.strftime("%a, %d - %b - %Y")%>
+        <%= submit_tag "Search", :name => nil %>        
     </p>
     </p>
 <% end %>
@@ -24,9 +21,6 @@
       $( ".datepicker" ).datepicker({ dateFormat: 'dd-mm-yy'});
     } );
 </script>
-
-
-
 
 <table>  
   <thead>
@@ -52,8 +46,6 @@
     <% end %>
   </tbody>
 </table>
-
-
 
 <script type="text/javascript">  
   $(".chosen-select").chosen({
