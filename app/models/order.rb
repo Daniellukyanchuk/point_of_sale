@@ -16,6 +16,11 @@ class Order < ApplicationRecord
 
     def self.product_report(search_product, pick_product, sortable, sort_direction, datefilter_start, datefilter_end)
 
+      
+      datefilter_start = Date.strptime( datefilter_start, '%m/%d/%Y')       
+      datefilter_end = Date.strptime( datefilter_end, '%m/%d/%Y')
+      
+
 #column sorting 
 
       if !["product_id", "product_name", "units_sold", "total_revenue"].include?(sortable)
@@ -45,18 +50,12 @@ class Order < ApplicationRecord
         where_picker = "product_id IN (#{pick_product.join(",")})"
       end
 
-#filter by time period  
+#filter by time period        
 
+      where_time_period = "WHERE order_products.created_at >= #{SqlHelper.escape_sql_param(datefilter_start.to_date)} AND order_products.created_at <= #{SqlHelper.escape_sql_param(datefilter_end.to_date)}"
       
-
-      if datefilter_start.blank? || datefilter_end.blank?
-        where_time_period = "WHERE order_products.created_at >= CAST(NOW() AS DATE) - interval '30' day"
-      else
-        where_time_period = "WHERE order_products.created_at >= #{SqlHelper.escape_sql_param(datefilter_start.to_date)} AND order_products.created_at <= #{SqlHelper.escape_sql_param(datefilter_end.to_date)}"
-      end
-
       where_statement = WhereBuilder.build([where_search, where_picker])
-           
+        
       sql = """
             SELECT * FROM (
                 SELECT product_id,product_name,unit, 
@@ -72,7 +71,7 @@ class Order < ApplicationRecord
       """
 
       result = ActiveRecord::Base.connection.execute(sql)      
-          
+        
     end
 
       
@@ -101,8 +100,7 @@ class Order < ApplicationRecord
       end
 
       where_statement = WhereBuilder.build([where_search, where_picker])
-      
-
+    
         sql = """
               SELECT * FROM (
               SELECT client_id,name, COUNT(grand_total) AS orders_placed, 

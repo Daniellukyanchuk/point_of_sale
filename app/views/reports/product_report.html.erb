@@ -11,9 +11,10 @@
   <%= select_tag 'product_select[]', options_for_select(options, params[:product_select]), :multiple => :multiple, :size => 10, :class => "chosen-select" %>
   <br><br>
 
-  From: <input type="text" id="from" name="from_date" autocomplete = 'off'>
-  to: <input type="text" id="to" name="to_date" autocomplete = 'off'>
-
+      From: <input type="text" class="datepicker" id="from" name="from_date" 
+              autocomplete = 'off' value = "<%= params[:from_date] %>">
+      to: <input type="text" class="datepicker" id="to" name="to_date" 
+              autocomplete = 'off' value = "<%= params[:to_date] %>">
 
   <%= submit_tag "Search", :product_name => nil %>
 <% end %>
@@ -27,6 +28,7 @@
     <th class="align_right"><%= sortable "units_sold", "Units Sold" %></th>
     <th class="align_left"><%= sortable "unit", "Unit" %></th>
     <th><%= sortable "total_revenue", "Total Revenue" %></th>
+    <th class="align_left"><%= sortable "inventory", "Units in Stock" %></th>
     <th colspan="4"></th>
     </tr>
   </thead>
@@ -39,6 +41,7 @@
         <td class="align_right"><%= p_report["units_sold"] %></td>
         <td><%= p_report["unit"] %></td>
         <td class="align_right"><%= p_report["total_revenue"] %></td>
+        <td class="align_right"><%= p_report["inventory"] %></td>
       </tr>
       <% end %>
   </tbody>
@@ -46,10 +49,10 @@
 
 <script type="text/javascript">
 
+
   $( function() {
     var dateFormat = "mm/dd/yy",
-      from = $( "#from" )
-        .datepicker({
+          from = $( "#from" ).datepicker({
           changeMonth: true,
           numberOfMonths: 1
         })
@@ -75,7 +78,7 @@
       return date;
     }
   } );
-  
+
 
 $(".chosen-select").chosen({
   no_results_text: "Oops, nothing found!"
