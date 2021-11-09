@@ -9,8 +9,10 @@
         <% options = [["Select All", nil]] + options %>
       <%= select_tag 'product_select[]', options_for_select(options, params[:product_select]), :multiple => :multiple, :class => "chosen-select"%>
     <p>Choose the date range: 
-        <%= text_field_tag 'start_date', params[:start_date], :class => "datepicker", :autocomplete => "off", :placeholder => 1.month.ago.strftime("%a, %d - %b - %Y")%>
-        <%= text_field_tag 'end_date', params[:end_date], :class => "datepicker", :autocomplete => "off", :placeholder => Date.today.strftime("%a, %d - %b - %Y")%>
+        <% start_date_value = 1.month.ago.strftime("%d - %m - %Y") %>
+        <% end_date_value = Date.today.strftime("%d - %m - %Y") %>
+        <%= text_field_tag 'start_date', params[:start_date], :class => "datepicker", :autocomplete => "off" %>
+        <%= text_field_tag 'end_date', params[:end_date], :class => "datepicker", :autocomplete => "off" %>
         <%= submit_tag "Search", :name => nil %>        
     </p>
     </p>
