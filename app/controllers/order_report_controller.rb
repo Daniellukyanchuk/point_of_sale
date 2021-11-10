@@ -6,7 +6,6 @@ class OrderReportController < ApplicationController
   end
 
   def product_report
-   
     params[:start_date] = 1.month.ago.strftime("%d-%m-%Y") if params[:start_date].blank?
     
     params[:end_date] = Date.today.strftime("%d-%m-%Y") if params[:end_date].blank?
@@ -14,9 +13,6 @@ class OrderReportController < ApplicationController
     @product_report = Order.product_report(params[:search], params[:product_select], params[:start_date], params[:end_date], params[:sort], params[:direction])
   end
 
- # I want the default to be in one place, either in the controller or in the view.  
- # If the params[:start_date] is nil, I want it to show the 1.month.ago date, and if not, I want it to be what it is.
-  
   private
 
   def sort_column

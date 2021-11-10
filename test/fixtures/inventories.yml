@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  product_id: 1
+  date: 2021-11-10
+  amount: 1
+  price_per_unit: 9.99
+  costs: 9.99
+  current_amount_left: 9.99
+  value_of_item: 9.99
+
+two:
+  product_id: 1
+  date: 2021-11-10
+  amount: 1
+  price_per_unit: 9.99
+  costs: 9.99
+  current_amount_left: 9.99
+  value_of_item: 9.99

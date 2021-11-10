@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Inventories</h1>
+
+<%= form_tag inventories_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= sortable "product_id" %></th>
+      <th><%= sortable "product_name" %></th>
+      <th><%= sortable "date" %></th>
+      <th><%= sortable "amount" %></th>
+      <th><%= sortable "price_per_unit" %></th>
+      <th><%= sortable "costs" %></th>
+      <th><%= sortable "current_amount_left" %></th>
+      <th><%= sortable "value_of_item" %></th>
+      <th colspan="8"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @inventories.each do |inventory| %>
+      <tr>
+        <td><%= inventory.product_id %></td>
+        <td><%= inventory.product.product_name %></td>
+        <td><%= inventory.date %></td>
+        <td><%= inventory.amount %></td>
+        <td><%= inventory.price_per_unit %></td>
+        <td><%= inventory.costs %></td>
+        <td><%= inventory.current_amount_left %></td>
+        <td><%= inventory.value_of_item %></td>
+        <td><%= link_to 'Show', inventory %></td>
+        <td><%= link_to 'Edit', edit_inventory_path(inventory) %></td>
+        <td><%= link_to 'Destroy', inventory, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Inventory', new_inventory_path %>
