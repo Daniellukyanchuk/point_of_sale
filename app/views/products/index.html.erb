@@ -12,22 +12,25 @@
 <table>
   <thead>
     <tr>
-    <th><%= sortable "product_name", "Product Name" %></th>
-    <th><%= sortable "price", "Price" %></th>
-    <th><%= sortable "unit", "Unit" %></th>
-    <th><%= sortable "inventory", "Units in Stock" %></th>
-    
-      <th colspan="4"></th>
+      <th><%= sortable "product_name", "Product Name" %></th>
+      <th><%= sortable "price", "Price" %></th>
+      <th><%= sortable "unit", "Unit" %></th>
+      <th><%= sortable "units_purchased", "Units purchased" %></th>
+      <th><%= sortable "units_sold", "Units sold" %></th>
+      <th><%= sortable "inventory", "Units in Stock" %></th>
+      <th colspan="6"></th>
     </tr>
   </thead>
 
-  <tbody>
+ <tbody>
     <% @products.each do |product| %>
       <tr>
         <td><%= product.product_name %></td>
         <td><%= product.price %></td>
         <td><%= product.unit %></td>
-        <td><%= product.inventory %></td>
+        <td><%= product["units_purchased"] %></td>
+        <td><%= product["units_sold"] %></td>
+        <td><%= product["inventory"] %></td>
         <td><%= link_to 'Show', product %></td>
         <td><%= link_to 'Edit', edit_product_path(product) %></td>
         <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -39,5 +42,7 @@
 <br>
 
 <%= link_to 'New Product', new_product_path %>
+
+
 
 

@@ -14,12 +14,11 @@ class Order < ApplicationRecord
       end    
     end
 
-    def self.product_report(search_product, pick_product, sortable, sort_direction, datefilter_start, datefilter_end)
+    def self.product_report(search_product, pick_product, datefilter_start, datefilter_end, sortable, sort_direction)
 
       
       datefilter_start = Date.strptime( datefilter_start, '%m/%d/%Y')       
-      datefilter_end = Date.strptime( datefilter_end, '%m/%d/%Y')
-      
+      datefilter_end = Date.strptime( datefilter_end, '%m/%d/%Y')     
 
 #column sorting 
 
@@ -75,7 +74,12 @@ class Order < ApplicationRecord
     end
 
       
-    def self.client_report(search_client, pick_client, sortable, sort_direction)
+    def self.client_report(search_client, pick_client, datefilter_start, datefilter_end, sortable, sort_direction)
+
+      datefilter_start = Date.strptime( datefilter_start, '%m/%d/%Y')       
+      datefilter_end = Date.strptime( datefilter_end, '%m/%d/%Y')
+
+#column sorting      
 
       if !["client_id", "name", "orders_placed", "total_spent"].include?(sortable)
         sortable = "total_spent"
@@ -87,10 +91,14 @@ class Order < ApplicationRecord
         sort_direction = "asc"
       end
 
+#search box
+
       where_search = " (name ILIKE '%#{search_client}%' OR client_id = #{search_client.to_i} OR orders_placed = #{search_client.to_d} OR total_spent = #{search_client.to_d})"
       if search_client.blank?
         where_search = ""
       end  
+
+#client multi-select
 
       if pick_client.blank? || pick_client == [""] 
         where_picker = ""
@@ -99,16 +107,22 @@ class Order < ApplicationRecord
         where_picker = " client_id IN (#{pick_client.join(",")})"
       end
 
+#filter by time period   
+
+      where_time_period = "WHERE orders.created_at >= #{SqlHelper.escape_sql_param(datefilter_start.to_date)} AND orders.created_at <= #{SqlHelper.escape_sql_param(datefilter_end.to_date)}"
+
       where_statement = WhereBuilder.build([where_search, where_picker])
     
         sql = """
               SELECT * FROM (
-              SELECT client_id,name, COUNT(grand_total) AS orders_placed, 
-              SUM(grand_total)::numeric(12,2) AS total_spent, AVG(grand_total)::numeric(12,2) AS avg_spent
-              FROM orders
-              INNER JOIN clients
-              ON orders.client_id = clients.id
-              GROUP BY client_id,name
+                  SELECT client_id,name, 
+                  COUNT(grand_total) AS orders_placed, 
+                  SUM(grand_total)::numeric(12,2) AS total_spent, 
+                  AVG(grand_total)::numeric(12,2) AS avg_spent
+                  FROM orders
+                  INNER JOIN clients ON orders.client_id = clients.id
+                  #{where_time_period}
+                  GROUP BY client_id,name
               ) report
               #{where_statement}              
               ORDER BY #{sortable} #{sort_direction}

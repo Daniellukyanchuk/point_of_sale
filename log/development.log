@@ -15365,3 +15365,1294 @@ Processing by SuppliesController#new as HTML
 Completed 200 OK in 148ms (Views: 133.9ms | ActiveRecord: 2.0ms)
 
 
+Started POST "/supplies" for ::1 at 2021-11-10 09:37:14 -0800
+Processing by SuppliesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zjJm62pqgVlcVbZuSkeSxASX8qzj30x+BdCp3c2BE/qKr+w5sWtEBbZsvO/8nsUSvHj9Q/k5SyOB7Uh6iGH7Ig==", "supply"=>{"supplier_id"=>"5", "supply_products_attributes"=>{"0"=>{"_destroy"=>"false", "product_id"=>"7", "purchase_quantity"=>"150", "purchase_price"=>"10", "purchase_subtotal"=>""}, "1636565745659"=>{"_destroy"=>"false", "product_id"=>"5", "purchase_quantity"=>"50", "purchase_price"=>"22", "purchase_subtotal"=>""}}, "purchase_total"=>""}, "commit"=>"Add to Inventory"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/supplies_controller.rb:29
+  [1m[36mSupplier Load (0.2ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/supplies_controller.rb:29
+  [1m[36mSupply Create (0.4ms)[0m  [1m[32mINSERT INTO "supplies" ("supplier_id", "purchase_total", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["supplier_id", 5], ["purchase_total", 2600.0], ["created_at", "2021-11-10 17:37:14.495803"], ["updated_at", "2021-11-10 17:37:14.495803"]]
+  ↳ app/controllers/supplies_controller.rb:29
+  [1m[36mSupplyProduct Create (0.3ms)[0m  [1m[32mINSERT INTO "supply_products" ("product_id", "supply_id", "purchase_quantity", "purchase_price", "purchase_subtotal", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["product_id", 7], ["supply_id", 5], ["purchase_quantity", 150.0], ["purchase_price", 10.0], ["purchase_subtotal", 1500.0], ["created_at", "2021-11-10 17:37:14.497982"], ["updated_at", "2021-11-10 17:37:14.497982"]]
+  ↳ app/controllers/supplies_controller.rb:29
+  [1m[36mSupplyProduct Create (0.3ms)[0m  [1m[32mINSERT INTO "supply_products" ("product_id", "supply_id", "purchase_quantity", "purchase_price", "purchase_subtotal", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["product_id", 5], ["supply_id", 5], ["purchase_quantity", 50.0], ["purchase_price", 22.0], ["purchase_subtotal", 1100.0], ["created_at", "2021-11-10 17:37:14.499959"], ["updated_at", "2021-11-10 17:37:14.499959"]]
+  ↳ app/controllers/supplies_controller.rb:29
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/supplies_controller.rb:29
+Redirected to http://localhost:3000/supplies/5
+Completed 302 Found in 64ms (ActiveRecord: 10.8ms)
+
+
+Started GET "/supplies/5" for ::1 at 2021-11-10 09:37:14 -0800
+Processing by SuppliesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mSupply Load (0.4ms)[0m  [1m[34mSELECT  "supplies".* FROM "supplies" WHERE "supplies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/supplies_controller.rb:64
+  Rendering supplies/show.html.erb within layouts/application
+  Rendered supplies/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 79ms (Views: 74.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/supplies" for ::1 at 2021-11-10 09:37:17 -0800
+Processing by SuppliesController#index as HTML
+  Rendering supplies/index.html.erb within layouts/application
+  [1m[36mSupply Load (1.0ms)[0m  [1m[34mSELECT "supplies".* FROM "supplies"[0m
+  ↳ app/views/supplies/index.html.erb:18
+  [1m[36mSupplier Load (0.7ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/supplies/index.html.erb:23
+  [1m[36mSupplier Load (0.6ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/supplies/index.html.erb:23
+  [1m[36mSupplier Load (0.7ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/supplies/index.html.erb:23
+  [1m[36mSupplier Load (0.6ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/supplies/index.html.erb:23
+  [1m[36mSupplier Load (0.6ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/supplies/index.html.erb:23
+  Rendered supplies/index.html.erb within layouts/application (37.5ms)
+Completed 200 OK in 214ms (Views: 200.8ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/supplies/new" for ::1 at 2021-11-10 09:37:18 -0800
+Processing by SuppliesController#new as HTML
+  Rendering supplies/new.html.erb within layouts/application
+  [1m[36mSupplier Load (1.0ms)[0m  [1m[34mSELECT "suppliers".* FROM "suppliers"[0m
+  ↳ app/views/supplies/_form.html.erb:14
+  [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/supplies/_supply_product_fields.html.erb:9
+  Rendered supplies/_supply_product_fields.html.erb (135.2ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/supplies/_supply_product_fields.html.erb:9
+  Rendered supplies/_supply_product_fields.html.erb (6.6ms)
+  Rendered supplies/_form.html.erb (166.4ms)
+  Rendered supplies/new.html.erb within layouts/application (175.0ms)
+Completed 200 OK in 303ms (Views: 282.0ms | ActiveRecord: 9.1ms)
+
+
+Started POST "/supplies" for ::1 at 2021-11-10 09:38:49 -0800
+Processing by SuppliesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"pCLnwZna7SSxiGlVUgmuiTAqnKOO8bRZg3gyjMSGGiDgv20TQtsoeFuxY9Tk0PlfiMWTTJQXswQHRdMrgWby+A==", "supply"=>{"supplier_id"=>"1", "supply_products_attributes"=>{"0"=>{"_destroy"=>"false", "product_id"=>"6", "purchase_quantity"=>"10", "purchase_price"=>"550", "purchase_subtotal"=>""}, "1636565854723"=>{"_destroy"=>"false", "product_id"=>"5", "purchase_quantity"=>"60", "purchase_price"=>"28", "purchase_subtotal"=>""}}, "purchase_total"=>""}, "commit"=>"Add to Inventory"}
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/supplies_controller.rb:29
+  [1m[36mSupplier Load (0.6ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/supplies_controller.rb:29
+  [1m[36mSupply Create (0.9ms)[0m  [1m[32mINSERT INTO "supplies" ("supplier_id", "purchase_total", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["supplier_id", 1], ["purchase_total", 7180.0], ["created_at", "2021-11-10 17:38:49.328520"], ["updated_at", "2021-11-10 17:38:49.328520"]]
+  ↳ app/controllers/supplies_controller.rb:29
+  [1m[36mSupplyProduct Create (0.7ms)[0m  [1m[32mINSERT INTO "supply_products" ("product_id", "supply_id", "purchase_quantity", "purchase_price", "purchase_subtotal", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["product_id", 6], ["supply_id", 6], ["purchase_quantity", 10.0], ["purchase_price", 550.0], ["purchase_subtotal", 5500.0], ["created_at", "2021-11-10 17:38:49.335449"], ["updated_at", "2021-11-10 17:38:49.335449"]]
+  ↳ app/controllers/supplies_controller.rb:29
+  [1m[36mSupplyProduct Create (0.8ms)[0m  [1m[32mINSERT INTO "supply_products" ("product_id", "supply_id", "purchase_quantity", "purchase_price", "purchase_subtotal", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["product_id", 5], ["supply_id", 6], ["purchase_quantity", 60.0], ["purchase_price", 28.0], ["purchase_subtotal", 1680.0], ["created_at", "2021-11-10 17:38:49.342356"], ["updated_at", "2021-11-10 17:38:49.342356"]]
+  ↳ app/controllers/supplies_controller.rb:29
+  [1m[35m (76.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/supplies_controller.rb:29
+Redirected to http://localhost:3000/supplies/6
+Completed 302 Found in 126ms (ActiveRecord: 80.4ms)
+
+
+Started GET "/supplies/6" for ::1 at 2021-11-10 09:38:49 -0800
+Processing by SuppliesController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mSupply Load (0.9ms)[0m  [1m[34mSELECT  "supplies".* FROM "supplies" WHERE "supplies"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/supplies_controller.rb:64
+  Rendering supplies/show.html.erb within layouts/application
+  Rendered supplies/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 119ms (Views: 105.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/supplies" for ::1 at 2021-11-10 09:38:52 -0800
+Processing by SuppliesController#index as HTML
+  Rendering supplies/index.html.erb within layouts/application
+  [1m[36mSupply Load (1.1ms)[0m  [1m[34mSELECT "supplies".* FROM "supplies"[0m
+  ↳ app/views/supplies/index.html.erb:18
+  [1m[36mSupplier Load (0.7ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/supplies/index.html.erb:23
+  [1m[36mSupplier Load (0.7ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/supplies/index.html.erb:23
+  [1m[36mSupplier Load (0.6ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/supplies/index.html.erb:23
+  [1m[36mSupplier Load (0.6ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/supplies/index.html.erb:23
+  [1m[36mSupplier Load (0.6ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/supplies/index.html.erb:23
+  [1m[36mCACHE Supplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/supplies/index.html.erb:23
+  Rendered supplies/index.html.erb within layouts/application (39.4ms)
+Completed 200 OK in 149ms (Views: 135.2ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/products" for ::1 at 2021-11-10 09:39:23 -0800
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (2.2ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY created_at asc[0m
+  ↳ app/views/products/index.html.erb:25
+  Rendered products/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 115ms (Views: 86.4ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/reports/product_report" for ::1 at 2021-11-10 09:56:23 -0800
+Processing by ReportsController#product_report as HTML
+  [1m[35m (23.5ms)[0m  [1m[34m
+            SELECT * FROM (
+                SELECT product_id,product_name,unit, 
+                SUM(quantity)::numeric(10,2) AS units_sold, 
+                SUM(subtotal)::numeric(12,2) AS total_revenue
+                FROM order_products
+                INNER JOIN products ON order_products.product_id = products.id
+                WHERE order_products.created_at >= '2021-09-11' AND order_products.created_at <= '2021-11-10' 
+                GROUP BY product_id,product_name,unit
+            ) report
+                        
+            ORDER BY total_revenue asc
+      [0m
+  ↳ app/models/order.rb:73
+  Rendering reports/product_report.html.erb within layouts/application
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/reports/product_report.html.erb:9
+  Rendered reports/product_report.html.erb within layouts/application (37.5ms)
+Completed 200 OK in 154ms (Views: 80.8ms | ActiveRecord: 40.1ms)
+
+
+Started GET "/reports/client_report" for ::1 at 2021-11-10 09:56:27 -0800
+Processing by ReportsController#client_report as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+
+ArgumentError - wrong number of arguments (given 6, expected 4):
+  app/models/order.rb:78:in `client_report'
+  app/controllers/reports_controller.rb:18:in `client_report'
+
+Started POST "/__better_errors/d0697605fb9cd1cf/variables" for ::1 at 2021-11-10 09:56:29 -0800
+Started GET "/reports/client_report" for ::1 at 2021-11-10 10:01:09 -0800
+
+SyntaxError - syntax error, unexpected ',', expecting ')'
+        ,params[:sort], params[:direct...
+        ^
+/mnt/c/code/point_of_sale/app/controllers/reports_controller.rb:26: syntax error, unexpected ')', expecting '='
+...ams[:sort], params[:direction])
+...                              ^
+/mnt/c/code/point_of_sale/app/controllers/reports_controller.rb:57: syntax error, unexpected end-of-input, expecting end:
+  app/controllers/reports_controller.rb:26:in `'
+
+Started POST "/__better_errors/6f5b24f0b5048c5e/variables" for ::1 at 2021-11-10 10:01:09 -0800
+Started GET "/reports/client_report" for ::1 at 2021-11-10 10:03:34 -0800
+Processing by ReportsController#client_report as HTML
+  [1m[35m (4.6ms)[0m  [1m[34m
+              SELECT * FROM (
+              SELECT client_id,name, COUNT(grand_total) AS orders_placed, 
+              SUM(grand_total)::numeric(12,2) AS total_spent, AVG(grand_total)::numeric(12,2) AS avg_spent
+              FROM orders
+              INNER JOIN clients
+              WHERE order_products.created_at >= '2021-11-10' AND order_products.created_at <= '2021-10-11'
+              ON orders.client_id = clients.id
+              GROUP BY client_id,name
+              ) report
+                            
+              ORDER BY total_spent asc
+        [0m
+  ↳ app/models/order.rb:119
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 4.6ms)
+
+
+
+ActiveRecord::StatementInvalid - PG::SyntaxError: ERROR:  syntax error at or near "WHERE"
+LINE 7:               WHERE order_products.created_at >= '2021-11-10...
+                      ^
+: 
+              SELECT * FROM (
+              SELECT client_id,name, COUNT(grand_total) AS orders_placed, 
+              SUM(grand_total)::numeric(12,2) AS total_spent, AVG(grand_total)::numeric(12,2) AS avg_spent
+              FROM orders
+              INNER JOIN clients
+              WHERE order_products.created_at >= '2021-11-10' AND order_products.created_at <= '2021-10-11'
+              ON orders.client_id = clients.id
+              GROUP BY client_id,name
+              ) report
+              ORDER BY total_spent asc:
+  app/models/order.rb:119:in `client_report'
+  app/controllers/reports_controller.rb:25:in `client_report'
+
+Started POST "/__better_errors/7386eaf3272aab1e/variables" for ::1 at 2021-11-10 10:03:35 -0800
+Started GET "/reports/client_report" for ::1 at 2021-11-10 10:04:54 -0800
+Processing by ReportsController#client_report as HTML
+  [1m[35m (5.0ms)[0m  [1m[34m
+              SELECT * FROM (
+              SELECT client_id,name, COUNT(grand_total) AS orders_placed, 
+              SUM(grand_total)::numeric(12,2) AS total_spent, AVG(grand_total)::numeric(12,2) AS avg_spent
+              FROM orders
+              INNER JOIN clients ON orders.client_id = clients.id
+              WHERE order_products.created_at >= '2021-11-10' AND order_products.created_at <= '2021-10-11'
+              GROUP BY client_id,name
+              ) report
+                            
+              ORDER BY total_spent asc
+        [0m
+  ↳ app/models/order.rb:118
+Completed 500 Internal Server Error in 146ms (ActiveRecord: 5.0ms)
+
+
+
+ActiveRecord::StatementInvalid - PG::UndefinedTable: ERROR:  missing FROM-clause entry for table "order_products"
+LINE 7:               WHERE order_products.created_at >= '2021-11-10...
+                            ^
+: 
+              SELECT * FROM (
+              SELECT client_id,name, COUNT(grand_total) AS orders_placed, 
+              SUM(grand_total)::numeric(12,2) AS total_spent, AVG(grand_total)::numeric(12,2) AS avg_spent
+              FROM orders
+              INNER JOIN clients ON orders.client_id = clients.id
+              WHERE order_products.created_at >= '2021-11-10' AND order_products.created_at <= '2021-10-11'
+              GROUP BY client_id,name
+              ) report
+              ORDER BY total_spent asc:
+  app/models/order.rb:118:in `client_report'
+  app/controllers/reports_controller.rb:25:in `client_report'
+
+Started POST "/__better_errors/d7c3f565eb405c2c/variables" for ::1 at 2021-11-10 10:04:54 -0800
+Started GET "/reports/client_report" for ::1 at 2021-11-10 10:11:40 -0800
+Processing by ReportsController#client_report as HTML
+  [1m[35m (30.9ms)[0m  [1m[34m
+              SELECT * FROM (
+                  SELECT client_id,name, 
+                  COUNT(grand_total) AS orders_placed, 
+                  SUM(grand_total)::numeric(12,2) AS total_spent, 
+                  AVG(grand_total)::numeric(12,2) AS avg_spent
+                  FROM orders
+                  INNER JOIN clients ON orders.client_id = clients.id
+                  WHERE orders.created_at >= '2021-10-11' AND orders.created_at <= '2021-11-10'
+                  GROUP BY client_id,name
+              ) report
+                            
+              ORDER BY total_spent asc
+        [0m
+  ↳ app/models/order.rb:130
+  Rendering reports/client_report.html.erb within layouts/application
+  [1m[36mClient Load (1.1ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/reports/client_report.html.erb:11
+  Rendered reports/client_report.html.erb within layouts/application (93.2ms)
+Completed 200 OK in 328ms (Views: 155.2ms | ActiveRecord: 73.9ms)
+
+
+Started GET "/reports/client_report" for ::1 at 2021-11-10 10:15:54 -0800
+Processing by ReportsController#client_report as HTML
+  [1m[35m (2.0ms)[0m  [1m[34m
+              SELECT * FROM (
+                  SELECT client_id,name, 
+                  COUNT(grand_total) AS orders_placed, 
+                  SUM(grand_total)::numeric(12,2) AS total_spent, 
+                  AVG(grand_total)::numeric(12,2) AS avg_spent
+                  FROM orders
+                  INNER JOIN clients ON orders.client_id = clients.id
+                  WHERE orders.created_at >= '2021-10-11' AND orders.created_at <= '2021-11-10'
+                  GROUP BY client_id,name
+              ) report
+                            
+              ORDER BY total_spent asc
+        [0m
+  ↳ app/models/order.rb:130
+  Rendering reports/client_report.html.erb within layouts/application
+  [1m[36mClient Load (1.1ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/reports/client_report.html.erb:11
+  Rendered reports/client_report.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 138ms (Views: 104.9ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/reports/client_report" for ::1 at 2021-11-10 10:16:52 -0800
+Processing by ReportsController#client_report as HTML
+  [1m[35m (2.7ms)[0m  [1m[34m
+              SELECT * FROM (
+                  SELECT client_id,name, 
+                  COUNT(grand_total) AS orders_placed, 
+                  SUM(grand_total)::numeric(12,2) AS total_spent, 
+                  AVG(grand_total)::numeric(12,2) AS avg_spent
+                  FROM orders
+                  INNER JOIN clients ON orders.client_id = clients.id
+                  WHERE orders.created_at >= '2021-10-11' AND orders.created_at <= '2021-11-10'
+                  GROUP BY client_id,name
+              ) report
+                            
+              ORDER BY total_spent asc
+        [0m
+  ↳ app/models/order.rb:130
+  Rendering reports/client_report.html.erb within layouts/application
+  [1m[36mClient Load (1.1ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/reports/client_report.html.erb:11
+  Rendered reports/client_report.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 156ms (Views: 120.8ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/reports/client_report?utf8=%E2%9C%93&search=&from_date=10%2F01%2F2021&to_date=11%2F04%2F2021" for ::1 at 2021-11-10 10:17:02 -0800
+Processing by ReportsController#client_report as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"", "from_date"=>"10/01/2021", "to_date"=>"11/04/2021"}
+  [1m[35m (1.8ms)[0m  [1m[34m
+              SELECT * FROM (
+                  SELECT client_id,name, 
+                  COUNT(grand_total) AS orders_placed, 
+                  SUM(grand_total)::numeric(12,2) AS total_spent, 
+                  AVG(grand_total)::numeric(12,2) AS avg_spent
+                  FROM orders
+                  INNER JOIN clients ON orders.client_id = clients.id
+                  WHERE orders.created_at >= '2021-10-01' AND orders.created_at <= '2021-11-04'
+                  GROUP BY client_id,name
+              ) report
+                            
+              ORDER BY total_spent asc
+        [0m
+  ↳ app/models/order.rb:130
+  Rendering reports/client_report.html.erb within layouts/application
+  [1m[36mClient Load (1.1ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/reports/client_report.html.erb:11
+  Rendered reports/client_report.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 209ms (Views: 103.3ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/reports/client_report?utf8=%E2%9C%93&search=&from_date=10%2F01%2F2021&to_date=11%2F04%2F2021" for ::1 at 2021-11-10 10:17:04 -0800
+Processing by ReportsController#client_report as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"", "from_date"=>"10/01/2021", "to_date"=>"11/04/2021"}
+  [1m[35m (2.0ms)[0m  [1m[34m
+              SELECT * FROM (
+                  SELECT client_id,name, 
+                  COUNT(grand_total) AS orders_placed, 
+                  SUM(grand_total)::numeric(12,2) AS total_spent, 
+                  AVG(grand_total)::numeric(12,2) AS avg_spent
+                  FROM orders
+                  INNER JOIN clients ON orders.client_id = clients.id
+                  WHERE orders.created_at >= '2021-10-01' AND orders.created_at <= '2021-11-04'
+                  GROUP BY client_id,name
+              ) report
+                            
+              ORDER BY total_spent asc
+        [0m
+  ↳ app/models/order.rb:130
+  Rendering reports/client_report.html.erb within layouts/application
+  [1m[36mClient Load (1.0ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/reports/client_report.html.erb:11
+  Rendered reports/client_report.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 129ms (Views: 98.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/reports/client_report?utf8=%E2%9C%93&search=&from_date=11%2F01%2F2021&to_date=11%2F04%2F2021" for ::1 at 2021-11-10 10:17:14 -0800
+Processing by ReportsController#client_report as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"", "from_date"=>"11/01/2021", "to_date"=>"11/04/2021"}
+  [1m[35m (0.8ms)[0m  [1m[34m
+              SELECT * FROM (
+                  SELECT client_id,name, 
+                  COUNT(grand_total) AS orders_placed, 
+                  SUM(grand_total)::numeric(12,2) AS total_spent, 
+                  AVG(grand_total)::numeric(12,2) AS avg_spent
+                  FROM orders
+                  INNER JOIN clients ON orders.client_id = clients.id
+                  WHERE orders.created_at >= '2021-11-01' AND orders.created_at <= '2021-11-04'
+                  GROUP BY client_id,name
+              ) report
+                            
+              ORDER BY total_spent asc
+        [0m
+  ↳ app/models/order.rb:130
+  Rendering reports/client_report.html.erb within layouts/application
+  [1m[36mClient Load (0.5ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/reports/client_report.html.erb:11
+  Rendered reports/client_report.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 103ms (Views: 69.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/reports/client_report?utf8=%E2%9C%93&search=&from_date=11%2F01%2F2021&to_date=11%2F04%2F2021" for ::1 at 2021-11-10 10:20:01 -0800
+Processing by ReportsController#client_report as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"", "from_date"=>"11/01/2021", "to_date"=>"11/04/2021"}
+  [1m[35m (2.1ms)[0m  [1m[34m
+              SELECT * FROM (
+                  SELECT client_id,name, 
+                  COUNT(grand_total) AS orders_placed, 
+                  SUM(grand_total)::numeric(12,2) AS total_spent, 
+                  AVG(grand_total)::numeric(12,2) AS avg_spent
+                  FROM orders
+                  INNER JOIN clients ON orders.client_id = clients.id
+                  WHERE orders.created_at >= '2021-11-01' AND orders.created_at <= '2021-11-04'
+                  GROUP BY client_id,name
+              ) report
+                            
+              ORDER BY total_spent asc
+        [0m
+  ↳ app/models/order.rb:130
+  Rendering reports/client_report.html.erb within layouts/application
+  [1m[36mClient Load (1.0ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+  ↳ app/views/reports/client_report.html.erb:11
+  Rendered reports/client_report.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 136ms (Views: 100.6ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/products" for ::1 at 2021-11-10 10:20:08 -0800
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (1.5ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY created_at asc[0m
+  ↳ app/views/products/index.html.erb:25
+  Rendered products/index.html.erb within layouts/application (15.4ms)
+Completed 200 OK in 90ms (Views: 69.9ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/clients" for ::1 at 2021-11-10 10:21:23 -0800
+Processing by ClientsController#index as HTML
+  Rendering clients/index.html.erb within layouts/application
+  [1m[36mClient Load (0.5ms)[0m  [1m[34mSELECT "clients".* FROM "clients" ORDER BY created_at asc[0m
+  ↳ app/views/clients/index.html.erb:24
+  Rendered clients/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 67ms (Views: 63.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/reports/product_report" for ::1 at 2021-11-10 10:39:55 -0800
+Processing by ReportsController#product_report as HTML
+  [1m[35m (4.0ms)[0m  [1m[34m
+            SELECT * FROM (
+                SELECT product_id,product_name,unit, 
+                SUM(quantity)::numeric(10,2) AS units_sold, 
+                SUM(subtotal)::numeric(12,2) AS total_revenue
+                FROM order_products
+                INNER JOIN products ON order_products.product_id = products.id
+                WHERE order_products.created_at >= '2021-10-11' AND order_products.created_at <= '2021-11-10' 
+                GROUP BY product_id,product_name,unit
+            ) report
+                        
+            ORDER BY total_revenue asc
+      [0m
+  ↳ app/models/order.rb:72
+  Rendering reports/product_report.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/reports/product_report.html.erb:9
+  Rendered reports/product_report.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 96ms (Views: 81.8ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/reports/product_report" for ::1 at 2021-11-10 10:58:30 -0800
+Processing by ReportsController#product_report as HTML
+  [1m[35m (9.7ms)[0m  [1m[34m
+            SELECT * FROM (
+                SELECT product_id,product_name,unit, 
+                SUM(quantity)::numeric(10,2) AS units_sold, 
+                SUM(subtotal)::numeric(12,2) AS total_revenue
+                FROM order_products
+                INNER JOIN products ON order_products.product_id = products.id
+                WHERE order_products.created_at >= '2021-10-11' AND order_products.created_at <= '2021-11-10' 
+                GROUP BY product_id,product_name,unit
+            ) report
+                        
+            ORDER BY total_revenue asc
+      [0m
+  ↳ app/models/order.rb:72
+  Rendering reports/product_report.html.erb within layouts/application
+  [1m[35m (2.8ms)[0m  [1m[34m
+            SELECT product_name,
+                SUM(quantity)::numeric(10,2) AS units_sold,
+                SUM(purchase_quantity)::numeric(10,2) AS units_purchased,
+                ((SUM(purchase_quantity))-(SUM(quantity))) AS inventory
+            FROM products AS prod
+                INNER JOIN order_products AS ord
+                ON prod.id = ord.product_id
+                INNER JOIN supply_products AS sup
+                ON prod.id = sup.product_id
+            GROUP BY product_name
+        [0m
+  ↳ app/models/product.rb:21
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/reports/product_report.html.erb:9
+  Rendered reports/product_report.html.erb within layouts/application (88.9ms)
+Completed 200 OK in 329ms (Views: 151.1ms | ActiveRecord: 36.3ms)
+
+
+Started GET "/products" for ::1 at 2021-11-10 10:58:33 -0800
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  Rendered products/index.html.erb within layouts/application (1.3ms)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.0ms)
+
+
+
+SyntaxError - syntax error, unexpected end-of-input, expecting end:
+  app/views/products/index.html.erb:56:in `'
+
+Started POST "/__better_errors/be80d246955dcec9/variables" for ::1 at 2021-11-10 10:58:34 -0800
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY created_at asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Started GET "/products" for ::1 at 2021-11-10 10:59:16 -0800
+Processing by ProductsController#index as HTML
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms)
+
+
+
+SyntaxError - syntax error, unexpected end, expecting end-of-input:
+  app/models/product.rb:32:in `'
+  app/controllers/products_controller.rb:7:in `index'
+
+Started POST "/__better_errors/fb3b554055a05ef1/variables" for ::1 at 2021-11-10 10:59:17 -0800
+Started GET "/products" for ::1 at 2021-11-10 10:59:35 -0800
+Processing by ProductsController#index as HTML
+  [1m[35m (0.8ms)[0m  [1m[34m
+            SELECT product_name,
+                SUM(quantity)::numeric(10,2) AS units_sold,
+                SUM(purchase_quantity)::numeric(10,2) AS units_purchased,
+                ((SUM(purchase_quantity))-(SUM(quantity))) AS inventory
+            FROM products AS prod
+                INNER JOIN order_products AS ord
+                ON prod.id = ord.product_id
+                INNER JOIN supply_products AS sup
+                ON prod.id = sup.product_id
+            GROUP BY product_name
+        [0m
+  ↳ app/models/product.rb:21
+  Rendering products/index.html.erb within layouts/application
+  Rendered products/index.html.erb within layouts/application (1.0ms)
+Completed 500 Internal Server Error in 105ms (ActiveRecord: 0.8ms)
+
+
+
+SyntaxError - syntax error, unexpected end-of-input, expecting end:
+  app/views/products/index.html.erb:56:in `'
+
+Started POST "/__better_errors/e9e3ae6e9d6a5409/variables" for ::1 at 2021-11-10 10:59:35 -0800
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY created_at asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Started GET "/products" for ::1 at 2021-11-10 11:01:41 -0800
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  Rendered products/index.html.erb within layouts/application (2.6ms)
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 0.0ms)
+
+
+
+SyntaxError - syntax error, unexpected ensure, expecting end-of-input
+          ensure
+          ^~~~~~:
+  app/views/products/index.html.erb:49:in `'
+
+Started POST "/__better_errors/f7bbd3b8dc870211/variables" for ::1 at 2021-11-10 11:01:41 -0800
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY created_at asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Started GET "/products" for ::1 at 2021-11-10 11:02:08 -0800
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  Rendered products/index.html.erb within layouts/application (2.4ms)
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 0.0ms)
+
+
+
+SyntaxError - syntax error, unexpected ensure, expecting end-of-input
+          ensure
+          ^~~~~~:
+  app/views/products/index.html.erb:51:in `'
+
+Started POST "/__better_errors/bbd4a5cfe8e007ce/variables" for ::1 at 2021-11-10 11:02:08 -0800
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY created_at asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Started GET "/products" for ::1 at 2021-11-10 11:02:23 -0800
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (1.3ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY created_at asc[0m
+  ↳ app/views/products/index.html.erb:26
+  Rendered products/index.html.erb within layouts/application (20.4ms)
+Completed 200 OK in 163ms (Views: 151.8ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/products" for ::1 at 2021-11-10 11:03:39 -0800
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY created_at asc[0m
+  ↳ app/views/products/index.html.erb:26
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY created_at asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Product Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY created_at asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY created_at asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY created_at asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY created_at asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Product Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY created_at asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY created_at asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY created_at asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY created_at asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY created_at asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Product Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY created_at asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY created_at asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  Rendered products/index.html.erb within layouts/application (756.7ms)
+Completed 500 Internal Server Error in 767ms (ActiveRecord: 1.4ms)
+
+
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY created_at asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY created_at asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY created_at asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY created_at asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY created_at asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY created_at asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY created_at asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY created_at asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY created_at asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY created_at asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY created_at asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY created_at asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+
+NameError - undefined local variable or method `products' for #<#<Class:0x00007fef7587f160>:0x00007fef75c17de0>
+Did you mean?  product
+               @products:
+  app/views/products/index.html.erb:31:in `block in _app_views_products_index_html_erb___3561822479590540732_70333224748020'
+  app/views/products/index.html.erb:26:in `_app_views_products_index_html_erb___3561822479590540732_70333224748020'
+
+Started POST "/__better_errors/4be245c6beba38f0/variables" for ::1 at 2021-11-10 11:03:40 -0800
+Started GET "/products" for ::1 at 2021-11-10 11:07:19 -0800
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY created_at asc[0m
+  ↳ app/views/products/index.html.erb:26
+  Rendered products/index.html.erb within layouts/application (498.9ms)
+Completed 500 Internal Server Error in 529ms (ActiveRecord: 0.8ms)
+
+
+
+NameError - undefined local variable or method `product_name' for #<#<Class:0x00007fef7587f160>:0x00007fef763d9f88>
+Did you mean?  product_path:
+  app/views/products/index.html.erb:28:in `block in _app_views_products_index_html_erb___3561822479590540732_70333228831800'
+  app/views/products/index.html.erb:26:in `_app_views_products_index_html_erb___3561822479590540732_70333228831800'
+
+Started POST "/__better_errors/23a6392d9450754f/variables" for ::1 at 2021-11-10 11:07:20 -0800
+Started GET "/products" for ::1 at 2021-11-10 11:10:18 -0800
+Processing by ProductsController#index as HTML
+  [1m[35m (2.3ms)[0m  [1m[34m
+            SELECT product_name,
+                SUM(quantity)::numeric(10,2) AS units_sold,
+                SUM(purchase_quantity)::numeric(10,2) AS units_purchased,
+                ((SUM(purchase_quantity))-(SUM(quantity))) AS inventory
+            FROM products AS prod
+                INNER JOIN order_products AS ord
+                ON prod.id = ord.product_id
+                INNER JOIN supply_products AS sup
+                ON prod.id = sup.product_id
+            GROUP BY product_name
+        [0m
+  ↳ app/models/product.rb:21
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (1.1ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY created_at asc[0m
+  ↳ app/views/products/index.html.erb:26
+  Rendered products/index.html.erb within layouts/application (41.7ms)
+Completed 200 OK in 187ms (Views: 122.9ms | ActiveRecord: 13.2ms)
+
+
+Started GET "/products" for ::1 at 2021-11-10 11:22:05 -0800
+Processing by ProductsController#index as HTML
+  [1m[35m (11.3ms)[0m  [1m[34m
+            SELECT product_name,
+                SUM(quantity)::numeric(10,2) AS units_sold,
+                SUM(purchase_quantity)::numeric(10,2) AS units_purchased,
+                ((SUM(purchase_quantity))-(SUM(quantity))) AS inventory
+            FROM products AS prod
+                INNER JOIN order_products AS ord
+                ON prod.id = ord.product_id
+                INNER JOIN supply_products AS sup
+                ON prod.id = sup.product_id
+            GROUP BY product_name
+        [0m
+  ↳ app/models/product.rb:21
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (1.8ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY created_at asc[0m
+  ↳ app/views/products/index.html.erb:26
+  Rendered products/index.html.erb within layouts/application (78.0ms)
+Completed 200 OK in 332ms (Views: 146.7ms | ActiveRecord: 56.4ms)
+
+
+Started GET "/products" for ::1 at 2021-11-10 11:34:06 -0800
+Processing by ProductsController#index as HTML
+  [1m[35m (5.4ms)[0m  [1m[34m
+            SELECT product_name,
+                SUM(quantity)::numeric(10,2) AS units_sold,
+                SUM(purchase_quantity)::numeric(10,2) AS units_purchased,
+                ((SUM(purchase_quantity))-(SUM(quantity))) AS inventory
+            FROM products AS prod
+                INNER JOIN order_products AS ord
+                ON prod.id = ord.product_id
+                INNER JOIN supply_products AS sup
+                ON prod.id = sup.product_id
+            GROUP BY product_name
+        [0m
+  ↳ app/models/product.rb:21
+Completed 500 Internal Server Error in 126ms (ActiveRecord: 19.4ms)
+
+
+
+NameError - undefined local variable or method `stop' for #<Class:0x00007fef75488138>
+Did you mean?  store:
+  app/models/product.rb:22:in `<class:Product>'
+  app/models/product.rb:1:in `<main>'
+  app/controllers/products_controller.rb:7:in `index'
+
+Started POST "/__better_errors/037ce48f059802f6/variables" for ::1 at 2021-11-10 11:34:07 -0800
+Started POST "/__better_errors/037ce48f059802f6/eval" for ::1 at 2021-11-10 11:37:11 -0800
+Started POST "/__better_errors/037ce48f059802f6/eval" for ::1 at 2021-11-10 11:37:30 -0800
+Started POST "/__better_errors/037ce48f059802f6/eval" for ::1 at 2021-11-10 11:38:02 -0800
+Started POST "/__better_errors/037ce48f059802f6/eval" for ::1 at 2021-11-10 11:42:13 -0800
+Started POST "/__better_errors/037ce48f059802f6/eval" for ::1 at 2021-11-10 11:42:23 -0800
+Started POST "/__better_errors/037ce48f059802f6/eval" for ::1 at 2021-11-10 11:42:39 -0800
+Started POST "/__better_errors/037ce48f059802f6/eval" for ::1 at 2021-11-10 11:42:56 -0800
+Started GET "/products" for ::1 at 2021-11-10 11:47:40 -0800
+Processing by ProductsController#index as HTML
+  [1m[35m (12.0ms)[0m  [1m[34m
+            SELECT product_name,
+                SUM(quantity)::numeric(10,2) AS units_sold,
+                SUM(purchase_quantity)::numeric(10,2) AS units_purchased,
+                ((SUM(purchase_quantity))-(SUM(quantity)))::numeric(10,2) AS inventory
+            FROM products AS prod
+              INNER JOIN order_products AS ord
+              ON prod.id = ord.product_id
+              INNER JOIN supply_products AS sup
+              ON prod.id = sup.product_id
+            GROUP BY product_name
+        [0m
+  ↳ app/models/product.rb:21
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (1.1ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY created_at asc[0m
+  ↳ app/views/products/index.html.erb:26
+  Rendered products/index.html.erb within layouts/application (46.5ms)
+Completed 200 OK in 294ms (Views: 124.7ms | ActiveRecord: 36.9ms)
+
+
+Started GET "/products?direction=asc&sort=units_purchased" for ::1 at 2021-11-10 13:21:15 -0800
+Processing by ProductsController#index as HTML
+  Parameters: {"direction"=>"asc", "sort"=>"units_purchased"}
+  [1m[35m (4.2ms)[0m  [1m[34m
+            SELECT product_name,
+                SUM(quantity)::numeric(10,2) AS units_sold,
+                SUM(purchase_quantity)::numeric(10,2) AS units_purchased,
+                ((SUM(purchase_quantity))-(SUM(quantity)))::numeric(10,2) AS inventory
+            FROM products AS prod
+              INNER JOIN order_products AS ord
+              ON prod.id = ord.product_id
+              INNER JOIN supply_products AS sup
+              ON prod.id = sup.product_id
+            GROUP BY product_name
+        [0m
+  ↳ app/models/product.rb:21
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (1.1ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY units_purchased asc[0m
+  ↳ app/views/products/index.html.erb:26
+  Rendered products/index.html.erb within layouts/application (9.8ms)
+Completed 500 Internal Server Error in 40ms (ActiveRecord: 5.3ms)
+
+
+
+ActiveRecord::StatementInvalid - PG::UndefinedColumn: ERROR:  column "units_purchased" does not exist
+LINE 1: SELECT "products".* FROM "products" ORDER BY units_purchased...
+                                                     ^
+: SELECT "products".* FROM "products" ORDER BY units_purchased asc:
+  app/views/products/index.html.erb:26:in `_app_views_products_index_html_erb___3561822479590540732_70333225048720'
+
+Started POST "/__better_errors/1cf3d5f931fa5c70/variables" for ::1 at 2021-11-10 13:21:15 -0800
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY units_purchased asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY units_purchased asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mProduct Load (1.4ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY units_purchased asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY units_purchased asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY units_purchased asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Started GET "/products?direction=asc&sort=units_purchased" for ::1 at 2021-11-10 13:23:36 -0800
+Processing by ProductsController#index as HTML
+  Parameters: {"direction"=>"asc", "sort"=>"units_purchased"}
+  [1m[35m (1.0ms)[0m  [1m[34m
+          SELECT * FROM (
+            SELECT product_name,
+                SUM(quantity)::numeric(10,2) AS units_sold,
+                SUM(purchase_quantity)::numeric(10,2) AS units_purchased,
+                ((SUM(purchase_quantity))-(SUM(quantity)))::numeric(10,2) AS inventory
+            FROM products AS prod
+              INNER JOIN order_products AS ord
+              ON prod.id = ord.product_id
+              INNER JOIN supply_products AS sup
+              ON prod.id = sup.product_id
+            GROUP BY product_name
+          ) report
+        [0m
+  ↳ app/models/product.rb:23
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (1.2ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY units_purchased asc[0m
+  ↳ app/views/products/index.html.erb:26
+  Rendered products/index.html.erb within layouts/application (7.9ms)
+Completed 500 Internal Server Error in 64ms (ActiveRecord: 2.2ms)
+
+
+
+ActiveRecord::StatementInvalid - PG::UndefinedColumn: ERROR:  column "units_purchased" does not exist
+LINE 1: SELECT "products".* FROM "products" ORDER BY units_purchased...
+                                                     ^
+: SELECT "products".* FROM "products" ORDER BY units_purchased asc:
+  app/views/products/index.html.erb:26:in `_app_views_products_index_html_erb___3561822479590540732_70333226723260'
+
+Started POST "/__better_errors/50e0a0106f4cb32d/variables" for ::1 at 2021-11-10 13:23:36 -0800
+  [1m[36mProduct Load (1.8ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY units_purchased asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY units_purchased asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY units_purchased asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY units_purchased asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY units_purchased asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Started GET "/products" for ::1 at 2021-11-10 13:31:18 -0800
+Processing by ProductsController#index as HTML
+  [1m[35m (3.8ms)[0m  [1m[34m
+            SELECT product_name,
+                SUM(quantity)::numeric(10,2) AS units_sold,
+                SUM(purchase_quantity)::numeric(10,2) AS units_purchased,
+                ((SUM(purchase_quantity))-(SUM(quantity)))::numeric(10,2) AS inventory
+            FROM products 
+                INNER JOIN order_products 
+                ON products.id = order_products.product_id
+                INNER JOIN supply_products 
+                ON products.id = supply_products.product_id
+            GROUP BY product_name
+        [0m
+  ↳ app/models/product.rb:21
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (3.1ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY created_at asc[0m
+  ↳ app/views/products/index.html.erb:26
+  Rendered products/index.html.erb within layouts/application (54.0ms)
+Completed 200 OK in 134ms (Views: 66.3ms | ActiveRecord: 46.8ms)
+
+
+Started GET "/products" for ::1 at 2021-11-10 13:31:21 -0800
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (1.2ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY created_at asc[0m
+  ↳ app/views/products/index.html.erb:26
+  Rendered products/index.html.erb within layouts/application (17.1ms)
+Completed 200 OK in 128ms (Views: 117.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/products?direction=asc&sort=units_sold" for ::1 at 2021-11-10 13:31:24 -0800
+Processing by ProductsController#index as HTML
+  Parameters: {"direction"=>"asc", "sort"=>"units_sold"}
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (2.0ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY units_sold asc[0m
+  ↳ app/views/products/index.html.erb:26
+  Rendered products/index.html.erb within layouts/application (10.5ms)
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 2.0ms)
+
+
+
+ActiveRecord::StatementInvalid - PG::UndefinedColumn: ERROR:  column "units_sold" does not exist
+LINE 1: SELECT "products".* FROM "products" ORDER BY units_sold asc
+                                                     ^
+: SELECT "products".* FROM "products" ORDER BY units_sold asc:
+  app/views/products/index.html.erb:26:in `_app_views_products_index_html_erb___3561822479590540732_70368661734880'
+
+Started POST "/__better_errors/383b944d6e94a8b5/variables" for ::1 at 2021-11-10 13:31:25 -0800
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY units_sold asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY units_sold asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY units_sold asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY units_sold asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY units_sold asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Started GET "/products" for ::1 at 2021-11-10 13:35:41 -0800
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  Rendered products/index.html.erb within layouts/application (1.1ms)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.0ms)
+
+
+
+SyntaxError - syntax error, unexpected ',', expecting ')'
+...buffer.append=( "product_name", "Product Name" );@output_buf...
+...                              ^
+/mnt/c/code/point_of_sale/app/views/products/index.html.erb:16: syntax error, unexpected ',', expecting ')'
+...output_buffer.append=( "price", "Price" );@output_buffer.saf...
+...                              ^
+/mnt/c/code/point_of_sale/app/views/products/index.html.erb:17: syntax error, unexpected ',', expecting ')'
+...@output_buffer.append=( "unit", "Unit" );@output_buffer.safe...
+...                              ^
+/mnt/c/code/point_of_sale/app/views/products/index.html.erb:18: syntax error, unexpected ',', expecting ')'
+...fer.append=( "units_purchased", "Units purchased" );@output_...
+...                              ^
+/mnt/c/code/point_of_sale/app/views/products/index.html.erb:19: syntax error, unexpected ',', expecting ')'
+...t_buffer.append=( "units_sold", "Units sold" );@output_buffe...
+...                              ^
+/mnt/c/code/point_of_sale/app/views/products/index.html.erb:20: syntax error, unexpected ',', expecting ')'
+...ut_buffer.append=( "inventory", "Units in Stock" );@output_b...
+...                              ^:
+  app/views/products/index.html.erb:15:in `'
+
+Started POST "/__better_errors/b1cf061d31d45afe/variables" for ::1 at 2021-11-10 13:35:42 -0800
+  [1m[36mProduct Load (80.8ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY created_at asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Started GET "/products" for ::1 at 2021-11-10 13:36:56 -0800
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  Rendered products/index.html.erb within layouts/application (3.0ms)
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 0.0ms)
+
+
+
+SyntaxError - syntax error, unexpected ',', expecting ')'
+...uffer.append=( ("product_name", "Product Name") );@output_bu...
+...                              ^
+/mnt/c/code/point_of_sale/app/views/products/index.html.erb:16: syntax error, unexpected ',', expecting ')'
+...output_buffer.append=( "price", "Price" );@output_buffer.saf...
+...                              ^
+/mnt/c/code/point_of_sale/app/views/products/index.html.erb:17: syntax error, unexpected ',', expecting ')'
+...@output_buffer.append=( "unit", "Unit" );@output_buffer.safe...
+...                              ^
+/mnt/c/code/point_of_sale/app/views/products/index.html.erb:18: syntax error, unexpected ',', expecting ')'
+...fer.append=( "units_purchased", "Units purchased" );@output_...
+...                              ^
+/mnt/c/code/point_of_sale/app/views/products/index.html.erb:19: syntax error, unexpected ',', expecting ')'
+...t_buffer.append=( "units_sold", "Units sold" );@output_buffe...
+...                              ^
+/mnt/c/code/point_of_sale/app/views/products/index.html.erb:20: syntax error, unexpected ',', expecting ')'
+...ut_buffer.append=( "inventory", "Units in Stock" );@output_b...
+...                              ^:
+  app/views/products/index.html.erb:15:in `'
+
+Started POST "/__better_errors/ed26d9743e456de4/variables" for ::1 at 2021-11-10 13:36:56 -0800
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY created_at asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Started GET "/products" for ::1 at 2021-11-10 13:37:26 -0800
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  Rendered products/index.html.erb within layouts/application (3.1ms)
+Completed 500 Internal Server Error in 34ms (ActiveRecord: 0.0ms)
+
+
+
+SyntaxError - syntax error, unexpected ',', expecting ')'
+...buffer.append=( "product_name", "Product Name" );@output_buf...
+...                              ^
+/mnt/c/code/point_of_sale/app/views/products/index.html.erb:16: syntax error, unexpected ',', expecting ')'
+...output_buffer.append=( "price", "Price" );@output_buffer.saf...
+...                              ^
+/mnt/c/code/point_of_sale/app/views/products/index.html.erb:17: syntax error, unexpected ',', expecting ')'
+...@output_buffer.append=( "unit", "Unit" );@output_buffer.safe...
+...                              ^
+/mnt/c/code/point_of_sale/app/views/products/index.html.erb:18: syntax error, unexpected ',', expecting ')'
+...fer.append=( "units_purchased", "Units purchased" );@output_...
+...                              ^
+/mnt/c/code/point_of_sale/app/views/products/index.html.erb:19: syntax error, unexpected ',', expecting ')'
+...t_buffer.append=( "units_sold", "Units sold" );@output_buffe...
+...                              ^
+/mnt/c/code/point_of_sale/app/views/products/index.html.erb:20: syntax error, unexpected ',', expecting ')'
+...ut_buffer.append=( "inventory", "Units in Stock" );@output_b...
+...                              ^:
+  app/views/products/index.html.erb:15:in `'
+
+Started POST "/__better_errors/fc7553c933bec7f7/variables" for ::1 at 2021-11-10 13:37:26 -0800
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY created_at asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Started GET "/products" for ::1 at 2021-11-10 13:38:08 -0800
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY created_at asc[0m
+  ↳ app/views/products/index.html.erb:26
+  Rendered products/index.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 73ms (Views: 69.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/products?direction=asc&sort=units_sold" for ::1 at 2021-11-10 13:38:11 -0800
+Processing by ProductsController#index as HTML
+  Parameters: {"direction"=>"asc", "sort"=>"units_sold"}
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (2.4ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY units_sold asc[0m
+  ↳ app/views/products/index.html.erb:26
+  Rendered products/index.html.erb within layouts/application (15.7ms)
+Completed 500 Internal Server Error in 50ms (ActiveRecord: 2.4ms)
+
+
+
+ActiveRecord::StatementInvalid - PG::UndefinedColumn: ERROR:  column "units_sold" does not exist
+LINE 1: SELECT "products".* FROM "products" ORDER BY units_sold asc
+                                                     ^
+: SELECT "products".* FROM "products" ORDER BY units_sold asc:
+  app/views/products/index.html.erb:26:in `_app_views_products_index_html_erb___3561822479590540732_70333185265740'
+
+Started POST "/__better_errors/54ca39bb76e35713/variables" for ::1 at 2021-11-10 13:38:11 -0800
+  [1m[36mProduct Load (1.6ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY units_sold asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY units_sold asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY units_sold asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mProduct Load (2.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY units_sold asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mProduct Load (2.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY units_sold asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Started GET "/products" for ::1 at 2021-11-10 13:50:03 -0800
+Processing by ProductsController#index as HTML
+  [1m[35m (9.8ms)[0m  [1m[34m
+            SELECT product_name,
+                SUM(quantity)::numeric(10,2) AS units_sold,
+                SUM(purchase_quantity)::numeric(10,2) AS units_purchased,
+                ((SUM(purchase_quantity))-(SUM(quantity)))::numeric(10,2) AS inventory
+            FROM products 
+                INNER JOIN order_products 
+                ON products.id = order_products.product_id
+                INNER JOIN supply_products 
+                ON products.id = supply_products.product_id
+            GROUP BY product_name
+        [0m
+  ↳ app/models/product.rb:21
+Completed 500 Internal Server Error in 151ms (ActiveRecord: 25.0ms)
+
+
+
+NameError - undefined local variable or method `sortable' for #<Class:0x00007fef75e3b978>:
+  app/models/product.rb:23:in `<class:Product>'
+  app/models/product.rb:1:in `<main>'
+  app/controllers/products_controller.rb:7:in `index'
+
+Started POST "/__better_errors/9d4774d38916062e/variables" for ::1 at 2021-11-10 13:50:04 -0800
+Started GET "/products" for ::1 at 2021-11-10 13:52:01 -0800
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (2.3ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY created_at asc[0m
+  ↳ app/views/products/index.html.erb:26
+  Rendered products/index.html.erb within layouts/application (54.6ms)
+Completed 200 OK in 278ms (Views: 140.5ms | ActiveRecord: 19.7ms)
+
+
+Started GET "/products?direction=asc&sort=inventory" for ::1 at 2021-11-10 13:52:05 -0800
+Processing by ProductsController#index as HTML
+  Parameters: {"direction"=>"asc", "sort"=>"inventory"}
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (1.2ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY inventory asc[0m
+  ↳ app/views/products/index.html.erb:26
+  Rendered products/index.html.erb within layouts/application (97.7ms)
+Completed 200 OK in 244ms (Views: 231.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/products?direction=asc&sort=units_sold" for ::1 at 2021-11-10 13:52:07 -0800
+Processing by ProductsController#index as HTML
+  Parameters: {"direction"=>"asc", "sort"=>"units_sold"}
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (3.1ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY units_sold asc[0m
+  ↳ app/views/products/index.html.erb:26
+  Rendered products/index.html.erb within layouts/application (18.2ms)
+Completed 500 Internal Server Error in 51ms (ActiveRecord: 3.1ms)
+
+
+
+ActiveRecord::StatementInvalid - PG::UndefinedColumn: ERROR:  column "units_sold" does not exist
+LINE 1: SELECT "products".* FROM "products" ORDER BY units_sold asc
+                                                     ^
+: SELECT "products".* FROM "products" ORDER BY units_sold asc:
+  app/views/products/index.html.erb:26:in `_app_views_products_index_html_erb___3561822479590540732_70332879201300'
+
+Started POST "/__better_errors/4c8b12eed644a206/variables" for ::1 at 2021-11-10 13:52:07 -0800
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY units_sold asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY units_sold asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY units_sold asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY units_sold asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY units_sold asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Started GET "/products?direction=asc&sort=inventory" for ::1 at 2021-11-10 13:52:14 -0800
+Processing by ProductsController#index as HTML
+  Parameters: {"direction"=>"asc", "sort"=>"inventory"}
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY inventory asc[0m
+  ↳ app/views/products/index.html.erb:26
+  Rendered products/index.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 74ms (Views: 68.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/products?direction=asc&sort=units_purchased" for ::1 at 2021-11-10 13:52:16 -0800
+Processing by ProductsController#index as HTML
+  Parameters: {"direction"=>"asc", "sort"=>"units_purchased"}
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (2.8ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY units_purchased asc[0m
+  ↳ app/views/products/index.html.erb:26
+  Rendered products/index.html.erb within layouts/application (17.8ms)
+Completed 500 Internal Server Error in 53ms (ActiveRecord: 2.8ms)
+
+
+
+ActiveRecord::StatementInvalid - PG::UndefinedColumn: ERROR:  column "units_purchased" does not exist
+LINE 1: SELECT "products".* FROM "products" ORDER BY units_purchased...
+                                                     ^
+: SELECT "products".* FROM "products" ORDER BY units_purchased asc:
+  app/views/products/index.html.erb:26:in `_app_views_products_index_html_erb___3561822479590540732_70333239236720'
+
+Started POST "/__better_errors/53021ce9dd3c42f3/variables" for ::1 at 2021-11-10 13:52:16 -0800
+  [1m[36mProduct Load (1.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY units_purchased asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY units_purchased asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY units_purchased asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY units_purchased asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY units_purchased asc LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Started GET "/products?direction=asc&sort=inventory" for ::1 at 2021-11-10 13:52:21 -0800
+Processing by ProductsController#index as HTML
+  Parameters: {"direction"=>"asc", "sort"=>"inventory"}
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY inventory asc[0m
+  ↳ app/views/products/index.html.erb:26
+  Rendered products/index.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 78ms (Views: 72.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/products?direction=desc&sort=inventory" for ::1 at 2021-11-10 13:52:26 -0800
+Processing by ProductsController#index as HTML
+  Parameters: {"direction"=>"desc", "sort"=>"inventory"}
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (1.2ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY inventory desc[0m
+  ↳ app/views/products/index.html.erb:26
+  Rendered products/index.html.erb within layouts/application (17.8ms)
+Completed 200 OK in 129ms (Views: 118.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/products?direction=asc&sort=inventory" for ::1 at 2021-11-10 13:52:27 -0800
+Processing by ProductsController#index as HTML
+  Parameters: {"direction"=>"asc", "sort"=>"inventory"}
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (1.6ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY inventory asc[0m
+  ↳ app/views/products/index.html.erb:26
+  Rendered products/index.html.erb within layouts/application (23.8ms)
+Completed 200 OK in 168ms (Views: 152.7ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/products?direction=desc&sort=inventory" for ::1 at 2021-11-10 13:52:27 -0800
+Processing by ProductsController#index as HTML
+  Parameters: {"direction"=>"desc", "sort"=>"inventory"}
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (2.7ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY inventory desc[0m
+  ↳ app/views/products/index.html.erb:26
+  Rendered products/index.html.erb within layouts/application (27.6ms)
+Completed 200 OK in 163ms (Views: 151.6ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/products?direction=asc&sort=inventory" for ::1 at 2021-11-10 13:52:28 -0800
+Processing by ProductsController#index as HTML
+  Parameters: {"direction"=>"asc", "sort"=>"inventory"}
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (1.4ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY inventory asc[0m
+  ↳ app/views/products/index.html.erb:26
+  Rendered products/index.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 109ms (Views: 99.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/products?direction=desc&sort=inventory" for ::1 at 2021-11-10 13:52:29 -0800
+Processing by ProductsController#index as HTML
+  Parameters: {"direction"=>"desc", "sort"=>"inventory"}
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (1.3ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY inventory desc[0m
+  ↳ app/views/products/index.html.erb:26
+  Rendered products/index.html.erb within layouts/application (23.1ms)
+Completed 200 OK in 136ms (Views: 127.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/products?direction=asc&sort=inventory" for ::1 at 2021-11-10 13:52:29 -0800
+Processing by ProductsController#index as HTML
+  Parameters: {"direction"=>"asc", "sort"=>"inventory"}
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY inventory asc[0m
+  ↳ app/views/products/index.html.erb:26
+  Rendered products/index.html.erb within layouts/application (15.8ms)
+Completed 200 OK in 144ms (Views: 131.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/products?direction=asc&sort=inventory" for ::1 at 2021-11-10 13:54:25 -0800
+Processing by ProductsController#index as HTML
+  Parameters: {"direction"=>"asc", "sort"=>"inventory"}
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (1.4ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY inventory asc[0m
+  ↳ app/views/products/index.html.erb:26
+  Rendered products/index.html.erb within layouts/application (51.2ms)
+Completed 500 Internal Server Error in 82ms (ActiveRecord: 1.4ms)
+
+
+
+NoMethodError - undefined method `units_purchased' for #<Product:0x00007fef77d76ae0>
+Did you mean?  unit_changed?:
+  app/views/products/index.html.erb:31:in `block in _app_views_products_index_html_erb___3561822479590540732_70333228014440'
+  app/views/products/index.html.erb:26:in `_app_views_products_index_html_erb___3561822479590540732_70333228014440'
+
+Started POST "/__better_errors/d97d570eb26a59d5/variables" for ::1 at 2021-11-10 13:54:25 -0800
+Started GET "/products?direction=asc&sort=inventory" for ::1 at 2021-11-10 14:01:59 -0800
+Processing by ProductsController#index as HTML
+  Parameters: {"direction"=>"asc", "sort"=>"inventory"}
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms)
+
+
+
+ArgumentError - wrong number of arguments (given 3, expected 1):
+  app/models/product.rb:37:in `search'
+  app/controllers/products_controller.rb:7:in `index'
+
+Started POST "/__better_errors/61cb5e299f51f9ef/variables" for ::1 at 2021-11-10 14:02:00 -0800
+Started GET "/products?direction=asc&sort=inventory" for ::1 at 2021-11-10 14:03:42 -0800
+Processing by ProductsController#index as HTML
+  Parameters: {"direction"=>"asc", "sort"=>"inventory"}
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms)
+
+
+
+ArgumentError - wrong number of arguments (given 3, expected 1):
+  app/models/product.rb:37:in `search'
+  app/controllers/products_controller.rb:7:in `index'
+
+Started POST "/__better_errors/f9b372c5df1c578d/variables" for ::1 at 2021-11-10 14:03:42 -0800
+Started GET "/products?direction=asc&sort=inventory" for ::1 at 2021-11-10 14:04:19 -0800
+
+ActionController::RoutingError - undefined local variable or method `params' for ProductsController:Class:
+
+Started POST "/__better_errors/4334941321bdcddb/variables" for ::1 at 2021-11-10 14:04:19 -0800
+Started GET "/products?direction=asc&sort=inventory" for ::1 at 2021-11-10 14:06:33 -0800
+Processing by ProductsController#index as HTML
+  Parameters: {"direction"=>"asc", "sort"=>"inventory"}
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (2.2ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY inventory asc[0m
+  ↳ app/views/products/index.html.erb:26
+  Rendered products/index.html.erb within layouts/application (42.1ms)
+Completed 500 Internal Server Error in 80ms (ActiveRecord: 18.8ms)
+
+
+
+NoMethodError - undefined method `units_purchased' for #<Product:0x00007fef723594e0>
+Did you mean?  unit_changed?:
+  app/views/products/index.html.erb:31:in `block in _app_views_products_index_html_erb___3561822479590540732_70333182473060'
+  app/views/products/index.html.erb:26:in `_app_views_products_index_html_erb___3561822479590540732_70333182473060'
+
+Started POST "/__better_errors/2dd49bcb10a9b97f/variables" for ::1 at 2021-11-10 14:06:34 -0800
+Started GET "/products?direction=asc&sort=inventory" for ::1 at 2021-11-10 14:07:23 -0800
+Processing by ProductsController#index as HTML
+  Parameters: {"direction"=>"asc", "sort"=>"inventory"}
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY inventory asc[0m
+  ↳ app/views/products/index.html.erb:26
+  Rendered products/index.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 72ms (Views: 68.2ms | ActiveRecord: 0.5ms)
+
+

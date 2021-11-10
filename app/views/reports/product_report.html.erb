@@ -28,7 +28,6 @@
     <th class="align_right"><%= sortable "units_sold", "Units Sold" %></th>
     <th class="align_left"><%= sortable "unit", "Unit" %></th>
     <th><%= sortable "total_revenue", "Total Revenue" %></th>
-    <th class="align_left"><%= sortable "inventory", "Units in Stock" %></th>
     <th colspan="4"></th>
     </tr>
   </thead>
@@ -41,8 +40,7 @@
         <td class="align_right"><%= p_report["units_sold"] %></td>
         <td><%= p_report["unit"] %></td>
         <td class="align_right"><%= p_report["total_revenue"] %></td>
-        <td class="align_right"><%= p_report["inventory"] %></td>
-      </tr>
+        </tr>
       <% end %>
   </tbody>
 </table>

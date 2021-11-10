@@ -11,6 +11,12 @@
   <% options = Client.all.collect{ |c| [c.name, c.id] } %>
   <% options = [["Show All", nil]] + options %>
   <%= select_tag 'client_select[]', options_for_select(options, params[:client_select]), :multiple => :multiple, :size => 10, :class => "chosen-select" %>
+  <br><br>
+
+  From: <input type="text" class="datepicker" id="from" name="from_date" 
+              autocomplete = 'off' value = "<%= params[:from_date] %>">
+      to: <input type="text" class="datepicker" id="to" name="to_date" 
+              autocomplete = 'off' value = "<%= params[:to_date] %>">
 
   <%= submit_tag "Search", :name => nil %>
   <% end %><br><br>  
@@ -41,6 +47,35 @@
 </table>
 
 <script type="text/javascript">
+
+  $( function() {
+      var dateFormat = "mm/dd/yy",
+            from = $( "#from" ).datepicker({
+            changeMonth: true,
+            numberOfMonths: 1
+          })
+          .on( "change", function() {
+            to.datepicker( "option", "minDate", getDate( this ) );
+          }),
+        to = $( "#to" ).datepicker({
+          changeMonth: true,
+          numberOfMonths: 1
+        })
+        .on( "change", function() {
+          from.datepicker( "option", "maxDate", getDate( this ) );
+        });
+  
+      function getDate( element ) {
+        var date;
+        try {
+          date = $.datepicker.parseDate( dateFormat, element.value );
+        } catch( error ) {
+          date = null;
+        }
+  
+        return date;
+      }
+    } );
 
 $(".chosen-select").chosen({
   no_results_text: "Oops, nothing found!"
