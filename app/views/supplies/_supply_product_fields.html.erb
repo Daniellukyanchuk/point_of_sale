@@ -1,0 +1,42 @@
+  
+   
+   <h2>Add Product</h2>
+
+   <div class="nested-fields">
+    <%= form.hidden_field :_destroy %>
+
+      <div class="field">
+          <%= form.collection_select :product_id, Product.all, :id, :product_name %>
+      </div>
+    
+      <div class="field">
+        <%= form.label "quantity" %>
+        <%= form.number_field :purchase_quantity, id: 'purchase_quantity' %>
+      </div>
+
+      <div class="field">
+        <%= form.label :purchase_price %>
+        <%= form.number_field :purchase_price, id: 'purchase_price' %>
+      </div>
+
+      <div class="field">
+        <%= form.label "Subtotal" %>
+        <%= form.number_field :purchase_subtotal, id: 'purchase_subtotal', :class => "greyed_out", :readonly => true  %>
+      </div>
+      <div>
+        <%= link_to "Remove", "#", class: "remove_fields", :class => "small_button" %>
+      </div>
+  </div>
+
+
+
+
+
+    
+
+  
+    
+
+
+
+  

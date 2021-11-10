@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :supplies
   resources :suppliers
+  resources :supply_products
   get 'reports/client_report'
   get 'reports/product_report'  
   resources :orders

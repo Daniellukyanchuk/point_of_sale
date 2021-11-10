@@ -1,17 +1,33 @@
-<%= form_with(model: supply, local: true) do |form| %>
+<%= form_with(model: supply, id: "new-supply",  local: true) do |form| %>
   <% if supply.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(supply.errors.count, "error") %> prohibited this supply from being saved:</h2>
+  <div id="error_explanation">
+    <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
 
-      <ul>
-      <% supply.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= form.submit %>
+    <ul>
+    <% order.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
   </div>
 <% end %>
+
+ Choose Supplier: <%= form.collection_select :supplier_id, Supplier.all, :id, :supplier_name %>
+
+    <%= form.fields_for :supply_products do |builder| %>
+      <%= render 'supply_product_fields', form: builder %>
+    <% end %>
+    <br><br>
+
+    <%= link_to_add_fields "Add Product", form, :supply_products %>
+<br><br>
+<div class="field">
+  <%= form.label :purchase_total %>
+  <%= form.text_field :purchase_total, :class => "greyed_out", :readonly => true %>
+</div>
+
+<div> 
+  <%= form.submit 'Add to Inventory', :class => 'big_button' %>
+  </div>
+<% end %>
+
+

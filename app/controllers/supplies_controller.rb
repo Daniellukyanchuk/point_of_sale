@@ -13,6 +13,7 @@ class SuppliesController < ApplicationController
   # GET /supplies/new
   def new
     @supply = Supply.new
+    @supply.supply_products.new
   end
 
   # GET /supplies/1/edit
@@ -22,10 +23,11 @@ class SuppliesController < ApplicationController
   # POST /supplies or /supplies.json
   def create
     @supply = Supply.new(supply_params)
+    
 
     respond_to do |format|
       if @supply.save
-        format.html { redirect_to @supply, notice: "Supply was successfully created." }
+        format.html { redirect_to @supply, notice: "Supplies were successfully added to inventory." }
         format.json { render :show, status: :created, location: @supply }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +40,7 @@ class SuppliesController < ApplicationController
   def update
     respond_to do |format|
       if @supply.update(supply_params)
-        format.html { redirect_to @supply, notice: "Supply was successfully updated." }
+        format.html { redirect_to @supply, notice: "Inventory was successfully updated." }
         format.json { render :show, status: :ok, location: @supply }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -64,6 +66,11 @@ class SuppliesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def supply_params
-      params.fetch(:supply, {})
+      params.require(:supply).permit(:supplier_id, :purchase_total,
+      suppliers_attributes: [:id, :supplier_name, :address, :phone],
+      supply_products_attributes: [:id, :product_id, :supply_id, :purchase_price, :purchase_quantity, :purchase_subtotal, :_destroy],
+      products_attributes: [:id, :unit, :price, :product_name])
     end
 end
+
+

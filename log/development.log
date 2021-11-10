@@ -14279,3 +14279,1089 @@ Migrating to CreateSupplies (20211109224702)
   ↳ bin/rails:9
   [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(158292023273128605)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddSupplyProduct (20211109225820)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (23.4ms)[0m  [1m[35mCREATE TABLE "supply_products" ("id" bigserial primary key, "product_id" integer, "supply_id" integer, "purchase_quantity" float, "purchase_price" float, "purchase_subtotal" float, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20211109225820_add_supply_product.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20211109225820"]]
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(158292023273128605)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/supplies" for ::1 at 2021-11-09 15:13:59 -0800
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by SuppliesController#index as HTML
+  Rendering supplies/index.html.erb within layouts/application
+  [1m[36mSupply Load (1.8ms)[0m  [1m[34mSELECT "supplies".* FROM "supplies"[0m
+  ↳ app/views/supplies/index.html.erb:13
+  Rendered supplies/index.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 1244ms (Views: 1209.5ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/supplies" for ::1 at 2021-11-09 15:14:03 -0800
+Processing by SuppliesController#index as HTML
+  Rendering supplies/index.html.erb within layouts/application
+  [1m[36mSupply Load (0.4ms)[0m  [1m[34mSELECT "supplies".* FROM "supplies"[0m
+  ↳ app/views/supplies/index.html.erb:13
+  Rendered supplies/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 75ms (Views: 71.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/supplies/new" for ::1 at 2021-11-09 15:14:07 -0800
+Processing by SuppliesController#new as HTML
+  Rendering supplies/new.html.erb within layouts/application
+  Rendered supplies/_form.html.erb (231.3ms)
+  Rendered supplies/new.html.erb within layouts/application (237.1ms)
+Completed 500 Internal Server Error in 297ms (ActiveRecord: 15.5ms)
+
+
+
+NameError - undefined local variable or method `order' for #<#<Class:0x00007ffff5a53c30>:0x00007fef75e8d5c0>
+Did you mean?  order_url:
+  app/views/supplies/_form.html.erb:2:in `block in _app_views_supplies__form_html_erb__3591464406495054960_70333226087800'
+  app/views/supplies/_form.html.erb:1:in `_app_views_supplies__form_html_erb__3591464406495054960_70333226087800'
+  app/views/supplies/new.html.erb:3:in `_app_views_supplies_new_html_erb__2378378670953027998_70333226053420'
+
+Started POST "/__better_errors/a1a6de970e50ffbe/variables" for ::1 at 2021-11-09 15:14:08 -0800
+Started GET "/supplies/new" for ::1 at 2021-11-09 15:19:30 -0800
+Processing by SuppliesController#new as HTML
+  Rendering supplies/new.html.erb within layouts/application
+  Rendered supplies/_form.html.erb (417.3ms)
+  Rendered supplies/new.html.erb within layouts/application (420.5ms)
+Completed 500 Internal Server Error in 465ms (ActiveRecord: 3.7ms)
+
+
+
+NameError - undefined local variable or method `order' for #<#<Class:0x00007ffff5eef898>:0x00007ffff5f48740>
+Did you mean?  order_url:
+  app/views/supplies/_form.html.erb:2:in `block in _app_views_supplies__form_html_erb__3591464406495054960_70368662527460'
+  app/views/supplies/_form.html.erb:1:in `_app_views_supplies__form_html_erb__3591464406495054960_70368662527460'
+  app/views/supplies/new.html.erb:3:in `_app_views_supplies_new_html_erb__2378378670953027998_70368659443980'
+
+Started POST "/__better_errors/30a9fe4a7914f966/variables" for ::1 at 2021-11-09 15:19:31 -0800
+Started GET "/supplies/new" for ::1 at 2021-11-09 15:27:51 -0800
+
+SyntaxError - syntax error, unexpected end, expecting ')'
+    end
+    ^~~:
+  app/controllers/supplies_controller.rb:71:in `'
+
+Started POST "/__better_errors/3897d88e42ccd0dc/variables" for ::1 at 2021-11-09 15:27:52 -0800
+Started GET "/supplies/new" for ::1 at 2021-11-09 15:28:14 -0800
+Processing by SuppliesController#new as HTML
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `permit' for :supply:Symbol:
+  app/controllers/supplies_controller.rb:67:in `supply_params'
+  app/controllers/supplies_controller.rb:15:in `new'
+
+Started POST "/__better_errors/140880c96cb9cb3a/variables" for ::1 at 2021-11-09 15:28:14 -0800
+Started GET "/supplies/new" for ::1 at 2021-11-09 15:29:50 -0800
+Processing by SuppliesController#new as HTML
+Completed 400 Bad Request in 10ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: supply:
+  app/controllers/supplies_controller.rb:67:in `supply_params'
+  app/controllers/supplies_controller.rb:15:in `new'
+
+Started POST "/__better_errors/da4eb34938d054fc/variables" for ::1 at 2021-11-09 15:29:50 -0800
+Started GET "/supplies" for ::1 at 2021-11-09 15:30:10 -0800
+Processing by SuppliesController#index as HTML
+  Rendering supplies/index.html.erb within layouts/application
+  [1m[36mSupply Load (4.0ms)[0m  [1m[34mSELECT "supplies".* FROM "supplies"[0m
+  ↳ app/views/supplies/index.html.erb:13
+  Rendered supplies/index.html.erb within layouts/application (31.9ms)
+Completed 200 OK in 171ms (Views: 137.5ms | ActiveRecord: 25.3ms)
+
+
+Started GET "/supplies/new" for ::1 at 2021-11-09 15:30:13 -0800
+Processing by SuppliesController#new as HTML
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: supply:
+  app/controllers/supplies_controller.rb:67:in `supply_params'
+  app/controllers/supplies_controller.rb:15:in `new'
+
+Started POST "/__better_errors/f6860289069ab4ce/variables" for ::1 at 2021-11-09 15:30:13 -0800
+Started POST "/__better_errors/f6860289069ab4ce/variables" for ::1 at 2021-11-09 15:30:20 -0800
+Started GET "/supplies/new" for ::1 at 2021-11-09 15:32:03 -0800
+Processing by SuppliesController#new as HTML
+  Rendering supplies/new.html.erb within layouts/application
+  Rendered supplies/_form.html.erb (278.5ms)
+  Rendered supplies/new.html.erb within layouts/application (286.2ms)
+Completed 500 Internal Server Error in 368ms (ActiveRecord: 24.5ms)
+
+
+
+NameError - undefined local variable or method `order' for #<#<Class:0x00007fef75ca8070>:0x00007fef75f62630>
+Did you mean?  order_url:
+  app/views/supplies/_form.html.erb:2:in `block in _app_views_supplies__form_html_erb__3591464406495054960_70333226492360'
+  app/views/supplies/_form.html.erb:1:in `_app_views_supplies__form_html_erb__3591464406495054960_70333226492360'
+  app/views/supplies/new.html.erb:3:in `_app_views_supplies_new_html_erb__2378378670953027998_70333225059340'
+
+Started POST "/__better_errors/730f64e2592efc84/variables" for ::1 at 2021-11-09 15:32:04 -0800
+Started GET "/supplies/new" for ::1 at 2021-11-09 15:42:52 -0800
+Processing by SuppliesController#new as HTML
+  Rendering supplies/new.html.erb within layouts/application
+  Rendered supplies/_form.html.erb (363.4ms)
+  Rendered supplies/new.html.erb within layouts/application (372.2ms)
+Completed 500 Internal Server Error in 401ms (ActiveRecord: 0.0ms)
+
+
+
+NameError - undefined local variable or method `order' for #<#<Class:0x00007fef75ca8070>:0x00007ffff6629e38>
+Did you mean?  order_url:
+  app/views/supplies/_form.html.erb:2:in `block in _app_views_supplies__form_html_erb__3591464406495054960_70368665191620'
+  app/views/supplies/_form.html.erb:1:in `_app_views_supplies__form_html_erb__3591464406495054960_70368665191620'
+  app/views/supplies/new.html.erb:3:in `_app_views_supplies_new_html_erb__2378378670953027998_70368663419240'
+
+Started POST "/__better_errors/193a7100398ee93d/variables" for ::1 at 2021-11-09 15:42:53 -0800
+Started GET "/supplies/new" for ::1 at 2021-11-09 15:45:01 -0800
+Processing by SuppliesController#new as HTML
+  Rendering supplies/new.html.erb within layouts/application
+  [1m[36mSupplier Load (1.6ms)[0m  [1m[34mSELECT "suppliers".* FROM "suppliers"[0m
+  ↳ app/views/supplies/_form.html.erb:14
+  Rendered supplies/_form.html.erb (179.5ms)
+  Rendered supplies/new.html.erb within layouts/application (185.4ms)
+Completed 500 Internal Server Error in 212ms (ActiveRecord: 20.1ms)
+
+
+
+ActionView::MissingTemplate - Missing partial supplies/_supply_product_fields, application/_supply_product_fields with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/mnt/c/code/point_of_sale/app/views":
+  app/helpers/application_helper.rb:8:in `block in link_to_add_fields'
+  app/helpers/application_helper.rb:7:in `link_to_add_fields'
+  app/views/supplies/_form.html.erb:20:in `block in _app_views_supplies__form_html_erb__3591464406495054960_70368667705300'
+  app/views/supplies/_form.html.erb:1:in `_app_views_supplies__form_html_erb__3591464406495054960_70368667705300'
+  app/views/supplies/new.html.erb:3:in `_app_views_supplies_new_html_erb__2378378670953027998_70368666724960'
+
+Started POST "/__better_errors/60008cfb77bb434d/variables" for ::1 at 2021-11-09 15:45:02 -0800
+Started GET "/supplies/new" for ::1 at 2021-11-09 15:48:34 -0800
+Processing by SuppliesController#new as HTML
+  Rendering supplies/new.html.erb within layouts/application
+  [1m[36mSupplier Load (0.4ms)[0m  [1m[34mSELECT "suppliers".* FROM "suppliers"[0m
+  ↳ app/views/supplies/_form.html.erb:14
+  [1m[36mProduct Load (1.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/supplies/_supply_product_fields.html.erb:9
+  Rendered supplies/_supply_product_fields.html.erb (44.8ms)
+  Rendered supplies/_form.html.erb (78.8ms)
+  Rendered supplies/new.html.erb within layouts/application (81.6ms)
+Completed 500 Internal Server Error in 103ms (ActiveRecord: 11.9ms)
+
+
+
+NoMethodError - undefined method `purcahse_quantity' for #<SupplyProduct:0x00007fef75a70de8>
+Did you mean?  purchase_quantity
+               purchase_quantity?
+               purchase_quantity=:
+  app/views/supplies/_supply_product_fields.html.erb:14:in `_app_views_supplies__supply_product_fields_html_erb___755013416728779630_70333224245660'
+  app/helpers/application_helper.rb:8:in `block in link_to_add_fields'
+  app/helpers/application_helper.rb:7:in `link_to_add_fields'
+  app/views/supplies/_form.html.erb:20:in `block in _app_views_supplies__form_html_erb__3591464406495054960_70333223293100'
+  app/views/supplies/_form.html.erb:1:in `_app_views_supplies__form_html_erb__3591464406495054960_70333223293100'
+  app/views/supplies/new.html.erb:3:in `_app_views_supplies_new_html_erb__2378378670953027998_70333223211640'
+
+Started POST "/__better_errors/c3132e51de1c7307/variables" for ::1 at 2021-11-09 15:48:35 -0800
+Started GET "/supplies/new" for ::1 at 2021-11-09 15:48:53 -0800
+Processing by SuppliesController#new as HTML
+  Rendering supplies/new.html.erb within layouts/application
+  [1m[36mSupplier Load (0.4ms)[0m  [1m[34mSELECT "suppliers".* FROM "suppliers"[0m
+  ↳ app/views/supplies/_form.html.erb:14
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/supplies/_supply_product_fields.html.erb:9
+  Rendered supplies/_supply_product_fields.html.erb (3.6ms)
+  Rendered supplies/_form.html.erb (9.5ms)
+  Rendered supplies/new.html.erb within layouts/application (12.4ms)
+Completed 200 OK in 69ms (Views: 65.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/supplies/new" for ::1 at 2021-11-09 15:49:32 -0800
+Processing by SuppliesController#new as HTML
+  Rendering supplies/new.html.erb within layouts/application
+  [1m[36mSupplier Load (1.1ms)[0m  [1m[34mSELECT "suppliers".* FROM "suppliers"[0m
+  ↳ app/views/supplies/_form.html.erb:14
+  [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/supplies/_supply_product_fields.html.erb:9
+  Rendered supplies/_supply_product_fields.html.erb (10.5ms)
+  Rendered supplies/_form.html.erb (27.8ms)
+  Rendered supplies/new.html.erb within layouts/application (36.2ms)
+Completed 200 OK in 150ms (Views: 139.1ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/supplies/new" for ::1 at 2021-11-09 15:50:07 -0800
+Processing by SuppliesController#new as HTML
+  Rendering supplies/new.html.erb within layouts/application
+  [1m[36mSupplier Load (1.0ms)[0m  [1m[34mSELECT "suppliers".* FROM "suppliers"[0m
+  ↳ app/views/supplies/_form.html.erb:16
+  [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/supplies/_supply_product_fields.html.erb:9
+  Rendered supplies/_supply_product_fields.html.erb (10.5ms)
+  Rendered supplies/_form.html.erb (28.4ms)
+  Rendered supplies/new.html.erb within layouts/application (36.9ms)
+Completed 200 OK in 153ms (Views: 142.5ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/supplies/new" for ::1 at 2021-11-09 15:50:28 -0800
+Processing by SuppliesController#new as HTML
+  Rendering supplies/new.html.erb within layouts/application
+  [1m[36mSupplier Load (1.3ms)[0m  [1m[34mSELECT "suppliers".* FROM "suppliers"[0m
+  ↳ app/views/supplies/_form.html.erb:16
+  [1m[36mProduct Load (1.1ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/supplies/_supply_product_fields.html.erb:9
+  Rendered supplies/_supply_product_fields.html.erb (11.3ms)
+  Rendered supplies/_form.html.erb (28.6ms)
+  Rendered supplies/new.html.erb within layouts/application (36.8ms)
+Completed 200 OK in 122ms (Views: 112.1ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/supplies/new" for ::1 at 2021-11-09 15:51:33 -0800
+Processing by SuppliesController#new as HTML
+  Rendering supplies/new.html.erb within layouts/application
+  [1m[36mSupplier Load (1.0ms)[0m  [1m[34mSELECT "suppliers".* FROM "suppliers"[0m
+  ↳ app/views/supplies/_form.html.erb:16
+  [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/supplies/_supply_product_fields.html.erb:9
+  Rendered supplies/_supply_product_fields.html.erb (10.7ms)
+  Rendered supplies/_form.html.erb (27.7ms)
+  Rendered supplies/new.html.erb within layouts/application (36.8ms)
+Completed 200 OK in 133ms (Views: 123.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/supplies/new" for ::1 at 2021-11-09 15:52:00 -0800
+Processing by SuppliesController#new as HTML
+  Rendering supplies/new.html.erb within layouts/application
+  [1m[36mSupplier Load (0.4ms)[0m  [1m[34mSELECT "suppliers".* FROM "suppliers"[0m
+  ↳ app/views/supplies/_form.html.erb:14
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/supplies/_supply_product_fields.html.erb:9
+  Rendered supplies/_supply_product_fields.html.erb (4.4ms)
+  Rendered supplies/_form.html.erb (11.3ms)
+  Rendered supplies/new.html.erb within layouts/application (14.4ms)
+Completed 200 OK in 75ms (Views: 71.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/supplies/new" for ::1 at 2021-11-09 15:54:06 -0800
+Processing by SuppliesController#new as HTML
+  Rendering supplies/new.html.erb within layouts/application
+  [1m[36mSupplier Load (1.1ms)[0m  [1m[34mSELECT "suppliers".* FROM "suppliers"[0m
+  ↳ app/views/supplies/_form.html.erb:14
+  [1m[36mProduct Load (1.1ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/supplies/_supply_product_fields.html.erb:9
+  Rendered supplies/_supply_product_fields.html.erb (11.5ms)
+  Rendered supplies/_form.html.erb (29.6ms)
+  Rendered supplies/new.html.erb within layouts/application (38.2ms)
+Completed 200 OK in 174ms (Views: 163.1ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/supplies" for ::1 at 2021-11-09 15:54:47 -0800
+Processing by SuppliesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kVjxTX1P911YgmmGN573Cf6C8MSU1rfTzmGnCSi9uNJcYgHUqNXsSLgPOsQQWQS5Pdic/Na4GZipJOxE5TdT1w==", "supply"=>{"supplier_id"=>"3", "supply_products_attributes"=>{"1636502052898"=>{"_destroy"=>"false", "product_id"=>"10", "purchase_quantity"=>"20", "purchase_price"=>"50", "purchase_subtotal"=>""}}, "purchase_total"=>""}, "commit"=>"Add to Inventory"}
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/supplies_controller.rb:27
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/supplies_controller.rb:27
+Completed 500 Internal Server Error in 115ms (ActiveRecord: 1.2ms)
+
+
+
+NoMethodError - undefined method `set_purchase_subtotal' for #<SupplyProduct:0x00007ffff66eb4c0>
+Did you mean?  purchase_subtotal
+               restore_purchase_subtotal!
+               purchase_subtotal?
+               purchase_subtotal=:
+  app/controllers/supplies_controller.rb:27:in `block in create'
+  app/controllers/supplies_controller.rb:26:in `create'
+
+Started POST "/__better_errors/3ba85f8880e88549/variables" for ::1 at 2021-11-09 15:54:47 -0800
+Started GET "/supplies/new" for ::1 at 2021-11-09 15:58:29 -0800
+Processing by SuppliesController#new as HTML
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 3.8ms)
+
+
+
+NoMethodError - undefined method `supply_products' for nil:NilClass:
+  app/controllers/supplies_controller.rb:16:in `new'
+
+Started POST "/__better_errors/e42e78713923ee1a/variables" for ::1 at 2021-11-09 15:58:29 -0800
+Started GET "/supplies/new" for ::1 at 2021-11-09 15:58:55 -0800
+Processing by SuppliesController#new as HTML
+  Rendering supplies/new.html.erb within layouts/application
+  [1m[36mSupplier Load (0.4ms)[0m  [1m[34mSELECT "suppliers".* FROM "suppliers"[0m
+  ↳ app/views/supplies/_form.html.erb:14
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/supplies/_supply_product_fields.html.erb:9
+  Rendered supplies/_supply_product_fields.html.erb (20.7ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/supplies/_supply_product_fields.html.erb:9
+  Rendered supplies/_supply_product_fields.html.erb (2.4ms)
+  Rendered supplies/_form.html.erb (67.0ms)
+  Rendered supplies/new.html.erb within layouts/application (70.4ms)
+Completed 200 OK in 225ms (Views: 125.0ms | ActiveRecord: 22.9ms)
+
+
+Started POST "/supplies" for ::1 at 2021-11-09 15:59:32 -0800
+Processing by SuppliesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sTOKpbs89WdJXfAsKbw7ybO37UiFOoS7yDXIUpXJxVZ8CXo8bqbucqnQo24Oe8h5cO2BcMdUKvCvcIMfWEMuUw==", "supply"=>{"supplier_id"=>"2", "supply_products_attributes"=>{"0"=>{"_destroy"=>"false", "product_id"=>"1", "purchase_quantity"=>"20", "purchase_price"=>"120", "purchase_subtotal"=>""}, "1636502361494"=>{"_destroy"=>"false", "product_id"=>"11", "purchase_quantity"=>"2", "purchase_price"=>"20", "purchase_subtotal"=>""}}, "purchase_total"=>""}, "commit"=>"Add to Inventory"}
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/supplies_controller.rb:29
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/supplies_controller.rb:29
+Completed 500 Internal Server Error in 53ms (ActiveRecord: 1.2ms)
+
+
+
+NoMethodError - undefined method `set_purchase_subtotal' for #<SupplyProduct:0x00007fef758a3970>
+Did you mean?  purchase_subtotal
+               restore_purchase_subtotal!
+               purchase_subtotal?
+               purchase_subtotal=:
+  app/controllers/supplies_controller.rb:29:in `block in create'
+  app/controllers/supplies_controller.rb:28:in `create'
+
+Started POST "/__better_errors/573a31857e285cb9/variables" for ::1 at 2021-11-09 15:59:33 -0800
+Started POST "/__better_errors/573a31857e285cb9/variables" for ::1 at 2021-11-09 15:59:39 -0800
+Started POST "/supplies" for ::1 at 2021-11-09 16:06:02 -0800
+Processing by SuppliesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sTOKpbs89WdJXfAsKbw7ybO37UiFOoS7yDXIUpXJxVZ8CXo8bqbucqnQo24Oe8h5cO2BcMdUKvCvcIMfWEMuUw==", "supply"=>{"supplier_id"=>"2", "supply_products_attributes"=>{"0"=>{"_destroy"=>"false", "product_id"=>"1", "purchase_quantity"=>"20", "purchase_price"=>"120", "purchase_subtotal"=>""}, "1636502361494"=>{"_destroy"=>"false", "product_id"=>"11", "purchase_quantity"=>"2", "purchase_price"=>"20", "purchase_subtotal"=>""}}, "purchase_total"=>""}, "commit"=>"Add to Inventory"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/supplies_controller.rb:29
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/supplies_controller.rb:29
+Completed 500 Internal Server Error in 92ms (ActiveRecord: 19.6ms)
+
+
+
+NoMethodError - undefined method `set_purchase_subtotal' for #<SupplyProduct:0x00007ffff51809a0>
+Did you mean?  purchase_subtotal
+               restore_purchase_subtotal!
+               purchase_subtotal?
+               purchase_subtotal=:
+  app/controllers/supplies_controller.rb:29:in `block in create'
+  app/controllers/supplies_controller.rb:28:in `create'
+
+Started POST "/__better_errors/705eb92ffa7d8172/variables" for ::1 at 2021-11-09 16:06:03 -0800
+Started GET "/supplies" for ::1 at 2021-11-09 16:09:37 -0800
+Processing by SuppliesController#index as HTML
+  Rendering supplies/index.html.erb within layouts/application
+  [1m[36mSupply Load (1.3ms)[0m  [1m[34mSELECT "supplies".* FROM "supplies"[0m
+  ↳ app/views/supplies/index.html.erb:13
+  Rendered supplies/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 72ms (Views: 60.2ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/supplies/new" for ::1 at 2021-11-09 16:11:12 -0800
+Processing by SuppliesController#new as HTML
+  Rendering supplies/new.html.erb within layouts/application
+  [1m[36mSupplier Load (1.2ms)[0m  [1m[34mSELECT "suppliers".* FROM "suppliers"[0m
+  ↳ app/views/supplies/_form.html.erb:14
+  [1m[36mProduct Load (1.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/supplies/_supply_product_fields.html.erb:9
+  Rendered supplies/_supply_product_fields.html.erb (20.5ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/supplies/_supply_product_fields.html.erb:9
+  Rendered supplies/_supply_product_fields.html.erb (2.4ms)
+  Rendered supplies/_form.html.erb (46.8ms)
+  Rendered supplies/new.html.erb within layouts/application (50.0ms)
+Completed 200 OK in 221ms (Views: 98.7ms | ActiveRecord: 13.4ms)
+
+
+Started POST "/supplies" for ::1 at 2021-11-09 16:11:39 -0800
+Processing by SuppliesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Oxbz+OcxdxoFiuwRSDBVWNrus0v0UrZofXq01R9HvPt/i3kqPDCyRu+z5pD+6QKOYgG8pO60sTX5R1VyWqdUIw==", "supply"=>{"supplier_id"=>"2", "supply_products_attributes"=>{"0"=>{"_destroy"=>"false", "product_id"=>"3", "purchase_quantity"=>"20", "purchase_price"=>"78", "purchase_subtotal"=>""}, "1636503091198"=>{"_destroy"=>"false", "product_id"=>"11", "purchase_quantity"=>"4", "purchase_price"=>"23", "purchase_subtotal"=>""}}, "purchase_total"=>""}, "commit"=>"Add to Inventory"}
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/supplies_controller.rb:29
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/supplies_controller.rb:29
+Completed 500 Internal Server Error in 82ms (ActiveRecord: 1.0ms)
+
+
+
+NoMethodError - undefined method `set_purchase_subtotal' for #<SupplyProduct:0x00007fef4ca76f78>
+Did you mean?  purchase_subtotal
+               restore_purchase_subtotal!
+               purchase_subtotal?
+               purchase_subtotal=:
+  app/controllers/supplies_controller.rb:29:in `block in create'
+  app/controllers/supplies_controller.rb:28:in `create'
+
+Started POST "/__better_errors/1b794787d33aad29/variables" for ::1 at 2021-11-09 16:11:40 -0800
+Started GET "/suppliers" for ::1 at 2021-11-09 16:56:46 -0800
+Processing by SuppliersController#index as HTML
+  Rendering suppliers/index.html.erb within layouts/application
+  [1m[36mSupplier Load (1.3ms)[0m  [1m[34mSELECT "suppliers".* FROM "suppliers"[0m
+  ↳ app/views/suppliers/index.html.erb:16
+  Rendered suppliers/index.html.erb within layouts/application (20.4ms)
+Completed 200 OK in 79ms (Views: 56.4ms | ActiveRecord: 14.0ms)
+
+
+Started GET "/products" for ::1 at 2021-11-09 16:56:59 -0800
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (1.4ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY created_at asc[0m
+  ↳ app/views/products/index.html.erb:25
+  Rendered products/index.html.erb within layouts/application (14.2ms)
+Completed 200 OK in 79ms (Views: 65.6ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/suppliers" for ::1 at 2021-11-09 16:58:20 -0800
+Processing by SuppliersController#index as HTML
+  Rendering suppliers/index.html.erb within layouts/application
+  [1m[36mSupplier Load (0.5ms)[0m  [1m[34mSELECT "suppliers".* FROM "suppliers"[0m
+  ↳ app/views/suppliers/index.html.erb:16
+  Rendered suppliers/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 73ms (Views: 68.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/supplies" for ::1 at 2021-11-09 16:58:24 -0800
+Processing by SuppliesController#index as HTML
+  Rendering supplies/index.html.erb within layouts/application
+  [1m[36mSupply Load (1.6ms)[0m  [1m[34mSELECT "supplies".* FROM "supplies"[0m
+  ↳ app/views/supplies/index.html.erb:13
+  Rendered supplies/index.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 93ms (Views: 76.5ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/supplies/new" for ::1 at 2021-11-09 16:58:28 -0800
+Processing by SuppliesController#new as HTML
+  Rendering supplies/new.html.erb within layouts/application
+  [1m[36mSupplier Load (0.6ms)[0m  [1m[34mSELECT "suppliers".* FROM "suppliers"[0m
+  ↳ app/views/supplies/_form.html.erb:14
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/supplies/_supply_product_fields.html.erb:9
+  Rendered supplies/_supply_product_fields.html.erb (4.9ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/supplies/_supply_product_fields.html.erb:9
+  Rendered supplies/_supply_product_fields.html.erb (2.4ms)
+  Rendered supplies/_form.html.erb (18.1ms)
+  Rendered supplies/new.html.erb within layouts/application (22.9ms)
+Completed 200 OK in 168ms (Views: 86.6ms | ActiveRecord: 17.0ms)
+
+
+Started POST "/supplies" for ::1 at 2021-11-09 16:58:54 -0800
+Processing by SuppliesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NKzBwxGz+mIhytqe5qvu6azoun+xoSxXRGDKF+zFSgJwMUsRyrI/Psvz0B9Qcrk/FAe1kKtHKwrAXSuwqSWi2g==", "supply"=>{"supplier_id"=>"3", "supply_products_attributes"=>{"0"=>{"_destroy"=>"false", "product_id"=>"1", "purchase_quantity"=>"32", "purchase_price"=>"100", "purchase_subtotal"=>""}}, "purchase_total"=>""}, "commit"=>"Add to Inventory"}
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/supplies_controller.rb:29
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/supplies_controller.rb:29
+Completed 500 Internal Server Error in 55ms (ActiveRecord: 1.2ms)
+
+
+
+NoMethodError - undefined method `set_purchase_subtotal' for #<SupplyProduct:0x00007fef75ca8ca0>
+Did you mean?  purchase_subtotal
+               restore_purchase_subtotal!
+               purchase_subtotal?
+               purchase_subtotal=:
+  app/controllers/supplies_controller.rb:29:in `block in create'
+  app/controllers/supplies_controller.rb:28:in `create'
+
+Started POST "/__better_errors/d7cc315dcc1e2197/variables" for ::1 at 2021-11-09 16:58:54 -0800
+Started POST "/__better_errors/d7cc315dcc1e2197/eval" for ::1 at 2021-11-09 16:58:57 -0800
+Started GET "/supplies/new" for ::1 at 2021-11-09 17:02:58 -0800
+Processing by SuppliesController#new as HTML
+  Rendering supplies/new.html.erb within layouts/application
+  [1m[36mSupplier Load (1.0ms)[0m  [1m[34mSELECT "suppliers".* FROM "suppliers"[0m
+  ↳ app/views/supplies/_form.html.erb:14
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/supplies/_supply_product_fields.html.erb:9
+  Rendered supplies/_supply_product_fields.html.erb (40.2ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/supplies/_supply_product_fields.html.erb:9
+  Rendered supplies/_supply_product_fields.html.erb (2.4ms)
+  Rendered supplies/_form.html.erb (67.4ms)
+  Rendered supplies/new.html.erb within layouts/application (70.4ms)
+Completed 200 OK in 166ms (Views: 123.4ms | ActiveRecord: 13.7ms)
+
+
+Started GET "/supplies/" for ::1 at 2021-11-09 17:03:13 -0800
+Processing by SuppliesController#index as HTML
+  Rendering supplies/index.html.erb within layouts/application
+  [1m[36mSupply Load (0.8ms)[0m  [1m[34mSELECT "supplies".* FROM "supplies"[0m
+  ↳ app/views/supplies/index.html.erb:18
+  Rendered supplies/index.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 87ms (Views: 78.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/supplies/new" for ::1 at 2021-11-09 17:04:19 -0800
+Processing by SuppliesController#new as HTML
+  Rendering supplies/new.html.erb within layouts/application
+  [1m[36mSupplier Load (1.0ms)[0m  [1m[34mSELECT "suppliers".* FROM "suppliers"[0m
+  ↳ app/views/supplies/_form.html.erb:14
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/supplies/_supply_product_fields.html.erb:9
+  Rendered supplies/_supply_product_fields.html.erb (6.2ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/supplies/_supply_product_fields.html.erb:9
+  Rendered supplies/_supply_product_fields.html.erb (2.9ms)
+  Rendered supplies/_form.html.erb (25.9ms)
+  Rendered supplies/new.html.erb within layouts/application (34.9ms)
+Completed 200 OK in 122ms (Views: 107.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/supplies/new" for ::1 at 2021-11-09 17:04:34 -0800
+Processing by SuppliesController#new as HTML
+  Rendering supplies/new.html.erb within layouts/application
+  [1m[36mSupplier Load (1.0ms)[0m  [1m[34mSELECT "suppliers".* FROM "suppliers"[0m
+  ↳ app/views/supplies/_form.html.erb:14
+  [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/supplies/_supply_product_fields.html.erb:9
+  Rendered supplies/_supply_product_fields.html.erb (11.0ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/supplies/_supply_product_fields.html.erb:9
+  Rendered supplies/_supply_product_fields.html.erb (6.8ms)
+  Rendered supplies/_form.html.erb (43.3ms)
+  Rendered supplies/new.html.erb within layouts/application (52.3ms)
+Completed 200 OK in 175ms (Views: 162.6ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/supplies/new" for ::1 at 2021-11-09 17:04:36 -0800
+Processing by SuppliesController#new as HTML
+  Rendering supplies/new.html.erb within layouts/application
+  [1m[36mSupplier Load (0.6ms)[0m  [1m[34mSELECT "suppliers".* FROM "suppliers"[0m
+  ↳ app/views/supplies/_form.html.erb:14
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/supplies/_supply_product_fields.html.erb:9
+  Rendered supplies/_supply_product_fields.html.erb (5.5ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/supplies/_supply_product_fields.html.erb:9
+  Rendered supplies/_supply_product_fields.html.erb (2.6ms)
+  Rendered supplies/_form.html.erb (21.1ms)
+  Rendered supplies/new.html.erb within layouts/application (27.7ms)
+Completed 200 OK in 112ms (Views: 97.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/supplies/new" for ::1 at 2021-11-09 17:04:44 -0800
+Processing by SuppliesController#new as HTML
+  Rendering supplies/new.html.erb within layouts/application
+  [1m[36mSupplier Load (0.8ms)[0m  [1m[34mSELECT "suppliers".* FROM "suppliers"[0m
+  ↳ app/views/supplies/_form.html.erb:14
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/supplies/_supply_product_fields.html.erb:9
+  Rendered supplies/_supply_product_fields.html.erb (6.5ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/supplies/_supply_product_fields.html.erb:9
+  Rendered supplies/_supply_product_fields.html.erb (3.9ms)
+  Rendered supplies/_form.html.erb (27.0ms)
+  Rendered supplies/new.html.erb within layouts/application (34.4ms)
+Completed 200 OK in 143ms (Views: 131.9ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/supplies/new" for ::1 at 2021-11-09 17:06:09 -0800
+Processing by SuppliesController#new as HTML
+  Rendering supplies/new.html.erb within layouts/application
+  [1m[36mSupplier Load (1.2ms)[0m  [1m[34mSELECT "suppliers".* FROM "suppliers"[0m
+  ↳ app/views/supplies/_form.html.erb:14
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/supplies/_supply_product_fields.html.erb:9
+  Rendered supplies/_supply_product_fields.html.erb (8.6ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/supplies/_supply_product_fields.html.erb:9
+  Rendered supplies/_supply_product_fields.html.erb (3.8ms)
+  Rendered supplies/_form.html.erb (32.6ms)
+  Rendered supplies/new.html.erb within layouts/application (40.8ms)
+Completed 200 OK in 133ms (Views: 120.5ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/supplies" for ::1 at 2021-11-09 17:06:58 -0800
+Processing by SuppliesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2VEV0f32LC0yf/8bBnCegiMXV5lJh6HXiKPstdNQ2AsUa+VIKGw3ONLyrFkht20y4E07oQvpD5zv5qf4HtozDg==", "supply"=>{"supplier_id"=>"3", "supply_products_attributes"=>{"0"=>{"_destroy"=>"false", "product_id"=>"10", "purchase_quantity"=>"3", "purchase_price"=>"20", "purchase_subtotal"=>""}}, "purchase_total"=>""}, "commit"=>"Add to Inventory"}
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/supplies_controller.rb:29
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/supplies_controller.rb:29
+Completed 500 Internal Server Error in 56ms (ActiveRecord: 1.1ms)
+
+
+
+NoMethodError - undefined method `set_purchase_subtotal' for #<SupplyProduct:0x00007fef75c46118>
+Did you mean?  purchase_subtotal
+               restore_purchase_subtotal!
+               purchase_subtotal?
+               purchase_subtotal=:
+  app/controllers/supplies_controller.rb:29:in `block in create'
+  app/controllers/supplies_controller.rb:28:in `create'
+
+Started POST "/__better_errors/8aa704bff6b37828/variables" for ::1 at 2021-11-09 17:06:58 -0800
+Started POST "/supplies" for ::1 at 2021-11-09 17:16:42 -0800
+Processing by SuppliesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2VEV0f32LC0yf/8bBnCegiMXV5lJh6HXiKPstdNQ2AsUa+VIKGw3ONLyrFkht20y4E07oQvpD5zv5qf4HtozDg==", "supply"=>{"supplier_id"=>"3", "supply_products_attributes"=>{"0"=>{"_destroy"=>"false", "product_id"=>"10", "purchase_quantity"=>"3", "purchase_price"=>"20", "purchase_subtotal"=>""}}, "purchase_total"=>""}, "commit"=>"Add to Inventory"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/supplies_controller.rb:29
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/supplies_controller.rb:29
+Completed 500 Internal Server Error in 66ms (ActiveRecord: 18.7ms)
+
+
+
+NoMethodError - undefined method `set_purchase_subtotal' for #<SupplyProduct:0x00007fef60b15100>
+Did you mean?  purchase_subtotal
+               restore_purchase_subtotal!
+               purchase_subtotal?
+               purchase_subtotal=:
+  app/controllers/supplies_controller.rb:29:in `block in create'
+  app/controllers/supplies_controller.rb:28:in `create'
+
+Started POST "/__better_errors/934d4c3301b14be4/variables" for ::1 at 2021-11-09 17:16:42 -0800
+Started GET "/supplies" for ::1 at 2021-11-09 17:16:48 -0800
+Processing by SuppliesController#index as HTML
+  Rendering supplies/index.html.erb within layouts/application
+  [1m[36mSupply Load (3.5ms)[0m  [1m[34mSELECT "supplies".* FROM "supplies"[0m
+  ↳ app/views/supplies/index.html.erb:18
+  Rendered supplies/index.html.erb within layouts/application (13.1ms)
+Completed 200 OK in 102ms (Views: 89.4ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/supplies/new" for ::1 at 2021-11-09 20:32:40 -0800
+Processing by SuppliesController#new as HTML
+  Rendering supplies/new.html.erb within layouts/application
+  [1m[36mSupplier Load (1.3ms)[0m  [1m[34mSELECT "suppliers".* FROM "suppliers"[0m
+  ↳ app/views/supplies/_form.html.erb:14
+  [1m[36mProduct Load (1.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/supplies/_supply_product_fields.html.erb:9
+  Rendered supplies/_supply_product_fields.html.erb (20.5ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/supplies/_supply_product_fields.html.erb:9
+  Rendered supplies/_supply_product_fields.html.erb (2.5ms)
+  Rendered supplies/_form.html.erb (47.5ms)
+  Rendered supplies/new.html.erb within layouts/application (50.6ms)
+Completed 200 OK in 173ms (Views: 118.3ms | ActiveRecord: 26.0ms)
+
+
+Started POST "/supplies" for ::1 at 2021-11-09 20:33:03 -0800
+Processing by SuppliesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mDxbNU5SmO5PMVg3fmsF+M8OUfoB8yrdjPhpTmIFJzrcodHnlVNdsqUIUrbIslIud+FeFRsVLYAIxYjpJ+XP4g==", "supply"=>{"supplier_id"=>"1", "supply_products_attributes"=>{"0"=>{"_destroy"=>"false", "product_id"=>"1", "purchase_quantity"=>"3", "purchase_price"=>"120", "purchase_subtotal"=>""}}, "purchase_total"=>""}, "commit"=>"Add to Inventory"}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/supplies_controller.rb:29
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/supplies_controller.rb:29
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.7ms)
+
+
+
+NoMethodError - undefined method `set_purchase_subtotal' for #<SupplyProduct:0x00007fef756f1730>
+Did you mean?  purchase_subtotal
+               restore_purchase_subtotal!
+               purchase_subtotal?
+               purchase_subtotal=:
+  app/controllers/supplies_controller.rb:29:in `block in create'
+  app/controllers/supplies_controller.rb:28:in `create'
+
+Started POST "/__better_errors/214fe954b1442e21/variables" for ::1 at 2021-11-09 20:33:03 -0800
+Started POST "/supplies" for ::1 at 2021-11-10 09:21:55 -0800
+Processing by SuppliesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mDxbNU5SmO5PMVg3fmsF+M8OUfoB8yrdjPhpTmIFJzrcodHnlVNdsqUIUrbIslIud+FeFRsVLYAIxYjpJ+XP4g==", "supply"=>{"supplier_id"=>"1", "supply_products_attributes"=>{"0"=>{"_destroy"=>"false", "product_id"=>"1", "purchase_quantity"=>"3", "purchase_price"=>"120", "purchase_subtotal"=>""}}, "purchase_total"=>""}, "commit"=>"Add to Inventory"}
+  [1m[35m (1.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/supplies_controller.rb:29
+  [1m[36mSupplier Load (8.6ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/supplies_controller.rb:29
+  [1m[35m (2.9ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/supplies_controller.rb:29
+Completed 500 Internal Server Error in 416ms (ActiveRecord: 202.8ms)
+
+
+
+NameError - undefined local variable or method `op' for #<Supply:0x00007fef75d3e610>:
+  app/models/supply.rb:12:in `block in set_purchase_total'
+  app/models/supply.rb:10:in `set_purchase_total'
+  app/controllers/supplies_controller.rb:29:in `block in create'
+  app/controllers/supplies_controller.rb:28:in `create'
+
+Started POST "/__better_errors/cb08704aacaf9820/variables" for ::1 at 2021-11-10 09:21:56 -0800
+  [1m[36mSupplyProduct Load (5.3ms)[0m  [1m[34mSELECT  "supply_products".* FROM "supply_products" WHERE "supply_products"."supply_id" IS NULL LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mSupplier Load (0.5ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 11]]
+  ↳ /home/joerg/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Started POST "/supplies" for ::1 at 2021-11-10 09:22:53 -0800
+Processing by SuppliesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mDxbNU5SmO5PMVg3fmsF+M8OUfoB8yrdjPhpTmIFJzrcodHnlVNdsqUIUrbIslIud+FeFRsVLYAIxYjpJ+XP4g==", "supply"=>{"supplier_id"=>"1", "supply_products_attributes"=>{"0"=>{"_destroy"=>"false", "product_id"=>"1", "purchase_quantity"=>"3", "purchase_price"=>"120", "purchase_subtotal"=>""}}, "purchase_total"=>""}, "commit"=>"Add to Inventory"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/supplies_controller.rb:29
+  [1m[36mSupplier Load (0.3ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/supplies_controller.rb:29
+  [1m[36mSupply Create (19.7ms)[0m  [1m[32mINSERT INTO "supplies" ("supplier_id", "purchase_total", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["supplier_id", 1], ["purchase_total", 360.0], ["created_at", "2021-11-10 17:22:53.664523"], ["updated_at", "2021-11-10 17:22:53.664523"]]
+  ↳ app/controllers/supplies_controller.rb:29
+  [1m[36mSupplyProduct Create (2.4ms)[0m  [1m[32mINSERT INTO "supply_products" ("product_id", "supply_id", "purchase_quantity", "purchase_price", "purchase_subtotal", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["product_id", 1], ["supply_id", 1], ["purchase_quantity", 3.0], ["purchase_price", 120.0], ["purchase_subtotal", 360.0], ["created_at", "2021-11-10 17:22:53.687508"], ["updated_at", "2021-11-10 17:22:53.687508"]]
+  ↳ app/controllers/supplies_controller.rb:29
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/supplies_controller.rb:29
+Redirected to http://localhost:3000/supplies/1
+Completed 302 Found in 117ms (ActiveRecord: 34.2ms)
+
+
+Started GET "/supplies/1" for ::1 at 2021-11-10 09:22:53 -0800
+Processing by SuppliesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSupply Load (0.8ms)[0m  [1m[34mSELECT  "supplies".* FROM "supplies" WHERE "supplies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/supplies_controller.rb:64
+  Rendering supplies/show.html.erb within layouts/application
+  Rendered supplies/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 72ms (Views: 65.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/supplies" for ::1 at 2021-11-10 09:22:56 -0800
+Processing by SuppliesController#index as HTML
+  Rendering supplies/index.html.erb within layouts/application
+  [1m[36mSupply Load (0.4ms)[0m  [1m[34mSELECT "supplies".* FROM "supplies"[0m
+  ↳ app/views/supplies/index.html.erb:18
+  [1m[36mSupplier Load (0.4ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/supplies/index.html.erb:23
+  Rendered supplies/index.html.erb within layouts/application (15.1ms)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 0.8ms)
+
+
+
+NoMethodError - undefined method `name' for #<Supplier:0x00007fef75be1600>:
+  app/views/supplies/index.html.erb:23:in `block in _app_views_supplies_index_html_erb__4327290267599435838_70333224477800'
+  app/views/supplies/index.html.erb:18:in `_app_views_supplies_index_html_erb__4327290267599435838_70333224477800'
+
+Started POST "/__better_errors/eb959912e382c2ab/variables" for ::1 at 2021-11-10 09:22:56 -0800
+Started GET "/supplies" for ::1 at 2021-11-10 09:22:59 -0800
+Processing by SuppliesController#index as HTML
+  Rendering supplies/index.html.erb within layouts/application
+  [1m[36mSupply Load (0.7ms)[0m  [1m[34mSELECT "supplies".* FROM "supplies"[0m
+  ↳ app/views/supplies/index.html.erb:18
+  [1m[36mSupplier Load (0.4ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/supplies/index.html.erb:23
+  Rendered supplies/index.html.erb within layouts/application (12.7ms)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 1.1ms)
+
+
+
+NoMethodError - undefined method `name' for #<Supplier:0x00007fef75ab3e18>:
+  app/views/supplies/index.html.erb:23:in `block in _app_views_supplies_index_html_erb__4327290267599435838_70333223845260'
+  app/views/supplies/index.html.erb:18:in `_app_views_supplies_index_html_erb__4327290267599435838_70333223845260'
+
+Started POST "/__better_errors/45eaf74114d31db1/variables" for ::1 at 2021-11-10 09:22:59 -0800
+Started GET "/supplies" for ::1 at 2021-11-10 09:23:43 -0800
+Processing by SuppliesController#index as HTML
+  Rendering supplies/index.html.erb within layouts/application
+  [1m[36mSupply Load (0.5ms)[0m  [1m[34mSELECT "supplies".* FROM "supplies"[0m
+  ↳ app/views/supplies/index.html.erb:18
+  Rendered supplies/index.html.erb within layouts/application (15.5ms)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 0.5ms)
+
+
+
+NoMethodError - undefined method `supplier_name' for #<Supply:0x00007fef75649008>
+Did you mean?  supplier_id
+               supplier_id?
+               supplier_id=:
+  app/views/supplies/index.html.erb:23:in `block in _app_views_supplies_index_html_erb__4327290267599435838_70333221539880'
+  app/views/supplies/index.html.erb:18:in `_app_views_supplies_index_html_erb__4327290267599435838_70333221539880'
+
+Started POST "/__better_errors/e2094cc1089dc371/variables" for ::1 at 2021-11-10 09:23:44 -0800
+Started GET "/supplies" for ::1 at 2021-11-10 09:24:48 -0800
+Processing by SuppliesController#index as HTML
+  Rendering supplies/index.html.erb within layouts/application
+  [1m[36mSupply Load (0.6ms)[0m  [1m[34mSELECT "supplies".* FROM "supplies"[0m
+  ↳ app/views/supplies/index.html.erb:18
+  [1m[36mSupplier Load (0.4ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/supplies/index.html.erb:23
+  Rendered supplies/index.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 85ms (Views: 80.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/supplies/new" for ::1 at 2021-11-10 09:24:55 -0800
+Processing by SuppliesController#new as HTML
+  Rendering supplies/new.html.erb within layouts/application
+  [1m[36mSupplier Load (0.4ms)[0m  [1m[34mSELECT "suppliers".* FROM "suppliers"[0m
+  ↳ app/views/supplies/_form.html.erb:14
+  [1m[36mProduct Load (1.9ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/supplies/_supply_product_fields.html.erb:9
+  Rendered supplies/_supply_product_fields.html.erb (28.9ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/supplies/_supply_product_fields.html.erb:9
+  Rendered supplies/_supply_product_fields.html.erb (2.4ms)
+  Rendered supplies/_form.html.erb (40.9ms)
+  Rendered supplies/new.html.erb within layouts/application (122.6ms)
+Completed 200 OK in 184ms (Views: 174.5ms | ActiveRecord: 5.0ms)
+
+
+Started POST "/supplies" for ::1 at 2021-11-10 09:25:59 -0800
+Processing by SuppliesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2JYFOtuH8SROKoHd2MbebOSRBPlJBpCK91DjfvQr7iScC4/oAIY0eKQTi1xuH4m6XH4LFlPgl9dzbQLZscsG/A==", "supply"=>{"supplier_id"=>"4", "supply_products_attributes"=>{"0"=>{"_destroy"=>"false", "product_id"=>"9", "purchase_quantity"=>"13", "purchase_price"=>"100", "purchase_subtotal"=>""}, "1636565115504"=>{"_destroy"=>"false", "product_id"=>"4", "purchase_quantity"=>"30", "purchase_price"=>"500", "purchase_subtotal"=>""}, "1636565143184"=>{"_destroy"=>"false", "product_id"=>"2", "purchase_quantity"=>"5", "purchase_price"=>"700", "purchase_subtotal"=>""}}, "purchase_total"=>""}, "commit"=>"Add to Inventory"}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/supplies_controller.rb:29
+  [1m[36mSupplier Load (0.5ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/supplies_controller.rb:29
+  [1m[36mSupply Create (0.8ms)[0m  [1m[32mINSERT INTO "supplies" ("supplier_id", "purchase_total", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["supplier_id", 4], ["purchase_total", 19800.0], ["created_at", "2021-11-10 17:25:59.975919"], ["updated_at", "2021-11-10 17:25:59.975919"]]
+  ↳ app/controllers/supplies_controller.rb:29
+  [1m[36mSupplyProduct Create (0.6ms)[0m  [1m[32mINSERT INTO "supply_products" ("product_id", "supply_id", "purchase_quantity", "purchase_price", "purchase_subtotal", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["product_id", 9], ["supply_id", 2], ["purchase_quantity", 13.0], ["purchase_price", 100.0], ["purchase_subtotal", 1300.0], ["created_at", "2021-11-10 17:25:59.980125"], ["updated_at", "2021-11-10 17:25:59.980125"]]
+  ↳ app/controllers/supplies_controller.rb:29
+  [1m[36mSupplyProduct Create (0.6ms)[0m  [1m[32mINSERT INTO "supply_products" ("product_id", "supply_id", "purchase_quantity", "purchase_price", "purchase_subtotal", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["product_id", 4], ["supply_id", 2], ["purchase_quantity", 30.0], ["purchase_price", 500.0], ["purchase_subtotal", 15000.0], ["created_at", "2021-11-10 17:25:59.985353"], ["updated_at", "2021-11-10 17:25:59.985353"]]
+  ↳ app/controllers/supplies_controller.rb:29
+  [1m[36mSupplyProduct Create (0.6ms)[0m  [1m[32mINSERT INTO "supply_products" ("product_id", "supply_id", "purchase_quantity", "purchase_price", "purchase_subtotal", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["product_id", 2], ["supply_id", 2], ["purchase_quantity", 5.0], ["purchase_price", 700.0], ["purchase_subtotal", 3500.0], ["created_at", "2021-11-10 17:25:59.989361"], ["updated_at", "2021-11-10 17:25:59.989361"]]
+  ↳ app/controllers/supplies_controller.rb:29
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/supplies_controller.rb:29
+Redirected to http://localhost:3000/supplies/2
+Completed 302 Found in 35ms (ActiveRecord: 5.8ms)
+
+
+Started GET "/supplies/2" for ::1 at 2021-11-10 09:26:00 -0800
+Processing by SuppliesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mSupply Load (0.8ms)[0m  [1m[34mSELECT  "supplies".* FROM "supplies" WHERE "supplies"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/supplies_controller.rb:64
+  Rendering supplies/show.html.erb within layouts/application
+  Rendered supplies/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 120ms (Views: 110.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/supplies" for ::1 at 2021-11-10 09:26:03 -0800
+Processing by SuppliesController#index as HTML
+  Rendering supplies/index.html.erb within layouts/application
+  [1m[36mSupply Load (0.9ms)[0m  [1m[34mSELECT "supplies".* FROM "supplies"[0m
+  ↳ app/views/supplies/index.html.erb:18
+  [1m[36mSupplier Load (0.6ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/supplies/index.html.erb:23
+  [1m[36mSupplier Load (0.6ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/supplies/index.html.erb:23
+  Rendered supplies/index.html.erb within layouts/application (17.9ms)
+Completed 200 OK in 138ms (Views: 127.6ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/supplies/new" for ::1 at 2021-11-10 09:26:06 -0800
+Processing by SuppliesController#new as HTML
+  Rendering supplies/new.html.erb within layouts/application
+  [1m[36mSupplier Load (1.0ms)[0m  [1m[34mSELECT "suppliers".* FROM "suppliers"[0m
+  ↳ app/views/supplies/_form.html.erb:14
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/supplies/_supply_product_fields.html.erb:9
+  Rendered supplies/_supply_product_fields.html.erb (10.6ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/supplies/_supply_product_fields.html.erb:9
+  Rendered supplies/_supply_product_fields.html.erb (7.1ms)
+  Rendered supplies/_form.html.erb (41.6ms)
+  Rendered supplies/new.html.erb within layouts/application (49.9ms)
+Completed 200 OK in 138ms (Views: 124.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/supplies/new" for ::1 at 2021-11-10 09:26:59 -0800
+Processing by SuppliesController#new as HTML
+  Rendering supplies/new.html.erb within layouts/application
+  [1m[36mSupplier Load (1.1ms)[0m  [1m[34mSELECT "suppliers".* FROM "suppliers"[0m
+  ↳ app/views/supplies/_form.html.erb:14
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/supplies/_supply_product_fields.html.erb:9
+  Rendered supplies/_supply_product_fields.html.erb (8.3ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/supplies/_supply_product_fields.html.erb:9
+  Rendered supplies/_supply_product_fields.html.erb (3.4ms)
+  Rendered supplies/_form.html.erb (32.0ms)
+  Rendered supplies/new.html.erb within layouts/application (40.6ms)
+Completed 200 OK in 121ms (Views: 110.6ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/supplies" for ::1 at 2021-11-10 09:30:26 -0800
+Processing by SuppliesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VDWRzGspNu70dU/SeRtWPh95LnL2RhExN6ADJ4YQa7IQqBsesCjzsh5MRVPPwgHop5YhneygFmyzneKAw/CDag==", "supply"=>{"supplier_id"=>"3", "supply_products_attributes"=>{"0"=>{"_destroy"=>"false", "product_id"=>"10", "purchase_quantity"=>"23", "purchase_price"=>"30", "purchase_subtotal"=>""}, "1636565415468"=>{"_destroy"=>"false", "product_id"=>"12", "purchase_quantity"=>"15", "purchase_price"=>"800", "purchase_subtotal"=>""}}, "purchase_total"=>""}, "commit"=>"Add to Inventory"}
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/supplies_controller.rb:29
+  [1m[36mSupplier Load (0.8ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/supplies_controller.rb:29
+  [1m[36mSupply Create (1.0ms)[0m  [1m[32mINSERT INTO "supplies" ("supplier_id", "purchase_total", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["supplier_id", 3], ["purchase_total", 12690.0], ["created_at", "2021-11-10 17:30:26.280028"], ["updated_at", "2021-11-10 17:30:26.280028"]]
+  ↳ app/controllers/supplies_controller.rb:29
+  [1m[36mSupplyProduct Create (0.8ms)[0m  [1m[32mINSERT INTO "supply_products" ("product_id", "supply_id", "purchase_quantity", "purchase_price", "purchase_subtotal", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["product_id", 10], ["supply_id", 3], ["purchase_quantity", 23.0], ["purchase_price", 30.0], ["purchase_subtotal", 690.0], ["created_at", "2021-11-10 17:30:26.285941"], ["updated_at", "2021-11-10 17:30:26.285941"]]
+  ↳ app/controllers/supplies_controller.rb:29
+  [1m[36mSupplyProduct Create (0.8ms)[0m  [1m[32mINSERT INTO "supply_products" ("product_id", "supply_id", "purchase_quantity", "purchase_price", "purchase_subtotal", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["product_id", 12], ["supply_id", 3], ["purchase_quantity", 15.0], ["purchase_price", 800.0], ["purchase_subtotal", 12000.0], ["created_at", "2021-11-10 17:30:26.291492"], ["updated_at", "2021-11-10 17:30:26.291492"]]
+  ↳ app/controllers/supplies_controller.rb:29
+  [1m[35m (77.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/supplies_controller.rb:29
+Redirected to http://localhost:3000/supplies/3
+Completed 302 Found in 116ms (ActiveRecord: 81.7ms)
+
+
+Started GET "/supplies/3" for ::1 at 2021-11-10 09:30:26 -0800
+Processing by SuppliesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mSupply Load (0.9ms)[0m  [1m[34mSELECT  "supplies".* FROM "supplies" WHERE "supplies"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/supplies_controller.rb:64
+  Rendering supplies/show.html.erb within layouts/application
+  Rendered supplies/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 130ms (Views: 116.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/supplies" for ::1 at 2021-11-10 09:30:28 -0800
+Processing by SuppliesController#index as HTML
+  Rendering supplies/index.html.erb within layouts/application
+  [1m[36mSupply Load (0.8ms)[0m  [1m[34mSELECT "supplies".* FROM "supplies"[0m
+  ↳ app/views/supplies/index.html.erb:18
+  [1m[36mSupplier Load (0.5ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/supplies/index.html.erb:23
+  [1m[36mSupplier Load (0.5ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/supplies/index.html.erb:23
+  [1m[36mSupplier Load (0.5ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/supplies/index.html.erb:23
+  Rendered supplies/index.html.erb within layouts/application (18.8ms)
+Completed 200 OK in 125ms (Views: 111.6ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/supplies/new" for ::1 at 2021-11-10 09:30:32 -0800
+Processing by SuppliesController#new as HTML
+  Rendering supplies/new.html.erb within layouts/application
+  [1m[36mSupplier Load (1.0ms)[0m  [1m[34mSELECT "suppliers".* FROM "suppliers"[0m
+  ↳ app/views/supplies/_form.html.erb:14
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/supplies/_supply_product_fields.html.erb:9
+  Rendered supplies/_supply_product_fields.html.erb (10.8ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/supplies/_supply_product_fields.html.erb:9
+  Rendered supplies/_supply_product_fields.html.erb (6.1ms)
+  Rendered supplies/_form.html.erb (41.6ms)
+  Rendered supplies/new.html.erb within layouts/application (50.1ms)
+Completed 200 OK in 227ms (Views: 215.5ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/supplies" for ::1 at 2021-11-10 09:31:35 -0800
+Processing by SuppliesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"t0FYXIsfLT0SdUs4j1jVJpe98v+fzSY1Qbu3WO1le0Pz3NKOUB7oYfhMQbk5gYLwL1L9EIUrIWjFhlb/qIWTmw==", "supply"=>{"supplier_id"=>"2", "supply_products_attributes"=>{"0"=>{"_destroy"=>"false", "product_id"=>"3", "purchase_quantity"=>"500", "purchase_price"=>"69", "purchase_subtotal"=>""}, "1636565451244"=>{"_destroy"=>"false", "product_id"=>"4", "purchase_quantity"=>"200", "purchase_price"=>"450", "purchase_subtotal"=>""}, "1636565472128"=>{"_destroy"=>"false", "product_id"=>"8", "purchase_quantity"=>"50", "purchase_price"=>"95", "purchase_subtotal"=>""}}, "purchase_total"=>""}, "commit"=>"Add to Inventory"}
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/supplies_controller.rb:29
+  [1m[36mSupplier Load (0.7ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/supplies_controller.rb:29
+  [1m[36mSupply Create (3.1ms)[0m  [1m[32mINSERT INTO "supplies" ("supplier_id", "purchase_total", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["supplier_id", 2], ["purchase_total", 129250.0], ["created_at", "2021-11-10 17:31:35.995360"], ["updated_at", "2021-11-10 17:31:35.995360"]]
+  ↳ app/controllers/supplies_controller.rb:29
+  [1m[36mSupplyProduct Create (1.0ms)[0m  [1m[32mINSERT INTO "supply_products" ("product_id", "supply_id", "purchase_quantity", "purchase_price", "purchase_subtotal", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["product_id", 3], ["supply_id", 4], ["purchase_quantity", 500.0], ["purchase_price", 69.0], ["purchase_subtotal", 34500.0], ["created_at", "2021-11-10 17:31:36.003395"], ["updated_at", "2021-11-10 17:31:36.003395"]]
+  ↳ app/controllers/supplies_controller.rb:29
+  [1m[36mSupplyProduct Create (0.9ms)[0m  [1m[32mINSERT INTO "supply_products" ("product_id", "supply_id", "purchase_quantity", "purchase_price", "purchase_subtotal", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["product_id", 4], ["supply_id", 4], ["purchase_quantity", 200.0], ["purchase_price", 450.0], ["purchase_subtotal", 90000.0], ["created_at", "2021-11-10 17:31:36.009677"], ["updated_at", "2021-11-10 17:31:36.009677"]]
+  ↳ app/controllers/supplies_controller.rb:29
+  [1m[36mSupplyProduct Create (1.9ms)[0m  [1m[32mINSERT INTO "supply_products" ("product_id", "supply_id", "purchase_quantity", "purchase_price", "purchase_subtotal", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["product_id", 8], ["supply_id", 4], ["purchase_quantity", 50.0], ["purchase_price", 95.0], ["purchase_subtotal", 4750.0], ["created_at", "2021-11-10 17:31:36.014986"], ["updated_at", "2021-11-10 17:31:36.014986"]]
+  ↳ app/controllers/supplies_controller.rb:29
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/supplies_controller.rb:29
+Redirected to http://localhost:3000/supplies/4
+Completed 302 Found in 47ms (ActiveRecord: 9.2ms)
+
+
+Started GET "/supplies/4" for ::1 at 2021-11-10 09:31:36 -0800
+Processing by SuppliesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mSupply Load (0.9ms)[0m  [1m[34mSELECT  "supplies".* FROM "supplies" WHERE "supplies"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/supplies_controller.rb:64
+  Rendering supplies/show.html.erb within layouts/application
+  Rendered supplies/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 100ms (Views: 87.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/supplies" for ::1 at 2021-11-10 09:31:38 -0800
+Processing by SuppliesController#index as HTML
+  Rendering supplies/index.html.erb within layouts/application
+  [1m[36mSupply Load (0.8ms)[0m  [1m[34mSELECT "supplies".* FROM "supplies"[0m
+  ↳ app/views/supplies/index.html.erb:18
+  [1m[36mSupplier Load (0.5ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/supplies/index.html.erb:23
+  [1m[36mSupplier Load (0.5ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/supplies/index.html.erb:23
+  [1m[36mSupplier Load (0.5ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/supplies/index.html.erb:23
+  [1m[36mSupplier Load (0.5ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/supplies/index.html.erb:23
+  Rendered supplies/index.html.erb within layouts/application (21.5ms)
+Completed 200 OK in 110ms (Views: 97.1ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/suppliers" for ::1 at 2021-11-10 09:31:43 -0800
+Processing by SuppliersController#index as HTML
+  Rendering suppliers/index.html.erb within layouts/application
+  [1m[36mSupplier Load (1.0ms)[0m  [1m[34mSELECT "suppliers".* FROM "suppliers"[0m
+  ↳ app/views/suppliers/index.html.erb:16
+  Rendered suppliers/index.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 125ms (Views: 114.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/suppliers/new" for ::1 at 2021-11-10 09:31:51 -0800
+Processing by SuppliersController#new as HTML
+  Rendering suppliers/new.html.erb within layouts/application
+  Rendered suppliers/_form.html.erb (6.0ms)
+  Rendered suppliers/new.html.erb within layouts/application (15.7ms)
+Completed 200 OK in 110ms (Views: 102.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/suppliers" for ::1 at 2021-11-10 09:35:03 -0800
+Processing by SuppliersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Q7NO2ZW6KzuGXR7Okwn+eG6B+8kz+O0gMbn0VMMRvRBxuIY2LHf5aihArWuCPF7Ll+1GJa8plIfLVSHjIp3AwQ==", "supplier"=>{"supplier_name"=>"Old Fashioned Breads", "address"=>"47 Shedriyi Agarod Blvd", "phone"=>"+663 762 36 62 77"}, "commit"=>"Create Supplier"}
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/suppliers_controller.rb:27
+  [1m[36mSupplier Create (12.9ms)[0m  [1m[32mINSERT INTO "suppliers" ("supplier_name", "address", "phone", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["supplier_name", "Old Fashioned Breads"], ["address", "47 Shedriyi Agarod Blvd"], ["phone", "+663 762 36 62 77"], ["created_at", "2021-11-10 17:35:03.164306"], ["updated_at", "2021-11-10 17:35:03.164306"]]
+  ↳ app/controllers/suppliers_controller.rb:27
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/suppliers_controller.rb:27
+Redirected to http://localhost:3000/suppliers/5
+Completed 302 Found in 29ms (ActiveRecord: 14.7ms)
+
+
+Started GET "/suppliers/5" for ::1 at 2021-11-10 09:35:03 -0800
+Processing by SuppliersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mSupplier Load (0.7ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/suppliers_controller.rb:62
+  Rendering suppliers/show.html.erb within layouts/application
+  Rendered suppliers/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 94ms (Views: 80.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/suppliers" for ::1 at 2021-11-10 09:35:05 -0800
+Processing by SuppliersController#index as HTML
+  Rendering suppliers/index.html.erb within layouts/application
+  [1m[36mSupplier Load (1.0ms)[0m  [1m[34mSELECT "suppliers".* FROM "suppliers"[0m
+  ↳ app/views/suppliers/index.html.erb:16
+  Rendered suppliers/index.html.erb within layouts/application (16.1ms)
+Completed 200 OK in 145ms (Views: 135.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/supplies" for ::1 at 2021-11-10 09:35:16 -0800
+Processing by SuppliesController#index as HTML
+  Rendering supplies/index.html.erb within layouts/application
+  [1m[36mSupply Load (0.6ms)[0m  [1m[34mSELECT "supplies".* FROM "supplies"[0m
+  ↳ app/views/supplies/index.html.erb:18
+  [1m[36mSupplier Load (0.3ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/supplies/index.html.erb:23
+  [1m[36mSupplier Load (0.3ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/supplies/index.html.erb:23
+  [1m[36mSupplier Load (0.2ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/supplies/index.html.erb:23
+  [1m[36mSupplier Load (0.2ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/supplies/index.html.erb:23
+  Rendered supplies/index.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 89ms (Views: 84.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/supplies/new" for ::1 at 2021-11-10 09:35:18 -0800
+Processing by SuppliesController#new as HTML
+  Rendering supplies/new.html.erb within layouts/application
+  [1m[36mSupplier Load (1.0ms)[0m  [1m[34mSELECT "suppliers".* FROM "suppliers"[0m
+  ↳ app/views/supplies/_form.html.erb:14
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/supplies/_supply_product_fields.html.erb:9
+  Rendered supplies/_supply_product_fields.html.erb (10.9ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/supplies/_supply_product_fields.html.erb:9
+  Rendered supplies/_supply_product_fields.html.erb (6.6ms)
+  Rendered supplies/_form.html.erb (42.6ms)
+  Rendered supplies/new.html.erb within layouts/application (52.4ms)
+Completed 200 OK in 148ms (Views: 133.9ms | ActiveRecord: 2.0ms)
+
+
