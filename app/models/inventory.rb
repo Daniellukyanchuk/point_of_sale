@@ -1,5 +1,6 @@
 class Inventory < ApplicationRecord
 	belongs_to :product
+	before_save :set_costs
 
 	def self.search(search)
 	  if !search.blank?
@@ -9,6 +10,12 @@ class Inventory < ApplicationRecord
 	  end
 	end
 
+	def current_amount_left
+		self.current_amount_left = amount 
+	end
 
+	def set_costs
+		self.costs = amount * price_per_unit
+	end
        
 end
