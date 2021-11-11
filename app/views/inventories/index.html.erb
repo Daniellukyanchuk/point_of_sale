@@ -4,8 +4,12 @@
 
 <%= form_tag inventories_path, :method => 'get' do %>
   <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
+    <%= text_field_tag :search, params[:search], placeholder: "Type in the Product" %>    
+  <p>Select Products:
+      <% options = Product.all.collect{ |u| [u.product_name, u.id] } %>
+        <% options = [["Select All", nil]] + options %>
+      <%= select_tag 'product_select[]', options_for_select(options, params[:product_select]), :multiple => :multiple, :class => "chosen-select"%>
+      <%= submit_tag "Search", :name => nil %>
   </p>
 <% end %>
 
@@ -45,4 +49,9 @@
 
 <br>
 
+<script type="text/javascript">  
+  $(".chosen-select").chosen({
+  no_results_text: "Oops, nothing found!"
+  })
+</script>
 <%= link_to 'Log Inventory', new_inventory_path %>

@@ -3,7 +3,7 @@ class InventoriesController < ApplicationController
   helper_method :sort_column, :sort_direction
   # GET /inventories or /inventories.json
   def index
-    @inventories = Inventory.search(params[:search]).order(sort_column + " " + sort_direction)
+    @inventories = Inventory.search(params[:search], params[:product_select]).order(sort_column + " " + sort_direction)
   end
 
   # GET /inventories/1 or /inventories/1.json
