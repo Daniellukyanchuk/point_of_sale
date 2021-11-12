@@ -5,11 +5,13 @@ class Inventory < ApplicationRecord
 
 	def self.search(search)
 	  if !search.blank?
-	  	return Inventory.joins(:product).where("products.product_name ilike? or product_id = ?", "%#{search.strip}%", search.to_i)
+	  
+	  	return Inventory.joins(:product).where("products.product_name ilike ? or product_id = ? or amount = ? or price_per_unit = ? or costs = ? or current_amount_left = ?", "%#{search.strip}%", search.to_i, search.to_d, search.to_d, search.to_d, search.to_d)
 	  else
 	  	return Inventory.joins(:product).all
 	  end
 	end
+
 
 	def self.product_select(product_select)
 	  if !product_select.blank?
@@ -20,6 +22,7 @@ class Inventory < ApplicationRecord
 	end
 
 	
+     
 
 	def current_amount_left
 		self.current_amount_left = amount 
