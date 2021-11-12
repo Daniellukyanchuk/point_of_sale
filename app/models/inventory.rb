@@ -20,6 +20,12 @@ class Inventory < ApplicationRecord
 	  	return Inventory.joins(:product).all		
 	  end
 	end
+   
+	def self.date_picker(start_date, end_date)
+
+      Inventory.where(:created_at => start_date..end_date)  
+    end
+
 
 	
      

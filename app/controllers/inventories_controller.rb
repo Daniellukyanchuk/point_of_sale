@@ -3,7 +3,11 @@ class InventoriesController < ApplicationController
   helper_method :sort_column, :sort_direction
   # GET /inventories or /inventories.json
   def index
-    @inventories = Inventory.search(params[:search]).product_select(params[:product_select]).order(sort_column + " " + sort_direction)
+    params[:start_date] = 1.month.ago.strftime("%d-%m-%Y") if params[:start_date].blank?
+    
+    params[:end_date] = Date.today.strftime("%d-%m-%Y") if params[:end_date].blank?
+
+    @inventories = Inventory.search(params[:search]).product_select(params[:product_select]).date_picker(params[:start_date], params[:end_date]).order(sort_column + " " + sort_direction)
   end
 
   # GET /inventories/1 or /inventories/1.json
@@ -57,6 +61,13 @@ class InventoriesController < ApplicationController
   end
 
   private
+    def start_date
+      params[:start_date]
+    end
+
+    def end_date
+      params[:end_date]
+    end
 
     def sort_column
       if params[:sort].blank?
