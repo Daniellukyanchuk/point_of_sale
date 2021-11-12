@@ -7,7 +7,12 @@ class InventoriesController < ApplicationController
     
     params[:end_date] = Date.today.strftime("%d-%m-%Y") if params[:end_date].blank?
 
-    @inventories = Inventory.search(params[:search]).product_select(params[:product_select]).date_picker(params[:start_date], params[:end_date]).order(sort_column + " " + sort_direction)
+    @inventories = Inventory.search(params[:search], params[:product_select], params[:start_date], params[:end_date]).order(sort_column + " " + sort_direction)
+
+# stop
+#       @inventories.product_select(params[:product_select])
+#       .date_picker(params[:start_date], params[:end_date])
+#       
   end
 
   # GET /inventories/1 or /inventories/1.json
