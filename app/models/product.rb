@@ -6,21 +6,23 @@ class Product < ApplicationRecord
     has_many :clients, through: :orders
     has_many :suppliers, through: :supplies
 
-    def self.product(sortable, sort_direction)
-
+    def self.product_inventory(sortable, sort_direction)
+      
         sql = """
-                SELECT product_name,
+                SELECT products.id, product_name, unit,
                     SUM(quantity)::numeric(10,2) AS units_sold,
                     SUM(purchase_quantity)::numeric(10,2) AS units_purchased,
                     ((SUM(purchase_quantity))-(SUM(quantity)))::numeric(10,2) AS inventory
                 FROM products 
-                    INNER JOIN order_products 
+                    LEFT OUTER JOIN order_products 
                     ON products.id = order_products.product_id
-                    INNER JOIN supply_products 
+                    LEFT OUTER JOIN supply_products 
                     ON products.id = supply_products.product_id
-                GROUP BY product_name
+                GROUP BY products.id, product_name, products.unit
             """
             result = ActiveRecord::Base.connection.execute(sql)
+
+        
 
             if !["id", "product_name", "units_sold", "units_purchased", "units_sold", "inventory"].include?(sortable)
               sortable = "product_name"
@@ -31,6 +33,9 @@ class Product < ApplicationRecord
             else
               sort_direction = "asc"
             end
+
+            return result
+            
       end
   
       

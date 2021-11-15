@@ -2,9 +2,10 @@ class ProductsController < ApplicationController
   before_action :set_product, only: %i[ show edit update destroy ]
   helper_method :sort_column, :sort_direction
 
+
   # GET /products or /products.json
   def index
-    @products = Product.search(params[:search]).order(sort_column + " " + sort_direction)
+    @products = Product.product_inventory(sort_column, sort_direction)
   end
 
   # GET /products/1 or /products/1.json

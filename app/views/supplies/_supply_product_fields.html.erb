@@ -1,11 +1,10 @@
   
    
-   <h2>Add Product</h2>
-
-   <div class="nested-fields">
+    <div class="nested-fields">
     <%= form.hidden_field :_destroy %>
 
       <div class="field">
+      <%= form.label "select product" %>
           <%= form.collection_select :product_id, Product.all, :id, :product_name %>
       </div>
     
@@ -23,8 +22,8 @@
         <%= form.label "Subtotal" %>
         <%= form.number_field :purchase_subtotal, id: 'purchase_subtotal', :class => "greyed_out", :readonly => true  %>
       </div>
-      <div>
-        <%= link_to "Remove", "#", class: "remove_fields", :class => "small_button" %>
+      <div class="field">
+        <%= link_to "Remove", "#", class: "remove_fields" %>
       </div>
   </div>
 

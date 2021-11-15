@@ -11,22 +11,28 @@
   </div>
 <% end %>
 
- Choose Supplier: <%= form.collection_select :supplier_id, Supplier.all, :id, :supplier_name %>
+
+<%= form.label "Select supplier" %>
+  <%= form.collection_select :supplier_id, Supplier.all, :id, :supplier_name %>
+</div><br><br>
+
+<h2>Products</h2><hr>
 
     <%= form.fields_for :supply_products do |builder| %>
       <%= render 'supply_product_fields', form: builder %>
     <% end %>
-    <br><br>
-
+</div>
+<div class="inline"> 
     <%= link_to_add_fields "Add Product", form, :supply_products %>
-<br><br>
+</div>
+<br>
 <div class="field">
   <%= form.label :purchase_total %>
   <%= form.text_field :purchase_total, :class => "greyed_out", :readonly => true %>
 </div>
 
-<div> 
-  <%= form.submit 'Add to Inventory', :class => 'big_button' %>
+<div class="actions"> 
+  <%= form.submit %>
   </div>
 <% end %>
 

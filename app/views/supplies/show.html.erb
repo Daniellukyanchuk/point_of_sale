@@ -1,4 +1,45 @@
 <p id="notice"><%= notice %></p>
 
+<p>
+  <strong>Supply Id:</strong>
+  <%= @supply.id %>
+</p>
+
+<p>
+  <strong>Supplier:</strong>
+  <%= @supply.supplier_id %> |
+  <%= @supply.supplier.supplier_name %>
+</p>
+
+<p>
+  <strong>Date received:</strong>
+  <%= @supply.created_at.strftime("%d %b %Y") %> 
+</p>
+
+<% @supply.supply_products.each do |sp| %>
+  <hr>
+    <p>
+      <strong>Product Id: </strong>
+      <%= sp.product_id %>, 
+    </p>
+    <p>
+      <strong>Quantity: </strong>
+      <%= sp.purchase_quantity %> 
+    </p>
+    <p>
+      <strong>Sale Price: </strong>
+      <%= sp.purchase_price %>
+    </p>
+    <p>
+      <strong>Subtotal: </strong>
+      <%= sp.purchase_subtotal %>
+    </p>
+  <% end %>
+
+<p>
+  <strong>Purchase total:</strong>
+  <%= @supply.purchase_total %>
+</p>
+
 <%= link_to 'Edit', edit_supply_path(@supply) %> |
 <%= link_to 'Back', supplies_path %>

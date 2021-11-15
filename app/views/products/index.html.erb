@@ -22,20 +22,22 @@
     </tr>
   </thead>
 
- <tbody>
-    <% @products.each do |product| %>
+  <tbody>
+    <% @products.each do |pi| %>
       <tr>
-        <td><%= product.product_name %></td>
-        <td><%= product.price %></td>
-        <td><%= product.unit %></td>
-        <td><%= product["units_purchased"] %></td>
-        <td><%= product["units_sold"] %></td>
-        <td><%= product["inventory"] %></td>
-        <td><%= link_to 'Show', product %></td>
-        <td><%= link_to 'Edit', edit_product_path(product) %></td>
-        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= pi["product_name"] %></td>
+        <td><%= pi["price"] %></td>
+        <td><%= pi["unit"] %></td>        
+        <td><%= pi["units_purchased"] %></td>  
+        <td><%= pi["units_sold"] %></td>
+        <td><%= pi["inventory"] %></td>
+        <td><%= link_to "Show", "/products/#{pi["id"]}" %></td>
+        <td><%= link_to "Edit", "/products/#{pi["id"]}/edit" %></td>
+        <td><%= link_to "Delete", "/products/#{pi["id"]}", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
       </tr>
     <% end %>
+        
   </tbody>
 </table>
 

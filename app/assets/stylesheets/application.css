@@ -59,7 +59,7 @@ background-color: #067aff;
 color: #fff;   
 }
 
-a.small_button{
+a.remove_fields{
 background-color: #fff;
 padding: 1px 4px;
 color: red;
@@ -70,7 +70,17 @@ border: 1px solid red;
 display: inline-block;
 }
 
-a.small_button:hover{
+a.remove_fields:hover{
 background-color: red;
 color: #fff;
+}
+
+.field, .inline
+
+{
+    display: inline-block;
+}
+
+select {
+    padding: 2px 0px 1px 0px;
 }
