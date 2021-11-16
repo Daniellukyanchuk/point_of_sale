@@ -5,20 +5,15 @@ class OrderProduct < ApplicationRecord
     after_save :set_current_amount_left
     validate :has_enough_inventory
 
-   
-
     def set_subtotal
       self.subtotal = quantity * sale_price
     end
 
     def has_enough_inventory
-      # if Inventory.current_amount_left < self.quantity
-      #   errors.add(:quantity, "There isn't enough inventory")
-      # end
+      Inventory.current_amount_left = Inventory.amount
     end
 
     def set_current_amount_left      
-    # The code below returns all the inventories for that product that have any inventory left
       Inventory.where("product_id = ? and current_amount_left > 0", self.product_id).each do |inv|        
         inv.current_amount_left = inv.current_amount_left.to_d - self.quantity  
         

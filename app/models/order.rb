@@ -86,7 +86,12 @@ class Order < ApplicationRecord
         sort_direction = "asc"
       end
 
-      search_text_where = " (product_name ILIKE '%#{search_text}%' OR price = #{search_text.to_d} OR amount_sold = #{search_text.to_d} OR amount_made = #{search_text.to_d} OR average_unit_price = #{search_text.to_d} OR product_id = #{search_text.to_i} )"     
+      search_text_where = " (product_name ILIKE '%#{search_text}%' 
+                             OR price = #{search_text.to_d} 
+                             OR amount_sold = #{search_text.to_d} 
+                             OR amount_made = #{search_text.to_d} 
+                             OR average_unit_price = #{search_text.to_d} 
+                             OR product_id = #{search_text.to_i} )"     
       
       if search_text.blank?
         search_text_where = ""
@@ -103,7 +108,8 @@ class Order < ApplicationRecord
       if start_date.blank? || end_date.blank?
         date_filter_where = "WHERE order_products.created_at >= cast(now() as date) - interval '30' day" 
       else
-        date_filter_where = "WHERE CAST(order_products.created_at AS DATE) >= #{SqlHelper.escape_sql_param(start_date.to_date)} AND CAST(order_products.created_at AS DATE) <= #{SqlHelper.escape_sql_param(end_date.to_date)}"
+        date_filter_where = "WHERE CAST(order_products.created_at AS DATE) >= #{SqlHelper.escape_sql_param(start_date.to_date)} 
+                             AND CAST(order_products.created_at AS DATE) <= #{SqlHelper.escape_sql_param(end_date.to_date)}"
       end  
 
       where_clause = WhereBuilder.build([product_id_where, search_text_where])
