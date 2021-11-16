@@ -1,7 +1,7 @@
 class Inventory < ApplicationRecord
   belongs_to :product
   before_save :set_costs
-  belongs_to :order_product
+
 
   def self.search(search, product_select, start_date, end_date)
 
@@ -20,6 +20,11 @@ class Inventory < ApplicationRecord
 	  return Inventory.joins(:product).all
 	end
   end
+
+  def self.current_inventory_for(product_id)
+  	return Inventory.where("product_id = ? and current_amount_left > 0", product_id).sum(&:current_amount_left)
+
+  end
 # Make a where clause that has all the params in it.
 
 # def self.product_select(product_select)
@@ -30,19 +35,33 @@ class Inventory < ApplicationRecord
 #   end
 # end
    
-  def self.date_picker(start_date, end_date)
-    if !date_picker.blank?
-      Inventory.where("CAST(created_at AS DATE) >= #{SqlHelper.escape_sql_param(start_date.to_date)} AND CAST(created_at AS DATE) <= #{SqlHelper.escape_sql_param(end_date.to_date)}") 
-    else 
-      Inventory.where(:created_at => start_date..end_date) 
-    end
-  end
+  # def self.date_picker(start_date, end_date)
+  #   if !date_picker.blank?
+  #     Inventory.where("CAST(created_at AS DATE) >= #{SqlHelper.escape_sql_param(start_date.to_date)} AND CAST(created_at AS DATE) <= #{SqlHelper.escape_sql_param(end_date.to_date)}") 
+  #   else 
+  #     Inventory.where(:created_at => start_date..end_date) 
+  #   end
+  # end
 
-  def set_current_amount_left
-  	self.current_amount_left = self.current_amount_left + self.amount
-  end
-
+  # def current_amount_left
+  # 	self.current_amount_left = self.current_amount_left + self.amount
+  # end
+  
   def set_costs
+  	
+  	if self.current_amount_left == nil
+  		self.current_amount_left = 0
+  	end
+  
+
+
+  	
+
     self.costs = self.amount * self.price_per_unit
+
+    delta_of_purchased = self.amount - (self.amount_was || 0)
+
+    self.current_amount_left = self.current_amount_left + delta_of_purchased
+
   end
 end
