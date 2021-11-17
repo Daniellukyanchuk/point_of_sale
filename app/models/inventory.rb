@@ -18,8 +18,8 @@ class Inventory < ApplicationRecord
     search_multiple = Inventory.joins(:product).where('products.product_name IN (?) OR product_id 
                                               IN (?)', "%#{product_select}%", product_select)
     
-    date_filter = Inventory.where("CAST(created_at AS DATE) >= #{start_date.to_date} 
-                       AND CAST(created_at AS DATE) <= #{end_date.to_date}")
+    date_filter = Inventory.where("CAST(created_at AS DATE) >= '#{start_date.to_date}' 
+                       AND CAST(created_at AS DATE) <= '#{end_date.to_date}'")
     
 
     if !start_date.blank? && !end_date.blank?
