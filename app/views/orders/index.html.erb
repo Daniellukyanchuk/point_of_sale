@@ -3,10 +3,9 @@
 <h1>Orders</h1>
   
   <%= form_tag orders_path, :method => 'get' do %>
-    <p>Find one order:
-      <%= text_field_tag :search, params[:search], placeholder: "Find the Order" %>
-    <p>
-      Find multiple orders:
+    <p>Search for One:
+      <%= text_field_tag :search, params[:search], placeholder: "ID, name etc." %>
+    <p>Search for Multiple:
       <% options = Client.all.collect{ |u| [u.name, u.id] } %>
         <% options = [["Select All", nil]] + options %>
       <%= select_tag 'client_select[]', options_for_select(options, params[:client_select]), :multiple => :multiple, :class => "chosen-select"%> 
