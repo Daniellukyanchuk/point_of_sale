@@ -12,11 +12,28 @@ class Order < ApplicationRecord
       end    
     end
     
-    def self.search(search, order_select, start_date, end_date)
-      if !search.blank?
-        return Order.joins(:client).where("clients.name ilike ? or clients.id = ? or client_id = ?", "%#{search.strip}%", search.to_i, search.to_i)    
-      else
-        return Order.joins(:client).all
+    def self.search(search, client_select, start_date, end_date)
+      
+      search_one = Order.joins(:client).where("clients.name ilike ? OR clients.id = ? 
+                                             OR client_id = ?", "%#{search}%", search.to_i, search.to_i) 
+  
+      search_multiple = Order.joins(:client).where('clients.name IN (?) OR clients.id IN (?)', "%#{client_select}%", client_select)
+  
+      if !start_date.blank? && !end_date.blank?
+        Order.where("CAST(created_at AS DATE) >= #{SqlHelper.escape_sql_param(start_date.to_date)} 
+                         AND CAST(created_at AS DATE) <= #{SqlHelper.escape_sql_param(end_date.to_date)}")
+      else 
+        Order.where(:created_at => start_date..end_date)
+      end
+  
+      if client_select.blank? && search.blank?
+        return Order.joins(:client).all     
+      end
+  
+      if !search.blank?    
+         return search_one
+      elsif !client_select.blank?
+        return search_multiple
       end
     end
 
