@@ -28,14 +28,14 @@
 <table>
   <thead>
     <tr>
-      <th><%= sortable "product_id" %></th>
-      <th><%= sortable "product_name" %></th>
-      <th><%= sortable "date" %></th>
-      <th><%= sortable "amount" %></th>
-      <th><%= sortable "price_per_unit" %></th>
-      <th><%= sortable "costs" %></th>
-      <th><%= sortable "current_amount_left" %></th>
-      <th><%= sortable "value_of_item" %></th>
+      <th><%= sortable "product_id", "product_id" %></th>
+      <th><%= sortable "product_name", "product_name" %></th>
+      <th><%= sortable "date", "date" %></th>
+      <th><%= sortable "amount", "amount" %></th>
+      <th><%= sortable "price_per_unit", "price_per_unit" %></th>
+      <th><%= sortable "costs", "costs" %></th>
+      <th><%= sortable "current_amount_left", "current_amount_left" %></th>
+      <th><%= sortable "value_of_item", "value_of_items" %></th>
       <th colspan="8"></th>
     </tr>
   </thead>
@@ -66,4 +66,4 @@
   no_results_text: "Oops, nothing found!"
   })
 </script>
-<%= link_to 'Log Inventory', new_inventory_path %>
+<%= link_to 'New Inventory', new_inventory_path %>
