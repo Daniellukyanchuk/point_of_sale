@@ -3,11 +3,28 @@
 <h1>Orders</h1>
   
   <%= form_tag orders_path, :method => 'get' do %>
+    <p>Find one order:
+      <%= text_field_tag :search, params[:search], placeholder: "Find the Order" %>
     <p>
-      <%= text_field_tag :search, params[:search] %>
+      Find multiple orders:
+      <% options = Client.all.collect{ |u| [u.name, u.id] } %>
+        <% options = [["Select All", nil]] + options %>
+      <%= select_tag 'order_select[]', options_for_select(options, params[:order_select]), :multiple => :multiple, :class => "chosen-select"%> 
+    <p>From:
+      <% start_date_value = 1.month.ago.strftime("%d - %m - %Y") %>
+      <% end_date_value = Date.today.strftime("%d - %m - %Y") %>
+      <%= text_field_tag 'start_date', params[:start_date], :class => "datepicker", :autocomplete => "off" %>
+      To:
+      <%= text_field_tag 'end_date', params[:end_date], :class => "datepicker", :autocomplete => "off" %>
       <%= submit_tag "Search", :name => nil %>
     </p>
   <% end %>
+
+<script>
+    $( function() {
+      $( ".datepicker" ).datepicker({ dateFormat: 'dd-mm-yy'});
+    } );
+</script>  
 
 <div>
   <p><%= link_to "Client's report", order_report_client_report_path %></p>
@@ -20,7 +37,6 @@
   <thead>
     <tr>
       <th><%= sortable "id" %></th>
-
       <th><%= sortable "client_id" %></th>
       <th><%= sortable "clients.name", "Client's name" %></th>
       <th><%= sortable "grand_total" %></th>
@@ -44,5 +60,11 @@
 </table>
 
 <br>
+
+<script type="text/javascript">  
+  $(".chosen-select").chosen({
+  no_results_text: "Oops, nothing found!"
+  })
+</script>
 
 <%= link_to 'New Order', new_order_path %>

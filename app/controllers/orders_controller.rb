@@ -3,7 +3,12 @@ class OrdersController < ApplicationController
   helper_method :sort_column, :sort_direction
   # GET /orders or /orders.json
   def index
-    @orders = Order.search(params[:search]).order(sort_column + " " + sort_direction)
+    params[:start_date] = 1.month.ago.strftime("%d-%m-%Y") if params[:start_date].blank?
+    
+    params[:end_date] = Date.today.strftime("%d-%m-%Y") if params[:end_date].blank?
+
+    @orders = Order.search(params[:search], params[:order_select], params[:start_date], params[:end_date])
+              .order(sort_column + " " + sort_direction)
   end
 
   # GET /orders/1 or /orders/1.json
