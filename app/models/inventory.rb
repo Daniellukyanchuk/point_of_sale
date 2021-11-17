@@ -18,13 +18,12 @@ class Inventory < ApplicationRecord
     search_multiple = Inventory.joins(:product).where('products.product_name IN (?) OR product_id 
                                               IN (?)', "%#{product_select}%", product_select)
     
+    date_filter = Inventory.where("CAST(created_at AS DATE) >= #{start_date.to_date} 
+                       AND CAST(created_at AS DATE) <= #{end_date.to_date}")
     
 
     if !start_date.blank? && !end_date.blank?
-      Inventory.where("CAST(created_at AS DATE) >= #{SqlHelper.escape_sql_param(start_date.to_date)} 
-                       AND CAST(created_at AS DATE) <= #{SqlHelper.escape_sql_param(end_date.to_date)}")
-    else 
-      Inventory.where(:created_at => start_date..end_date)
+       date_filter
     end
 
     if product_select.blank? && search.blank?
@@ -36,9 +35,6 @@ class Inventory < ApplicationRecord
     elsif !product_select.blank?
       return search_multiple
     end
-
-    
-
   end
 
   def self.current_inventory_for(product_id)
@@ -49,12 +45,8 @@ class Inventory < ApplicationRecord
   	if self.current_amount_left == nil
   		self.current_amount_left = 0
   	end
-
     self.costs = self.amount * self.price_per_unit
-
     delta_of_purchased = self.amount - (self.amount_was || 0)
-
-    self.current_amount_left = self.current_amount_left + delta_of_purchased
-    
+    self.current_amount_left = self.current_amount_left + delta_of_purchased   
   end
 end

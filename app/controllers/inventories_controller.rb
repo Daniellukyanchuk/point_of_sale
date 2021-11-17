@@ -3,9 +3,9 @@ class InventoriesController < ApplicationController
   helper_method :sort_column, :sort_direction
   # GET /inventories or /inventories.json
   def index
-    # params[:start_date] = 1.month.ago.strftime("%d-%m-%Y") if params[:start_date].blank?
+    params[:start_date] = 1.month.ago.strftime("%d-%m-%Y") if params[:start_date].blank?
     
-    # params[:end_date] = Date.today.strftime("%d-%m-%Y") if params[:end_date].blank?
+    params[:end_date] = Date.today.strftime("%d-%m-%Y") if params[:end_date].blank?
 
     @inventories = Inventory.search(params[:search], params[:product_select], params[:start_date], params[:end_date])
                    .order(sort_column + " " + sort_direction)      
