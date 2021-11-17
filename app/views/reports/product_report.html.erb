@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Product Sales Report</h1>
+<h1>Product Sales Report</h1><hr>
 
 <%= form_tag reports_product_report_path, :method => 'get' do %>
   
@@ -27,8 +27,8 @@
     <th class="align_left"><%= sortable "product_name", "Product Name" %></th>
     <th class="align_right"><%= sortable "units_sold", "Units Sold" %></th>
     <th class="align_left"><%= sortable "unit", "Unit" %></th>
-    <th><%= sortable "total_revenue", "Total Revenue" %></th>
-    <th colspan="4"></th>
+    <th class="align_right"><%= sortable "total_revenue", "Total Revenue" %></th>
+    <th colspan="5"></th>
     </tr>
   </thead>
 

@@ -1,6 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Inventory</h1>
+<h1>Supplies & Purchasing</h1>
+<hr>
+<%= link_to '+ Add Products to Inventory', new_supply_path, :class => "button big_button green" %>
+<br>
 
 <table>
   <thead>
@@ -32,4 +35,3 @@
 
 <br>
 
-<%= link_to 'Add Products to Inventory', new_supply_path %>

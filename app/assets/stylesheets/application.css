@@ -38,10 +38,10 @@ input.greyed_out
     background-color: #b7b7b7;
 }
 
-a.add_fields, .big_button{
-background-color: #fff;
+a.add_fields, a.button, input[type="submit"] {
+background-color: #067aff;
 padding: 2px 5px;
-color: #067aff;
+color: #fff;
 margin-bottom: 20px;
 text-decoration: none;
 border-radius: 5px;
@@ -50,19 +50,49 @@ display: inline-block;
 position: relative;
 }
 
-.big_button{
+a.big_button {
     padding: 5px 9px; 
 }
 
-a.add_fields:hover, .big_button:hover{
-background-color: #067aff; 
-color: #fff;   
+a.add_fields:hover, .big_button:hover {
+    background-color: #fff; 
+    color: #067aff;   
+    }
+
+a.green, submit.green, input[type="submit"] {
+    background-color: #27d37c;
+    border: 1px solid #27d37c;
+    color: white;
 }
 
+a.green:hover, submit.green:hover, input[type="submit"]:hover {
+    background-color: white;
+    color: #27d37c;
+}
+
+input[type="submit"]{
+    padding: 5px 10px 5px 9px;
+    font-weight: 600;
+}
+
+a.red {
+    background-color: #ac3040;
+    border: 1px solid #ac3040;
+    color: white;
+}
+
+a.red {
+    background-color: white;
+    color: #ac3040;
+}
+
+
+
+
 a.remove_fields{
-background-color: #fff;
+background-color: red;
 padding: 1px 4px;
-color: red;
+color: #fff;
 margin-bottom: 20px;
 text-decoration: none;
 border-radius: 5px;
@@ -71,8 +101,8 @@ display: inline-block;
 }
 
 a.remove_fields:hover{
-background-color: red;
-color: #fff;
+background-color: #fff;
+color: red;
 }
 
 .field, .inline
@@ -83,4 +113,9 @@ color: #fff;
 
 select {
     padding: 2px 0px 1px 0px;
+}
+
+.bold
+{
+    font-weight: 600;
 }

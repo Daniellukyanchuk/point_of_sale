@@ -1,6 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Orders</h1> 
+<h1>Orders</h1><hr> 
+
+<%= link_to '+ New Order', new_order_path, :class => "button big_button green" %>
+
 
 <%= form_tag orders_path, :method => 'get' do %>
   <p>
@@ -39,4 +42,3 @@
 
 <br>
 
-<%= link_to 'New Order', new_order_path %>

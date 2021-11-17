@@ -9,7 +9,8 @@ class Product < ApplicationRecord
     def self.product_inventory(sortable, sort_direction)
       
         sql = """
-                SELECT products.id, product_name, unit,
+                SELECT * FROM (
+                SELECT products.id, product_name, unit, price,
                     SUM(quantity)::numeric(10,2) AS units_sold,
                     SUM(purchase_quantity)::numeric(10,2) AS units_purchased,
                     ((SUM(purchase_quantity))-(SUM(quantity)))::numeric(10,2) AS inventory
@@ -18,14 +19,16 @@ class Product < ApplicationRecord
                     ON products.id = order_products.product_id
                     LEFT OUTER JOIN supply_products 
                     ON products.id = supply_products.product_id
-                GROUP BY products.id, product_name, products.unit
+                GROUP BY products.id, product_name, products.unit, products.price
+                ) report
+                ORDER BY #{sortable} #{sort_direction}
             """
             result = ActiveRecord::Base.connection.execute(sql)
 
         
 
-            if !["id", "product_name", "units_sold", "units_purchased", "units_sold", "inventory"].include?(sortable)
-              sortable = "product_name"
+            if !["products.id", "product_name", "price", "units_sold", "units_purchased", "units_sold", "inventory"].include?(sortable)
+              sortable = "price"
             end
             
             if  sort_direction == "desc"

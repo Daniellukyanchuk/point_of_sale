@@ -1,7 +1,6 @@
   
    
-   <h2>Add Product</h2>
-
+  
    <div class="nested-fields">
     <%= form.hidden_field :_destroy %>
 
@@ -24,7 +23,7 @@
         <%= form.number_field :subtotal, id: 'subtotal', :class => "greyed_out", :readonly => true  %>
       </div>
       <div class="field">
-        <%= link_to "Remove", "#", class: "remove_fields" %>
+        <%= link_to "Remove", "#", class: "remove_fields red" %>
       </div>
   </div>
 

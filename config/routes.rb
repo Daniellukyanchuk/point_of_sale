@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :suppliers
   resources :supply_products
   get 'reports/client_report'
-  get 'reports/product_report'  
+  get 'reports/product_report' 
   resources :orders
   resources :products
   resources :clients

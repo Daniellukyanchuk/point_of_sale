@@ -1,6 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Products</h1>
+<h1>Products</h1><hr>
+
+<%= link_to '+ New Product', new_product_path, :class => 'button big_button green' %>
+
 
 <%= form_tag products_path, :method => 'get' do %>
   <p>
@@ -12,12 +15,12 @@
 <table>
   <thead>
     <tr>
-      <th><%= sortable "product_name", "Product Name" %></th>
-      <th><%= sortable "price", "Price" %></th>
-      <th><%= sortable "unit", "Unit" %></th>
-      <th><%= sortable "units_purchased", "Units purchased" %></th>
-      <th><%= sortable "units_sold", "Units sold" %></th>
-      <th><%= sortable "inventory", "Units in Stock" %></th>
+      <th class="align_left"><%= sortable "product_name", "Product Name" %></th>
+      <th class="align_right"><%= sortable "price", "Unit price" %></th>
+      <th class="align_left"><%= sortable "unit", "Unit" %></th>
+      <th class="align_right"><%= sortable "units_purchased", "bought" %></th>
+      <th class="align_right"><%= sortable "units_sold", "sold" %></th>
+      <th class="align_right"><%= sortable "inventory", "in stock" %></th>
       <th colspan="6"></th>
     </tr>
   </thead>
@@ -26,11 +29,11 @@
     <% @products.each do |pi| %>
       <tr>
         <td><%= pi["product_name"] %></td>
-        <td><%= pi["price"] %></td>
+        <td class="align_right"><%= pi["price"] %></td>
         <td><%= pi["unit"] %></td>        
-        <td><%= pi["units_purchased"] %></td>  
-        <td><%= pi["units_sold"] %></td>
-        <td><%= pi["inventory"] %></td>
+        <td class="align_right"><%= pi["units_purchased"] %></td>  
+        <td class="align_right"><%= pi["units_sold"] %></td>
+        <td class="bold align_right"><%= pi["inventory"] %></td>
         <td><%= link_to "Show", "/products/#{pi["id"]}" %></td>
         <td><%= link_to "Edit", "/products/#{pi["id"]}/edit" %></td>
         <td><%= link_to "Delete", "/products/#{pi["id"]}", method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -43,7 +46,6 @@
 
 <br>
 
-<%= link_to 'New Product', new_product_path %>
 
 
 
