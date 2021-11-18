@@ -27,14 +27,27 @@ class OrderProduct < ApplicationRecord
   # Should subtract quantity from inventories.current_amount_left.
   # Should subtract from the oldest inventory if there is enough, if not, subtract what there is and subtract the rest
   # from the next to the oldest inventory for the same product.   
-  def set_current_amount_left      
+  def set_current_amount_left   
+
+    amount_left_to_remove = self.quantity
+
+
     Inventory.where("product_id = ? and current_amount_left > 0", self.product_id).each do |inv|        
-      inv.current_amount_left = inv.current_amount_left.to_d - self.quantity  
+      # amount_to_remove_from_current_inventory_row = 
+      
+      inv.current_amount_left = ?
+      inv.save
+
+      inv.current_amount_left = inv.current_amount_left.to_d - self.quantity
+
+      if inv.current_amount_left == self.quantity
+        inv.current_amount_left.order(:created_at, :id)   
       inv.save            
     end 
   end
 end
   # Do an .order after the where
+  
   # Variable Name Description
   # Situation 1 Person buys 30 muffins  amount_bought 30
   # What should be the end result?  25 muffins should be taken from the oldest muffin inventory row, 

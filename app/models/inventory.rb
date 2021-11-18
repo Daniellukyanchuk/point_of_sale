@@ -44,6 +44,7 @@ class Inventory < ApplicationRecord
   		self.current_amount_left = 0
   	end
     self.costs = self.amount * self.price_per_unit
+    # Delta of purchased shows the change and what was saved. If it were 100 saved and then they decided to change it to 120, then the delta is 20.
     delta_of_purchased = self.amount - (self.amount_was || 0)
     self.current_amount_left = self.current_amount_left + delta_of_purchased   
   end
