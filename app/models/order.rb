@@ -14,27 +14,29 @@ class Order < ApplicationRecord
     
     def self.search(search, client_select, start_date, end_date)
       
-      search_one = Order.joins(:client).where("clients.name ilike ? OR clients.id = ? 
-                                             OR client_id = ?", "%#{search}%", search.to_i, search.to_i) 
-  
-      search_multiple = Order.joins(:client).where('clients.name IN (?) OR clients.id IN (?)', "%#{client_select}%", client_select)
-     
-      date_filter = Order.where("CAST(created_at AS DATE) >= #{start_date.to_date} 
-                         AND CAST(created_at AS DATE) <= #{end_date.to_date}")
-      
+      where_statements = []
+
+      if !search.blank?
+        tmp = "(clients.name ILIKE '%#{search}%' 
+               OR clients.id = #{search.to_i})"
+        where_statements.push(tmp)
+      end
+
+      if !client_select.blank?
+        ids = []
+        client_select.each do |cs|
+          ids.push(cs.to_i)
+        end
+        tmp = "clients.id in (#{SqlHelper.escape_sql_param(ids)})"
+        where_statements.push(tmp)
+      end 
+
       if !start_date.blank? && !end_date.blank?
-         date_filter
+        where_statements.push("(CAST(orders.created_at AS DATE) >= #{SqlHelper.escape_sql_param(start_date.to_date)} AND CAST(orders.created_at AS DATE) <= #{SqlHelper.escape_sql_param(end_date.to_date)})")
       end
-  
-      if client_select.blank? && search.blank?
-        return Order.joins(:client).all     
-      end
-  
-      if !search.blank?    
-         return search_one
-      elsif !client_select.blank?
-        return search_multiple
-      end
+      
+      where_clause = where_statements.join(" AND ")
+      return Order.joins(:client).where(where_clause)
     end
 
     def self.client_report(search_text, client_ids, sortable, sort_direction)       

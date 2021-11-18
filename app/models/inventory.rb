@@ -3,38 +3,36 @@ class Inventory < ApplicationRecord
   before_save :set_costs
 
   def self.search(search, product_select, start_date, end_date)
+    # my_hash = {a: "yo", b: "man"}
+    # my_hash.each do |key, value|
+    #   stop
+    # end
+    where_statements = []
 
-    # where_sql = "product_id = :product_id and from_date > :start_date"
-    # where_params = {product_id: 3}
-    # where_params[:start_date] = start_date.to_date
+    if !search.blank?
+      tmp = "(products.product_name ILIKE '%#{search}%' 
+               OR product_id = #{search.to_i} OR amount = #{search.to_d} 
+               OR price_per_unit = #{search.to_d} or costs = #{search.to_d} 
+               OR current_amount_left = #{search.to_d})"
+      
+      where_statements.push(tmp)
+    end
 
-    # Inventory.where(where_sql, where_params)
-    search_one = Inventory.joins(:product)
-      .where("products.product_name ilike ? 
-          or product_id = ? or amount = ? 
-          or price_per_unit = ? or costs = ? 
-          or current_amount_left = ?", "%#{search}%", search.to_i, search.to_d, search.to_d, search.to_d, search.to_d)
-    
-    search_multiple = Inventory.joins(:product).where('products.product_name IN (?) OR product_id 
-                                              IN (?)', "%#{product_select}%", product_select)
-    
-    date_filter = Inventory.where("CAST(created_at AS DATE) >= '#{start_date.to_date}' 
-                       AND CAST(created_at AS DATE) <= '#{end_date.to_date}'")
-    
+    if !product_select.blank?
+      ids = []
+      product_select.each do |ps|
+        ids.push(ps.to_i)
+      end
+      tmp = "product_id in (#{SqlHelper.escape_sql_param(ids)})"
+      where_statements.push(tmp)
+    end
 
     if !start_date.blank? && !end_date.blank?
-       date_filter
+      where_statements.push("(CAST(inventories.created_at AS DATE) >= #{SqlHelper.escape_sql_param(start_date.to_date)} AND CAST(inventories.created_at AS DATE) <= #{SqlHelper.escape_sql_param(end_date.to_date)})")
     end
 
-    if product_select.blank? && search.blank?
-      return Inventory.joins(:product).all     
-    end
-
-    if !search.blank?    
-       return search_one
-    elsif !product_select.blank?
-      return search_multiple
-    end
+    where_clause = where_statements.join(" AND ")
+    return Inventory.joins(:product).where(where_clause)
   end
 
   def self.current_inventory_for(product_id)
