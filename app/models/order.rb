@@ -20,19 +20,8 @@ class Order < ApplicationRecord
       datefilter_start = Date.strptime( datefilter_start, '%m/%d/%Y')       
       datefilter_end = Date.strptime( datefilter_end, '%m/%d/%Y')     
 
-#column sorting 
 
-      if !["product_id", "product_name", "units_sold", "total_revenue"].include?(sortable)
-        sortable = "total_revenue"
-      end
-      
-      if  sort_direction == "desc"
-        "desc"
-      else
-        sort_direction = "asc"
-      end
-
-#search box
+#search box (search_product)
 
       where_search = " (product_name ILIKE '%#{search_product}%' OR unit ILIKE '%#{search_product}%' OR product_id = #{search_product.to_i} 
                       OR units_sold = #{search_product.to_f} OR total_revenue = #{search_product.to_f})"
@@ -41,7 +30,7 @@ class Order < ApplicationRecord
         where_search = ""
       end  
 
-#product multi-select
+#product multi-select (pick_product)
         
       if pick_product.blank? || pick_product == [""] 
         where_picker = ""
@@ -49,11 +38,23 @@ class Order < ApplicationRecord
         where_picker = "product_id IN (#{pick_product.join(",")})"
       end
 
-#filter by time period        
+#filter by time period (date_filter_start & _end)    
 
       where_time_period = "WHERE order_products.created_at >= #{SqlHelper.escape_sql_param(datefilter_start.to_date)} AND order_products.created_at <= #{SqlHelper.escape_sql_param(datefilter_end.to_date)}"
       
       where_statement = WhereBuilder.build([where_search, where_picker])
+
+#column sorting (sortable & sort_direction)
+
+if !["product_id", "product_name", "units_sold", "total_revenue"].include?(sortable)
+  sortable = "total_revenue"
+end
+
+if  sort_direction == "desc"
+  "desc"
+else
+  sort_direction = "asc"
+end
         
       sql = """
             SELECT * FROM (

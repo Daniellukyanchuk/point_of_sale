@@ -12,28 +12,30 @@
 <% end %>
 
 
-<%= form.label "Select supplier" %>
-  <%= form.collection_select :supplier_id, Supplier.all, :id, :supplier_name %>
-</div><br><br>
+    <%= form.label "Select supplier" %>
+      <%= form.collection_select :supplier_id, Supplier.all, :id, :supplier_name %>
+    <br><br>
 
-<h2>Products</h2><hr>
+    <h2>Products</h2><hr>
 
-    <%= form.fields_for :supply_products do |builder| %>
-      <%= render 'supply_product_fields', form: builder %>
-    <% end %>
-</div>
-<div class="inline"> 
-    <%= link_to_add_fields "Add Product", form, :supply_products %>
-</div>
-<br>
-<div class="field">
-  <%= form.label :purchase_total %>
-  <%= form.text_field :purchase_total, :class => "greyed_out", :readonly => true %>
-</div>
+        <%= form.fields_for :supply_products do |builder| %>
+          <%= render 'supply_product_fields', form: builder %>
+        <% end %>      
 
-<div class="actions"> 
-  <%= form.submit 'Add to Inventory' %>
+        <div class="inline"> 
+            <%= link_to_add_fields "Add Product", form, :supply_products %>
+        </div><br>
+       
+        <div class="field">
+          <%= form.label :purchase_total %>
+          <%= form.text_field :purchase_total, :class => "greyed_out", :readonly => true %>
+        </div>
+
+  <div> 
+    <%= form.submit 'Add to Inventory' %>
   </div>
+
+  
 <% end %>
 
 

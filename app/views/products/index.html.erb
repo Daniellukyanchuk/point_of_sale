@@ -15,25 +15,31 @@
 <table>
   <thead>
     <tr>
+    <th class="align_left"><%= sortable "id", "Id" %></th>
       <th class="align_left"><%= sortable "product_name", "Product Name" %></th>
-      <th class="align_right"><%= sortable "price", "Unit price" %></th>
+      <th class="align_right"><%= sortable "price", "Sale price" %></th>
       <th class="align_left"><%= sortable "unit", "Unit" %></th>
       <th class="align_right"><%= sortable "units_purchased", "bought" %></th>
       <th class="align_right"><%= sortable "units_sold", "sold" %></th>
       <th class="align_right"><%= sortable "inventory", "in stock" %></th>
-      <th colspan="6"></th>
+      <th class="align_right"><%= sortable "weighed_cost", "Cost (weighed avg)" %></th>
+
+      <th colspan="7"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @products.each do |pi| %>
       <tr>
+        <td><%= pi["id"] %></td>
         <td><%= pi["product_name"] %></td>
         <td class="align_right"><%= pi["price"] %></td>
         <td><%= pi["unit"] %></td>        
         <td class="align_right"><%= pi["units_purchased"] %></td>  
         <td class="align_right"><%= pi["units_sold"] %></td>
         <td class="bold align_right"><%= pi["inventory"] %></td>
+        <td class="align_right"><%= pi["weighed_cost"] %></td>
+
         <td><%= link_to "Show", "/products/#{pi["id"]}" %></td>
         <td><%= link_to "Edit", "/products/#{pi["id"]}/edit" %></td>
         <td><%= link_to "Delete", "/products/#{pi["id"]}", method: :delete, data: { confirm: 'Are you sure?' } %></td>
