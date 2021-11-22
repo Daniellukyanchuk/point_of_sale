@@ -29,6 +29,21 @@
   </div>
 <% end %>
 
+<script type="text/javascript">
+    $(document).ready(function() {
+      $("product-picker").change(function(){
+        $.ajax({ 
+            url: "/products/price",
+            data: { product_id: $(this).val()  },
+            type: "POST",
+            success: function(data){
+                $(this).parents('SOMETHING').find('THETHINGYOUWantTOChange').val( data );
+            }
+        });
+      })
+    });
+</script>
+
 
 
 

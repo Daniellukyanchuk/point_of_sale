@@ -18,13 +18,13 @@
 
 
 
+jQuery(function() {
 
-$(document).on('turbolinks:load', function() {
+  // $(document).off('turbolinks:load').on('turbolinks:load', function() {
   
-  jQuery(function() {
     $(document).off('click', 'form .remove_fields').on('click', 'form .remove_fields', function(event) {
       $(this).prev('input[type=hidden]').val('1');
-      $(this).closest('fieldset').hide();
+      $(this).closest('fieldsset').hide();
       return event.preventDefault();
     });
     $(document).off('click', 'form .add_fields').on('click', 'form .add_fields', function(event) {
@@ -34,8 +34,10 @@ $(document).on('turbolinks:load', function() {
       $(this).before($(this).data('fields').replace(regexp, time));
       return event.preventDefault();
     });
-  });
-})
+  
+  // })
+
+});
 
 
 

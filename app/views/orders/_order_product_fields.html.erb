@@ -3,7 +3,7 @@
     <h2>Add Product</h2>
 
     <div class="field">
-        <%= form.collection_select :product_id, Product.all, :id, :product_name %>
+        <%= form.collection_select :product_id, Product.all, :id, :product_name, {}, {class: "product-picker"} %>
     </div>
   
     <div class="field">
@@ -13,7 +13,7 @@
 
     <div class="field">
       <%= form.label :sale_price %>
-      <%= form.number_field :sale_price %>
+      <%= form.number_field :sale_price, class: "sale-price-field" %>
     </div>
 
     <div class="field">
@@ -25,6 +25,8 @@
       <%= link_to "Remove", '#', class: "remove_fields" %>
     </div>
   </div>
+
+  
 
 
     

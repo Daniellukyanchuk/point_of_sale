@@ -28,28 +28,24 @@ class OrderProduct < ApplicationRecord
   def set_current_amount_left   
     
     # amount_left_to_remove should always be the amount of inventory that we still have to remove
+    # make a variable change_in_quantity and set it equal to self.quatity.
     change_in_quantity = self.quantity - (self.quantity_was || 0)
+    # make a variable amount_left_to_remove and set it equal to change_in_quantity.
     amount_left_to_remove = change_in_quantity
+    # make a loop of Inventory.where with product_id and current_amount_left. Make so, that it would search for current_amount_left > 0. order by created_at and id.
 
-    # 1: Find out how much we need to remove from inventory by setting it equal to amount_bought.(What does it mean to set equal to amount_bought?)
-    # 2: Get the oldest muffin inventory with amount left.(How to do this?)
-    # 3: Find the smaller number between amount_left_to_remove and oldest_inventory.current_amount_left and store that as amount_to_remove.
-    # How to get the oldest_inventory.current_amount_left?
-    # 4: Subtract amount_to_remove from oldest_inv.current_amount_left and store it in current_amount_left.
-    # 5: Save the oldest_inv.current_amount_left.
-    # 6: Subtract amount_to_remove from amount_left_to_removed and store in amount_left_to_remove.
-    # 7: Now do it again.
-   
     Inventory.where("product_id = ? and current_amount_left > 0", self.product_id).order(:created_at, :id).each do |inv|              
-      
+    # Do a break if == 0.
       break if amount_left_to_remove == 0
 
       # inv.current_amount_left, amount_left_remove
+      # Get the minimum of current_amount_left and amount_left_to_remove and set it equal to amount_to_remove.
       amount_to_remove = [inv.current_amount_left, amount_left_to_remove].min
-      
+      # Subtract amount_to_remove from current_amount_left and set it equal to current_amount_left. 
       inv.current_amount_left = inv.current_amount_left - amount_to_remove
+      # Do save and set it equal to whatever.
       res = inv.save      
-
+      # Subtract amount_to_remove from amount_left_to_remove and set it equal to amount_left_to_remove.
       amount_left_to_remove = amount_left_to_remove - amount_to_remove
     end     
   end

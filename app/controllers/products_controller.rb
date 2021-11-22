@@ -18,6 +18,11 @@ class ProductsController < ApplicationController
   def edit
   end
 
+  def get_price
+    
+    render json: {price: THE_PRICE_OF_THAT_PRODUCT}
+  end
+
   # POST /products or /products.json
   def create
     @product = Product.new(product_params)
