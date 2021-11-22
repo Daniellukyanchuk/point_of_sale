@@ -25,7 +25,7 @@ class OrderProduct < ApplicationRecord
             amount_left_to_remove = amount_left_to_remove - amount_to_remove
             remaining_amount = remaining_amount - amount_to_remove 
             sp.remaining_quantity = remaining_amount
-            sp.save
+            res = sp.save
             break if amount_left_to_remove == 0
         end
 
