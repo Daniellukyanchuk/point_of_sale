@@ -31,13 +31,13 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-      $("product-picker").change(function(){
+      $(".sale-price-field").change(function(){
         $.ajax({ 
             url: "/products/price",
             data: { product_id: $(this).val()  },
             type: "POST",
             success: function(data){
-                $(this).parents('SOMETHING').find('THETHINGYOUWantTOChange').val( data );
+                $(this).parents('.nested-fields').find('sale_price').val( data );
             }
         });
       })
