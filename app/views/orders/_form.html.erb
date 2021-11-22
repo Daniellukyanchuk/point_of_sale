@@ -35,9 +35,9 @@
         $.ajax({ 
             url: "/products/price",
             data: { product_id: $(this).val()  },
-            type: "POST",
+            type: "GET",
             success: function(data){
-                $(this).parents('.nested-fields').find('sale_price').val( data );
+                $(this).parents(".nested-fields").find('.sale-price-field').val();
             }
         });
       })
