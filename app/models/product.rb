@@ -42,7 +42,7 @@ class Product < ApplicationRecord
             
       end
 
-    def self.search(search)
+  def self.search(search)
       if !search.blank?
           return Product.where("product_name ilike ? or unit like ? or id = ?", "%#{search.strip}%", "%#{search.strip}%", search.to_i)
       else
