@@ -1,5 +1,5 @@
 class Product < ApplicationRecord
-    has_many :order_products
+    has_many :order_products, dependent: :destroy
     has_many :supply_products
     has_many :supplies, through: :supply_products
     has_many :orders, through: :order_products
@@ -11,11 +11,11 @@ class Product < ApplicationRecord
         sql = """
                 SELECT * FROM (
                 SELECT products.id, product_name, unit, price,
-                    SUM(quantity)::numeric(10,2) AS units_sold,
+                    SUM(order_products.quantity)::numeric(10,2) AS units_sold,
                     SUM(purchase_quantity)::numeric(10,2) AS units_purchased,
-                    (COALESCE(SUM(purchase_quantity),0)-COALESCE(SUM(quantity),0))::numeric(10,2) AS inventory,
+                    (COALESCE(SUM(remaining_quantity),0))::numeric(10,2) AS inventory,
                     (SUM(purchase_subtotal)/SUM(purchase_quantity))::numeric(10,2) AS weighed_cost 
-                FROM products 
+                FROM products
                     LEFT OUTER JOIN order_products 
                     ON products.id = order_products.product_id
                     LEFT OUTER JOIN supply_products 
@@ -28,7 +28,7 @@ class Product < ApplicationRecord
 
         
 
-            if !["products.id", "product_name", "price", "units_sold", "units_purchased", "units_sold", "inventory", "weighed_cost"].include?(sortable)
+            if !["products.id", "product_name", "price", "units_sold", "units_purchased", "inventory", "weighed_cost"].include?(sortable)
               sortable = "price"
             end
             

@@ -5,7 +5,7 @@ class OrderProduct < ApplicationRecord
     after_validation :set_subtotal
     before_save :adjust_inventory
     after_save :on_after_save
-    after_save :set_remaining_quantity
+    
     
         
     def set_subtotal
@@ -15,35 +15,18 @@ class OrderProduct < ApplicationRecord
 
     def adjust_inventory
 
-    product_id = order["order_products_attributes"]["0"]["product_id"]
-
-        sql = """
-              SELECT id AS purchase_id, product_id, purchase_subtotal, purchase_quantity, remaining_quantity, created_at 
-              FROM supply_products
-              WHERE product_id = #{product_id} AND remaining_quantity > 0
-              ORDER BY created_at asc
-              """
-              result = ActiveRecord::Base.connection.execute(sql)
-    end
-
-    def set_remaining_quantity
-
-        # altr = amount left to remove (overall)
-        # rem_a = remaining amount (in current inventory record)
-        # atr = amount to remove (from current inventory record)
-
-        quantity = order["order_products_attributes"]["0"]["quantity"]
-
-        altr = quantity.to_i
-        
-        adjust_inventory.each do |ai|
-            rem_a = remaining_quantity
-            atr = [altr, rem_a].min
-            altr = altr - atr
-            rem_a = rem_a - atr            
-            remaining_quantity = rem_a
-            remaining_quantity.save
-            break if altr == 0
+        supply_products = SupplyProduct.where("product_id = ? and remaining_quantity > 0", self.product_id).order("created_at asc")
+              
+        amount_left_to_remove = self.quantity
+               
+        supply_products.each do |sp|
+            remaining_amount = sp.remaining_quantity
+            amount_to_remove = [amount_left_to_remove, remaining_amount].min
+            amount_left_to_remove = amount_left_to_remove - amount_to_remove
+            remaining_amount = remaining_amount - amount_to_remove 
+            sp.remaining_quantity = remaining_amount
+            sp.save
+            break if amount_left_to_remove == 0
         end
 
     end        

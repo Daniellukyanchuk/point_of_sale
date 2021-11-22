@@ -1,5 +1,5 @@
 class Supply < ApplicationRecord
-    has_many :supply_products
+    has_many :supply_products, dependent: :destroy
     has_many :product_reports
     belongs_to :supplier  
     accepts_nested_attributes_for :supply_products, allow_destroy: true
@@ -15,7 +15,5 @@ class Supply < ApplicationRecord
           self.purchase_total = self.purchase_total + sp.purchase_subtotal
         end  
     end
-
-    
 
 end

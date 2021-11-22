@@ -3,7 +3,7 @@ class SuppliesController < ApplicationController
 
   # GET /supplies or /supplies.json
   def index
-    @supplies = Supply.all
+    @supplies = Supply.order(sort_column + " " + sort_direction)
   end
 
   # GET /supplies/1 or /supplies/1.json
@@ -71,6 +71,15 @@ class SuppliesController < ApplicationController
       supply_products_attributes: [:id, :product_id, :supply_id, :purchase_price, :purchase_quantity, :purchase_subtotal, :_destroy],
       products_attributes: [:id, :unit, :price, :product_name])
     end
+
+    def sort_column
+      params[:sort] || "created_at"
+     end
+     
+     def sort_direction
+       params[:direction] || "asc"
+     end        
+     
 end
 
 

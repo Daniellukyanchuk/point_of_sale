@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
-    has_many :order_products
+    has_many :order_products, dependent: :destroy
     has_many :client_reports
     has_many :product_reports
     belongs_to :client  
