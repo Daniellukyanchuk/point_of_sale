@@ -18,9 +18,10 @@ class ProductsController < ApplicationController
   def edit
   end
 
+
   def get_price
-    
-    render json: {price: THE_PRICE_OF_THAT_PRODUCT}
+    @product_params_id = Product.find(params[:id])
+    render json: {price: @product_params_id}
   end
 
   # POST /products or /products.json
