@@ -2,7 +2,7 @@ class SupplyProduct < ApplicationRecord
     belongs_to :supply
     validates :purchase_price, :purchase_quantity, presence: true
     after_validation :set_purchase_subtotal
-    before_save :set_remaining_quantity
+    before_create :set_remaining_quantity
 
         
     def set_purchase_subtotal

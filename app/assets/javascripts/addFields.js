@@ -34,6 +34,25 @@ class addFields {
       newFields ? link.insertAdjacentHTML('beforebegin', newFields) : null
     }
   }
-  
+
+// class autofillPrice {
+//      var priceField = document.getElementById("sale_price");
+  //    var product_select = document.getElementById("product_select");
+//
+  //        product_select.addEventListener("select", function() {
+    //        var ourRequest = new XMLHttpRequest();
+      //      ourRequest.open('GET', 'http://localhost:3000/products');
+        //    ourRequest.onload = function () {
+          //    var ourPrice = JSON.parse(ourRequest.responseText);
+            //  renderHTML(ourPrice);
+      //  };
+    //    ourRequest.send();
+   //   }
+
+   //   function renderHTML(Price) {
+    //    var htmlPrice = "";
+  //    }
+ //   }
+
   // Wait for turbolinks to load, otherwise `document.querySelectorAll()` won't work
   window.addEventListener('turbolinks:load', () => new addFields())

@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   get 'reports/client_report'
   get 'reports/product_report' 
   resources :orders
+  get 'products/price' to ''
   resources :products
+  get "requests/autofill_price/:id" => "requests#autofill_price", as: :requests_autofill_price
   resources :clients
   resources :order_products
   resources :client_reports

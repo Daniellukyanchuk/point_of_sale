@@ -14,6 +14,11 @@
       </div>
 
       <div class="field">
+        <%= form.label "remaining_quantity" %>
+        <%= form.number_field :remaining_quantity, id: 'remaining_quantity', :class => "greyed_out", :readonly => true  %>
+      </div>
+
+      <div class="field">
         <%= form.label :purchase_price %>
         <%= form.number_field :purchase_price, id: 'purchase_price' %>
       </div>

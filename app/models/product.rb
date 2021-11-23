@@ -10,17 +10,15 @@ class Product < ApplicationRecord
       
         sql = """
                 SELECT * FROM (
-                SELECT products.id, product_name, unit, price,
-                    SUM(order_products.quantity)::numeric(10,2) AS units_sold,
-                    SUM(purchase_quantity)::numeric(10,2) AS units_purchased,
-                    (COALESCE(SUM(remaining_quantity),0))::numeric(10,2) AS inventory,
-                    (SUM(purchase_subtotal)/SUM(purchase_quantity))::numeric(10,2) AS weighed_cost 
-                FROM products
-                    LEFT OUTER JOIN order_products 
-                    ON products.id = order_products.product_id
-                    LEFT OUTER JOIN supply_products 
-                    ON products.id = supply_products.product_id
-                GROUP BY products.id, product_name, products.unit, products.price
+                  SELECT products.id, product_name, unit, price,
+                  (SUM(purchase_quantity)::numeric(10,2)) AS units_purchased,
+                  ((COALESCE(SUM(remaining_quantity),0))::numeric(10,2)) AS inventory,
+                  ((SUM(purchase_subtotal)/SUM(purchase_quantity))::numeric(10,2)) AS weighed_cost 
+              FROM products
+                  LEFT OUTER JOIN supply_products 
+                  ON products.id = supply_products.product_id
+              GROUP BY products.id, product_name, products.unit, products.price
+      
                 ) report
                 ORDER BY #{sortable} #{sort_direction}
             """

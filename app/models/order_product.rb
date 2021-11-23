@@ -4,7 +4,6 @@ class OrderProduct < ApplicationRecord
     validates :sale_price, :quantity, presence: true
     after_validation :set_subtotal
     before_save :adjust_inventory
-    after_save :on_after_save
     
     
         
@@ -15,25 +14,27 @@ class OrderProduct < ApplicationRecord
 
     def adjust_inventory
 
+        change_in_quantity = self.quantity - (self.quantity_was || 0)
+
         supply_products = SupplyProduct.where("product_id = ? and remaining_quantity > 0", self.product_id).order("created_at asc")
+
+        amount_left_to_remove = change_in_quantity
               
-        amount_left_to_remove = self.quantity
-               
         supply_products.each do |sp|
-            remaining_amount = sp.remaining_quantity
-            amount_to_remove = [amount_left_to_remove, remaining_amount].min
+            
+            #sets remaining amount equalt to remaining amount for the oldest record in the database
+            amount_to_remove = [amount_left_to_remove, sp.remaining_quantity].min
+            #calculates how much needs to be subracted from the next record, if any
             amount_left_to_remove = amount_left_to_remove - amount_to_remove
-            remaining_amount = remaining_amount - amount_to_remove 
-            sp.remaining_quantity = remaining_amount
-            res = sp.save
+            #subtracts inventory from the current record
+            sp.remaining_quantity = sp.remaining_quantity - amount_to_remove
+            
+            sp.save! #saves result to database
+            
             break if amount_left_to_remove == 0
+            
+            
         end
 
     end        
-
-    def on_after_save
-        delta = quantity - (quantity_was || 0)
-    end
-
 end
-
