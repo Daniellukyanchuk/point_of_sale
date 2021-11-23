@@ -5,7 +5,7 @@
     <%= form.hidden_field :_destroy %>
 
       <div class="field">
-          <%= form.collection_select :product_id, Product.all, :id, :product_name, id: 'product_select' %>
+          <%= form.collection_select :product_id, Product.all, :id, :product_name, {}, {id: 'product_select'} %>
       </div>
     
       <div class="field">

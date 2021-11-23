@@ -5,11 +5,12 @@ class ProductsController < ApplicationController
 
 
   
-def get_price    
-  render json: {price: THE_PRICE_OF_THAT_PRODUCT}
+def get_price
+  @price = Product.select(:price).where("id = ?", params[:id])  
+  render json: {@price}
 end
 
-
+stop
   # GET /products or /products.json
   def index
     @products = Product.product_inventory(sort_column, sort_direction)
