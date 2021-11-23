@@ -31,16 +31,21 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-      $(".product-picker").change(function(){
+
+      function updateSelectedPrice(){
+        var jquery_prod_picker = $(this);
         $.ajax({ 
             url: "/products/price",
-            data: { product_id: $(this).val()  },
+            data: { id: $(this).val()  },
             type: "GET",
             success: function(data){
-                $(this).parents(".nested-fields").find('.sale-price-field').val(data['sale_price']);
+                jquery_prod_picker.parents(".nested-fields").find('.sale-price-field').val(data['price']);
             }
         });
-      })
+      }
+
+      $(document).on('change', '.product-picker', updateSelectedPrice);
+      $(".product-picker").each(updateSelectedPrice);
     });
 </script>
 

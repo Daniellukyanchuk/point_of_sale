@@ -20,8 +20,10 @@ class ProductsController < ApplicationController
 
 
   def get_price
-    @product_params_id = Product.find(params[:id])
-    render json: {price: @product_params_id}
+    product_id = params[:id]
+    @product_row = Product.find(product_id.to_i)
+    render json: {price: @product_row.price}
+    
   end
 
   # POST /products or /products.json
