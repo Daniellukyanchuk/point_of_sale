@@ -3,10 +3,19 @@ class ProductsController < ApplicationController
   helper_method :sort_column, :sort_direction
 
 
+
+  
+def get_price    
+  render json: {price: THE_PRICE_OF_THAT_PRODUCT}
+end
+
+
   # GET /products or /products.json
   def index
     @products = Product.product_inventory(sort_column, sort_direction)
   end
+
+  
 
   # GET /products/1 or /products/1.json
   def show

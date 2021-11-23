@@ -35,4 +35,17 @@
 
 <% end %>
 
-
+<script type="text/javascript">
+    $(document).ready(function() {
+      $("#sale-price").change(function(){
+        $.ajax({ 
+            url: "/products/price",
+            data: { product_id: $(this).val()  },
+            type: "GET",
+            success: function(data){
+                $(this).parents(".nested-fields").find('.sale-price').val();
+            }
+        });
+      })
+    });
+    </script>
