@@ -36,16 +36,22 @@
 <% end %>
 
 <script type="text/javascript">
-    $(document).ready(function() {
-      $("#product_select").change(function(){
-        $.ajax({ 
+    $(document).ready(function() 
+    {
+      $(".product_select").change(function()
+      {
+
+        var cur_picker = $(this);
+        $.ajax(
+          { 
             url: "/products/price",
             data: { product_id: $(this).val()  },
             type: "GET",
-            success: function(data){
-                $(this).parents(".nested-fields").find('#sale-price').val();
+            success: function(data)
+            {
+              cur_picker.parents('.nested-fields').find('.sale-price').val(data['price']);
             }
-        });
-      })
+          });
+      });
     });
 </script>
