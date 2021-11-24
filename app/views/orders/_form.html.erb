@@ -44,13 +44,12 @@
             data: { product_id: $(this).val() },
             type: "GET",
             success: function(data) {
-              current_picker.parents(".nested-fields").find('.sale-price').val(data['price']);
+              current_picker.parents(".nested-fields").find(".sale-price").val(data["price"]);
             }
           });
-        }
-      $(document).on('change', '.product_select', updateSelectedPrice);
+         }
+      $(document).on("change", ".product_select", updateSelectedPrice);
       $(".product_select").each(updateSelectedPrice);
-
-  });  
-
+    });  
 </script>
+
