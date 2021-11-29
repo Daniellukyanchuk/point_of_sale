@@ -40,6 +40,16 @@ jQuery(function() {
 });
 
 
+$(function() {
+  $("tr:odd").css("background-color", "rgba(224,224,224)");
+});
+
+$(function() {
+  $("td").parents("tbody").css("background-color", "rgba(180, 180, 30, 0.8)");
+});
+
+
+
 
 
 
