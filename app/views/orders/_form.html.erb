@@ -36,20 +36,25 @@
 <% end %>
 
 <script type="text/javascript">
-    $(document).ready(function() {
-       function updateSelectedPrice(){
-        var current_picker = $(this);
-        $.ajax({ 
-            url: "/products/price",
-            data: { product_id: $(this).val() },
-            type: "GET",
-            success: function(data) {
-              current_picker.parents(".nested-fields").find(".sale-price").val(data["price"]);
-            }
-          });
-         }
-      $(document).on("change", ".product_select", updateSelectedPrice);
-      $(".product_select").each(updateSelectedPrice);
+
+  $(document).ready(function() {
+          function updateSelectedPrice(){
+            var current_picker = $(this);
+              $.ajax({ 
+                  url: "/products/price",
+                  data: { product_id: $(this).val() },
+                  type: "GET",
+                  success: function(data) {
+                    current_picker.parents(".nested-fields").find('.sale-price').val(data["price"]);
+                  }
+              });
+          }
+        $(document).on('change', ".product-select", updateSelectedPrice);
+        $(".product-select").each(updateSelectedPrice);
     });  
 </script>
+
+
+
+
 

@@ -5,7 +5,8 @@
     <%= form.hidden_field :_destroy %>
 
       <div class="field">
-          <%= form.collection_select :product_id, Product.all, :id, :product_name, {}, {class: "product_select"} %>
+      <%= form.label 'Select a product' %>
+          <%= form.collection_select :product_id, Product.all, :id, :product_name, {}, {class: "product-select"} %>
       </div>
     
       <div class="field">
@@ -15,7 +16,7 @@
 
       <div class="field">
         <%= form.label :sale_price %>
-        <%= form.number_field :sale_price, class: "sale_price" %>
+        <%= form.number_field :sale_price, class: "sale-price" %>
       </div>
 
       <div class="field">

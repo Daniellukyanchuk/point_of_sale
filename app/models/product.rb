@@ -17,8 +17,7 @@ class Product < ApplicationRecord
               FROM products
                   LEFT OUTER JOIN supply_products 
                   ON products.id = supply_products.product_id
-              GROUP BY products.id, product_name, products.unit, products.price
-      
+              GROUP BY products.id, product_name, products.unit, products.price      
                 ) report
                 ORDER BY #{sortable} #{sort_direction}
             """
