@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Inventories</h1>
+<h1>Purchased Inventories</h1>
 
 <%= form_tag inventories_path, :method => 'get' do %>
   <p>Search for one:
@@ -28,15 +28,15 @@
 <table>
   <thead>
     <tr>
-      <th><%= sortable "product_id", "id" %></th>
-      <th><%= sortable "product_name", "product_name" %></th>
-      <th><%= sortable "date", "date" %></th>
-      <th><%= sortable "amount", "amount_purchased" %></th>
-      <th><%= sortable "price_per_unit", "price_per_unit" %></th>
-      <th><%= sortable "costs", "costs" %></th>
-      <th><%= sortable "current_amount_left", "amount_left" %></th>
-      <th><%= sortable "value_of_item", "weighted_average" %></th>
-      <th colspan="8"></th>
+      <th><%= sortable "product_id", "ID" %></th>
+      <th><%= sortable "product_name", "PRODUCTS NAME" %></th>
+      <th><%= sortable "date", "DATE" %></th>
+      <th><%= sortable "amount", "AMOUNT PURCHASED" %></th>
+      <th><%= sortable "price_per_unit", "UNIT PRICE" %></th>
+      <th><%= sortable "costs", "PURCHASED COST" %></th>
+      <th><%= sortable "current_amount_left", "AMOUNT LEFT" %></th>
+      
+      <th colspan="7"></th>
     </tr>
   </thead>
 
@@ -50,7 +50,6 @@
         <td><%= inventory.price_per_unit %></td>
         <td><%= inventory.costs %></td>
         <td><%= inventory.current_amount_left %></td>
-        <td><%= inventory.value_of_item %></td>
         <td><%= link_to 'Show', inventory %></td>
         <td><%= link_to 'Edit', edit_inventory_path(inventory) %></td>
         <td><%= link_to 'Destroy', inventory, method: :delete, data: { confirm: 'Are you sure?' } %></td>

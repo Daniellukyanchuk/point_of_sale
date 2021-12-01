@@ -106,6 +106,9 @@ class Order < ApplicationRecord
                            AND CAST(order_products.created_at AS DATE) <= #{SqlHelper.escape_sql_param(end_date.to_date)}"
     end  
     where_clause = WhereBuilder.build([product_id_where, search_text_where])
+    
+    
+
     sql = """
          SELECT * FROM (
            SELECT 
@@ -114,15 +117,18 @@ class Order < ApplicationRecord
               COUNT(quantity) AS amount_sold, 
               SUM(subtotal) AS amount_made, 
               ROUND(AVG(sale_price)::numeric, 2) AS average_unit_price,
-              products.id AS product_id 
+              products.id AS product_id,
+              ROUND(SUM(price_per_unit * current_amount_left) / SUM(current_amount_left), 2) AS weighted_average 
            FROM products
-           JOIN order_products ON products.id=order_products.product_id
+           INNER JOIN order_products ON products.id=order_products.product_id
+           INNER JOIN inventories ON products.id=inventories.product_id
            #{date_filter_where}
            GROUP BY product_name, price, products.id
           ) report    
           #{where_clause}   
          ORDER BY #{sortable} #{sort_direction}                      
       """
+
     result = ActiveRecord::Base.connection.execute(sql)
   end
 end

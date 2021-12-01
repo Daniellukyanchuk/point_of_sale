@@ -38,7 +38,7 @@ class Inventory < ApplicationRecord
   def self.current_inventory_for(product_id)
   	return Inventory.where("product_id = ? and current_amount_left > 0", product_id).sum(&:current_amount_left)
   end
-  
+
   def set_costs  	
   	if self.current_amount_left == nil
   		self.current_amount_left = 0

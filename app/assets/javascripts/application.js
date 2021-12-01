@@ -50,6 +50,18 @@ $(function() {
 
 
 
+$(function() {
+  var inputFields = $("input:text, textarea");
+  inputFields.focus(function() {
+    $(this).css("box-shadow", "0 0 4px #666");
+  });
+
+  inputFields.blur(function() {
+    $(this).css("box-shadow", "none");
+  });
+});
+
+
 
 
 
