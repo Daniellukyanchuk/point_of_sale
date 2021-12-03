@@ -34,6 +34,7 @@
       <th><%= sortable "amount_made", "TOTAL REVENUE" %></th>
       <th><%= sortable "average_unit_price", "AVERAGE UNIT PRICE" %></th>
       <th><%= sortable "weighted_average", "COST PER UNIT" %></th>
+      <th><%= sortable "weighted_average_sale_price", "SALE PRICE" %></th>
       <th colspan="6"></th>
     </tr>
   </thead>
@@ -47,6 +48,7 @@
        <td><%= product["amount_made"] %></td>
        <td><%= product["average_unit_price"] %></td>
        <td><%= product["weighted_average"] %></td>
+       <td><%= product["weighted_average_sale_price"] %></td>
      </tr>
     <% end %>
   </tbody>

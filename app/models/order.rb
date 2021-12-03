@@ -74,7 +74,7 @@ class Order < ApplicationRecord
 
     # sortable must be a column in this report
   def self.product_report(search_text, product_ids, start_date, end_date, sortable, sort_direction)
-    if !["product_name", "price", "amount_sold", "amount_made", "avg(sale_price)"].include?(sortable)
+    if !["product_name", "price", "amount_sold", "amount_made", "average_unit_price"].include?(sortable)
       sortable = "product_name"  
     end      
     if sort_direction  == "desc"
@@ -98,37 +98,54 @@ class Order < ApplicationRecord
       product_id_where = "(product_id IN (#{product_ids.join(", ")}) )"
     end
     
-    date_filter_where = "WHERE order_products.created_at >= cast(now() as date) - interval '30' day"
+    date_filter_where = "WHERE created_at >= cast(now() as date) - interval '30' day"
     if start_date.blank? || end_date.blank?
-      date_filter_where = "WHERE order_products.created_at >= cast(now() as date) - interval '30' day" 
+      date_filter_where = "WHERE created_at >= cast(now() as date) - interval '30' day" 
     else
-      date_filter_where = "WHERE CAST(order_products.created_at AS DATE) >= #{SqlHelper.escape_sql_param(start_date.to_date)} 
-                           AND CAST(order_products.created_at AS DATE) <= #{SqlHelper.escape_sql_param(end_date.to_date)}"
+      date_filter_where = "WHERE CAST(created_at AS DATE) >= #{SqlHelper.escape_sql_param(start_date.to_date)} 
+                           AND CAST(created_at AS DATE) <= #{SqlHelper.escape_sql_param(end_date.to_date)}"
     end  
     where_clause = WhereBuilder.build([product_id_where, search_text_where])
     
-    
 
     sql = """
-         SELECT * FROM (
-           SELECT 
-              DISTINCT(product_name), 
-              products.price, 
-              COUNT(quantity) AS amount_sold, 
-              SUM(subtotal) AS amount_made, 
-              ROUND(AVG(sale_price)::numeric, 2) AS average_unit_price,
-              products.id AS product_id,
-              ROUND(SUM(price_per_unit * current_amount_left) / SUM(current_amount_left), 2) AS weighted_average 
-           FROM products
-           INNER JOIN order_products ON products.id=order_products.product_id
-           INNER JOIN inventories ON products.id=inventories.product_id
-           #{date_filter_where}
-           GROUP BY product_name, price, products.id
-          ) report    
-          #{where_clause}   
-         ORDER BY #{sortable} #{sort_direction}                      
+          SELECT *
+          FROM (
+                SELECT 
+                     sale_prices.product_id,
+                     products.product_name,
+                     products.price,
+                     sale_prices.amount_sold,
+                     sale_prices.amount_made,
+                     sale_prices.average_unit_price,
+                     sale_prices.weighted_average_sale_price,
+                     weighted_average_sale.weighted_average
+                FROM products
+                INNER JOIN 
+                          (
+                           SELECT  
+                              SUM(quantity) AS amount_sold, 
+                              SUM(subtotal) AS amount_made,
+                              round(AVG(sale_price)::numeric, 2) AS average_unit_price,
+                              product_id,
+                              SUM(sale_price * quantity) / SUM(quantity) AS weighted_average_sale_price
+                           FROM order_products
+                           #{date_filter_where}
+                           GROUP BY product_id
+                          ) sale_prices ON products.id = sale_prices.product_id
+                INNER JOIN 
+                          (
+                           SELECT 
+                             product_id, 
+                             ROUND(SUM(price_per_unit * current_amount_left) / SUM(current_amount_left), 2) AS weighted_average
+                           FROM inventories
+                           GROUP BY product_id
+                          ) weighted_average_sale on products.id = weighted_average_sale.product_id
+                  
+                ) report
+                #{where_clause}
+          ORDER BY #{sortable} #{sort_direction}                      
       """
-
     result = ActiveRecord::Base.connection.execute(sql)
   end
 end
