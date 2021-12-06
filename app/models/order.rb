@@ -58,13 +58,14 @@ end
         
       sql = """
             SELECT * FROM (
-                SELECT product_id,product_name,unit, 
-                SUM(quantity)::numeric(10,2) AS units_sold, 
-                SUM(subtotal)::numeric(12,2) AS total_revenue
+                SELECT product_id, product_name, unit, 
+                SUM(quantity)::numeric(10,2) AS units_sold,
+                SUM(subtotal)::numeric(12,2) AS total_revenue,
+                ((SUM(quantity*sale_price))/(SUM(quantity)))::numeric(10,2) AS sales_price_per_unit
                 FROM order_products
-                INNER JOIN products ON order_products.product_id = products.id
+                LEFT OUTER JOIN products ON order_products.product_id = products.id            
                 #{where_time_period} 
-                GROUP BY product_id,product_name,unit
+                GROUP BY order_products.product_id, product_name, unit  
             ) report
             #{where_statement}            
             ORDER BY #{sortable} #{sort_direction}
@@ -116,14 +117,10 @@ end
     
         sql = """
               SELECT * FROM (
-                  SELECT client_id,name, 
-                  COUNT(grand_total) AS orders_placed, 
-                  SUM(grand_total)::numeric(12,2) AS total_spent, 
-                  AVG(grand_total)::numeric(12,2) AS avg_spent
-                  FROM orders
-                  INNER JOIN clients ON orders.client_id = clients.id
-                  #{where_time_period}
-                  GROUP BY client_id,name
+                  SELECT product_name, order_id, quantity, sale_price, subtotal, CAST(order_products.created_at AS DATE) AS order_date
+                  from order_products
+                  LEFT OUTER JOIN products ON product_id = products.id
+                  #{where_time_period}                  
               ) report
               #{where_statement}              
               ORDER BY #{sortable} #{sort_direction}

@@ -13,11 +13,11 @@ class Product < ApplicationRecord
                   SELECT products.id, product_name, unit, price,
                   (SUM(purchase_quantity)::numeric(10,2)) AS units_purchased,
                   ((COALESCE(SUM(remaining_quantity),0))::numeric(10,2)) AS inventory,
-                  ((SUM(purchase_subtotal)/SUM(purchase_quantity))::numeric(10,2)) AS weighed_cost 
+                  (((SUM(remaining_quantity*purchase_price))/(SUM(remaining_quantity)))::numeric(10,2)) AS weighed_cost 
               FROM products
                   LEFT OUTER JOIN supply_products 
                   ON products.id = supply_products.product_id
-              GROUP BY products.id, product_name, products.unit, products.price      
+              GROUP BY products.id, product_name, products.unit, products.price     
                 ) report
                 ORDER BY #{sortable} #{sort_direction}
             """

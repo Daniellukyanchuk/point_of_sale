@@ -14,6 +14,19 @@ class ReportsController < ApplicationController
 
     end
 
+    def purchase_report
+        if params[:from_date].blank?
+            params[:from_date] = (Date.today-30).strftime('%m/%d/%Y')
+        end
+
+        if params[:to_date].blank?
+            params[:to_date] = Date.today.strftime('%m/%d/%Y')
+        end           
+
+        @purchase_reports = Supply.purchase_report(params[:search], params[:product_select], params[:from_date], 
+        params[:to_date], params[:sort], params[:direction])
+    end
+
     def client_report
         if params[:from_date].blank?
             params[:from_date] = (Date.today-30).strftime('%m/%d/%Y')

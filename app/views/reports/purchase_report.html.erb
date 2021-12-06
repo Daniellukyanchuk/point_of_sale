@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Sales Report</h1><hr>
+<h1>Purchase Report</h1><hr>
 
 <%= form_tag reports_product_report_path, :method => 'get' do %>
   
@@ -25,46 +25,27 @@
     <tr>
     <th class="align_left"><%= sortable "product_id", "Id" %></th>
     <th class="align_left"><%= sortable "product_name", "Product Name" %></th>
-    <th class="align_right"><%= sortable "units_sold", "Units Sold" %></th>
-    <th class="align_left"><%= sortable "unit", "Unit" %></th>
-    <th class="align_left"><%= sortable "sales_price_per_unit", "Avg PPU" %></th>
-    <th class="align_right"><%= sortable "total_revenue", "Total Revenue" %></th>
+    <th class="align_right"><%= sortable "current_inventory", "Units in Stock" %></th>
+    <th><%= sortable "unit", "Unit" %></th>
+    <th class="align_right"><%= sortable "cost_per_unit", "Cost per Unit" %></th>
+    <th class="align_right"><%= sortable "current_inventory_value", "Inventory Value" %></th>
     <th colspan="5"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @product_reports.each do |p_report| %> 
+    <% @purchase_reports.each do |p_report| %> 
       <tr>     
         <td><%= p_report["product_id"] %></td>
         <td><%= p_report["product_name"] %></td>
-        <td class="align_right"><%= p_report["units_sold"] %></td>
+        <td class="align_right"><%= p_report["current_inventory"] %></td>
         <td><%= p_report["unit"] %></td>
-        <td class="align_right"><%= p_report["sales_price_per_unit"] %></td>
-        <td class="align_right"><%= p_report["total_revenue"] %></td>
+        <td class="align_right"><%= p_report["cost_per_unit"] %></td>
+        <td class="align_right"><%= p_report["current_inventory_value"] %></td>
         </tr>
       <% end %>
   </tbody>
 </table>
-<hr><br>
-
-
-<%= form_tag order_products_path, :method => 'get' do %>
-
-<h2>Order History</h2>
- <tbody>
-    <% @order_products.each do |s_record| %> 
-      <tr>     
-        <td><%= s_record["client_id"] %></td>
-        <td><%= s_record["product_name"] %></td>
-        <td class="align_right"><%= s_record["quantity"] %></td>
-        <td><%= s_record["unit"] %></td>
-        <td class="align_right"><%= s_record["sale_price"] %></td>
-        <td class="align_right"><%= s_record["subtotal"] %></td>
-        </tr>
-      <% end %>
-  </tbody>
-<% end %>
 
 <script type="text/javascript">
 
