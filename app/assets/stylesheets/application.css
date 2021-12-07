@@ -42,4 +42,8 @@
   color: white;
 }
 
+.field {
+    display: inline-block;
+}
+
 

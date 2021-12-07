@@ -11,18 +11,13 @@
     </div>
   <% end %>
 
-  <%= form.collection_select :product_id, Product.all, :id, :product_name %>
+  <%= form.collection_select :supplier_id, Supplier.all, :id, :suppliers_name %>
  
   <%= form.fields_for :purchase_products do |builder| %>
       <%= render 'purchase_product_fields', form: builder %>
   <% end %>
 
   <%= link_to_add_fields "Add Product", form, :purchase_products %>
-
-  <div class="field">
-    <%= form.label :supplier_id %>
-    <%= form.number_field :supplier_id %>
-  </div>
 
   <div class="field">
     <%= form.label :date_of_the_order %>
