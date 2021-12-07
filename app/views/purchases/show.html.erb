@@ -5,19 +5,9 @@
   <%= @purchase.supplier_id %>
 </p>
 
-<p>
-  <strong>Date of the order:</strong>
-  <%= @purchase.date_of_the_order %>
-</p>
 
-<p>
-  <strong>Expected date of delivery:</strong>
-  <%= @purchase.expected_date_of_delivery %>
-</p>
 
 <% @purchase.purchase_products.each do |pp| %>
-
-
   <hr>
   <p>
     <strong>Estimated Quantity:</strong>
@@ -43,6 +33,16 @@
 <p>
   <strong>Actual total:</strong>
   <%= number_to_currency(@purchase.actual_total) %>
+</p>
+
+<p>
+  <strong>Date of the order:</strong>
+  <%= @purchase.date_of_the_order %>
+</p>
+
+<p>
+  <strong>Expected date of delivery:</strong>
+  <%= @purchase.expected_date_of_delivery %>
 </p>
 
 <%= link_to 'Edit', edit_purchase_path(@purchase) %> |
