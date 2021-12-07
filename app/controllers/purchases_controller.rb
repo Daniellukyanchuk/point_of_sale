@@ -1,9 +1,10 @@
 class PurchasesController < ApplicationController
   before_action :set_purchase, only: %i[ show edit update destroy ]
+  helper_method :sort_column, :sort_direction
 
   # GET /purchases or /purchases.json
   def index
-    @purchases = Purchase.all
+    @purchases = Purchase.search(params[:search]).order(sort_column + " " + sort_direction)
   end
 
   # GET /purchases/1 or /purchases/1.json
@@ -59,6 +60,14 @@ class PurchasesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def sort_column
+      Purchase.column_names.include?(params[:sort]) ? params[:sort] : "name"
+    end
+  
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+    end
+
     def set_purchase
       @purchase = Purchase.find(params[:id])
     end

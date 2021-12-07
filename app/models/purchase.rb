@@ -5,6 +5,14 @@ class Purchase < ApplicationRecord
 	before_save :set_actual_total
 	before_save :set_estimated_total
 
+	def self.search(search)
+      if !search.blank?
+        return Purchase.where("supplier_id = ?", search.to_i)    
+      else
+        Purchase.all
+      end
+    end
+
 	def set_actual_total
       self.actual_total = 0
       purchase_products.each do |pp|
