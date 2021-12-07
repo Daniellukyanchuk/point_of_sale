@@ -3,7 +3,7 @@ class SuppliersController < ApplicationController
 
   # GET /suppliers or /suppliers.json
   def index
-    @suppliers = Supplier.all
+    @suppliers = Supplier.search(params[:search])
   end
 
   # GET /suppliers/1 or /suppliers/1.json
