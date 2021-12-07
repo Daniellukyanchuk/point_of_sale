@@ -20,6 +20,7 @@ class Order < ApplicationRecord
              OR clients.id = #{search.to_i})"
       where_statements.push(tmp)
     end
+
     if !client_select.blank?
       ids = []
       client_select.each do |cs|
@@ -28,6 +29,7 @@ class Order < ApplicationRecord
       tmp = "clients.id in (#{SqlHelper.escape_sql_param(ids)})"
       where_statements.push(tmp)
     end 
+
     if !start_date.blank? && !end_date.blank?
       where_statements.push("(CAST(orders.created_at AS DATE) >= #{SqlHelper.escape_sql_param(start_date.to_date)} AND CAST(orders.created_at AS DATE) <= #{SqlHelper.escape_sql_param(end_date.to_date)})")
     end
@@ -40,22 +42,29 @@ class Order < ApplicationRecord
     if !["client_id", "clients_name", "total_money_spent", "number_of_orders"].include?(sortable)
       sortable = "client_id"  
     end
+
     if sort_direction == "desc"
       "desc"       
     else
       sort_direction = "asc"
     end
     
-    search_text_where = "clients_name ILIKE '%#{search_text}%' OR total_money_spent = #{search_text.to_d} OR client_id = #{search_text.to_i} OR number_of_orders = #{search_text.to_i}"
+    search_text_where = "clients_name ILIKE '%#{search_text}%' 
+                         OR total_money_spent = #{search_text.to_d} 
+                         OR client_id = #{search_text.to_i} 
+                         OR number_of_orders = #{search_text.to_i}"
     if search_text.blank?
       search_text_where = ""
     end
+
     if client_ids.blank? || client_ids == [""]
       client_id_where = ""
     else
       client_id_where = "client_id IN (#{client_ids.join(", ")})"
     end
+
     where_clause = WhereBuilder.build([client_id_where, search_text_where])
+
     sql = """
         SELECT *
         FROM (
@@ -74,9 +83,10 @@ class Order < ApplicationRecord
 
     # sortable must be a column in this report
   def self.product_report(search_text, product_ids, start_date, end_date, sortable, sort_direction)
-    if !["product_name", "price", "amount_sold", "amount_made", "average_unit_price"].include?(sortable)
+    if !["product_id", "product_name", "price", "amount_sold", "amount_made", "average_unit_price", "weighted_average_sale_price"].include?(sortable)
       sortable = "product_name"  
     end      
+
     if sort_direction  == "desc"
       "desc"      
     else
@@ -92,6 +102,7 @@ class Order < ApplicationRecord
     if search_text.blank?
       search_text_where = ""
     end
+
     if product_ids.blank? || product_ids == [""]
       product_id_where = ""
     else
@@ -105,6 +116,7 @@ class Order < ApplicationRecord
       date_filter_where = "WHERE CAST(created_at AS DATE) >= #{SqlHelper.escape_sql_param(start_date.to_date)} 
                            AND CAST(created_at AS DATE) <= #{SqlHelper.escape_sql_param(end_date.to_date)}"
     end  
+
     where_clause = WhereBuilder.build([product_id_where, search_text_where])
     
 

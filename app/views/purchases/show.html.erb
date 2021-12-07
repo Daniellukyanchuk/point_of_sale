@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Supplier:</strong>
+  <%= @purchase.supplier_id %>
+</p>
+
+<p>
+  <strong>Date of the order:</strong>
+  <%= @purchase.date_of_the_order %>
+</p>
+
+<p>
+  <strong>Expected date of delivery:</strong>
+  <%= @purchase.expected_date_of_delivery %>
+</p>
+
+<% @purchase.purchase_products.each do |pp| %>
+
+
+  <hr>
+  <p>
+    <strong>Estimated Quantity:</strong>
+    <%= pp.estimated_quantity %>
+  </p>
+
+  <p>
+    <strong>Estimated Price Per Unit:</strong>
+    <%= number_to_currency(pp.estimated_price_per_unit) %>
+  </p>
+
+  <p>
+    <strong>Estimated Subtotal:</strong>
+    <%= number_to_currency(pp.estimated_subtotal) %>
+  </p>
+<% end %>
+
+<p>
+  <strong>Estimated total:</strong>
+  <%= @purchase.estimated_total %>
+</p>
+
+<p>
+  <strong>Actual total:</strong>
+  <%= number_to_currency(@purchase.actual_total) %>
+</p>
+
+<%= link_to 'Edit', edit_purchase_path(@purchase) %> |
+<%= link_to 'Back', purchases_path %>

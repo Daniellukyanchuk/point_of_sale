@@ -1,0 +1,42 @@
+<div class="nested-fields">
+    <%= form.hidden_field :_destroy %>
+    <h2>Add Product</h2>
+
+    <div class="field">
+        <%= form.collection_select :product_id, Product.all, :id, :product_name, {}, {class: "product-picker"} %>
+    </div>
+  
+    <div class="field">
+      <%= form.label :estimated_quantity %>
+      <%= form.number_field :estimated_quantity %>
+    </div>
+
+    <div class="field">
+      <%= form.label :actual_quantity %>
+      <%= form.number_field :actual_quantity %>
+    </div>
+
+    <div class="field">
+      <%= form.label :estimated_price_per_unit %>
+      <%= form.number_field :estimated_price_per_unit, class: "sale-price-field" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :actual_price_per_unit %>
+      <%= form.number_field :actual_price_per_unit, class: "sale-price-field" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :estimated_subtotal %>
+      <%= form.number_field :estimated_subtotal %>
+    </div>
+
+    <div class="field">
+      <%= form.label :actual_subtotal %>
+      <%= form.number_field :actual_subtotal %>
+    </div>
+    
+    <div>
+      <%= link_to "Remove", '#', class: "remove_fields" %>
+    </div>
+  </div>

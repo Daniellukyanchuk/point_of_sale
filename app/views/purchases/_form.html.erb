@@ -1,0 +1,50 @@
+<%= form_with(model: purchase, local: true) do |form| %>
+  <% if purchase.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(purchase.errors.count, "error") %> prohibited this purchase from being saved:</h2>
+
+      <ul>
+      <% purchase.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.collection_select :product_id, Product.all, :id, :product_name %>
+ 
+  <%= form.fields_for :purchase_products do |builder| %>
+      <%= render 'purchase_products_fields', form: builder %>
+  <% end %>
+
+  <%= link_to_add_fields "Add Product", form, :purchase_products %>
+
+  <div class="field">
+    <%= form.label :supplier_id %>
+    <%= form.number_field :supplier_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date_of_the_order %>
+    <%= form.date_select :date_of_the_order %>
+  </div>
+
+  <div class="field">
+    <%= form.label :expected_date_of_delivery %>
+    <%= form.date_select :expected_date_of_delivery %>
+  </div>
+
+  <div class="field">
+    <%= form.label :estimated_total %>
+    <%= form.text_field :estimated_total %>
+  </div>
+
+  <div class="field">
+    <%= form.label :actual_total %>
+    <%= form.text_field :actual_total %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

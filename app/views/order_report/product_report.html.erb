@@ -28,6 +28,7 @@
 <table>  
   <thead>
     <tr>
+      <th><%= sortable "product_id", "PRODUCT ID" %></th>
       <th><%= sortable "product_name", "NAME" %></th>
       <th><%= sortable "price", "PRICE" %></th>
       <th><%= sortable "amount_sold", "UNIT SOLD" %></th>
@@ -35,13 +36,14 @@
       <th><%= sortable "average_unit_price", "AVERAGE UNIT PRICE" %></th>
       <th><%= sortable "weighted_average", "COST PER UNIT" %></th>
       <th><%= sortable "weighted_average_sale_price", "SALE PRICE" %></th>
-      <th colspan="6"></th>
+      <th colspan="8"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @product_report.each do |product| %>
      <tr>
+       <td><%= product["product_id"] %></td>
        <td><%= product["product_name"] %></td>
        <td><%= product["price"] %></td>
        <td><%= product["amount_sold"] %></td>
@@ -59,4 +61,3 @@
   no_results_text: "Oops, nothing found!"
   })
 </script>
-<%= link_to 'Back', orders_path %>
