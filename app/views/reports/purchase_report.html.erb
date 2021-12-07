@@ -2,7 +2,7 @@
 
 <h1>Purchase Report</h1><hr>
 
-<%= form_tag reports_product_report_path, :method => 'get' do %>
+<%= form_tag reports_purchase_report_path, :method => 'get' do %>
   
   <%= text_field_tag :search, params[:search] %> 
   AND
@@ -27,7 +27,7 @@
     <th class="align_left"><%= sortable "product_name", "Product Name" %></th>
     <th class="align_right"><%= sortable "current_inventory", "Units in Stock" %></th>
     <th><%= sortable "unit", "Unit" %></th>
-    <th class="align_right"><%= sortable "cost_per_unit", "Cost per Unit" %></th>
+    <th class="align_right"><%= sortable "cost_per_unit", "Weighted CPU" %></th>
     <th class="align_right"><%= sortable "current_inventory_value", "Inventory Value" %></th>
     <th colspan="5"></th>
     </tr>
@@ -44,6 +44,49 @@
         <td class="align_right"><%= p_report["current_inventory_value"] %></td>
         </tr>
       <% end %>
+  </tbody>
+</table>
+
+<hr><br>
+
+
+<h2>Purchase History <small>(itemized by product)</small></h2>
+<table>
+  <thead>
+    <tr>
+    <th><%= sortable "supply_id", "Purchase Id" %></th>
+    <th><%= sortable "supplier_name", "Supplier (id)" %></th>
+    <th class="align_left"><%= sortable "product_name", "Product Name" %></th>
+    <th class="align_right"><%= sortable "estimated_quantity", "Estimated Quantity" %></th>
+    <th><%= sortable "estimated_cost", "Estimated CPU" %></th>
+    <th><%= sortable "estimated_subtotal", "Estimated Subtotal" %></th>
+    <th class="align_right"><%= sortable "actual_quantity", "Actual Quantity" %></th>
+    <th><%= sortable "actual_cost", "Actual CPU" %></th>
+    <th><%= sortable "actual_subtotal", "Actual Subtotal" %></th>
+    <th class="align_right"><%= sortable "date_ordered", "Order placed" %></th>
+    <th class="align_right"><%= sortable "date_expected", "Expected delivery" %></th>
+    <th class="align_right"><%= sortable "date_received", "Order received" %></th>
+    <th colspan="5"></th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <% @purchase_records.each do |pr| %> 
+      <tr>  
+        <td><%= pr["supply_id"] %></td>   
+        <td><%= pr["supplier_name"] %> (<%= pr["supplier_id"] %>)</td>
+        <td><%= pr["product_name"] %></td>
+        <td class="align_right"><%= pr["estimated_quantity"] %><%= pr["unit"] %></td>
+        <td class="align_right"><%= pr["estimated_cost"] %></td>
+        <td class="align_right"><%= pr["estimated_subtotal"] %></td>
+        <td class="align_right"><%= pr["actual_quantity"] %><%= pr["unit"] %></td>
+        <td class="align_right"><%= pr["actual_cost"] %></td>
+        <td class="align_right"><%= pr["actual_subtotal"] %></td>
+        <th class="align_right"><%= pr["date_ordered"].to_date.strftime("%d %b %Y") %></td>
+        <th class="align_right"><%= pr["date_expected"].to_date.strftime("%d %b %Y") %></td>
+        <th class="align_right"><%= pr["date_received"].to_date.strftime("%d %b %Y") %></td>
+        </tr>
+    <% end %>
   </tbody>
 </table>
 

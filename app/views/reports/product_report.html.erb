@@ -20,6 +20,7 @@
 <% end %>
 
 <br>
+<h2> Sales Summary </h2>
 <table>
   <thead>
     <tr>
@@ -27,7 +28,7 @@
     <th class="align_left"><%= sortable "product_name", "Product Name" %></th>
     <th class="align_right"><%= sortable "units_sold", "Units Sold" %></th>
     <th class="align_left"><%= sortable "unit", "Unit" %></th>
-    <th class="align_left"><%= sortable "sales_price_per_unit", "Avg PPU" %></th>
+    <th class="align_left"><%= sortable "sales_price_per_unit", "Weighted PPU" %></th>
     <th class="align_right"><%= sortable "total_revenue", "Total Revenue" %></th>
     <th colspan="5"></th>
     </tr>
@@ -49,22 +50,39 @@
 <hr><br>
 
 
-<%= form_tag order_products_path, :method => 'get' do %>
-
-<h2>Order History</h2>
- <tbody>
-    <% @order_products.each do |s_record| %> 
-      <tr>     
-        <td><%= s_record["client_id"] %></td>
-        <td><%= s_record["product_name"] %></td>
-        <td class="align_right"><%= s_record["quantity"] %></td>
-        <td><%= s_record["unit"] %></td>
-        <td class="align_right"><%= s_record["sale_price"] %></td>
-        <td class="align_right"><%= s_record["subtotal"] %></td>
+<h2>Order History <small>(itemized by product)</small></h2>
+<table>
+  <thead>
+    <tr>
+    <th><%= sortable "order_id", "Order Id" %></th>
+    <th><%= sortable "client_name", "Client (id)" %></th>
+    <th class="align_left"><%= sortable "product_name", "Product Name" %></th>
+    <th class="align_right"><%= sortable "quantity", "Quantity" %></th>
+    <th><%= sortable "unit", "Unit" %></th>
+    <th><%= sortable "sales_price", "Sale Price" %></th>
+    <th><%= sortable "subtotal", "Total" %></th>
+    <th class="align_right"><%= sortable "order_date", "Order Date" %></th>
+    <th colspan="5"></th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <% @sales_records.each do |op| %> 
+      <tr>  
+        <td><%= op["order_id"] %></td>   
+        <td><%= op["client_name"] %> (<%= op["client_id"] %>)</td>
+        <td><%= op["product_name"] %></td>
+        <td class="align_right"><%= op["quantity"] %></td>
+        <td><%= op["unit"] %></td>
+        <td class="align_right"><%= op["sale_price"] %></td>
+        <td class="align_right"><%= op["subtotal"] %></td>
+        <th class="align_right"><%= op["order_date"].to_date.strftime("%d %b %Y") %></td>
         </tr>
-      <% end %>
+    <% end %>
   </tbody>
-<% end %>
+</table>
+  
+
 
 <script type="text/javascript">
 

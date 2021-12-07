@@ -6,12 +6,14 @@ class ReportsController < ApplicationController
             params[:from_date] = (Date.today-30).strftime('%m/%d/%Y')
         end
         if params[:to_date].blank?
-            params[:to_date] = Date.today.strftime('%m/%d/%Y')
+            params[:to_date] = (Date.today+2).strftime('%m/%d/%Y')
         end           
 
         @product_reports = Order.product_report(params[:search], params[:product_select], params[:from_date], 
         params[:to_date], params[:sort], params[:direction])
 
+        @sales_records = Order.sales_record(params[:search], params[:product_select], params[:from_date], 
+        params[:to_date], params[:sort], params[:direction])
     end
 
     def purchase_report
@@ -20,11 +22,15 @@ class ReportsController < ApplicationController
         end
 
         if params[:to_date].blank?
-            params[:to_date] = Date.today.strftime('%m/%d/%Y')
+            params[:to_date] = (Date.today+2).strftime('%m/%d/%Y')
         end           
 
         @purchase_reports = Supply.purchase_report(params[:search], params[:product_select], params[:from_date], 
         params[:to_date], params[:sort], params[:direction])
+
+        @purchase_records = Supply.purchase_record(params[:search], params[:product_select], params[:from_date], 
+        params[:to_date], params[:sort], params[:direction])
+        
     end
 
     def client_report
@@ -32,7 +38,7 @@ class ReportsController < ApplicationController
             params[:from_date] = (Date.today-30).strftime('%m/%d/%Y')
         end
         if params[:to_date].blank?
-            params[:to_date] = Date.today.strftime('%m/%d/%Y')
+            params[:to_date] = (Date.today+2).strftime('%m/%d/%Y')
         end
 
         @client_reports = Order.client_report(params[:search], params[:client_select], params[:from_date], 

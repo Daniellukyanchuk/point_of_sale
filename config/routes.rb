@@ -13,6 +13,6 @@ Rails.application.routes.draw do
   resources :product_reports
   resources :clients
   resources :client_reports  
-  resources :product_inventories
+  
   
 end

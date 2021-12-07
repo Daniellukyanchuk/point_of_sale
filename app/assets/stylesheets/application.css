@@ -104,9 +104,6 @@ a.red {
     color: #ac3040;
 }
 
-
-
-
 a.remove_fields{
 background-color: red;
 padding: 1px 4px;
@@ -138,3 +135,6 @@ select {
     font-weight: 600;
 }
 
+th {
+    padding-right:  4px;
+}
