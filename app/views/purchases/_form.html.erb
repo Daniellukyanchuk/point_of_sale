@@ -25,11 +25,6 @@
   </div>
 
   <div class="field">
-    <%= form.label :expected_date_of_delivery %>
-    <%= form.date_select :expected_date_of_delivery %>
-  </div>
-
-  <div class="field">
     <%= form.label :estimated_total %>
     <%= form.text_field :estimated_total %>
   </div>
@@ -39,7 +34,18 @@
     <%= form.text_field :actual_total %>
   </div>
 
+  <div class="field">
+    <%= form.label :expected_date_of_delivery %>
+    <%= form.date_select :expected_date_of_delivery %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
+
+  <form action="/html/tags/html_form_tag_action.cfm" method="post">
+  <textarea name="comments" id="comments" style="width:20%;height:90px;background-color:lightgrey;color:slategrey;border:groove;padding:2%;font:22px/30px sans-serif;">
+  </textarea>
+  <input type="submit" value="Submit">
+  </form>
 <% end %>
