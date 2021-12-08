@@ -13,9 +13,9 @@ class Purchase < ApplicationRecord
     where_statements = []
 
     if !search.blank?
-      tmp = "(supplier_name ILIKE '%#{search}%' 
+      tmp = "(suppliers_name ILIKE '%#{search}%' 
                OR supplier_id = #{search.to_i} OR estimated_total = #{search.to_d} 
-               OR actual_total = #{search.to_d}"
+               OR actual_total = #{search.to_d})"
       
       where_statements.push(tmp)
     end

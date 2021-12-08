@@ -1,6 +1,7 @@
 class Inventory < ApplicationRecord
   belongs_to :product
   before_save :set_costs
+  has_many :purchase_products
 
   def self.search(search, product_select, start_date, end_date)
     # my_hash = {a: "yo", b: "man"}
