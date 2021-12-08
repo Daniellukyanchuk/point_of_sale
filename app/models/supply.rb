@@ -143,8 +143,6 @@ end
             ORDER BY #{sortable} #{sort_direction}
       """
 
-      result = ActiveRecord::Base.connection.execute(sql)      
-        
+      result = ActiveRecord::Base.connection.execute(sql)        
     end
-
 end

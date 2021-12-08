@@ -7,26 +7,40 @@
       <%= form.label "select product" %>
           <%= form.collection_select :product_id, Product.all, :id, :product_name %>
       </div>
-    
+      <br>
+
       <div class="field">
-        <%= form.label "quantity" %>
+        <%= form.label "Estimated quantity" %>
+        <%= form.number_field :estimated_quantity, id: 'estimated_quantity' %>
+      </div>
+      <div class="field">
+        <%= form.label 'Estimated cost' %>
+        <%= form.number_field :estimated_cost, id: 'estimated_cost' %>
+      </div>   
+      <div class="field">
+        <%= form.label "Estimated subtotal" %>
+        <%= form.number_field :estimated_subtotal, id: 'estimated_subtotal', :class => "greyed_out", :readonly => true  %>
+      </div><br>
+
+      <div class="field">
+        <%= form.label "Actual quantity" %>
         <%= form.number_field :purchase_quantity, id: 'purchase_quantity' %>
       </div>
+      <div class="field">
+        <%= form.label "Actual cost" %>
+        <%= form.number_field :purchase_price, id: 'purchase_price' %>
+      </div>
+      <div class="field">
+        <%= form.label "Actual Subtotal" %>
+        <%= form.number_field :purchase_subtotal, id: 'purchase_subtotal', :class => "greyed_out", :readonly => true  %>
+      </div><br>
 
       <div class="field">
         <%= form.label "remaining_quantity" %>
         <%= form.number_field :remaining_quantity, id: 'remaining_quantity', :class => "greyed_out", :readonly => true  %>
       </div>
 
-      <div class="field">
-        <%= form.label :purchase_price %>
-        <%= form.number_field :purchase_price, id: 'purchase_price' %>
-      </div>
 
-      <div class="field">
-        <%= form.label "Subtotal" %>
-        <%= form.number_field :purchase_subtotal, id: 'purchase_subtotal', :class => "greyed_out", :readonly => true  %>
-      </div>
       <div class="field">
         <%= link_to "Remove", "#", class: "remove_fields" %>
       </div>

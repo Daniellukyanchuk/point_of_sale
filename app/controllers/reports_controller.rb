@@ -30,7 +30,6 @@ class ReportsController < ApplicationController
 
         @purchase_records = Supply.purchase_record(params[:search], params[:product_select], params[:from_date], 
         params[:to_date], params[:sort], params[:direction])
-        
     end
 
     def client_report

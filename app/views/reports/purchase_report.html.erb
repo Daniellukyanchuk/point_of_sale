@@ -20,6 +20,7 @@
 <% end %>
 
 <br>
+<h2> Purchase Summary </h2>
 <table>
   <thead>
     <tr>
@@ -54,37 +55,39 @@
 <table>
   <thead>
     <tr>
-    <th><%= sortable "supply_id", "Purchase Id" %></th>
-    <th><%= sortable "supplier_name", "Supplier (id)" %></th>
-    <th class="align_left"><%= sortable "product_name", "Product Name" %></th>
-    <th class="align_right"><%= sortable "estimated_quantity", "Estimated Quantity" %></th>
+    <th><%= sortable "purchase_order_id", "P.O." %></th>
+    <th><%= sortable "supplier_name", "Supplier" %></th>
+    <th><%= sortable "product_name", "Product Name" %></th>
+    <th><%= sortable "estimated_quantity", "Estimated Quantity" %></th>
     <th><%= sortable "estimated_cost", "Estimated CPU" %></th>
     <th><%= sortable "estimated_subtotal", "Estimated Subtotal" %></th>
-    <th class="align_right"><%= sortable "actual_quantity", "Actual Quantity" %></th>
+    <th><%= sortable "actual_quantity", "Actual Quantity" %></th>
     <th><%= sortable "actual_cost", "Actual CPU" %></th>
     <th><%= sortable "actual_subtotal", "Actual Subtotal" %></th>
-    <th class="align_right"><%= sortable "date_ordered", "Order placed" %></th>
-    <th class="align_right"><%= sortable "date_expected", "Expected delivery" %></th>
-    <th class="align_right"><%= sortable "date_received", "Order received" %></th>
+    <th><%= sortable "date_ordered", "Order placed" %></th>
+    <th><%= sortable "date_expected", "Expected delivery" %></th>
+    <th><%= sortable "date_received", "Order received" %></th>
     <th colspan="5"></th>
     </tr>
   </thead>
-  
   <tbody>
     <% @purchase_records.each do |pr| %> 
       <tr>  
-        <td><%= pr["supply_id"] %></td>   
-        <td><%= pr["supplier_name"] %> (<%= pr["supplier_id"] %>)</td>
+        <td><%= pr["purchase_order_id"] %></td>   
+        <td><%= pr["supplier_name"] %> </td>
         <td><%= pr["product_name"] %></td>
         <td class="align_right"><%= pr["estimated_quantity"] %><%= pr["unit"] %></td>
         <td class="align_right"><%= pr["estimated_cost"] %></td>
         <td class="align_right"><%= pr["estimated_subtotal"] %></td>
         <td class="align_right"><%= pr["actual_quantity"] %><%= pr["unit"] %></td>
         <td class="align_right"><%= pr["actual_cost"] %></td>
-        <td class="align_right"><%= pr["actual_subtotal"] %></td>
-        <th class="align_right"><%= pr["date_ordered"].to_date.strftime("%d %b %Y") %></td>
-        <th class="align_right"><%= pr["date_expected"].to_date.strftime("%d %b %Y") %></td>
-        <th class="align_right"><%= pr["date_received"].to_date.strftime("%d %b %Y") %></td>
+        <td class="align_right"><%= pr["actual_subtotal"] %></td> 
+        <td class="align_right"><%= if pr["date_ordered"].blank? then pr["date_ordered"] = "n/e" end %></td>
+        <td class="align_right"><%= if pr["date_expected"].blank? then pr["date_expecte"] = "n/e" end %></td>
+        <td class="align_right"><%= if pr["date_received"].blank? then pr["date_received"] = "n/e" end %></td>
+        <td><div><%= link_to 'Go to P.O.', edit_supply_path(pr["purchase_order_id"]), class: "blue button" %></div></td>
+
+        
         </tr>
     <% end %>
   </tbody>

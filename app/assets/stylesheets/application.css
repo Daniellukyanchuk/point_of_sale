@@ -40,7 +40,7 @@ tr:nth-child(even) {
 
 input.greyed_out
 {
-    background-color: #b7b7b7;
+    background-color: #f3f3f3;
 }
 
 a.add_fields, a.button, input[type="submit"] {
@@ -53,6 +53,13 @@ border-radius: 5px;
 border: 1px solid;
 display: inline-block;
 position: relative;
+word-wrap: normal;
+}
+
+a.blue:hover {
+    background-color: white;
+    color: #067aff;
+    border: 1px solid #067aff;
 }
 
 a.nav_button {
@@ -108,7 +115,7 @@ a.remove_fields{
 background-color: red;
 padding: 1px 4px;
 color: #fff;
-margin-bottom: 20px;
+margin-bottom: 0px;
 text-decoration: none;
 border-radius: 5px;
 border: 1px solid red;
@@ -121,7 +128,6 @@ color: red;
 }
 
 .field, .inline
-
 {
     display: inline-block;
 }
@@ -137,4 +143,10 @@ select {
 
 th {
     padding-right:  4px;
+    padding-bottom: 5px;
+}
+
+td {
+  padding: 3px 4px;
+  line-height:  18px;
 }

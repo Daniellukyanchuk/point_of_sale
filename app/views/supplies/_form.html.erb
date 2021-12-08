@@ -25,17 +25,84 @@
         <div class="inline"> 
             <%= link_to_add_fields "Add Product", form, :supply_products %>
         </div><br>
+
+        <div class="field">
+          <%= form.label :estimated_total %>
+          <%= form.text_field :estimated_total, :class => "greyed_out", :readonly => true %>
+        </div>
        
         <div class="field">
           <%= form.label :purchase_total %>
           <%= form.text_field :purchase_total, :class => "greyed_out", :readonly => true %>
         </div>
 
+        <div class="field">
+        <label for="date_ordered">Ordered on</label>
+        <input type="text" class="datepicker" id="date_ordered" name="date_ordered" 
+              autocomplete = 'off' value = "<%= params[:date_ordered] %>"></div>
+
+        <div class="field">      
+        <label for="date_ordered">Expected Arrival</label>
+        <input type="text" class="datepicker" id="date_expected" name="date_expected" 
+              autocomplete = 'off' value = "<%= params[:date_expected] %>"></div>
+
+        <div class="field">
+        <label for="date_ordered">Received on</label>
+        <input type="text" class="datepicker" id="date_received" name="date_received" 
+              autocomplete = 'off' value = "<%= params[:date_received] %>"></div>
+<% stop %>
+
   <div> 
-    <%= form.submit 'Add to Inventory' %>
+    <%= form.submit 'Submit Purchase Order' %>
   </div>
 
   
 <% end %>
 
+<script type="text/javascript">
 
+$( function() {
+      var dateFormat = "mm/dd/yy",
+      //first time picker//
+            ordered = $( "#date_ordered" ).datepicker({
+            changeMonth: true,
+            numberOfMonths: 1
+          })
+          .on( "change", function() {
+            ordered.datepicker( "option", getDate( this ) );
+          }),
+      //second date picker
+            expected = $( "#date_expected" ).datepicker({
+              changeMonth: true,
+              numberOfMonths: 1
+            })
+            .on( "change", function() {
+              expected.datepicker( "option", getDate( this ) );
+            });
+      //third date picker
+            received = $( "#date_received" ).datepicker({
+                changeMonth: true,
+                numberOfMonths: 1
+              })
+              .on( "change", function() {
+                received.datepicker( "option", getDate( this ) );
+              });
+  
+      function getDate( element ) {
+        var date;
+        try {
+          date = $.datepicker.parseDate( dateFormat, element.value );
+        } catch( error ) {
+          date = null;
+        }
+  
+        return date;
+      }
+    } );
+
+
+$(".chosen-select").chosen({
+  no_results_text: "Oops, nothing found!"
+})
+
+</script>
