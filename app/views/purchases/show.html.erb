@@ -6,10 +6,13 @@
 </p>
 
 
-
 <% @purchase.purchase_products.each do |pp| %>
   <hr>
-
+  <p>
+    <strong>Products Name:</strong>
+    <a href="/inventories/<%= pp.product_id  %>/edit" ><%= pp.product.product_name %></a>
+  <p>
+  
   <p>
     <strong>Estimated Quantity:</strong>
     <%= pp.estimated_quantity %>
