@@ -10,4 +10,8 @@ class PurchaseProduct < ApplicationRecord
   def set_actual_subtotal
   	self.actual_subtotal = actual_quantity * actual_price_per_unit
   end
+
+  def display_text
+    "#{product_id}. #{purchase.expected_date_of_delivery}"
+  end
 end

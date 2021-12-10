@@ -28,7 +28,7 @@
 <table>
   <thead>
     <tr>
-      <th><%= sortable "product_id", "ID" %></th>
+      <th><%= sortable "id", "ID" %></th>
       <th><%= sortable "product_name", "PRODUCTS NAME" %></th>
       <th><%= sortable "date", "DATE" %></th>
       <th><%= sortable "amount", "AMOUNT PURCHASED" %></th>
@@ -44,7 +44,7 @@
   <tbody>
     <% @inventories.each do |inventory| %>
       <tr>
-        <td type="button"><%= inventory.product_id %></td>
+        <td type="button"><%= inventory.id %></td>
         <td><a href="/products/<%= inventory.product.id  %>/edit" ><%= inventory.product.product_name %></a></td>
         <td><%= inventory.date.strftime("%d-%m-%Y") %></td>
         <td><%= inventory.amount %></td>

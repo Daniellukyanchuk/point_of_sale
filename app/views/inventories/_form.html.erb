@@ -37,6 +37,11 @@
     <%= form.text_field :costs %>
   </div>
 
+  <div class="field">
+    <%= form.label :purchase_product_id %>
+    <%= form.collection_select(:purchase_product_id, PurchaseProduct.all, :purchase_id, :display_text, prompt: true) %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
