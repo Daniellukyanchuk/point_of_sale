@@ -30,11 +30,11 @@
     <tr class="active">
       <th><%= sortable "purchase.id", "PurchaseId" %></th>
       <th><%= sortable "supplier_id", "SUPPLIER ID" %></th>
-      <th><%= sortable "suppliers_name", "SUPPLIER NAME" %></th>
-      <th><%= sortable "date_of_the_order", "ORDER DATE" %></th>
-      <th><%= sortable "expected_date_of_delivery", "DELIVERY DATE" %></th>
+      <th><%= sortable "suppliers_name", "SUPPLIER NAME" %></th>     
       <th><%= sortable "estimated_total", "ESTIMATED TOTAL" %></th>
       <th><%= sortable "actual_total", "ACTUAL TOTAL" %></th>
+      <th><%= sortable "date_of_the_order", "ORDER DATE" %></th>
+      <th><%= sortable "expected_date_of_delivery", "DELIVERY DATE" %></th>
       <th colspan="6"></th>
     </tr>
   </thead>
@@ -45,10 +45,10 @@
         <td><%= purchase.id %></td>
         <td><%= purchase.supplier_id %></td>
         <td><%= purchase.supplier.suppliers_name %></td>
-        <td><%= purchase.date_of_the_order %></td>
-        <td><%= purchase.expected_date_of_delivery %></td>
         <td>&#8381 <%= purchase.estimated_total %></td>
         <td>&#8381 <%= purchase.actual_total %></td>
+        <td><%= purchase.date_of_the_order %></td>
+        <td><%= purchase.expected_date_of_delivery %></td>
         <td><%= link_to 'Show', purchase %></td>
         <td><%= link_to 'Edit', edit_purchase_path(purchase) %></td>
         <td><%= link_to 'Destroy', purchase, method: :delete, data: { confirm: 'Are you sure?' } %></td>

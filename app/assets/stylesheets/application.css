@@ -57,7 +57,7 @@
   border-bottom: 1px solid #ddd;
 }
 
-.hoverTable tr:hover:not(.active){background-color: yellow;}
+.hoverTable tr:hover:not(.active){background-color: lightgrey;}
 
 
 

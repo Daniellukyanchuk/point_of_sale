@@ -42,6 +42,10 @@
     <%= form.collection_select(:purchase_product_id, PurchaseProduct.all, :purchase_id, :display_text, prompt: true) %>
   </div>
 
+   
+  <a href="/purchases/<%= inventory.purchase_product.purchase_id %>/edit" >Purchases: <%= inventory.purchase_product.purchase_id %></a>
+    
+
   <div class="actions">
     <%= form.submit %>
   </div>
