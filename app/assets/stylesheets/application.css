@@ -50,6 +50,7 @@
 
 .hoverTable{
   width:100%; 
+  text-align: left;
   border-collapse:collapse; 
 }
 .hoverTable td{ 
@@ -61,7 +62,7 @@
 }
   /* Define the hover highlight color for the table row */
 .hoverTable tr:hover {
-   background-color: lightblue;
+   background-color: #ffa;
 }
 
 

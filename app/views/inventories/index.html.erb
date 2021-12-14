@@ -48,8 +48,8 @@
         <td><a href="/products/<%= inventory.product.id  %>/edit" ><%= inventory.product.product_name %></a></td>
         <td><%= inventory.date.strftime("%d-%m-%Y") %></td>
         <td><%= inventory.amount %></td>
-        <td><%= inventory.price_per_unit %></td>
-        <td><%= inventory.costs %></td>
+        <td>&#8381 <%= inventory.price_per_unit %></td>
+        <td>&#8381 <%= inventory.costs %></td>
         <td><%= inventory.current_amount_left %></td>
         <td><a href="/purchases/<%= inventory.purchase_product.purchase.id %>/edit" ><%= inventory.purchase_product_id %></a></td>
         <td><%= link_to 'Show', inventory %></td>
