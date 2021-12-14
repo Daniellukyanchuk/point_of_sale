@@ -46,23 +46,19 @@
     display: inline-block;
 }
 
-
-
 .hoverTable{
-  width:100%; 
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.hoverTable th, td{
+  padding: 8px;
   text-align: left;
-  border-collapse:collapse; 
+  border-bottom: 1px solid #ddd;
 }
-.hoverTable td{ 
-  padding:7px; border:#4e95f4 1px solid;
-}
-  /* Define the default color for all the table rows */
-.hoverTable tr{
-  background: #b8d1f3;
-}
-  /* Define the hover highlight color for the table row */
-.hoverTable tr:hover {
-   background-color: #ffa;
-}
+
+.hoverTable tr:hover:not(.active){background-color: yellow;}
+
+
 
 

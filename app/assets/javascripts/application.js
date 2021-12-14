@@ -39,17 +39,6 @@ jQuery(function() {
 
 });
 
-
-$(function() {
-  $("tr:odd").css("background-color", "rgba(224,224,224)");
-});
-
-$(function() {
-  $("td").parents("tbody").css("background-color", "white");
-});
-
-
-
 $(function() {
   var inputFields = $("input:text, textarea");
   inputFields.focus(function() {
