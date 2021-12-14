@@ -45,7 +45,7 @@ $(function() {
 });
 
 $(function() {
-  $("td").parents("tbody").css("background-color", "rgba(180, 180, 30, 0.8)");
+  $("td").parents("tbody").css("background-color", "white");
 });
 
 
@@ -60,6 +60,9 @@ $(function() {
     $(this).css("box-shadow", "none");
   });
 });
+
+  
+
 
 
 

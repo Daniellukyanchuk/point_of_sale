@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get 'order_report/product_report'
   resources :orders
 
+  get '/tests', to: 'tests#index'
+
   get '/products/price', to: 'products#get_price'
   resources :products
 

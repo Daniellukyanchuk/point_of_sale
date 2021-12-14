@@ -3,6 +3,7 @@ class PurchaseProduct < ApplicationRecord
   has_many :inventories
   belongs_to :product
 
+
   def set_estimated_subtotal
     self.estimated_subtotal = estimated_quantity * estimated_price_per_unit
   end
@@ -11,7 +12,15 @@ class PurchaseProduct < ApplicationRecord
   	self.actual_subtotal = actual_quantity * actual_price_per_unit
   end
 
+  def self.clean_orphans
+    PurchaseProduct.all.each do |pp|
+      if pp.purchase.nil?
+        pp.destroy
+      end
+    end
+  end
+
   def display_text
-    "#{product_id}. #{purchase.expected_date_of_delivery}"
+    return "#{product_id} - #{product.product_name} - #{purchase.supplier.suppliers_name} - #{purchase.expected_date_of_delivery}"
   end
 end

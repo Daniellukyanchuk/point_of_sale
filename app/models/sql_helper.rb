@@ -6,4 +6,5 @@ class SqlHelper
   def self.p(sql)
   	sql.tr("\n", " ").tr("\t", " ")
   end
+
 end

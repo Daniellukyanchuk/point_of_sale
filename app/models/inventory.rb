@@ -1,7 +1,10 @@
 class Inventory < ApplicationRecord
   belongs_to :product
   before_save :set_costs
-  belongs_to :purchase_product
+  belongs_to :purchase_product, optional: true
+  # belongs_to :purchase, through: :purchase_product
+
+  
 
   def self.search(search, product_select, start_date, end_date)
     # my_hash = {a: "yo", b: "man"}

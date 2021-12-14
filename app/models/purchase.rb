@@ -1,9 +1,11 @@
 class Purchase < ApplicationRecord
-	has_many :purchase_products
+  # dependent: :delete_all allows me to delete orphans that purchase_products would have if I deleted purchase.
+ 	has_many :purchase_products, dependent: :delete_all
 	belongs_to :supplier
 	accepts_nested_attributes_for :purchase_products, allow_destroy: true
 	before_save :set_actual_total
 	before_save :set_estimated_total
+  # has_many :invnetories, through: :purchase_products
 
 	 def self.search(search, supplier_select, start_date, end_date)
     # my_hash = {a: "yo", b: "man"}

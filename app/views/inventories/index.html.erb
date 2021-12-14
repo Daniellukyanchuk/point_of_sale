@@ -25,7 +25,7 @@
     } );
 </script>
 
-<table>
+<table id="waypointsTable" border="1">
   <thead>
     <tr>
       <th><%= sortable "id", "ID" %></th>
@@ -44,45 +44,21 @@
   <tbody>
     <% @inventories.each do |inventory| %>
       <tr>
-        <td type="button"><%= inventory.id %></td>
+        <td><%= inventory.id %></td>
         <td><a href="/products/<%= inventory.product.id  %>/edit" ><%= inventory.product.product_name %></a></td>
         <td><%= inventory.date.strftime("%d-%m-%Y") %></td>
         <td><%= inventory.amount %></td>
         <td><%= inventory.price_per_unit %></td>
         <td><%= inventory.costs %></td>
         <td><%= inventory.current_amount_left %></td>
-        <td><%= inventory.purchase_product_id %></td>
+        <td><a href="/purchases/<%= inventory.purchase_product.purchase.id %>/edit" ><%= inventory.purchase_product_id %></a></td>
         <td><%= link_to 'Show', inventory %></td>
         <td><%= link_to 'Edit', edit_inventory_path(inventory) %></td>
         <td><%= link_to 'Destroy', inventory, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
-</table>
-
-<!-- <script type="text/javascript">
-  $('td').click(function() {
-    window.location.href = '/purchases';
-    return false;
-  });
-</script>
- -->
-
-<button onclick="myFunction()">Click me to read more</button>
-<script>
-    function myFunction() {
-      window.location.href = '/purchases';
-    }
-</script>
-
-<script type="text/javascript">
-  $("td").mouseenter(function() {
-    $(this).stop().fadeTo(200, 0.7);
-  });
-  $("td").mouseleave(function() {
-    $(this).stop().fadeTo(200, 1);
-  });
-</script>
+</table>  
 
 <br>
 

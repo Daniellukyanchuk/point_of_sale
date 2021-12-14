@@ -25,9 +25,10 @@
     } );
 </script>  
 
-<table>
+<table id="waypointsTable" border="1">
   <thead>
     <tr>
+      <th><%= sortable "purchase.id", "PurchaseId" %></th>
       <th><%= sortable "supplier_id", "SUPPLIER ID" %></th>
       <th><%= sortable "suppliers_name", "SUPPLIER NAME" %></th>
       <th><%= sortable "date_of_the_order", "ORDER DATE" %></th>
@@ -41,6 +42,7 @@
   <tbody>
     <% @purchases.each do |purchase| %>
       <tr>
+        <td><%= purchase.id %></td>
         <td><%= purchase.supplier_id %></td>
         <td><%= purchase.supplier.suppliers_name %></td>
         <td><%= purchase.date_of_the_order %></td>
