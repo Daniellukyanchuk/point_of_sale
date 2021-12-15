@@ -52,16 +52,17 @@
 
   <script type="text/javascript">
     $('.est_subtotal').change(function() {
-  var eSubtotal = $(this).parents('.nested-fields').find('.est_subtotal').val();
-  $(this).parents().find('.est_total').val(eSubtotal)
-  });
+    var eSubtotal = $(this).parents('.nested-fields').find('.est_subtotal').val();
+    $(this).parents().find('.est_total').val(eSubtotal)
+    });
 
-    $('.est_quantity, .est_price').keyup(function(){
+   $('.est_quantity, .est_price').keyup(function(){
     var eQuantity = $(this).parents('.nested-fields').find('.est_quantity').val();
     var ePrice = $(this).parents('.nested-fields').find('.est_price').val();
     var cmpSubtotal = eQuantity * ePrice;
-    $(this).parents('.nested-fields').find('.est_subtotal').val(cmpSubtotal);    
+    $(this).parents('.nested-fields').find('.est_subtotal').val(cmpSubtotal).trigger('change');    
     });
+
     
     $('.act_quantity, .act_price').keyup(function(){
     var eQuantity = $(this).parents('.nested-fields').find('.act_quantity').val();
@@ -72,7 +73,6 @@
 
   
 </script>
-
 
 
   
