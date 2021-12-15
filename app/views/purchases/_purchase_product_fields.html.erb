@@ -8,38 +8,39 @@
   
     <div class="field">
       <%= form.label :estimated_quantity %>
-      <%= form.number_field :estimated_quantity %>
+      <%= form.number_field :estimated_quantity, class: "est_quantity" %>
     </div>
 
     <div class="field">
       <%= form.label :actual_quantity %>
-      <%= form.number_field :actual_quantity %>
+      <%= form.number_field :actual_quantity, class: "act_quantity" %>
     </div>
 
     <div class="field">
       <%= form.label :estimated_price_per_unit %>
-      <%= form.number_field :estimated_price_per_unit, class: "sale-price-field" %>
+      <%= form.number_field :estimated_price_per_unit, class: "sale-price-field est_price" %>
     </div>
 
     <div class="field">
       <%= form.label :actual_price_per_unit %>
-      <%= form.number_field :actual_price_per_unit, class: "sale-price-field" %>
+      <%= form.number_field :actual_price_per_unit, class: "sale-price-field act_price" %>
     </div>
 
     <div class="field">
       <%= form.label :estimated_subtotal %>
-      <%= form.number_field :estimated_subtotal %>
+      <%= form.number_field :estimated_subtotal, class: "est_subtotal" %>
     </div>
 
     <div class="field">
       <%= form.label :actual_subtotal %>
-      <%= form.number_field :actual_subtotal %>
+      <%= form.number_field :actual_subtotal, class: "act_subtotal" %>
     </div>
 
     <% form.object.inventories.each do |inv| %>
       <a href="/inventories/<%= inv.id %>/edit" >Inventory: <%= inv.id %></a>
     <% end %>
-    
+
+  
     <div>
       <%= link_to "Remove", '#', class: "remove_fields" %>
     </div>

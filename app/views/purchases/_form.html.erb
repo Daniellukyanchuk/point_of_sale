@@ -26,7 +26,7 @@
 
   <div class="field">
     <%= form.label :estimated_total %>
-    <%= form.text_field :estimated_total %>
+    <%= form.text_field :estimated_total, class: "est_total" %>
   </div>
 
   <div class="field">
@@ -48,5 +48,32 @@
     </textarea>
   </form>
 </script>
+
+
+  <script type="text/javascript">
+    $('.est_subtotal').change(function() {
+  var eSubtotal = $(this).parents('.nested-fields').find('.est_subtotal').val();
+  $(this).parents().find('.est_total').val(eSubtotal)
+  });
+
+    $('.est_quantity, .est_price').keyup(function(){
+    var eQuantity = $(this).parents('.nested-fields').find('.est_quantity').val();
+    var ePrice = $(this).parents('.nested-fields').find('.est_price').val();
+    var cmpSubtotal = eQuantity * ePrice;
+    $(this).parents('.nested-fields').find('.est_subtotal').val(cmpSubtotal);    
+    });
+    
+    $('.act_quantity, .act_price').keyup(function(){
+    var eQuantity = $(this).parents('.nested-fields').find('.act_quantity').val();
+    var ePrice = $(this).parents('.nested-fields').find('.act_price').val();
+    var cmpSubtotal = eQuantity * ePrice;
+    $(this).parents('.nested-fields').find('.act_subtotal').val(cmpSubtotal);    
+    });
+
+  
+</script>
+
+
+
   
 <% end %>
