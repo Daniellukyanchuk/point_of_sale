@@ -43,8 +43,10 @@
   </div>
 
   <% if !inventory.purchase_product.blank? %>
-    <a href="/purchases/<%= inventory.purchase_product.purchase_id %>/edit" >Purchases: <%= inventory.purchase_product.purchase_id %></a>
+    <button type="button"><a href="/purchases/<%= inventory.purchase_product.purchase_id %>/edit" >Purchases: <%= inventory.purchase_product.purchase_id %></a></button>
   <% end %>
+
+  
     
 
   <div class="actions">
