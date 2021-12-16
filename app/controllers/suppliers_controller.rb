@@ -1,9 +1,10 @@
 class SuppliersController < ApplicationController
   before_action :set_supplier, only: %i[ show edit update destroy ]
+  helper_method :sort_column, :sort_direction
 
   # GET /suppliers or /suppliers.json
   def index
-    @suppliers = Supplier.search(params[:search])
+    @suppliers = Supplier.search(params[:search]).order(sort_column + " " + sort_direction)
   end
 
   # GET /suppliers/1 or /suppliers/1.json
@@ -58,6 +59,15 @@ class SuppliersController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+   
+    def sort_column
+      Supplier.column_names.include?(params[:sort]) ? params[:sort] : "suppliers_name"
+    end
+  
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+    end
+
     def set_supplier
       @supplier = Supplier.find(params[:id])
     end
