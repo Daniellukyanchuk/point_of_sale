@@ -31,7 +31,7 @@
 
   <div class="field">
     <%= form.label :actual_total %>
-    <%= form.text_field :actual_total %>
+    <%= form.text_field :actual_total, class: "act_total" %>
   </div>
 
   <div class="field">
@@ -50,30 +50,43 @@
 </script>
 
 
-  <script type="text/javascript">
-    $('.est_subtotal').change(function() {
-    var eSubtotal = $(this).parents('.nested-fields').find('.est_subtotal').val();
-    $(this).parents().find('.est_total').val(eSubtotal)
+<script type="text/javascript">
+
+    $(document).on('change', '.est_subtotal', function() {
+     
+        var sum = 0
+        $('.est_subtotal').each(function() {
+          sum += parseFloat($(this).val());
+        });
+     
+      $('.est_total').val(sum)
     });
 
-   $('.est_quantity, .est_price').keyup(function(){
-    var eQuantity = $(this).parents('.nested-fields').find('.est_quantity').val();
-    var ePrice = $(this).parents('.nested-fields').find('.est_price').val();
-    var cmpSubtotal = eQuantity * ePrice;
-    $(this).parents('.nested-fields').find('.est_subtotal').val(cmpSubtotal).trigger('change');    
+    $(document.body).on('change', '.act_subtotal', function() {
+
+      
+        var total = 0
+        $('.act_subtotal').each(function() {
+          total += parseFloat($(this).val());
+        });
+      
+      $('.act_total').val(total)
     });
 
-    
-    $('.act_quantity, .act_price').keyup(function(){
-    var eQuantity = $(this).parents('.nested-fields').find('.act_quantity').val();
-    var ePrice = $(this).parents('.nested-fields').find('.act_price').val();
-    var cmpSubtotal = eQuantity * ePrice;
-    $(this).parents('.nested-fields').find('.act_subtotal').val(cmpSubtotal);    
+    $(document.body).on('keyup', '.est_quantity, .est_price' ,function(){
+      var eQuantity = $(this).parents('.nested-fields').find('.est_quantity').val();
+      var ePrice = $(this).parents('.nested-fields').find('.est_price').val();
+      var cmpSubtotal = eQuantity * ePrice;
+      $(this).parents('.nested-fields').find('.est_subtotal').val(cmpSubtotal).trigger('change');    
     });
 
-  
-</script>
 
+    $(document.body).on('keyup', '.act_quantity, .act_price', function(){
+    var aQuantity = $(this).parents('.nested-fields').find('.act_quantity').val();
+    var aPrice = $(this).parents('.nested-fields').find('.act_price').val();
+    var cmpSubtotal = aQuantity * aPrice;
+    $(this).parents('.nested-fields').find('.act_subtotal').val(cmpSubtotal).trigger('change');    
+    });  
+</script> 
 
-  
 <% end %>

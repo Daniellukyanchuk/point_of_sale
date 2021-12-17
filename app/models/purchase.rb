@@ -5,7 +5,7 @@ class Purchase < ApplicationRecord
 	accepts_nested_attributes_for :purchase_products, allow_destroy: true
 	before_save :set_actual_total
 	before_save :set_estimated_total
-  # has_many :invnetories, through: :purchase_products
+  # has_many :inventories, through: :purchase_products
 
 	 def self.search(search, supplier_select, start_date, end_date)
     # my_hash = {a: "yo", b: "man"}
