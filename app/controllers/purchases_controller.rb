@@ -27,6 +27,12 @@ class PurchasesController < ApplicationController
   def edit
   end
 
+  def get_estimated_quantity
+    purchase_id = params[:id]
+    @purchase_row = PurchaseProduct.find(purchase_id.to_i)
+    render json: {estimated_quantity: @purchase_row.estimated_quantity}
+  end
+
   # POST /purchases or /purchases.json
   def create
     @purchase = Purchase.new(purchase_params)

@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :purchases
   resources :suppliers
   resources :my_models
   resources :inventories
@@ -8,16 +7,15 @@ Rails.application.routes.draw do
   resources :orders
 
   get '/tests', to: 'tests#index'
-
   get '/products/price', to: 'products#get_price'
   resources :products
 
+  get '/purchases/estimated_quantity', to: 'purchases#get_estimated_quantity'
+  
+  resources :purchases
   resources :clients
-
   root to: 'orders#index'
-
   root to: 'purchases#index'
-
   root to: 'products#index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

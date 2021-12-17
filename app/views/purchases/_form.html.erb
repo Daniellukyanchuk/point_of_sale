@@ -49,11 +49,8 @@
   </form>
 </script>
 
-
 <script type="text/javascript">
-
-    $(document).on('change', '.est_subtotal', function() {
-     
+    $(document).on('change', '.est_subtotal', function() {     
         var sum = 0
         $('.est_subtotal').each(function() {
           sum += parseFloat($(this).val());
@@ -63,8 +60,6 @@
     });
 
     $(document.body).on('change', '.act_subtotal', function() {
-
-      
         var total = 0
         $('.act_subtotal').each(function() {
           total += parseFloat($(this).val());
@@ -80,7 +75,6 @@
       $(this).parents('.nested-fields').find('.est_subtotal').val(cmpSubtotal).trigger('change');    
     });
 
-
     $(document.body).on('keyup', '.act_quantity, .act_price', function(){
     var aQuantity = $(this).parents('.nested-fields').find('.act_quantity').val();
     var aPrice = $(this).parents('.nested-fields').find('.act_price').val();
@@ -88,5 +82,4 @@
     $(this).parents('.nested-fields').find('.act_subtotal').val(cmpSubtotal).trigger('change');    
     });  
 </script> 
-
 <% end %>

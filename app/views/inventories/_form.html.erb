@@ -12,9 +12,13 @@
   <% end %>
 
   <div class="field">
+    <%= form.label :purchase_product %>
+    <%= form.collection_select(:purchase_product_id, PurchaseProduct.all, :purchase_id, :display_text, {}, {class: "purchase-picker"}) %>
+  </div>
+
+  <div class="field">
     <%= form.label :product_id %>
     <%= form.collection_select :product_id, Product.all, :id, :product_name %>
-  
   </div>
 
   <div class="field">
@@ -24,7 +28,7 @@
 
   <div class="field">
     <%= form.label :amount %>
-    <%= form.number_field :amount %>
+    <%= form.number_field :amount, class: "quantity" %>
   </div>
 
   <div class="field">
@@ -37,19 +41,29 @@
     <%= form.text_field :costs %>
   </div>
 
-  <div class="field">
-    <%= form.label :purchase_product_id %>
-    <%= form.collection_select(:purchase_product_id, PurchaseProduct.all, :purchase_id, :display_text, prompt: true) %>
-  </div>
-
   <% if !inventory.purchase_product.blank? %>
     <button type="button"><a href="/purchases/<%= inventory.purchase_product.purchase_id %>/edit" >Purchases: <%= inventory.purchase_product.purchase_id %></a></button>
   <% end %>
 
-  
-    
-
   <div class="actions">
     <%= form.submit %>
   </div>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      function updateSelectedPurchase(){
+        var jquery_purchase_picker = $(this);
+        $.ajax({ 
+            url: "/purchases/estimated_quantity",
+            data: { id: $(this).val()  },
+            type: "GET",
+            success: function(data){
+                jquery_purchase_picker.find('.quantity').val(data['estimated_quantity']);
+            }
+        });
+      }
+      $(document).on('change', '.purchase-picker', updateSelectedPurchase);
+      $(".purchase-picker").each(updateSelectedPurchase);
+    });
+</script>
 <% end %>
