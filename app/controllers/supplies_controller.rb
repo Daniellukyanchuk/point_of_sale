@@ -66,9 +66,9 @@ class SuppliesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def supply_params
-      params.require(:supply).permit(:supplier_id, :purchase_total,
+      params.require(:supply).permit(:supplier_id, :purchase_total, :estimated_total, :date_ordered, :date_expected, :date_received,
       suppliers_attributes: [:id, :supplier_name, :address, :phone],
-      supply_products_attributes: [:id, :product_id, :supply_id, :purchase_price, :purchase_quantity, :purchase_subtotal, :_destroy],
+      supply_products_attributes: [:id, :product_id, :supply_id, :estimated_cost, :estimated_quantity, :estimated_subtotal, :purchase_price, :purchase_quantity, :purchase_subtotal, :_destroy],
       products_attributes: [:id, :unit, :price, :product_name])
     end
 

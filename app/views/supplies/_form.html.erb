@@ -1,4 +1,4 @@
-<%= form_with(model: supply, id: "new-supply",  local: true) do |form| %>
+<%= form_with(model: supply, id: "new_supply", class: "purchase-order-form",  local: true) do |form| %>
   <% if supply.errors.any? %>
   <div id="error_explanation">
     <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
@@ -22,56 +22,95 @@
           <%= render 'supply_product_fields', form: builder %>
         <% end %>      
 
-        <div class="inline"> 
+        <div class="pad-bottom"> 
             <%= link_to_add_fields "Add Product", form, :supply_products %>
-        </div><br>
+        </div>
 
         <div class="field">
           <%= form.label :estimated_total %>
-          <%= form.text_field :estimated_total, :class => "greyed_out", :readonly => true %>
+          <%= form.text_field :estimated_total, class: "estimated_total greyed_out", :readonly => true %>
         </div>
        
         <div class="field">
           <%= form.label :purchase_total %>
-          <%= form.text_field :purchase_total, :class => "greyed_out", :readonly => true %>
+          <%= form.text_field :purchase_total, class: "greyed_out", :readonly => true %>
         </div>
 
         <div class="field">
         <label for="date_ordered">Ordered on</label>
-        <input type="text" class="datepicker" id="date_ordered" name="date_ordered" 
-              autocomplete = 'off' value = "<%= params[:date_ordered] %>"></div>
+        <input type="text" class="datepicker" id="date_ordered" name="supply[date_ordered]" 
+              autocomplete = 'off' value = "<%= supply.date_ordered.strftime("%m-%d-%Y") unless supply.date_ordered.blank? %>"></div>
 
         <div class="field">      
-        <label for="date_ordered">Expected Arrival</label>
-        <input type="text" class="datepicker" id="date_expected" name="date_expected" 
-              autocomplete = 'off' value = "<%= params[:date_expected] %>"></div>
+        <label for="date_expected">Expected Arrival</label>
+        <input type="text" class="datepicker" id="date_expected" name="supply[date_expected]" 
+              autocomplete = 'off' value = "<%= supply.date_expected.strftime("%m-%d-%Y") unless supply.date_expected.blank? %>"></div>
 
         <div class="field">
-        <label for="date_ordered">Received on</label>
-        <input type="text" class="datepicker" id="date_received" name="date_received" 
-              autocomplete = 'off' value = "<%= params[:date_received] %>"></div>
-<% stop %>
+        <label for="date_received">Received on</label>
+        <input type="text" class="datepicker" id="date_received" name="supply[date_received]" 
+              autocomplete = 'off' value = "<%= supply.date_received.strftime("%m-%d-%Y") unless supply.date_received.blank? %>"></div>
+
 
   <div> 
     <%= form.submit 'Submit Purchase Order' %>
   </div>
-
+<br><br>
   
 <% end %>
 
+
+ 
+
+
 <script type="text/javascript">
 
-$( function() {
+//////////////////  SUBTOTAL AUTO-CALC  /////////////////////
+
+    
+
+        $(document.body).on("change", ".est_cost, .est_qt", function() {
+
+          var estimatedCost = parseFloat($(this).parents(".nested-fields").find(".est_cost").val());
+          var estimatedQt = parseFloat($(this).parents(".nested-fields").find(".est_qt").val());
+          var estimatedSubtotal = (estimatedQt || 0) * (estimatedCost || 0);
+          $(this).parents(".nested-fields").find(".estimated_subtotal").val(estimatedSubtotal);
+          
+          var estTotal = 0
+          $(".estimated_subtotal").each(function() {
+              estTotal += parseFloat($(this.value));
+
+        });
+
+      
+        $(document.body).on("change", ".act_cost, .act_qt", function() {
+          var actualQt = $(this).parents(".nested-fields").find(".act_qt").val();
+          var actualCost = $(this).parents(".nested-fields").find(".act_cost").val();
+          var actualSubtotal = (actualQt || 0) * (actualCost || 0);
+          $(this).parents(".nested-fields").find(".actual_subtotal").val(actualSubtotal)
+        });
+
+        
+        
+
+
+
+  
+
+//////////////////  DATE PICKER  ///////////////////// 
+
+$(function() {
       var dateFormat = "mm/dd/yy",
       //first time picker//
             ordered = $( "#date_ordered" ).datepicker({
-            changeMonth: true,
-            numberOfMonths: 1
-          })
-          .on( "change", function() {
+              changeMonth: true, 
+              numberOfMonths: 1})
+            .on( "change", function() {
             ordered.datepicker( "option", getDate( this ) );
           }),
+
       //second date picker
+
             expected = $( "#date_expected" ).datepicker({
               changeMonth: true,
               numberOfMonths: 1
@@ -79,7 +118,9 @@ $( function() {
             .on( "change", function() {
               expected.datepicker( "option", getDate( this ) );
             });
+
       //third date picker
+
             received = $( "#date_received" ).datepicker({
                 changeMonth: true,
                 numberOfMonths: 1
@@ -93,12 +134,12 @@ $( function() {
         try {
           date = $.datepicker.parseDate( dateFormat, element.value );
         } catch( error ) {
-          date = null;
+          //date = null;
         }
   
         return date;
       }
-    } );
+  } );
 
 
 $(".chosen-select").chosen({
@@ -106,3 +147,5 @@ $(".chosen-select").chosen({
 })
 
 </script>
+
+

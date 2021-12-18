@@ -3,17 +3,45 @@ class Supply < ApplicationRecord
     has_many :product_reports
     belongs_to :supplier
     accepts_nested_attributes_for :supply_products, allow_destroy: true
+    before_save :set_estimated_total
     before_save :set_purchase_total
+    before_validation :parse_dates
+    
 
+    def parse_dates
+        if !date_ordered.blank?
+        self.date_ordered =  Date.strptime(self.date_ordered.to_s, "%Y-%d-%m")
+        end
+        if !date_expected.blank?
+        self.date_expected =  Date.strptime(self.date_expected.to_s, "%Y-%d-%m")
+        end
+        if !date_received.blank?
+        self.date_received =  Date.strptime(self.date_received.to_s, "%Y-%d-%m")
+        end
+    end
+
+    def set_estimated_total
+
+        self.estimated_total = 0
+        #loop to add up subtotals into estimated total
+        supply_products.each do |sp|
+          sp.set_estimated_subtotal
+          self.estimated_total = self.estimated_total + sp.estimated_subtotal
+        end  
+    end
 
     def set_purchase_total
 
-        self.purchase_total = 0
-        #loop to add up subtotals into purchase total
-        supply_products.each do |sp|
-          sp.set_purchase_subtotal
-          self.purchase_total = self.purchase_total + sp.purchase_subtotal
-        end  
+        if supply_products.any?{|sp| sp.purchase_quantity.blank? || sp.purchase_price.blank?}
+            self.purchase_total = nil        
+        else
+            self.purchase_total = 0
+              #loop to add up subtotals into purchase total
+              supply_products.each do |sp|
+              sp.set_purchase_subtotal
+              self.purchase_total = self.purchase_total + sp.purchase_subtotal
+              end           
+        end 
     end
 
 
