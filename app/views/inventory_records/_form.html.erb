@@ -1,0 +1,89 @@
+<%= form_with(model: inventory_record, local: true) do |form| %>
+  <% if inventory_record.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(inventory_record.errors.count, "error") %> prohibited this inventory_record from being saved:</h2>
+
+      <ul>
+      <% inventory_record.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<h2>Add to Inventory</h2><hr>
+    
+        <div class="field">
+          <%= form.label "Choose Source" %>
+          <%= form.collection_select :supply_product_id, SupplyProduct.all, :id, :created_at %>
+        </div>
+
+        <div class="field">
+          <%= form.label "Choose Product" %>
+          <%= form.collection_select :product_id, Product.all, :id, :product_name %>
+        </div>
+
+        <div class="field">
+          <%= form.label "Supplier" %>
+          <%= form.text_field :supplier_name, id: "supplier", class: "greyed_out", :readonly => true %>
+        </div>
+
+        <div class="field">
+          <%= form.label "Quantity" %>
+          <%= form.text_field :purchase_quantity, id: "qt_received", class: "greyed_out", :readonly => true %>
+        </div>
+
+        <div class="field">
+          <%= form.label "Supplier" %>
+          <%= form.text_field :unit, id: "unit", class: "greyed_out", :readonly => true %>
+        </div>
+       
+        
+
+        <div class="field">
+        <label for="date_added">Added to Inventory on</label>
+        <input type="text" class="datepicker" id="date_added" name="inventory[date_added]" 
+              autocomplete = 'off' value = "<%= inventory_record.date_added.strftime("%m-%d-%Y") unless inventory_record.date_added.blank? %>"></div>
+
+        
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+
+<script type="text/javascript">
+
+//////////////////  DATE PICKER  ///////////////////// 
+
+$(function() {
+      var dateFormat = "mm/dd/yy",
+      //first time picker//
+            inv_added = $( "#date_added" ).datepicker({
+              changeMonth: true, 
+              numberOfMonths: 1})
+            .on( "change", function() {
+            inv_added.datepicker( "option", getDate( this ) );
+          }),
+
+        
+      function getDate( element ) {
+        var date;
+        try {
+          date = $.datepicker.parseDate( dateFormat, element.value );
+        } catch( error ) {
+          //date = null;
+        }
+  
+        return date;
+      }
+  } );
+
+
+$(".chosen-select").chosen({
+  no_results_text: "Oops, nothing found!"
+})
+
+</script>
+
+

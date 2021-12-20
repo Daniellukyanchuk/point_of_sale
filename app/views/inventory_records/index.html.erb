@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Inventory Records</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @inventory_records.each do |inventory_record| %>
+      <tr>
+        <td><%= link_to 'Show', inventory_record %></td>
+        <td><%= link_to 'Edit', edit_inventory_record_path(inventory_record) %></td>
+        <td><%= link_to 'Destroy', inventory_record, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Inventory Record', new_inventory_record_path %>

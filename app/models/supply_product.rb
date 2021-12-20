@@ -1,9 +1,10 @@
 class SupplyProduct < ApplicationRecord
     belongs_to :supply
+    belongs_to :inventory
     validates :estimated_cost, :estimated_quantity, presence: true
     before_validation :set_estimated_subtotal
     after_validation :set_purchase_subtotal
-    before_create :set_remaining_quantity
+   
 
 
     
@@ -20,14 +21,7 @@ class SupplyProduct < ApplicationRecord
         end
     end
 
-    def set_remaining_quantity
-
-        if purchase_quantity.blank?
-            self.remaining_quantity = nil
-        else
-            self.remaining_quantity = purchase_quantity
-        end
-    end
+    
 
 end
 

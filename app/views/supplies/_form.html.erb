@@ -28,12 +28,12 @@
 
         <div class="field">
           <%= form.label :estimated_total %>
-          <%= form.text_field :estimated_total, class: "estimated_total greyed_out", :readonly => true %>
+          <%= form.text_field :estimated_total, id: "estimated_total", class: "estimated_total greyed_out", :readonly => true %>
         </div>
        
         <div class="field">
           <%= form.label :purchase_total %>
-          <%= form.text_field :purchase_total, class: "greyed_out", :readonly => true %>
+          <%= form.text_field :purchase_total, id: "actual_total", class: "greyed_out", :readonly => true %>
         </div>
 
         <div class="field">
@@ -67,24 +67,31 @@
 
 //////////////////  SUBTOTAL AUTO-CALC  /////////////////////
 
+        $(document).on('change', '.est_cost, .est_qt', function() {
+            var estTotal = 0
+              $(".estimated_subtotal").each(function() {
+                  estTotal += parseFloat($(this).val());
+              $("#estimated_total").val(estTotal);
+          });
+        });      
     
-
         $(document.body).on("change", ".est_cost, .est_qt", function() {
 
               var estimatedCost = parseFloat($(this).parents(".nested-fields").find(".est_cost").val());
               var estimatedQt = parseFloat($(this).parents(".nested-fields").find(".est_qt").val());
               var estimatedSubtotal = (estimatedQt || 0) * (estimatedCost || 0);
 
-              $(this).parents(".nested-fields").find(".estimated_subtotal").val(estimatedSubtotal);   
+              $(this).parents(".nested-fields").find(".estimated_subtotal").val(estimatedSubtotal);                
 
-              var estTotal = 0
-              $(".estimated_subtotal").each(function() {
-                  estTotal = parseFloat(estTotal) + parseFloat($(this.value));
-              $(this).parent(document.body).find("#supply_estimated_total").val(estTotal);
-
-          });
         });
 
+        $(document).on('change', '.act_cost, .act_qt', function() {
+                    var actTotal = 0
+                      $(".actual_subtotal").each(function() {
+                          actTotal += parseFloat($(this).val());
+                      $("#actual_total").val(actTotal);
+                  });
+                });   
       
         $(document.body).on("change", ".act_cost, .act_qt", function() {
           var actualQt = $(this).parents(".nested-fields").find(".act_qt").val();
@@ -94,7 +101,15 @@
         });
 
         
-        
+ // $(document).on('change', '.est_subtotal', function() {
+     
+ //        var sum = 0
+ //        $('.est_subtotal').each(function() {
+ //          sum += parseFloat($(this).val());
+ //        });
+     
+ //      $('.est_total').val(sum)
+ //    });       
 
 
 
