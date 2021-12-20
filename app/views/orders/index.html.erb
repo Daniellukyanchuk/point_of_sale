@@ -5,11 +5,11 @@
   <%= form_tag orders_path, :method => 'get' do %>
     <p>Search for One:
       <%= text_field_tag :search, params[:search], placeholder: "ID, name etc." %>
-    <p>Search for Multiple:
+       Search for Multiple:
       <% options = Client.all.collect{ |u| [u.name, u.id] } %>
         <% options = [["Select All", nil]] + options %>
       <%= select_tag 'client_select[]', options_for_select(options, params[:client_select]), :multiple => :multiple, :class => "chosen-select"%> 
-    <p>From:
+       From:
       <% start_date_value = 1.month.ago.strftime("%d - %m - %Y") %>
       <% end_date_value = Date.today.strftime("%d - %m - %Y") %>
       <%= text_field_tag 'start_date', params[:start_date], :class => "datepicker", :autocomplete => "off" %>

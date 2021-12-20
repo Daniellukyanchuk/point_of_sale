@@ -5,11 +5,11 @@
 <%= form_tag inventories_path, :method => 'get' do %>
   <p>Search for one:
     <%= text_field_tag :search, params[:search], placeholder: "ID, name etc." %>    
-  <p>Search for multiple: 
+     Search for multiple: 
       <% options = Product.all.collect{ |u| [u.product_name, u.id] } %>
         <% options = [["Select All", nil]] + options %>
       <%= select_tag 'product_select[]', options_for_select(options, params[:product_select]), :multiple => :multiple, :class => "chosen-select"%>      
-  <p>From:
+     From:
       <% start_date_value = 1.month.ago.strftime("%d - %m - %Y") %>
       <% end_date_value = Date.today.strftime("%d - %m - %Y") %>
       <%= text_field_tag 'start_date', params[:start_date], :class => "datepicker", :autocomplete => "off" %>
