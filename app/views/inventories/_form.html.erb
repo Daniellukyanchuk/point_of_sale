@@ -33,12 +33,12 @@
 
   <div class="field">
     <%= form.label :price_per_unit %>
-    <%= form.text_field :price_per_unit %>
+    <%= form.text_field :price_per_unit, class: "price_per_unit" %>
   </div>
 
   <div class="field">
     <%= form.label :costs %>
-    <%= form.text_field :costs %>
+    <%= form.text_field :costs, class: "est_subtotal" %>
   </div>
 
   <% if !inventory.purchase_product.blank? %>
@@ -52,18 +52,43 @@
   <script type="text/javascript">
     $(document).ready(function() {
       function updateSelectedPurchase(){
-        var jquery_purchase_picker = $(this);
         $.ajax({ 
             url: "/purchases/estimated_quantity",
             data: { id: $(this).val()  },
             type: "GET",
             success: function(data){
-                jquery_purchase_picker.find('.quantity').val(data['estimated_quantity']);
+                $('.quantity').val(data['estimated_quantity']);
             }
         });
       }
       $(document).on('change', '.purchase-picker', updateSelectedPurchase);
       $(".purchase-picker").each(updateSelectedPurchase);
+    
+      function updateSelectedPurchasePrice(){
+        $.ajax({ 
+            url: "/purchases/estimated_price_per_unit",
+            data: { id: $(this).val()  },
+            type: "GET",
+            success: function(data){
+                $('.price_per_unit').val(data['estimated_price_per_unit']);
+            }
+        });
+      }
+      $(document).on('change', '.purchase-picker', updateSelectedPurchasePrice);
+      $(".purchase-picker").each(updateSelectedPurchasePrice);
+
+      function updateSelectedPurchaseSubtotal(){
+        $.ajax({ 
+            url: "/purchases/estimated_subtotal",
+            data: { id: $(this).val()  },
+            type: "GET",
+            success: function(data){
+                $('.est_subtotal').val(data['estimated_subtotal']);
+            }
+        });
+      }
+      $(document).on('change', '.purchase-picker', updateSelectedPurchaseSubtotal);
+      $(".purchase-picker").each(updateSelectedPurchaseSubtotal);
     });
-</script>
+  </script>
 <% end %>

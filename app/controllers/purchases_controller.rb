@@ -28,9 +28,22 @@ class PurchasesController < ApplicationController
   end
 
   def get_estimated_quantity
+    # sleep(5)
     purchase_id = params[:id]
     @purchase_row = PurchaseProduct.find(purchase_id.to_i)
     render json: {estimated_quantity: @purchase_row.estimated_quantity}
+  end
+
+  def get_estimated_price_per_unit
+    purchase_id = params[:id]
+    @purchases_row = PurchaseProduct.find(purchase_id.to_i)
+    render json: {estimated_price_per_unit: @purchases_row.estimated_price_per_unit}
+  end
+
+  def get_estimated_subtotal
+    purchase_id = params[:id]
+    @purchas_row = PurchaseProduct.find(purchase_id.to_i)
+    render json: {estimated_subtotal: @purchas_row.estimated_subtotal}
   end
 
   # POST /purchases or /purchases.json

@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   resources :products
 
   get '/purchases/estimated_quantity', to: 'purchases#get_estimated_quantity'
-  
+  get '/purchases/estimated_price_per_unit', to: 'purchases#get_estimated_price_per_unit'
+  get '/purchases/estimated_subtotal', to: 'purchases#get_estimated_subtotal'
   resources :purchases
   resources :clients
   root to: 'orders#index'

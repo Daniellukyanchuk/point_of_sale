@@ -23,7 +23,6 @@ class ProductsController < ApplicationController
     product_id = params[:id]
     @product_row = Product.find(product_id.to_i)
     render json: {price: @product_row.price}
-    
   end
 
   # POST /products or /products.json
