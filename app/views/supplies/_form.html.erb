@@ -71,15 +71,18 @@
 
         $(document.body).on("change", ".est_cost, .est_qt", function() {
 
-          var estimatedCost = parseFloat($(this).parents(".nested-fields").find(".est_cost").val());
-          var estimatedQt = parseFloat($(this).parents(".nested-fields").find(".est_qt").val());
-          var estimatedSubtotal = (estimatedQt || 0) * (estimatedCost || 0);
-          $(this).parents(".nested-fields").find(".estimated_subtotal").val(estimatedSubtotal);
-          
-          var estTotal = 0
-          $(".estimated_subtotal").each(function() {
-              estTotal += parseFloat($(this.value));
+              var estimatedCost = parseFloat($(this).parents(".nested-fields").find(".est_cost").val());
+              var estimatedQt = parseFloat($(this).parents(".nested-fields").find(".est_qt").val());
+              var estimatedSubtotal = (estimatedQt || 0) * (estimatedCost || 0);
 
+              $(this).parents(".nested-fields").find(".estimated_subtotal").val(estimatedSubtotal);   
+
+              var estTotal = 0
+              $(".estimated_subtotal").each(function() {
+                  estTotal = parseFloat(estTotal) + parseFloat($(this.value));
+              $(this).parent(document.body).find("#supply_estimated_total").val(estTotal);
+
+          });
         });
 
       
