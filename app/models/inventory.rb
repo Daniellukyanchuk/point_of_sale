@@ -34,7 +34,6 @@ class Inventory < ApplicationRecord
     if !start_date.blank? && !end_date.blank?
       where_statements.push("(CAST(inventories.created_at AS DATE) >= #{SqlHelper.escape_sql_param(start_date.to_date)} AND CAST(inventories.created_at AS DATE) <= #{SqlHelper.escape_sql_param(end_date.to_date)})")
     end
-
     where_clause = where_statements.join(" AND ")
     return Inventory.joins(:product).where(where_clause)
   end

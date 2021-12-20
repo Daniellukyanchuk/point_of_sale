@@ -5,7 +5,6 @@ class Purchase < ApplicationRecord
 	accepts_nested_attributes_for :purchase_products, allow_destroy: true
 	before_save :set_actual_total
 	before_save :set_estimated_total
-  # has_many :inventories, through: :purchase_products
 
 	 def self.search(search, supplier_select, start_date, end_date)
     # my_hash = {a: "yo", b: "man"}
@@ -30,15 +29,13 @@ class Purchase < ApplicationRecord
       tmp = "supplier_id in (#{SqlHelper.escape_sql_param(ids)})"
       where_statements.push(tmp)
     end
-
+    
     if !start_date.blank? && !end_date.blank?
       where_statements.push("(CAST(purchases.created_at AS DATE) >= #{SqlHelper.escape_sql_param(start_date.to_date)} 
                               AND CAST(purchases.created_at AS DATE) <= #{SqlHelper.escape_sql_param(end_date.to_date)})")
     end
-
     where_clause = where_statements.join(" AND ")
     return Purchase.joins(:supplier).where(where_clause)
-
   end
 
 	def set_actual_total
