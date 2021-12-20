@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= form.label :purchase_product %>
-    <%= form.collection_select(:purchase_product_id, PurchaseProduct.all, :purchase_id, :display_text, {}, {class: "purchase-picker"}) %>
+    <%= form.collection_select(:purchase_product_id, PurchaseProduct.all, :id, :display_text, {}, {class: "purchase-picker"}) %>
   </div>
 
   <div class="field">
@@ -52,6 +52,7 @@
   <script type="text/javascript">
     $(document).ready(function() {
       function updateSelectedPurchase(){
+        var jquery_purchase_picker = $(this)
         $.ajax({ 
             url: "/purchases/estimated_quantity",
             data: { id: $(this).val()  },
@@ -63,11 +64,12 @@
       }
       $(document).on('change', '.purchase-picker', updateSelectedPurchase);
       $(".purchase-picker").each(updateSelectedPurchase);
-    
+      
       function updateSelectedPurchasePrice(){
+        var jquery_purchase_price_picker = $(this)
         $.ajax({ 
             url: "/purchases/estimated_price_per_unit",
-            data: { id: $(this).val()  },
+            data: { id: $(this).val() },
             type: "GET",
             success: function(data){
                 $('.price_per_unit').val(data['estimated_price_per_unit']);
@@ -78,6 +80,7 @@
       $(".purchase-picker").each(updateSelectedPurchasePrice);
 
       function updateSelectedPurchaseSubtotal(){
+        var jquery_purchase_subtotal_picker = $(this)
         $.ajax({ 
             url: "/purchases/estimated_subtotal",
             data: { id: $(this).val()  },
