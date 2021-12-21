@@ -1,6 +1,22 @@
 class SuppliesController < ApplicationController
   before_action :set_supply, only: %i[ show edit update destroy ]
 
+
+  def get_product_name
+    @product_name = Supply.where("id = ?", params[supply_products_attributes.id]).first.product_name
+    render json: {price: @price}
+  end
+
+  def get_qt
+    @qt = Supply.where("id = ?", params[:supply_product_id]).first.quantity
+    render json: {qt: @qt}
+  end
+
+  def get_supplier
+    @supplier = Supply.where("id = ?", params[:product_id]).first.supplier
+    render json: {supplier: @supplier}
+  end
+
   # GET /supplies or /supplies.json
   def index
     @supplies = Supply.order(sort_column + " " + sort_direction)

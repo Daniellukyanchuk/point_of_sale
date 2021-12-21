@@ -1,12 +1,15 @@
 class SupplyProduct < ApplicationRecord
     belongs_to :supply
-    belongs_to :inventory
+    belongs_to :inventory_record
+    belongs_to :product
     validates :estimated_cost, :estimated_quantity, presence: true
     before_validation :set_estimated_subtotal
     after_validation :set_purchase_subtotal
    
 
-
+    def p_o_name
+    "P.O.##{id} #{product.product_name} #{created_at.to_date.strftime("%d %b %Y")}"
+    end
     
     def set_estimated_subtotal
         self.estimated_subtotal = self.estimated_quantity * self.estimated_cost

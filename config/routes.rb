@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   get 'reports/purchase_report'
   resources :orders
   get 'products/price', to: 'products#get_price'
+  get 'reports/purchasing_report/actual_quantity', to: 'products#get_price'
+  get 'reports/purchasing_report/product_name', to: 'products#get_price'
+  get 'reports/purchasing_report/supplier_name', to: 'products#get_price'
   resources :products
   resources :order_products
   resources :product_reports

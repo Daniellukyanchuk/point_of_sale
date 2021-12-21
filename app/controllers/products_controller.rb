@@ -6,8 +6,6 @@ class ProductsController < ApplicationController
 
   
 def get_price
-  # @price = Product.find(params[:product_id]).price
-  
   @price = Product.where("id = ?", params[:product_id]).first.price
   render json: {price: @price}
 end
