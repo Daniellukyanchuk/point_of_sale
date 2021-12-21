@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  recipe_product_id: 1
+  recipe_name: MyString
+  cooking_instructions: MyString
+  grand_total: 9.99
+
+two:
+  recipe_product_id: 1
+  recipe_name: MyString
+  cooking_instructions: MyString
+  grand_total: 9.99
