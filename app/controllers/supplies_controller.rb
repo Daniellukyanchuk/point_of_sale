@@ -8,21 +8,20 @@ class SuppliesController < ApplicationController
 #   end
 
 
-  def get_product_name
+  def get_product_info
     supply_product_id = params[:id]
-    @supply_product_data = SupplyProduct.find(supply_product_id.to_i)
-    render json: {product_name: @supply_product_data.product_name}
+    @supply_product_data = SupplyProduct.find(supply_product_id.to_i) 
+    render json: {qt: @supply_product_data.purchase_quantity, cost: @supply_product_data.purchase_price, product_name: @supply_product_data.product.product_name,
+      supplier: @supply_product_data.supply.supplier.supplier_name}
   end
+ 
+# def get_price
+#   @price = Product.where("id = ?", params[:product_id]).first.price
+#   render json: {price: @price}
+# end
 
-  # def get_qt
-  #   @qt = Supply.where("id = ?", params[:supply_product_id]).first.quantity
-  #   render json: {qt: @qt}
-  # end
 
-  # def get_supplier
-  #   @supplier = Supply.where("id = ?", params[:product_id]).first.supplier
-  #   render json: {supplier: @supplier}
-  # end
+
 
   # GET /supplies or /supplies.json
   def index

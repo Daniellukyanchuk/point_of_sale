@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  get 'purchasing_report/product_name', to: 'supplies#get_product_name'
-  get 'purchasing_report/actual_quantity', to: 'supplies#get_qt'
-  get 'purchasing_report/supplier_name', to: 'supplies#get_supplier'
+  get 'inventory_records/supplies/product_name', to: 'supplies#get_product_info'
   resources :inventory_records
   resources :supplies
   resources :supply_products
