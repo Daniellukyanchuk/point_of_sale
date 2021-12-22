@@ -32,6 +32,11 @@
   </div>
 
   <div class="field">
+    <%= form.label :amount_grams %>
+    <%= form.number_field :amount_purchased_in_grams %>
+  </div>
+
+  <div class="field">
     <%= form.label :price_per_unit %>
     <%= form.text_field :price_per_unit, class: "price_per_unit" %>
   </div>
