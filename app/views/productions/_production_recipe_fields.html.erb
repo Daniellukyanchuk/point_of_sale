@@ -1,0 +1,27 @@
+<div class="nested-fields">
+    <%= form.hidden_field :_destroy %>
+    <h2>Add Product</h2>
+
+    <div class="field">
+        <%= form.collection_select :recipe_id, Recipe.all, :id, :recipe_name %>
+    </div>
+  
+  <p>
+    <div class="field">
+      <%= form.label :product_amount %>
+      <%= form.number_field :product_amount %>
+    </div>
+    <div class="field">
+      <%= form.label :recipe_price %>
+      <%= form.number_field :recipe_price %>
+    </div>    
+    <div class="field">
+      <%= form.label :product_subtotal %>
+      <%= form.number_field :product_subtotal %>
+    </div>
+    <div>
+      <%= link_to "Remove", '#', class: "remove_fields" %>
+    </div>
+<hr>
+</div>
+

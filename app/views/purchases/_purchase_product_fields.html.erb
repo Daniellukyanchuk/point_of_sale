@@ -7,30 +7,46 @@
     </div>
   
   <p>
+    <strong>Estimates:</strong>
     <div class="field">
-      <%= form.label :estimated_quantity %>
+      <%= form.label :quantity %>
       <%= form.number_field :estimated_quantity, class: "est_quantity" %>
     </div>
+
     <div class="field">
-      <%= form.label :estimated_price_per_unit %>
+      <%= form.label :quantity_in_grams %>
+      <%= form.number_field :estimated_quantity_in_grams %>
+    </div>
+
+    <div class="field">
+      <%= form.label :price_per_unit %>
       <%= form.number_field :estimated_price_per_unit, class: "sale-price-field est_price" %>
-    </div>    
-     <div class="field">
-      <%= form.label :estimated_subtotal %>
+    </div>  
+
+    <div class="field">
+      <%= form.label :subtotal %>
       <%= form.number_field :estimated_subtotal, class: "est_subtotal" %>
     </div>
  
   <p>
+    <strong>Actuals:</strong>
     <div class="field">
-      <%= form.label :actual_quantity %>
+      <%= form.label :quantity %>
       <%= form.number_field :actual_quantity, class: "act_quantity" %>
     </div>
+
     <div class="field">
-      <%= form.label :actual_price_per_unit %>
+      <%= form.label :quantity_in_grams %>
+      <%= form.number_field :actual_quantity_in_grams %>
+    </div>
+
+    <div class="field">
+      <%= form.label :price_per_unit %>
       <%= form.number_field :actual_price_per_unit, class: "sale-price-field act_price" %>
     </div>
+
     <div class="field">
-      <%= form.label :actual_subtotal %>
+      <%= form.label :subtotal %>
       <%= form.number_field :actual_subtotal, class: "act_subtotal" %>
     </div>
 

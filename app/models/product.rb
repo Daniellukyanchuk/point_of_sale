@@ -4,6 +4,7 @@ class Product < ApplicationRecord
   has_many :clients, through: :orders
   has_many :inventories  
   has_many :purchase_products
+  has_many :recipe_products
 
   def self.search(search)
     if !search.blank?

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_21_082410) do
+ActiveRecord::Schema.define(version: 2021_12_22_082553) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,12 +55,32 @@ ActiveRecord::Schema.define(version: 2021_12_21_082410) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "production_recipes", force: :cascade do |t|
+    t.integer "production_id"
+    t.integer "product_id"
+    t.integer "recipe_id"
+    t.decimal "product_amount"
+    t.decimal "recipe_price"
+    t.decimal "product_subtotal"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "productions", force: :cascade do |t|
+    t.integer "recipe_id"
+    t.string "recipe_name"
+    t.decimal "grand_total"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "product_name"
     t.float "price"
     t.string "unit"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "weight_per_product_unit_grams"
   end
 
   create_table "purchase_products", force: :cascade do |t|
@@ -72,6 +92,8 @@ ActiveRecord::Schema.define(version: 2021_12_21_082410) do
     t.decimal "actual_price_per_unit"
     t.decimal "estimated_subtotal"
     t.decimal "actual_subtotal"
+    t.decimal "estimated_quantity_in_grams"
+    t.decimal "actual_quantity_in_grams"
   end
 
   create_table "purchases", force: :cascade do |t|
@@ -86,9 +108,10 @@ ActiveRecord::Schema.define(version: 2021_12_21_082410) do
 
   create_table "recipe_products", force: :cascade do |t|
     t.integer "recipe_id"
-    t.string "ingredient_name"
-    t.decimal "quantity_amount"
-    t.decimal "ingredient_subtotal"
+    t.integer "product_id"
+    t.decimal "product_amount"
+    t.decimal "product_price"
+    t.decimal "product_subtotal"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

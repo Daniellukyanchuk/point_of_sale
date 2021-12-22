@@ -2,6 +2,7 @@ class Inventory < ApplicationRecord
   belongs_to :product
   before_save :set_costs
   belongs_to :purchase_product, optional: true
+  belongs_to :production_recipe, optional: true
   # belongs_to :purchase, through: :purchase_product
 
   
@@ -40,6 +41,26 @@ class Inventory < ApplicationRecord
 
   def self.current_inventory_for(product_id)
   	return Inventory.where("product_id = ? and current_amount_left > 0", product_id).sum(&:current_amount_left)
+  end
+
+  def self.remove_inventory(product_id, amount)
+    amount_left_to_remove = amount
+    # make a loop of Inventory.where with product_id and current_amount_left. Make so, that it would search for current_amount_left > 0. order by created_at and id.
+
+    Inventory.where("product_id = ? and current_amount_left > 0", product_id).order(:created_at, :id).each do |inv|              
+    # Do a break if == 0.
+      break if amount_left_to_remove == 0
+
+      # inv.current_amount_left, amount_left_remove
+      # Get the minimum of current_amount_left and amount_left_to_remove and set it equal to amount_to_remove.
+      amount_to_remove = [inv.current_amount_left, amount_left_to_remove].min
+      # Subtract amount_to_remove from current_amount_left and set it equal to current_amount_left. 
+      inv.current_amount_left = inv.current_amount_left - amount_to_remove
+      # Do save and set it equal to whatever.
+      res = inv.save      
+      # Subtract amount_to_remove from amount_left_to_remove and set it equal to amount_left_to_remove.
+      amount_left_to_remove = amount_left_to_remove - amount_to_remove
+    end 
   end
 
   def set_costs  	
