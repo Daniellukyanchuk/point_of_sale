@@ -14,7 +14,7 @@ class PurchaseProduct < ApplicationRecord
   end
 
   def set_grams_per_unit
-    self.estimated_quantity_in_grams = estimated_quantity * estimated_quantity_in_grams
+    self.estimated_quantity_in_grams = estimated_quantity * Product.unit_in_grams
   end
 
   def self.clean_orphans
