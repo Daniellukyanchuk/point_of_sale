@@ -1,21 +1,28 @@
 class SuppliesController < ApplicationController
   before_action :set_supply, only: %i[ show edit update destroy ]
 
+# def get_estimated_quantity
+#     purchase_id = params[:id]
+#     @purchase_row = PurchaseProduct.find(purchase_id.to_i)
+#     render json: {estimated_quantity: @purchase_row.estimated_quantity}
+#   end
+
 
   def get_product_name
-    @product_name = Supply.where("id = ?", params[supply_products_attributes.id]).first.product_name
-    render json: {price: @price}
+    supply_product_id = params[:id]
+    @supply_product_data = SupplyProduct.find(supply_product_id.to_i)
+    render json: {product_name: @supply_product_data.product_name}
   end
 
-  def get_qt
-    @qt = Supply.where("id = ?", params[:supply_product_id]).first.quantity
-    render json: {qt: @qt}
-  end
+  # def get_qt
+  #   @qt = Supply.where("id = ?", params[:supply_product_id]).first.quantity
+  #   render json: {qt: @qt}
+  # end
 
-  def get_supplier
-    @supplier = Supply.where("id = ?", params[:product_id]).first.supplier
-    render json: {supplier: @supplier}
-  end
+  # def get_supplier
+  #   @supplier = Supply.where("id = ?", params[:product_id]).first.supplier
+  #   render json: {supplier: @supplier}
+  # end
 
   # GET /supplies or /supplies.json
   def index

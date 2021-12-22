@@ -1,4 +1,4 @@
-<%= form_with(model: inventory_record, local: true) do |form| %>
+<%= form_with(model: inventory_record, local: true)  do |form| %>
   <% if inventory_record.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(inventory_record.errors.count, "error") %> prohibited this inventory_record from being saved:</h2>
@@ -12,15 +12,16 @@
   <% end %>
 
 <h2>Add to Inventory</h2><hr>
+<div  class="inventory_form">
     
         <div class="field">
           <%= form.label "Choose Source" %>
-          <%= form.collection_select :supply_product_id, SupplyProduct.all, :id, :p_o_name %>
+          <%= form.collection_select(:supply_product_id, SupplyProduct.all, :id, :p_o_name, {}, {class: "source"}) %>
         </div>
 
         <div class="field">
           <%= form.label "Product" %>
-          <%= form.text_field :product_name, id: "product_name", class: "greyed_out", :readonly => true %>
+          <%= form.text_field :product_name, id: "product_name", class: "product_name greyed_out", :readonly => true %>
         </div>        
 
         <div class="field">
@@ -43,6 +44,7 @@
   <div class="actions">
     <%= form.submit %>
   </div>
+</div>
 <% end %>
 
 
@@ -50,47 +52,48 @@
 
 /////////////////  INVENTORY AUTO-FILL //////////////////////
 
+$("body").css("background-color", "#f1f1f1");
 
-  $(document).ready(function() {
-          function updateSelectedProductName(){
-            var current_picker = $(this);
-              $.ajax({ 
-                  url: "reports/purchasing_report/product_name",
-                  data: { supply_product_id: $(this).val() },
-                  type: "GET",
-                  success: function(data) {
-                    current_picker.parents("#main").find('#product_name').val(data["product_name"]);
-                  }
-              });
-          }
-        $(document).on('change', "#inventory_record_supply_product_id", updateSelectedProductName);
-        $("#inventory_record_supply_product_id").each(updateSelectedProductName);
-    });  
+$(document).ready(function() {
+        function updateProductName(){
+                $.ajax({ 
+                url: "purchasing_report/product_name",
+                data: { id: $(this).val() },
+                type: "GET",
+                success: function(data) {
+                  ('.product_name').val(data["product_name"]);
+                }
+            });
+        }
+      $(document).on('change', ".source", updateProductName);
+      $(".source").each(updateProductName);
+      $(".product_name").text(product_name)
+  });  
 
 //////////////////  DATE PICKER  ///////////////////// 
 
-$(function() {
-      var dateFormat = "mm/dd/yy",
-      //first time picker//
-            inv_added = $( "#date_added" ).datepicker({
-              changeMonth: true, 
-              numberOfMonths: 1})
-            .on( "change", function() {
-            inv_added.datepicker( "option", getDate( this ) );
-          }),
+// $(function() {
+//       var dateFormat = "mm/dd/yy",
+//       //first time picker//
+//             added = $( "#date_added" ).datepicker({
+//               changeMonth: true, 
+//               numberOfMonths: 1})
+//             .on( "change", function() {
+//             added.datepicker( "option", getDate( this ) );
+//           }),
 
         
-      function getDate( element ) {
-        var date;
-        try {
-          date = $.datepicker.parseDate( dateFormat, element.value );
-        } catch( error ) {
-          //date = null;
-        }
+//       function getDate( element ) {
+//         var date;
+//         try {
+//           date = $.datepicker.parseDate( dateFormat, element.value );
+//         } catch( error ) {
+//           //date = null;
+//         }
   
-        return date;
-      }
-  } );
+//         return date;
+//       }
+//   });
 
 
 $(".chosen-select").chosen({

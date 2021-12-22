@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'purchasing_report/product_name', to: 'supplies#get_product_name'
+  get 'purchasing_report/actual_quantity', to: 'supplies#get_qt'
+  get 'purchasing_report/supplier_name', to: 'supplies#get_supplier'
   resources :inventory_records
   resources :supplies
   resources :supply_products
@@ -9,9 +12,6 @@ Rails.application.routes.draw do
   get 'reports/purchase_report'
   resources :orders
   get 'products/price', to: 'products#get_price'
-  get 'reports/purchasing_report/actual_quantity', to: 'products#get_price'
-  get 'reports/purchasing_report/product_name', to: 'products#get_price'
-  get 'reports/purchasing_report/supplier_name', to: 'products#get_price'
   resources :products
   resources :order_products
   resources :product_reports
@@ -20,3 +20,5 @@ Rails.application.routes.draw do
   
   
 end
+
+
