@@ -32,11 +32,9 @@
       <th><%= sortable "product_name", "PRODUCTS NAME" %></th>
       <th><%= sortable "date", "DATE" %></th>
       <th><%= sortable "amount", "AMOUNT PURCHASED" %></th>
-      <th><%= sortable "amount_purchased_in_grams", "AMOUNT PURCHASED(grams)" %></th>
       <th><%= sortable "price_per_unit", "UNIT PRICE" %></th>
       <th><%= sortable "costs", "PURCHASED COST" %></th>
       <th><%= sortable "current_amount_left", "AMOUNT LEFT" %></th>
-      <th><%= sortable "amount_left_in_grams", "AMOUNT LEFT(grams)" %></th>
       <th><%= sortable "purchase_product_id", "Purchase ID" %></th>
       
       <th colspan="7"></th>
@@ -50,11 +48,9 @@
         <td><a href="/products/<%= inventory.product.id  %>/edit" ><%= inventory.product.product_name %></a></td>
         <td><%= inventory.date.strftime("%d-%m-%Y") %></td>
         <td><%= inventory.amount %></td>
-        <td><%= inventory.amount_purchased_in_grams %></td>
         <td>&#8381 <%= inventory.price_per_unit %></td>
         <td>&#8381 <%= inventory.costs %></td>
         <td><%= inventory.current_amount_left %></td>
-        <td><%= inventory.amount_left_in_grams %></td>
         <td><a href="/purchases/<%= inventory.purchase_product.purchase.id %>/edit" ><%= inventory.purchase_product_id %></a></td>
         <td><%= link_to 'Show', inventory %></td>
         <td><%= link_to 'Edit', edit_inventory_path(inventory) %></td>

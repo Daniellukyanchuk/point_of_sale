@@ -17,7 +17,6 @@
       <th><%= sortable "product_name", "NAME" %></th>
       <th><%= sortable "price", "PRICE" %></th>
       <th><%= sortable "unit", "UNIT" %></th>
-      <th><%= sortable "weight_per_product_unit_grams", "UNIT IN GRAMS" %></th>
       <th colspan="4"></th>
     </tr>
   </thead>
@@ -29,7 +28,6 @@
         <td><%= product.product_name %></td>
         <td>&#8381 <%= product.price %></td>
         <td><%= product.unit %></td>
-        <td><%= product.weight_per_product_unit_grams %></td>
         <td><%= link_to 'Show', product %></td>
         <td><%= link_to 'Edit', edit_product_path(product) %></td>
         <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
