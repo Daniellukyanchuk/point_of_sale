@@ -64,6 +64,10 @@ class InventoryRecordsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def inventory_record_params
-      params.fetch(:inventory_record, {})
+      params.require(:inventory_record).permit(:product_id, :supply_id, :purchase_quantity, :remaining_quantity,
+        suppliers_attributes: [:supplier_name], 
+        products_attributes: [:product_name], 
+        supply_products_attributes: [:id, :purchase_price, :purchase_subtotal, :purchase_quantity, :product_id, :supply_id])
     end
 end
+

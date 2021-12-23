@@ -13,6 +13,8 @@
 
 <h2>Add to Inventory</h2><hr>
 <div  class="inventory_form">
+
+        
     
         <div class="field">
           <%= form.label "Choose Source" %>
@@ -20,31 +22,41 @@
         </div>
 
         <div class="field">
-          <%= form.label "Product" %>
-          <%= form.text_field :product_name, class: "product-name greyed_out", :readonly => true %>
-        </div>        
-
-        <div class="field">
-          <%= form.label "Quantity" %>
-          <%= form.text_field :purchase_quantity, class: "qt-received greyed_out", :readonly => true %>
+          <%= form.label "Purchase Order Id" %>
+          <%= form.text_field :supply_id, id: "supply_id", class: "supply-id greyed_out", :readonly => true %>
         </div>
 
         <div class="field">
-          <%= form.label "Purchase price" %>
-          <%= form.text_field :purchase_price, class: "cost greyed_out", :readonly => true %>
+          <%= form.label "Product Id" %>
+          <%= form.text_field :product_id, id: "product_id", class: "product-id greyed_out", :readonly => true %>
         </div>
 
         <div class="field">
           <%= form.label "Supplier" %>
           <%= form.text_field :supplier_name, id: "supplier", class: "supplier greyed_out", :readonly => true %>
         </div>
-        
 
         <div class="field">
-        <label for="date_added">Date Added</label>
-        <input type="text" class="datepicker" id="date_added" name="inventory[date_added]" 
-              autocomplete = 'off' value = "<%= inventory_record.date_added.strftime("%m-%d-%Y") unless inventory_record.date_added.blank? %>"></div>
+          <%= form.label "Product" %>
+          <%= form.text_field :product_name, id: "product_name", class: "product-name greyed_out", :readonly => true %>
+        </div>                
 
+        <div class="field">
+          <%= form.label "Quantity" %>
+          <%= form.text_field :purchase_quantity, id: "qt_received", class: "qt-received greyed_out", :readonly => true %>
+        </div>
+
+        <div class="field">
+          <%= form.label "Purchase price" %>
+          <%= form.text_field :purchase_price, id: "cost", class: "cost greyed_out", :readonly => true %>
+        </div>
+
+        <div class="field">
+          <%= form.label "Subtotal" %>
+          <%= form.text_field :purchase_subtotal, id: "subtotal", class: "subtotal greyed_out", :readonly => true %>
+        </div>
+
+          
         
   <div class="actions">
     <%= form.submit %>
@@ -57,48 +69,27 @@
 
 /////////////////  INVENTORY AUTO-FILL //////////////////////
 
-$(".qt-received").css("background-color", "#777");
 
 $(document).ready(function() {
         function updateProductInfo(){
                 $.ajax({ 
-                url: "supplies/product_name",
+                url: "supplies/product_info",
                 data: { id: $(this).val() },
                 type: "GET",
                 success: function(data) {
-                  (".qt-received").val(data["qt"]);
+                  $(".product-name").val(data["product_name"]);
+                  $(".qt-received").val(data["qt"]);
+                  $(".cost").val(data["cost"]);
+                  $(".supplier").val(data["supplier"]);
+                  $(".subtotal").val(data["subtotal"]);
+                  $(".supply-id").val(data["supply_id"]);
+                  $(".product-id").val(data["product_id"]);
                   }
             });
         }
       $(document).on('change', ".source", updateProductInfo);
       $(".source").each(updateProductInfo);
   });  
-
-//////////////////  DATE PICKER  ///////////////////// 
-
-// $(function() {
-//       var dateFormat = "mm/dd/yy",
-//       //first time picker//
-//             added = $( "#date_added" ).datepicker({
-//               changeMonth: true, 
-//               numberOfMonths: 1})
-//             .on( "change", function() {
-//             added.datepicker( "option", getDate( this ) );
-//           }),
-
-        
-//       function getDate( element ) {
-//         var date;
-//         try {
-//           date = $.datepicker.parseDate( dateFormat, element.value );
-//         } catch( error ) {
-//           //date = null;
-//         }
-  
-//         return date;
-//       }
-//   });
-
 
 $(".chosen-select").chosen({
   no_results_text: "Oops, nothing found!"

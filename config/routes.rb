@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'inventory_records/supplies/product_name', to: 'supplies#get_product_info'
+  get 'inventory_records/supplies/product_info', to: 'supplies#get_product_info'
   resources :inventory_records
   resources :supplies
   resources :supply_products
