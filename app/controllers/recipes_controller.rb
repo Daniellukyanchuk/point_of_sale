@@ -1,9 +1,10 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: %i[ show edit update destroy ]
+  helper_method :sort_column, :sort_direction
 
   # GET /recipes or /recipes.json
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.search(params[:search]).order(sort_column + " " + sort_direction)
   end
 
   # GET /recipes/1 or /recipes/1.json
@@ -58,6 +59,14 @@ class RecipesController < ApplicationController
   end
 
   private
+
+    def sort_column
+      Recipe.column_names.include?(params[:sort]) ? params[:sort] : "id"
+    end
+  
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_recipe
       @recipe = Recipe.find(params[:id])

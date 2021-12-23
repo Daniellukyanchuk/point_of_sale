@@ -1,9 +1,10 @@
 class ProductionsController < ApplicationController
   before_action :set_production, only: %i[ show edit update destroy ]
+  helper_method :sort_column, :sort_direction
 
   # GET /productions or /productions.json
   def index
-    @productions = Production.all
+    @productions = Production.search(params[:search]).order(sort_column + " " + sort_direction)
   end
 
   # GET /productions/1 or /productions/1.json
@@ -13,7 +14,6 @@ class ProductionsController < ApplicationController
   # GET /productions/new
   def new
     @production = Production.new
-    @production.production_recipes.new
   end
 
   # GET /productions/1/edit
@@ -58,6 +58,14 @@ class ProductionsController < ApplicationController
   end
 
   private
+
+    def sort_column
+      Production.column_names.include?(params[:sort]) ? params[:sort] : "recipe_id"
+    end
+  
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_production
       @production = Production.find(params[:id])
@@ -65,6 +73,7 @@ class ProductionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def production_params
-      params.require(:production).permit(:recipe_id, :recipe_name, :grand_total)
+      params.require(:production).permit(:recipe_id, :recipe_name, :product_amount, :recipe_price, :grand_total)
     end
+
 end

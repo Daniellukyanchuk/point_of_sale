@@ -11,14 +11,23 @@
     </div>
   <% end %>
 
-  <%= form.fields_for :production_recipes do |builder| %>
-      <%= render 'production_recipe_fields', form: builder %>
-  <% end %>
-
-  <%= link_to_add_fields "Add Product", form, :production_recipes %>
+  <div class="field">
+    <%= form.label :recipe_id %>
+    <%= form.collection_select :recipe_id, Recipe.all, :id, :recipe_name %>
+  </div>
 
   <div class="field">
-    <%= form.label :grand_total %>
+    <%= form.label :product_amount %>
+    <%= form.number_field :product_amount %>
+  </div>
+
+  <div class="field">
+     <%= form.label :recipe_price %>
+     <%= form.number_field :recipe_price %>
+  </div>    
+
+  <div class="field">
+    <%= form.label :total %>
     <%= form.text_field :grand_total %>
   </div>
 
