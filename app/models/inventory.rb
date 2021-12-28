@@ -4,6 +4,10 @@ class Inventory < ApplicationRecord
   belongs_to :purchase_product, optional: true
   belongs_to :production_recipe, optional: true 
 
+
+
+  Purchase.left_outer_joins(:inventories).where(inventories: {inventory_id: nil})
+
   def self.search(search, product_select, start_date, end_date)
     # my_hash = {a: "yo", b: "man"}
     # my_hash.each do |key, value|
@@ -44,7 +48,7 @@ class Inventory < ApplicationRecord
     amount_left_to_remove = amount
     # make a loop of Inventory.where with product_id and current_amount_left. Make so, that it would search for current_amount_left > 0. order by created_at and id.
 
-    Inventory.where("product_id = ? and current_amount_left > 0", product_id).order(:created_at, :id).each do |inv|              
+    Inventory.where("product_id IN (#{SqlHelper.escape_sql_param(ids)}) and current_amount_left > 0", product_id).order(:created_at, :id).each do |inv|              
     # Do a break if == 0.
       break if amount_left_to_remove == 0
 
@@ -58,6 +62,10 @@ class Inventory < ApplicationRecord
       # Subtract amount_to_remove from amount_left_to_remove and set it equal to amount_left_to_remove.
       amount_left_to_remove = amount_left_to_remove - amount_to_remove
     end 
+  end
+
+  def self.add_inventory(product_id, amount)
+    
   end
 
   def set_costs  	
