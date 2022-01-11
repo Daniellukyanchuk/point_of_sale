@@ -18,8 +18,9 @@
     <th class="align_left"><%= sortable "id", "Id" %></th>
       <th class="align_left"><%= sortable "product_name", "Product Name" %></th>
       <th class="align_right"><%= sortable "price", "Sale price" %></th>
-      <th><%= sortable "unit", "Unit" %></th>
-      <th colspan="4"></th>
+      <th class="align_right"><%= sortable "grams_per_unit", "Grams per unit" %></th>
+      <th><%= sortable "unit", "Unit" %></th>      
+      <th colspan="5"></th>
     </tr>
   </thead>
 
@@ -29,7 +30,8 @@
         <td><%= pi["id"] %></td>
         <td><%= pi["product_name"] %></td>
         <td class="align_right"><%= pi["price"] %></td>
-        <td><%= pi["unit"] %></td>  
+        <td class="align_right"><%= pi["grams_per_unit"] %>g</td>
+        <td><%= pi["unit"] %></td>
         <td><%= link_to "Show", "/products/#{pi["id"]}" %></td>
         <td><%= link_to "Edit", "/products/#{pi["id"]}/edit" %></td>
         <td><%= link_to "Delete", "/products/#{pi["id"]}", method: :delete, data: { confirm: 'Are you sure?' } %></td>

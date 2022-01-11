@@ -1,0 +1,32 @@
+<%= form_with(model: production, local: true) do |form| %>
+  <% if production.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(production.errors.count, "error") %> prohibited this production from being saved:</h2>
+
+      <ul>
+      <% production.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :recipe_name %>
+    <%= form.text_field :recipe_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :production_quantity %>
+    <%= form.text_field :production_quantity %>
+  </div>
+
+  <div class="field">
+    <%= form.label :production_total_cost %>
+    <%= form.text_field :production_total_cost %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

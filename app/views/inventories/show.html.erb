@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Inventory Id:</strong>
+  <%= @inventory.id %>
+</p>
+
+<p>
+  <strong>Product Id:</strong>
+  <%= @inventory.product_id %>
+</p>
+
+<p>
+  <strong>Purchase Order Id:</strong>
+  <%= @inventory.purchase_id %>
+</p>
+
+<p>
+  <strong>Purchase Order Product Id:</strong>
+  <%= @inventory.purchase_product_id %> 
+</p>
+
+<p>
+  <strong>Remaining Qt:</strong>
+  <%= @inventory.remaining_quantity %>
+</p>
+
+<%= link_to 'Edit', edit_inventory_path(@inventory) %> |
+<%= link_to 'Back', inventories_path %>
+
+<script type="text/javascript">
+

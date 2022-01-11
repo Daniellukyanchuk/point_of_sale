@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  recipe_name: MyString
+  recipe_cost: 1.5
+  yield: 1
+  instructions: MyText
+
+two:
+  recipe_name: MyString
+  recipe_cost: 1.5
+  yield: 1
+  instructions: MyText

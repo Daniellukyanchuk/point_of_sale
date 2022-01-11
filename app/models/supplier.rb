@@ -1,5 +1,5 @@
 class Supplier < ApplicationRecord
-    has_many :supplies
-    has_many :supply_products, through: :supplies
-    has_many :products, through: :supply_products
+    has_many :purchases
+    has_many :purchase_products, through: :purchases
+    has_many :products, through: :purchase_products
 end

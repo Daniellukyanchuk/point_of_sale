@@ -13,7 +13,7 @@ end
 
   # GET /products or /products.json
   def index
-    @products = Product.product_inventory(sort_column, sort_direction)
+    @products = Product.search(params[:search]).order(sort_column + " " + sort_direction)
   end
 
   
@@ -76,7 +76,7 @@ end
 
     # Only allow a list of trusted parameters through.
     def product_params
-      params.require(:product).permit(:id, :product_name, :price, :unit, :units_purchased, :units_sold, :inventory)
+      params.require(:product).permit(:id, :product_name, :price, :unit, :units_purchased, :units_sold, :inventory, :grams_per_unit)
     end
 
     def sort_column

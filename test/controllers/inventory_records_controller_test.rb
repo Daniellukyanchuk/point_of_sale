@@ -1,48 +1,48 @@
 require 'test_helper'
 
-class InventoryRecordsControllerTest < ActionDispatch::IntegrationTest
+class InventoriesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @inventory_record = inventory_records(:one)
+    @inventory = inventories(:one)
   end
 
   test "should get index" do
-    get inventory_records_url
+    get inventories_url
     assert_response :success
   end
 
   test "should get new" do
-    get new_inventory_record_url
+    get new_inventory_url
     assert_response :success
   end
 
-  test "should create inventory_record" do
-    assert_difference('InventoryRecord.count') do
-      post inventory_records_url, params: { inventory_record: {  } }
+  test "should create inventory" do
+    assert_difference('Inventory.count') do
+      post inventories_url, params: { inventory: {  } }
     end
 
-    assert_redirected_to inventory_record_url(InventoryRecord.last)
+    assert_redirected_to inventory_url(Inventory.last)
   end
 
-  test "should show inventory_record" do
-    get inventory_record_url(@inventory_record)
+  test "should show inventory" do
+    get inventory_url(@inventory)
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_inventory_record_url(@inventory_record)
+    get edit_inventory_url(@inventory)
     assert_response :success
   end
 
-  test "should update inventory_record" do
-    patch inventory_record_url(@inventory_record), params: { inventory_record: {  } }
-    assert_redirected_to inventory_record_url(@inventory_record)
+  test "should update inventory" do
+    patch inventory_url(@inventory), params: { inventory: {  } }
+    assert_redirected_to inventory_url(@inventory)
   end
 
-  test "should destroy inventory_record" do
-    assert_difference('InventoryRecord.count', -1) do
-      delete inventory_record_url(@inventory_record)
+  test "should destroy inventory" do
+    assert_difference('Inventory.count', -1) do
+      delete inventory_url(@inventory)
     end
 
-    assert_redirected_to inventory_records_url
+    assert_redirected_to inventories_url
   end
 end

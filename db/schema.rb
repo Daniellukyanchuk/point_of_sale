@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_23_181817) do
+ActiveRecord::Schema.define(version: 2021_12_28_165759) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,13 +24,13 @@ ActiveRecord::Schema.define(version: 2021_12_23_181817) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "inventory_records", force: :cascade do |t|
-    t.integer "supply_id"
+  create_table "inventories", force: :cascade do |t|
+    t.integer "purchase_id"
     t.integer "product_id"
     t.float "remaining_quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "supply_product_id"
+    t.integer "purchase_product_id"
   end
 
   create_table "order_products", force: :cascade do |t|
@@ -50,24 +50,37 @@ ActiveRecord::Schema.define(version: 2021_12_23_181817) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "productions", force: :cascade do |t|
+    t.string "recipe_name"
+    t.float "production_quantity"
+    t.float "production_total_cost"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "product_name"
     t.float "price"
     t.string "unit"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "inventory"
+    t.float "grams_per_unit"
   end
 
-  create_table "suppliers", force: :cascade do |t|
-    t.string "supplier_name"
-    t.string "address"
-    t.string "phone"
+  create_table "purchase_products", force: :cascade do |t|
+    t.integer "product_id"
+    t.integer "purchase_id"
+    t.float "purchase_quantity"
+    t.float "purchase_price"
+    t.float "purchase_subtotal"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "estimated_quantity"
+    t.float "estimated_cost"
+    t.float "estimated_subtotal"
   end
 
-  create_table "supplies", force: :cascade do |t|
+  create_table "purchases", force: :cascade do |t|
     t.integer "supplier_id"
     t.float "purchase_total"
     t.datetime "created_at", null: false
@@ -78,18 +91,30 @@ ActiveRecord::Schema.define(version: 2021_12_23_181817) do
     t.date "date_received"
   end
 
-  create_table "supply_products", force: :cascade do |t|
+  create_table "recipe_products", force: :cascade do |t|
     t.integer "product_id"
-    t.integer "supply_id"
-    t.float "purchase_quantity"
-    t.float "purchase_price"
-    t.float "purchase_subtotal"
+    t.float "amount"
+    t.float "ingredient_total"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.float "remaining_quantity"
-    t.float "estimated_quantity"
-    t.float "estimated_cost"
-    t.float "estimated_subtotal"
+    t.integer "recipe_id"
+  end
+
+  create_table "recipes", force: :cascade do |t|
+    t.string "recipe_name"
+    t.float "recipe_cost"
+    t.integer "yield"
+    t.text "instructions"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "suppliers", force: :cascade do |t|
+    t.string "supplier_name"
+    t.string "address"
+    t.string "phone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

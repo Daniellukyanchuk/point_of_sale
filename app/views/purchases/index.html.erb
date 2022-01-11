@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Purchases</h1>
+<hr>
+<%= link_to '+ New Purchase Order', new_purchase_path, :class => "button big_button green" %>
+<br><br>
+
+<table>
+  <thead>
+    <tr>
+    <th class="align_right"><%= sortable "id", "ID" %></th>
+      <th><%= sortable "created_at", "Date Received" %></th>
+      <th><%= sortable "supplier_id", "Supplier ID" %></th>
+      <th><%= sortable "supplier_id", "Supplier Name" %></th>
+      <th><%= sortable "purchase_total", "Purchase Total" %></th>
+      <th colspan="5"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @purchases .each do |purchase| %>
+    <tr>
+      <td class="align_right"><%= purchase.id %></td>
+      <td><%= purchase.created_at.strftime("%d %b %Y") %></td> 
+      <td class="align_center"><%= purchase.supplier_id %></td>
+      <td><%= purchase.supplier.supplier_name %></td>
+      <td class="align_right"><%= purchase.purchase_total %></td>
+      <td><%= link_to 'Show', "/purchases/#{purchase["id"]}" %></td>
+      <td><%= link_to 'Edit', edit_purchase_path(purchase) %></td>
+      <td><%= link_to 'Destroy', "/purchases/#{purchase["id"]}", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+

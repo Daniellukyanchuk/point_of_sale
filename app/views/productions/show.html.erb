@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Recipe name:</strong>
+  <%= @production.recipe_name %>
+</p>
+
+<p>
+  <strong>Production quantity:</strong>
+  <%= @production.production_quantity %>
+</p>
+
+<p>
+  <strong>Production total cost:</strong>
+  <%= @production.production_total_cost %>
+</p>
+
+<%= link_to 'Edit', edit_production_path(@production) %> |
+<%= link_to 'Back', productions_path %>

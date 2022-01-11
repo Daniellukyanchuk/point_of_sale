@@ -1,41 +1,41 @@
 require "application_system_test_case"
 
-class SuppliesTest < ApplicationSystemTestCase
+class purchasesTest < ApplicationSystemTestCase
   setup do
-    @supply = supplies(:one)
+    @purchase = purchases(:one)
   end
 
   test "visiting the index" do
-    visit supplies_url
-    assert_selector "h1", text: "Supplies"
+    visit purchases_url
+    assert_selector "h1", text: "purchases"
   end
 
-  test "creating a Supply" do
-    visit supplies_url
-    click_on "New Supply"
+  test "creating a purchase" do
+    visit purchases_url
+    click_on "New purchase"
 
-    click_on "Create Supply"
+    click_on "Create purchase"
 
-    assert_text "Supply was successfully created"
+    assert_text "purchase was successfully created"
     click_on "Back"
   end
 
-  test "updating a Supply" do
-    visit supplies_url
+  test "updating a purchase" do
+    visit purchases_url
     click_on "Edit", match: :first
 
-    click_on "Update Supply"
+    click_on "Update purchase"
 
-    assert_text "Supply was successfully updated"
+    assert_text "purchase was successfully updated"
     click_on "Back"
   end
 
-  test "destroying a Supply" do
-    visit supplies_url
+  test "destroying a purchase" do
+    visit purchases_url
     page.accept_confirm do
       click_on "Destroy", match: :first
     end
 
-    assert_text "Supply was successfully destroyed"
+    assert_text "purchase was successfully destroyed"
   end
 end

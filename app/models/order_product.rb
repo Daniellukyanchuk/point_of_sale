@@ -1,6 +1,6 @@
 class OrderProduct < ApplicationRecord
     belongs_to :order
-    has_many :supply_products
+    has_many :purchase_products
     validates :sale_price, :quantity, presence: true
     after_validation :set_subtotal
     before_save :adjust_inventory
@@ -16,14 +16,14 @@ class OrderProduct < ApplicationRecord
 
         change_in_quantity = self.quantity - (self.quantity_was || 0)
 
-        supply_products = SupplyProduct.where("product_id = ? and remaining_quantity > 0", self.product_id).order("created_at asc")
-        available_inventory = SupplyProduct.where("product_id = #{self.product_id}").sum(:remaining_quantity)
+        purchase_products = Inventory.where("product_id = ? and remaining_quantity > 0", self.product_id).order("created_at asc")
+        available_inventory = Inventory.where("product_id = #{self.product_id}").sum(:remaining_quantity)
 
         amount_left_to_remove = change_in_quantity
 
         if change_in_quantity < available_inventory
               
-            supply_products.each do |sp|
+            purchase_products.each do |sp|
                 
                 #sets remaining amount equalt to remaining amount for the oldest record in the database
                 amount_to_remove = [amount_left_to_remove, sp.remaining_quantity].min

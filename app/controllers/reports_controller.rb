@@ -25,10 +25,10 @@ class ReportsController < ApplicationController
             params[:to_date] = (Date.today+2).strftime('%m/%d/%Y')
         end           
 
-        @purchase_reports = Supply.purchase_report(params[:search], params[:product_select], params[:from_date], 
+        @purchase_reports = Purchase.purchase_report(params[:search], params[:product_select], params[:from_date], 
         params[:to_date], params[:sort], params[:direction])
 
-        @purchase_records = Supply.purchase_record(params[:search], params[:product_select], params[:from_date], 
+        @purchase_records = Purchase.purchase_record(params[:search], params[:product_select], params[:from_date], 
         params[:to_date], params[:sort], params[:direction])
     end
 

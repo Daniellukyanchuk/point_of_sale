@@ -1,17 +1,17 @@
 require "application_system_test_case"
 
-class InventoryRecordsTest < ApplicationSystemTestCase
+class InventoriesTest < ApplicationSystemTestCase
   setup do
-    @inventory_record = inventory_records(:one)
+    @inventory = inventories(:one)
   end
 
   test "visiting the index" do
-    visit inventory_records_url
+    visit inventories_url
     assert_selector "h1", text: "Inventory Records"
   end
 
   test "creating a Inventory record" do
-    visit inventory_records_url
+    visit inventories_url
     click_on "New Inventory Record"
 
     click_on "Create Inventory record"
@@ -21,7 +21,7 @@ class InventoryRecordsTest < ApplicationSystemTestCase
   end
 
   test "updating a Inventory record" do
-    visit inventory_records_url
+    visit inventories_url
     click_on "Edit", match: :first
 
     click_on "Update Inventory record"
@@ -31,7 +31,7 @@ class InventoryRecordsTest < ApplicationSystemTestCase
   end
 
   test "destroying a Inventory record" do
-    visit inventory_records_url
+    visit inventories_url
     page.accept_confirm do
       click_on "Destroy", match: :first
     end

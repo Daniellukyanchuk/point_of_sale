@@ -1,48 +1,48 @@
 require 'test_helper'
 
-class SuppliesControllerTest < ActionDispatch::IntegrationTest
+class purchasesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @supply = supplies(:one)
+    @purchase = purchases(:one)
   end
 
   test "should get index" do
-    get supplies_url
+    get purchases_url
     assert_response :success
   end
 
   test "should get new" do
-    get new_supply_url
+    get new_purchase_url
     assert_response :success
   end
 
-  test "should create supply" do
-    assert_difference('Supply.count') do
-      post supplies_url, params: { supply: {  } }
+  test "should create purchase" do
+    assert_difference('purchase.count') do
+      post purchases_url, params: { purchase: {  } }
     end
 
-    assert_redirected_to supply_url(Supply.last)
+    assert_redirected_to purchase_url(purchase.last)
   end
 
-  test "should show supply" do
-    get supply_url(@supply)
+  test "should show purchase" do
+    get purchase_url(@purchase)
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_supply_url(@supply)
+    get edit_purchase_url(@purchase)
     assert_response :success
   end
 
-  test "should update supply" do
-    patch supply_url(@supply), params: { supply: {  } }
-    assert_redirected_to supply_url(@supply)
+  test "should update purchase" do
+    patch purchase_url(@purchase), params: { purchase: {  } }
+    assert_redirected_to purchase_url(@purchase)
   end
 
-  test "should destroy supply" do
-    assert_difference('Supply.count', -1) do
-      delete supply_url(@supply)
+  test "should destroy purchase" do
+    assert_difference('purchase.count', -1) do
+      delete purchase_url(@purchase)
     end
 
-    assert_redirected_to supplies_url
+    assert_redirected_to purchases_url
   end
 end

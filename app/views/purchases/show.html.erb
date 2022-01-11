@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>purchase Id:</strong>
+  <%= @purchase.id %>
+</p>
+
+<p>
+  <strong>Supplier:</strong>
+  <%= @purchase.supplier_id %> |
+  <%= @purchase.supplier.supplier_name %>
+</p>
+
+<p>
+  <strong>Date received:</strong>
+  <%= @purchase.created_at.strftime("%d %b %Y") %> 
+</p>
+
+<% @purchase.purchase_products.each do |sp| %>
+  <hr>
+
+  <table>
+    <thead>
+      <tr>
+      <th colspan="3"><h3>Product id: <%= sp.product_id %></h3></th>
+    </tr><tr>
+      <th></th><th>Estimate</th><th>Actual Order</th>
+    </tr>
+    </thead><tbody>
+      <tr>
+        <td><strong>Quantity:</strong></td>
+        <td><%= sp.estimated_quantity %> </td>
+        <td><%= sp.purchase_quantity %></td>
+      </tr>
+      <tr>
+        <td><strong>Cost per Unit (CPU) </strong></td>
+        <td><%= sp.estimated_cost %></td>
+        <td><%= sp.purchase_price %></td>
+      </tr>
+      <tr>
+        <td><strong>Subtotal:</strong></td>
+        <td><%= sp.estimated_subtotal %></td>
+        <td><%= sp.purchase_subtotal %></td>
+      </tr>
+      <tr>
+        <td><strong>Remaining Quantity: </strong></td>
+        <td colspan="2"><%= sp.remaining_quantity %> </td>
+      </tr>
+    </tbody>
+  </table>
+  <% end %>
+
+ <p>
+  <strong>Estimated total:</strong>
+  <%= @purchase.estimated_total %>
+</p> 
+
+<p>
+  <strong>Actual total:</strong>
+  <%= @purchase.purchase_total %>
+</p>
+
+<%= link_to 'Edit', edit_purchase_path(@purchase) %> |
+<%= link_to 'Back', purchases_path %>

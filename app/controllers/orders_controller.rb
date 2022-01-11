@@ -1,15 +1,12 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: %i[ show edit update destroy ]
   helper_method :sort_column, :sort_direction
-  
-
-  def autofill_price
+    
+  # GET /orders or /orders.json
+ def autofill_price
       @price = Product.where("id = ?", params[:id]).take
   end
-
   
-  # GET /orders or /orders.json
- 
   def index
     @orders = Order.search(params[:search]).order(sort_column + " " + sort_direction)
   end

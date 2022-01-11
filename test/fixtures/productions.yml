@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  recipe_name: MyString
+  production_quantity: 1.5
+  production_total_cost: 1.5
+
+two:
+  recipe_name: MyString
+  production_quantity: 1.5
+  production_total_cost: 1.5

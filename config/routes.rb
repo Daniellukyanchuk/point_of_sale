@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
-  get 'inventory_records/supplies/product_info', to: 'supplies#get_product_info'
-  resources :inventory_records
-  resources :supplies
-  resources :supply_products
+  get '/recipe_products/recipe_info', to: 'recipes#get_recipe_info'
+  resources :recipes
+  resources :recipe_products
+  resources :productions
+  get 'inventories/purchases/product_info', to: 'purchases#get_product_info'
+    resources :inventories
+  resources :purchases
+  resources :purchase_products
   resources :purchase_reports
   resources :suppliers
   get 'reports/client_report'
