@@ -4,13 +4,9 @@ class RecipesController < ApplicationController
 
 
   def get_recipe_info
-    @recipe_product_data = Product.where("id = ?", params[:id]).first
-    price_per_kg = Product.where("id = ? ((SUM(purchase_price*remaining_quantity))/(SUM(remaining_quantity)))/(grams_per_unit/1000) AS price_per_kg
-                    FROM products
-                      LEFT OUTER JOIN purchase_products ON products.id = purchase_products.product_id
-                      LEFT OUTER JOIN inventories ON products.id = inventories.product_id
-                    GROUP BY products.id")
-    render json: {price_per_kg: @recipe_product_data.price_per_kg, unit: @recipe_product_data.unit  }
+    recipe_product_id = params[:id].to_i
+    @price_per_kg = Product.get_price_per_kg[recipe_product_id]["weighted_price_per_kg"]
+    render json: {price_per_kg: @price_per_kg }
   end
 
   # GET /recipes or /recipes.json

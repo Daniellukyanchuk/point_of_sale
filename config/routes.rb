@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get '/recipe_products/recipe_info', to: 'recipes#get_recipe_info'
+  get '/recipe_products/recipe_info', to: 'products#get_recipe_info'
   resources :recipes
   resources :recipe_products
   resources :productions

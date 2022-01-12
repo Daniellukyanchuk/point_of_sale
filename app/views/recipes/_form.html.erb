@@ -65,33 +65,32 @@ $(document).ready(function() {
                 data: { id: $(this).val() },
                 type: "GET",
                 success: function(data) {
-                  $(".cost-per-kg").val(data["price_per_kg"]);
-                  
+                  $(this).add(".cost-per-kg").val(data["price_per_kg"]);                  
                   }
             });
         }
-      $(document).on('change', ".ingredient", updateIngredientInfo);
-      $(".ingredient").each(updateIngredientInfo);
+      $(this).on('change', ".ingredient", updateIngredientInfo);
+      
   });  
 
 //////////////////  TOTALS AUTO-CALC  /////////////////////
 
-        // $(document).on('change', '.amount', function() {
-        //     var recipeTotal = 0
-        //       $(".ingredient_total").each(function() {
-        //           recipeTotal += parseFloat($(this).val());
-        //       $("#recipe_total").val(recipeTotal);
-        //   });
-        // });      
+        $(document).on('change', '.amount', function() {
+            var recipeTotal = 0
+              $(".ingredient-total").each(function() {
+                  recipeTotal += parseFloat($(this).val());
+              $("#recipe_total").val(recipeTotal);
+          });
+        });      
     
-        // $(document.body).on("change", ".amount", function() {
+        $(document.body).on("change", ".amount", function() {
 
-        //       var ingredientCost = parseFloat($(this).parents(".nested-fields").find(".cost_per_gram").val());
-        //       var ingredientAmount = parseFloat($(this).parents(".nested-fields").find(".amount").val());
-        //       var ingredientSubtotal = (ingredientAmount || 0) * (ingredientCost || 0);
+              var ingredientCost = parseFloat($(this).parents(".nested-fields").find(".cost-per-kg").val());
+              var ingredientAmount = parseFloat($(this).parents(".nested-fields").find(".amount").val());
+              var ingredientTotal = ((ingredientAmount || 0)/1000) * (ingredientCost || 0);
 
-        //       $(this).parents(".nested-fields").find(".ingredient_total").val(ingredientTotal);                
-        //   });
+              $(this).parents(".nested-fields").find(".ingredient-total").val(ingredientTotal);                
+          });
 
         
 $(".chosen-select").chosen({

@@ -10,6 +10,14 @@ def get_price
   render json: {price: @price}
 end
 
+def get_recipe_info
+    @price_per_kg = Product.get_price_per_kg(params[:id].to_i)
+    if !@price_per_kg.first.blank?
+    render json: {price_per_kg: @price_per_kg.first["weighted_price_per_kg"] }
+    else @price_per_kg.first == 0
+  end
+end
+
 
   # GET /products or /products.json
   def index
