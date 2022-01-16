@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   get '/recipe_products/recipe_info', to: 'products#get_recipe_info'
+  get '/recipe/unit', to: 'products#get_unit'
   resources :recipes
   resources :recipe_products
   resources :productions
-  get 'inventories/purchases/product_info', to: 'purchases#get_product_info'
+  get '/purchases/product_info', to: 'purchases#get_product_info'
     resources :inventories
   resources :purchases
   resources :purchase_products
@@ -13,7 +14,7 @@ Rails.application.routes.draw do
   get 'reports/product_report' 
   get 'reports/purchase_report'
   resources :orders
-  get 'products/price', to: 'products#get_price'
+  get '/products/price', to: 'products#get_price'
   resources :products
   resources :order_products
   resources :product_reports

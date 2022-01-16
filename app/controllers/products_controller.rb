@@ -10,6 +10,12 @@ def get_price
   render json: {price: @price}
 end
 
+def get_unit
+  @unit = Product.where("id = ?", params[:id]).first.unit
+  render json: {unit: @unit}
+end
+
+
 def get_recipe_info
     @price_per_kg = Product.get_price_per_kg(params[:id].to_i)
     if !@price_per_kg.first.blank?

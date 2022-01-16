@@ -3,11 +3,7 @@ class RecipesController < ApplicationController
   before_action :set_recipe, only: %i[ show edit update destroy ]
 
 
-  def get_recipe_info
-    recipe_product_id = params[:id].to_i
-    @price_per_kg = Product.get_price_per_kg[recipe_product_id]["weighted_price_per_kg"]
-    render json: {price_per_kg: @price_per_kg }
-  end
+  
 
   # GET /recipes or /recipes.json
   def index
@@ -73,8 +69,9 @@ class RecipesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def recipe_params
-      params.require(:recipe).permit( :id, :recipe_name, :recipe_cost, :yield, :instructions,
-        recipe_products_attributes: [ :product_id, :amount, :ingredient_total],)
+      params.require(:recipe).permit( :id, :product_id, :recipe_cost, :yield, :instructions, :units,
+        recipe_products_attributes: [ :id, :product_id, :recipe_id, :cost_per_kg, :amount, :ingredient_total, :_destroy ])
+        
     end
 
     def sort_column

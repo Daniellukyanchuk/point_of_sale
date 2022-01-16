@@ -1,6 +1,8 @@
 class Product < ApplicationRecord
     has_many :order_products, dependent: :destroy
     has_many :purchase_products
+    has_many :recipe_products
+    has_one :recipe
     has_many :inventories
     has_many :purchases, through: :purchase_products
     has_many :orders, through: :order_products

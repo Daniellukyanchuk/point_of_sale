@@ -74,7 +74,7 @@
 $(document).ready(function() {
         function updateProductInfo(){
                 $.ajax({ 
-                url: "purchases/product_info",
+                url: "/purchases/product_info",
                 data: { id: $(this).val() },
                 type: "GET",
                 success: function(data) {
