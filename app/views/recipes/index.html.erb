@@ -15,8 +15,7 @@
     <tr class="active">
       <th><%= sortable "id", "ID" %></th>
       <th><%= sortable "recipe_name", "Recipe Name" %></th>
-      <th><%= sortable "cooking_instructions", "Cooking Instructions" %></th>
-      <th><%= sortable "grand_total", "Grand Total" %></th>
+      <th><%= sortable "grand_total", "Recipe Cost" %></th>
       <th colspan="4"></th>
     </tr>
   </thead>
@@ -26,8 +25,7 @@
       <tr>
         <td><%= recipe.id %></td>
         <td><%= recipe.recipe_name %></td>
-        <td><%= recipe.cooking_instructions %></td>
-        <td><%= recipe.grand_total %></td>
+        <td>&#8381 <%= recipe.grand_total %></td>
         <td><%= link_to 'Show', recipe %></td>
         <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
         <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -21,6 +21,12 @@ class RecipesController < ApplicationController
   def edit
   end
 
+  def get_recipe_price
+    recipe_id = params[:id]
+    @recipe_row = Recipe.find(recipe_id.to_i)
+    render json: {grand_total: @recipe_row.grand_total}
+  end
+
   # POST /recipes or /recipes.json
   def create
     @recipe = Recipe.new(recipe_params)
@@ -74,6 +80,6 @@ class RecipesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def recipe_params
-      params.require(:recipe).permit(:recipe_product_id, :recipe_name, :cooking_instructions, :grand_total, recipe_products_attributes: [:id, :product_id, :product_name, :product_amount, :product_price, :product_subtotal])
+      params.require(:recipe).permit(:recipe_product_id, :recipe_name, :cooking_instructions, :grand_total, recipe_products_attributes: [:id, :product_id, :product_name, :product_amount, :product_price, :product_subtotal, :_destroy])
     end
 end

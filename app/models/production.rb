@@ -16,17 +16,17 @@ class Production < ApplicationRecord
       self.grand_total = product_amount * recipe_price 
     end
 
+    def is_done?
+
+    end 
+
     def set_current_amount_left   
       # make a variable change_in_quantity and set it equal to self.quantity.
       change_in_quantity = product_amount - (product_amount_was || 0)
 
-      recipe.recipe_products.each do |rp|
-        
-        Inventory.remove_inventory(rp.product_id, rp.product_amount * change_in_quantity)
-
+      recipe.recipe_products.each do |rp|        
+        Inventory.remove_inventory(rp.product_id, (rp.product_amount || 0) * change_in_quantity)
       end
-
-      Inventory.add_inventory(what_product_id, what_amount)
-        
+      # Inventory.add_inventory(what_product_id, what_amount)        
     end
 end

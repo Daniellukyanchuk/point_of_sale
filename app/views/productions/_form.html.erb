@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= form.label :recipe_id %>
-    <%= form.collection_select :recipe_id, Recipe.all, :id, :recipe_name %>
+    <%= form.collection_select :recipe_id, Recipe.all, :id, :recipe_name, {}, {class: "product-picker"} %>
   </div>
 
   <div class="field">
@@ -23,7 +23,7 @@
 
   <div class="field">
      <%= form.label :recipe_price %>
-     <%= form.number_field :recipe_price %>
+     <%= form.number_field :recipe_price, class: "recipe-price-field" %>
   </div>    
 
   <div class="field">
@@ -35,3 +35,22 @@
     <%= form.submit %>
   </div>
 <% end %>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+
+      function updateSelectedPrice(){
+        $.ajax({ 
+            url: "/recipes/grand_total",
+            data: { id: $(this).val()  },
+            type: "GET",
+            success: function(data){
+                $('.recipe-price-field').val(data['grand_total']);
+            }
+        });
+      }
+
+      $(document).on('change', '.product-picker', updateSelectedPrice);
+      $(".product-picker").each(updateSelectedPrice);
+    });
+</script>

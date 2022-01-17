@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   resources :productions
-  resources :recipes
   resources :suppliers
   resources :my_models
   resources :inventories
@@ -10,6 +9,8 @@ Rails.application.routes.draw do
 
   get '/tests', to: 'tests#index'
   get '/products/price', to: 'products#get_price'
+  get '/recipes/grand_total', to: 'recipes#get_recipe_price'
+  resources :recipes
   resources :products
   get '/purchases/estimates', to: 'purchases#get_purchase_product_info'
   resources :purchases
