@@ -21,7 +21,6 @@ class Production < ApplicationRecord
     end 
 
     def set_current_amount_left   
-      # make a variable change_in_quantity and set it equal to self.quantity.
       change_in_quantity = product_amount - (product_amount_was || 0)
 
       recipe.recipe_products.each do |rp|        
