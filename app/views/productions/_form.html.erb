@@ -23,12 +23,12 @@
 
   <div class="field">
      <%= form.label :recipe_price %>
-     <%= form.number_field :recipe_price, class: "recipe-price-field" %>
+     <%= form.number_field :recipe_price, class: "recipe-price-field", :readonly => true %>
   </div>    
 
   <div class="field">
     <%= form.label :total %>
-    <%= form.text_field :grand_total %>
+    <%= form.text_field :grand_total, :readonly => true %>
   </div>
 
   <div class="actions">

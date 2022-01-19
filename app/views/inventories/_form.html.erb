@@ -28,17 +28,17 @@
 
   <div class="field">
     <%= form.label :amount %>
-    <%= form.number_field :amount, class: "quantity" %>
+    <%= form.number_field :amount, class: "quantity", :readonly => true %>
   </div>
 
   <div class="field">
     <%= form.label :price_per_unit %>
-    <%= form.text_field :price_per_unit, class: "price_per_unit" %>
+    <%= form.text_field :price_per_unit, class: "price_per_unit", :readonly => true %>
   </div>
 
   <div class="field">
     <%= form.label :costs %>
-    <%= form.text_field :costs, class: "est_subtotal" %>
+    <%= form.text_field :costs, class: "est_subtotal", :readonly => true %>
   </div>
 
   <% if !inventory.purchase_product.blank? %>

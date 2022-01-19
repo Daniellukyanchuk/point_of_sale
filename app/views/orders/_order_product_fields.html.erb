@@ -13,12 +13,12 @@
 
     <div class="field">
       <%= form.label :sale_price %>
-      <%= form.number_field :sale_price, class: "sale-price-field" %>
+      <%= form.number_field :sale_price, class: "sale-price-field", :readonly => true %>
     </div>
 
     <div class="field">
       <%= form.label :subtotal %>
-      <%= form.number_field :subtotal %>
+      <%= form.number_field :subtotal, :readonly => true %>
     </div>
     
     <div>

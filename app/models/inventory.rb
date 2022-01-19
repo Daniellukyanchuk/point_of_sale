@@ -46,11 +46,8 @@ class Inventory < ApplicationRecord
 
   def self.remove_inventory(product_id, amount)
     amount_left_to_remove = amount
-
     Inventory.where("product_id = ? and current_amount_left > 0", product_id).order(:created_at, :id).each do |inv|  
-
-      # break if amount_left_to_remove == 0
-
+      break if amount_left_to_remove == 0
       amount_to_remove = [inv.current_amount_left, amount_left_to_remove].min
       inv.current_amount_left = inv.current_amount_left - amount_to_remove
       res = inv.save      
@@ -59,8 +56,7 @@ class Inventory < ApplicationRecord
   end
 
   def self.add_inventory(product_id, amount)
-    amount_left_to_add = amount
-
+    inventory = Inventory.create(product_id: "product_id", current_amount_left: "amount")
   end
 
   def set_costs  	
