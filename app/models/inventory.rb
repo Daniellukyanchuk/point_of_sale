@@ -2,7 +2,7 @@
 
 class Inventory < ApplicationRecord
 	belongs_to :purchase_product
-    has_one :product
+    belongs_to :product
     belongs_to :purchase
 	before_create :set_remaining_quantity
 

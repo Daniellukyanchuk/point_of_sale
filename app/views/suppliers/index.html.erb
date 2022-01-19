@@ -18,9 +18,9 @@
         <td><%= supplier.supplier_name %></td>
         <td><%= supplier.address %></td>
         <td><%= supplier.phone %></td>
-        <td><%= link_to 'Show', supplier %></td>
-        <td><%= link_to 'Edit', edit_supplier_path(supplier) %></td>
-        <td><%= link_to 'Destroy', supplier, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', supplier, class: "show" %></td>
+        <td><%= link_to 'Edit', edit_supplier_path(supplier), class: "edit" %></td>
+        <td><%= link_to 'Destroy', supplier, method: :delete, data: { confirm: 'Are you sure?' }, class: "destroy" %></td>
       </tr>
     <% end %>
   </tbody>

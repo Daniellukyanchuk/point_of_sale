@@ -1,6 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Recipes</h1>
+<hr>
+<%= link_to '+ New Recipe', new_recipe_path, :class => "button big_button green" %>
+<br><br>
 
 <table>
   <thead>
@@ -20,9 +23,9 @@
         <td><%= recipe.recipe_cost %></td>
         <td><%= recipe.yield %></td>
         <td><%= recipe.instructions %></td>
-        <td><%= link_to 'Show', recipe %></td>
-        <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
-        <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', recipe, class: "show" %></td>
+        <td><%= link_to 'Edit', edit_recipe_path(recipe), class: "edit" %></td>
+        <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' }, class: "destroy" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +33,4 @@
 
 <br>
 
-<%= link_to 'New Recipe', new_recipe_path %>
+

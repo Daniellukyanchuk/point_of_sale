@@ -25,9 +25,9 @@
       <td class="align_center"><%= purchase.supplier_id %></td>
       <td><%= purchase.supplier.supplier_name %></td>
       <td class="align_right"><%= purchase.purchase_total %></td>
-      <td><%= link_to 'Show', "/purchases/#{purchase["id"]}" %></td>
-      <td><%= link_to 'Edit', edit_purchase_path(purchase) %></td>
-      <td><%= link_to 'Destroy', "/purchases/#{purchase["id"]}", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to 'Show', "/purchases/#{purchase["id"]}", class: "show" %></td>
+      <td><%= link_to 'Edit', edit_purchase_path(purchase), class: "edit" %></td>
+      <td><%= link_to 'Destroy', "/purchases/#{purchase["id"]}", method: :delete, data: { confirm: 'Are you sure?' }, class: "destroy" %></td>
     </tr>
   <% end %>
   </tbody>

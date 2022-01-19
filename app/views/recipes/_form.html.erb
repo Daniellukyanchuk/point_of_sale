@@ -13,10 +13,10 @@
 
   <div class="field">
     <%= form.label "Select Recipe" %>
-        <%= form.collection_select :product_id, Product.all, :id, :product_name, {}, {class: "recipe"} %>
-    </div>
+    <%= form.collection_select :product_id, Product.all, :id, :product_name, {}, {class: "recipe"} %>
+  </div>
 
-      <h2>Ingredients</h2><hr>
+        <h2>Ingredients</h2><hr>
 
         <%= form.fields_for :recipe_products do |builder| %>
           <%= render 'recipe_product_fields', form: builder %>

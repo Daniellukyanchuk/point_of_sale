@@ -147,7 +147,7 @@ th {
 
 td {
   padding: 3px 4px;
-  line-height:  18px;
+  line-height:  21px;
 }
 
 label {
@@ -162,4 +162,48 @@ label {
 .pad-bottom {
     padding-bottom: 30px;
 }
+
+.hidden {
+    display: none;
+}
+
+a.show, a.edit, a.destroy {
+    padding:  1px 4px 3px 3px;
+    margin-botton: 3px;
+    border-radius: 3px;
+    text-decoration: none;
+    color: #fff;
+}
+
+a.show {
+    background-color: #067aff;
+    border: solid 2px #067aff;
+}
+
+a.edit {
+    background-color: #27d37c;
+    border: solid 2px #27d37c;
+}
+
+a.destroy {
+    background-color: red;
+    border: solid 2px red;
+}
+
+a.show:hover {
+    color: #067aff;
+    background-color: #fff;
+}
+
+a.edit:hover {
+    color: #27d37c;
+    background-color: #fff;
+}
+
+a.destroy:hover {
+    color: red;
+    background-color: #fff;
+}
+
+
 

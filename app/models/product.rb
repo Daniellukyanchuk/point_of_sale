@@ -8,6 +8,7 @@ class Product < ApplicationRecord
     has_many :orders, through: :order_products
     has_many :clients, through: :orders
     has_many :suppliers, through: :purchases
+    validates :product_name, :price, :unit, :grams_per_unit, presence: true
 
    
 

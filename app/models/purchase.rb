@@ -8,6 +8,8 @@ class Purchase < ApplicationRecord
     before_validation :parse_dates
     
 
+    
+
     def parse_dates
         if !date_ordered.blank?
         self.date_ordered =  Date.strptime(self.date_ordered.to_s, "%Y-%d-%m")

@@ -32,9 +32,9 @@
         <td class="align_center"><%= order.client_id %></td>
         <td><%= order.client.name %></td>
         <td class="align_right"><%= order.grand_total %></td>
-        <td><%= link_to 'Show', order %></td>
-        <td><%= link_to 'Edit', edit_order_path(order) %></td>
-        <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', order, class: "show" %></td>
+        <td><%= link_to 'Edit', edit_order_path(order), class: "edit" %></td>
+        <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' }, class: "destroy" %></td>
       </tr>
     <% end %>
   </tbody>

@@ -32,9 +32,9 @@
         <td class="align_right"><%= pi["price"] %></td>
         <td class="align_right"><%= pi["grams_per_unit"] %>g</td>
         <td><%= pi["unit"] %></td>
-        <td><%= link_to "Show", "/products/#{pi["id"]}" %></td>
-        <td><%= link_to "Edit", "/products/#{pi["id"]}/edit" %></td>
-        <td><%= link_to "Delete", "/products/#{pi["id"]}", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to "Show", "/products/#{pi["id"]}", class: "show" %></td>
+        <td><%= link_to "Edit", "/products/#{pi["id"]}/edit", class: "edit" %></td>
+        <td><%= link_to "Delete", "/products/#{pi["id"]}", method: :delete, data: { confirm: 'Are you sure?' }, class: "destroy" %></td>
 
       </tr>
     <% end %>

@@ -64,6 +64,6 @@ class ProductionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def production_params
-      params.require(:production).permit(:recipe_name, :production_quantity, :production_total_cost)
+      params.require(:production).permit(:recipe_id, :production_quantity, :production_total_cost, :recipe_cost, :production_yield)
     end
 end

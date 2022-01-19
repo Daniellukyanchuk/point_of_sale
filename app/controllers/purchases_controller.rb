@@ -77,7 +77,9 @@ class PurchasesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def purchase_params
-      params.require(:purchase).permit(:supplier_id, :purchase_total, :estimated_total, :date_ordered, :date_expected, :date_received, :purchase_product_id)
+      params.require(:purchase).permit(:supplier_id, :purchase_total, :estimated_total, :date_ordered, 
+        :date_expected, :date_received, :purchase_product_id, 
+        purchase_products_attributes: [:id, :product_id, :purchase_id, :purchase_quantity, :purchase_price, :purchase_subtotal, :estimated_quantity, :estimated_cost, :estimated_subtotal])
     end
 
     def sort_column

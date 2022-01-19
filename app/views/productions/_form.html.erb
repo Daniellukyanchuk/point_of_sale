@@ -12,21 +12,85 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :recipe_name %>
-    <%= form.text_field :recipe_name %>
+    <%= form.label "Select Recipe" %>
+    <%= form.select :recipe_id, options_for_select(Recipe.all.map{|r| [r.product.product_name, r.id]}), {}, {class: "recipe"} %>
+     
+  </div>
+
+
+  <div class="field">
+    <%= form.label :recipe_cost %>
+    <%= form.number_field :recipe_cost, class: "recipe-cost greyed_out", :readonly => true %>
   </div>
 
   <div class="field">
     <%= form.label :production_quantity %>
-    <%= form.text_field :production_quantity %>
+    <%= form.number_field :production_quantity, class: "production-quantity" %>
   </div>
 
   <div class="field">
     <%= form.label :production_total_cost %>
-    <%= form.text_field :production_total_cost %>
+    <%= form.number_field :production_total_cost, class: "total-production-cost greyed_out", :readonly => true %>
+  </div>
+
+  <%= form.number_field :recipe_yield, class: "recipe-yield hidden", :readonly => true %>
+
+  <div class="field">
+    <%= form.label :yield %>
+    <%= form.number_field :production_yield, class: "yield greyed_out", :readonly => true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :units %>
+    <%= form.text_field :units, class: "units greyed_out", :readonly => true %>
   </div>
 
   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
+
+
+<script type="text/javascript">
+
+///////////////// AUTO-FILL //////////////////////
+
+ 
+$(document).ready(function() {
+  $(document).on("change", ".recipe, .production-quantity", getRecipeInfo);
+  $(document).on("change", ".production-quantity, .recipe", calcProductionTotal); 
+  $(document).on("change", ".production-quantity, .recipe", calcYieldTotal); 
+  
+  function getRecipeInfo() {
+                $.ajax({ 
+                  url: "/recipe/production_info",
+                  data: { id: $(this).val() },
+                  type: "GET",
+                  success: function(data) {
+                    $(".recipe-cost").val((data["recipe_cost"]).toFixed(5));
+                    $(".units").val(data["units"]);
+                    $(".recipe-yield").val(data["yield"]);                              
+                    }
+                  });
+                };
+
+  function calcProductionTotal() {
+      var price = $(".recipe-cost").val()
+      var qt = $(".production-quantity").val()
+          $(".total-production-cost").val((price*qt).toFixed(2))
+  }
+
+  function calcYieldTotal() {
+      var recipe_yield = $(".recipe-yield").val()
+      var qt = $(".production-quantity").val()
+          $(".yield").val((recipe_yield*qt).toFixed(2))
+  }
+
+  
+
+  $(".chosen-select").chosen({
+    no_results_text: "Oops, nothing found!"
+  })
+});
+</script>
+
