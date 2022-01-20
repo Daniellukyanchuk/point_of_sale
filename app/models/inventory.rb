@@ -4,6 +4,12 @@ class Inventory < ApplicationRecord
   belongs_to :purchase_product, optional: true
   belongs_to :production_recipe, optional: true 
 
+  after_initialize :init #used to set default values
+  # attr_accessor :unit, :name
+
+  def init
+    self.date ||= DateTime.now
+  end
 
 
   Purchase.left_outer_joins(:inventories).where(inventories: {inventory_id: nil})
@@ -55,14 +61,15 @@ class Inventory < ApplicationRecord
     end 
   end
 
-  def self.add_inventory(product_id, amount)
-    inventory = Inventory.create(product_id: "product_id", current_amount_left: "amount")
+  def self.add_inventory(product_id, created_at, amount, recipe_price)
+    inventory = Inventory.create(product_id: product_id, date: created_at, amount: amount, current_amount_left: amount, price_per_unit: recipe_price)
   end
 
   def set_costs  	
   	if self.current_amount_left == nil
   		self.current_amount_left = 0
   	end
+
     self.costs = self.amount * self.price_per_unit
     # Delta of purchased shows the change and what was saved. If it were 100 saved and then they decided to change it to 120, then the delta is 20.
     delta_of_purchased = self.amount - (self.amount_was || 0)
