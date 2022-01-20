@@ -36,7 +36,7 @@
       <th><%= sortable "costs", "PURCHASED COST" %></th>
       <th><%= sortable "current_amount_left", "AMOUNT LEFT" %></th>
       <th><%= sortable "purchase_product_id", "Purchase ID" %></th>
-      <th colspan="7"></th>
+      <th></th>
     </tr>
   </thead>
 
@@ -51,9 +51,11 @@
         <td>&#8381 <%= inventory.costs %></td>
         <td><%= inventory.current_amount_left %></td>
         <% if inventory.purchase_product.nil? %>
-          <td><td>
+          <td></td>
         <% else %>
-          <td><a href="/purchases/<%= inventory.purchase_product.purchase.id %>/edit" ><%= inventory.purchase_product_id %></a></td>
+          <td>
+              <a href="/purchases/<%= inventory.purchase_product.purchase.id %>/edit" ><%= inventory.purchase_product_id %></a>
+          </td>
         <% end %>
         <td><%= link_to 'Show', inventory %></td>
         <td><%= link_to 'Edit', edit_inventory_path(inventory) %></td>

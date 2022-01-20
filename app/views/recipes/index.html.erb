@@ -14,7 +14,7 @@
   <thead>
     <tr class="active">
       <th><%= sortable "id", "ID" %></th>
-      <th><%= sortable "product_name", "Recipe Name" %></th>
+      <th><%= sortable "recipe_name", "Recipe Name" %></th>
       <th><%= sortable "grand_total", "Recipe Cost" %></th>
       <th colspan="4"></th>
     </tr>
@@ -24,7 +24,7 @@
     <% @recipes.each do |recipe| %>
       <tr>
         <td><%= recipe.id %></td>
-        <td><%= recipe.product.product_name %></td>
+        <td><%= recipe.recipe_name %></td>
         <td>&#8381 <%= recipe.grand_total %></td>
         <td><%= link_to 'Show', recipe %></td>
         <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
