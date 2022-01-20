@@ -18,6 +18,11 @@
   <%= link_to_add_fields "Add Product", form, :recipe_products %>
 
   <div class="field">
+    <%= form.label :recipe_name %>
+    <%= form.text_field :recipe_name %>
+  </div>
+
+  <div class="field">
     <%= form.collection_select :product_id, Product.all, :id, :product_name %>
   </div>
 

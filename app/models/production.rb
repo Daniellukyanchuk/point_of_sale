@@ -34,6 +34,6 @@ class Production < ApplicationRecord
       Inventory.remove_inventory(rp.product_id, (rp.product_amount || 0) * change_in_quantity)
     end
     
-    Inventory.add_inventory(recipe_id, product_amount, recipe_price, created_at) 
+    Inventory.add_inventory(recipe.product_id, product_amount, recipe_price) 
   end
 end

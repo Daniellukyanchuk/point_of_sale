@@ -13,6 +13,7 @@
 
   <div class="field">
     <%= form.label :recipe_id %>
+   <!--  <%= form.select(:recipe_id, options_for_select(Recipe.all.map{|r| [r.product.product_name, r.id]}), {}, {class: "product-picker"}) %> -->
     <%= form.collection_select :recipe_id, Recipe.all, :id, :recipe_name, {}, {class: "product-picker"} %>
   </div>
 

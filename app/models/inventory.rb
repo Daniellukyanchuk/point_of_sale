@@ -9,6 +9,7 @@ class Inventory < ApplicationRecord
 
   def init
     self.date ||= DateTime.now
+    self.price_per_unit ||= 0
   end
 
 
@@ -61,8 +62,9 @@ class Inventory < ApplicationRecord
     end 
   end
 
-  def self.add_inventory(product_id, created_at, amount, recipe_price)
-    inventory = Inventory.create(product_id: product_id, date: created_at, amount: amount, current_amount_left: amount, price_per_unit: recipe_price)
+  def self.add_inventory(product_id, amount, recipe_price)
+    inventory = Inventory.create(product_id: product_id, amount: amount, current_amount_left: amount, price_per_unit: recipe_price)
+
   end
 
   def set_costs  	
