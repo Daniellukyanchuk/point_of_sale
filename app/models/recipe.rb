@@ -20,7 +20,4 @@ class Recipe < ApplicationRecord
       Recipe.all
     end
   end
-	# before_save :set_grand_total
-
-	
 end

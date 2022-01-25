@@ -14,5 +14,10 @@
   <%= @production.grand_total %>
 </p>
 
+<p>
+  <strong>Cost to Make:</strong>
+  <%= @production.cost_to_make %>
+</p>
+
 <%= link_to 'Edit', edit_production_path(@production) %> |
 <%= link_to 'Back', productions_path %>

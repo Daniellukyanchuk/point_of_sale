@@ -64,9 +64,9 @@ class Inventory < ApplicationRecord
 
   def self.add_inventory(product_id, amount, recipe_price)
     inventory = Inventory.create(product_id: product_id, amount: amount, current_amount_left: amount, price_per_unit: recipe_price)
-
   end
 
+  
   def set_costs  	
   	if self.current_amount_left == nil
   		self.current_amount_left = 0
