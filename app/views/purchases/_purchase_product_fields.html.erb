@@ -20,7 +20,7 @@
 
     <div class="field">
       <%= form.label :subtotal %>
-      <%= form.number_field :estimated_subtotal, class: "est_subtotal" %>
+      <%= form.number_field :estimated_subtotal, class: "est_subtotal", :readonly => true %>
     </div>
  
   <p>
@@ -37,7 +37,7 @@
 
     <div class="field">
       <%= form.label :subtotal %>
-      <%= form.number_field :actual_subtotal, class: "act_subtotal" %>
+      <%= form.number_field :actual_subtotal, class: "act_subtotal", :readonly => true %>
     </div>
 
     <% form.object.inventories.each do |inv| %>

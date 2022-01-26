@@ -49,8 +49,8 @@ class Purchase < ApplicationRecord
   def set_estimated_total
     self.estimated_total = 0
     purchase_products.each do |pp|
-    pp.set_estimated_subtotal
-    self.estimated_total = self.estimated_total + pp.estimated_subtotal
+      pp.set_estimated_subtotal
+      self.estimated_total = self.estimated_total + pp.estimated_subtotal
     end
   end
 end
