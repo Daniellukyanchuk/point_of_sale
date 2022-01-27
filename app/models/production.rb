@@ -4,17 +4,34 @@ class Production < ApplicationRecord
 	before_save :set_total
   before_save :set_current_amount_left
     
-  def self.search(search)
+  def self.search(search, recipe_select, start_date, end_date)
+    where_statements = []
+
     if !search.blank?
-      return Production.where("recipe_id = ? or id = ?", search.to_i, search.to_i)    
-    else
-      Production.all
+      tmp = "(recipes.recipe_name ILIKE '%#{search}%' 
+               OR product_id = #{search.to_i} OR product_amount = #{search.to_d} 
+               OR grand_total = #{search.to_d} or cost_to_make = #{search.to_d} 
+               "
+      
+      where_statements.push(tmp)
     end
+
+    if !recipe_select.blank?
+      ids = []
+      recipe_select.each do |ps|
+        ids.push(ps.to_i)
+      end
+      tmp = "recipe_id in (#{SqlHelper.escape_sql_param(ids)})"
+      where_statements.push(tmp)
+    end
+
+    if !start_date.blank? && !end_date.blank?
+      where_statements.push("(CAST(productions.created_at AS DATE) >= #{SqlHelper.escape_sql_param(start_date.to_date)} AND CAST(productions.created_at AS DATE) <= #{SqlHelper.escape_sql_param(end_date.to_date)})")
+    end
+    where_clause = where_statements.join(" AND ")
+    return Production.joins(:recipe).where(where_clause)
   end
 
-  # To find a weighted average, multiply each number by its weight, then add the results. 
-  # If the weights don't add up to one, find the sum of all the variables multiplied by their weight, 
-  # then divide by the sum of the weights.
   def set_total
     self.grand_total = 0
     self.grand_total = product_amount * recipe_price 

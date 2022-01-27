@@ -4,7 +4,11 @@ class ProductionsController < ApplicationController
 
   # GET /productions or /productions.json
   def index
-    @productions = Production.search(params[:search]).order(sort_column + " " + sort_direction)
+    params[:start_date] = 1.month.ago.strftime("%d-%m-%Y") if params[:start_date].blank?
+    
+    params[:end_date] = Date.today.strftime("%d-%m-%Y") if params[:end_date].blank?
+
+    @productions = Production.search(params[:search], params[:recipe_select], params[:start_date], params[:end_date]).order(sort_column + " " + sort_direction)
   end
 
   # GET /productions/1 or /productions/1.json
@@ -58,6 +62,14 @@ class ProductionsController < ApplicationController
   end
 
   private
+
+    def start_date
+      params[:start_date]
+    end
+
+    def end_date
+      params[:end_date]
+    end
 
     def sort_column
       Production.column_names.include?(params[:sort]) ? params[:sort] : "recipe_id"
