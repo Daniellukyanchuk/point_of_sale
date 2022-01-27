@@ -140,7 +140,7 @@ class Order < ApplicationRecord
                               SUM(subtotal) AS amount_made,
                               round(AVG(sale_price)::numeric, 2) AS average_unit_price,
                               product_id,
-                              SUM(sale_price * quantity) / SUM(quantity) AS weighted_average_sale_price
+                              SUM(sale_price * quantity) / SUM(NULLIF(quantity,0)) AS weighted_average_sale_price
                            FROM order_products
                            #{date_filter_where}
                            GROUP BY product_id
@@ -149,7 +149,7 @@ class Order < ApplicationRecord
                           (
                            SELECT 
                              product_id, 
-                             ROUND(SUM(price_per_unit * current_amount_left) / SUM(current_amount_left), 2) AS weighted_average
+                             ROUND(SUM(price_per_unit * current_amount_left) / SUM(NULLIF(current_amount_left,0)), 2) AS weighted_average
                            FROM inventories
                            GROUP BY product_id
                           ) weighted_average_sale on products.id = weighted_average_sale.product_id
