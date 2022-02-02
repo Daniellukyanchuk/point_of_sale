@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
   helper_method :sort_column, :sort_direction
     
   # GET /orders or /orders.json
- def autofill_price
+  def autofill_price
       @price = Product.where("id = ?", params[:id]).take
   end
   

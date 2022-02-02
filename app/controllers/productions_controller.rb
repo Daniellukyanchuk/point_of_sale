@@ -1,5 +1,8 @@
 class ProductionsController < ApplicationController
   before_action :set_production, only: %i[ show edit update destroy ]
+  
+
+
 
   # GET /productions or /productions.json
   def index
@@ -22,7 +25,7 @@ class ProductionsController < ApplicationController
   # POST /productions or /productions.json
   def create
     @production = Production.new(production_params)
-
+    
     respond_to do |format|
       if @production.save
         format.html { redirect_to @production, notice: "Production was successfully created." }
@@ -64,6 +67,6 @@ class ProductionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def production_params
-      params.require(:production).permit(:recipe_id, :production_quantity, :production_total_cost, :recipe_cost, :production_yield)
+      params.require(:production).permit(:id, :recipe_id, :production_quantity, :production_total_cost, :recipe_cost, :production_yield)
     end
 end

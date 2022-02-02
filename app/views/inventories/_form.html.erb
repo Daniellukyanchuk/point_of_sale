@@ -11,12 +11,12 @@
     </div>
   <% end %>
 
-<h2>Add to Inventory</h2><hr>
+<h2>Add Inventory from Purchase</h2><hr>
 <div  class="inventory_form">
 
        
         <div class="field">
-          <%= form.label "Choose Source" %>       
+          <%= form.label "Choose Product" %>       
           <%= form.collection_select(:purchase_product_id, PurchaseProduct.joins(:product).where("purchase_products.id not in (SELECT purchase_product_id
           FROM inventories where purchase_product_id is not null)"), :id, :p_o_name, {}, {class: "source"}) %>
         </div>
@@ -62,6 +62,7 @@
     <%= form.submit %>
   </div>
 </div>
+
 <% end %>
 
 

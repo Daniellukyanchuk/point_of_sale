@@ -4,7 +4,8 @@ class RecipesController < ApplicationController
 
   def get_production_info
      @recipe_cost = Recipe.get_recipe_cost(params[:id].to_i).first
-      render json: {recipe_cost: @recipe_cost["usage_cost"], units: @recipe_cost["units"], yield: @recipe_cost["yield"] }
+      render json: {recipe_cost: @recipe_cost["usage_cost"], units: @recipe_cost["units"], yield: @recipe_cost["yield"], 
+      product_id: @recipe_cost["product_id"] }
   end
   
 
@@ -72,7 +73,7 @@ class RecipesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def recipe_params
-      params.require(:recipe).permit( :id, :product_id, :recipe_cost, :yield, :instructions, :units,
+      params.require(:recipe).permit( :id, :product_id, :recipe_cost, :yield, :instructions, :units, :recipe_name,
         recipe_products_attributes: [ :id, :product_id, :recipe_id, :cost_per_kg, :amount, :ingredient_total, :_destroy ])
         
     end

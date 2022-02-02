@@ -8,6 +8,9 @@
 <table>
   <thead>
     <tr>
+      <th>Recipe Id</th>
+      <th>Recipe Name</th>
+      <th>Product Id</th>
       <th>Product Name</th>
       <th>Batch Qty</th>
       <th>Production Cost</th>
@@ -20,13 +23,15 @@
   <tbody>
     <% @productions.each do |production| %>
       <tr>
+        <td align="center"><%= production.recipe_id %></td>
+        <td><%= production.recipe.recipe_name %></td>
+        <td align="center"><%= production.recipe.product_id %></td>
         <td><%= production.recipe.product.product_name %></td>
-        <td><%= production.production_quantity %></td>
-        <td><%= production.production_total_cost %></td>
-        <td><%= production.production_yield %></td>
+        <td align="right"><%= production.production_quantity %></td>
+        <td align="right"><%= production.production_total_cost %></td>
+        <td align="right"><%= production.production_yield %></td>
         <td><%= production.recipe.units %></td>
         <td><%= link_to 'Show', production, class: "show" %></td>
-        <td><%= link_to 'Edit', edit_production_path(production), class: "edit" %></td>
         <td><%= link_to 'Destroy', production, method: :delete, data: { confirm: 'Are you sure?' }, class: "destroy" %></td>
       </tr>
     <% end %>

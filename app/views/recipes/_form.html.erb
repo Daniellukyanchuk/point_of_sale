@@ -12,6 +12,11 @@
   <% end %>
 
   <div class="field">
+    <%= form.label :recipe_name %>
+    <%= form.text_field :recipe_name, class: "recipe-name" %>
+  </div>
+
+  <div class="field">
     <%= form.label "Select Recipe" %>
     <%= form.collection_select :product_id, Product.all, :id, :product_name, {}, {class: "recipe"} %>
   </div>

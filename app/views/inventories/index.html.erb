@@ -13,7 +13,8 @@
       <th>Remaining Qty</th>
       <th>Inventory Id</th>
       <th>Product Id</th>
-      <th>P.O. Id</th>
+      <th>Production Id</th>
+      <th>Purchase Id</th>
       <th>P.O. Product Id</th>
       <th>Date added</th>
       <th colspan="6"></th>
@@ -28,6 +29,7 @@
         <td align="right"><%= inventory.remaining_quantity %></td>
         <td align="center"><%= inventory.id %></td>
         <td align="center"><%= inventory.product_id %></td>
+        <td align="center"><%= inventory.production_id %></td>
         <td align="center"><%= inventory.purchase_id %></td>
         <td align="center"><%= inventory.purchase_product_id %></td>
         <td align="center"><%= inventory.created_at.strftime("%d %b %Y") %></td>

@@ -13,10 +13,8 @@
 
   <div class="field">
     <%= form.label "Select Recipe" %>
-    <%= form.select :recipe_id, options_for_select(Recipe.all.map{|r| [r.product.product_name, r.id]}), {}, {class: "recipe"} %>
-     
+    <%= form.select :recipe_id, options_for_select(Recipe.all.map{|r| [r.recipe_name, r.id]}), {}, {class: "recipe"} %>     
   </div>
-
 
   <div class="field">
     <%= form.label :recipe_cost %>
@@ -45,6 +43,11 @@
     <%= form.text_field :units, class: "units greyed_out", :readonly => true %>
   </div>
 
+  <div class="field">
+    <%= form.label :product_id %>
+    <%= form.text_field :product_id, class: "product-id greyed_out", :readonly => true %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
@@ -69,7 +72,8 @@ $(document).ready(function() {
                   success: function(data) {
                     $(".recipe-cost").val((data["recipe_cost"]).toFixed(5));
                     $(".units").val(data["units"]);
-                    $(".recipe-yield").val(data["yield"]);                              
+                    $(".recipe-yield").val(data["yield"]);  
+                    $(".product-name").val(data["product_id"]);                            
                     }
                   });
                 };
