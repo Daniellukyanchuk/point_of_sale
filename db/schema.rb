@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2022_01_25_031812) do
     t.string "phone"
     t.string "address"
     t.string "city"
+    t.string "country"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -38,8 +39,9 @@ ActiveRecord::Schema.define(version: 2022_01_25_031812) do
   end
 
   create_table "order_products", force: :cascade do |t|
-    t.string "product_id"
-    t.string "quantity"
+    t.integer "order_id"
+    t.integer "product_id"
+    t.integer "quantity"
     t.float "sale_price"
     t.float "subtotal"
     t.datetime "created_at", null: false
@@ -47,7 +49,6 @@ ActiveRecord::Schema.define(version: 2022_01_25_031812) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer "order_id"
     t.integer "client_id"
     t.float "grand_total"
     t.datetime "created_at", null: false
