@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Recipe name:</strong>
-  <%= @production.recipe.product.product_name %>
+  <strong>Product:</strong>
+  ID#<%= @production.recipe.product_id %> | <%= @production.recipe.product.product_name %>
 </p>
 
 <p>
-  <strong>Recipe id:</strong>
-  <%= @production.recipe_id %>
+  <strong>Recipe:</strong>
+    ID#<%= @production.recipe_id %> | <%= @production.recipe.recipe_name %>
 </p>
 
 <p>
@@ -20,4 +20,11 @@
   <%= @production.production_total_cost %>
 </p>
 
+<p>
+  <strong>Yield:</strong>
+  <%= @production.production_yield  %> <%= @production.recipe.product.unit %>
+</p>
+
 <%= link_to 'Back', productions_path %>
+
+

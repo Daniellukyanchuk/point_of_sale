@@ -1,21 +1,34 @@
-
-
 class Inventory < ApplicationRecord
-	belongs_to :purchase_product
+	belongs_to :purchase_product, optional: true
   belongs_to :product
-  belongs_to :purchase
-	before_create :set_remaining_quantity
+  belongs_to :purchase, optional: true
+  belongs_to :production, optional: true
+	after_create :set_remaining_quantity
+
 
   attr_accessor :purchase_quantity
 
   def set_remaining_quantity
+    if !production_id.blank?
+        self.remaining_quantity = remaining_quantity
+    
+    elsif purchase_product.purchase_quantity.blank?  
+        self.remaining_quantity = nil
 
-        if self.purchase_quantity.blank?
-            self.remaining_quantity = nil
-        else
-            self.remaining_quantity = purchase_quantity
-        end
+    elsif !purchase_product.purchase_quantity.blank?
+        self.remaining_quantity = purchase_product.purchase_quantity 
     end
+    
+  end
+
+def set_remaining_quantity_for_production
+
+    if !production_id.blank?
+        self.remaining_quantity = remaining_quantity
+        stop
+      end
+  end  
+
 
   # takes an array of product_ids and returns a hash of the amount left in inventory
   def self.get_amounts_for(product_ids)
@@ -33,19 +46,15 @@ class Inventory < ApplicationRecord
     results.each do |row|
       amounts_left[row['product_id'].to_i] = row['amount_available_in_grams']
     end
-end
+  end
 
-def self.add_inventory(production_id, product_id, remaining_quantity)
-    Inventory.create(:id, :production_id, :product_id, :remaining_quantity)
-end
+  def self.add_inventory(production_id, product_id, remaining_quantity)
+      
+    inv = Inventory.create(production_id: production_id, product_id: product_id, 
+    remaining_quantity: remaining_quantity)    
+  end
 
-def create
-  puppies_array = puppies_params[:puppies].collect do |puppy|
-                    puppy[:puppy]
-                  end
-  Puppy.create(puppies_array)
-end
-
+  
 
   def self.search(search)
     if !search.blank?

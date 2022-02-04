@@ -3,7 +3,8 @@ class InventoriesController < ApplicationController
 
   # GET /inventories or /inventories.json
   def index
-    @inventories = Inventory.all
+    # stop
+    @inventories = Inventory.all.order("id desc")
   end
 
   # GET /inventories/1 or /inventories/1.json
@@ -64,7 +65,7 @@ class InventoriesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def inventory_params
-      params.require(:inventory).permit(:product_id, :purchase_id, :purchase_quantity, :remaining_quantity, :purchase_product_id, :supplier, :production_id)
+      params.require(:inventory).permit(:purchase_id, :product_id, :remaining_quantity, :purchase_product_id, :production_id)
     end
 
     def sort_column

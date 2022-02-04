@@ -33,7 +33,7 @@ class Production < ApplicationRecord
 			Inventory.remove_inventory(ci.product_id, amount_to_remove)
 		end
 
-		Inventory.add_inventory(id, self.recipe.product_id, production_yield)
+		Inventory.add_inventory(id, self.recipe.product_id, production_yield.to_f)
 
 	end
  end

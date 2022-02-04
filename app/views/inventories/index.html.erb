@@ -10,7 +10,7 @@
   <thead>
     <tr>
       <th>Product Name</th>
-      <th>Remaining Qty</th>
+      <th align="right">Remaining Qty</th>
       <th>Inventory Id</th>
       <th>Product Id</th>
       <th>Production Id</th>
@@ -26,7 +26,7 @@
       <% next if inventory.product.nil? %>
       <tr>
         <td><%= inventory.product.product_name %></td>
-        <td align="right"><%= inventory.remaining_quantity %></td>
+        <td align="right"><%= inventory.remaining_quantity %> <%= inventory.product.unit %></td>
         <td align="center"><%= inventory.id %></td>
         <td align="center"><%= inventory.product_id %></td>
         <td align="center"><%= inventory.production_id %></td>
