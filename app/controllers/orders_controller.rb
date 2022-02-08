@@ -3,6 +3,9 @@ class OrdersController < ApplicationController
   helper_method :sort_column, :sort_direction
   # GET /orders or /orders.json
   def index
+
+    @orders = Order.all
+
     params[:start_date] = 1.month.ago.strftime("%d-%m-%Y") if params[:start_date].blank?
     params[:end_date] = Date.today.strftime("%d-%m-%Y") if params[:end_date].blank?
     @orders = Order.search(params[:search], params[:client_select], params[:start_date], params[:end_date])
@@ -11,6 +14,7 @@ class OrdersController < ApplicationController
 
   # GET /orders/1 or /orders/1.json
   def show
+
   end
 
   # GET /orders/new

@@ -17,16 +17,21 @@ RSpec.describe Production, type: :model do
     Inventory.create!(product_id: sugar.id, amount: 15, current_amount_left: 15)
 
     grandmas_muffins = Recipe.create!(product_id: muffins.id, recipe_products: [
-        RecipeProduct.new(product_id: flour.id, product_amount: 0.2, product_price: 100), 
-        RecipeProduct.new(product_id: sugar.id, product_amount: 0.3, product_price: 60)])
+        RecipeProduct.new(product_id: flour.id, product_amount: 0.175, product_price: 100), 
+        RecipeProduct.new(product_id: sugar.id, product_amount: 0.175, product_price: 60)])
     
-    Production.create!(recipe_id: grandmas_muffins.id, product_amount: 10, recipe_price: 50, grand_total: 500)
+    Production.create!(recipe_id: grandmas_muffins.id, product_amount: 10, recipe_price: 50, grand_total: 500, cost_to_make: 280.0)
     
-    expect(Inventory.where(product_id: flour.id).sum(:current_amount_left)).to eq(18)
-    expect(Inventory.where(product_id: sugar.id).sum(:current_amount_left)).to eq(12)
+    expect(Inventory.where(product_id: flour.id).sum(:current_amount_left)).to eq(18.25)
+    expect(Inventory.where(product_id: sugar.id).sum(:current_amount_left)).to eq(13.25)
     expect(Inventory.where(product_id: muffins.id).sum(:amount)).to eq(40)
 
+    # Check if the cost_to_make is being calculated correctly.
 
+    
+
+    # expect(Production.where(cost_to_make: muffins.id)).to be_truthy
+    expect(Production.where(product_id: muffins.id).sum(:cost_to_make)).to be_truthy
   end
 end
 
