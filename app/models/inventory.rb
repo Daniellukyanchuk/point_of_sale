@@ -57,8 +57,9 @@ class Inventory < ApplicationRecord
       break if amount_left_to_remove == 0
       amount_to_remove = [inv.current_amount_left, amount_left_to_remove].min
       inv.current_amount_left = inv.current_amount_left - amount_to_remove
-      res = inv.save      
+          
       amount_left_to_remove = amount_left_to_remove - amount_to_remove
+      res = inv.save  
     end 
   end
 
@@ -69,9 +70,13 @@ class Inventory < ApplicationRecord
 
   
   def set_costs  	
-  	if self.current_amount_left == nil
+  	if self.id == nil
   		self.current_amount_left = 0
   	end
+
+    if self.amount == nil
+      self.amount = 0
+    end
 
     self.costs = self.amount * self.price_per_unit
     # Delta of purchased shows the change and what was saved. If it were 100 saved and then they decided to change it to 120, then the delta is 20.

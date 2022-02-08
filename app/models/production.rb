@@ -40,8 +40,9 @@ class Production < ApplicationRecord
     finale = 0
     recipe.recipe_products.each do |rp|
       # cal weighted average for each recipe product
-      value_of_item = 0
-      sum_of_amount = 0
+      value_of_item = 0 
+      sum_of_amount = 0 
+      
       Inventory.where("product_id = ? and amount > 0", rp.product_id).each do |inv|
         value_of_item += inv.amount * inv.price_per_unit
         sum_of_amount += inv.amount
@@ -59,6 +60,7 @@ class Production < ApplicationRecord
     change_in_quantity = product_amount - (product_amount_was || 0)
 
     recipe.recipe_products.each do |rp|        
+      
       Inventory.remove_inventory(rp.product_id, (rp.product_amount || 0) * change_in_quantity)
     end
     Inventory.add_inventory(recipe.product_id, product_amount, recipe_price) 

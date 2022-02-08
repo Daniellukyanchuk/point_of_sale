@@ -19,5 +19,6 @@ RSpec.describe Inventory, type: :model do
     end
 end
 
+
 # What matcher do I use to find out if I have the exact number of added muffins in inventory? 
 # How should the testing code look like? 

@@ -68,3 +68,5 @@ gem "binding_of_caller"
 group :assets do
   gem 'jquery-ui-rails'
 end
+
+gem 'simplecov', require: false, group: :test
