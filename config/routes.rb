@@ -8,10 +8,11 @@ Rails.application.routes.draw do
   resources :recipe_products
   resources :productions
   get '/purchases/product_info', to: 'purchases#get_product_info'
-    resources :inventories
+  resources :inventories
   resources :purchases
   resources :purchase_products
   resources :purchase_reports
+  resources :inventory_reports
   resources :suppliers
   get 'reports/client_report'
   get 'reports/product_report' 
