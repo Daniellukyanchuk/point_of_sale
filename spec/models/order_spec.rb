@@ -13,7 +13,7 @@ RSpec.describe Order, type: :model do
      o = Order.create(client_id: maxim.id, grand_total: 1750, order_products: [
           OrderProduct.new(product_id: muffins.id, quantity: 10, subtotal: 500, sale_price: 50),
           OrderProduct.new(product_id: banana_bread.id, quantity: 5, subtotal: 1250,  sale_price: 250)])
-byebug
+    
     expect(Inventory.where(product_id: muffins.id).sum(:current_amount_left)).to eq(10)
   end
 end
