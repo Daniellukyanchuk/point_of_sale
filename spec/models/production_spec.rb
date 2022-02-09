@@ -24,7 +24,6 @@ RSpec.describe Production, type: :model do
     expect(Inventory.where(product_id: flour.id).sum(:current_amount_left)).to eq(18.25)
     expect(Inventory.where(product_id: sugar.id).sum(:current_amount_left)).to eq(13.25)
     expect(Inventory.where(product_id: muffins.id).sum(:amount)).to eq(40)
-    expect(Production.where(product_id: muffins.id).sum(:cost_to_make)).to be_truthy
   end 
 
   it 'checks if the number in cost_to_make is correct' do  
@@ -42,7 +41,7 @@ RSpec.describe Production, type: :model do
            RecipeProduct.new(product_id: flour.id, product_amount: 0.4, product_price: 92.86),
            RecipeProduct.new(product_id: sunflower_oil.id, product_amount: 0.2, product_price: 91.43)])
 
-    prod = Production.create!(recipe_id: joergs_banana_bread.id, product_amount: 10 )
+    prod = Production.create!(recipe_id: joergs_banana_bread.id, product_amount: 10)
 
     expect(prod.cost_to_make.round(2)).to eq(554.29)
   end
