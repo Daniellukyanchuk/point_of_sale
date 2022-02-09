@@ -34,7 +34,7 @@ class Production < ApplicationRecord
 
   def set_total
     self.grand_total = 0
-    self.grand_total = product_amount * recipe_price 
+    self.grand_total = product_amount.to_d * recipe_price.to_d
     # production has_many recipes, recipe has_many recipe_products.
 
     finale = 0

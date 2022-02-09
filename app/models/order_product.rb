@@ -1,5 +1,5 @@
 class OrderProduct < ApplicationRecord
-  belongs_to :order
+  belongs_to :order, inverse_of: :order_products
   validates :quantity, :sale_price, presence: true, length: { minimum: 1, maximum: 25}
   has_many :inventories
   before_save :set_current_amount_left
@@ -20,7 +20,7 @@ class OrderProduct < ApplicationRecord
     # end
     total_inv = Inventory.where("product_id = ? and current_amount_left > 0", self.product_id).sum(&:current_amount_left)
     
-    if total_inv < self.quantity
+    if total_inv.to_d < self.quantity.to_d
       errors.add(:quantity, "Not enough inventory for this product")
     end
   end

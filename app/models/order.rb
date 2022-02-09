@@ -1,7 +1,8 @@
 class Order < ApplicationRecord
-  has_many :order_products
-  belongs_to :client  
+  has_many :order_products, inverse_of: :order
   accepts_nested_attributes_for :order_products, allow_destroy: true
+  belongs_to :client  
+  
   before_save :set_grand_total
       
   def set_grand_total
