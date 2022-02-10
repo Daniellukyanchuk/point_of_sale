@@ -1,9 +1,9 @@
 class Order < ApplicationRecord
-
-  has_many :order_products
+  has_many :order_products, dependent: :delete_all 
   accepts_nested_attributes_for :order_products, allow_destroy: true
   belongs_to :client  
   before_save :set_grand_total
+  after_destroy :put_back_inventory_item
       
   def set_grand_total
     self.grand_total = 0
@@ -12,9 +12,17 @@ class Order < ApplicationRecord
       self.grand_total = self.grand_total + op.subtotal
     end    
   end
+  # Go through each order_product and put inventory back.
+  # How to put inventory back? 
+
+  def put_back_inventory_item
+    order_products.each do |op|
+      Inventory.current_amount_left + op.quantity
+    end
+      
+  end
   
   def self.search(search, client_select, start_date, end_date)
-    
     where_statements = []
     if !search.blank?
       tmp = "(clients.name ILIKE '%#{search}%' 
