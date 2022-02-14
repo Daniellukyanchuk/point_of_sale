@@ -1,6 +1,5 @@
 class Order < ApplicationRecord
   before_destroy :put_back_inventory_item
-
   has_many :order_products, dependent: :delete_all 
   accepts_nested_attributes_for :order_products, allow_destroy: true
   belongs_to :client  
@@ -19,12 +18,9 @@ class Order < ApplicationRecord
   # Add it as a new row in the inventory table. The price of it should be the weighted_average. 
 
   def put_back_inventory_item
-
     order_products.each do |op|
-
       Inventory.add_inventory(op.product_id, op.quantity, op.sale_price)
     end
-      
   end
   
   def self.search(search, client_select, start_date, end_date)
@@ -34,6 +30,8 @@ class Order < ApplicationRecord
              OR clients.id = #{search.to_i})"
       where_statements.push(tmp)
     end
+
+
 
     if !client_select.blank?
       ids = []
