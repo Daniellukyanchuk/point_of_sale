@@ -30,6 +30,11 @@
   <%= @inventory.remaining_quantity %>
 </p>
 
+<p>
+  <strong>Cost per Unit:</strong>
+  <%= @inventory.cost_per_unit %>
+</p>
+
 <%= link_to 'Edit', edit_inventory_path(@inventory) %> |
 <%= link_to 'Back', inventories_path %>
 

@@ -16,17 +16,19 @@ class ReportsController < ApplicationController
         params[:to_date], params[:sort], params[:direction])
     end
 
-    def inventory_report
+    def inventory_report 
+
         if params[:from_date].blank?
-            params[:from_date] = (Date.today-30).strftime('%m/%d/%Y')
+            params[:from_date] = (Date.today-360).strftime('%m/%d/%Y')
         end
 
         if params[:to_date].blank?
             params[:to_date] = (Date.today+2).strftime('%m/%d/%Y')
         end           
 
-        @inventory_reports = Inventory.inventory_report(params[:search], params[:product_select], params[:from_date], 
-        params[:to_date], params[:sort], params[:direction])
+        @inventory_summaries = Inventory.inventory_summary(params[:search], params[:product_select], params[:from_date], 
+        params[:to_date], params[:sort], params[:direction])  
+
     end
 
     def purchase_report

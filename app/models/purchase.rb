@@ -8,8 +8,6 @@ class Purchase < ApplicationRecord
     before_validation :parse_dates
     
 
-    
-
     def parse_dates
         if !date_ordered.blank?
         self.date_ordered =  Date.strptime(self.date_ordered.to_s, "%Y-%d-%m")
@@ -99,7 +97,11 @@ end
                 SUM(purchase_quantity)::numeric(10,2) AS units_purchased, 
                 SUM(remaining_quantity)::numeric(10,2) AS current_inventory,
                 SUM((remaining_quantity*purchase_price)::numeric(12,2)) AS current_inventory_value,
-                (((SUM(remaining_quantity*purchase_price))/(SUM(remaining_quantity)))::numeric(10,2)) AS cost_per_unit
+                CASE 
+                  WHEN (SUM(remaining_quantity)) > 0 
+                  THEN ((SUM(remaining_quantity*purchase_price))/((SUM(remaining_quantity))::numeric(10,2))) 
+                  ELSE 0 END
+                  AS cost_per_unit
                 FROM purchase_products
                 LEFT OUTER JOIN products ON purchase_products.product_id = products.id
                 LEFT OUTER JOIN inventories ON purchase_products.product_id = inventories.product_id

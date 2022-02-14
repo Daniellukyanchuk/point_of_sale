@@ -5,6 +5,19 @@ class Order < ApplicationRecord
     belongs_to :client  
     accepts_nested_attributes_for :order_products, allow_destroy: true
     before_save :set_grand_total
+    after_save :remove_from_inventory
+
+
+    #remove sold items from inventory 
+    def remove_from_inventory   
+      
+            self.order_products.each do |ri|
+                # quantity to remove
+                amount_to_remove = ri.quantity
+            Inventory.remove_sold_inventory(ri.product_id, amount_to_remove)
+            
+        end
+    end
     
     
     def set_grand_total

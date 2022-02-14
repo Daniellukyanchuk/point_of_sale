@@ -6,48 +6,21 @@
 <%= link_to '+ Add to Inventory', new_inventory_path, :class => "button big_button green" %>
 <br><br>
 
-<%= form_tag reports_inventory_report_path, :method => 'get' do %>
-  
-  <%= text_field_tag :search, params[:search] %> 
-  AND
-  <% options = Product.all.collect{ |p| [p.product_name, p.id] } %>
-  <% options = [["Show All", nil]] + options %>
-  <%= select_tag 'product_select[]', options_for_select(options, params[:product_select]), :multiple => :multiple, :size => 10, :class => "chosen-select" %>
-  <br><br>
 
-      From: <input type="text" class="datepicker" id="from" name="from_date" 
-              autocomplete = 'off' value = "<%= params[:from_date] %>">
-      to: <input type="text" class="datepicker" id="to" name="to_date" 
-              autocomplete = 'off' value = "<%= params[:to_date] %>">
-
-  <%= submit_tag "Search", :product_name => nil %>
-<% end %>
-
-<br>
-<h2> Inventory Summary </h2>
-<table>
-  <thead>
-    <tr>
-    <th class="align_left"><%= sortable "product_id", "Id" %></th>
-    <th class="align_left"><%= sortable "product_name", "Product Name" %></th>
-    <th class="align_right"><%= sortable "current_inventory", "Units in Stock" %></th>
-    <th><%= sortable "unit", "Units" %></th>
-    <th colspan="4"></th>
-    </tr>
-  </thead>
 
 <table>
   <thead>
     <tr>
+      <th>Inventory Id</th>
       <th>Product Name</th>
       <th align="right">Remaining Qty</th>
-      <th>Inventory Id</th>
+      <th align="right">Cost per Unit</th>      
       <th>Product Id</th>
       <th>Production Id</th>
       <th>Purchase Id</th>
       <th>P.O. Product Id</th>
       <th>Date added</th>
-      <th colspan="6"></th>
+      <th colspan="9"></th>
     </tr>
   </thead>
 
@@ -55,9 +28,10 @@
     <% @inventories.each do |inventory| %>
       <% next if inventory.product.nil? %>
       <tr>
+        <td align="center"><%= inventory.id %></td>
         <td><%= inventory.product.product_name %></td>
         <td align="right"><%= inventory.remaining_quantity %> <%= inventory.product.unit %></td>
-        <td align="center"><%= inventory.id %></td>
+        <td align="right"><%= inventory.cost_per_unit %></td>
         <td align="center"><%= inventory.product_id %></td>
         <td align="center"><%= inventory.production_id %></td>
         <td align="center"><%= inventory.purchase_id %></td>
@@ -73,6 +47,9 @@
 </table>
 
 <br>
+
+
+
 
 
 

@@ -30,10 +30,8 @@ class Production < ApplicationRecord
 			# quantity to remove
 			amount_to_remove = ci.amount * production_quantity
 						
-			Inventory.remove_inventory(ci.product_id, amount_to_remove)
+			Inventory.remove_used_inventory(ci.product_id, amount_to_remove)
 		end
-
-		Inventory.add_inventory(id, self.recipe.product_id, production_yield.to_f)
-
+			Inventory.add_inventory(id, self.recipe.product_id, production_yield.to_f, production_total_cost)
 	end
  end

@@ -65,7 +65,7 @@ class InventoriesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def inventory_params
-      params.require(:inventory).permit(:purchase_id, :product_id, :remaining_quantity, :purchase_product_id, :production_id)
+      params.require(:inventory).permit(:purchase_id, :product_id, :remaining_quantity, :purchase_product_id, :production_id, :cost_per_unit)
     end
 
     def sort_column

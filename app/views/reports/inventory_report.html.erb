@@ -1,0 +1,87 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Inventory Report</h1>
+
+<%= form_tag reports_inventory_report_path, :method => 'get' do %>
+  
+  <%= text_field_tag :search, params[:search] %> 
+  AND
+  <% options = Product.all.collect{ |p| [p.product_name, p.id] } %>
+  <% options = [["Show All", nil]] + options %>
+  <%= select_tag 'product_select[]', options_for_select(options, params[:product_select]), :multiple => :multiple, :size => 10, :class => "chosen-select" %>
+  <br><br>
+
+      From: <input type="text" class="datepicker" id="from" name="from_date" 
+              autocomplete = 'off' value = "<%= params[:from_date] %>">
+      to: <input type="text" class="datepicker" id="to" name="to_date" 
+              autocomplete = 'off' value = "<%= params[:to_date] %>">
+
+  <%= submit_tag "Search", :product_name => nil %>
+<% end %>
+
+<br>
+
+<table>
+  <thead>
+    <tr>
+    <th align="left"><%= sortable "product_id", "Id" %></th>
+    <th align="left"><%= sortable "product_name", "Product Name" %></th>
+    <th align="right"><%= sortable "weighted_cost_per_unit", "Weighted CPU" %></th>
+    <th align="right"><%= sortable "current_inventory", "Units in Stock" %></th>
+    <th><%= sortable "unit", "Units" %></th>
+    <th colspan="4"></th>
+    </tr>
+  </thead>
+
+ <tbody>
+    <% @inventory_summaries.each do |is| %> 
+      <tr>     
+        <td><%= is["product_id"] %></td>
+        <td><%= is["product_name"] %></td>
+         <td align="right"><%= is["weighted_cost_per_unit"] %></td>
+        <td align="right"><%= is["current_inventory"] %></td>
+        <td><%= is["unit"] %></td>
+      </tr>
+      <% end %>
+  </tbody>
+ 
+ </table> 
+
+ <script type="text/javascript">
+
+
+  $( function() {
+    var dateFormat = "mm/dd/yy",
+          from = $( "#from" ).datepicker({
+          changeMonth: true,
+          numberOfMonths: 1
+        })
+        .on( "change", function() {
+          to.datepicker( "option", "minDate", getDate( this ) );
+        }),
+      to = $( "#to" ).datepicker({
+        changeMonth: true,
+        numberOfMonths: 1
+      })
+      .on( "change", function() {
+        from.datepicker( "option", "maxDate", getDate( this ) );
+      });
+ 
+    function getDate( element ) {
+      var date;
+      try {
+        date = $.datepicker.parseDate( dateFormat, element.value );
+      } catch( error ) {
+        date = null;
+      }
+ 
+      return date;
+    }
+  } );
+
+
+$(".chosen-select").chosen({
+  no_results_text: "Oops, nothing found!"
+})
+
+</script>
