@@ -1,15 +1,11 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/daniellukyanchuk/Documents/GitHub/point_of_sale/spec/models/purchase_spec.rb": {
+      "/Users/daniellukyanchuk/Documents/GitHub/point_of_sale/spec/models/my_sorter_spec.rb": {
         "lines": [
           1,
           null,
           1,
-          1,
-          1,
-          1,
-          1,
           null,
           1,
           1,
@@ -20,19 +16,15 @@
           null,
           null,
           null,
-          1,
-          null,
-          null,
-          null,
-          1,
-          null,
+          0,
           null,
           null,
           1,
           null,
+          1,
           null,
           1,
-          1,
+          null,
           1,
           null,
           null,
@@ -337,6 +329,15 @@
 
         ]
       },
+      "/Users/daniellukyanchuk/Documents/GitHub/point_of_sale/spec/factories/my_sorters.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
       "/Users/daniellukyanchuk/Documents/GitHub/point_of_sale/spec/factories/orders.rb": {
         "lines": [
           1,
@@ -471,37 +472,15 @@
           null
         ]
       },
-      "/Users/daniellukyanchuk/Documents/GitHub/point_of_sale/app/models/purchase.rb": {
+      "/Users/daniellukyanchuk/Documents/GitHub/point_of_sale/app/models/my_sorter.rb": {
         "lines": [
           1,
           null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
           null,
           null,
           null,
           null,
-          1,
           null,
-          1,
-          0,
-          null,
-          null,
-          null,
-          0,
-          null,
-          null,
-          1,
-          1,
-          1,
-          3,
-          null,
-          1,
           1,
           null,
           null,
@@ -509,118 +488,28 @@
           1,
           null,
           null,
-          1,
-          1,
-          null,
-          null,
-          1,
-          3,
-          3,
-          6,
-          6,
-          null,
-          null,
-          null,
-          1,
-          3,
-          3,
-          6,
-          6,
-          null,
-          null,
-          null
-        ]
-      },
-      "/Users/daniellukyanchuk/Documents/GitHub/point_of_sale/app/models/application_record.rb": {
-        "lines": [
-          1,
-          1,
-          null
-        ]
-      },
-      "/Users/daniellukyanchuk/Documents/GitHub/point_of_sale/app/models/supplier.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          0,
-          0,
-          null,
-          0,
-          null,
-          null,
-          null
-        ]
-      },
-      "/Users/daniellukyanchuk/Documents/GitHub/point_of_sale/app/models/product.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          0,
-          0,
-          null,
-          0,
-          null,
-          null,
-          null
-        ]
-      },
-      "/Users/daniellukyanchuk/Documents/GitHub/point_of_sale/app/models/purchase_product.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null,
-          1,
-          12,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          1,
-          0,
-          0,
-          0,
           null,
           null,
           null,
           null,
           1,
-          0,
-          null,
-          null
-        ]
-      },
-      "/Users/daniellukyanchuk/Documents/GitHub/point_of_sale/app/models/sql_helper.rb": {
-        "lines": [
-          1,
-          1,
-          3,
           null,
           null,
-          1,
-          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
           null,
           null,
           null
         ]
       }
     },
-    "timestamp": 1644818161
+    "timestamp": 1644833739
   }
 }
