@@ -5,7 +5,7 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <script src='./assets/0.12.3/application.js' type='text/javascript'></script>
     <link href='./assets/0.12.3/application.css' media='screen, projection, print' rel='stylesheet' type='text/css' />
-    <link rel="shortcut icon" type="image/png" href="./assets/0.12.3/favicon_yellow.png" />
+    <link rel="shortcut icon" type="image/png" href="./assets/0.12.3/favicon_green.png" />
     <link rel="icon" type="image/png" href="./assets/0.12.3/favicon.png" />
   </head>
 
@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2022-02-14T16:15:39+06:00">2022-02-14T16:15:39+06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2022-02-15T11:30:18+06:00">2022-02-15T11:30:18+06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -22,15 +22,15 @@
   <h2>
     <span class="group_name">All Files</span>
     (<span class="covered_percent">
-      <span class="yellow">
-  89.62%
+      <span class="green">
+  91.3%
 </span>
 
      </span>
      covered at
      <span class="covered_strength">
-       <span class="red">
-         0.91
+       <span class="green">
+         1.47
        </span>
     </span> hits/line
     )
@@ -43,11 +43,11 @@
   </div>
 
   <div class="t-line-summary">
-    <b>106</b> relevant lines,
-    <span class="green"><b>95</b> lines covered</span> and
-    <span class="red"><b>11</b> lines missed. </span>
-    (<span class="yellow">
-  89.62%
+    <b>115</b> relevant lines,
+    <span class="green"><b>105</b> lines covered</span> and
+    <span class="red"><b>10</b> lines missed. </span>
+    (<span class="green">
+  91.3%
 </span>
 )
   </div>
@@ -194,11 +194,11 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#9af0d4882bc13f312dcc430f108dc714a0be94ac" class="src_link" title="app/models/my_sorter.rb">app/models/my_sorter.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">33</td>
-            <td class="cell--number">5</td>
-            <td class="cell--number">5</td>
+            <td class="cell--number">35</td>
+            <td class="cell--number">14</td>
+            <td class="cell--number">14</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">1.00</td>
+            <td class="cell--number">5.50</td>
             
           </tr>
         
@@ -413,12 +413,12 @@
         
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#2561ee3ed533bdefd0555f8384195a516466bd81" class="src_link" title="spec/models/my_sorter_spec.rb">spec/models/my_sorter_spec.rb</a></td>
-            <td class="yellow strong cell--number t-file__coverage">90.00 %</td>
+            <td class="green strong cell--number t-file__coverage">100.00 %</td>
             <td class="cell--number">27</td>
             <td class="cell--number">10</td>
-            <td class="cell--number">9</td>
-            <td class="cell--number">1</td>
-            <td class="cell--number">0.90</td>
+            <td class="cell--number">10</td>
+            <td class="cell--number">0</td>
+            <td class="cell--number">1.00</td>
             
           </tr>
         
@@ -1201,8 +1201,8 @@
     
 
     <div class="t-line-summary">
-      <b>5</b> relevant lines.
-      <span class="green"><b>5</b> lines covered</span> and
+      <b>14</b> relevant lines.
+      <span class="green"><b>14</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -1231,7 +1231,7 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">  # The name of the algorithm is selection sort</code>
           </li>
         </div>
       
@@ -1242,7 +1242,7 @@
 
             
 
-            <code class="ruby"># Make a method sort_array </code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -1253,7 +1253,7 @@
 
             
 
-            <code class="ruby"># Method takes in an array of either strings or integers, </code>
+            <code class="ruby">  # Go through the array, get me the min and assign it to the &quot;arr&quot; variable.</code>
           </li>
         </div>
       
@@ -1264,18 +1264,18 @@
 
             
 
-            <code class="ruby"># and returns an array with items sorted asc or desc. The default is ascending. </code>
+            <code class="ruby">  # </code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="6">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="6">
+            <span class="hits">1</span>
             
 
-            <code class="ruby"># You are not allowed to use rails sort method, you have to write your own. </code>
+            
+
+            <code class="ruby">  def self.selection_sort(array) </code>
           </li>
         </div>
       
@@ -1286,18 +1286,18 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">    # Step 1: Go through the array</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="8">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="8">
+            
             
 
             
 
-            <code class="ruby">  def self.sort_array(array)</code>
+            <code class="ruby">    # Step 2: Find the smallest element of array using get_min method</code>
           </li>
         </div>
       
@@ -1308,7 +1308,7 @@
 
             
 
-            <code class="ruby">    # a = []</code>
+            <code class="ruby">    # Step 3: Delete that smallest element from the array </code>
           </li>
         </div>
       
@@ -1319,62 +1319,62 @@
 
             
 
-            <code class="ruby">    # a.push(min)</code>
+            <code class="ruby">    # Step 4: Assign deleted element of array to arr.</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="11">
+          <li class="never" data-hits="" data-linenumber="11">
+            
+            
+
+            
+
+            <code class="ruby">    # Step 5: Keep doing step 1 through 4 until there is nothing left in the array.</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="12">
+            
+            
+
+            
+
+            <code class="ruby">    # Step 6: The loop should break when array is empty.</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="13">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">    array.each do |a|</code>
+            <code class="ruby">    arr = []</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="12">
+          <li class="covered" data-hits="1" data-linenumber="14">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">      b += a.delete_at(a).get_min</code>
+            <code class="ruby">    while !array.empty?</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="13">
-            
-            
-
-            
-
-            <code class="ruby">    end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="14">
-            
+          <li class="covered" data-hits="5" data-linenumber="15">
+            <span class="hits">5</span>
             
 
             
 
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="15">
-            
-            
-
-            
-
-            <code class="ruby">    </code>
+            <code class="ruby">        arr.push(array.delete(get_min(array))) </code>
           </li>
         </div>
       
@@ -1385,18 +1385,18 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">    end</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="17">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="17">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">  end</code>
+            
+
+            <code class="ruby">    return arr</code>
           </li>
         </div>
       
@@ -1407,56 +1407,12 @@
 
             
 
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="19">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">  def self.get_min(min)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="20">
-            
-            
-
-            
-
-            <code class="ruby">    </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="21">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="22">
-            
-            
-
-            
-
             <code class="ruby">  end</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="23">
+          <li class="never" data-hits="" data-linenumber="19">
             
             
 
@@ -1467,35 +1423,79 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="24">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="20">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">  # def sort_me(array)</code>
+            
+
+            <code class="ruby">  def self.get_min(array)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="25">
-            
-            
-
+          <li class="covered" data-hits="6" data-linenumber="21">
+            <span class="hits">6</span>
             
 
-            <code class="ruby">  # end</code>
+            
+
+            <code class="ruby">    min = nil</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="26">
+          <li class="covered" data-hits="6" data-linenumber="22">
+            <span class="hits">6</span>
             
+
+            
+
+            <code class="ruby">  	array.each do |a|</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="20" data-linenumber="23">
+            <span class="hits">20</span>
             
 
             
 
-            <code class="ruby"> </code>
+            <code class="ruby">      if min.nil?</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="6" data-linenumber="24">
+            <span class="hits">6</span>
+            
+
+            
+
+            <code class="ruby">        min = a</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="14" data-linenumber="25">
+            <span class="hits">14</span>
+            
+
+            
+
+            <code class="ruby">      elsif min &gt; a</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="8" data-linenumber="26">
+            <span class="hits">8</span>
+            
+
+            
+
+            <code class="ruby">        min = a </code>
           </li>
         </div>
       
@@ -1506,7 +1506,7 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">      end</code>
           </li>
         </div>
       
@@ -1517,18 +1517,18 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">    end</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="29">
-            
-            
-
+          <li class="covered" data-hits="6" data-linenumber="29">
+            <span class="hits">6</span>
             
 
-            <code class="ruby"></code>
+            
+
+            <code class="ruby">    return min</code>
           </li>
         </div>
       
@@ -1539,7 +1539,7 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -1550,7 +1550,7 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby"> </code>
           </li>
         </div>
       
@@ -1567,6 +1567,28 @@
       
         <div>
           <li class="never" data-hits="" data-linenumber="33">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="34">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="35">
             
             
 
@@ -4528,8 +4550,8 @@
   <div class="header">
     <h3>spec/models/my_sorter_spec.rb</h3>
     <h4>
-      <span class="yellow">
-  90.0%
+      <span class="green">
+  100.0%
 </span>
 
       lines covered
@@ -4539,8 +4561,8 @@
 
     <div class="t-line-summary">
       <b>10</b> relevant lines.
-      <span class="green"><b>9</b> lines covered</span> and
-      <span class="red"><b>1</b> lines missed.</span>
+      <span class="green"><b>10</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
     </div>
 
     
@@ -4656,7 +4678,7 @@
 
             
 
-            <code class="ruby">    b = MySorter.sort_array(aa)</code>
+            <code class="ruby">    b = MySorter.selection_sort(aa)</code>
           </li>
         </div>
       
@@ -4694,8 +4716,8 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="14">
-            
+          <li class="covered" data-hits="1" data-linenumber="14">
+            <span class="hits">1</span>
             
 
             
@@ -4799,7 +4821,7 @@
 
             
 
-            <code class="ruby">    expect(b).to eq([2])</code>
+            <code class="ruby">    expect(b).to eq(2)</code>
           </li>
         </div>
       

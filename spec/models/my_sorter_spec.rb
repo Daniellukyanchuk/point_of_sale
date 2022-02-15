@@ -7,7 +7,7 @@ RSpec.describe MySorter, type: :model do
 
    
 
-    b = MySorter.sort_array(aa)
+    b = MySorter.selection_sort(aa)
     # c = MySorter.new
     # c.sort_me(aa)
 
@@ -20,7 +20,7 @@ RSpec.describe MySorter, type: :model do
 
     b = MySorter.get_min(aa)
 
-    expect(b).to eq([2])
+    expect(b).to eq(2)
    
 
   end
