@@ -28,8 +28,33 @@ class MySorter
     end
     return min
   end
- 
 
+# Making bubble_sort 
+# Step 1: Go through the array. 
+# Step 2: Compare next 2 elements of the array.
+# Step 3: Find the smallest among those two.
+# Step 4: If second element is lesser than first, swap the places.
+# Step 5: If it is not, leave them as they are. 
+# Step 6: Go to the next two elements.
+# Step 7: Do the same with them.
+# Step 8: Stop when you iterated through the whole array and it didn't swap.
+
+  def self.bubble_sort(array)
+    array_length = array.size 
+    return array if array_length <= 1
+
+    loop do 
+      swapped = false
+      (array_length-1).times do |i|
+        if array[i] > array[i+1]
+          array[i], array[i+1] = array[i+1], array[i]
+          swapped = true
+        end
+      end
+      break if not swapped
+    end
+    return array
+  end
 
 
 end
