@@ -9,6 +9,4 @@ class Client < ApplicationRecord
       Client.all
     end
   end
-
-  stop
 end

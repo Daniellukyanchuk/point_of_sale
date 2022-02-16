@@ -79,4 +79,41 @@ class MySorter
     return min
   end
 
+  # Reverse a string using a while loop
+  def self.reverse_string(word)
+    word = word.chars
+    # word = ['s', 'e', 'n', 't', 'e', 'n', 'c', 'e']
+    reversed_word = ''
+    # start at the last letter of the word
+    # write down the letter
+    # go to the previous letter
+    # write it down
+    # stop when there are no letters left
+    position = word.length - 1
+    # while word.length > 0
+    # while !word.blank?
+    # while !word.empty?
+    while position >= 0
+      reversed_word += word[position]
+      position -= 1
+    end
+    return reversed_word
+    # string_length = zebra.length 
+    # reversed_string = ''
+    # while string_length > 0 
+    #   string_length -= 1 
+    #   reversed_string += zebra[string_length]
+    # end
+    # return reversed_string
+  end
+  # def reverse(string)
+  #   reversed_string = ''
+  #   i = 0
+  #   while i < string.length
+  #     reversed_string = string[i] + reversed_string
+  #     i += 1
+  #   end
+  #   reversed_string
+  # end
+  # p reverse("helter skelter")
 end

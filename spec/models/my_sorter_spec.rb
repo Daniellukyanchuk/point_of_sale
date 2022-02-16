@@ -41,6 +41,11 @@ RSpec.describe MySorter, type: :model do
     hh = MySorter.hash_sort_by_key(h)
 
     expect(hh).to eq([2, 3, 1, 5, 4])
+  end
 
+  it "takes a string and reverses it" do 
+    word = "Zebra"
+    reversesit = MySorter.reverse_string(word)
+    expect(reversesit).to eq("arbeZ")
   end
 end
