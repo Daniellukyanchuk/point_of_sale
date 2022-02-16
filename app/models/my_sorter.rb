@@ -1,8 +1,4 @@
 class MySorter
-  # The name of the algorithm is selection sort
-
-  # Go through the array, get me the min and assign it to the "arr" variable.
-  # 
   def self.selection_sort(array) 
     # Step 1: Go through the array
     # Step 2: Find the smallest element of array using get_min method
@@ -16,19 +12,6 @@ class MySorter
     end
     return arr
   end
-
-  def self.get_min(array)
-    min = nil
-  	array.each do |a|
-      if min.nil?
-        min = a
-      elsif min > a
-        min = a 
-      end
-    end
-    return min
-  end
-
 # Making bubble_sort 
 # Step 1: Go through the array. 
 # Step 2: Compare next 2 elements of the array.
@@ -38,11 +21,8 @@ class MySorter
 # Step 6: Go to the next two elements.
 # Step 7: Do the same with them.
 # Step 8: Stop when you iterated through the whole array and it didn't swap.
-
   def self.bubble_sort(array)
     array_length = array.size 
-    return array if array_length <= 1
-
     loop do 
       swapped = false
       (array_length-1).times do |i|
@@ -56,5 +36,47 @@ class MySorter
     return array
   end
 
+  # Create a hash sort
+  # Hash sort takes a hash.
+  # Two methods, hashsort by value and hashsort by key. 
+  def self.hash_sort_by_value(hh)
+    # Sorted by the values
+    # h = {a: 2, b: 3, c: 1, d: 5, e: 4}
+    # should return [1,2,3,4,5]
+    # h[:a] = 2 - To access the values of the keys of the hash
+    # Step 1: Get all the values of the keys.
+    # Step 2: Pick the smallest value of the key.
+    # Step 3: Assign it to a variable. 
+    # h = hh.to_a
+    # a = []
+    # h.each do |key, value|
+    #   a.push(value)   
+    # end
+    self.selection_sort(hh.values)
+  end
+
+  def self.hash_sort_by_key(hash_to_sort)
+    # h = {c: 1, d: 5, e: 4, a: 2, b: 3}
+    # should return [2, 3, 1, 5, 4]
+    sorted_keys = self.selection_sort(hash_to_sort.keys)
+    sorted_by_keys = []
+
+    sorted_keys.each do |sk|
+      sorted_by_keys.push(hash_to_sort[sk])
+    end
+    sorted_by_keys
+  end
+
+  def self.get_min(array)
+    min = nil
+    array.each do |a|
+      if min.nil?
+        min = a
+      elsif min > a
+        min = a 
+      end
+    end
+    return min
+  end
 
 end
