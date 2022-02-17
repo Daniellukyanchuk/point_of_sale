@@ -10,7 +10,7 @@ class MySorter
     while !array.empty?
       arr.push(array.delete(get_min(array)))
     end
-    arr
+    arr # You can write return before arr just to that it's returning arr. 
   end
 # Making bubble_sort 
 # Step 1: Go through the array. 
@@ -40,7 +40,6 @@ class MySorter
     # h = {c: 1, d: 5, e: 4, a: 2, b: 3}
     # should return [1, 2, 3, 4, 5]
     self.selection_sort(sample_hash.values)
-
   end
 
   def self.hash_sort_by_key(hash_to_sort)
@@ -85,7 +84,31 @@ class MySorter
       reversed_word += word[position]
       position -= 1
     end
-    reversed_word
+    reversed_word 
+  end
+
+  def merge_sort(array)
+
+
+  end
+
+  def find_deepest(arr, depth=0)
+  # 3 Laws of Recursion
+  # A recursive algorithm must call itself, recursively.
+  # A recursive algorithm must have a base case.
+  # A recursive algorithm must change its state and move toward the base case.
+  # tmp = [['1a'], ['1b', ['2a']], ['1c', '1d', ['2b'], ['2c', '2d', ['3a']]], [[['3b']]]]
+    result = {depth: depth, values: []}
+
+    arr.each do |a|
+      if a.kind_of?(Array)
+
+      else
+        result[:values].push a 
+      end
+    end
+
+    return result
     
   end
 end
