@@ -8,9 +8,9 @@ class MySorter
     # Step 6: The loop should break when array is empty.
     arr = []
     while !array.empty?
-        arr.push(array.delete(get_min(array))) 
+      arr.push(array.delete(get_min(array)))
     end
-    return arr
+    arr
   end
 # Making bubble_sort 
 # Step 1: Go through the array. 
@@ -31,40 +31,28 @@ class MySorter
           swapped = true
         end
       end
-      break if not swapped
+      break if not swapped 
     end
-    return array
+    array
   end
+ 
+  def self.hash_sort_by_value(sample_hash)
+    # h = {c: 1, d: 5, e: 4, a: 2, b: 3}
+    # should return [1, 2, 3, 4, 5]
+    self.selection_sort(sample_hash.values)
 
-  # Create a hash sort
-  # Hash sort takes a hash.
-  # Two methods, hashsort by value and hashsort by key. 
-  def self.hash_sort_by_value(hh)
-    # Sorted by the values
-    # h = {a: 2, b: 3, c: 1, d: 5, e: 4}
-    # should return [1,2,3,4,5]
-    # h[:a] = 2 - To access the values of the keys of the hash
-    # Step 1: Get all the values of the keys.
-    # Step 2: Pick the smallest value of the key.
-    # Step 3: Assign it to a variable. 
-    # h = hh.to_a
-    # a = []
-    # h.each do |key, value|
-    #   a.push(value)   
-    # end
-    self.selection_sort(hh.values)
   end
 
   def self.hash_sort_by_key(hash_to_sort)
     # h = {c: 1, d: 5, e: 4, a: 2, b: 3}
     # should return [2, 3, 1, 5, 4]
     sorted_keys = self.selection_sort(hash_to_sort.keys)
-    sorted_by_keys = []
-
+    
+    sorted_values = []
     sorted_keys.each do |sk|
-      sorted_by_keys.push(hash_to_sort[sk])
+      sorted_values.push(hash_to_sort[sk])
     end
-    sorted_by_keys
+    sorted_values
   end
 
   def self.get_min(array)
@@ -76,7 +64,7 @@ class MySorter
         min = a 
       end
     end
-    return min
+    min
   end
 
   # Reverse a string using a while loop
@@ -97,23 +85,7 @@ class MySorter
       reversed_word += word[position]
       position -= 1
     end
-    return reversed_word
-    # string_length = zebra.length 
-    # reversed_string = ''
-    # while string_length > 0 
-    #   string_length -= 1 
-    #   reversed_string += zebra[string_length]
-    # end
-    # return reversed_string
+    reversed_word
+    
   end
-  # def reverse(string)
-  #   reversed_string = ''
-  #   i = 0
-  #   while i < string.length
-  #     reversed_string = string[i] + reversed_string
-  #     i += 1
-  #   end
-  #   reversed_string
-  # end
-  # p reverse("helter skelter")
 end

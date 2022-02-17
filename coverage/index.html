@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2022-02-16T15:53:04+06:00">2022-02-16T15:53:04+06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2022-02-17T13:15:29+06:00">2022-02-17T13:15:29+06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -194,7 +194,7 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#9af0d4882bc13f312dcc430f108dc714a0be94ac" class="src_link" title="app/models/my_sorter.rb">app/models/my_sorter.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">119</td>
+            <td class="cell--number">91</td>
             <td class="cell--number">40</td>
             <td class="cell--number">40</td>
             <td class="cell--number">0</td>
@@ -1330,7 +1330,7 @@
 
             
 
-            <code class="ruby">        arr.push(array.delete(get_min(array))) </code>
+            <code class="ruby">      arr.push(array.delete(get_min(array)))</code>
           </li>
         </div>
       
@@ -1352,7 +1352,7 @@
 
             
 
-            <code class="ruby">    return arr</code>
+            <code class="ruby">    arr</code>
           </li>
         </div>
       
@@ -1583,7 +1583,7 @@
 
             
 
-            <code class="ruby">      break if not swapped</code>
+            <code class="ruby">      break if not swapped </code>
           </li>
         </div>
       
@@ -1605,7 +1605,7 @@
 
             
 
-            <code class="ruby">    return array</code>
+            <code class="ruby">    array</code>
           </li>
         </div>
       
@@ -1627,18 +1627,18 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby"> </code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="39">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="39">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">  # Create a hash sort</code>
+            
+
+            <code class="ruby">  def self.hash_sort_by_value(sample_hash)</code>
           </li>
         </div>
       
@@ -1649,7 +1649,7 @@
 
             
 
-            <code class="ruby">  # Hash sort takes a hash.</code>
+            <code class="ruby">    # h = {c: 1, d: 5, e: 4, a: 2, b: 3}</code>
           </li>
         </div>
       
@@ -1660,7 +1660,7 @@
 
             
 
-            <code class="ruby">  # Two methods, hashsort by value and hashsort by key. </code>
+            <code class="ruby">    # should return [1, 2, 3, 4, 5]</code>
           </li>
         </div>
       
@@ -1671,7 +1671,7 @@
 
             
 
-            <code class="ruby">  def self.hash_sort_by_value(hh)</code>
+            <code class="ruby">    self.selection_sort(sample_hash.values)</code>
           </li>
         </div>
       
@@ -1682,7 +1682,7 @@
 
             
 
-            <code class="ruby">    # Sorted by the values</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -1693,7 +1693,7 @@
 
             
 
-            <code class="ruby">    # h = {a: 2, b: 3, c: 1, d: 5, e: 4}</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -1704,18 +1704,18 @@
 
             
 
-            <code class="ruby">    # should return [1,2,3,4,5]</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="46">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="46">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">    # h[:a] = 2 - To access the values of the keys of the hash</code>
+            
+
+            <code class="ruby">  def self.hash_sort_by_key(hash_to_sort)</code>
           </li>
         </div>
       
@@ -1726,7 +1726,7 @@
 
             
 
-            <code class="ruby">    # Step 1: Get all the values of the keys.</code>
+            <code class="ruby">    # h = {c: 1, d: 5, e: 4, a: 2, b: 3}</code>
           </li>
         </div>
       
@@ -1737,18 +1737,18 @@
 
             
 
-            <code class="ruby">    # Step 2: Pick the smallest value of the key.</code>
+            <code class="ruby">    # should return [2, 3, 1, 5, 4]</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="49">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="49">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">    # Step 3: Assign it to a variable. </code>
+            
+
+            <code class="ruby">    sorted_keys = self.selection_sort(hash_to_sort.keys)</code>
           </li>
         </div>
       
@@ -1759,40 +1759,40 @@
 
             
 
-            <code class="ruby">    # h = hh.to_a</code>
+            <code class="ruby">    </code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="51">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="51">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">    # a = []</code>
+            
+
+            <code class="ruby">    sorted_values = []</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="52">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="52">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">    # h.each do |key, value|</code>
+            
+
+            <code class="ruby">    sorted_keys.each do |sk|</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="53">
-            
-            
-
+          <li class="covered" data-hits="5" data-linenumber="53">
+            <span class="hits">5</span>
             
 
-            <code class="ruby">    #   a.push(value)   </code>
+            
+
+            <code class="ruby">      sorted_values.push(hash_to_sort[sk])</code>
           </li>
         </div>
       
@@ -1803,7 +1803,7 @@
 
             
 
-            <code class="ruby">    # end</code>
+            <code class="ruby">    end</code>
           </li>
         </div>
       
@@ -1814,7 +1814,7 @@
 
             
 
-            <code class="ruby">    self.selection_sort(hh.values)</code>
+            <code class="ruby">    sorted_values</code>
           </li>
         </div>
       
@@ -1847,84 +1847,84 @@
 
             
 
-            <code class="ruby">  def self.hash_sort_by_key(hash_to_sort)</code>
+            <code class="ruby">  def self.get_min(array)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="59">
-            
-            
-
+          <li class="covered" data-hits="16" data-linenumber="59">
+            <span class="hits">16</span>
             
 
-            <code class="ruby">    # h = {c: 1, d: 5, e: 4, a: 2, b: 3}</code>
+            
+
+            <code class="ruby">    min = nil</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="60">
-            
-            
-
+          <li class="covered" data-hits="16" data-linenumber="60">
+            <span class="hits">16</span>
             
 
-            <code class="ruby">    # should return [2, 3, 1, 5, 4]</code>
+            
+
+            <code class="ruby">    array.each do |a|</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="61">
-            <span class="hits">1</span>
+          <li class="covered" data-hits="50" data-linenumber="61">
+            <span class="hits">50</span>
             
 
             
 
-            <code class="ruby">    sorted_keys = self.selection_sort(hash_to_sort.keys)</code>
+            <code class="ruby">      if min.nil?</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="62">
-            <span class="hits">1</span>
+          <li class="covered" data-hits="16" data-linenumber="62">
+            <span class="hits">16</span>
             
 
             
 
-            <code class="ruby">    sorted_by_keys = []</code>
+            <code class="ruby">        min = a</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="63">
-            
-            
-
+          <li class="covered" data-hits="34" data-linenumber="63">
+            <span class="hits">34</span>
             
 
-            <code class="ruby"></code>
+            
+
+            <code class="ruby">      elsif min &gt; a</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="64">
-            <span class="hits">1</span>
+          <li class="covered" data-hits="12" data-linenumber="64">
+            <span class="hits">12</span>
             
 
             
 
-            <code class="ruby">    sorted_keys.each do |sk|</code>
+            <code class="ruby">        min = a </code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="5" data-linenumber="65">
-            <span class="hits">5</span>
+          <li class="never" data-hits="" data-linenumber="65">
+            
             
 
             
 
-            <code class="ruby">      sorted_by_keys.push(hash_to_sort[sk])</code>
+            <code class="ruby">      end</code>
           </li>
         </div>
       
@@ -1940,13 +1940,13 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="67">
-            <span class="hits">1</span>
+          <li class="covered" data-hits="16" data-linenumber="67">
+            <span class="hits">16</span>
             
 
             
 
-            <code class="ruby">    sorted_by_keys</code>
+            <code class="ruby">    min</code>
           </li>
         </div>
       
@@ -1973,139 +1973,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="70">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">  def self.get_min(array)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="16" data-linenumber="71">
-            <span class="hits">16</span>
-            
-
-            
-
-            <code class="ruby">    min = nil</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="16" data-linenumber="72">
-            <span class="hits">16</span>
-            
-
-            
-
-            <code class="ruby">    array.each do |a|</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="50" data-linenumber="73">
-            <span class="hits">50</span>
-            
-
-            
-
-            <code class="ruby">      if min.nil?</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="16" data-linenumber="74">
-            <span class="hits">16</span>
-            
-
-            
-
-            <code class="ruby">        min = a</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="34" data-linenumber="75">
-            <span class="hits">34</span>
-            
-
-            
-
-            <code class="ruby">      elsif min &gt; a</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="12" data-linenumber="76">
-            <span class="hits">12</span>
-            
-
-            
-
-            <code class="ruby">        min = a </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="77">
-            
-            
-
-            
-
-            <code class="ruby">      end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="78">
-            
-            
-
-            
-
-            <code class="ruby">    end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="16" data-linenumber="79">
-            <span class="hits">16</span>
-            
-
-            
-
-            <code class="ruby">    return min</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="80">
-            
-            
-
-            
-
-            <code class="ruby">  end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="81">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="82">
+          <li class="never" data-hits="" data-linenumber="70">
             
             
 
@@ -2116,7 +1984,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="83">
+          <li class="covered" data-hits="1" data-linenumber="71">
             <span class="hits">1</span>
             
 
@@ -2127,7 +1995,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="84">
+          <li class="covered" data-hits="1" data-linenumber="72">
             <span class="hits">1</span>
             
 
@@ -2138,7 +2006,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="85">
+          <li class="never" data-hits="" data-linenumber="73">
             
             
 
@@ -2149,7 +2017,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="86">
+          <li class="covered" data-hits="1" data-linenumber="74">
             <span class="hits">1</span>
             
 
@@ -2160,7 +2028,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="87">
+          <li class="never" data-hits="" data-linenumber="75">
             
             
 
@@ -2171,7 +2039,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="88">
+          <li class="never" data-hits="" data-linenumber="76">
             
             
 
@@ -2182,7 +2050,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="89">
+          <li class="never" data-hits="" data-linenumber="77">
             
             
 
@@ -2193,7 +2061,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="90">
+          <li class="never" data-hits="" data-linenumber="78">
             
             
 
@@ -2204,7 +2072,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="91">
+          <li class="never" data-hits="" data-linenumber="79">
             
             
 
@@ -2215,7 +2083,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="92">
+          <li class="covered" data-hits="1" data-linenumber="80">
             <span class="hits">1</span>
             
 
@@ -2226,7 +2094,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="93">
+          <li class="never" data-hits="" data-linenumber="81">
             
             
 
@@ -2237,7 +2105,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="94">
+          <li class="never" data-hits="" data-linenumber="82">
             
             
 
@@ -2248,7 +2116,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="95">
+          <li class="never" data-hits="" data-linenumber="83">
             
             
 
@@ -2259,7 +2127,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="96">
+          <li class="covered" data-hits="1" data-linenumber="84">
             <span class="hits">1</span>
             
 
@@ -2270,7 +2138,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="5" data-linenumber="97">
+          <li class="covered" data-hits="5" data-linenumber="85">
             <span class="hits">5</span>
             
 
@@ -2281,7 +2149,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="5" data-linenumber="98">
+          <li class="covered" data-hits="5" data-linenumber="86">
             <span class="hits">5</span>
             
 
@@ -2292,7 +2160,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="99">
+          <li class="never" data-hits="" data-linenumber="87">
             
             
 
@@ -2303,95 +2171,29 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="100">
+          <li class="covered" data-hits="1" data-linenumber="88">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">    return reversed_word</code>
+            <code class="ruby">    reversed_word</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="101">
+          <li class="never" data-hits="" data-linenumber="89">
             
             
 
             
 
-            <code class="ruby">    # string_length = zebra.length </code>
+            <code class="ruby">    </code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="102">
-            
-            
-
-            
-
-            <code class="ruby">    # reversed_string = &#39;&#39;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="103">
-            
-            
-
-            
-
-            <code class="ruby">    # while string_length &gt; 0 </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="104">
-            
-            
-
-            
-
-            <code class="ruby">    #   string_length -= 1 </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="105">
-            
-            
-
-            
-
-            <code class="ruby">    #   reversed_string += zebra[string_length]</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="106">
-            
-            
-
-            
-
-            <code class="ruby">    # end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="107">
-            
-            
-
-            
-
-            <code class="ruby">    # return reversed_string</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="108">
+          <li class="never" data-hits="" data-linenumber="90">
             
             
 
@@ -2402,117 +2204,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="109">
-            
-            
-
-            
-
-            <code class="ruby">  # def reverse(string)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="110">
-            
-            
-
-            
-
-            <code class="ruby">  #   reversed_string = &#39;&#39;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="111">
-            
-            
-
-            
-
-            <code class="ruby">  #   i = 0</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="112">
-            
-            
-
-            
-
-            <code class="ruby">  #   while i &lt; string.length</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="113">
-            
-            
-
-            
-
-            <code class="ruby">  #     reversed_string = string[i] + reversed_string</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="114">
-            
-            
-
-            
-
-            <code class="ruby">  #     i += 1</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="115">
-            
-            
-
-            
-
-            <code class="ruby">  #   end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="116">
-            
-            
-
-            
-
-            <code class="ruby">  #   reversed_string</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="117">
-            
-            
-
-            
-
-            <code class="ruby">  # end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="118">
-            
-            
-
-            
-
-            <code class="ruby">  # p reverse(&quot;helter skelter&quot;)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="119">
+          <li class="never" data-hits="" data-linenumber="91">
             
             
 
