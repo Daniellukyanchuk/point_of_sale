@@ -88,6 +88,35 @@ class MySorter
   end
 
   def merge_sort(array)
+    # Step 1: Sort the left half.
+    # Step 2: Sort the right half. 
+    # Step 3: Then merge those two halves. 
+    # 1. How do I break the problem into subsets?
+    # 2. How do I know when to stop breaking the problem into subsets? 
+    # 3. After solving the subsets, how do I merge them? 
+# [38, 27, 43, 3, 9, 82, 10]
+# 1. We split starting array into two halves: [38, 27, 43, 3] and [9, 82, 10].
+# 2. We split the first half again: [38, 27] and [43, 3].
+# 3. We split the first half into single elements: [38], [27], [43], and [3].
+# 4. We sort the 38 and 27 to make [27, 38] and the 48 and 3 to make [3, 43].
+# 5. Putting these together, we have [3, 27, 38, 43].
+# 6. Now, we move to the second half of the original array, which was [9, 82, 10]. We split it in half and get [9, 82] and [10].
+# 7. We split [9, 82] into [9] and [82], and then we have [10], which is already singular.
+# 8. We sort the [9, 82] back together and then merge the [10] back in, resulting in [9, 10, 82].
+# 9. Finally, we merge [3, 27, 38, 43] and [9, 10, 82] to get [3, 9, 10, 27, 38, 43, 82].
+
+    # Break up the problem.
+     parted_array = array.partition(1)
+      # array.groups_of(array.length-1)
+
+    # Find the base case (when to stop).
+     
+
+
+
+
+    # Combine it.
+
 
 
   end
@@ -98,17 +127,25 @@ class MySorter
   # A recursive algorithm must have a base case.
   # A recursive algorithm must change its state and move toward the base case.
   # tmp = [['1a'], ['1b', ['2a']], ['1c', '1d', ['2b'], ['2c', '2d', ['3a']]], [[['3b']]]]
-    result = {depth: depth, values: []}
 
+  # I got the sceleton of the method. 
+  # Step 1: Understand what I am trying to do:
+  # I want the method when a I pass an array of arrays, I want it to find me the deepest array in the array of arrays. It may also pass two.
+  # First part: How are you gonna reduce the problem
+  # How do you move toward the base case.
+
+  # Step 1: How to reduce the problem. 
+  # Step 2: How do I recognize that the problem can't be broken down anymore. That's gonna be the base case. 
+  # Step 3: Once it's down on the simplest version it's gonna go back, how to merge the result. 
+  # Step 4: A clear example of what the method should return. Write out a sample problem and a sample..
+    result = {depth: depth, values: []}
     arr.each do |a|
       if a.kind_of?(Array)
-
+        find_deepst(a, depth + 1)
       else
         result[:values].push a 
       end
     end
-
-    return result
-    
+    return result   
   end
 end

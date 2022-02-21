@@ -57,12 +57,11 @@ RSpec.describe MySorter, type: :model do
     expect(sorted_array).to eq([1, 2, 3, 4, 5, 6, 7, 8, 9])
   end
 
-  # it "goes through an array of arrays to find the deepest node" do 
-  #   tmp = [['1a'], ['1b', ['2a']], ['1c', '1d', ['2b'], ['2c', '2d', ['3a']]], [[['3b']]]]
+  it "goes through an array of arrays to find the deepest node" do 
+    tmp = [['1a'], ['1b', ['2a']], ['1c', '1d', ['2b'], ['2c', '2d', ['3a']]], [[['3b']]]]
     
-  #   deepest_array = MySorter.find_deepest(tmp)
+    deepest_array = MySorter.find_deepest(tmp)
 
-  #   expect(deepest_array).to eq('3a', '3b')
-
-  # end
+    expect(deepest_array).to eq(['3a', '3b'])
+  end
 end
