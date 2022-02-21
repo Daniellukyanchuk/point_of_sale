@@ -62,6 +62,6 @@ RSpec.describe MySorter, type: :model do
     
     deepest_array = MySorter.find_deepest(tmp)
 
-    expect(deepest_array).to eq(['3a', '3b'])
+    expect(deepest_array[:values]).to eq(['3a', '3b'])
   end
 end

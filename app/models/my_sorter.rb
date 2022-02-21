@@ -87,13 +87,7 @@ class MySorter
     reversed_word 
   end
 
-  def merge_sort(array)
-    # Step 1: Sort the left half.
-    # Step 2: Sort the right half. 
-    # Step 3: Then merge those two halves. 
-    # 1. How do I break the problem into subsets?
-    # 2. How do I know when to stop breaking the problem into subsets? 
-    # 3. After solving the subsets, how do I merge them? 
+  def self.merge_sort(array)
 # [38, 27, 43, 3, 9, 82, 10]
 # 1. We split starting array into two halves: [38, 27, 43, 3] and [9, 82, 10].
 # 2. We split the first half again: [38, 27] and [43, 3].
@@ -106,46 +100,66 @@ class MySorter
 # 9. Finally, we merge [3, 27, 38, 43] and [9, 10, 82] to get [3, 9, 10, 27, 38, 43, 82].
 
     # Break up the problem.
-     parted_array = array.partition(1)
-      # array.groups_of(array.length-1)
+  # How to divide the array of integers into two equal arrays of integers? 
+  # I have to create a loop. In that loop I have to take the array and get it's length. 
+  # Divide the length in two. First half of the array divide by length assign to variable left_side, the rest should be assigned to the variable 
+  # right_side. 
 
+    sorted_arr = []
+    if array.length > 1
+      splitted_array = array.in_groups(2, false)
+      left_array = merge_sort(splitted_array[0])
+      right_array = merge_sort(splitted_array[1])
+    else
+
+      sorted_arr = array
+    end 
+    
     # Find the base case (when to stop).
-     
+     # Take variable 'left_array', divide it in 2 groups, then divide those two groups into four. 
+    return sorted_arr
 
-
-
-
-    # Combine it.
-
-
+    # After solving the subsets, merge them.
+    # Take the sorted left_array and right_array and merge them togther. 
+    # How do I do that? 
 
   end
 
-  def find_deepest(arr, depth=0)
+  def self.find_deepest(arr, depth=0)
   # 3 Laws of Recursion
   # A recursive algorithm must call itself, recursively.
   # A recursive algorithm must have a base case.
   # A recursive algorithm must change its state and move toward the base case.
   # tmp = [['1a'], ['1b', ['2a']], ['1c', '1d', ['2b'], ['2c', '2d', ['3a']]], [[['3b']]]]
 
-  # I got the sceleton of the method. 
-  # Step 1: Understand what I am trying to do:
-  # I want the method when a I pass an array of arrays, I want it to find me the deepest array in the array of arrays. It may also pass two.
-  # First part: How are you gonna reduce the problem
-  # How do you move toward the base case.
-
   # Step 1: How to reduce the problem. 
   # Step 2: How do I recognize that the problem can't be broken down anymore. That's gonna be the base case. 
   # Step 3: Once it's down on the simplest version it's gonna go back, how to merge the result. 
-  # Step 4: A clear example of what the method should return. Write out a sample problem and a sample..
-    result = {depth: depth, values: []}
+  # Step 4: A clear example of what the method should return. Write out a sample problem and a sample of what it should return. 
+
+  # Example of the method
+  # Takes the array of arrays tmp = [['1a'], ['1b', ['2a']], ['1c', '1d', ['2b'], ['2c', '2d', ['3a']]], [[['3b']]]]
+  # Goes through the array of arrays and looks for the depth=1 first time, then depth=2 second time and keeps doing it until reaches the deepest (['3a']) and ['3b']. 
+  # Returns the deepest. If there are several elements on the same depth, returns all of them (['3a'], ['3b']).
+
+  # Alright, I just realized that this needs a recursion method. The splitting stuff and then merging. 
+
+  # It keeps splitting until it reaches it's base case, the base case of both splitted should be the deepest. 
+  # How do I go about it. 
+
+    deepest_val = {depth: depth, values: []}
     arr.each do |a|
       if a.kind_of?(Array)
-        find_deepst(a, depth + 1)
+         dep = find_deepest(a, depth + 1) # Every time I go each element of the array, I go to the depth=1 and assign it to depth. 
+           if dep[:depth] > deepest_val[:depth]
+             deepest_val = dep
+           else dep[:depth] == deepest_val[:depth]
+              deepest_val[:values] += dep[:values]
+           end
       else
-        result[:values].push a 
+        deepest_val[:values].push a # What is this line? What is to what a variable is it pushing the result[:values]? 
       end
     end
-    return result   
+    return deepest_val
   end
 end
