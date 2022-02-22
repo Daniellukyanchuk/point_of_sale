@@ -125,7 +125,6 @@ class MySorter
       else
         sorted_arr = array
       end 
-
       return sorted_arr
   end
 
