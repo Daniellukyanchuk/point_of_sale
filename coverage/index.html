@@ -5,7 +5,7 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <script src='./assets/0.12.3/application.js' type='text/javascript'></script>
     <link href='./assets/0.12.3/application.css' media='screen, projection, print' rel='stylesheet' type='text/css' />
-    <link rel="shortcut icon" type="image/png" href="./assets/0.12.3/favicon_yellow.png" />
+    <link rel="shortcut icon" type="image/png" href="./assets/0.12.3/favicon_green.png" />
     <link rel="icon" type="image/png" href="./assets/0.12.3/favicon.png" />
   </head>
 
@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2022-02-21T15:39:01+06:00">2022-02-21T15:39:01+06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2022-02-22T13:50:56+06:00">2022-02-22T13:50:56+06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -22,15 +22,15 @@
   <h2>
     <span class="group_name">All Files</span>
     (<span class="covered_percent">
-      <span class="yellow">
-  86.74%
+      <span class="green">
+  94.97%
 </span>
 
      </span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         2.69
+         3.97
        </span>
     </span> hits/line
     )
@@ -43,11 +43,11 @@
   </div>
 
   <div class="t-line-summary">
-    <b>181</b> relevant lines,
-    <span class="green"><b>157</b> lines covered</span> and
-    <span class="red"><b>24</b> lines missed. </span>
-    (<span class="yellow">
-  86.74%
+    <b>199</b> relevant lines,
+    <span class="green"><b>189</b> lines covered</span> and
+    <span class="red"><b>10</b> lines missed. </span>
+    (<span class="green">
+  94.97%
 </span>
 )
   </div>
@@ -193,12 +193,12 @@
         
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#9af0d4882bc13f312dcc430f108dc714a0be94ac" class="src_link" title="app/models/my_sorter.rb">app/models/my_sorter.rb</a></td>
-            <td class="yellow strong cell--number t-file__coverage">82.14 %</td>
-            <td class="cell--number">165</td>
-            <td class="cell--number">56</td>
-            <td class="cell--number">46</td>
-            <td class="cell--number">10</td>
-            <td class="cell--number">6.68</td>
+            <td class="green strong cell--number t-file__coverage">100.00 %</td>
+            <td class="cell--number">164</td>
+            <td class="cell--number">74</td>
+            <td class="cell--number">74</td>
+            <td class="cell--number">0</td>
+            <td class="cell--number">9.12</td>
             
           </tr>
         
@@ -413,12 +413,12 @@
         
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#2561ee3ed533bdefd0555f8384195a516466bd81" class="src_link" title="spec/models/my_sorter_spec.rb">spec/models/my_sorter_spec.rb</a></td>
-            <td class="yellow strong cell--number t-file__coverage">88.24 %</td>
+            <td class="green strong cell--number t-file__coverage">100.00 %</td>
             <td class="cell--number">67</td>
             <td class="cell--number">34</td>
-            <td class="cell--number">30</td>
-            <td class="cell--number">4</td>
-            <td class="cell--number">0.88</td>
+            <td class="cell--number">34</td>
+            <td class="cell--number">0</td>
+            <td class="cell--number">1.00</td>
             
           </tr>
         
@@ -1191,8 +1191,8 @@
   <div class="header">
     <h3>app/models/my_sorter.rb</h3>
     <h4>
-      <span class="yellow">
-  82.14%
+      <span class="green">
+  100.0%
 </span>
 
       lines covered
@@ -1201,9 +1201,9 @@
     
 
     <div class="t-line-summary">
-      <b>56</b> relevant lines.
-      <span class="green"><b>46</b> lines covered</span> and
-      <span class="red"><b>10</b> lines missed.</span>
+      <b>74</b> relevant lines.
+      <span class="green"><b>74</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
     </div>
 
     
@@ -2210,7 +2210,7 @@
 
             
 
-            <code class="ruby"># [38, 27, 43, 3, 9, 82, 10]</code>
+            <code class="ruby">  # Break up the problem.</code>
           </li>
         </div>
       
@@ -2221,7 +2221,7 @@
 
             
 
-            <code class="ruby"># 1. We split starting array into two halves: [38, 27, 43, 3] and [9, 82, 10].</code>
+            <code class="ruby">  # How to divide the array of integers into two equal arrays of integers? </code>
           </li>
         </div>
       
@@ -2232,7 +2232,7 @@
 
             
 
-            <code class="ruby"># 2. We split the first half again: [38, 27] and [43, 3].</code>
+            <code class="ruby">  # I have to create a loop. In that loop I have to take the array and get it&#39;s length. </code>
           </li>
         </div>
       
@@ -2243,7 +2243,7 @@
 
             
 
-            <code class="ruby"># 3. We split the first half into single elements: [38], [27], [43], and [3].</code>
+            <code class="ruby">  # Divide the length in two. First half of the array divide by length assign to variable left_side, the rest should be assigned to the variable </code>
           </li>
         </div>
       
@@ -2254,7 +2254,7 @@
 
             
 
-            <code class="ruby"># 4. We sort the 38 and 27 to make [27, 38] and the 48 and 3 to make [3, 43].</code>
+            <code class="ruby">  # right_side. </code>
           </li>
         </div>
       
@@ -2265,62 +2265,62 @@
 
             
 
-            <code class="ruby"># 5. Putting these together, we have [3, 27, 38, 43].</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="97">
-            
-            
-
-            
-
-            <code class="ruby"># 6. Now, we move to the second half of the original array, which was [9, 82, 10]. We split it in half and get [9, 82] and [10].</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="98">
-            
-            
-
-            
-
-            <code class="ruby"># 7. We split [9, 82] into [9] and [82], and then we have [10], which is already singular.</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="99">
-            
-            
-
-            
-
-            <code class="ruby"># 8. We sort the [9, 82] back together and then merge the [10] back in, resulting in [9, 10, 82].</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="100">
-            
-            
-
-            
-
-            <code class="ruby"># 9. Finally, we merge [3, 27, 38, 43] and [9, 10, 82] to get [3, 9, 10, 27, 38, 43, 82].</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="101">
-            
-            
-
-            
-
             <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="17" data-linenumber="97">
+            <span class="hits">17</span>
+            
+
+            
+
+            <code class="ruby">    sorted_arr = []</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="17" data-linenumber="98">
+            <span class="hits">17</span>
+            
+
+            
+
+            <code class="ruby">    if array.length &gt; 1</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="8" data-linenumber="99">
+            <span class="hits">8</span>
+            
+
+            
+
+            <code class="ruby">      splitted_array = array.in_groups(2, false)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="8" data-linenumber="100">
+            <span class="hits">8</span>
+            
+
+            
+
+            <code class="ruby">      left_array = merge_sort(splitted_array[0])</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="8" data-linenumber="101">
+            <span class="hits">8</span>
+            
+
+            
+
+            <code class="ruby">      right_array = merge_sort(splitted_array[1])</code>
           </li>
         </div>
       
@@ -2331,106 +2331,106 @@
 
             
 
-            <code class="ruby">    # Break up the problem.</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="103">
-            
-            
-
-            
-
-            <code class="ruby">  # How to divide the array of integers into two equal arrays of integers? </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="104">
-            
-            
-
-            
-
-            <code class="ruby">  # I have to create a loop. In that loop I have to take the array and get it&#39;s length. </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="105">
-            
-            
-
-            
-
-            <code class="ruby">  # Divide the length in two. First half of the array divide by length assign to variable left_side, the rest should be assigned to the variable </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="106">
-            
-            
-
-            
-
-            <code class="ruby">  # right_side. </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="107">
-            
-            
-
-            
-
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="108">
-            
-            
-
+          <li class="covered" data-hits="8" data-linenumber="103">
+            <span class="hits">8</span>
             
 
-            <code class="ruby">    # res = []</code>
+            
+
+            <code class="ruby">      li = 0</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="109">
-            
-            
-
+          <li class="covered" data-hits="8" data-linenumber="104">
+            <span class="hits">8</span>
             
 
-            <code class="ruby">    # chunk = 0</code>
+            
+
+            <code class="ruby">      ri = 0</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="110">
-            
-            
-
+          <li class="covered" data-hits="8" data-linenumber="105">
+            <span class="hits">8</span>
             
 
-            <code class="ruby">    # chunk_length = chunk.size</code>
+            
+
+            <code class="ruby">      while li &lt; left_array.length &amp;&amp; ri &lt; right_array.length</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="111">
+          <li class="covered" data-hits="18" data-linenumber="106">
+            <span class="hits">18</span>
             
+
+            
+
+            <code class="ruby">        if left_array[li] &lt;= right_array[ri]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="7" data-linenumber="107">
+            <span class="hits">7</span>
             
 
             
 
-            <code class="ruby">    # while (array.length &gt; 0)</code>
+            <code class="ruby">          sorted_arr.push(left_array[li]) </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="7" data-linenumber="108">
+            <span class="hits">7</span>
+            
+
+            
+
+            <code class="ruby">          li += 1      </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="11" data-linenumber="109">
+            <span class="hits">11</span>
+            
+
+            
+
+            <code class="ruby">        elsif left_array[li] &gt;= right_array[ri]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="11" data-linenumber="110">
+            <span class="hits">11</span>
+            
+
+            
+
+            <code class="ruby">          sorted_arr.push(right_array[ri]) </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="11" data-linenumber="111">
+            <span class="hits">11</span>
+            
+
+            
+
+            <code class="ruby">          ri += 1     </code>
           </li>
         </div>
       
@@ -2441,7 +2441,7 @@
 
             
 
-            <code class="ruby">    #   chunk = array.split(0, chunk_length)</code>
+            <code class="ruby">        end</code>
           </li>
         </div>
       
@@ -2452,7 +2452,7 @@
 
             
 
-            <code class="ruby">    #   res.push(chunk)</code>
+            <code class="ruby">      end</code>
           </li>
         </div>
       
@@ -2463,518 +2463,45 @@
 
             
 
-            <code class="ruby">    # end</code>
+            <code class="ruby">    </code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="115">
-            
-            
-
+          <li class="covered" data-hits="8" data-linenumber="115">
+            <span class="hits">8</span>
             
 
-            <code class="ruby">    # return res</code>
+            
+
+            <code class="ruby">      while li &lt; left_array.length</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="116">
-            <span class="hits">1</span>
+          <li class="covered" data-hits="9" data-linenumber="116">
+            <span class="hits">9</span>
             
 
             
 
-            <code class="ruby">    splitted_array = array.in_groups(2, false)</code>
+            <code class="ruby">        sorted_arr.push(left_array[li])</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="117">
-            <span class="hits">1</span>
+          <li class="covered" data-hits="9" data-linenumber="117">
+            <span class="hits">9</span>
             
 
             
 
-            <code class="ruby">    left_array = splitted_array[0]</code>
+            <code class="ruby">        li += 1</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="118">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    right_array = splitted_array[1]</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="119">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">  byebug</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="120">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="121">
-            
-            
-
-            
-
-            <code class="ruby">    # Find the base case (when to stop).</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="122">
-            
-            
-
-            
-
-            <code class="ruby">     </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="123">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="124">
-            
-            
-
-            
-
-            <code class="ruby">    # After solving the subsets, merge them.</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="125">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="126">
-            
-            
-
-            
-
-            <code class="ruby">  end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="127">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="128">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">  def self.find_deepest(arr, depth=0)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="129">
-            
-            
-
-            
-
-            <code class="ruby">  # 3 Laws of Recursion</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="130">
-            
-            
-
-            
-
-            <code class="ruby">  # A recursive algorithm must call itself, recursively.</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="131">
-            
-            
-
-            
-
-            <code class="ruby">  # A recursive algorithm must have a base case.</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="132">
-            
-            
-
-            
-
-            <code class="ruby">  # A recursive algorithm must change its state and move toward the base case.</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="133">
-            
-            
-
-            
-
-            <code class="ruby">  # tmp = [[&#39;1a&#39;], [&#39;1b&#39;, [&#39;2a&#39;]], [&#39;1c&#39;, &#39;1d&#39;, [&#39;2b&#39;], [&#39;2c&#39;, &#39;2d&#39;, [&#39;3a&#39;]]], [[[&#39;3b&#39;]]]]</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="134">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="135">
-            
-            
-
-            
-
-            <code class="ruby">  # Step 1: How to reduce the problem. </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="136">
-            
-            
-
-            
-
-            <code class="ruby">  # Step 2: How do I recognize that the problem can&#39;t be broken down anymore. That&#39;s gonna be the base case. </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="137">
-            
-            
-
-            
-
-            <code class="ruby">  # Step 3: Once it&#39;s down on the simplest version it&#39;s gonna go back, how to merge the result. </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="138">
-            
-            
-
-            
-
-            <code class="ruby">  # Step 4: A clear example of what the method should return. Write out a sample problem and a sample of what it should return. </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="139">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="140">
-            
-            
-
-            
-
-            <code class="ruby">  # Example of the method</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="141">
-            
-            
-
-            
-
-            <code class="ruby">  # Takes the array of arrays tmp = [[&#39;1a&#39;], [&#39;1b&#39;, [&#39;2a&#39;]], [&#39;1c&#39;, &#39;1d&#39;, [&#39;2b&#39;], [&#39;2c&#39;, &#39;2d&#39;, [&#39;3a&#39;]]], [[[&#39;3b&#39;]]]]</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="142">
-            
-            
-
-            
-
-            <code class="ruby">  # Goes through the array of arrays and looks for the depth=1 first time, then depth=2 second time and keeps doing it until reaches the deepest ([&#39;3a&#39;]) and [&#39;3b&#39;]. </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="143">
-            
-            
-
-            
-
-            <code class="ruby">  # Returns the deepest. If there are several elements on the same depth, returns all of them ([&#39;3a&#39;], [&#39;3b&#39;]).</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="144">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="145">
-            
-            
-
-            
-
-            <code class="ruby">  # Alright, I just realized that this needs a recursion method. The splitting stuff and then merging. </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="146">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="147">
-            
-            
-
-            
-
-            <code class="ruby">  # It keeps splitting until it reaches it&#39;s base case, the base case of both splitted should be the deepest. </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="148">
-            
-            
-
-            
-
-            <code class="ruby">  # How do I go about it. </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="149">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="150">
-            
-            
-
-            
-
-            <code class="ruby">    deepest_val = {depth: depth, values: []}</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="151">
-            
-            
-
-            
-
-            <code class="ruby">    arr.each do |a|</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="152">
-            
-            
-
-            
-
-            <code class="ruby">      if a.kind_of?(Array)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="153">
-            
-            
-
-            
-
-            <code class="ruby">         dep = find_deepest(a, depth + 1) # Every time I go each element of the array, I go to the depth=1 and assign it to depth. </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="154">
-            
-            
-
-            
-
-            <code class="ruby">           if dep[:depth] &gt; deepest_val[:depth]</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="155">
-            
-            
-
-            
-
-            <code class="ruby">             deepest_val = dep</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="156">
-            
-            
-
-            
-
-            <code class="ruby">           else dep[:depth] == deepest_val[:depth]</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="157">
-            
-            
-
-            
-
-            <code class="ruby">              deepest_val[:values] += dep[:values]</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="158">
-            
-            
-
-            
-
-            <code class="ruby">           end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="159">
-            
-            
-
-            
-
-            <code class="ruby">      else</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="160">
-            
-            
-
-            
-
-            <code class="ruby">        deepest_val[:values].push a # What is this line? What is to what a variable is it pushing the result[:values]? </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="161">
+          <li class="never" data-hits="" data-linenumber="118">
             
             
 
@@ -2985,29 +2512,128 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="162">
+          <li class="never" data-hits="" data-linenumber="119">
             
             
 
             
 
-            <code class="ruby">    end</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="163">
-            
-            
-
+          <li class="covered" data-hits="8" data-linenumber="120">
+            <span class="hits">8</span>
             
 
-            <code class="ruby">    return deepest_val</code>
+            
+
+            <code class="ruby">      while ri &lt; right_array.length </code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="164">
+          <li class="covered" data-hits="2" data-linenumber="121">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">        sorted_arr.push(right_array[ri])</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="122">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">        ri += 1</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="123">
+            
+            
+
+            
+
+            <code class="ruby">      end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="124">
+            
+            
+
+            
+
+            <code class="ruby">      </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="125">
+            
+            
+
+            
+
+            <code class="ruby">      else</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="9" data-linenumber="126">
+            <span class="hits">9</span>
+            
+
+            
+
+            <code class="ruby">        sorted_arr = array</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="127">
+            
+            
+
+            
+
+            <code class="ruby">      end </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="128">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="17" data-linenumber="129">
+            <span class="hits">17</span>
+            
+
+            
+
+            <code class="ruby">      return sorted_arr</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="130">
             
             
 
@@ -3018,7 +2644,370 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="165">
+          <li class="never" data-hits="" data-linenumber="131">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="132">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  def self.find_deepest(arr, depth=0)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="133">
+            
+            
+
+            
+
+            <code class="ruby">  # 3 Laws of Recursion</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="134">
+            
+            
+
+            
+
+            <code class="ruby">  # A recursive algorithm must call itself, recursively.</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="135">
+            
+            
+
+            
+
+            <code class="ruby">  # A recursive algorithm must have a base case.</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="136">
+            
+            
+
+            
+
+            <code class="ruby">  # A recursive algorithm must change its state and move toward the base case.</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="137">
+            
+            
+
+            
+
+            <code class="ruby">  # tmp = [[&#39;1a&#39;], [&#39;1b&#39;, [&#39;2a&#39;]], [&#39;1c&#39;, &#39;1d&#39;, [&#39;2b&#39;], [&#39;2c&#39;, &#39;2d&#39;, [&#39;3a&#39;]]], [[[&#39;3b&#39;]]]]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="138">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="139">
+            
+            
+
+            
+
+            <code class="ruby">  # Step 1: How to reduce the problem. </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="140">
+            
+            
+
+            
+
+            <code class="ruby">  # Step 2: How do I recognize that the problem can&#39;t be broken down anymore. That&#39;s gonna be the base case. </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="141">
+            
+            
+
+            
+
+            <code class="ruby">  # Step 3: Once it&#39;s down on the simplest version it&#39;s gonna go back, how to merge the result. </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="142">
+            
+            
+
+            
+
+            <code class="ruby">  # Step 4: A clear example of what the method should return. Write out a sample problem and a sample of what it should return. </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="143">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="144">
+            
+            
+
+            
+
+            <code class="ruby">  # Example of the method</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="145">
+            
+            
+
+            
+
+            <code class="ruby">  # Takes the array of arrays tmp = [[&#39;1a&#39;], [&#39;1b&#39;, [&#39;2a&#39;]], [&#39;1c&#39;, &#39;1d&#39;, [&#39;2b&#39;], [&#39;2c&#39;, &#39;2d&#39;, [&#39;3a&#39;]]], [[[&#39;3b&#39;]]]]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="146">
+            
+            
+
+            
+
+            <code class="ruby">  # Goes through the array of arrays and looks for the depth=1 first time, then depth=2 second time and keeps doing it until reaches the deepest ([&#39;3a&#39;]) and [&#39;3b&#39;]. </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="147">
+            
+            
+
+            
+
+            <code class="ruby">  # Returns the deepest. If there are several elements on the same depth, returns all of them ([&#39;3a&#39;], [&#39;3b&#39;]).</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="148">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="11" data-linenumber="149">
+            <span class="hits">11</span>
+            
+
+            
+
+            <code class="ruby">    deepest_val = {depth: depth, values: []}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="11" data-linenumber="150">
+            <span class="hits">11</span>
+            
+
+            
+
+            <code class="ruby">    arr.each do |a|</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="20" data-linenumber="151">
+            <span class="hits">20</span>
+            
+
+            
+
+            <code class="ruby">      if a.kind_of?(Array)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="10" data-linenumber="152">
+            <span class="hits">10</span>
+            
+
+            
+
+            <code class="ruby">         dep = find_deepest(a, depth + 1)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="10" data-linenumber="153">
+            <span class="hits">10</span>
+            
+
+            
+
+            <code class="ruby">           if dep[:depth] &gt; deepest_val[:depth]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="9" data-linenumber="154">
+            <span class="hits">9</span>
+            
+
+            
+
+            <code class="ruby">             deepest_val = dep</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="155">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">           else dep[:depth] == deepest_val[:depth]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="156">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">              deepest_val[:values] += dep[:values]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="157">
+            
+            
+
+            
+
+            <code class="ruby">           end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="158">
+            
+            
+
+            
+
+            <code class="ruby">      else</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="10" data-linenumber="159">
+            <span class="hits">10</span>
+            
+
+            
+
+            <code class="ruby">        deepest_val[:values].push a</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="160">
+            
+            
+
+            
+
+            <code class="ruby">      end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="161">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="11" data-linenumber="162">
+            <span class="hits">11</span>
+            
+
+            
+
+            <code class="ruby">    return deepest_val</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="163">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="164">
             
             
 
@@ -5980,8 +5969,8 @@
   <div class="header">
     <h3>spec/models/my_sorter_spec.rb</h3>
     <h4>
-      <span class="yellow">
-  88.24%
+      <span class="green">
+  100.0%
 </span>
 
       lines covered
@@ -5991,8 +5980,8 @@
 
     <div class="t-line-summary">
       <b>34</b> relevant lines.
-      <span class="green"><b>30</b> lines covered</span> and
-      <span class="red"><b>4</b> lines missed.</span>
+      <span class="green"><b>34</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
     </div>
 
     
@@ -6619,8 +6608,8 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="57">
-            
+          <li class="covered" data-hits="1" data-linenumber="57">
+            <span class="hits">1</span>
             
 
             
@@ -6663,8 +6652,8 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="61">
-            
+          <li class="covered" data-hits="1" data-linenumber="61">
+            <span class="hits">1</span>
             
 
             
@@ -6685,8 +6674,8 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="63">
-            
+          <li class="covered" data-hits="1" data-linenumber="63">
+            <span class="hits">1</span>
             
 
             
@@ -6707,8 +6696,8 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="65">
-            
+          <li class="covered" data-hits="1" data-linenumber="65">
+            <span class="hits">1</span>
             
 
             

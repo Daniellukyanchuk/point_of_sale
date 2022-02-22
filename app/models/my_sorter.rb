@@ -88,18 +88,7 @@ class MySorter
   end
 
   def self.merge_sort(array)
-# [38, 27, 43, 3, 9, 82, 10]
-# 1. We split starting array into two halves: [38, 27, 43, 3] and [9, 82, 10].
-# 2. We split the first half again: [38, 27] and [43, 3].
-# 3. We split the first half into single elements: [38], [27], [43], and [3].
-# 4. We sort the 38 and 27 to make [27, 38] and the 48 and 3 to make [3, 43].
-# 5. Putting these together, we have [3, 27, 38, 43].
-# 6. Now, we move to the second half of the original array, which was [9, 82, 10]. We split it in half and get [9, 82] and [10].
-# 7. We split [9, 82] into [9] and [82], and then we have [10], which is already singular.
-# 8. We sort the [9, 82] back together and then merge the [10] back in, resulting in [9, 10, 82].
-# 9. Finally, we merge [3, 27, 38, 43] and [9, 10, 82] to get [3, 9, 10, 27, 38, 43, 82].
-
-    # Break up the problem.
+  # Break up the problem.
   # How to divide the array of integers into two equal arrays of integers? 
   # I have to create a loop. In that loop I have to take the array and get it's length. 
   # Divide the length in two. First half of the array divide by length assign to variable left_side, the rest should be assigned to the variable 
@@ -110,19 +99,34 @@ class MySorter
       splitted_array = array.in_groups(2, false)
       left_array = merge_sort(splitted_array[0])
       right_array = merge_sort(splitted_array[1])
-    else
 
-      sorted_arr = array
-    end 
+      li = 0
+      ri = 0
+      while li < left_array.length && ri < right_array.length
+        if left_array[li] <= right_array[ri]
+          sorted_arr.push(left_array[li]) 
+          li += 1      
+        elsif left_array[li] >= right_array[ri]
+          sorted_arr.push(right_array[ri]) 
+          ri += 1     
+        end
+      end
     
-    # Find the base case (when to stop).
-     # Take variable 'left_array', divide it in 2 groups, then divide those two groups into four. 
-    return sorted_arr
+      while li < left_array.length
+        sorted_arr.push(left_array[li])
+        li += 1
+      end
 
-    # After solving the subsets, merge them.
-    # Take the sorted left_array and right_array and merge them togther. 
-    # How do I do that? 
+      while ri < right_array.length 
+        sorted_arr.push(right_array[ri])
+        ri += 1
+      end
+      
+      else
+        sorted_arr = array
+      end 
 
+      return sorted_arr
   end
 
   def self.find_deepest(arr, depth=0)
@@ -142,22 +146,17 @@ class MySorter
   # Goes through the array of arrays and looks for the depth=1 first time, then depth=2 second time and keeps doing it until reaches the deepest (['3a']) and ['3b']. 
   # Returns the deepest. If there are several elements on the same depth, returns all of them (['3a'], ['3b']).
 
-  # Alright, I just realized that this needs a recursion method. The splitting stuff and then merging. 
-
-  # It keeps splitting until it reaches it's base case, the base case of both splitted should be the deepest. 
-  # How do I go about it. 
-
     deepest_val = {depth: depth, values: []}
     arr.each do |a|
       if a.kind_of?(Array)
-         dep = find_deepest(a, depth + 1) # Every time I go each element of the array, I go to the depth=1 and assign it to depth. 
+         dep = find_deepest(a, depth + 1)
            if dep[:depth] > deepest_val[:depth]
              deepest_val = dep
            else dep[:depth] == deepest_val[:depth]
               deepest_val[:values] += dep[:values]
            end
       else
-        deepest_val[:values].push a # What is this line? What is to what a variable is it pushing the result[:values]? 
+        deepest_val[:values].push a
       end
     end
     return deepest_val
