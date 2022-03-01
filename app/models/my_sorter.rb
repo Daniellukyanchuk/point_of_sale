@@ -128,7 +128,6 @@ class MySorter
     return sorted_arr
   end
   
-  
   # Break up the problem.
   # How to divide the array of integers into two equal arrays of integers? 
   # I have to create a loop. In that loop I have to take the array and get it's length. 
@@ -160,25 +159,6 @@ class MySorter
   # In this method we look at the first, middle and last elements of the array.
   # We sort them properly and choose the middle item as our pivot.
 
-  # Quicksort(A as array, low as int, high as int)
-  #   if (low < high)
-  #     pivot_location = Partition (A, low, high)
-  #     Quicksort(A, low, pivot_location)
-  #     Quicksort(A, pivot_location + 1, high)
-
-  # Partition(A as array, low as int, high as int)
-  #   pivot = A[low]
-  #   leftwall = low
-
-  #   for i = low + 1 to high
-  #     if (A[i] < pivot) then 
-  #       swap (A[i], A[lefwall])
-  #       leftwall = leftwall + 1
-
-
-  #   swap(pivot, A[leftwall])
-
-  #   return(leftwall)
   # Does:
    # Groups everything according to the pivot.
    # Gets the index of the pivot. 
@@ -186,30 +166,26 @@ class MySorter
    # Takes the array you want to partition. The starting point of that array and the ending point. 
   # Returns: 
     # Tells you the position of the pivot. 
-  def self.partition(array, left, right)
-    
-    pivot_value = array[array.length - 1]
+  def self.partition(array, low, high)
+    pivot_value = array[high]
+    right = high - 1
+    left = low
 
     while left < right  
-      while array[left] <= pivot_value
+      if array[left] <= pivot_value
         left += 1
-   
-      end
-
-      while array[right] > pivot_value
+      elsif array[right] > pivot_value 
+        right -= 1
+      elsif array[left] > pivot_value && array[right] < pivot_value
+        swap(array, left, right)
+        left += 1
         right -= 1
       end
-
-      if array[left] > array[right] 
-        swap(array, left, right)
-      end
-
     end
-    swap(array, left, array.length - 1)
-    pivot_index = left 
-
-    return pivot_index
+    swap(array, left, high)
+    return left
   end
+
   # Does:
     # It sorts an array between the left and right indexes.
   # Takes: 
@@ -220,19 +196,12 @@ class MySorter
   # Returns: 
     # Returns the sorted array. 
   def self.quick_sort(array, left_index, right_index)
-
     if left_index < right_index 
-
       j = partition(array, left_index, right_index)
-  
       quick_sort(array, left_index, j-1)
-
       quick_sort(array, j+1, right_index)
-
     end
-    
     return array
-
   end
 
   def self.swap(arr, p1, p2)

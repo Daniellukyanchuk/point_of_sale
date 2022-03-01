@@ -4,6 +4,7 @@ RSpec.describe MySorter, type: :model do
 
   it "it takes an array of either integers or string and sorts them using selection_sort" do  
     aa = [9, 3, 6, 2, 5]
+    
     b = MySorter.selection_sort(aa)
     # c = MySorter.new
     # c.sort_me(aa)
@@ -45,7 +46,9 @@ RSpec.describe MySorter, type: :model do
 
   it "takes a string and reverses it" do 
     word = "Zebra"
+
     reversesit = MySorter.reverse_string(word)
+
     expect(reversesit).to eq("arbeZ")
   end
 
@@ -60,8 +63,7 @@ RSpec.describe MySorter, type: :model do
   it "takes an array and sorts it using quick_sort recursion method" do 
     array = [5, 10, 7, 20, 32, 3, 2]
 
-
-    sorted_array = MySorter.quick_sort(array, 0, array.length-1)
+    sorted_array = MySorter.quick_sort(array, 0, array.length - 1)
 
     expect(sorted_array).to eq([2, 3, 5, 7, 10, 20, 32])
   end
