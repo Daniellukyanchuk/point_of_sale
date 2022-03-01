@@ -61,11 +61,14 @@ RSpec.describe MySorter, type: :model do
   end
 
   it "takes an array and sorts it using quick_sort recursion method" do 
-    array = [5, 10, 7, 20, 32, 3, 2]
+    # array = [5, 10, 7, 20, 32, 3, 2]
 
-    sorted_array = MySorter.quick_sort(array, 0, array.length - 1)
+    # sorted_array = MySorter.quick_sort(array, 0, array.length - 1)
 
-    expect(sorted_array).to eq([2, 3, 5, 7, 10, 20, 32])
+    # expect(sorted_array).to eq([2, 3, 5, 7, 10, 20, 32])
+
+    arr2 = [5, 10, 7, 20, 32, 13, 13]
+    expect(MySorter.quick_sort(arr2, 0, arr2.length - 1)).to eq([5, 7, 10, 13, 13, 20, 32])
   end
 
   it "goes through an array of arrays to find the deepest node" do 

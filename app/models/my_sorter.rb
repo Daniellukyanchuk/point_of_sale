@@ -174,15 +174,19 @@ class MySorter
     while left < right  
       if array[left] <= pivot_value
         left += 1
+byebug
       elsif array[right] > pivot_value 
         right -= 1
       elsif array[left] > pivot_value && array[right] < pivot_value
+       
+       
         swap(array, left, right)
         left += 1
         right -= 1
       end
     end
-    swap(array, left, high)
+    
+      swap(array, left, high)
     return left
   end
 
