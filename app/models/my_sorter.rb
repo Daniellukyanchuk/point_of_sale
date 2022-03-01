@@ -160,55 +160,56 @@ class MySorter < ApplicationRecord
 		return sorted_array
 	end
 
-	def self.quick_sort(arr)
-		left = 0
-		right = arr.length - 1
-		piv = arr.length/2
-		sorted_array = []
+	 
+	# What does it do?
+	# What does it take?
+	# it returns the final position (index) of the pivot
 
-		while left < piv && right > piv
-			if arr[left] >= arr[piv] && arr[right] <= arr[piv]
+	def self.partition(arr, start_index, end_index)
+
+		left = start_index + 1
+		right = end_index
+		piv_val = arr[start_index]
+		
+		while left < right 
+			byebug
+			if  arr[left] > piv_val && arr[right] < piv_val 
 				arr[left], arr[right] = arr[right], arr[left]
-				left  += 1
-				right -= 1
-			elsif arr[left] < arr[piv] 
 				left += 1
-			elsif arr[right] > arr[piv]
+				right += 1
+			elsif arr[left] < piv_val
+				left += 1
+			elsif arr[right] > piv_val
 				right -= 1
-			end			
+			end				
 		end
-byebug
-		if left == piv || right == piv
-			split_arr = arr.in_groups(2, false)
-			left_sorted_array = quick_sort(split_arr[0])
-			right_sorted_array = quick_sort(split_arr[1])	
-		end
-byebug
-		x = 0
-		y = 0
-		while x < left_sorted_array.length  && y < right_sorted_array.length 
-
-			if left_sorted_array[x] <= right_sorted_array[y]
-				sorted_array.push(left_sorted_array[x])
-				x += 1
-			else 
-				sorted_array.push(right_sorted_array[y])
-				y += 1
-			end			
-		end
-
-		while y <= right_sorted_array.length - 1
-			sorted_array.push(right_sorted_array[y])
-			y += 1
-		end
-
-		while x <= left_sorted_array.length - 1
-			sorted_array.push(left_sorted_array[x])
-			x += 1
-		end
-
-		sorted_array = arr
+		
+		piv_index = right
+		arr[start_index], arr[right] = arr[right], arr[start_index]
+		
+		return piv_index
 	end
+
+	
+	# sorts an array between the left and right index
+	# 	takes three arguments - array (to be sorted), left (starting position), right (end position)
+	# Returns the sorted array
+
+	def self.quick_sort(arr, left = 0, right = arr.length-1) 
+		
+
+		if left < right
+			piv_index = partition(arr, left, right)
+			#returns piv_index
+			byebug
+			quick_sort(arr, left, piv_index - 1)
+			quick_sort(arr, piv_index + 1, right)
+			
+		end 
+
+		return arr
+		end
+		
 end
 
 # a clear exampe of what the method should return
@@ -222,4 +223,4 @@ end
 # if right is smaller, add it to sorted array
 
 
-
+                  
