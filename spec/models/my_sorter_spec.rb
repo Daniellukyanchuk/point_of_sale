@@ -95,11 +95,18 @@ RSpec.describe MySorter, type: :model do
 
       #create mock array
       tmp = [2,10,7,8,1,4,9,3,5,6]
+      arr2 = [2,10,7,8,1,4,2,3,5,2]
       
 
       #call sort array method w/ sample data
       sorted_array = MySorter.quick_sort(tmp)
 
       expect(sorted_array).to eq([1,2,3,4,5,6,7,8,9,10])
+
+      sorted_array2 = MySorter.quick_sort(arr2)
+      
+      expect(sorted_array2).to eq([1,2,2,2,3,4,5,7,8,10])
+
+
   end
 end

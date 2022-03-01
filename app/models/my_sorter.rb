@@ -171,12 +171,12 @@ class MySorter < ApplicationRecord
 		right = end_index
 		piv_val = arr[start_index]
 		
-		while left < right 
-			byebug
-			if  arr[left] > piv_val && arr[right] < piv_val 
+		while left <= right 
+			
+			if  arr[left] >= piv_val && arr[right] <= piv_val 
 				arr[left], arr[right] = arr[right], arr[left]
 				left += 1
-				right += 1
+				right -= 1
 			elsif arr[left] < piv_val
 				left += 1
 			elsif arr[right] > piv_val
@@ -196,19 +196,18 @@ class MySorter < ApplicationRecord
 	# Returns the sorted array
 
 	def self.quick_sort(arr, left = 0, right = arr.length-1) 
-		
 
 		if left < right
 			piv_index = partition(arr, left, right)
 			#returns piv_index
-			byebug
+			
 			quick_sort(arr, left, piv_index - 1)
 			quick_sort(arr, piv_index + 1, right)
 			
 		end 
 
 		return arr
-		end
+	end
 		
 end
 

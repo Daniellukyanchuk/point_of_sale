@@ -69,7 +69,7 @@ class Order < ApplicationRecord
       else
         sort_direction = "asc"
       end
-        stop
+        
       sql = """
             SELECT * FROM (
                 SELECT product_id, product_name, unit, 
