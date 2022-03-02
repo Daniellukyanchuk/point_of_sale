@@ -116,12 +116,11 @@ class MySorter
         sorted_arr.push(left_array[li])
         li += 1
       end
-
+      
       while ri < right_array.length 
         sorted_arr.push(right_array[ri])
         ri += 1
       end
-      
     else
       sorted_arr = array
     end 
@@ -164,30 +163,28 @@ class MySorter
    # Gets the index of the pivot. 
   # Takes: 
    # Takes the array you want to partition. The starting point of that array and the ending point. 
-  # Returns: 
-    # Tells you the position of the pivot. 
+  # Returns: the position of the pivot. 
   def self.partition(array, low, high)
     pivot_value = array[high]
     right = high - 1
-    left = low
+    left = low    
 
     while left < right  
       if array[left] <= pivot_value
         left += 1
-byebug
       elsif array[right] > pivot_value 
         right -= 1
-      elsif array[left] > pivot_value && array[right] < pivot_value
-       
-       
-        swap(array, left, right)
-        left += 1
-        right -= 1
+      elsif array[left] >= pivot_value && array[right] <= pivot_value
+        swap(array, left, right)  
       end
     end
-    
-      swap(array, left, high)
-    return left
+    # position of pivot is what?
+    position_of_pivot = high
+    if pivot_value < array[left]
+      swap(array, left, position_of_pivot)
+      position_of_pivot = left 
+    end
+    return position_of_pivot
   end
 
   # Does:
@@ -210,6 +207,24 @@ byebug
 
   def self.swap(arr, p1, p2)
     arr[p1], arr[p2] = arr[p2], arr[p1]
+  end
+  # Does: changes the last element of the arrays with the second element.
+  # Takes: an array of arrays. 
+  # Returns: the second and the last elements of the array in each array_of_arrays switched places. 
+
+  def self.swap_two(array_of_arrays)
+    # [[‘a’, ‘x’, ‘b’, ‘y’], [‘c’, ‘x’, ‘d’, ‘y’], [‘e’, ‘x’, ‘f’, ‘y’]]
+    # Here we have an array of arrays. Every inside array has 4 elements.
+    # The result should be: [[‘a’, ‘y’, ‘b’, ‘x’], [‘c’, ‘y’, ‘d’, ‘x’], [‘e’, ‘y’, ‘f’, ‘x’]]
+    # Go through each inner array and swap the second item with the last item.
+    switched_elements = []
+    array_of_arrays.each do |arar|
+      if arar[1] == 'x' && arar[3] == 'y'
+        arar[1], arar[3] = arar[3], arar[1]
+        switched_elements.push(arar)
+      end
+    end
+    return switched_elements 
   end
 
   def self.find_deepest(arr, depth=0)

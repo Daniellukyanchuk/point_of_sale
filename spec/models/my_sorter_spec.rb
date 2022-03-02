@@ -61,14 +61,19 @@ RSpec.describe MySorter, type: :model do
   end
 
   it "takes an array and sorts it using quick_sort recursion method" do 
-    # array = [5, 10, 7, 20, 32, 3, 2]
+    array = [5, 10, 7, 20, 32, 3, 2]
 
-    # sorted_array = MySorter.quick_sort(array, 0, array.length - 1)
+    sorted_array = MySorter.quick_sort(array, 0, array.length - 1)
 
-    # expect(sorted_array).to eq([2, 3, 5, 7, 10, 20, 32])
+    expect(sorted_array).to eq([2, 3, 5, 7, 10, 20, 32])
 
     arr2 = [5, 10, 7, 20, 32, 13, 13]
     expect(MySorter.quick_sort(arr2, 0, arr2.length - 1)).to eq([5, 7, 10, 13, 13, 20, 32])
+
+    arr3 = Array.new(1000){rand(1..15)}
+    expect(MySorter.quick_sort(arr3, 0, arr3.length - 1)).to eq(arr3.sort)
+
+
   end
 
   it "goes through an array of arrays to find the deepest node" do 
@@ -77,5 +82,13 @@ RSpec.describe MySorter, type: :model do
     deepest_array = MySorter.find_deepest(tmp)
 
     expect(deepest_array[:values]).to eq(['3a', '3b'])
+  end
+
+  it "goes through an array of arrays and in each array second element and last element's places are switched" do 
+    array_of_arrays = [['a', 'x', 'b', 'y'], ['c', 'x', 'd', 'y'], ['e', 'x', 'f', 'y']]
+
+    elements_switched = MySorter.swap_two(array_of_arrays)
+
+    expect(elements_switched).to eq([['a', 'y', 'b', 'x'], ['c', 'y', 'd', 'x'], ['e', 'y', 'f', 'x']])
   end
 end
