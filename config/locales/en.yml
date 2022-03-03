@@ -30,4 +30,8 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  clients:
+    index:
+      welcome: "Welcome!"
+      services_html: "We provide some fancy services to <em>good people</em>."
+
