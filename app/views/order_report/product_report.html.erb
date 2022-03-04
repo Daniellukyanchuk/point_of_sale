@@ -1,6 +1,6 @@
 <h1>Product's Report</h1>
 
-<%= form_tag order_report_product_report_path, :method => 'get' do %>
+<%= form_tag product_report_path, :method => 'get' do %>
     <p>Search for One:
       <%= text_field_tag :search, params[:search], placeholder: "ID, Name etc." %>
        Search for Multiple:

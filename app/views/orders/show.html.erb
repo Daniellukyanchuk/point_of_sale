@@ -1,36 +1,36 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Order:</strong>
+  <strong><%= _('Order:') %></strong>
   <%= @order.id %>
 </p>
 
 <p>
-  <strong>Client:</strong>
+  <strong><%= _('Client:') %></strong>
   <%= @order.client_id %>
 </p>
 
 <% @order.order_products.each do |op| %>
   <hr>
   <p>
-    <strong>Quantity:</strong>
+    <strong><%= _('Quantity:') %></strong>
     <%= op.quantity %>
   </p>
 
   <p>
-    <strong>Sale Price:</strong>
+    <strong><%= _('Sale Price:') %></strong>
     <%= number_to_currency(op.sale_price) %>
   </p>
 
   <p>
-    <strong>Subtotal:</strong>
+    <strong><%= _('Subtotal:') %></strong>
     <%= number_to_currency(op.subtotal) %>
   </p>
 <% end %>
 
 <p>
-  <strong>Grand total: <%= number_to_currency(@order.grand_total) %></strong>
+  <strong><%= _('Grand total:') %> <%= number_to_currency(@order.grand_total) %></strong>
 </p>
 
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+<%= link_to _('Edit'), edit_order_path(@order) %> |
+<%= link_to _('Back'), orders_path %>

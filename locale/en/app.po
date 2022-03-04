@@ -1,0 +1,132 @@
+# English translations for app package.
+# Copyright (C) 2022 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the app package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: app 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2022-03-04 11:39+0600\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: English\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=; plural=;\n"
+"\n"
+
+msgid ":grand_total"
+msgstr ""
+
+msgid ":quantity"
+msgstr ""
+
+msgid ":sale_price"
+msgstr ""
+
+msgid ":subtotal"
+msgstr ""
+
+msgid "Add Product"
+msgstr ""
+
+msgid "Back"
+msgstr ""
+
+msgid "CLIENTS ID"
+msgstr ""
+
+msgid "Client:"
+msgstr ""
+
+msgid "Clients"
+msgstr ""
+
+msgid "Clients Report"
+msgstr ""
+
+msgid "Destroy"
+msgstr ""
+
+msgid "Edit"
+msgstr ""
+
+msgid "Editing Order"
+msgstr ""
+
+msgid "From:"
+msgstr ""
+
+msgid "GRAND TOTAL"
+msgstr ""
+
+msgid "Grand total:"
+msgstr ""
+
+msgid "ID"
+msgstr ""
+
+msgid "Inventories"
+msgstr ""
+
+msgid "NAME"
+msgstr ""
+
+msgid "New Order"
+msgstr ""
+
+msgid "Order:"
+msgstr ""
+
+msgid "Orders"
+msgstr ""
+
+msgid "Productions"
+msgstr ""
+
+msgid "Products"
+msgstr ""
+
+msgid "Products Report"
+msgstr ""
+
+msgid "Purchases"
+msgstr ""
+
+msgid "Quantity:"
+msgstr ""
+
+msgid "Recipes"
+msgstr ""
+
+msgid "Remove"
+msgstr ""
+
+msgid "Sale Price:"
+msgstr ""
+
+msgid "Search"
+msgstr ""
+
+msgid "Search for Multiple:"
+msgstr ""
+
+msgid "Search for One:"
+msgstr ""
+
+msgid "Show"
+msgstr ""
+
+msgid "Subtotal:"
+msgstr ""
+
+msgid "Suppliers"
+msgstr ""
+
+msgid "To:"
+msgstr ""
+
+msgid "form.submit"
+msgstr ""

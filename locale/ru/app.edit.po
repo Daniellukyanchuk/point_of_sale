@@ -7,7 +7,6 @@ msgid ""
 msgstr ""
 "Project-Id-Version: app 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-03 14:25+0600\n"
 "PO-Revision-Date: 2022-03-03 14:25+0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Russian\n"
@@ -17,3 +16,123 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=; plural=;\n"
 "\n"
+
+msgid ":grand_total"
+msgstr "Итоговая стоимость"
+
+msgid ":quantity"
+msgstr "количество"
+
+msgid ":sale_price"
+msgstr "цена"
+
+msgid ":subtotal"
+msgstr "субцена"
+
+msgid "Add Product"
+msgstr "Добавить продукт"
+
+msgid "Back"
+msgstr "Назад"
+
+msgid "CLIENTS ID"
+msgstr "ID Клиента"
+
+#, fuzzy
+msgid "Client:"
+msgstr "Клиенты"
+
+msgid "Clients"
+msgstr "Клиенты"
+
+msgid "Clients Report"
+msgstr "Отчет по клиентам"
+
+msgid "Destroy"
+msgstr "Удалить"
+
+msgid "Edit"
+msgstr "Редактировать"
+
+#, fuzzy
+msgid "Editing Order"
+msgstr "Редактировать"
+
+msgid "From:"
+msgstr "От:"
+
+msgid "GRAND TOTAL"
+msgstr "Итоговая стоимость"
+
+#, fuzzy
+msgid "Grand total:"
+msgstr "Итоговая стоимость"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "Inventories"
+msgstr "Инвентарь"
+
+msgid "NAME"
+msgstr "Имя"
+
+msgid "New Order"
+msgstr "Новый Заказ"
+
+#, fuzzy
+msgid "Order:"
+msgstr "Заказы"
+
+msgid "Orders"
+msgstr "Заказы"
+
+#, fuzzy
+msgid "Productions"
+msgstr "Производство"
+
+msgid "Products"
+msgstr "Продукты"
+
+#, fuzzy
+msgid "Products Report"
+msgstr "Отчет по продуктам"
+
+msgid "Purchases"
+msgstr "Покупки"
+
+msgid "Quantity:"
+msgstr "Количество"
+
+msgid "Recipes"
+msgstr "Рецепты"
+
+msgid "Remove"
+msgstr "Удалить"
+
+msgid "Sale Price:"
+msgstr "Цена:"
+
+msgid "Search"
+msgstr "Поиск"
+
+msgid "Search for Multiple:"
+msgstr "Поиск по нескольким:"
+
+msgid "Search for One:"
+msgstr "Поиск по одному:"
+
+msgid "Show"
+msgstr "Показать"
+
+msgid "Subtotal:"
+msgstr "СубЦена:"
+
+msgid "Suppliers"
+msgstr "Поставщики"
+
+msgid "To:"
+msgstr "До:"
+
+msgid "form.submit"
+msgstr ""

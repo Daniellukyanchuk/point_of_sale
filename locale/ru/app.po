@@ -7,12 +7,127 @@ msgid ""
 msgstr ""
 "Project-Id-Version: app 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2022-03-03 14:25+0600\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2022-03-04 15:13+0600\n"
+"Last-Translator: \n"
 "Language-Team: Russian\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=; plural=;\n"
-"\n"
+"X-Generator: Poedit 3.0.1\n"
+
+msgid ":grand_total"
+msgstr "Итоговая стоимость"
+
+msgid ":quantity"
+msgstr "количество"
+
+msgid ":sale_price"
+msgstr "цена"
+
+msgid ":subtotal"
+msgstr "субцена"
+
+msgid "Add Product"
+msgstr "Добавить продукт"
+
+msgid "Back"
+msgstr "Назад"
+
+msgid "CLIENTS ID"
+msgstr "ID Клиента"
+
+msgid "Client:"
+msgstr "Клиент:"
+
+msgid "Clients"
+msgstr "Клиенты"
+
+msgid "Clients Report"
+msgstr "Отчет по клиентам"
+
+msgid "Destroy"
+msgstr "Удалить"
+
+msgid "Edit"
+msgstr "Изменить"
+
+msgid "Editing Order"
+msgstr "Изменить Заказ"
+
+msgid "From:"
+msgstr "От:"
+
+msgid "GRAND TOTAL"
+msgstr "Итоговая стоимость"
+
+msgid "Grand total:"
+msgstr "Итоговая стоимость:"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "Inventories"
+msgstr "Инвентарь"
+
+msgid "NAME"
+msgstr "Имя"
+
+msgid "New Order"
+msgstr "Новый Заказ"
+
+msgid "Order:"
+msgstr "Заказы:"
+
+msgid "Orders"
+msgstr "Заказы"
+
+msgid "Productions"
+msgstr "Производства"
+
+msgid "Products"
+msgstr "Продукты"
+
+msgid "Products Report"
+msgstr "Отчет о продукции"
+
+msgid "Purchases"
+msgstr "Покупки"
+
+msgid "Quantity:"
+msgstr "Количество:"
+
+msgid "Recipes"
+msgstr "Рецепты"
+
+msgid "Remove"
+msgstr "Удалить"
+
+msgid "Sale Price:"
+msgstr "Цена:"
+
+msgid "Search"
+msgstr "Поиск"
+
+msgid "Search for Multiple:"
+msgstr "Поиск по нескольким:"
+
+msgid "Search for One:"
+msgstr "Поиск по одному:"
+
+msgid "Show"
+msgstr "Показать"
+
+msgid "Subtotal:"
+msgstr "СубЦена:"
+
+msgid "Suppliers"
+msgstr "Поставщики"
+
+msgid "To:"
+msgstr "До:"
+
+msgid "form.submit"
+msgstr "Создать заказ"

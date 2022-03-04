@@ -6,16 +6,16 @@
     <%= csp_meta_tag %>
     <div class="topnav">
       <a class="active">Menu</a>
-      <a href="/orders">Orders</a>
-      <a href="/clients">Clients</a>
-      <a href="/products">Products</a>
-      <a href="/purchases">Purchases</a>
-      <a href="/suppliers">Suppliers</a>
-      <a href="/inventories">Inventories</a>
-      <a href="/recipes">Recipes</a>
-      <a href="/productions">Productions</a>
-      <a href="/order_report/client_report">Clients Report</a>
-      <a href="/order_report/product_report">Products Report</a>
+      <a href="<%= orders_path %>"><%= _('Orders') %></a>
+      <a href="<%= clients_path %>"><%= _('Clients') %></a>
+      <a href="<%= products_path %>"><%= _("Products") %></a>
+      <a href="<%= purchases_path %>"><%= _('Purchases') %></a>
+      <a href="<%= suppliers_path %>"><%= _('Suppliers') %></a>
+      <a href="<%= inventories_path %>"><%= _('Inventories') %></a>
+      <a href="<%= recipes_path %>"><%= _('Recipes') %></a>
+      <a href="<%= productions_path %>"><%= _('Productions') %></a>
+      <a href="<%= client_report_path %>"><%= _('Clients Report') %></a>
+      <a href="<%= product_report_path %>"><%= _('Products Report') %></a>
     </div>
 
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
