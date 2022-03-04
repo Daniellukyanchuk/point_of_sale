@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   get 'order_report/client_report'
   get 'order_report/product_report'
   resources :orders
-
+  
+  scope "(:locale)", locale: /end|ru|ky/ do 
+  end
   get '/tests', to: 'tests#index'
   get '/products/price', to: 'products#get_price'
   get '/recipes/grand_total', to: 'recipes#get_recipe_price'

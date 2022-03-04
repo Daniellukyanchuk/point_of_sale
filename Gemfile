@@ -5,7 +5,10 @@ ruby '2.6.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.6'
-gem 'rails-i18n'
+
+gem 'gettext_i18n_rails'
+gem 'gettext', '>=3.0.2', :require => false
+gem 'ruby_parser', :require => false, :group => :development
 # Use sqlite3 as the database for Active Record
 gem 'pg'
 # Use Puma as the app server
