@@ -1,29 +1,29 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong><%= _('Name') %>:</strong>
   <%= @client.name %>
 </p>
 
 <p>
-  <strong>Phone:</strong>
+  <strong><%= _('Phone') %>:</strong>
   <%= @client.phone %>
 </p>
 
 <p>
-  <strong>Address:</strong>
+  <strong><%= _('Address') %>:</strong>
   <%= @client.address %>
 </p>
 
 <p>
-  <strong>City:</strong>
+  <strong><%= _('City') %>:</strong>
   <%= @client.city %>
 </p>
 
 <p>
-  <strong>Country:</strong>
+  <strong><%= _('Country'):</strong>
   <%= @client.country %>
 </p>
 
-<%= link_to 'Edit', edit_client_path(@client) %> |
-<%= link_to 'Back', clients_path %>
+<%= link_to _('Edit'), edit_client_path(@client) %> |
+<%= link_to _('Back'), clients_path %>

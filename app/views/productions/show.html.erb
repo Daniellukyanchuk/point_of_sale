@@ -1,23 +1,23 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Recipe ID:</strong>
+  <strong><%= _('Recipe ID') %>:</strong>
   <%= @production.recipe_id %>
 </p>
 <p>
-  <strong>Recipe name:</strong>
+  <strong><%= _('Recipe name') %>:</strong>
   <%= @production.recipe.recipe_name %>
 </p>
 
 <p>
-  <strong>Total:</strong>
+  <strong><%= _('Total') %>:</strong>
   <%= @production.grand_total %>
 </p>
 
 <p>
-  <strong>Cost to Make:</strong>
+  <strong><%= _('Cost to Make') %>:</strong>
   <%= @production.cost_to_make %>
 </p>
 
-<%= link_to 'Edit', edit_production_path(@production) %> |
-<%= link_to 'Back', productions_path %>
+<%= link_to _('Edit'), edit_production_path(@production) %> |
+<%= link_to _('Back'), productions_path %>

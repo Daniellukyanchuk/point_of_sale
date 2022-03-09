@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Productions</h1>
+<h1><%= _('Productions') %></h1>
 
 
 <%= form_tag productions_path, :method => 'get' do %>
@@ -10,13 +10,13 @@
       <% options = Recipe.all.collect{ |u| [u.recipe_name, u.id] } %>
         <% options = [["Select All", nil]] + options %>
       <%= select_tag 'recipe_select[]', options_for_select(options, params[:recipe_select]), :multiple => :multiple, :class => "chosen-select"%>    
-      From:
+      <%= _('From') %>:
         <% start_date_value = 1.month.ago.strftime("%d - %m - %Y") %>
         <% end_date_value = Date.today.strftime("%d - %m - %Y") %>
         <%= text_field_tag 'start_date', params[:start_date], :class => "datepicker", :autocomplete => "off" %>
-      To:
+      <%= _('To') %>:
         <%= text_field_tag 'end_date', params[:end_date], :class => "datepicker", :autocomplete => "off" %>  
-      <%= submit_tag "Search", :name => nil %>
+      <%= submit_tag _("Search"), :name => nil %>
   </p>
 <% end %>
 
@@ -29,12 +29,12 @@
 <table class="hoverTable">
   <thead>
     <tr class="active">
-      <th><%= sortable "recipe_id", "Recipe ID" %></th>
-      <th><%= sortable "recipes.recipe_name", "Recipe Name" %></th>
-      <th><%= sortable "product_amount", "Product Amount" %></th>
-      <th><%= sortable "recipe_price", "Recipe Price" %></th>
-      <th><%= sortable "grand_total", "Total" %></th>
-      <th><%= sortable "cost_to_make", "Cost to Make" %></th>
+      <th><%= sortable "recipe_id", _("Recipe ID") %></th>
+      <th><%= sortable "recipes.recipe_name", _("Recipe Name") %></th>
+      <th><%= sortable "product_amount", _("Product Amount") %></th>
+      <th><%= sortable "recipe_price", _("Recipe Price") %></th>
+      <th><%= sortable "grand_total", _("Total") %></th>
+      <th><%= sortable "cost_to_make", _("Cost to Make") %></th>
       <th colspan="6"></th>
     </tr>
   </thead>
@@ -48,9 +48,9 @@
         <td><%= production.recipe_price %></td>
         <td><%= production.grand_total %></td>
         <td><%= production.cost_to_make %></td>
-        <td><%= link_to 'Show', production %></td>
-        <td><%= link_to 'Edit', edit_production_path(production) %></td>
-        <td><%= link_to 'Destroy', production, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to _('Show'), production %></td>
+        <td><%= link_to _('Edit'), edit_production_path(production) %></td>
+        <td><%= link_to _('Destroy'), production, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -62,4 +62,4 @@
   no_results_text: "Oops, nothing found!"
   })
 </script>
-<%= link_to 'New Production', new_production_path %>
+<%= link_to _('New Production'), new_production_path %>

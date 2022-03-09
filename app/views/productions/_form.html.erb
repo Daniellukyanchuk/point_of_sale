@@ -18,22 +18,22 @@
   </div>
 
   <div class="field">
-    <%= form.label :product_amount %>
+    <%= form.label _(':product_amount') %>
     <%= form.number_field :product_amount %>
   </div>
 
   <div class="field">
-     <%= form.label :recipe_price %>
+     <%= form.label _(':recipe_price') %>
      <%= form.number_field :recipe_price, class: "recipe-price-field", :readonly => true %>
   </div>    
 
   <div class="field">
-    <%= form.label :total %>
+    <%= form.label _(':total') %>
     <%= form.text_field :grand_total, :readonly => true %>
   </div>
 
   <div class="field">
-    <%= form.label :cost_to_make %>
+    <%= form.label _(':cost_to_make') %>
     <%= form.text_field :cost_to_make, :readonly => true %>
   </div>
 

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: app 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-04 15:05+0600\n"
-"PO-Revision-Date: 2022-03-04 15:05+0600\n"
+"POT-Creation-Date: 2022-03-07 10:51+0600\n"
+"PO-Revision-Date: 2022-03-07 10:51+0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -18,10 +18,76 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
+msgid ":actual_total"
+msgstr ""
+
+msgid ":address"
+msgstr ""
+
+msgid ":amount"
+msgstr ""
+
+msgid ":city"
+msgstr ""
+
+msgid ":cooking_instructions"
+msgstr ""
+
+msgid ":cost_to_make"
+msgstr ""
+
+msgid ":costs"
+msgstr ""
+
+msgid ":country"
+msgstr ""
+
+msgid ":estimated_total"
+msgstr ""
+
+msgid ":expected_date_of_delivery"
+msgstr ""
+
 msgid ":grand_total"
 msgstr ""
 
+msgid ":name"
+msgstr ""
+
+msgid ":phone"
+msgstr ""
+
+msgid ":phone_number"
+msgstr ""
+
+msgid ":price"
+msgstr ""
+
+msgid ":price_per_unit"
+msgstr ""
+
+msgid ":product_amount"
+msgstr ""
+
+msgid ":product_name"
+msgstr ""
+
+msgid ":product_price"
+msgstr ""
+
+msgid ":product_subtotal"
+msgstr ""
+
+msgid ":purchase_product"
+msgstr ""
+
 msgid ":quantity"
+msgstr ""
+
+msgid ":recipe_name"
+msgstr ""
+
+msgid ":recipe_price"
 msgstr ""
 
 msgid ":sale_price"
@@ -30,13 +96,55 @@ msgstr ""
 msgid ":subtotal"
 msgstr ""
 
+msgid ":suppliers_name"
+msgstr ""
+
+msgid ":total"
+msgstr ""
+
+msgid ":unit"
+msgstr ""
+
+msgid "ACTUAL TOTAL"
+msgstr ""
+
+msgid "ADDRESS"
+msgstr ""
+
+msgid "AMOUNT LEFT"
+msgstr ""
+
+msgid "AMOUNT PURCHASED/PRODUCED"
+msgstr ""
+
+msgid "Actual total"
+msgstr ""
+
+msgid "Add Ingredient"
+msgstr ""
+
 msgid "Add Product"
+msgstr ""
+
+msgid "Address"
+msgstr ""
+
+msgid "Amount"
 msgstr ""
 
 msgid "Back"
 msgstr ""
 
+msgid "CITY"
+msgstr ""
+
 msgid "CLIENTS ID"
+msgstr ""
+
+msgid "COUNTRY"
+msgstr ""
+
+msgid "City"
 msgstr ""
 
 msgid "Client:"
@@ -48,7 +156,34 @@ msgstr ""
 msgid "Clients Report"
 msgstr ""
 
+msgid "Cooking instructions"
+msgstr ""
+
+msgid "Cost to Make"
+msgstr ""
+
+msgid "Costs"
+msgstr ""
+
+msgid "Country"
+msgstr ""
+
+msgid "DATE"
+msgstr ""
+
+msgid "DELIVERY DATE"
+msgstr ""
+
+msgid "Date"
+msgstr ""
+
+msgid "Date of the order"
+msgstr ""
+
 msgid "Destroy"
+msgstr ""
+
+msgid "ESTIMATED TOTAL"
 msgstr ""
 
 msgid "Edit"
@@ -57,10 +192,31 @@ msgstr ""
 msgid "Editing Order"
 msgstr ""
 
+msgid "Estimated Price Per Unit"
+msgstr ""
+
+msgid "Estimated Quantity"
+msgstr ""
+
+msgid "Estimated Subtotal"
+msgstr ""
+
+msgid "Estimated total"
+msgstr ""
+
+msgid "Expected date of delivery"
+msgstr ""
+
+msgid "From"
+msgstr ""
+
 msgid "From:"
 msgstr ""
 
 msgid "GRAND TOTAL"
+msgstr ""
+
+msgid "Grand total"
 msgstr ""
 
 msgid "Grand total:"
@@ -75,7 +231,34 @@ msgstr ""
 msgid "NAME"
 msgstr ""
 
+msgid "Name"
+msgstr ""
+
+msgid "New Client"
+msgstr ""
+
+msgid "New Inventory"
+msgstr ""
+
 msgid "New Order"
+msgstr ""
+
+msgid "New Product"
+msgstr ""
+
+msgid "New Production"
+msgstr ""
+
+msgid "New Purchase"
+msgstr ""
+
+msgid "New Recipe"
+msgstr ""
+
+msgid "New Supplier"
+msgstr ""
+
+msgid "ORDER DATE"
 msgstr ""
 
 msgid "Order:"
@@ -84,13 +267,58 @@ msgstr ""
 msgid "Orders"
 msgstr ""
 
+msgid "PHONE"
+msgstr ""
+
+msgid "PRICE"
+msgstr ""
+
+msgid "PRODUCTS NAME"
+msgstr ""
+
+msgid "PURCHASED COST"
+msgstr ""
+
+msgid "Phone"
+msgstr ""
+
+msgid "Phone Number"
+msgstr ""
+
+msgid "Price"
+msgstr ""
+
+msgid "Price per unit"
+msgstr ""
+
+msgid "Product Amount"
+msgstr ""
+
+msgid "Product ID"
+msgstr ""
+
+msgid "Product Name"
+msgstr ""
+
+msgid "Product name"
+msgstr ""
+
 msgid "Productions"
 msgstr ""
 
 msgid "Products"
 msgstr ""
 
+msgid "Products Name"
+msgstr ""
+
 msgid "Products Report"
+msgstr ""
+
+msgid "Purchase ID"
+msgstr ""
+
+msgid "Purchased Inventories"
 msgstr ""
 
 msgid "Purchases"
@@ -99,10 +327,31 @@ msgstr ""
 msgid "Quantity:"
 msgstr ""
 
+msgid "Recipe Cost"
+msgstr ""
+
+msgid "Recipe ID"
+msgstr ""
+
+msgid "Recipe Name"
+msgstr ""
+
+msgid "Recipe Price"
+msgstr ""
+
+msgid "Recipe name"
+msgstr ""
+
 msgid "Recipes"
 msgstr ""
 
 msgid "Remove"
+msgstr ""
+
+msgid "SUPPLIER ID"
+msgstr ""
+
+msgid "SUPPLIER NAME"
 msgstr ""
 
 msgid "Sale Price:"
@@ -123,11 +372,32 @@ msgstr ""
 msgid "Subtotal:"
 msgstr ""
 
+msgid "Supplier"
+msgstr ""
+
 msgid "Suppliers"
+msgstr ""
+
+msgid "Suppliers name"
+msgstr ""
+
+msgid "To"
 msgstr ""
 
 msgid "To:"
 msgstr ""
 
-msgid "form.submit"
+msgid "Total"
+msgstr ""
+
+msgid "UNIT"
+msgstr ""
+
+msgid "UNIT PRICE"
+msgstr ""
+
+msgid "Unit"
+msgstr ""
+
+msgid "phone_number"
 msgstr ""

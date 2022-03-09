@@ -74,3 +74,5 @@ group :assets do
 end
 
 gem 'simplecov', require: false, group: :test
+
+gem 'roo'

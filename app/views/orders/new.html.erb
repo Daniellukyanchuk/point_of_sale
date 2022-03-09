@@ -1,5 +1,8 @@
 <h1><%= _('New Order') %></h1>
 
+<%= form.label "Photo" %>
+<%= form.file_field :cover_picture %><br>
+
 <%= render 'form', order: @order %>
 
 <%= link_to _('Back'), orders_path %>

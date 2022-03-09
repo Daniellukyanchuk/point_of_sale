@@ -1,4 +1,8 @@
 <%= form_with(model: order, local: true) do |form| %>
+  <div class='form-group'>
+    <%= form.label :cover_picture %>
+    <%= form.file_field :cover_picture %>
+  </div>
     <% if order.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>

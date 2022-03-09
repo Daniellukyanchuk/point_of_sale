@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Purchased Inventories</h1>
+<h1><%= _('Purchased Inventories') %></h1>
 
 <%= form_tag inventories_path, :method => 'get' do %>
   <p>Search for one:
@@ -9,13 +9,13 @@
       <% options = Product.all.collect{ |u| [u.product_name, u.id] } %>
         <% options = [["Select All", nil]] + options %>
       <%= select_tag 'product_select[]', options_for_select(options, params[:product_select]), :multiple => :multiple, :class => "chosen-select"%>      
-     From:
+     <%= _('From') %>:
       <% start_date_value = 1.month.ago.strftime("%d - %m - %Y") %>
       <% end_date_value = Date.today.strftime("%d - %m - %Y") %>
       <%= text_field_tag 'start_date', params[:start_date], :class => "datepicker", :autocomplete => "off" %>
-      To:
+      <%= _('To') %>:
       <%= text_field_tag 'end_date', params[:end_date], :class => "datepicker", :autocomplete => "off" %>
-      <%= submit_tag "Search", :name => nil %>
+      <%= submit_tag _("Search"), :name => nil %>
   </p>
 <% end %>
 
@@ -28,14 +28,14 @@
 <table class="hoverTable">
   <thead>
     <tr class="active">
-      <th><%= sortable "id", "ID" %></th>
-      <th><%= sortable "product_name", "PRODUCTS NAME" %></th>
-      <th><%= sortable "date", "DATE" %></th>
-      <th><%= sortable "amount", "AMOUNT PURCHASED/PRODUCED" %></th>
-      <th><%= sortable "price_per_unit", "UNIT PRICE" %></th>
-      <th><%= sortable "costs", "PURCHASED COST" %></th>
-      <th><%= sortable "current_amount_left", "AMOUNT LEFT" %></th>
-      <th><%= sortable "purchase_product_id", "Purchase ID" %></th>
+      <th><%= sortable "id", _("ID") %></th>
+      <th><%= sortable "product_name", _("PRODUCTS NAME") %></th>
+      <th><%= sortable "date", _("DATE") %></th>
+      <th><%= sortable "amount", _("AMOUNT PURCHASED/PRODUCED") %></th>
+      <th><%= sortable "price_per_unit", _("UNIT PRICE") %></th>
+      <th><%= sortable "costs", _("PURCHASED COST") %></th>
+      <th><%= sortable "current_amount_left", _("AMOUNT LEFT") %></th>
+      <th><%= sortable "purchase_product_id", _("Purchase ID") %></th>
       <th></th>
     </tr>
   </thead>
@@ -57,9 +57,9 @@
               <a href="/purchases/<%= inventory.purchase_product.purchase.id %>/edit" ><%= inventory.purchase_product_id %></a>
           </td>
         <% end %>
-        <td><%= link_to 'Show', inventory %></td>
-        <td><%= link_to 'Edit', edit_inventory_path(inventory) %></td>
-        <td><%= link_to 'Destroy', inventory, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to _('Show'), inventory %></td>
+        <td><%= link_to _('Edit'), edit_inventory_path(inventory) %></td>
+        <td><%= link_to _('Destroy'), inventory, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -72,4 +72,4 @@
   no_results_text: "Oops, nothing found!"
   })
 </script>
-<%= link_to 'New Inventory', new_inventory_path %>
+<%= link_to _('New Inventory'), new_inventory_path %>

@@ -4,6 +4,7 @@ class Order < ApplicationRecord
   accepts_nested_attributes_for :order_products, allow_destroy: true
   belongs_to :client  
   before_save :set_grand_total
+  has_one_attached :cover_picture
   
       
   def set_grand_total
@@ -172,4 +173,6 @@ class Order < ApplicationRecord
       """
     result = ActiveRecord::Base.connection.execute(sql)
   end
+
+
 end

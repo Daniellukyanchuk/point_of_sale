@@ -15,10 +15,10 @@
       <%= render 'recipe_product_fields', form: builder %>
   <% end %>
 
-  <%= link_to_add_fields "Add Product", form, :recipe_products %>
+  <%= link_to_add_fields _("Add Product"), form, :recipe_products %>
 
   <div class="field">
-    <%= form.label :recipe_name %>
+    <%= form.label _(':recipe_name') %>
     <%= form.text_field :recipe_name %>
   </div>
 
@@ -27,12 +27,12 @@
   </div>
 
   <div class="field">
-    <%= form.label :cooking_instructions %>
+    <%= form.label _(':cooking_instructions') %>
     <%= form.text_field :cooking_instructions %>
   </div>
 
   <div class="field">
-    <%= form.label :grand_total %>
+    <%= form.label _(':grand_total') %>
     <%= form.text_field :grand_total %>
   </div>
 

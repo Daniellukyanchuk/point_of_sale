@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Purchases</h1>
+<h1><%= _('Purchases') %></h1>
 
 <%= form_tag purchases_path, :method => 'get' do %>
   <p>Search for one:
@@ -9,13 +9,13 @@
       <% options = Supplier.all.collect{ |u| [u.suppliers_name, u.id] } %>
         <% options = [["Select All", nil]] + options %>
       <%= select_tag 'supplier_select[]', options_for_select(options, params[:supplier_select]), :multiple => :multiple, :class => "chosen-select"%>      
-    From:
+    <%= _('From') %>:
       <% start_date_value = 1.month.ago.strftime("%d - %m - %Y") %>
       <% end_date_value = Date.today.strftime("%d - %m - %Y") %>
       <%= text_field_tag 'start_date', params[:start_date], :class => "datepicker", :autocomplete => "off" %>
-      To:
+      <%= _('To') %>:
       <%= text_field_tag 'end_date', params[:end_date], :class => "datepicker", :autocomplete => "off" %>
-      <%= submit_tag "Search", :name => nil %>
+      <%= submit_tag _("Search"), :name => nil %>
   </p>
 <% end %>
 
@@ -28,13 +28,13 @@
 <table class="hoverTable">
   <thead>
     <tr class="active">
-      <th><%= sortable "id", "ID" %></th>
-      <th><%= sortable "supplier_id", "SUPPLIER ID" %></th>
-      <th><%= sortable "suppliers.suppliers_name", "SUPPLIER NAME" %></th>     
-      <th><%= sortable "estimated_total", "ESTIMATED TOTAL" %></th>
-      <th><%= sortable "actual_total", "ACTUAL TOTAL" %></th>
-      <th><%= sortable "date_of_the_order", "ORDER DATE" %></th>
-      <th><%= sortable "expected_date_of_delivery", "DELIVERY DATE" %></th>
+      <th><%= sortable "id", _("ID") %></th>
+      <th><%= sortable "supplier_id", _("SUPPLIER ID") %></th>
+      <th><%= sortable "suppliers.suppliers_name", _("SUPPLIER NAME") %></th>     
+      <th><%= sortable "estimated_total", _("ESTIMATED TOTAL") %></th>
+      <th><%= sortable "actual_total", _("ACTUAL TOTAL") %></th>
+      <th><%= sortable "date_of_the_order", _("ORDER DATE") %></th>
+      <th><%= sortable "expected_date_of_delivery", _("DELIVERY DATE") %></th>
       <th colspan="6"></th>
     </tr>
   </thead>
@@ -49,9 +49,9 @@
         <td>&#8381 <%= purchase.actual_total %></td>
         <td><%= purchase.date_of_the_order %></td>
         <td><%= purchase.expected_date_of_delivery %></td>
-        <td><%= link_to 'Show', purchase %></td>
-        <td><%= link_to 'Edit', edit_purchase_path(purchase) %></td>
-        <td><%= link_to 'Destroy', purchase, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to _('Show'), purchase %></td>
+        <td><%= link_to _('Edit'), edit_purchase_path(purchase) %></td>
+        <td><%= link_to _('Destroy'), purchase, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -65,4 +65,4 @@
   })
 </script>
 
-<%= link_to 'New Purchase', new_purchase_path %>
+<%= link_to _('New Purchase'), new_purchase_path %>

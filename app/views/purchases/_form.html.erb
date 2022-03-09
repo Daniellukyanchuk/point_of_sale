@@ -17,7 +17,7 @@
       <%= render 'purchase_product_fields', form: builder %>
   <% end %>
 
-  <%= link_to_add_fields "Add Product", form, :purchase_products %>
+  <%= link_to_add_fields _("Add Product"), form, :purchase_products %>
 
   <div class="field">
     <%= form.label :date_of_the_order %>
@@ -25,17 +25,17 @@
   </div>
 
   <div class="field">
-    <%= form.label :estimated_total %>
+    <%= form.label _(':estimated_total') %>
     <%= form.text_field :estimated_total, class: "est_total", :readonly => true %>
   </div>
 
   <div class="field">
-    <%= form.label :actual_total %>
+    <%= form.label _(':actual_total') %>
     <%= form.text_field :actual_total, class: "act_total", :readonly => true %>
   </div>
 
   <div class="field">
-    <%= form.label :expected_date_of_delivery %>
+    <%= form.label _(':expected_date_of_delivery') %>
     <%= form.date_select :expected_date_of_delivery %>
   </div>
 

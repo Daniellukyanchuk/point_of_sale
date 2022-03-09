@@ -12,7 +12,7 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :purchase_product %>
+    <%= form.label _(':purchase_product') %>
     <%= form.collection_select(:purchase_product_id, PurchaseProduct.all, :id, :display_text, {}, {class: "purchase-picker"}) %>
   </div>
 
@@ -27,17 +27,17 @@
   </div>
 
   <div class="field">
-    <%= form.label :amount %>
+    <%= form.label _(':amount') %>
     <%= form.number_field :amount, class: "quantity", :readonly => true %>
   </div>
 
   <div class="field">
-    <%= form.label :price_per_unit %>
+    <%= form.label _(':price_per_unit') %>
     <%= form.text_field :price_per_unit, class: "price_per_unit", :readonly => true %>
   </div>
 
   <div class="field">
-    <%= form.label :costs %>
+    <%= form.label _(':costs') %>
     <%= form.text_field :costs, class: "est_subtotal", :readonly => true %>
   </div>
 

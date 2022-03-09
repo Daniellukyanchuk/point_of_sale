@@ -1,19 +1,19 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Recipe name:</strong>
+  <strong><%= _('Recipe name') %>:</strong>
   <%= @recipe.product.product_name %>
 </p>
 
 <p>
-  <strong>Cooking instructions:</strong>
+  <strong><%= _('Cooking instructions') %>:</strong>
   <%= @recipe.cooking_instructions %>
 </p>
 
 <p>
-  <strong>Grand total:</strong>
+  <strong><%= _('Grand total') %>:</strong>
   <%= @recipe.grand_total %>
 </p>
 
-<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
-<%= link_to 'Back', recipes_path %>
+<%= link_to _('Edit'), edit_recipe_path(@recipe) %> |
+<%= link_to _('Back'), recipes_path %>

@@ -1,21 +1,21 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Recipes</h1>
+<h1><%= _('Recipes') %></h1>
 
 
 <%= form_tag recipes_path, :method => 'get' do %>
     <p>
       <%= text_field_tag :search, params[:search] %>
-      <%= submit_tag "Search", :name => nil %>
+      <%= submit_tag _("Search"), :name => nil %>
     </p>
 <% end %>
 
 <table class="hoverTable">
   <thead>
     <tr class="active">
-      <th><%= sortable "id", "ID" %></th>
-      <th><%= sortable "recipe_name", "Recipe Name" %></th>
-      <th><%= sortable "grand_total", "Recipe Cost" %></th>
+      <th><%= sortable "id", _("ID") %></th>
+      <th><%= sortable "recipe_name", _("Recipe Name") %></th>
+      <th><%= sortable "grand_total", _("Recipe Cost") %></th>
       <th colspan="4"></th>
     </tr>
   </thead>
@@ -26,9 +26,9 @@
         <td><%= recipe.id %></td>
         <td><%= recipe.recipe_name %></td>
         <td>&#8381 <%= recipe.grand_total %></td>
-        <td><%= link_to 'Show', recipe %></td>
-        <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
-        <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to _('Show'), recipe %></td>
+        <td><%= link_to _('Edit'), edit_recipe_path(recipe) %></td>
+        <td><%= link_to _('Destroy'), recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -36,4 +36,4 @@
 
 <br>
 
-<%= link_to 'New Recipe', new_recipe_path %>
+<%= link_to _('New Recipe'), new_recipe_path %>

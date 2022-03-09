@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: app 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-03-04 15:13+0600\n"
+"PO-Revision-Date: 2022-03-07 10:52+0600\n"
 "Last-Translator: \n"
 "Language-Team: Russian\n"
 "Language: ru\n"
@@ -18,11 +18,77 @@ msgstr ""
 "Plural-Forms: nplurals=; plural=;\n"
 "X-Generator: Poedit 3.0.1\n"
 
+msgid ":actual_total"
+msgstr "Фактическая сумма"
+
+msgid ":address"
+msgstr "Адрес"
+
+msgid ":amount"
+msgstr "Адрес"
+
+msgid ":city"
+msgstr "Город"
+
+msgid ":cooking_instructions"
+msgstr "Инструкции по готовке"
+
+msgid ":cost_to_make"
+msgstr "Цена производства"
+
+msgid ":costs"
+msgstr "Цена"
+
+msgid ":country"
+msgstr "Страна"
+
+msgid ":estimated_total"
+msgstr "Расчетная сумма"
+
+msgid ":expected_date_of_delivery"
+msgstr "Ожидаемая дата поставки"
+
 msgid ":grand_total"
 msgstr "Итоговая стоимость"
 
+msgid ":name"
+msgstr "Имя"
+
+msgid ":phone"
+msgstr "Телефон"
+
+msgid ":phone_number"
+msgstr "Телефон"
+
+msgid ":price"
+msgstr "Цена"
+
+msgid ":price_per_unit"
+msgstr "Цена за блок"
+
+msgid ":product_amount"
+msgstr "Кол-во продукта"
+
+msgid ":product_name"
+msgstr "Наименование продукта"
+
+msgid ":product_price"
+msgstr "Цена продукта"
+
+msgid ":product_subtotal"
+msgstr "Субсумма продута"
+
+msgid ":purchase_product"
+msgstr "Покупка продукта"
+
 msgid ":quantity"
 msgstr "количество"
+
+msgid ":recipe_name"
+msgstr "Наименование рецепта"
+
+msgid ":recipe_price"
+msgstr "Цена рецепта"
 
 msgid ":sale_price"
 msgstr "цена"
@@ -30,14 +96,56 @@ msgstr "цена"
 msgid ":subtotal"
 msgstr "субцена"
 
+msgid ":suppliers_name"
+msgstr "Имя"
+
+msgid ":total"
+msgstr "Итог"
+
+msgid ":unit"
+msgstr "Блок"
+
+msgid "ACTUAL TOTAL"
+msgstr "Фактическая сумма"
+
+msgid "ADDRESS"
+msgstr "Адрес"
+
+msgid "AMOUNT LEFT"
+msgstr "Оставшееся кол-во"
+
+msgid "AMOUNT PURCHASED/PRODUCED"
+msgstr "Купленное кол-во/произведенное"
+
+msgid "Actual total"
+msgstr "Фактическая сумма"
+
+msgid "Add Ingredient"
+msgstr "Добавить ингредиент"
+
 msgid "Add Product"
 msgstr "Добавить продукт"
+
+msgid "Address"
+msgstr "Адрес"
+
+msgid "Amount"
+msgstr "Кол-во"
 
 msgid "Back"
 msgstr "Назад"
 
+msgid "CITY"
+msgstr "Город"
+
 msgid "CLIENTS ID"
 msgstr "ID Клиента"
+
+msgid "COUNTRY"
+msgstr "Страна"
+
+msgid "City"
+msgstr "Город"
 
 msgid "Client:"
 msgstr "Клиент:"
@@ -48,8 +156,35 @@ msgstr "Клиенты"
 msgid "Clients Report"
 msgstr "Отчет по клиентам"
 
+msgid "Cooking instructions"
+msgstr "Инструкции по готовке"
+
+msgid "Cost to Make"
+msgstr "Цена производства"
+
+msgid "Costs"
+msgstr "Цена"
+
+msgid "Country"
+msgstr "Страна"
+
+msgid "DATE"
+msgstr "Дата"
+
+msgid "DELIVERY DATE"
+msgstr "Дата поставки"
+
+msgid "Date"
+msgstr "Дата"
+
+msgid "Date of the order"
+msgstr "Дата заказа"
+
 msgid "Destroy"
 msgstr "Удалить"
+
+msgid "ESTIMATED TOTAL"
+msgstr "Расчетная сумма"
 
 msgid "Edit"
 msgstr "Изменить"
@@ -57,10 +192,31 @@ msgstr "Изменить"
 msgid "Editing Order"
 msgstr "Изменить Заказ"
 
+msgid "Estimated Price Per Unit"
+msgstr "Расчетная цена за блок"
+
+msgid "Estimated Quantity"
+msgstr "Расчетное кол-во"
+
+msgid "Estimated Subtotal"
+msgstr "Расчетная субсумма"
+
+msgid "Estimated total"
+msgstr "Расчетная сумма"
+
+msgid "Expected date of delivery"
+msgstr "Ожидаемая дата поставки"
+
+msgid "From"
+msgstr "От"
+
 msgid "From:"
 msgstr "От:"
 
 msgid "GRAND TOTAL"
+msgstr "Итоговая стоимость"
+
+msgid "Grand total"
 msgstr "Итоговая стоимость"
 
 msgid "Grand total:"
@@ -75,8 +231,36 @@ msgstr "Инвентарь"
 msgid "NAME"
 msgstr "Имя"
 
+msgid "Name"
+msgstr "Имя"
+
+msgid "New Client"
+msgstr "Добавить Клиента"
+
+msgid "New Inventory"
+msgstr "Добавить Инвентарь"
+
 msgid "New Order"
-msgstr "Новый Заказ"
+msgstr "Добавить Заказ"
+
+msgid "New Product"
+msgstr "Добавить продукт"
+
+#, fuzzy
+msgid "New Production"
+msgstr "Добавить продукт"
+
+msgid "New Purchase"
+msgstr "Добавить покупку"
+
+msgid "New Recipe"
+msgstr "Добавить рецепт"
+
+msgid "New Supplier"
+msgstr "Добавить Поставщика"
+
+msgid "ORDER DATE"
+msgstr "Дата заказа"
 
 msgid "Order:"
 msgstr "Заказы:"
@@ -84,14 +268,60 @@ msgstr "Заказы:"
 msgid "Orders"
 msgstr "Заказы"
 
+msgid "PHONE"
+msgstr "Телефон"
+
+msgid "PRICE"
+msgstr "Цена"
+
+msgid "PRODUCTS NAME"
+msgstr "Наименование продукта"
+
+msgid "PURCHASED COST"
+msgstr "Цена покупки"
+
+msgid "Phone"
+msgstr "Телефон"
+
+msgid "Phone Number"
+msgstr "Телефон"
+
+msgid "Price"
+msgstr "Цена"
+
+msgid "Price per unit"
+msgstr "Цена за блок"
+
+#, fuzzy
+msgid "Product Amount"
+msgstr "Кол-во продукта"
+
+msgid "Product ID"
+msgstr "ID Продукта"
+
+msgid "Product Name"
+msgstr "Наименование продукта"
+
+msgid "Product name"
+msgstr "Наименование продукта"
+
 msgid "Productions"
 msgstr "Производства"
 
 msgid "Products"
 msgstr "Продукты"
 
+msgid "Products Name"
+msgstr "Наименование продукта"
+
 msgid "Products Report"
 msgstr "Отчет о продукции"
+
+msgid "Purchase ID"
+msgstr "ID Покупок"
+
+msgid "Purchased Inventories"
+msgstr "Купленный Инвентарь"
 
 msgid "Purchases"
 msgstr "Покупки"
@@ -99,11 +329,32 @@ msgstr "Покупки"
 msgid "Quantity:"
 msgstr "Количество:"
 
+msgid "Recipe Cost"
+msgstr "Цена Рецептов"
+
+msgid "Recipe ID"
+msgstr "ID Рецепта"
+
+msgid "Recipe Name"
+msgstr "Наименование рецепта"
+
+msgid "Recipe Price"
+msgstr "Цена Рецепта"
+
+msgid "Recipe name"
+msgstr "Наименование рецепта"
+
 msgid "Recipes"
 msgstr "Рецепты"
 
 msgid "Remove"
 msgstr "Удалить"
+
+msgid "SUPPLIER ID"
+msgstr "ID Поставщика"
+
+msgid "SUPPLIER NAME"
+msgstr "Имя Поставщика"
 
 msgid "Sale Price:"
 msgstr "Цена:"
@@ -123,11 +374,32 @@ msgstr "Показать"
 msgid "Subtotal:"
 msgstr "СубЦена:"
 
+msgid "Supplier"
+msgstr "Поставщик"
+
 msgid "Suppliers"
 msgstr "Поставщики"
+
+msgid "Suppliers name"
+msgstr "Наименование поставщиков"
+
+msgid "To"
+msgstr "До"
 
 msgid "To:"
 msgstr "До:"
 
-msgid "form.submit"
-msgstr "Создать заказ"
+msgid "Total"
+msgstr "Итог"
+
+msgid "UNIT"
+msgstr "Блок"
+
+msgid "UNIT PRICE"
+msgstr "Цена за блок"
+
+msgid "Unit"
+msgstr "Блок"
+
+msgid "phone_number"
+msgstr "Телефон"

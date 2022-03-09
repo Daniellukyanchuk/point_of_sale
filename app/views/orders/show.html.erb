@@ -5,6 +5,10 @@
   <%= @order.id %>
 </p>
 
+ <% if @order.cover_picture.attached? %>
+    <image src="<%=(url_for(@order.cover_picture))%>">
+ <% end %>
+ 
 <p>
   <strong><%= _('Client:') %></strong>
   <%= @order.client_id %>

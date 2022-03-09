@@ -7,19 +7,19 @@
   <%= form_tag clients_path, :method => 'get' do %>
     <p>
       <%= text_field_tag :search, params[:search] %>
-      <%= submit_tag "Search", :name => nil %>
+      <%= submit_tag _("Search"), :name => nil %>
     </p>
   <% end %>
 
 <table class="hoverTable">
   <thead>
     <tr class="active">
-      <th><%= sortable "id", "ID" %></th>
-      <th><%= sortable "name", "NAME" %></th>
-      <th><%= sortable "phone", "PHONE" %></th>
-      <th><%= sortable "address", "ADDRESS" %></th>
-      <th><%= sortable "city", "CITY" %></th>
-      <th><%= sortable "country", "COUNTRY" %></th>
+      <th><%= sortable "id", _("ID") %></th>
+      <th><%= sortable "name", _("NAME") %></th>
+      <th><%= sortable "phone", _("PHONE") %></th>
+      <th><%= sortable "address", _("ADDRESS") %></th>
+      <th><%= sortable "city", _("CITY") %></th>
+      <th><%= sortable "country", _("COUNTRY") %></th>
       <th colspan="6"></th>
     </tr>
   </thead>
@@ -33,9 +33,9 @@
         <td><%= client.address %></td>
         <td><%= client.city %></td>
         <td><%= client.country %></td>
-        <td><%= link_to 'Show', client %></td>
-        <td><%= link_to 'Edit', edit_client_path(client) %></td>
-        <td><%= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to _('Show'), client %></td>
+        <td><%= link_to _('Edit'), edit_client_path(client) %></td>
+        <td><%= link_to _('Destroy'), client, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
       
     <% end %>
@@ -44,10 +44,16 @@
 
 <br>
 
+<h2>Import Clients</h2>
+
+<%= 
+  link_to 'Upload from Excel',
+  new_clients_import_path
+%>
 
 
 
 
 
 
-<%= link_to 'New Client', new_client_path %>
+<%= link_to _('New Client'), new_client_path %>

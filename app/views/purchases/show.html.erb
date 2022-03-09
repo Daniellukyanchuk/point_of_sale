@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Supplier:</strong>
+  <strong><%= _('Supplier') %>:</strong>
   <%= @purchase.supplier_id %>
 </p>
 
@@ -9,45 +9,45 @@
 <% @purchase.purchase_products.each do |pp| %>
   <hr>
   <p>
-    <strong>Products Name:</strong>
+    <strong><%= _('Products Name') %>:</strong>
     <a href="/products/<%= pp.product.id %>/edit" ><%= pp.product.product_name %></a>
   <p>
   
   <p>
-    <strong>Estimated Quantity:</strong>
+    <strong><%= _('Estimated Quantity') %>:</strong>
     <%= pp.estimated_quantity %>
   </p>
 
   <p>
-    <strong>Estimated Price Per Unit:</strong>
+    <strong><%= _('Estimated Price Per Unit') %>:</strong>
     <%= number_to_currency(pp.estimated_price_per_unit) %>
   </p>
 
   <p>
-    <strong>Estimated Subtotal:</strong>
+    <strong><%= _('Estimated Subtotal') %>:</strong>
     <%= number_to_currency(pp.estimated_subtotal) %>
   </p>
 <% end %>
 
 <p>
-  <strong>Estimated total:</strong>
+  <strong><%= _('Estimated total') %>:</strong>
   <%= @purchase.estimated_total %>
 </p>
 
 <p>
-  <strong>Actual total:</strong>
+  <strong><%= _('Actual total') %>:</strong>
   <%= number_to_currency(@purchase.actual_total) %>
 </p>
 
 <p>
-  <strong>Date of the order:</strong>
+  <strong><%= _('Date of the order') %>:</strong>
   <%= @purchase.date_of_the_order %>
 </p>
 
 <p>
-  <strong>Expected date of delivery:</strong>
+  <strong><%= _('Expected date of delivery') %>:</strong>
   <%= @purchase.expected_date_of_delivery %>
 </p>
 
-<%= link_to 'Edit', edit_purchase_path(@purchase) %> |
-<%= link_to 'Back', purchases_path %>
+<%= link_to _('Edit'), edit_purchase_path(@purchase) %> |
+<%= link_to _('Back'), purchases_path %>

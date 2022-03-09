@@ -1,31 +1,31 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Product ID:</strong>
+  <strong><%= _('Product ID') %>:</strong>
   <%= @inventory.product_id %>
 </p>
 
 <p>
-  <strong>Product Name:</strong>
+  <strong><%= _('Product Name') %>:</strong>
   <%= @inventory.product.product_name %>
 </p>
 <p>
-  <strong>Date:</strong>
+  <strong><%= _('Date') %>:</strong>
   <%= @inventory.date %>
 </p>
 
 <p>
-  <strong>Amount:</strong>
+  <strong><%= _('Amount') %>:</strong>
   <%= @inventory.amount %>
 </p>
 
 <p>
-  <strong>Price per unit:</strong>
+  <strong><%= _('Price per unit') %>:</strong>
   <%= @inventory.price_per_unit %>
 </p>
 
 <p>
-  <strong>Costs:</strong>
+  <strong><%= _('Costs') %>:</strong>
   <%= @inventory.costs %>
 </p>
 
@@ -34,5 +34,5 @@
   <%= @inventory.purchase_product_id %>
 </p>
 
-<%= link_to 'Edit', edit_inventory_path(@inventory) %> |
-<%= link_to 'Back', inventories_path %>
+<%= link_to _('Edit'), edit_inventory_path(@inventory) %> |
+<%= link_to _('Back'), inventories_path %>
