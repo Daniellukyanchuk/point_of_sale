@@ -28,9 +28,9 @@
         <td><%= product.product_name %></td>
         <td>&#8381 <%= product.price %></td>
         <td><%= product.unit %></td>
-        <td><%= link_to _('Show'), product %></td>
-        <td><%= link_to _('Edit'), edit_product_path(product) %></td>
-        <td><%= link_to _('Destroy'), product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="button"><%= link_to _('Show'), product %></td>
+        <td class="buttonb"><%= link_to _('Edit'), edit_product_path(product) %></td>
+        <td class="buttonc"><%= link_to _('Destroy'), product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

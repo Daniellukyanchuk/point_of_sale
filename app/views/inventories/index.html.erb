@@ -57,9 +57,9 @@
               <a href="/purchases/<%= inventory.purchase_product.purchase.id %>/edit" ><%= inventory.purchase_product_id %></a>
           </td>
         <% end %>
-        <td><%= link_to _('Show'), inventory %></td>
-        <td><%= link_to _('Edit'), edit_inventory_path(inventory) %></td>
-        <td><%= link_to _('Destroy'), inventory, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="button"><%= link_to _('Show'), inventory %></td>
+        <td class="buttonb"><%= link_to _('Edit'), edit_inventory_path(inventory) %></td>
+        <td class="buttonc"><%= link_to _('Destroy'), inventory, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
