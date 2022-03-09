@@ -65,3 +65,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "better_errors"
 gem "binding_of_caller"
+gem 'gettext_i18n_rails'
+gem 'gettext', '>=3.0.2', :require => false
+gem 'ruby_parser', :require => false, :group => :development
+gem 'roo'

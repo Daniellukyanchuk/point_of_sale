@@ -2,7 +2,11 @@
 
 <h1>Products</h1><hr>
 
+
 <%= link_to '+ New Product', new_product_path, :class => 'button big_button green' %>
+<%= link_to 'Export as CSV', products_path(format: :csv), class: "small button" %>
+<%= link_to 'Import from File', new_products_import_path, class: "small button" %>
+
 
 
 <%= form_tag products_path, :method => 'get' do %>

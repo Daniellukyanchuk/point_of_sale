@@ -97,7 +97,6 @@ RSpec.describe MySorter, type: :model do
       tmp = [2,10,7,8,1,4,9,3,5,6]
       arr2 = [2,10,7,8,1,4,2,3,5,2]
       
-
       #call sort array method w/ sample data
       sorted_array = MySorter.quick_sort(tmp)
 
@@ -107,6 +106,7 @@ RSpec.describe MySorter, type: :model do
       
       expect(sorted_array2).to eq([1,2,2,2,3,4,5,7,8,10])
 
-
+      # arr3 = Array.new(10000) {rand(1..20)}
+      # expect(MySorter.quick_sort(arr3)).to eq(arr3.sort)
   end
 end

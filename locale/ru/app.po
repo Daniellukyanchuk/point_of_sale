@@ -1,0 +1,263 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the app package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: app 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2022-03-02 09:56+0600\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+msgid "+ Add to Inventory"
+msgstr "+ добавить на инвентарь"
+
+msgid "Avg. Spent"
+msgstr "средный чек"
+
+msgid "Back"
+msgstr "назад"
+
+msgid "Client"
+msgstr "клиент"
+
+msgid "Client Name"
+msgstr "ФИО клиента"
+
+msgid "Client Report"
+msgstr "отчёт клиентов"
+
+msgid "Clients"
+msgstr "клиентов"
+
+msgid "Client|Address"
+msgstr "адрес"
+
+msgid "Client|City"
+msgstr "город"
+
+msgid "Client|Name"
+msgstr "ФИО клиента"
+
+msgid "Client|Phone"
+msgstr "телефон"
+
+msgid "Cost per Unit"
+msgstr "расход за единицу"
+
+msgid "Date added"
+msgstr "дата добавленно"
+
+msgid "Destroy"
+msgstr "удалить"
+
+msgid "Edit"
+msgstr "редактировать"
+
+msgid "Id"
+msgstr "ID"
+
+msgid "Inventory"
+msgstr "инвентарь"
+
+msgid "Inventory Id"
+msgstr "ID инвентара"
+
+msgid "Inventory Records"
+msgstr "Инвентаризационные записи"
+
+msgid "Inventory Report"
+msgstr "отчёт инвентара"
+
+msgid "Inventory|Cost per unit"
+msgstr "цена за единицу"
+
+msgid "Inventory|Remaining quantity"
+msgstr "оставшееся количество"
+
+msgid "Order"
+msgstr "Заказ"
+
+msgid "Order product"
+msgstr "продукт заказа"
+
+msgid "OrderProduct|Quantity"
+msgstr "колечество"
+
+msgid "OrderProduct|Sale price"
+msgstr "цена продажи"
+
+msgid "OrderProduct|Subtotal"
+msgstr "промежуточный итог"
+
+msgid "Orders"
+msgstr "Заказов"
+
+msgid "Orders Placed"
+msgstr "размещенные заказы"
+
+msgid "Order|Grand total"
+msgstr "итог"
+
+msgid "P.O. Product Id"
+msgstr "ID продуктa ЗнП "
+
+msgid "Product"
+msgstr "продукт"
+
+msgid "Product Id"
+msgstr "ID продукта"
+
+msgid "Product Name"
+msgstr "название продукта"
+
+msgid "Production"
+msgstr "производство"
+
+msgid "Production Id"
+msgstr "ID производство"
+
+msgid "Production|Production quantity"
+msgstr "объем производства"
+
+msgid "Production|Production total cost"
+msgstr "общая стоимость производства"
+
+msgid "Production|Production yield"
+msgstr "выход продукции"
+
+msgid "Production|Recipe cost"
+msgstr "стоимость рецепта"
+
+msgid "Products"
+msgstr "продукт"
+
+msgid "Product|Grams per unit"
+msgstr "грамм на единицу"
+
+msgid "Product|Price"
+msgstr "цена"
+
+msgid "Product|Product name"
+msgstr "название продукта"
+
+msgid "Product|Unit"
+msgstr "единица"
+
+msgid "Purchase"
+msgstr "Покупка"
+
+msgid "Purchase Id"
+msgstr "ID покупки"
+
+msgid "Purchase product"
+msgstr "продукт покупки"
+
+msgid "PurchaseProduct|Estimated cost"
+msgstr "ориентировочная стоимость"
+
+msgid "PurchaseProduct|Estimated quantity"
+msgstr "расчетное количество"
+
+msgid "PurchaseProduct|Estimated subtotal"
+msgstr "расчетный промежуточный итог"
+
+msgid "PurchaseProduct|Purchase price"
+msgstr "закупочная цена"
+
+msgid "PurchaseProduct|Purchase quantity"
+msgstr "количество покупки"
+
+msgid "PurchaseProduct|Purchase subtotal"
+msgstr "промежуточный итог покупки"
+
+msgid "Purchases"
+msgstr "Покупок"
+
+msgid "Purchase|Date expected"
+msgstr "дата ожидаемой доставки"
+
+msgid "Purchase|Date ordered"
+msgstr "дата заказа"
+
+msgid "Purchase|Date received"
+msgstr "дата получения"
+
+msgid "Purchase|Estimated total"
+msgstr "расчетная сумма"
+
+msgid "Purchase|Purchase total"
+msgstr "итог покупки"
+
+msgid "Purchasing Report"
+msgstr "Отчет о закупках"
+
+msgid "Recipe"
+msgstr "рецепт"
+
+msgid "Recipe product"
+msgstr "прокукт пецепта"
+
+msgid "RecipeProduct|Amount"
+msgstr "количество"
+
+msgid "RecipeProduct|Cost per kg"
+msgstr "стоимость за кг"
+
+msgid "RecipeProduct|Ingredient total"
+msgstr "ингредиент итог"
+
+msgid "Recipes"
+msgstr "рецепты"
+
+msgid "Recipe|Instructions"
+msgstr "инструкции"
+
+msgid "Recipe|Recipe cost"
+msgstr "стоимость рецепта"
+
+msgid "Recipe|Recipe name"
+msgstr "название рецепта"
+
+msgid "Recipe|Units"
+msgstr "единица"
+
+msgid "Recipe|Yield"
+msgstr "доходность"
+
+msgid "Remaining Qty"
+msgstr "оставшееся кол-во"
+
+msgid "Sales Report"
+msgstr "Отчёт по продаже"
+
+msgid "Show"
+msgstr "показать"
+
+msgid "Supplier"
+msgstr "постовщик"
+
+msgid "Suppliers"
+msgstr "постовщики"
+
+msgid "Supplier|Address"
+msgstr "адрес"
+
+msgid "Supplier|Phone"
+msgstr "телефон"
+
+msgid "Supplier|Supplier name"
+msgstr "фИО поставщика"
+
+msgid "Total Spent"
+msgstr "Всего потрачено"
+
+msgid "en"
+msgstr "ru"

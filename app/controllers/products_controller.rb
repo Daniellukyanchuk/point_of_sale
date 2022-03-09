@@ -3,7 +3,10 @@ class ProductsController < ApplicationController
   helper_method :sort_column, :sort_direction
 
 
-
+def import
+  Product.import(params[:file])
+  redirect_to root_url, notice: "Products imported successfully!"
+end
   
 def get_price
   @price = Product.where("id = ?", params[:product_id]).first.price

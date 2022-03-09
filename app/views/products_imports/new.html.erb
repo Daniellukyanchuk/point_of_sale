@@ -1,0 +1,28 @@
+<h1>Import Products From File</h1>
+
+<h3>Requirements</h3>
+<ul>
+  <li>Files must be one of the following formats: csv, xls, xlsx
+  <li>Column headers must be in the correct order match headers in the database. HINT: Export existing products to file for reference. </li>
+ </ul>
+
+<h5>Select File</h5>
+
+<%= form_for @products_import do |f| %>
+  <% if @products_import.errors.any? %>
+    <%= pluralize(@products_import.errors.count, "error") %> prevented us from
+    importing your spreadsheet. Please update your spreadsheet and try agin.
+    <ul>
+      <% @products_import.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <%= f.file_field :file %>
+  <%= f.submit "Import Products" %>
+<% end %>
+
+<p>
+  Export Producs to:
+  <%= link_to "Excel", products_path(format: "xls") %>
+</p>

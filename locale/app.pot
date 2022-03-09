@@ -1,0 +1,265 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the app package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: app 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-07 10:05+0600\n"
+"PO-Revision-Date: 2022-03-07 10:05+0600\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+msgid "+ Add to Inventory"
+msgstr ""
+
+msgid "Avg. Spent"
+msgstr ""
+
+msgid "Back"
+msgstr ""
+
+msgid "Client"
+msgstr ""
+
+msgid "Client Name"
+msgstr ""
+
+msgid "Client Report"
+msgstr ""
+
+msgid "Clients"
+msgstr ""
+
+msgid "Client|Address"
+msgstr ""
+
+msgid "Client|City"
+msgstr ""
+
+msgid "Client|Name"
+msgstr ""
+
+msgid "Client|Phone"
+msgstr ""
+
+msgid "Cost per Unit"
+msgstr ""
+
+msgid "Date added"
+msgstr ""
+
+msgid "Destroy"
+msgstr ""
+
+msgid "Edit"
+msgstr ""
+
+msgid "Id"
+msgstr ""
+
+msgid "Inventory"
+msgstr ""
+
+msgid "Inventory Id"
+msgstr ""
+
+msgid "Inventory Records"
+msgstr ""
+
+msgid "Inventory Report"
+msgstr ""
+
+msgid "Inventory|Cost per unit"
+msgstr ""
+
+msgid "Inventory|Remaining quantity"
+msgstr ""
+
+msgid "Order"
+msgstr ""
+
+msgid "Order product"
+msgstr ""
+
+msgid "OrderProduct|Quantity"
+msgstr ""
+
+msgid "OrderProduct|Sale price"
+msgstr ""
+
+msgid "OrderProduct|Subtotal"
+msgstr ""
+
+msgid "Orders"
+msgstr ""
+
+msgid "Orders Placed"
+msgstr ""
+
+msgid "Order|Grand total"
+msgstr ""
+
+msgid "P.O. Product Id"
+msgstr ""
+
+msgid "Product"
+msgstr ""
+
+msgid "Product Id"
+msgstr ""
+
+msgid "Product Name"
+msgstr ""
+
+msgid "Production"
+msgstr ""
+
+msgid "Production Id"
+msgstr ""
+
+msgid "Production|Production quantity"
+msgstr ""
+
+msgid "Production|Production total cost"
+msgstr ""
+
+msgid "Production|Production yield"
+msgstr ""
+
+msgid "Production|Recipe cost"
+msgstr ""
+
+msgid "Products"
+msgstr ""
+
+msgid "Product|Grams per unit"
+msgstr ""
+
+msgid "Product|Price"
+msgstr ""
+
+msgid "Product|Product name"
+msgstr ""
+
+msgid "Product|Unit"
+msgstr ""
+
+msgid "Purchase"
+msgstr ""
+
+msgid "Purchase Id"
+msgstr ""
+
+msgid "Purchase product"
+msgstr ""
+
+msgid "PurchaseProduct|Estimated cost"
+msgstr ""
+
+msgid "PurchaseProduct|Estimated quantity"
+msgstr ""
+
+msgid "PurchaseProduct|Estimated subtotal"
+msgstr ""
+
+msgid "PurchaseProduct|Purchase price"
+msgstr ""
+
+msgid "PurchaseProduct|Purchase quantity"
+msgstr ""
+
+msgid "PurchaseProduct|Purchase subtotal"
+msgstr ""
+
+msgid "Purchases"
+msgstr ""
+
+msgid "Purchase|Date expected"
+msgstr ""
+
+msgid "Purchase|Date ordered"
+msgstr ""
+
+msgid "Purchase|Date received"
+msgstr ""
+
+msgid "Purchase|Estimated total"
+msgstr ""
+
+msgid "Purchase|Purchase total"
+msgstr ""
+
+msgid "Purchasing Report"
+msgstr ""
+
+msgid "Recipe"
+msgstr ""
+
+msgid "Recipe product"
+msgstr ""
+
+msgid "RecipeProduct|Amount"
+msgstr ""
+
+msgid "RecipeProduct|Cost per kg"
+msgstr ""
+
+msgid "RecipeProduct|Ingredient total"
+msgstr ""
+
+msgid "Recipes"
+msgstr ""
+
+msgid "Recipe|Instructions"
+msgstr ""
+
+msgid "Recipe|Recipe cost"
+msgstr ""
+
+msgid "Recipe|Recipe name"
+msgstr ""
+
+msgid "Recipe|Units"
+msgstr ""
+
+msgid "Recipe|Yield"
+msgstr ""
+
+msgid "Remaining Qty"
+msgstr ""
+
+msgid "Sales Report"
+msgstr ""
+
+msgid "Show"
+msgstr ""
+
+msgid "Supplier"
+msgstr ""
+
+msgid "Suppliers"
+msgstr ""
+
+msgid "Supplier|Address"
+msgstr ""
+
+msgid "Supplier|Phone"
+msgstr ""
+
+msgid "Supplier|Supplier name"
+msgstr ""
+
+msgid "Total Spent"
+msgstr ""
+
+msgid "en"
+msgstr ""

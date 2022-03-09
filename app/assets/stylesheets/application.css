@@ -67,6 +67,7 @@ a.nav_button {
     font-size: 14px;
     margin-right: -5px;
     border-radius: 0px 0px 10px 10px;
+    top:  -40px;
 }
 
 a.nav_button:hover {
@@ -205,5 +206,39 @@ a.destroy:hover {
     background-color: #fff;
 }
 
+#logo {
+    height:  80px;
+}
 
+.hovertext {
+    position: relative;
+    margin-right: 30px;
+}
+
+.hovertext:before {
+  content: attr(data-hover);
+  visibility: hidden;
+  opacity: 0;
+  height: 80px;
+  background-color: #ffffffa8;
+  color: #000;
+  text-align: center;
+  vertical-align: middle;
+  padding: 5px 0;
+  transition: opacity 0.5s ease-in-out;
+  position: absolute;
+  z-index: 1;
+  padding-top: 25%;
+  left: 0;
+}
+
+.hovertext:hover:before {
+   opacity: 1;
+   visibility: visible;
+}
+
+#lang_switcher {
+    float: right;
+    padding: 10px 20px;
+}
 

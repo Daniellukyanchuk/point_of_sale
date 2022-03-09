@@ -1,9 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Inventory Records</h1>
+<h1><%= _("Inventory Records") %></h1>
 
 <hr>
-<%= link_to '+ Add to Inventory', new_inventory_path, :class => "button big_button green" %>
+<%= link_to _('+ Add to Inventory'), new_inventory_path, :class => "button big_button green" %>
 <br><br>
 
 
@@ -11,15 +11,15 @@
 <table>
   <thead>
     <tr>
-      <th>Inventory Id</th>
-      <th>Product Name</th>
-      <th align="right">Remaining Qty</th>
-      <th align="right">Cost per Unit</th>      
-      <th>Product Id</th>
-      <th>Production Id</th>
-      <th>Purchase Id</th>
-      <th>P.O. Product Id</th>
-      <th>Date added</th>
+      <th><%=_("Inventory Id") %></th>
+      <th><%=_("Product Name") %></th>
+      <th align="right"><%=_("Remaining Qty") %></th>
+      <th align="right"><%=_("Cost per Unit") %></th>      
+      <th><%=_("Product Id") %></th>
+      <th><%=_("Production Id") %></th>
+      <th><%=_("Purchase Id") %></th>
+      <th><%=_("P.O. Product Id") %></th>
+      <th><%=_("Date added") %></th>
       <th colspan="9"></th>
     </tr>
   </thead>
@@ -38,9 +38,9 @@
         <td align="center"><%= inventory.purchase_product_id %></td>
         <td align="center"><%= inventory.created_at.strftime("%d %b %Y") %></td>
 
-        <td><%= link_to 'Show', inventory, class: "show" %></td>
-        <td><%= link_to 'Edit', edit_inventory_path(inventory), class: "edit" %></td>
-        <td><%= link_to 'Destroy', inventory, method: :delete, data: { confirm: 'Are you sure?' }, class: "destroy" %></td>
+        <td><%= link_to _('Show'), inventory, class: "show" %></td>
+        <td><%= link_to _('Edit'), edit_inventory_path(inventory), class: "edit" %></td>
+        <td><%= link_to _('Destroy'), inventory, method: :delete, data: { confirm: 'Are you sure?' }, class: "destroy" %></td>
       </tr>
     <% end %>
   </tbody>

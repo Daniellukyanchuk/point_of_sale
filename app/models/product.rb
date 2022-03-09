@@ -13,32 +13,31 @@ class Product < ApplicationRecord
    
 
   def self.search(search)
-      if !search.blank?
-          return Product.where("product_name ilike ? or unit like ? or id = ?", "%#{search.strip}%", "%#{search.strip}%", search.to_i)
-      else
+    if !search.blank?
+        return Product.where("product_name ilike ? or unit like ? or id = ?", "%#{search.strip}%", "%#{search.strip}%", search.to_i)
+    else
       Product.all
-      end
     end
+  end
 
-    def self.get_price_per_kg(recipe_product_id)
+  def self.get_price_per_kg(recipe_product_id)
 
       
-      sql = """
-            SELECT * FROM (
-                SELECT products.id, product_name, ((SUM(purchase_price*remaining_quantity))/(SUM(remaining_quantity)))/(grams_per_unit/1000) AS weighted_price_per_kg
-                FROM products
-                LEFT OUTER JOIN purchase_products ON products.id = purchase_products.product_id
-                LEFT OUTER JOIN inventories ON products.id = inventories.product_id
-                WHERE products.id = #{recipe_product_id.to_i}
-                GROUP BY products.id, product_name 
-            ) report 
+    sql = """
+          SELECT * FROM (
+              SELECT products.id, product_name, ((SUM(purchase_price*remaining_quantity))/(SUM(remaining_quantity)))/(grams_per_unit/1000) AS weighted_price_per_kg
+              FROM products
+              LEFT OUTER JOIN purchase_products ON products.id = purchase_products.product_id
+              LEFT OUTER JOIN inventories ON products.id = inventories.product_id
+              WHERE products.id = #{recipe_product_id.to_i}
+              GROUP BY products.id, product_name 
+          ) report 
 
-            
-      """
+          
+    """
 
-      return ActiveRecord::Base.connection.execute(sql)      
-        
-    end
-
+    return ActiveRecord::Base.connection.execute(sql)      
+      
+  end
 
 end
