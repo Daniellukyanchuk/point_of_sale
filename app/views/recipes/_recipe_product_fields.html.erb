@@ -6,15 +6,15 @@
         <%= form.collection_select :product_id, Product.all, :id, :product_name %>
     </div>
     <div class="field">
-      <%= form.label _(':product_amount') %>
+      <%= form.label _('Product amount') %>
       <%= form.text_field :product_amount %>
     </div> 
     <div class="field">
-      <%= form.label _(':product_price') %>
+      <%= form.label _('Product price') %>
       <%= form.text_field :product_price %>
     </div>    
     <div class="field">
-      <%= form.label _(':product_subtotal') %>
+      <%= form.label _('Product subtotal') %>
       <%= form.text_field :product_subtotal %>
     </div>
   </p> 

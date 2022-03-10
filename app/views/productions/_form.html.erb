@@ -12,28 +12,27 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :recipe_id %>
-   <!--  <%= form.select(:recipe_id, options_for_select(Recipe.all.map{|r| [r.product.product_name, r.id]}), {}, {class: "product-picker"}) %> -->
+    <%= form.label _('Recipe') %>
     <%= form.collection_select :recipe_id, Recipe.all, :id, :recipe_name, {}, {class: "product-picker"} %>
   </div>
 
   <div class="field">
-    <%= form.label _(':product_amount') %>
+    <%= form.label _('Product amount') %>
     <%= form.number_field :product_amount %>
   </div>
 
   <div class="field">
-     <%= form.label _(':recipe_price') %>
+     <%= form.label _('Recipe price') %>
      <%= form.number_field :recipe_price, class: "recipe-price-field", :readonly => true %>
   </div>    
 
   <div class="field">
-    <%= form.label _(':total') %>
+    <%= form.label _('Total') %>
     <%= form.text_field :grand_total, :readonly => true %>
   </div>
 
   <div class="field">
-    <%= form.label _(':cost_to_make') %>
+    <%= form.label _('Cost to make') %>
     <%= form.text_field :cost_to_make, :readonly => true %>
   </div>
 
