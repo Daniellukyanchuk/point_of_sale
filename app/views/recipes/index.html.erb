@@ -26,9 +26,9 @@
         <td><%= recipe.id %></td>
         <td><%= recipe.recipe_name %></td>
         <td>&#8381 <%= recipe.grand_total %></td>
-        <td><%= link_to _('Show'), recipe, class: "button" %></td>
-        <td><%= link_to _('Edit'), edit_recipe_path(recipe), class: "buttonb" %></td>
-        <td><%= link_to _('Destroy'), recipe, method: :delete, data: { confirm: 'Are you sure?' }, class: "buttonc" %></td>
+        <td><%= link_to _('Show'), recipe %></td>
+        <td><%= link_to _('Edit'), edit_recipe_path(recipe) %></td>
+        <td><%= link_to _('Destroy'), recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

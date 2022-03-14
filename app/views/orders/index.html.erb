@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-
+ 
+ 
 
 
 <h1><%= _('Orders') %></h1>
@@ -46,9 +47,9 @@
         <td><%= order.client_id %></td>
         <td><%= order.client.name %></td>
         <td>&#8381 <%= order.grand_total %></td>
-        <td><%= link_to _('Show'), order_path(order.id), class: "button" %></td>
-        <td><%= link_to _('Edit'), edit_order_path(order.id), class: "buttonb" %></td>
-        <td><%= link_to _('Destroy'), order_path(order.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "buttonc" %></td>
+        <td><%= link_to _('Show'), order_path(order.id) %></td>
+        <td><%= link_to _('Edit'), edit_order_path(order.id) %></td>
+        <td><%= link_to _('Destroy'), order_path(order.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
