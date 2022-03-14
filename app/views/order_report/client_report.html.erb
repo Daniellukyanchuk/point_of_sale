@@ -1,23 +1,23 @@
-<h1>Client's Report</h1>
+<h1><%= _("Client's Report") %></h1>
 
 <%= form_tag client_report_path, :method => 'get' do %>
-    <p>Search for One:   
+    <p><%= _('Search for One') %>:   
       <%= text_field_tag :search, params[:search], placeholder: "ID, name etc." %>
-       Search for Multiple:
+       <%= _('Search for Multiple') %>:
       <% options = Client.all.collect{ |u| [u.name, u.id] } %>
         <% options = [["Select All", nil]] + options %>
       <%= select_tag 'client_select[]', options_for_select(options, params[:client_select]), :multiple => :multiple, :class => "chosen-select"%>
-      <%= submit_tag "Search", :name => nil %>
+      <%= submit_tag _("Search"), :name => nil %>
     </p>
 <% end %>
 
 <table class="hoverTable">
   <thead>
     <tr class="active">
-      <th><%= sortable "client_id", "CLIENTS ID" %></th>
-      <th><%= sortable "clients_name", "NAME" %></th>
-      <th><%= sortable "total_money_spent", "TOTAL MONEY SPENT" %></th>
-      <th><%= sortable "number_of_orders", "NUMBER OF ORDERS" %></th>
+      <th><%= sortable "client_id", _("CLIENTS ID") %></th>
+      <th><%= sortable "clients_name", _("NAME") %></th>
+      <th><%= sortable "total_money_spent", _("TOTAL MONEY SPENT") %></th>
+      <th><%= sortable "number_of_orders", _("NUMBER OF ORDERS") %></th>
       <th colspan="4"></th>
     </tr>
   </thead>

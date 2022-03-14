@@ -84,3 +84,4 @@ gem 'axlsx', git: 'https://github.com/randym/axlsx.git', ref:
 'c8ac844'
 gem 'axlsx_rails'
 gem 'caxlsx_rails'
+gem 'active_storage_validations'

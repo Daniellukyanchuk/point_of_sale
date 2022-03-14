@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: app 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-07 10:51+0600\n"
-"PO-Revision-Date: 2022-03-07 10:51+0600\n"
+"POT-Creation-Date: 2022-03-14 14:54+0600\n"
+"PO-Revision-Date: 2022-03-14 14:54+0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -17,93 +17,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
-
-msgid ":actual_total"
-msgstr ""
-
-msgid ":address"
-msgstr ""
-
-msgid ":amount"
-msgstr ""
-
-msgid ":city"
-msgstr ""
-
-msgid ":cooking_instructions"
-msgstr ""
-
-msgid ":cost_to_make"
-msgstr ""
-
-msgid ":costs"
-msgstr ""
-
-msgid ":country"
-msgstr ""
-
-msgid ":estimated_total"
-msgstr ""
-
-msgid ":expected_date_of_delivery"
-msgstr ""
-
-msgid ":grand_total"
-msgstr ""
-
-msgid ":name"
-msgstr ""
-
-msgid ":phone"
-msgstr ""
-
-msgid ":phone_number"
-msgstr ""
-
-msgid ":price"
-msgstr ""
-
-msgid ":price_per_unit"
-msgstr ""
-
-msgid ":product_amount"
-msgstr ""
-
-msgid ":product_name"
-msgstr ""
-
-msgid ":product_price"
-msgstr ""
-
-msgid ":product_subtotal"
-msgstr ""
-
-msgid ":purchase_product"
-msgstr ""
-
-msgid ":quantity"
-msgstr ""
-
-msgid ":recipe_name"
-msgstr ""
-
-msgid ":recipe_price"
-msgstr ""
-
-msgid ":sale_price"
-msgstr ""
-
-msgid ":subtotal"
-msgstr ""
-
-msgid ":suppliers_name"
-msgstr ""
-
-msgid ":total"
-msgstr ""
-
-msgid ":unit"
-msgstr ""
 
 msgid "ACTUAL TOTAL"
 msgstr ""
@@ -115,6 +28,9 @@ msgid "AMOUNT LEFT"
 msgstr ""
 
 msgid "AMOUNT PURCHASED/PRODUCED"
+msgstr ""
+
+msgid "AVERAGE UNIT PRICE"
 msgstr ""
 
 msgid "Actual total"
@@ -141,10 +57,16 @@ msgstr ""
 msgid "CLIENTS ID"
 msgstr ""
 
+msgid "COST PER UNIT"
+msgstr ""
+
 msgid "COUNTRY"
 msgstr ""
 
 msgid "City"
+msgstr ""
+
+msgid "Client's Report"
 msgstr ""
 
 msgid "Client:"
@@ -160,6 +82,9 @@ msgid "Cooking instructions"
 msgstr ""
 
 msgid "Cost to Make"
+msgstr ""
+
+msgid "Cost to make"
 msgstr ""
 
 msgid "Costs"
@@ -231,6 +156,9 @@ msgstr ""
 msgid "NAME"
 msgstr ""
 
+msgid "NUMBER OF ORDERS"
+msgstr ""
+
 msgid "Name"
 msgstr ""
 
@@ -273,6 +201,9 @@ msgstr ""
 msgid "PRICE"
 msgstr ""
 
+msgid "PRODUCT ID"
+msgstr ""
+
 msgid "PRODUCTS NAME"
 msgstr ""
 
@@ -285,10 +216,19 @@ msgstr ""
 msgid "Phone Number"
 msgstr ""
 
+msgid "Phone number"
+msgstr ""
+
 msgid "Price"
 msgstr ""
 
 msgid "Price per unit"
+msgstr ""
+
+msgid "Price_per_unit"
+msgstr ""
+
+msgid "Product"
 msgstr ""
 
 msgid "Product Amount"
@@ -300,7 +240,19 @@ msgstr ""
 msgid "Product Name"
 msgstr ""
 
+msgid "Product amount"
+msgstr ""
+
 msgid "Product name"
+msgstr ""
+
+msgid "Product price"
+msgstr ""
+
+msgid "Product subtotal"
+msgstr ""
+
+msgid "Product's Report"
 msgstr ""
 
 msgid "Productions"
@@ -324,7 +276,13 @@ msgstr ""
 msgid "Purchases"
 msgstr ""
 
+msgid "Quantity"
+msgstr ""
+
 msgid "Quantity:"
+msgstr ""
+
+msgid "Recipe"
 msgstr ""
 
 msgid "Recipe Cost"
@@ -342,10 +300,16 @@ msgstr ""
 msgid "Recipe name"
 msgstr ""
 
+msgid "Recipe price"
+msgstr ""
+
 msgid "Recipes"
 msgstr ""
 
 msgid "Remove"
+msgstr ""
+
+msgid "SALE PRICE"
 msgstr ""
 
 msgid "SUPPLIER ID"
@@ -357,16 +321,34 @@ msgstr ""
 msgid "Sale Price:"
 msgstr ""
 
+msgid "Sale price"
+msgstr ""
+
 msgid "Search"
+msgstr ""
+
+msgid "Search for Multiple"
 msgstr ""
 
 msgid "Search for Multiple:"
 msgstr ""
 
+msgid "Search for One"
+msgstr ""
+
 msgid "Search for One:"
 msgstr ""
 
+msgid "Search for multiple"
+msgstr ""
+
+msgid "Search for one"
+msgstr ""
+
 msgid "Show"
+msgstr ""
+
+msgid "Subtotal"
 msgstr ""
 
 msgid "Subtotal:"
@@ -379,6 +361,15 @@ msgid "Suppliers"
 msgstr ""
 
 msgid "Suppliers name"
+msgstr ""
+
+msgid "Supply product"
+msgstr ""
+
+msgid "TOTAL MONEY SPENT"
+msgstr ""
+
+msgid "TOTAL REVENUE"
 msgstr ""
 
 msgid "To"
@@ -394,6 +385,9 @@ msgid "UNIT"
 msgstr ""
 
 msgid "UNIT PRICE"
+msgstr ""
+
+msgid "UNIT SOLD"
 msgstr ""
 
 msgid "Unit"
