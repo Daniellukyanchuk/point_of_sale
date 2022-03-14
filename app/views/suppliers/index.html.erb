@@ -31,9 +31,9 @@
         <td><%= supplier.country %></td>
         <td><%= supplier.address %></td>
         <td><%= supplier.phone_number %></td>
-        <td class="button"><%= link_to _('Show'), supplier %></td>
-        <td class="buttonb"><%= link_to _('Edit'), edit_supplier_path(supplier) %></td>
-        <td class="buttonc"><%= link_to _('Destroy'), supplier, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to _('Show'), supplier, class: "button" %></td>
+        <td><%= link_to _('Edit'), edit_supplier_path(supplier), class: "buttonb" %></td>
+        <td><%= link_to _('Destroy'), supplier, method: :delete, data: { confirm: 'Are you sure?' }, class: "buttonc" %></td>
       </tr>
     <% end %>
   </tbody>

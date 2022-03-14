@@ -33,9 +33,9 @@
         <td><%= client.address %></td>
         <td><%= client.city %></td>
         <td><%= client.country %></td>
-        <td class="button" ><%= link_to _('Show'), client %></td>
-        <td class="buttonb"><%= link_to _('Edit'), edit_client_path(client) %></td>
-        <td class="buttonc"><%= link_to _('Destroy'), client, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to _('Show'), client, class: "button" %></td>
+        <td><%= link_to _('Edit'), edit_client_path(client), class: "buttonb" %></td>
+        <td><%= link_to _('Destroy'), client, method: :delete, data: { confirm: 'Are you sure?' }, class: "buttonc" %></td>
       </tr>
       
     <% end %>

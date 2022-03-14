@@ -49,9 +49,9 @@
         <td>&#8381 <%= purchase.actual_total %></td>
         <td><%= purchase.date_of_the_order %></td>
         <td><%= purchase.expected_date_of_delivery %></td>
-        <td class="button"><%= link_to _('Show'), purchase %></td>
-        <td class="buttonb"><%= link_to _('Edit'), edit_purchase_path(purchase) %></td>
-        <td class="buttonc"><%= link_to _('Destroy'), purchase, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to _('Show'), purchase, class: "button" %></td>
+        <td><%= link_to _('Edit'), edit_purchase_path(purchase), class: "buttonb" %></td>
+        <td><%= link_to _('Destroy'), purchase, method: :delete, data: { confirm: 'Are you sure?' }, class: "buttonc" %></td>
       </tr>
     <% end %>
   </tbody>
