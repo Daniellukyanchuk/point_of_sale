@@ -1,0 +1,10 @@
+wb = xlsx_package.workbook
+
+wb.add_worksheet(name: "Clients") do |sheet|
+  # Create the header row
+  sheet.add_row ["ID", "Name", "Phone", "Address", "City", "Country"]
+  # Create entries for each client
+  @clients.each do |client| 
+    sheet.add_row [client.id, client.name, client.phone, client.address, client.city, client.country]
+  end
+end 

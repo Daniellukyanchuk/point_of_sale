@@ -5,6 +5,14 @@ class ClientsController < ApplicationController
   # GET /clients or /clients.json
   def index
     @clients = Client.search(params[:search]).order(sort_column + " " + sort_direction)
+    respond_to do |format|
+      format.xlsx {
+        response.headers[
+          'Content-Disposition'
+        ] = "attachment; filename=clients.xlsx"
+      }
+      format.html {render :index}
+    end
   end
 
   # GET /clients/1 or /clients/1.json
