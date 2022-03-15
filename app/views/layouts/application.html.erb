@@ -4,7 +4,19 @@
     <title>Blog</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <div class="topnav">
+    
+    
+    <div class="vertical-menu">
+      <div class="marginLeftOnly">
+        <% my_logo = Setting.first %>
+        <% if !my_logo.nil? %>
+          <% if my_logo.logo.attached? %>
+            <image src="<%=(url_for(my_logo.logo))%>" width="100" height="100">
+          <% end %>
+        <% else %>
+          <%= image_tag 'http://divisqueeze.com/wp-content/uploads/2017/03/YourLogoHere.png' %>
+        <% end %>
+      </div>
       <a class="active">Menu</a>
       <a href="<%= orders_path %>"><%= _('Orders') %></a>
       <a href="<%= clients_path %>"><%= _('Clients') %></a>
@@ -16,11 +28,15 @@
       <a href="<%= productions_path %>"><%= _('Productions') %></a>
       <a href="<%= client_report_path %>"><%= _('Clients Report') %></a>
       <a href="<%= product_report_path %>"><%= _('Products Report') %></a>
+      <a href="<%= settings_path %>/1/edit"><%= _('Settings') %></a>
+      <div>
+        <a href="http://localhost:3000/en/orders">en</a>
+        <a href="http://localhost:3000/ru/orders">ru</a>
+      </div>
     </div>
-
-    <a href="http://localhost:3000/ru/orders">ru</a>
-    | <a href="http://localhost:3000/en/orders">en</a>
-
+   
+    
+   
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
@@ -35,7 +51,9 @@
 
 
   <body data-no-turbolink="true">
-    <%= yield %>
+    <div class="main-content">
+      <%= yield %>
+    </div>
   </body>
 </html>
 

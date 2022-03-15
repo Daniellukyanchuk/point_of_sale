@@ -1,53 +1,55 @@
-<p id="notice"><%= notice %></p>
+<div class="marginRight">
+    <p id="notice"><%= notice %></p>
 
-<p>
-  <strong><%= _('Supplier') %>:</strong>
-  <%= @purchase.supplier_id %>
-</p>
+    <p>
+      <strong><%= _('Supplier') %>:</strong>
+      <%= @purchase.supplier_id %>
+    </p>
 
 
-<% @purchase.purchase_products.each do |pp| %>
-  <hr>
-  <p>
-    <strong><%= _('Products Name') %>:</strong>
-    <a href="/products/<%= pp.product.id %>/edit" ><%= pp.product.product_name %></a>
-  <p>
-  
-  <p>
-    <strong><%= _('Estimated Quantity') %>:</strong>
-    <%= pp.estimated_quantity %>
-  </p>
+    <% @purchase.purchase_products.each do |pp| %>
+      <hr>
+      <p>
+        <strong><%= _('Products Name') %>:</strong>
+        <a href="/products/<%= pp.product.id %>/edit" ><%= pp.product.product_name %></a>
+      <p>
+      
+      <p>
+        <strong><%= _('Estimated Quantity') %>:</strong>
+        <%= pp.estimated_quantity %>
+      </p>
 
-  <p>
-    <strong><%= _('Estimated Price Per Unit') %>:</strong>
-    <%= number_to_currency(pp.estimated_price_per_unit) %>
-  </p>
+      <p>
+        <strong><%= _('Estimated Price Per Unit') %>:</strong>
+        <%= number_to_currency(pp.estimated_price_per_unit) %>
+      </p>
 
-  <p>
-    <strong><%= _('Estimated Subtotal') %>:</strong>
-    <%= number_to_currency(pp.estimated_subtotal) %>
-  </p>
-<% end %>
+      <p>
+        <strong><%= _('Estimated Subtotal') %>:</strong>
+        <%= number_to_currency(pp.estimated_subtotal) %>
+      </p>
+    <% end %>
 
-<p>
-  <strong><%= _('Estimated total') %>:</strong>
-  <%= @purchase.estimated_total %>
-</p>
+    <p>
+      <strong><%= _('Estimated total') %>:</strong>
+      <%= @purchase.estimated_total %>
+    </p>
 
-<p>
-  <strong><%= _('Actual total') %>:</strong>
-  <%= number_to_currency(@purchase.actual_total) %>
-</p>
+    <p>
+      <strong><%= _('Actual total') %>:</strong>
+      <%= number_to_currency(@purchase.actual_total) %>
+    </p>
 
-<p>
-  <strong><%= _('Date of the order') %>:</strong>
-  <%= @purchase.date_of_the_order %>
-</p>
+    <p>
+      <strong><%= _('Date of the order') %>:</strong>
+      <%= @purchase.date_of_the_order %>
+    </p>
 
-<p>
-  <strong><%= _('Expected date of delivery') %>:</strong>
-  <%= @purchase.expected_date_of_delivery %>
-</p>
+    <p>
+      <strong><%= _('Expected date of delivery') %>:</strong>
+      <%= @purchase.expected_date_of_delivery %>
+    </p>
 
-<%= link_to _('Edit'), edit_purchase_path(@purchase) %> |
-<%= link_to _('Back'), purchases_path %>
+    <%= link_to _('Edit'), edit_purchase_path(@purchase) %> |
+    <%= link_to _('Back'), purchases_path %>
+<div>

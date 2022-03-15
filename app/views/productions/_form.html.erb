@@ -1,62 +1,64 @@
-<%= form_with(model: production, local: true) do |form| %>
-  <% if production.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(production.errors.count, "error") %> prohibited this production from being saved:</h2>
+<div class="marginRight">
+    <%= form_with(model: production, local: true) do |form| %>
+      <% if production.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(production.errors.count, "error") %> prohibited this production from being saved:</h2>
 
-      <ul>
-      <% production.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+          <ul>
+          <% production.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label _('Recipe') %>
-    <%= form.collection_select :recipe_id, Recipe.all, :id, :recipe_name, {}, {class: "product-picker"} %>
-  </div>
+      <div class="field">
+        <%= form.label _('Recipe') %>
+        <%= form.collection_select :recipe_id, Recipe.all, :id, :recipe_name, {}, {class: "product-picker"} %>
+      </div>
 
-  <div class="field">
-    <%= form.label _('Product amount') %>
-    <%= form.number_field :product_amount %>
-  </div>
+      <div class="field">
+        <%= form.label _('Product amount') %>
+        <%= form.number_field :product_amount %>
+      </div>
 
-  <div class="field">
-     <%= form.label _('Recipe price') %>
-     <%= form.number_field :recipe_price, class: "recipe-price-field", :readonly => true %>
-  </div>    
+      <div class="field">
+         <%= form.label _('Recipe price') %>
+         <%= form.number_field :recipe_price, class: "recipe-price-field", :readonly => true %>
+      </div>    
 
-  <div class="field">
-    <%= form.label _('Total') %>
-    <%= form.text_field :grand_total, :readonly => true %>
-  </div>
+      <div class="field">
+        <%= form.label _('Total') %>
+        <%= form.text_field :grand_total, :readonly => true %>
+      </div>
 
-  <div class="field">
-    <%= form.label _('Cost to make') %>
-    <%= form.text_field :cost_to_make, :readonly => true %>
-  </div>
+      <div class="field">
+        <%= form.label _('Cost to make') %>
+        <%= form.text_field :cost_to_make, :readonly => true %>
+      </div>
 
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+      <div class="actions">
+        <%= form.submit %>
+      </div>
+    <% end %>
 
-<script type="text/javascript">
-    $(document).ready(function() {
+    <script type="text/javascript">
+        $(document).ready(function() {
 
-      function updateSelectedPrice(){
-        $.ajax({ 
-            url: "/recipes/grand_total",
-            data: { id: $(this).val()  },
-            type: "GET",
-            success: function(data){
-                $('.recipe-price-field').val(data['grand_total']);
-            }
+          function updateSelectedPrice(){
+            $.ajax({ 
+                url: "/recipes/grand_total",
+                data: { id: $(this).val()  },
+                type: "GET",
+                success: function(data){
+                    $('.recipe-price-field').val(data['grand_total']);
+                }
+            });
+          }
+
+          $(document).on('change', '.product-picker', updateSelectedPrice);
+          $(".product-picker").each(updateSelectedPrice);
         });
-      }
-
-      $(document).on('change', '.product-picker', updateSelectedPrice);
-      $(".product-picker").each(updateSelectedPrice);
-    });
-</script>
+    </script>
+</div>

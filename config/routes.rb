@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   get 'clients_imports/new'
   get 'clients_imports/create'
   scope "(:locale)", locale: /en|ru/ do 
-  
+    
+    resources :settings
     resources :productions
     resources :suppliers
     resources :my_models
@@ -12,7 +13,6 @@ Rails.application.routes.draw do
     get 'order_report/product_report', to: 'order_report#product_report', as: :product_report
     resources :orders
 
-    
     get '/tests', to: 'tests#index'
     get '/products/price', to: 'products#get_price'
     get '/recipes/grand_total', to: 'recipes#get_recipe_price'
@@ -20,12 +20,10 @@ Rails.application.routes.draw do
     resources :products 
     get '/purchases/estimates', to: 'purchases#get_purchase_product_info'
     resources :purchases
-
     resources :clients 
     resources :clients_imports, only: [:new, :create]
 
     root to: 'clients#index'
-
     root to: 'orders#index'
     root to: 'purchases#index'
     root to: 'products#index'

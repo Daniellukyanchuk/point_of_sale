@@ -1,85 +1,87 @@
-<%= form_with(model: purchase, local: true) do |form| %>
-  <% if purchase.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(purchase.errors.count, "error") %> prohibited this purchase from being saved:</h2>
+<div class="marginRight">
+    <%= form_with(model: purchase, local: true) do |form| %>
+      <% if purchase.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(purchase.errors.count, "error") %> prohibited this purchase from being saved:</h2>
 
-      <ul>
-      <% purchase.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+          <ul>
+          <% purchase.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <%= form.collection_select :supplier_id, Supplier.all, :id, :suppliers_name %>
- 
-  <%= form.fields_for :purchase_products do |builder| %>
-      <%= render 'purchase_product_fields', form: builder %>
-  <% end %>
-
-  <%= link_to_add_fields _("Add Product"), form, :purchase_products %>
-
-  <div class="field">
-    <%= form.label _('Date of the order') %>
-    <%= form.date_select :date_of_the_order %>
-  </div>
-
-  <div class="field">
-    <%= form.label _('Estimated total') %>
-    <%= form.text_field :estimated_total, class: "est_total", :readonly => true %>
-  </div>
-
-  <div class="field">
-    <%= form.label _('Actual total') %>
-    <%= form.text_field :actual_total, class: "act_total", :readonly => true %>
-  </div>
-
-  <div class="field">
-    <%= form.label _('Expected date of delivery') %>
-    <%= form.date_select :expected_date_of_delivery %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-
-  <form action="/html/tags/html_form_tag_action.cfm" method="post">
-    <textarea name="comments" id="comments" style="width:20%;height:90px;background-color:lightgrey;color:slategrey;border:groove;padding:2%;font:22px/30px sans-serif;">
-    </textarea>
-  </form>
-</script>
-
-<script type="text/javascript">
-    $(document).on('change', '.est_subtotal', function() {     
-        var sum = 0
-        $('.est_subtotal').each(function() {
-          sum += parseFloat($(this).val());
-        });
+      <%= form.collection_select :supplier_id, Supplier.all, :id, :suppliers_name %>
      
-      $('.est_total').val(sum)
-    });
+      <%= form.fields_for :purchase_products do |builder| %>
+          <%= render 'purchase_product_fields', form: builder %>
+      <% end %>
 
-    $(document.body).on('change', '.act_subtotal', function() {
-        var total = 0
-        $('.act_subtotal').each(function() {
-          total += parseFloat($(this).val());
+      <%= link_to_add_fields _("Add Product"), form, :purchase_products %>
+
+      <div class="field">
+        <%= form.label _('Date of the order') %>
+        <%= form.date_select :date_of_the_order %>
+      </div>
+
+      <div class="field">
+        <%= form.label _('Estimated total') %>
+        <%= form.text_field :estimated_total, class: "est_total", :readonly => true %>
+      </div>
+
+      <div class="field">
+        <%= form.label _('Actual total') %>
+        <%= form.text_field :actual_total, class: "act_total", :readonly => true %>
+      </div>
+
+      <div class="field">
+        <%= form.label _('Expected date of delivery') %>
+        <%= form.date_select :expected_date_of_delivery %>
+      </div>
+
+      <div class="actions">
+        <%= form.submit %>
+      </div>
+
+      <form action="/html/tags/html_form_tag_action.cfm" method="post">
+        <textarea name="comments" id="comments" style="width:20%;height:90px;background-color:lightgrey;color:slategrey;border:groove;padding:2%;font:22px/30px sans-serif;">
+        </textarea>
+      </form>
+    </script>
+
+    <script type="text/javascript">
+        $(document).on('change', '.est_subtotal', function() {     
+            var sum = 0
+            $('.est_subtotal').each(function() {
+              sum += parseFloat($(this).val());
+            });
+         
+          $('.est_total').val(sum)
         });
-      
-      $('.act_total').val(total)
-    });
 
-    $(document.body).on('keyup', '.est_quantity, .est_price' ,function(){
-      var eQuantity = $(this).parents('.nested-fields').find('.est_quantity').val();
-      var ePrice = $(this).parents('.nested-fields').find('.est_price').val();
-      var cmpSubtotal = eQuantity * ePrice;
-      $(this).parents('.nested-fields').find('.est_subtotal').val(cmpSubtotal).trigger('change');    
-    });
+        $(document.body).on('change', '.act_subtotal', function() {
+            var total = 0
+            $('.act_subtotal').each(function() {
+              total += parseFloat($(this).val());
+            });
+          
+          $('.act_total').val(total)
+        });
 
-    $(document.body).on('keyup', '.act_quantity, .act_price', function(){
-    var aQuantity = $(this).parents('.nested-fields').find('.act_quantity').val();
-    var aPrice = $(this).parents('.nested-fields').find('.act_price').val();
-    var cmpSubtotal = aQuantity * aPrice;
-    $(this).parents('.nested-fields').find('.act_subtotal').val(cmpSubtotal).trigger('change');    
-    });  
-</script> 
-<% end %>
+        $(document.body).on('keyup', '.est_quantity, .est_price' ,function(){
+          var eQuantity = $(this).parents('.nested-fields').find('.est_quantity').val();
+          var ePrice = $(this).parents('.nested-fields').find('.est_price').val();
+          var cmpSubtotal = eQuantity * ePrice;
+          $(this).parents('.nested-fields').find('.est_subtotal').val(cmpSubtotal).trigger('change');    
+        });
+
+        $(document.body).on('keyup', '.act_quantity, .act_price', function(){
+        var aQuantity = $(this).parents('.nested-fields').find('.act_quantity').val();
+        var aPrice = $(this).parents('.nested-fields').find('.act_price').val();
+        var cmpSubtotal = aQuantity * aPrice;
+        $(this).parents('.nested-fields').find('.act_subtotal').val(cmpSubtotal).trigger('change');    
+        });  
+    </script> 
+    <% end %>
+</div>

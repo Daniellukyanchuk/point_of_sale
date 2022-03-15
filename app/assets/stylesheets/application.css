@@ -15,31 +15,31 @@
  */
 
  /* Add a black background color to the top navigation */
-.topnav {
-  background-color: #333;
-  overflow: hidden;
+.vertical-menu {
+  width: 200px;
+  display: inline-block;
 }
 
-/* Style the links inside the navigation bar */
-.topnav a {
-  float: left;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 8px 16px;
-  text-decoration: none;
-  font-size: 15px;
-}
-
-/* Change the color of links on hover */
-.topnav a:hover {
-  background-color: #ddd;
+.vertical-menu a {
+  background-color: #eee;
   color: black;
+  display: block;
+  padding: 12px;
+  text-decoration: none;
 }
 
-/* Add a color to the active/current link */
-.topnav a.active {
+.vertical-menu a:hover {
+  background-color: #ccc;
+}
+
+.vertical-menu a.active {
   background-color: #04AA6D;
   color: white;
+}
+
+.main-content {
+  display: inline-block;
+  vertical-align: top;
 }
 
 .field {
@@ -49,6 +49,7 @@
 .hoverTable{
   border-collapse: collapse;
   width: 100%;
+  margin: 40px;
 }
 
 .hoverTable th, td{
@@ -58,6 +59,14 @@
 }
 
 .hoverTable tr:hover:not(.active){background-color: lightgrey;}
+
+.marginRight {
+  margin: 40px;
+}
+
+.marginLeftOnly {
+  margin-left: 40px;
+}
 
 
 

@@ -1,7 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-
-
 <h1><%=_('Clients')%></h1>
 
   <%= form_tag clients_path, :method => 'get' do %>
@@ -10,6 +8,14 @@
       <%= submit_tag _("Search"), :name => nil %>
     </p>
   <% end %>
+  <%= link_to _('New Client'), new_client_path, class: "marginRight" %>
+
+<div>
+  <h2 class="marginLeftOnly">Import Clients</h2>
+
+  <%= link_to 'Upload from Excel', new_clients_import_path, class: "marginLeftOnly" %>
+  <%= link_to 'Download as Excel', clients_path(format: :xlsx) %>
+</div>
 
 <table class="hoverTable">
   <thead>
@@ -37,28 +43,16 @@
         <td><%= link_to _('Edit'), edit_client_path(client) %></td>
         <td><%= link_to _('Destroy'), client, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-      
     <% end %>
   </tbody>
 </table>
 
 <br>
 
-<h2>Import Clients</h2>
-
-<%= 
-  link_to 'Upload from Excel',
-  new_clients_import_path
-%>
-
-<%=
-  link_to 'Download as Excel',
-  clients_path(format: :xlsx)
-%>
 
 
 
 
 
 
-<%= link_to _('New Client'), new_client_path %>
+

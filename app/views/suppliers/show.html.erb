@@ -1,32 +1,34 @@
-<p id="notice"><%= notice %></p>
+<div class="marginRight">
+    <p id="notice"><%= notice %></p>
 
-<p>
-  <strong><%= _('Suppliers name') %>:</strong>
-  <%= @supplier.suppliers_name %>
-</p>
+    <p>
+      <strong><%= _('Suppliers name') %>:</strong>
+      <%= @supplier.suppliers_name %>
+    </p>
 
-<p>
-  <strong><%= _('City') %>:</strong>
-  <%= @supplier.city %>
-</p>
+    <p>
+      <strong><%= _('City') %>:</strong>
+      <%= @supplier.city %>
+    </p>
 
-<p>
-  <strong><%= _('Country') %>:</strong>
-  <%= @supplier.country %>
-</p>
+    <p>
+      <strong><%= _('Country') %>:</strong>
+      <%= @supplier.country %>
+    </p>
 
-<p>
-  <strong><%= _('Address') %>:</strong>
-  <%= @supplier.address %>
-</p>
-
-
-<p>
-  <strong><%= _('Phone Number') %>:</strong>
-  <%= @supplier.phone_number %>
-</p>
+    <p>
+      <strong><%= _('Address') %>:</strong>
+      <%= @supplier.address %>
+    </p>
 
 
+    <p>
+      <strong><%= _('Phone Number') %>:</strong>
+      <%= @supplier.phone_number %>
+    </p>
 
-<%= link_to _('Edit'), edit_supplier_path(@supplier) %> |
-<%= link_to _('Back'), suppliers_path %>
+
+
+    <%= link_to _('Edit'), edit_supplier_path(@supplier) %> |
+    <%= link_to _('Back'), suppliers_path %>
+</div>

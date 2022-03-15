@@ -2,13 +2,13 @@
 
 <h1><%= _('Recipes') %></h1>
 
-
 <%= form_tag recipes_path, :method => 'get' do %>
     <p>
       <%= text_field_tag :search, params[:search] %>
       <%= submit_tag _("Search"), :name => nil %>
     </p>
 <% end %>
+<%= link_to _('New Recipe'), new_recipe_path, class: "marginRight" %>
 
 <table class="hoverTable">
   <thead>
@@ -36,4 +36,4 @@
 
 <br>
 
-<%= link_to _('New Recipe'), new_recipe_path %>
+

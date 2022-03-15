@@ -1,23 +1,25 @@
-<p id="notice"><%= notice %></p>
+<div class="marginRight">
+    <p id="notice"><%= notice %></p>
 
-<p>
-  <strong><%= _('Recipe ID') %>:</strong>
-  <%= @production.recipe_id %>
-</p>
-<p>
-  <strong><%= _('Recipe name') %>:</strong>
-  <%= @production.recipe.recipe_name %>
-</p>
+    <p>
+      <strong><%= _('Recipe ID') %>:</strong>
+      <%= @production.recipe_id %>
+    </p>
+    <p>
+      <strong><%= _('Recipe name') %>:</strong>
+      <%= @production.recipe.recipe_name %>
+    </p>
 
-<p>
-  <strong><%= _('Total') %>:</strong>
-  <%= @production.grand_total %>
-</p>
+    <p>
+      <strong><%= _('Total') %>:</strong>
+      <%= @production.grand_total %>
+    </p>
 
-<p>
-  <strong><%= _('Cost to Make') %>:</strong>
-  <%= @production.cost_to_make %>
-</p>
+    <p>
+      <strong><%= _('Cost to Make') %>:</strong>
+      <%= @production.cost_to_make %>
+    </p>
 
-<%= link_to _('Edit'), edit_production_path(@production) %> |
-<%= link_to _('Back'), productions_path %>
+    <%= link_to _('Edit'), edit_production_path(@production) %> |
+    <%= link_to _('Back'), productions_path %>
+</div>

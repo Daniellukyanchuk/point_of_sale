@@ -18,6 +18,7 @@
       <%= submit_tag _("Search"), :name => nil %>
   </p>
 <% end %>
+<%= link_to _('New Purchase'), new_purchase_path, class: "marginRight" %>
 
 <script>
     $( function() {
@@ -64,5 +65,3 @@
   no_results_text: "Oops, nothing found!"
   })
 </script>
-
-<%= link_to _('New Purchase'), new_purchase_path %>

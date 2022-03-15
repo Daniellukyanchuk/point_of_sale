@@ -1,42 +1,44 @@
-<%= form_with(model: recipe, local: true) do |form| %>
-  <% if recipe.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
+<div class="marginRight">
+    <%= form_with(model: recipe, local: true) do |form| %>
+      <% if recipe.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
 
-      <ul>
-      <% recipe.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+          <ul>
+          <% recipe.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <%= form.fields_for :recipe_products do |builder| %>
-      <%= render 'recipe_product_fields', form: builder %>
-  <% end %>
+      <%= form.fields_for :recipe_products do |builder| %>
+          <%= render 'recipe_product_fields', form: builder %>
+      <% end %>
 
-  <%= link_to_add_fields _("Add Product"), form, :recipe_products %>
+      <%= link_to_add_fields _("Add Product"), form, :recipe_products %>
 
-  <div class="field">
-    <%= form.label _('Recipe name') %>
-    <%= form.text_field :recipe_name %>
-  </div>
+      <div class="field">
+        <%= form.label _('Recipe name') %>
+        <%= form.text_field :recipe_name %>
+      </div>
 
-  <div class="field">
-    <%= form.collection_select :product_id, Product.all, :id, :product_name %>
-  </div>
+      <div class="field">
+        <%= form.collection_select :product_id, Product.all, :id, :product_name %>
+      </div>
 
-  <div class="field">
-    <%= form.label _('Cooking instructions') %>
-    <%= form.text_field :cooking_instructions %>
-  </div>
+      <div class="field">
+        <%= form.label _('Cooking instructions') %>
+        <%= form.text_field :cooking_instructions %>
+      </div>
 
-  <div class="field">
-    <%= form.label _('Grand total') %>
-    <%= form.text_field :grand_total %>
-  </div>
+      <div class="field">
+        <%= form.label _('Grand total') %>
+        <%= form.text_field :grand_total %>
+      </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+      <div class="actions">
+        <%= form.submit %>
+      </div>
+    <% end %>
+</div>

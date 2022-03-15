@@ -129,6 +129,9 @@ GEM
     htmlentities (4.3.4)
     i18n (1.9.1)
       concurrent-ruby (~> 1.0)
+    image_processing (1.12.2)
+      mini_magick (>= 4.9.5, < 5)
+      ruby-vips (>= 2.0.17, < 3)
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
@@ -150,6 +153,7 @@ GEM
     mimemagic (0.4.3)
       nokogiri (~> 1)
       rake
+    mini_magick (4.11.0)
     mini_mime (1.1.2)
     minitest (5.15.0)
     msgpack (1.4.4)
@@ -218,6 +222,8 @@ GEM
       rspec-mocks (~> 3.10)
       rspec-support (~> 3.10)
     rspec-support (3.10.3)
+    ruby-vips (2.1.4)
+      ffi (~> 1.12)
     ruby_dep (1.5.0)
     ruby_parser (3.18.1)
       sexp_processor (~> 4.16)
@@ -301,6 +307,7 @@ DEPENDENCIES
   faker (~> 1.6, >= 1.6.6)
   gettext (>= 3.0.2)
   gettext_i18n_rails
+  image_processing (~> 1.2)
   jbuilder (~> 2.5)
   jquery-ui-rails
   listen (>= 3.0.5, < 3.2)

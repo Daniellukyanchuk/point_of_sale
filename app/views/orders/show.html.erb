@@ -1,40 +1,38 @@
-<p id="notice"><%= notice %></p>
+<div class="marginRight">
+    <p id="notice"><%= notice %></p>
 
-<p>
-  <strong><%= _('Order:') %></strong>
-  <%= @order.id %>
-</p>
+    <p>
+      <strong><%= _('Order:') %></strong>
+      <%= @order.id %>
+    </p>
+     
+    <p>
+      <strong><%= _('Client:') %></strong>
+      <%= @order.client_id %>
+    </p>
 
- <% if @order.cover_picture.attached? %>
-    <image src="<%=(url_for(@order.cover_picture))%>">
- <% end %>
- 
-<p>
-  <strong><%= _('Client:') %></strong>
-  <%= @order.client_id %>
-</p>
+    <% @order.order_products.each do |op| %>
+      <hr>
+      <p>
+        <strong><%= _('Quantity:') %></strong>
+        <%= op.quantity %>
+      </p>
 
-<% @order.order_products.each do |op| %>
-  <hr>
-  <p>
-    <strong><%= _('Quantity:') %></strong>
-    <%= op.quantity %>
-  </p>
+      <p>
+        <strong><%= _('Sale Price:') %></strong>
+        <%= number_to_currency(op.sale_price) %>
+      </p>
 
-  <p>
-    <strong><%= _('Sale Price:') %></strong>
-    <%= number_to_currency(op.sale_price) %>
-  </p>
+      <p>
+        <strong><%= _('Subtotal:') %></strong>
+        <%= number_to_currency(op.subtotal) %>
+      </p>
+    <% end %>
 
-  <p>
-    <strong><%= _('Subtotal:') %></strong>
-    <%= number_to_currency(op.subtotal) %>
-  </p>
-<% end %>
+    <p>
+      <strong><%= _('Grand total:') %> <%= number_to_currency(@order.grand_total) %></strong>
+    </p>
 
-<p>
-  <strong><%= _('Grand total:') %> <%= number_to_currency(@order.grand_total) %></strong>
-</p>
-
-<%= link_to _('Edit'), edit_order_path(@order) %> |
-<%= link_to _('Back'), orders_path %>
+    <%= link_to _('Edit'), edit_order_path(@order) %> |
+    <%= link_to _('Back'), orders_path %>
+</div>

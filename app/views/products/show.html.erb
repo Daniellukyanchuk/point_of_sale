@@ -1,22 +1,24 @@
-<p id="notice"><%= notice %></p>
+<div class="marginRight">
+    <p id="notice"><%= notice %></p>
 
-<p>
-  <strong><%= _('Product name') %>:</strong>
-  <%= @product.product_name %>
-</p>
+    <p>
+      <strong><%= _('Product name') %>:</strong>
+      <%= @product.product_name %>
+    </p>
 
-<p>
-  <strong><%= _('Price') %>:</strong>
-  <%= @product.price %>
-</p>
+    <p>
+      <strong><%= _('Price') %>:</strong>
+      <%= @product.price %>
+    </p>
 
-<p>
-  <strong><%= _('Unit') %>:</strong>
-  <%= @product.unit %>
-</p>
+    <p>
+      <strong><%= _('Unit') %>:</strong>
+      <%= @product.unit %>
+    </p>
 
 
 
-<%= link_to _('Edit'), edit_product_path(@product) %> |
-<%= link_to _('Back'), products_path %>
+    <%= link_to _('Edit'), edit_product_path(@product) %> |
+    <%= link_to _('Back'), products_path %>
+</div>
 

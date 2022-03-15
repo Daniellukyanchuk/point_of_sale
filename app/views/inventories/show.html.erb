@@ -1,38 +1,40 @@
-<p id="notice"><%= notice %></p>
+<div class="marginRight">
+    <p id="notice"><%= notice %></p>
 
-<p>
-  <strong><%= _('Product ID') %>:</strong>
-  <%= @inventory.product_id %>
-</p>
+    <p>
+      <strong><%= _('Product ID') %>:</strong>
+      <%= @inventory.product_id %>
+    </p>
 
-<p>
-  <strong><%= _('Product Name') %>:</strong>
-  <%= @inventory.product.product_name %>
-</p>
-<p>
-  <strong><%= _('Date') %>:</strong>
-  <%= @inventory.date %>
-</p>
+    <p>
+      <strong><%= _('Product Name') %>:</strong>
+      <%= @inventory.product.product_name %>
+    </p>
+    <p>
+      <strong><%= _('Date') %>:</strong>
+      <%= @inventory.date %>
+    </p>
 
-<p>
-  <strong><%= _('Amount') %>:</strong>
-  <%= @inventory.amount %>
-</p>
+    <p>
+      <strong><%= _('Amount') %>:</strong>
+      <%= @inventory.amount %>
+    </p>
 
-<p>
-  <strong><%= _('Price per unit') %>:</strong>
-  <%= @inventory.price_per_unit %>
-</p>
+    <p>
+      <strong><%= _('Price per unit') %>:</strong>
+      <%= @inventory.price_per_unit %>
+    </p>
 
-<p>
-  <strong><%= _('Costs') %>:</strong>
-  <%= @inventory.costs %>
-</p>
+    <p>
+      <strong><%= _('Costs') %>:</strong>
+      <%= @inventory.costs %>
+    </p>
 
-<p>
-  <strong>PurchaseId:</strong>
-  <%= @inventory.purchase_product_id %>
-</p>
+    <p>
+      <strong>PurchaseId:</strong>
+      <%= @inventory.purchase_product_id %>
+    </p>
 
-<%= link_to _('Edit'), edit_inventory_path(@inventory) %> |
-<%= link_to _('Back'), inventories_path %>
+    <%= link_to _('Edit'), edit_inventory_path(@inventory) %> |
+    <%= link_to _('Back'), inventories_path %>
+</div>

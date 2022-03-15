@@ -1,19 +1,21 @@
-<p id="notice"><%= notice %></p>
+<div class="marginRight">
+    <p id="notice"><%= notice %></p>
 
-<p>
-  <strong><%= _('Recipe name') %>:</strong>
-  <%= @recipe.product.product_name %>
-</p>
+    <p>
+      <strong><%= _('Recipe name') %>:</strong>
+      <%= @recipe.product.product_name %>
+    </p>
 
-<p>
-  <strong><%= _('Cooking instructions') %>:</strong>
-  <%= @recipe.cooking_instructions %>
-</p>
+    <p>
+      <strong><%= _('Cooking instructions') %>:</strong>
+      <%= @recipe.cooking_instructions %>
+    </p>
 
-<p>
-  <strong><%= _('Grand total') %>:</strong>
-  <%= @recipe.grand_total %>
-</p>
+    <p>
+      <strong><%= _('Grand total') %>:</strong>
+      <%= @recipe.grand_total %>
+    </p>
 
-<%= link_to _('Edit'), edit_recipe_path(@recipe) %> |
-<%= link_to _('Back'), recipes_path %>
+    <%= link_to _('Edit'), edit_recipe_path(@recipe) %> |
+    <%= link_to _('Back'), recipes_path %>
+</div>

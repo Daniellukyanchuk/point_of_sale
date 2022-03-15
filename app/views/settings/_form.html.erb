@@ -1,0 +1,48 @@
+<div class="marginRight">
+    <%= form_with(model: setting, local: true) do |form| %>
+      <% if setting.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(setting.errors.count, "error") %> prohibited this setting from being saved:</h2>
+
+          <ul>
+          <% setting.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="field">
+        <%= form.label :company_name %>
+        <%= form.text_field :company_name %>
+      </div>
+
+      <div class="field">
+        <%= form.label :company_address %>
+        <%= form.text_field :company_address %>
+      </div>
+
+      <div class="field">
+        <%= form.label :country %>
+        <%= form.text_field :country %>
+      </div>
+
+      <div class="field">
+        <%= form.label :city %>
+        <%= form.text_field :city %>
+      </div>
+
+      <div class='form-group'>
+        <% if @setting.logo.attached? %>
+          <%= image_tag @setting.logo, style: "width: 200px; height: 200px" %>
+        <% end %>
+
+        <%= form.label :logo %>
+        <%= form.file_field :logo, class: "form_control" %>
+      </div>
+
+      <div class="actions">
+        <%= form.submit %>
+      </div>
+    <% end %>
+</div>

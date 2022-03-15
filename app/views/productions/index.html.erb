@@ -1,8 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <h1><%= _('Productions') %></h1>
-
-
 <%= form_tag productions_path, :method => 'get' do %>
   <p><%= _('Search for one') %>:
      <%= text_field_tag :search, params[:search], placeholder: "ID, name etc." %>    
@@ -19,6 +17,7 @@
       <%= submit_tag _("Search"), :name => nil %>
   </p>
 <% end %>
+<%= link_to _('New Production'), new_production_path, class: "marginRight" %>
 
 <script>
     $( function() {
@@ -62,4 +61,4 @@
   no_results_text: "Oops, nothing found!"
   })
 </script>
-<%= link_to _('New Production'), new_production_path %>
+

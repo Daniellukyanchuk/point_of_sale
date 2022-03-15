@@ -1,57 +1,55 @@
-<%= form_with(model: order, local: true) do |form| %>
-  <div class='form-group'>
-    <%= form.label :cover_picture %>
-    <%= form.file_field :cover_picture %>
-  </div>
-    <% if order.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
+<div class="marginRight">
+    <%= form_with(model: order, local: true) do |form| %>
+        <% if order.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
 
-      <ul>
-      <% order.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+          <ul>
+          <% order.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <%= form.collection_select :client_id, Client.all, :id, :name %>
- 
-  <%= form.fields_for :order_products do |builder| %>
-      <%= render 'order_product_fields', form: builder %>
-  <% end %>
+      <%= form.collection_select :client_id, Client.all, :id, :name %>
+     
+      <%= form.fields_for :order_products do |builder| %>
+          <%= render 'order_product_fields', form: builder %>
+      <% end %>
 
-  <%= link_to_add_fields _("Add Product"), form, :order_products %>
+      <%= link_to_add_fields _("Add Product"), form, :order_products %>
 
-  <div class="field">
-    <%= form.label _('Grand total') %>
-    <%= form.text_field :grand_total, :readonly => true %>
-  </div>
+      <div class="field">
+        <%= form.label _('Grand total') %>
+        <%= form.text_field :grand_total, :readonly => true %>
+      </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+      <div class="actions">
+        <%= form.submit %>
+      </div>
+    <% end %>
 
-<script type="text/javascript">
-    $(document).ready(function() {
+    <script type="text/javascript">
+        $(document).ready(function() {
 
-      function updateSelectedPrice(){
-        var jquery_prod_picker = $(this);
-        $.ajax({ 
-            url: "/products/price",
-            data: { id: $(this).val()  },
-            type: "GET",
-            success: function(data){
-                jquery_prod_picker.parents(".nested-fields").find('.sale-price-field').val(data['price']);
-            }
+          function updateSelectedPrice(){
+            var jquery_prod_picker = $(this);
+            $.ajax({ 
+                url: "/products/price",
+                data: { id: $(this).val()  },
+                type: "GET",
+                success: function(data){
+                    jquery_prod_picker.parents(".nested-fields").find('.sale-price-field').val(data['price']);
+                }
+            });
+          }
+
+          $(document).on('change', '.product-picker', updateSelectedPrice);
+          $(".product-picker").each(updateSelectedPrice);
         });
-      }
-
-      $(document).on('change', '.product-picker', updateSelectedPrice);
-      $(".product-picker").each(updateSelectedPrice);
-    });
-</script>
+    </script>
+</div>
 
 
 

@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+
+<% if @setting.logo.attached? %>
+    <image src="<%=(url_for(@setting.logo))%>" width="150" height="150">
+<% end %>
+ 
+
+<p>
+  <strong>Company name:</strong>
+  <%= @setting.company_name %>
+</p>
+
+<p>
+  <strong>Company address:</strong>
+  <%= @setting.company_address %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @setting.country %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @setting.city %>
+</p>
+
+<%= link_to 'Edit', edit_setting_path(@setting) %> |
+<%= link_to 'Back', settings_path %>
