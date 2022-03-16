@@ -18,7 +18,7 @@
       <%= submit_tag _("Search"), :name => nil %>
   </p>
 <% end %>
-<%= link_to _('New Inventory'), new_inventory_path, class: "marginLeftOnly text-light btn btn-primary" %>
+<%= link_to _('New Inventory'), new_inventory_path, class: "marginLeftOnly text-light btn btn-primary btn-sm" %>
 
 <script>
     $( function() {
@@ -58,9 +58,9 @@
               <a href="/purchases/<%= inventory.purchase_product.purchase.id %>/edit" ><%= inventory.purchase_product_id %></a>
           </td>
         <% end %>
-        <td><%= link_to _('Show'), inventory %></td>
-        <td><%= link_to _('Edit'), edit_inventory_path(inventory) %></td>
-        <td><%= link_to _('Destroy'), inventory, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to _('Show'), inventory, class: "btn btn-outline-primary btn-sm" %></td>
+        <td><%= link_to _('Edit'), edit_inventory_path(inventory), class: "btn btn-outline-primary btn-sm" %></td>
+        <td><%= link_to _('Destroy'), inventory, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-primary btn-sm" %></td>
       </tr>
     <% end %>
   </tbody>

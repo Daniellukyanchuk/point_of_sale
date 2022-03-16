@@ -18,7 +18,7 @@
       <%= submit_tag _("Search"), :name => nil %>
     </p>
   <% end %>
-  <%= link_to _('New Order'), new_order_path, class: "marginLeftOnly text-light btn btn-primary" %>
+  <%= link_to _('New Order'), new_order_path, class: "marginLeftOnly text-light btn btn-primary btn-sm" %>
 
 <script>
     $( function() {
@@ -44,9 +44,9 @@
         <td><%= order.client_id %></td>
         <td><%= order.client.name %></td>
         <td>&#8381 <%= order.grand_total %></td>
-        <td><%= link_to _('Show'), order_path(order.id) %></td>
-        <td><%= link_to _('Edit'), edit_order_path(order.id) %></td>
-        <td><%= link_to _('Destroy'), order_path(order.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to _('Show'), order_path(order.id), class: "btn btn-outline-primary btn-sm" %></td>
+        <td><%= link_to _('Edit'), edit_order_path(order.id), class: "btn btn-outline-primary btn-sm" %></td>
+        <td><%= link_to _('Destroy'), order_path(order.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-primary btn-sm" %></td>
       </tr>
     <% end %>
   </tbody>
