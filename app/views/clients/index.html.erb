@@ -8,13 +8,13 @@
       <%= submit_tag _("Search"), :name => nil %>
     </p>
   <% end %>
-  <%= link_to _('New Client'), new_client_path, class: "marginRight" %>
+  <%= link_to _('New Client'), new_client_path, class: "marginLeftOnly text-light btn btn-primary" %>
 
 <div>
   <h2 class="marginLeftOnly">Import Clients</h2>
 
-  <%= link_to 'Upload from Excel', new_clients_import_path, class: "marginLeftOnly" %>
-  <%= link_to 'Download as Excel', clients_path(format: :xlsx) %>
+  <%= link_to 'Upload from Excel', new_clients_import_path, class: "marginLeftOnly text-light btn btn-secondary" %>
+  <%= link_to 'Download as Excel', clients_path(format: :xlsx), class: "text-light btn btn-secondary" %>
 </div>
 
 <table class="hoverTable">

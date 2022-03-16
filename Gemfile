@@ -86,3 +86,5 @@ gem 'axlsx_rails'
 gem 'caxlsx_rails'
 gem 'active_storage_validations'
 gem 'image_processing', '~> 1.2'
+
+gem 'bootstrap', '~> 5.1.3'

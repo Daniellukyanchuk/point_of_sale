@@ -1,0 +1,80 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ /*// Custom bootstrap variables must be set or imported *before* bootstrap.*/
+
+
+ /* Add a black background color to the top navigation */
+.vertical-menu {
+  width: 200px;
+  display: inline-block;
+}
+
+.vertical-menu a {
+  background-color: #eee;
+  color: black;
+  display: block;
+  padding: 12px;
+  text-decoration: none;
+}
+
+.vertical-menu a:hover {
+  background-color: #ccc;
+}
+
+.vertical-menu a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.main-content {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.field {
+    display: inline-block;
+}
+
+.hoverTable{
+  border-collapse: collapse;
+  width: 100%;
+  margin: 40px;
+}
+
+.hoverTable th, td{
+  padding: 3px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.hoverTable tr:hover:not(.active){background-color: lightgrey;}
+
+.marginRight {
+  margin: 40px;
+}
+
+.marginLeftOnly {
+  margin-left: 40px;
+}
+
+
+
+
+
+
+
+
