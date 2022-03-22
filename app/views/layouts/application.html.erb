@@ -18,16 +18,16 @@
         <% end %>
       </div>
       <a class="active">Menu</a>
-      <a href="<%= orders_path %>"><%= _('Orders') %></a>
-      <a href="<%= clients_path %>"><%= _('Clients') %></a>
+      <a href="<%= orders_path %>"><i class="fa-solid fa-basket-shopping"></i> <%= _('Orders') %></a>
+      <a href="<%= clients_path %>"><i class="fa-solid fa-user-tie"></i> <%= _('Clients') %></a>
       <a href="<%= products_path %>"><i class="fa-brands fa-product-hunt"></i> <%= _("Products") %></a>
       <a href="<%= purchases_path %>"><i class="fa-solid fa-cart-shopping"></i> <%= _('Purchases') %></a>
       <a href="<%= suppliers_path %>"><i class="fa-solid fa-truck-field"></i> <%= _('Suppliers') %></a>
       <a href="<%= inventories_path %>"><i class="fa-solid fa-warehouse"></i> <%= _('Inventories') %></a>
       <a href="<%= recipes_path %>"><i class="fa-solid fa-book-skull"></i> <%= _('Recipes') %></a>
-      <a href="<%= productions_path %>"><i class="fa-solid fa-bread-loaf"></i> <%= _('Productions') %></a>
-      <a href="<%= client_report_path %>"><%= _('Clients Report') %></a>
-      <a href="<%= product_report_path %>"><%= _('Products Report') %></a>
+      <a href="<%= productions_path %>"><i class="fa-solid fa-bread-slice"></i> <%= _('Productions') %></a>
+      <a href="<%= client_report_path %>"><i class="fa-solid fa-chart-column"></i> <%= _('Clients Report') %></a>
+      <a href="<%= product_report_path %>"><i class="fa-solid fa-chart-column"></i> <%= _('Products Report') %></a>
       <a href="<%= settings_path %>/1/edit"><i class="fa-solid fa-bars"></i> <%= _('Settings') %></a>
       <div>
         <i class="fa-solid fa-earth-europe"></i>
@@ -46,6 +46,9 @@
 
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/46cc6d555a.js" crossorigin="anonymous"></script>
+
+    <!-- Iconify SVG framework -->
+    <script src="https://code.iconify.design/2/2.2.0/iconify.min.js"></script>
     <!-- End -->
    
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
