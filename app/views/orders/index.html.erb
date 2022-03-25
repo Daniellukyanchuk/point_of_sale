@@ -1,61 +1,63 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <p id="notice"><%= notice %></p>
 
-<h1><%= _('Orders') %></h1>
-  
-  <%= form_tag orders_path, :method => 'get' do %>
-    <p><%= _('Search for One:') %>
-      <%= text_field_tag :search, params[:search], placeholder: "ID, name etc." %>
-       <%= _('Search for Multiple:') %>
-      <% options = Client.all.collect{ |u| [u.name, u.id] } %>
-        <% options = [["Select All", nil]] + options %>
-      <%= select_tag 'client_select[]', options_for_select(options, params[:client_select]), :multiple => :multiple, :class => "chosen-select"%> 
-       <%= _('From:') %>
-      <% start_date_value = 1.month.ago.strftime("%d - %m - %Y") %>
-      <% end_date_value = Date.today.strftime("%d - %m - %Y") %>
-      <%= text_field_tag 'start_date', params[:start_date], :class => "datepicker", :autocomplete => "off" %>
-      <%= _('To:') %>
-      <%= text_field_tag 'end_date', params[:end_date], :class => "datepicker", :autocomplete => "off" %>
-      <%= submit_tag _("Search"), :name => nil %>
-    </p>
-  <% end %>
-  <%= link_to _('New Order'), new_order_path, class: "marginLeftOnly text-light btn btn-primary btn-sm" %>
-
-<script>
-    $( function() {
-      $( ".datepicker" ).datepicker({ dateFormat: 'dd-mm-yy'});
-    } );
-</script>  
-
-<table class="hoverTable">
-  <thead>
-    <tr class="active">
-      <th><%= sortable "id", _("ID")%></th>
-      <th><%= sortable "client_id", _("CLIENTS ID") %></th>
-      <th><%= sortable "clients.name", _("NAME") %></th>
-      <th><%= sortable "grand_total", _("GRAND TOTAL") %></th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @orders.each do |order| %>
-      <tr>
-        <td><%= order.id %></td>
-        <td><%= order.client_id %></td>
-        <td><%= order.client.name %></td>
-        <td>&#8381 <%= order.grand_total %></td>
-        <td><%= link_to _('Show'), order_path(order.id), class: "btn btn-outline-primary btn-sm" %></td>
-        <td><%= link_to _('Edit'), edit_order_path(order.id), class: "btn btn-outline-primary btn-sm" %></td>
-        <td><%= link_to _('Destroy'), order_path(order.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-primary btn-sm" %></td>
-      </tr>
+  <h1><%= _('Orders') %></h1>
+    
+    <%= form_tag orders_path, :method => 'get' do %>
+      <p><%= _('Search for One:') %>
+        <%= text_field_tag :search, params[:search], placeholder: "ID, name etc." %>
+         <%= _('Search for Multiple:') %>
+        <% options = Client.all.collect{ |u| [u.name, u.id] } %>
+          <% options = [["Select All", nil]] + options %>
+        <%= select_tag 'client_select[]', options_for_select(options, params[:client_select]), :multiple => :multiple, :class => "chosen-select"%> 
+         <%= _('From:') %>
+        <% start_date_value = 1.month.ago.strftime("%d - %m - %Y") %>
+        <% end_date_value = Date.today.strftime("%d - %m - %Y") %>
+        <%= text_field_tag 'start_date', params[:start_date], :class => "datepicker", :autocomplete => "off" %>
+        <%= _('To:') %>
+        <%= text_field_tag 'end_date', params[:end_date], :class => "datepicker", :autocomplete => "off" %>
+        <%= submit_tag _("Search"), :name => nil %>
+      </p>
     <% end %>
-  </tbody>
-</table>
+    <%= link_to _('New Order'), new_order_path, class: "marginLeftOnly text-light btn btn-primary btn-sm" %>
 
-<br>
+  <script>
+      $( function() {
+        $( ".datepicker" ).datepicker({ dateFormat: 'dd-mm-yy'});
+      } );
+  </script>  
 
-<script type="text/javascript">  
-  $(".chosen-select").chosen({
-  no_results_text: "Oops, nothing found!"
-  })
-</script>
+  <table class="hoverTable">
+    <thead>
+      <tr class="active">
+        <th><%= sortable "id", _("ID")%></th>
+        <th><%= sortable "client_id", _("CLIENTS ID") %></th>
+        <th><%= sortable "clients.name", _("NAME") %></th>
+        <th><%= sortable "grand_total", _("GRAND TOTAL") %></th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @orders.each do |order| %>
+        <tr>
+          <td><%= order.id %></td>
+          <td><%= order.client_id %></td>
+          <td><%= order.client.name %></td>
+          <td>&#8381 <%= order.grand_total %></td>
+          <td><%= link_to _('Show'), order_path(order.id), class: "btn btn-outline-primary btn-sm" %></td>
+          <td><%= link_to _('Edit'), edit_order_path(order.id), class: "btn btn-outline-primary btn-sm" %></td>
+          <td><%= link_to _('Destroy'), order_path(order.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-primary btn-sm" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <script type="text/javascript">  
+    $(".chosen-select").chosen({
+    no_results_text: "Oops, nothing found!"
+    })
+  </script>
+</div>

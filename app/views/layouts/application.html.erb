@@ -5,70 +5,71 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     
+      
+        <div class="vertical-menu">
+          <div class="marginLeftOnly">
+            <% my_logo = Setting.first %>
+            <% if !my_logo.nil? %>
+              <% if my_logo.logo.attached? %>
+                <image src="<%=(url_for(my_logo.logo))%>" width="100" height="100">
+              <% end %>
+            <% else %>
+              <%= image_tag 'http://divisqueeze.com/wp-content/uploads/2017/03/YourLogoHere.png' %>
+            <% end %>
+          </div>
+          <a class="active">Menu</a>
+          <a href="<%= orders_path %>"><i class="fa-solid fa-basket-shopping"></i> <%= _('Orders') %></a>
+          <a href="<%= clients_path %>"><i class="fa-solid fa-user-tie"></i> <%= _('Clients') %></a>
+          <a href="<%= products_path %>"><i class="fa-brands fa-product-hunt"></i> <%= _("Products") %></a>
+          <a href="<%= purchases_path %>"><i class="fa-solid fa-cart-shopping"></i> <%= _('Purchases') %></a>
+          <a href="<%= suppliers_path %>"><i class="fa-solid fa-truck-field"></i> <%= _('Suppliers') %></a>
+          <a href="<%= inventories_path %>"><i class="fa-solid fa-warehouse"></i> <%= _('Inventories') %></a>
+          <a href="<%= recipes_path %>"><i class="fa-solid fa-book-skull"></i> <%= _('Recipes') %></a>
+          <a href="<%= productions_path %>"><i class="fa-solid fa-bread-slice"></i> <%= _('Productions') %></a>
+          <a href="<%= client_report_path %>"><i class="fa-solid fa-chart-column"></i> <%= _('Clients Report') %></a>
+          <a href="<%= product_report_path %>"><i class="fa-solid fa-chart-column"></i> <%= _('Products Report') %></a>
+          <a href="<%= settings_path %>/1/edit"><i class="fa-solid fa-bars"></i> <%= _('Settings') %></a>
+          <div>
+            <i class="fa-solid fa-earth-europe"></i>
+            <a href="http://localhost:3000/en/orders">en</a>
+            <a href="http://localhost:3000/ru/orders">ru</a>
+          </div>
+        </div>
+       
+        <!-- Bootstraps cdn -->
+        <!-- CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+        <!-- JS -->
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+
+        <!-- Font Awesome -->
+        <script src="https://kit.fontawesome.com/46cc6d555a.js" crossorigin="anonymous"></script>
+
+        <!-- Iconify SVG framework -->
+        <script src="https://code.iconify.design/2/2.2.0/iconify.min.js"></script>
+        <!-- End -->
+       
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+        <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+        <script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script>
+        <link href="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.min.css" rel="stylesheet"/>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">    
+      </head>
+
+
+
+      <body data-no-turbolink="true">
+        <div class="main-content">
+          <%= yield %>
+        </div>
+      </body>
     
-    <div class="vertical-menu">
-      <div class="marginLeftOnly">
-        <% my_logo = Setting.first %>
-        <% if !my_logo.nil? %>
-          <% if my_logo.logo.attached? %>
-            <image src="<%=(url_for(my_logo.logo))%>" width="100" height="100">
-          <% end %>
-        <% else %>
-          <%= image_tag 'http://divisqueeze.com/wp-content/uploads/2017/03/YourLogoHere.png' %>
-        <% end %>
-      </div>
-      <a class="active">Menu</a>
-      <a href="<%= orders_path %>"><i class="fa-solid fa-basket-shopping"></i> <%= _('Orders') %></a>
-      <a href="<%= clients_path %>"><i class="fa-solid fa-user-tie"></i> <%= _('Clients') %></a>
-      <a href="<%= products_path %>"><i class="fa-brands fa-product-hunt"></i> <%= _("Products") %></a>
-      <a href="<%= purchases_path %>"><i class="fa-solid fa-cart-shopping"></i> <%= _('Purchases') %></a>
-      <a href="<%= suppliers_path %>"><i class="fa-solid fa-truck-field"></i> <%= _('Suppliers') %></a>
-      <a href="<%= inventories_path %>"><i class="fa-solid fa-warehouse"></i> <%= _('Inventories') %></a>
-      <a href="<%= recipes_path %>"><i class="fa-solid fa-book-skull"></i> <%= _('Recipes') %></a>
-      <a href="<%= productions_path %>"><i class="fa-solid fa-bread-slice"></i> <%= _('Productions') %></a>
-      <a href="<%= client_report_path %>"><i class="fa-solid fa-chart-column"></i> <%= _('Clients Report') %></a>
-      <a href="<%= product_report_path %>"><i class="fa-solid fa-chart-column"></i> <%= _('Products Report') %></a>
-      <a href="<%= settings_path %>/1/edit"><i class="fa-solid fa-bars"></i> <%= _('Settings') %></a>
-      <div>
-        <i class="fa-solid fa-earth-europe"></i>
- <a href="http://localhost:3000/en/orders">en</a>
-        <a href="http://localhost:3000/ru/orders">ru</a>
-      </div>
-    </div>
-   
-    <!-- Bootstraps cdn -->
-    <!-- CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-    <!-- JS -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
-
-    <!-- Font Awesome -->
-    <script src="https://kit.fontawesome.com/46cc6d555a.js" crossorigin="anonymous"></script>
-
-    <!-- Iconify SVG framework -->
-    <script src="https://code.iconify.design/2/2.2.0/iconify.min.js"></script>
-    <!-- End -->
-   
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script>
-    <link href="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.min.css" rel="stylesheet"/>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">    
-  </head>
-
-
-
-  <body data-no-turbolink="true">
-    <div class="main-content">
-      <%= yield %>
-    </div>
-  </body>
 </html>
 
 
