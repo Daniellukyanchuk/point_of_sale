@@ -2,23 +2,25 @@
 
 <p id="notice"><%= notice %></p>
 
-<h1>Client Purchase Report</h1><hr>
+<h1><%= _('Client Purchase Report') %></h1>
 
 <%= form_tag reports_client_report_path, :method => 'get' do %>
   
   <%= text_field_tag :search, params[:search] %>
-  and
+  <%= _("AND") %>
   <% options = Client.all.collect{ |c| [c.name, c.id] } %>
   <% options = [["Show All", nil]] + options %>
   <%= select_tag 'client_select[]', options_for_select(options, params[:client_select]), :multiple => :multiple, :size => 10, :class => "chosen-select" %>
   <br><br>
 
-  From: <input type="text" class="datepicker" id="from" name="from_date" 
+  <%= _("From:") %> <input type="text" class="datepicker" id="from" name="from_date" 
               autocomplete = 'off' value = "<%= params[:from_date] %>">
-      to: <input type="text" class="datepicker" id="to" name="to_date" 
+      <%= _("to:") %> <input type="text" class="datepicker" id="to" name="to_date" 
               autocomplete = 'off' value = "<%= params[:to_date] %>">
 
-  <%= submit_tag "Search", :name => nil %>
+ <%= button_tag(type: "submit", class: "btn btn-warning btn-small") do %>
+    Search <i class="fa-solid fa-magnifying-glass"></i>
+    <% end %>
   <% end %><br><br>  
 
 <table>
@@ -38,9 +40,9 @@
       <tr>     
         <td><%= c_report["client_id"] %></td>
         <td><%= c_report["name"] %></td>
-        <td class="align_center"><%= c_report["orders_placed"] %></td>
-        <td class="align_right"><%= c_report["total_spent"] %></td>
-        <td class="align_right"><%= c_report["avg_spent"] %></td>
+        <td class="align_center"><%= number_with_precision(c_report["orders_placed"], precision: 2, delimiter: ' ') %></td>
+        <td class="align_right"><%= number_with_precision(c_report["total_spent"], precision: 2, delimiter: ' ') %></td>
+        <td class="align_right"><%= number_with_precision(c_report["avg_spent"], precision: 2, delimiter: ' ') %></td>
       </tr>
       <% end %>
   </tbody>

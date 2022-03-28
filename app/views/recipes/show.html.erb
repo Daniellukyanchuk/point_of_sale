@@ -1,24 +1,24 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Product Id:</strong>a
+  <strong><%= _("Product Id:") %></strong>a
   <%= @recipe.product_id %>
 </p>
 
 <p>
-  <strong>Recipe cost:</strong>
+  <strong><%= _("Recipe cost:") %></strong>
   <%= @recipe.recipe_cost %>
 </p>
 
 <p>
-  <strong>Yield:</strong>
+  <strong><%= _("Yield:") %></strong>
   <%= @recipe.yield %>
 </p>
 
 <p>
-  <strong>Instructions:</strong>
+  <strong><%= _("Instructions:") %></strong>
   <%= @recipe.instructions %>
 </p>
 
-<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
-<%= link_to 'Back', recipes_path %>
+<%= link_to _('Edit'), edit_recipe_path(@recipe) %> |
+<%= link_to _('Back'), recipes_path %>

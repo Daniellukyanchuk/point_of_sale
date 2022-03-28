@@ -12,18 +12,18 @@
 <% end %>
 
 
-    <%= form.label "Select supplier" %>
+    <%= form.label _("Select supplier") %>
       <%= form.collection_select :supplier_id, Supplier.all, :id, :supplier_name %>
     <br><br>
 
-    <h2>Products</h2><hr>
+    <h2><%= _('Products') %></h2><hr>
 
         <%= form.fields_for :purchase_products do |builder| %>
           <%= render 'purchase_product_fields', form: builder %>
         <% end %>      
 
         <div class="pad-bottom"> 
-            <%= link_to_add_fields "Add Product", form, :purchase_products %>
+            <%= link_to_add_fields _("Add Product"), form, :purchase_products %>
         </div>
 
         <div class="field">
@@ -37,23 +37,23 @@
         </div>
 
         <div class="field">
-        <label for="date_ordered">Ordered on</label>
+        <label for="date_ordered"><%= _('Ordered on') %></label>
         <input type="text" class="datepicker" id="date_ordered" name="purchase[date_ordered]" 
               autocomplete = 'off' value = "<%= purchase.date_ordered.strftime("%m-%d-%Y") unless purchase.date_ordered.blank? %>"></div>
 
         <div class="field">      
-        <label for="date_expected">Expected Arrival</label>
+        <label for="date_expected"><%= _('Expected Arrival') %></label>
         <input type="text" class="datepicker" id="date_expected" name="purchase[date_expected]" 
               autocomplete = 'off' value = "<%= purchase.date_expected.strftime("%m-%d-%Y") unless purchase.date_expected.blank? %>"></div>
 
         <div class="field">
-        <label for="date_received">Received on</label>
+        <label for="date_received"><%= _('Received on') %></label>
         <input type="text" class="datepicker" id="date_received" name="purchase[date_received]" 
               autocomplete = 'off' value = "<%= purchase.date_received.strftime("%m-%d-%Y") unless purchase.date_received.blank? %>"></div>
 
 
   <div> 
-    <%= form.submit %>
+    <%= form.submit _("Create Purchase"), :class => 'btn btn-success'%>
   </div>
 <br><br>
   

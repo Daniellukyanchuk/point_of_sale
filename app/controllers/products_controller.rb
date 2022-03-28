@@ -3,10 +3,10 @@ class ProductsController < ApplicationController
   helper_method :sort_column, :sort_direction
 
 
-def import
-  Product.import(params[:file])
-  redirect_to root_url, notice: "Products imported successfully!"
-end
+# def import
+#   Product.import(params[:file])
+#   redirect_to root_url, notice: "Products imported successfully!"
+# end
   
 def get_price
   @price = Product.where("id = ?", params[:product_id]).first.price
@@ -31,6 +31,14 @@ end
   # GET /products or /products.json
   def index
     @products = Product.search(params[:search]).order(sort_column + " " + sort_direction)
+      respond_to do |format|
+        format.xlsx {
+          response.headers[
+            'Content-Disposition'
+          ] = "attachment; filename=products.xlsx"
+        }
+        format.html { render :index }
+      end
   end
 
   

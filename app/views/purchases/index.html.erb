@@ -1,18 +1,18 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Purchases</h1>
-<hr>
-<%= link_to '+ New Purchase Order', new_purchase_path, :class => "button big_button green" %>
+<h1><%= _('Purchases') %></h1>
+
+<%= link_to _('+ New Purchase Order'), new_purchase_path, :class => "btn btn-secondary" %>
 <br><br>
 
 <table>
   <thead>
     <tr>
-    <th class="align_right"><%= sortable "id", "ID" %></th>
-      <th><%= sortable "created_at", "Date Received" %></th>
-      <th><%= sortable "supplier_id", "Supplier ID" %></th>
-      <th><%= sortable "supplier_id", "Supplier Name" %></th>
-      <th><%= sortable "purchase_total", "Purchase Total" %></th>
+    <th class="align_right"><%= sortable "id", _("ID") %></th>
+      <th><%= sortable "created_at", _("Date Received") %></th>
+      <th><%= sortable "supplier_id", _("Supplier ID") %></th>
+      <th><%= sortable "supplier_id", _("Supplier Name") %></th>
+      <th><%= sortable "purchase_total", _("Purchase Total") %></th>
       <th colspan="5"></th>
     </tr>
   </thead>
@@ -24,10 +24,10 @@
       <td><%= purchase.created_at.strftime("%d %b %Y") %></td> 
       <td class="align_center"><%= purchase.supplier_id %></td>
       <td><%= purchase.supplier.supplier_name %></td>
-      <td class="align_right"><%= purchase.purchase_total %></td>
-      <td><%= link_to 'Show', "/purchases/#{purchase["id"]}", class: "show" %></td>
-      <td><%= link_to 'Edit', edit_purchase_path(purchase), class: "edit" %></td>
-      <td><%= link_to 'Destroy', "/purchases/#{purchase["id"]}", method: :delete, data: { confirm: 'Are you sure?' }, class: "destroy" %></td>
+      <td class="align_right"><%= number_with_precision(purchase.purchase_total, precision: 2, separator: '.', delimiter: ' ') %></td>
+      <td><%= link_to '<i class="fa-solid fa-eye"></i>'.html_safe, "/purchases/#{purchase["id"]}", class: "text-primary" %></td>
+      <td><%= link_to '<i class="fa-solid fa-pencil"></i>'.html_safe, edit_purchase_path(purchase), class: "text-secondary" %></td>
+      <td><%= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, "/purchases/#{purchase["id"]}", method: :delete, data: { confirm: 'Are you sure?' }, class: "text-danger" %></td>
     </tr>
   <% end %>
   </tbody>

@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
  
   
+  
   scope "/:locale" do   
+    resources :settings
     resources :products_imports, only: [:new, :create]
-    resources :uploads
     get '/recipe_products/recipe_info', to: 'products#get_recipe_info'
     get '/recipe/unit', to: 'products#get_unit'
     get '/recipe/production_info', to: 'recipes#get_production_info'

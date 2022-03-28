@@ -5,8 +5,12 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    
+    <script src="https://kit.fontawesome.com/0ef8d1a69c.js" crossorigin="anonymous"></script>    
 
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
@@ -14,29 +18,65 @@
    
     <script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script>
     <link href="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.min.css" rel="stylesheet"/>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
  
   </head>
 
   <body>
-  <div id="navbar">
-    <span class="hovertext" data-hover="Click to upload Logo">
-        <img src="https://eprofeng.edu.eg/files/portal/logo-placeholder.png" id="logo">
-    </span>
-  <a href="http://localhost:3000/<%= _("en") %>/products" class="button nav_button"> <%= _("Products") %> </a>
-  <a href="http://localhost:3000/<%= _("en") %>/recipes" class="button nav_button"> <%= _("Recipes") %>  </a>
-  <a href="http://localhost:3000/<%= _("en") %>/clients" class="button nav_button"> <%= _("Clients") %>  </a>
-  <a href="http://localhost:3000/<%= _("en") %>/suppliers" class="button nav_button"> <%= _("Suppliers") %>  </a>
-  <a href="http://localhost:3000/<%= _("en") %>/orders" class="button nav_button"> <%= _("Orders") %>  </a>
-  <a href="http://localhost:3000/<%= _("en") %>/purchases" class="button nav_button"> <%= _("Purchases") %>  </a>
-  <a href="http://localhost:3000/<%= _("en") %>/productions" class="button nav_button"> <%= _("Production") %>  </a>
-  <a href="http://localhost:3000/<%= _("en") %>/inventories" class="button nav_button"> <%= _("Inventory") %>  </a>
-  <a href="http://localhost:3000/<%= _("en") %>/reports/inventory_report" class="button nav_button"> <%= _("Inventory Report") %>  </a>
-  <a href="http://localhost:3000/<%= _("en") %>/reports/product_report" class="button nav_button"> <%= _("Sales Report") %>  </a>
-  <a href="http://localhost:3000/<%= _("en") %>/reports/purchase_report" class="button nav_button"> <%= _("Purchasing Report") %> </a>
-  <a href="http://localhost:3000/<%= _("en") %>/reports/client_report" class="button nav_button"> <%= _("Client Report") %>  </a>
-  <a href="http://localhost:3000/<%= _("en") %>/uploads" class="button nav_button"> <%= _("Uploads") %>  </a>
-  <div id="lang_switcher"><a href="http://localhost:3000/en/products">English</a> | <a href="http://localhost:3000/ru/products">Русски</a></div>
+      <div id="lang_switcher"><a href="http://localhost:3000/en/products" class="text-dark">English</a> | <a href="http://localhost:3000/ru/products" class="text-dark">Русски</a></div> 
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    
+    <a class="navbar-brand" href="#">
+       <% custom_logo = Setting.first %>
+          <% if !custom_logo.nil? %>
+            <% if custom_logo.logo.attached? %>
+              <%= image_tag url_for(custom_logo.logo), :class => "logo" %>
+            <% end %>
+          <% else %>
+            <%= image_tag 'http://divisqueeze.com/wp-content/uploads/2017/03/YourLogoHere.png', :class => "logo" %>
+          <% end %>      
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+        <ul>  
+          <li class="bg-success nav"><a href="http://localhost:3000/<%= _("en") %>/products"  class="text-dark nav"> <i class="fa-solid fa-bread-slice"></i> <%= _("Products") %> </a> </li>
+          <li class="bg-success nav"><a href="http://localhost:3000/<%= _("en") %>/recipes"  class="text-dark nav"> <i class="fa-solid fa-book"></i> <%= _("Recipes") %>  </a> </li>
+          <li class="bg-success nav"><a href="http://localhost:3000/<%= _("en") %>/clients"  class="text-dark nav"> <i class="fa-solid fa-user-group"></i> <%= _("Clients") %>  </a> </li>
+          <li class="bg-success nav"><a href="http://localhost:3000/<%= _("en") %>/suppliers"  class="text-dark nav"> <i class="fa-solid fa-truck"></i> <%= _("Suppliers") %>  </a> </li>
+          <li class="bg-secondary nav"><a href="http://localhost:3000/<%= _("en") %>/orders" class="text-dark nav"> <i class="fa-solid fa-file-lines"></i> <%= _("Orders") %>  </a> </li>
+          <li class="bg-secondary nav"><a href="http://localhost:3000/<%= _("en") %>/purchases" class="text-dark nav"> <i class="fa-solid fa-money-bill"></i> <%= _("Purchases") %>  </a> </li>
+          <li class="bg-secondary nav"><a href="http://localhost:3000/<%= _("en") %>/productions" class="text-dark nav"> <i class="fa-solid fa-gears"></i> <%= _("Production") %>  </a> </li>
+          <li class="bg-secondary nav"><a href="http://localhost:3000/<%= _("en") %>/inventories" class="text-dark nav"> <i class="fa-solid fa-warehouse"></i> <%= _("Inventory") %>  </a> </li>
+  
+          <li class="nav-item dropdown bg-info nav">
+            <a class="nav-link dropdown-toggle nav text-dark" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+             <i class="fa-solid fa-file"></i> <%= _("Reports") %>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a href="http://localhost:3000/<%= _("en") %>/reports/inventory_report" class="text-dark nav bg-info dropdown-item"> <%= _("Inventory Report") %>  </a> 
+                <a href="http://localhost:3000/<%= _("en") %>/reports/product_report" class="text-dark nav bg-info dropdown-item"> <%= _("Sales Report") %>  </a> 
+                <a href="http://localhost:3000/<%= _("en") %>/reports/purchase_report" class="text-dark nav bg-info dropdown-item"> <%= _("Purchasing Report") %> </a> 
+                <a href="http://localhost:3000/<%= _("en") %>/reports/client_report" class="text-dark nav bg-info dropdown-item"> <%= _("Client Report") %>  </a> 
+                 
+            </div>
+          </li> 
+          <li class="bg-light nav"> <a href="http://localhost:3000/<%= _("en") %>/settings" class="text-dark nav"> <i class="fa-solid fa-screwdriver-wrench"></i> <%= _("Settings") %>  </a>
+          </li>
+        </ul>
+
+      
+    </div>
   </div>
+</nav>
 
 
 

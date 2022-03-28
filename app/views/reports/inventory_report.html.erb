@@ -1,22 +1,24 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Inventory Report</h1>
+<h1><%= _('Inventory Report') %></h1>
 
 <%= form_tag reports_inventory_report_path, :method => 'get' do %>
   
   <%= text_field_tag :search, params[:search] %> 
-  AND
+  <%= _("AND") %>
   <% options = Product.all.collect{ |p| [p.product_name, p.id] } %>
   <% options = [["Show All", nil]] + options %>
   <%= select_tag 'product_select[]', options_for_select(options, params[:product_select]), :multiple => :multiple, :size => 10, :class => "chosen-select" %>
   <br><br>
 
-      From: <input type="text" class="datepicker" id="from" name="from_date" 
+      <%= _("From:") %> <input type="text" class="datepicker" id="from" name="from_date" 
               autocomplete = 'off' value = "<%= params[:from_date] %>">
-      to: <input type="text" class="datepicker" id="to" name="to_date" 
+      <%= _("to:") %> <input type="text" class="datepicker" id="to" name="to_date" 
               autocomplete = 'off' value = "<%= params[:to_date] %>">
 
-  <%= submit_tag "Search", :product_name => nil %>
+  <%= button_tag(type: "submit", class: "btn btn-warning btn-small") do %>
+    Search <i class="fa-solid fa-magnifying-glass"></i>
+    <% end %>
 <% end %>
 
 <br>
@@ -24,11 +26,11 @@
 <table>
   <thead>
     <tr>
-    <th align="left"><%= sortable "product_id", "Id" %></th>
-    <th align="left"><%= sortable "product_name", "Product Name" %></th>
-    <th align="right"><%= sortable "weighted_cost_per_unit", "Weighted CPU" %></th>
-    <th align="right"><%= sortable "current_inventory", "Units in Stock" %></th>
-    <th><%= sortable "unit", "Units" %></th>
+    <th align="left"><%= sortable "product_id", _("Id") %></th>
+    <th align="left"><%= sortable "product_name", _("Product Name") %></th>
+    <th align="right"><%= sortable "weighted_cost_per_unit", _("Weighted CPU") %></th>
+    <th align="right"><%= sortable "current_inventory", _("Units in Stock") %></th>
+    <th><%= sortable "unit", _("Units") %></th>
     <th colspan="4"></th>
     </tr>
   </thead>
@@ -38,8 +40,8 @@
       <tr>     
         <td><%= is["product_id"] %></td>
         <td><%= is["product_name"] %></td>
-         <td align="right"><%= is["weighted_cost_per_unit"] %></td>
-        <td align="right"><%= is["current_inventory"] %></td>
+         <td align="right"><%= number_with_precision(is["weighted_cost_per_unit"], precision: 2, delimiter: ' ') %></td>
+        <td align="right"><%= number_with_precision(is["current_inventory"], precision: 2, delimiter: ' ') %></td>
         <td><%= is["unit"] %></td>
       </tr>
       <% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_07_075708) do
+ActiveRecord::Schema.define(version: 2022_03_15_041846) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -137,18 +137,20 @@ ActiveRecord::Schema.define(version: 2022_03_07_075708) do
     t.string "recipe_name"
   end
 
+  create_table "settings", force: :cascade do |t|
+    t.string "company_name"
+    t.string "company_address"
+    t.string "company_phone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "suppliers", force: :cascade do |t|
     t.string "supplier_name"
     t.string "address"
     t.string "phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "uploads", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "active_storage_attachment_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

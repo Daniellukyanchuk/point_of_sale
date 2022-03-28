@@ -1,29 +1,30 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Products</h1><hr>
+<h1><%= _("Products") %></h1>
 
+<%= link_to _('+ New Product'), new_product_path, :class => 'btn btn-secondary' %>
+<%= link_to _('<i class="fa-solid fa-download"></i> Export as Excel').html_safe , products_path(format: :xlsx), class: "btn btn-primary btn-small" %>
+<%= link_to _('<i class="fa-solid fa-file-import"></i> Import from Excel').html_safe , new_products_import_path, class: "btn btn-primary btn-small" %>
 
-<%= link_to '+ New Product', new_product_path, :class => 'button big_button green' %>
-<%= link_to 'Export as CSV', products_path(format: :csv), class: "small button" %>
-<%= link_to 'Import from File', new_products_import_path, class: "small button" %>
-
-
+<br><br>
 
 <%= form_tag products_path, :method => 'get' do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
+    <%= button_tag(type: "submit", class: "btn btn-warning btn-small") do %>
+    Search <i class="fa-solid fa-magnifying-glass"></i>
+    <% end %>
   </p>
 <% end %>
 
 <table>
   <thead>
     <tr>
-    <th class="align_left"><%= sortable "id", "Id" %></th>
-      <th class="align_left"><%= sortable "product_name", "Product Name" %></th>
-      <th class="align_right"><%= sortable "price", "Sale price" %></th>
-      <th class="align_right"><%= sortable "grams_per_unit", "Grams per unit" %></th>
-      <th><%= sortable "unit", "Unit" %></th>      
+    <th class="align_left"><%= sortable "id", _("Id") %></th>
+      <th class="align_left"><%= sortable "product_name", _("Product Name") %></th>
+      <th class="align_right"><%= sortable "price", _("Sale price") %></th>
+      <th class="align_right"><%= sortable "grams_per_unit", _("Grams per unit") %></th>
+      <th><%= sortable "unit", _("Unit") %></th>      
       <th colspan="5"></th>
     </tr>
   </thead>
@@ -34,12 +35,13 @@
         <td><%= pi["id"] %></td>
         <td><%= pi["product_name"] %></td>
         <td class="align_right"><%= pi["price"] %></td>
-        <td class="align_right"><%= pi["grams_per_unit"] %>g</td>
+        <td class="align_right"><%= number_with_precision(pi["grams_per_unit"], :precision => 1, delimiter: ' ') %>g</td>
         <td><%= pi["unit"] %></td>
-        <td><%= link_to "Show", "/products/#{pi["id"]}", class: "show" %></td>
-        <td><%= link_to "Edit", "/products/#{pi["id"]}/edit", class: "edit" %></td>
-        <td><%= link_to "Delete", "/products/#{pi["id"]}", method: :delete, data: { confirm: 'Are you sure?' }, class: "destroy" %></td>
-
+        
+        <td><%= link_to '<i class="fa-solid fa-eye"></i>'.html_safe, pi, class: "text-primary" %></td>
+        <td><%= link_to '<i class="fa-solid fa-pencil"></i>'.html_safe,  edit_product_path(pi), class: "text-secondary" %></td>
+        <td><%= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, pi, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-danger" %></td>
+        
       </tr>
     <% end %>
         

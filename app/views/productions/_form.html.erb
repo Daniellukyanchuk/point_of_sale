@@ -12,7 +12,7 @@
   <% end %>
 
   <div class="field">
-    <%= form.label "Select Recipe" %>
+    <%= form.label _("Select Recipe") %>
     <%= form.select :recipe_id, options_for_select(Recipe.all.map{|r| [r.recipe_name, r.id]}), {}, {class: "recipe"} %>     
   </div>
 
@@ -44,12 +44,12 @@
   </div>
 
   <div class="field">
-    <%= form.label "Product Id" %>
+    <%= form.label _("Product Id") %>
     <%= form.text_field :product_id, class: "product-id greyed_out", :readonly => true %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit _('Create Production'), :class => 'btn btn-success' %>
   </div>
 <% end %>
 

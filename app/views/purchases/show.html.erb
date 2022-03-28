@@ -1,18 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>purchase Id:</strong>
+  <strong>  <%= _("Purchase Id:") %></strong>
   <%= @purchase.id %>
 </p>
 
 <p>
-  <strong>Supplier:</strong>
+  <strong><%= _("Supplier:") %></strong>
   <%= @purchase.supplier_id %> |
   <%= @purchase.supplier.supplier_name %>
 </p>
 
 <p>
-  <strong>Date received:</strong>
+  <strong><%= _("Date received:") %></strong>
   <%= @purchase.created_at.strftime("%d %b %Y") %> 
 </p>
 
@@ -22,23 +22,23 @@
   <table>
     <thead>
       <tr>
-      <th colspan="3"><h3>Product id: <%= sp.product_id %></h3></th>
+      <th colspan="3"><h3><%= _("Product id:") %> <%= sp.product_id %></h3></th>
     </tr><tr>
-      <th></th><th>Estimate</th><th>Actual Order</th>
+      <th></th><th><%= _("Estimate") %></th><th><%= _("Actual Order") %></th>
     </tr>
     </thead><tbody>
       <tr>
-        <td><strong>Quantity:</strong></td>
+        <td><strong><%= _("Quantity:") %></strong></td>
         <td><%= sp.estimated_quantity %> </td>
         <td><%= sp.purchase_quantity %></td>
       </tr>
       <tr>
-        <td><strong>Cost per Unit (CPU) </strong></td>
+        <td><strong><%= _("Cost per Unit (CPU)") %> </strong></td>
         <td><%= sp.estimated_cost %></td>
         <td><%= sp.purchase_price %></td>
       </tr>
       <tr>
-        <td><strong>Subtotal:</strong></td>
+        <td><strong><%= _("Subtotal:") %></strong></td>
         <td><%= sp.estimated_subtotal %></td>
         <td><%= sp.purchase_subtotal %></td>
       </tr>
@@ -48,14 +48,14 @@
   <% end %>
 
  <p>
-  <strong>Estimated total:</strong>
+  <strong><%= _("") %><%= _("Estimated total:") %></strong>
   <%= @purchase.estimated_total %>
 </p> 
 
 <p>
-  <strong>Actual total:</strong>
+  <strong><%= _("") %><%= _("Actual total:") %></strong>
   <%= @purchase.purchase_total %>
 </p>
 
-<%= link_to 'Edit', edit_purchase_path(@purchase) %> |
-<%= link_to 'Back', purchases_path %>
+<%= link_to _('Edit'), edit_purchase_path(@purchase) %> |
+<%= link_to _('Back'), purchases_path %>

@@ -1,42 +1,42 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Inventory Id:</strong>
+  <strong><%= _('Inventory Id:') %></strong>
   <%= @inventory.id %>
 </p>
 
 <p>
-  <strong>Product Id:</strong>
+  <strong><%= _('Product Id:') %></strong>
   <%= @inventory.product_id %>
 </p>
 
 <p>
-  <strong>Product Name:</strong>
+  <strong><%= _('Product Name:') %></strong>
   <%= @inventory.product.product_name %>
 </p>
 
 <p>
-  <strong>Purchase Order Id:</strong>
+  <strong><%= _('Purchase Order Id:') %></strong>
   <%= @inventory.purchase_id %>
 </p>
 
 <p>
-  <strong>Purchase Order Product Id:</strong>
+  <strong><%= _('Purchase Order Product Id:') %></strong>
   <%= @inventory.purchase_product_id %> 
 </p>
 
 <p>
-  <strong>Remaining Qt:</strong>
+  <strong><%= _('Remaining Qt:') %></strong>
   <%= @inventory.remaining_quantity %>
 </p>
 
 <p>
-  <strong>Cost per Unit:</strong>
+  <strong><%= _('Cost per Unit:') %></strong>
   <%= @inventory.cost_per_unit %>
 </p>
 
-<%= link_to 'Edit', edit_inventory_path(@inventory) %> |
-<%= link_to 'Back', inventories_path %>
+<%= link_to _('Edit'), edit_inventory_path(@inventory) %> |
+<%= link_to _('Back'), inventories_path %>
 
 <script type="text/javascript">
 

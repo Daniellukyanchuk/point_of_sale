@@ -1,20 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Recipes</h1>
-<hr>
-<%= link_to '+ New Recipe', new_recipe_path, :class => "button big_button green" %>
+<h1><%= _('Recipes') %></h1>
+
+<%= link_to _('+ New Recipe'), new_recipe_path, :class => "btn btn-secondary" %><br><br>
 <br><br>
 
 <table>
   <thead>
     <tr>
-      <th>Recipe Id</th>
-      <th>Recipe Name</th>
-      <th>Product Id</th>
-      <th>Product Name</th>
-      <th>Recipe cost</th>
-      <th>Yield</th>
-      <th>Instructions</th>
+      <th><%= _('Recipe Id') %></th>
+      <th><%= _('Recipe Name') %></th>
+      <th><%= _('Product Id') %></th>
+      <th><%= _('Product Name') %></th>
+      <th><%= _('Recipe cost') %></th>
+      <th><%= _('Yield') %></th>
+      <th><%= _('Instructions') %></th>
       <th colspan="7"></th>
     </tr>
   </thead>
@@ -26,12 +26,12 @@
         <td><%= recipe.recipe_name %></td>
         <td><%= recipe.product_id %></td>
         <td><%= recipe.product.product_name %></td>
-        <td><%= recipe.recipe_cost %></td>
-        <td><%= recipe.yield %></td>
+        <td align="right"><%= number_with_precision(recipe.recipe_cost, :precision => 2) %></td>
+        <td align="right"><%= recipe.yield %></td>
         <td><%= recipe.instructions %></td>
-        <td><%= link_to 'Show', recipe, class: "show" %></td>
-        <td><%= link_to 'Edit', edit_recipe_path(recipe), class: "edit" %></td>
-        <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' }, class: "destroy" %></td>
+        <td><%= link_to '<i class="fa-solid fa-eye"></i>'.html_safe, recipe, class: "text-primary" %></td>
+        <td><%= link_to '<i class="fa-solid fa-pencil"></i>'.html_safe, edit_recipe_path(recipe), class: "text-secondary" %></td>
+        <td><%= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, recipe, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-danger" %></td>
       </tr>
     <% end %>
   </tbody>

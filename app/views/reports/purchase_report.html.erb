@@ -1,22 +1,24 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Purchase Report</h1><hr>
+<h1><%= _('Purchase Report') %></h1>
 
 <%= form_tag reports_purchase_report_path, :method => 'get' do %>
   
   <%= text_field_tag :search, params[:search] %> 
-  AND
+  <%= _("AND") %>
   <% options = Product.all.collect{ |p| [p.product_name, p.id] } %>
   <% options = [["Show All", nil]] + options %>
   <%= select_tag 'product_select[]', options_for_select(options, params[:product_select]), :multiple => :multiple, :size => 10, :class => "chosen-select" %>
   <br><br>
 
-      From: <input type="text" class="datepicker" id="from" name="from_date" 
+      <%= _("From:") %> <input type="text" class="datepicker" id="from" name="from_date" 
               autocomplete = 'off' value = "<%= params[:from_date] %>">
-      to: <input type="text" class="datepicker" id="to" name="to_date" 
+      <%= _("to:") %> <input type="text" class="datepicker" id="to" name="to_date" 
               autocomplete = 'off' value = "<%= params[:to_date] %>">
 
-  <%= submit_tag "Search", :product_name => nil %>
+  <%= button_tag(type: "submit", class: "btn btn-warning btn-small") do %>
+    Search <i class="fa-solid fa-magnifying-glass"></i>
+    <% end %>
 <% end %>
 
 <br>
@@ -24,12 +26,12 @@
 <table>
   <thead>
     <tr>
-    <th class="align_left"><%= sortable "product_id", "Id" %></th>
-    <th class="align_left"><%= sortable "product_name", "Product Name" %></th>
-    <th class="align_right"><%= sortable "current_inventory", "Units in Stock" %></th>
+    <th class="align_left"><%= sortable "product_id", _("Id") %></th>
+    <th class="align_left"><%= sortable "product_name", _("Product Name") %></th>
+    <th class="align_right"><%= sortable "current_inventory", _("Units in Stock") %></th>
     <th><%= sortable "unit", "Unit" %></th>
-    <th class="align_right"><%= sortable "cost_per_unit", "Weighted CPU" %></th>
-    <th class="align_right"><%= sortable "current_inventory_value", "Inventory Value" %></th>
+    <th class="align_right"><%= sortable "cost_per_unit", _("Weighted CPU") %></th>
+    <th class="align_right"><%= sortable "current_inventory_value", _("Inventory Value") %></th>
     <th colspan="5"></th>
     </tr>
   </thead>
@@ -41,8 +43,8 @@
         <td><%= p_report["product_name"] %></td>
         <td class="align_right"><%= p_report["current_inventory"] %></td>
         <td><%= p_report["unit"] %></td>
-        <td class="align_right"><%= p_report["cost_per_unit"] %></td>
-        <td class="align_right"><%= p_report["current_inventory_value"] %></td>
+        <td class="align_right"><%= number_with_precision(p_report["cost_per_unit"], precision: 2, delimiter: ' ') %></td>
+        <td class="align_right"><%= number_with_precision(p_report["current_inventory_value"], precision: 2, delimiter: ' ') %></td>
         </tr>
       <% end %>
   </tbody>
@@ -55,18 +57,18 @@
 <table>
   <thead>
     <tr>
-    <th><%= sortable "purchase_order_id", "P.O." %></th>
-    <th><%= sortable "supplier_name", "Supplier" %></th>
-    <th><%= sortable "product_name", "Product Name" %></th>
-    <th><%= sortable "estimated_quantity", "Estimated Quantity" %></th>
-    <th><%= sortable "estimated_cost", "Estimated CPU" %></th>
-    <th><%= sortable "estimated_subtotal", "Estimated Subtotal" %></th>
-    <th><%= sortable "actual_quantity", "Actual Quantity" %></th>
-    <th><%= sortable "actual_cost", "Actual CPU" %></th>
-    <th><%= sortable "actual_subtotal", "Actual Subtotal" %></th>
-    <th><%= sortable "date_ordered", "Order placed" %></th>
-    <th><%= sortable "date_expected", "Expected delivery" %></th>
-    <th><%= sortable "date_received", "Order received" %></th>
+    <th><%= sortable "purchase_order_id", _("P.O.") %></th>
+    <th><%= sortable "supplier_name", _("Supplier") %></th>
+    <th><%= sortable "product_name", _("Product Name") %></th>
+    <th><%= sortable "estimated_quantity", _("Estimated Quantity") %></th>
+    <th><%= sortable "estimated_cost", _("Estimated CPU") %></th>
+    <th><%= sortable "estimated_subtotal", _("Estimated Subtotal") %></th>
+    <th><%= sortable "actual_quantity", _("Actual Quantity") %></th>
+    <th><%= sortable "actual_cost", _("Actual CPU") %></th>
+    <th><%= sortable "actual_subtotal", _("Order Total") %></th>
+    <th><%= sortable "date_ordered", _("Order placed") %></th>
+    <th><%= sortable "date_expected", _("Expected delivery") %></th>
+    <th><%= sortable "date_received", _("Order received") %></th>
     <th colspan="5"></th>
     </tr>
   </thead>

@@ -1,20 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Productions</h1>
-<hr>
-<%= link_to '+ New Production Order', new_production_path, :class => "button big_button green" %>
+<h1><%= _('Productions') %></h1>
+
+<%= link_to _('+ New Production Order'), new_production_path, :class => "btn btn-secondary" %><br><br>
 <br><br>
 
 <table>
   <thead>
     <tr>
-      <th>Recipe Id</th>
-      <th>Recipe Name</th>
-      <th>Product Id</th>
-      <th>Product Name</th>
-      <th>Batch Qty</th>
-      <th>Production Cost</th>
-      <th colspan="2">Units produced</th>
+      <th><%= _('Recipe Id') %></th>
+      <th><%= _('Recipe Name') %></th>
+      <th><%= _('Product Id') %></th>
+      <th><%= _('Product Name') %></th>
+      <th><%= _('Batch Qty') %></th>
+      <th><%= _('Production Cost') %></th>
+      <th colspan="2"><%= _('Units produced') %></th>
 
       <th colspan="5"></th>
     </tr>
@@ -31,8 +31,8 @@
         <td align="right"><%= production.production_total_cost %></td>
         <td align="right"><%= production.production_yield %></td>
         <td><%= production.recipe.units %></td>
-        <td><%= link_to 'Show', production, class: "show" %></td>
-        <td><%= link_to 'Destroy', production, method: :delete, data: { confirm: 'Are you sure?' }, class: "destroy" %></td>
+        <td><%= link_to '<i class="fa-solid fa-eye"></i>'.html_safe, production, class: "text-primary" %></td>
+        <td><%= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, production, method: :delete, data: { confirm: _('Are you sure?') }, class: "text-danger" %></td>
       </tr>
     <% end %>
   </tbody>

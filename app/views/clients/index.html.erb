@@ -1,23 +1,25 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Clients</h1><hr>
+<h1><%= _('Clients') %></h1>
 
-<%= link_to '+ New Client', new_client_path, :class => 'button big_button green' %>
+<%= link_to _('+ New Client'), new_client_path, :class => 'btn btn-secondary' %><br><br>
 
 <%= form_tag clients_path, :method => 'get' do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
+    <%= button_tag(type: "submit", class: "btn btn-warning btn-small") do %>
+    Search <i class="fa-solid fa-magnifying-glass"></i>
+    <% end %>
   </p>
 <% end %>
 
 <table>
   <thead>
     <tr>
-    <th><%= sortable "name", "Name" %></th>
-    <th><%= sortable "phone", "Phone" %></th>
-    <th><%= sortable "address", "Address" %></th>
-    <th><%= sortable "city", "City" %></th>
+    <th><%= sortable "name", _("Name") %></th>
+    <th><%= sortable "phone", _("Phone") %></th>
+    <th><%= sortable "address", _("Address") %></th>
+    <th><%= sortable "city", _("City") %></th>
       <th colspan="4"></th>
     </tr>
   </thead>
@@ -29,9 +31,9 @@
         <td><%= client.phone %></td>
         <td><%= client.address %></td>
         <td><%= client.city %></td>
-        <td><%= link_to 'Show', client, class: "show" %></td>
-        <td><%= link_to 'Edit', edit_client_path(client), class: "edit" %></td>
-        <td><%= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' }, class: "destroy" %></td>
+        <td><%= link_to '<i class="fa-solid fa-eye"></i>'.html_safe, client, class: "text-primary" %></td>
+        <td><%= link_to '<i class="fa-solid fa-pencil"></i>'.html_safe, edit_client_path(client), class: "text-secondary" %></td>
+        <td><%= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, client, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-danger" %></td>
       </tr>
     <% end %>
   </tbody>

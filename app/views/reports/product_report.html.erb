@@ -1,35 +1,37 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Sales Report</h1><hr>
+<h1><%= _('Sales Report') %></h1>
 
 <%= form_tag reports_product_report_path, :method => 'get' do %>
   
   <%= text_field_tag :search, params[:search] %> 
-  AND
+  <%= _("AND") %>
   <% options = Product.all.collect{ |p| [p.product_name, p.id] } %>
   <% options = [["Show All", nil]] + options %>
   <%= select_tag 'product_select[]', options_for_select(options, params[:product_select]), :multiple => :multiple, :size => 10, :class => "chosen-select" %>
   <br><br>
 
-      From: <input type="text" class="datepicker" id="from" name="from_date" 
+      <%= _("From:") %> <input type="text" class="datepicker" id="from" name="from_date" 
               autocomplete = 'off' value = "<%= params[:from_date] %>">
-      to: <input type="text" class="datepicker" id="to" name="to_date" 
+      <%= _("to:") %> <input type="text" class="datepicker" id="to" name="to_date" 
               autocomplete = 'off' value = "<%= params[:to_date] %>">
 
-  <%= submit_tag "Search", :product_name => nil %>
+  <%= button_tag(type: "submit", class: "btn btn-warning btn-small") do %>
+    Search <i class="fa-solid fa-magnifying-glass"></i>
+    <% end %>
 <% end %>
 
 <br>
-<h2> Sales Summary </h2>
+<h2> <%= _("Sales Summary") %> </h2>
 <table>
   <thead>
     <tr>
-    <th class="align_left"><%= sortable "product_id", "Id" %></th>
-    <th class="align_left"><%= sortable "product_name", "Product Name" %></th>
-    <th class="align_right"><%= sortable "units_sold", "Units Sold" %></th>
-    <th class="align_left"><%= sortable "unit", "Unit" %></th>
-    <th class="align_left"><%= sortable "sales_price_per_unit", "Weighted PPU" %></th>
-    <th class="align_right"><%= sortable "total_revenue", "Total Revenue" %></th>
+    <th class="align_left"><%= sortable "product_id", _("Id") %></th>
+    <th class="align_left"><%= sortable "product_name", _("Product Name") %></th>
+    <th class="align_right"><%= sortable "units_sold", _("Units Sold") %></th>
+    <th class="align_left"><%= sortable "unit", _("Unit") %></th>
+    <th class="align_left"><%= sortable "sales_price_per_unit", _("Weighted PPU") %></th>
+    <th class="align_right"><%= sortable "total_revenue", _("Total Revenue") %></th>
     <th colspan="5"></th>
     </tr>
   </thead>
@@ -50,18 +52,18 @@
 <hr><br>
 
 
-<h2>Order History <small>(itemized by product)</small></h2>
+<h2><%= _('Order History') %> <small><%= _('(itemized by product)') %></small></h2>
 <table>
   <thead>
     <tr>
-    <th><%= sortable "order_id", "Order Id" %></th>
-    <th><%= sortable "client_name", "Client (id)" %></th>
-    <th class="align_left"><%= sortable "product_name", "Product Name" %></th>
-    <th class="align_right"><%= sortable "quantity", "Quantity" %></th>
-    <th><%= sortable "unit", "Unit" %></th>
-    <th><%= sortable "sales_price", "Sale Price" %></th>
-    <th><%= sortable "subtotal", "Total" %></th>
-    <th class="align_right"><%= sortable "order_date", "Order Date" %></th>
+    <th><%= sortable "order_id", _("Order Id") %></th>
+    <th><%= sortable "client_name", _("Client (id)") %></th>
+    <th class="align_left"><%= sortable "product_name", _("Product Name") %></th>
+    <th class="align_right"><%= sortable "quantity", _("Quantity") %></th>
+    <th><%= sortable "unit", _("Unit") %></th>
+    <th><%= sortable "sales_price", _("Sale Price") %></th>
+    <th><%= sortable "subtotal", _("Total") %></th>
+    <th class="align_right"><%= sortable "order_date", _("Order Date") %></th>
     <th colspan="5"></th>
     </tr>
   </thead>

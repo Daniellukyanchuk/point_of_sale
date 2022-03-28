@@ -16,8 +16,77 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
+msgid " Import Products From File"
+msgstr " Импортировать продуктов из файла"
+
+msgid "(itemized by product)"
+msgstr "(распределено по продуктам)"
+
 msgid "+ Add to Inventory"
-msgstr "+ добавить в инвентарь"
+msgstr "+ добавить на инвентарь"
+
+msgid "+ New Client"
+msgstr "+ новый клиент"
+
+msgid "+ New Order"
+msgstr "+ новый заказ"
+
+msgid "+ New Product"
+msgstr "+ новый продукт"
+
+msgid "+ New Production Order"
+msgstr "+ Новый производственный заказ"
+
+msgid "+ New Purchase Order"
+msgstr "+ Новый заказ на покупку"
+
+msgid "+ New Recipe"
+msgstr "+ новый рецепт"
+
+msgid "+ New Supplier"
+msgstr "+ новый постовщик"
+
+msgid "AND"
+msgstr "и"
+
+msgid "Actual CPU"
+msgstr "фактическая стоимость за единицу"
+
+msgid "Actual Order"
+msgstr "фактический заказ"
+
+msgid "Actual Quantity"
+msgstr "фактическое количество"
+
+msgid "Actual Subtotal"
+msgstr "фактическая промежуточная сумма"
+
+msgid "Actual cost"
+msgstr "фактическая стоимость за единицу"
+
+msgid "Actual quantity"
+msgstr "фактическое количество"
+
+msgid "Actual total:"
+msgstr "фактический итог"
+
+msgid "Add Ingredient"
+msgstr "добавить ингредиента"
+
+msgid "Add Product"
+msgstr "добавить продукта"
+
+msgid "Address"
+msgstr "адрес"
+
+msgid "Address:"
+msgstr "адрес:"
+
+msgid "Amount (g)"
+msgstr "кол-во (г)"
+
+msgid "Are you sure?"
+msgstr "Вы уверены?"
 
 msgid "Avg. Spent"
 msgstr "средный чек"
@@ -25,14 +94,38 @@ msgstr "средный чек"
 msgid "Back"
 msgstr "назад"
 
+msgid "Batch Qty"
+msgstr "кол-во партии"
+
+msgid "Choose Product"
+msgstr "выбрать продукт"
+
+msgid "City"
+msgstr "город"
+
+msgid "City:"
+msgstr "город:"
+
 msgid "Client"
 msgstr "клиент"
+
+msgid "Client (id)"
+msgstr "клиент (ID)"
+
+msgid "Client ID"
+msgstr "ID клиента"
 
 msgid "Client Name"
 msgstr "ФИО клиента"
 
+msgid "Client Purchase Report"
+msgstr "отчет о покупки клиентах"
+
 msgid "Client Report"
 msgstr "отчёт клиентов"
+
+msgid "Client:"
+msgstr "клиент:"
 
 msgid "Clients"
 msgstr "клиентов"
@@ -49,20 +142,158 @@ msgstr "ФИО клиента"
 msgid "Client|Phone"
 msgstr "телефон"
 
+msgid "Column headers must be in the correct order match headers in the database. HINT: Export existing products to file for reference."
+msgstr "Заголовки столбцов должны быть в правильном порядке и соответствовать заголовкам в базе данных. СОВЕТ: Экспортируйте существующие продукты в файл для справки."
+
 msgid "Cost per Unit"
 msgstr "расход за единицу"
+
+msgid "Cost per Unit (CPU)"
+msgstr "расход за единицу"
+
+msgid "Cost per Unit:"
+msgstr "расход за единицу"
+
+msgid "Cost per kg"
+msgstr "стоимость за кг"
+
+msgid "Create Client"
+msgstr "cоздать клиента"
+
+msgid "Create Inventory"
+msgstr "cоздать инвентара"
+
+msgid "Create Product"
+msgstr "создать продукта"
+
+msgid "Create Production"
+msgstr "создать производство"
+
+msgid "Create Purchase"
+msgstr "создать покупку"
+
+msgid "Create Recipe"
+msgstr "создать рецепта"
+
+msgid "Create Supplier"
+msgstr "создать постовщика"
+
+msgid "Date Ordered"
+msgstr "дата заказа"
+
+msgid "Date Received"
+msgstr "дата получение"
 
 msgid "Date added"
 msgstr "дата добавленно"
 
+msgid "Date ordered:"
+msgstr "дата заказен:"
+
+msgid "Date received:"
+msgstr "дата получение:"
+
 msgid "Destroy"
 msgstr "удалить"
+
+msgid "Download as Excel"
+msgstr "cкачать как Excel"
 
 msgid "Edit"
 msgstr "редактировать"
 
+msgid "Editing Inventory Record"
+msgstr "редактирование инвентарной записи"
+
+msgid "Editing Order"
+msgstr "редактирование заказа"
+
+msgid "Editing Product"
+msgstr "редактирование продукта"
+
+msgid "Editing Production"
+msgstr "редактирование производства"
+
+msgid "Editing Purchase Order"
+msgstr "редактирование заказа на покупки"
+
+msgid "Editing Recipe"
+msgstr "редактирование рецепта"
+
+msgid "Editing Supplier"
+msgstr "редактирование постовщика"
+
+msgid "Estimate"
+msgstr "оценка"
+
+msgid "Estimated CPU"
+msgstr "ориентировочная стоимость за единицу"
+
+msgid "Estimated Quantity"
+msgstr "приблизительное количество"
+
+msgid "Estimated Subtotal"
+msgstr "приблизительный промежуточный итог"
+
+msgid "Estimated cost"
+msgstr "ориентировочная стоимость"
+
+msgid "Estimated quantity"
+msgstr "приблизительное количество"
+
+msgid "Estimated subtotal"
+msgstr "приблизительный промежуточный итог"
+
+msgid "Estimated total:"
+msgstr "приблизительный итог"
+
+msgid "Expected Arrival"
+msgstr "ожидаемая дата прибытия"
+
+msgid "Expected delivery"
+msgstr "ожидаемая дата доставки"
+
+msgid "Files must be one of the following formats: xls or xlsx"
+msgstr "Файлы должны быть одного из следующих форматов: xls. или .xlsx"
+
+msgid "From:"
+msgstr "от"
+
+msgid "Grams per Unit:"
+msgstr "грамм на единицу:"
+
+msgid "Grams per unit"
+msgstr "грамм на единицу"
+
+msgid "Grand Total"
+msgstr "общая сумма"
+
+msgid "Grand total:"
+msgstr "общая сумма:"
+
+msgid "ID"
+msgstr "ID"
+
 msgid "Id"
 msgstr "ID"
+
+msgid "Import Products"
+msgstr "импортировать продукты"
+
+msgid "Import from Excel"
+msgstr "импортировать из Excel"
+
+msgid "Ingredient Cost"
+msgstr "стоимость ингредиента"
+
+msgid "Ingredients"
+msgstr "ингредиенты"
+
+msgid "Instructions"
+msgstr "инструкции"
+
+msgid "Instructions:"
+msgstr "инструкции:"
 
 msgid "Inventory"
 msgstr "инвентарь"
@@ -70,11 +301,17 @@ msgstr "инвентарь"
 msgid "Inventory Id"
 msgstr "ID инвентара"
 
+msgid "Inventory Id:"
+msgstr "ID инвентара:"
+
 msgid "Inventory Records"
-msgstr "Инвентаризационные записи"
+msgstr "инвентаризационные записи"
 
 msgid "Inventory Report"
 msgstr "отчёт инвентара"
+
+msgid "Inventory Value"
+msgstr "инвентарь"
 
 msgid "Inventory|Cost per unit"
 msgstr "цена за единицу"
@@ -82,11 +319,59 @@ msgstr "цена за единицу"
 msgid "Inventory|Remaining quantity"
 msgstr "оставшееся количество"
 
+msgid "Name"
+msgstr "Имя"
+
+msgid "Name:"
+msgstr "Имя:"
+
+msgid "New Client"
+msgstr "новый клиент"
+
+msgid "New Inventory Record"
+msgstr "новый инвентаризационный запис"
+
+msgid "New Order"
+msgstr "новый заказ"
+
+msgid "New Product"
+msgstr "новый продукт"
+
+msgid "New Production Order"
+msgstr "новый производственный заказ"
+
+msgid "New Purchase Order"
+msgstr "Новый заказ на покупку"
+
+msgid "New Recipe"
+msgstr "новый рецепт"
+
+msgid "New Supplier"
+msgstr "новый постовщик"
+
 msgid "Order"
-msgstr "Заказ"
+msgstr "заказ"
+
+msgid "Order Date"
+msgstr "дата заказа"
+
+msgid "Order History"
+msgstr "История заказов"
+
+msgid "Order Id"
+msgstr "ID заказа"
+
+msgid "Order Id:"
+msgstr "ID заказа:"
+
+msgid "Order placed"
+msgstr "дата заказа"
 
 msgid "Order product"
 msgstr "продукт заказа"
+
+msgid "Order received"
+msgstr "дата получение"
 
 msgid "OrderProduct|Quantity"
 msgstr "колечество"
@@ -97,17 +382,35 @@ msgstr "цена продажи"
 msgid "OrderProduct|Subtotal"
 msgstr "промежуточный итог"
 
+msgid "Ordered on"
+msgstr "заказен на"
+
 msgid "Orders"
-msgstr "Заказов"
+msgstr "заказов"
 
 msgid "Orders Placed"
 msgstr "размещенные заказы"
 
 msgid "Order|Grand total"
-msgstr "итог"
+msgstr "обшая сумма"
+
+msgid "P.O."
+msgstr "ЗнП"
 
 msgid "P.O. Product Id"
-msgstr "ID продуктa ЗнП "
+msgstr "ID продуктa ЗнП"
+
+msgid "Phone"
+msgstr "телефон"
+
+msgid "Phone:"
+msgstr "телефон:"
+
+msgid "Place Order"
+msgstr "оформить заказ"
+
+msgid "Price:"
+msgstr "цена:"
 
 msgid "Product"
 msgstr "продукт"
@@ -115,14 +418,41 @@ msgstr "продукт"
 msgid "Product Id"
 msgstr "ID продукта"
 
+msgid "Product Id:"
+msgstr "ID продукта:"
+
 msgid "Product Name"
 msgstr "название продукта"
+
+msgid "Product Name:"
+msgstr "название продукта:"
+
+msgid "Product id:"
+msgstr "ID продукта:"
+
+msgid "Product name:"
+msgstr "название продукта:"
+
+msgid "Product:"
+msgstr "продукт:"
 
 msgid "Production"
 msgstr "производство"
 
+msgid "Production Cost"
+msgstr "стоимость производства"
+
 msgid "Production Id"
-msgstr "ID производство"
+msgstr "ID производства"
+
+msgid "Production quantity:"
+msgstr "кол-во производства:"
+
+msgid "Production total cost:"
+msgstr "обший стоимость производства:"
+
+msgid "Productions"
+msgstr "производство"
 
 msgid "Production|Production quantity"
 msgstr "объем производства"
@@ -137,7 +467,7 @@ msgid "Production|Recipe cost"
 msgstr "стоимость рецепта"
 
 msgid "Products"
-msgstr "продукт"
+msgstr "продукты"
 
 msgid "Product|Grams per unit"
 msgstr "грамм на единицу"
@@ -156,6 +486,27 @@ msgstr "Покупка"
 
 msgid "Purchase Id"
 msgstr "ID покупки"
+
+msgid "Purchase Id:"
+msgstr "ID покупки:"
+
+msgid "Purchase Order Id"
+msgstr "ID заказа на покупку"
+
+msgid "Purchase Order Id:"
+msgstr "ID заказа на покупку:"
+
+msgid "Purchase Order Product Id:"
+msgstr "ID продукт заказа на поставку"
+
+msgid "Purchase Report"
+msgstr "отчет о закупках"
+
+msgid "Purchase Total"
+msgstr "итог покупки"
+
+msgid "Purchase price"
+msgstr "закупочная цена"
 
 msgid "Purchase product"
 msgstr "продукт покупки"
@@ -179,7 +530,7 @@ msgid "PurchaseProduct|Purchase subtotal"
 msgstr "промежуточный итог покупки"
 
 msgid "Purchases"
-msgstr "Покупок"
+msgstr "покупок"
 
 msgid "Purchase|Date expected"
 msgstr "дата ожидаемой доставки"
@@ -197,13 +548,37 @@ msgid "Purchase|Purchase total"
 msgstr "итог покупки"
 
 msgid "Purchasing Report"
-msgstr "Отчет о закупках"
+msgstr "отчет о закупках"
+
+msgid "Quantity"
+msgstr "колечество"
+
+msgid "Quantity:"
+msgstr "колечество:"
+
+msgid "Received on"
+msgstr "получил на"
 
 msgid "Recipe"
 msgstr "рецепт"
 
+msgid "Recipe Id"
+msgstr "ID рецепта"
+
+msgid "Recipe Name"
+msgstr "название рецепта"
+
+msgid "Recipe cost"
+msgstr "стоимость рецепта"
+
+msgid "Recipe cost:"
+msgstr "стоимость рецепта:"
+
 msgid "Recipe product"
 msgstr "прокукт пецепта"
+
+msgid "Recipe:"
+msgstr "рецепт:"
 
 msgid "RecipeProduct|Amount"
 msgstr "количество"
@@ -230,19 +605,98 @@ msgid "Recipe|Units"
 msgstr "единица"
 
 msgid "Recipe|Yield"
-msgstr "доходность"
+msgstr "выход"
+
+msgid "Remaining Qt:"
+msgstr "оставшееся кол-во:"
 
 msgid "Remaining Qty"
 msgstr "оставшееся кол-во"
 
+msgid "Remove"
+msgstr "убрать"
+
+msgid "Requirements"
+msgstr "требования"
+
+msgid "Sale Price"
+msgstr "цена продаже"
+
+msgid "Sale Price:"
+msgstr "цена продаже:"
+
+msgid "Sale price"
+msgstr "цена продаже"
+
 msgid "Sales Report"
-msgstr "Отчёт по продаже"
+msgstr "отчёт по продаже"
+
+msgid "Sales Summary"
+msgstr "сводка продаж"
+
+msgid "Search"
+msgstr "наити"
+
+msgid "Select Client"
+msgstr "выбрать клиента"
+
+msgid "Select File"
+msgstr "выбрать файл"
+
+msgid "Select Ingredient"
+msgstr "выбрать ингредиента"
+
+msgid "Select Recipe"
+msgstr "рецепт"
+
+msgid "Select a product"
+msgstr "выбрать продукта"
+
+msgid "Select supplier"
+msgstr "выбрать постовщика"
+
+#, fuzzy
+msgid "Setting"
+msgstr "настройки"
+
+msgid "Settings"
+msgstr "настройки"
+
+msgid "Setting|Company address"
+msgstr ""
+
+msgid "Setting|Company name"
+msgstr ""
+
+msgid "Setting|Company phone"
+msgstr ""
 
 msgid "Show"
 msgstr "показать"
 
+msgid "Subtotal"
+msgstr "промежуточный итог"
+
+msgid "Subtotal:"
+msgstr "промежуточный итог:"
+
 msgid "Supplier"
 msgstr "постовщик"
+
+msgid "Supplier ID"
+msgstr "ID постовщика"
+
+msgid "Supplier Name"
+msgstr "ФИО постовщика"
+
+msgid "Supplier name"
+msgstr "ФИО постовщика"
+
+msgid "Supplier name:"
+msgstr "ФИО постовщика:"
+
+msgid "Supplier:"
+msgstr "постовщик:"
 
 msgid "Suppliers"
 msgstr "постовщики"
@@ -254,10 +708,61 @@ msgid "Supplier|Phone"
 msgstr "телефон"
 
 msgid "Supplier|Supplier name"
-msgstr "фИО поставщика"
+msgstr "ФИО поставщика"
+
+msgid "Total"
+msgstr "итог"
+
+msgid "Total Revenue"
+msgstr "Общий доход"
 
 msgid "Total Spent"
 msgstr "Всего потрачено"
 
+msgid "Udate Settings"
+msgstr "обновить настройки"
+
+msgid "Unit"
+msgstr "единица измерения"
+
+msgid "Unit:"
+msgstr "единица измерения:"
+
+msgid "Units"
+msgstr "единицы"
+
+msgid "Units Sold"
+msgstr "проданных единиц"
+
+msgid "Units in Stock"
+msgstr "единиц на складе"
+
+msgid "Units produced"
+msgstr "произведено единиц"
+
+msgid "Upload Company Logo"
+msgstr ""
+
+msgid "Weighted CPU"
+msgstr "взвешенная стоимость за единицу"
+
+msgid "Weighted PPU"
+msgstr "взвешенная цена за единицу"
+
+msgid "Yield"
+msgstr "выход"
+
+msgid "Yield:"
+msgstr "выход:"
+
 msgid "en"
 msgstr "ru"
+
+msgid "prevented us from importing your spreadsheet. Please update your spreadsheet and try agin."
+msgstr "помешал нам импортировать вашу таблицу. Обновите таблицу и повторите попытку."
+
+msgid "select product"
+msgstr "выбрать продукта"
+
+msgid "to:"
+msgstr "до:"

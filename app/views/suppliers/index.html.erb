@@ -1,13 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Suppliers</h1>
+<h1><%= _('Suppliers') %></h1>
 
+<%= link_to _('+ New Supplier'), new_supplier_path, :class => "btn btn-secondary" %><br><br>
 <table>
   <thead>
     <tr>
-      <th>Supplier name</th>
-      <th>Address</th>
-      <th>Phone</th>
+      <th><%= _('Supplier name') %></th>
+      <th><%= _('Address') %></th>
+      <th><%= _('Phone') %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,9 +19,9 @@
         <td><%= supplier.supplier_name %></td>
         <td><%= supplier.address %></td>
         <td><%= supplier.phone %></td>
-        <td><%= link_to 'Show', supplier, class: "show" %></td>
-        <td><%= link_to 'Edit', edit_supplier_path(supplier), class: "edit" %></td>
-        <td><%= link_to 'Destroy', supplier, method: :delete, data: { confirm: 'Are you sure?' }, class: "destroy" %></td>
+        <td><%= link_to '<i class="fa-solid fa-eye"></i>'.html_safe, supplier, class: "text-primary" %></td>
+        <td><%= link_to '<i class="fa-solid fa-pencil"></i>'.html_safe, edit_supplier_path(supplier), class: "text-secondary" %></td>
+        <td><%= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, supplier, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-danger" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +29,3 @@
 
 <br>
 
-<%= link_to 'New Supplier', new_supplier_path %>

@@ -1,30 +1,30 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Product:</strong>
+  <strong><%= _("Product:") %></strong>
   ID#<%= @production.recipe.product_id %> | <%= @production.recipe.product.product_name %>
 </p>
 
 <p>
-  <strong>Recipe:</strong>
+  <strong><%= _("Recipe:") %></strong>
     ID#<%= @production.recipe_id %> | <%= @production.recipe.recipe_name %>
 </p>
 
 <p>
-  <strong>Production quantity:</strong>
+  <strong><%= _("Production quantity:") %></strong>
   <%= @production.production_quantity %>
 </p>
 
 <p>
-  <strong>Production total cost:</strong>
+  <strong><%= _("Production total cost:") %></strong>
   <%= @production.production_total_cost %>
 </p>
 
 <p>
-  <strong>Yield:</strong>
+  <strong><%= _("Yield:") %></strong>
   <%= @production.production_yield  %> <%= @production.recipe.product.unit %>
 </p>
 
-<%= link_to 'Back', productions_path %>
+<%= link_to _('Back'), productions_path %>
 
 

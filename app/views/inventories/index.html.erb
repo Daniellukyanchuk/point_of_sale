@@ -2,8 +2,7 @@
 
 <h1><%= _("Inventory Records") %></h1>
 
-<hr>
-<%= link_to _('+ Add to Inventory'), new_inventory_path, :class => "button big_button green" %>
+<%= link_to _('+ Add to Inventory'), new_inventory_path, :class => "btn btn-secondary" %><br><br>
 <br><br>
 
 
@@ -30,17 +29,17 @@
       <tr>
         <td align="center"><%= inventory.id %></td>
         <td><%= inventory.product.product_name %></td>
-        <td align="right"><%= inventory.remaining_quantity %> <%= inventory.product.unit %></td>
-        <td align="right"><%= inventory.cost_per_unit %></td>
+        <td align="right"><%= number_with_precision(inventory.remaining_quantity, :precision => 2) %> <%= inventory.product.unit %></td>
+        <td align="right"><%= number_with_precision(inventory.cost_per_unit, :precision => 2) %></td>
         <td align="center"><%= inventory.product_id %></td>
         <td align="center"><%= inventory.production_id %></td>
         <td align="center"><%= inventory.purchase_id %></td>
         <td align="center"><%= inventory.purchase_product_id %></td>
         <td align="center"><%= inventory.created_at.strftime("%d %b %Y") %></td>
 
-        <td><%= link_to _('Show'), inventory, class: "show" %></td>
-        <td><%= link_to _('Edit'), edit_inventory_path(inventory), class: "edit" %></td>
-        <td><%= link_to _('Destroy'), inventory, method: :delete, data: { confirm: 'Are you sure?' }, class: "destroy" %></td>
+        <td><%= link_to '<i class="fa-solid fa-eye"></i>'.html_safe, inventory, class: "text-primary" %></td>
+        <td><%= link_to '<i class="fa-solid fa-pencil"></i>'.html_safe, edit_inventory_path(inventory), class: "text-secondary" %></td>
+        <td><%= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, inventory, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-danger" %></td>
       </tr>
     <% end %>
   </tbody>

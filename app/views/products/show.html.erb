@@ -1,23 +1,23 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Product name:</strong>
+  <strong><%= _("Product name:") %></strong>
   <%= @product.product_name %>
 </p>
 
 <p>
-  <strong>Price:</strong>
+  <strong><%= _("Price:") %></strong>
   <%= @product.price %>
 </p>
 
 <p>
-  <strong>Unit:</strong>
+  <strong><%= _("Unit:") %></strong>
   <%= @product.unit %>
 </p>
 
 <p>
-  <strong>Grams per Unit:</strong>
+  <strong><%= _("Grams per Unit:") %></strong>
   <%= @product.grams_per_unit %>
 </p>
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+<%= link_to _('Edit'), edit_product_path(@product) %> |
+<%= link_to _('Back'), products_path %>

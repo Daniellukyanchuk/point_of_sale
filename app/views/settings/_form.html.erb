@@ -1,0 +1,50 @@
+<%= form_with(model: setting, local: true) do |form| %>
+  <% if setting.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(setting.errors.count, "error") %> prohibited this setting from being saved:</h2>
+
+      <ul>
+      <% setting.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :company_name %>
+    <%= form.text_field :company_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :company_address %>
+    <%= form.text_field :company_address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :company_phone %>
+    <%= form.text_field :company_phone %>
+  </div>
+  <br><br>
+  <div>
+  <% custom_logo = Setting.first %>
+      <% if !custom_logo.nil? %>
+        <% if custom_logo.logo.attached? %>
+          <%= image_tag url_for(custom_logo.logo), :class => "logo" %>
+        <% end %>
+      <% else %>
+        <%= image_tag 'http://divisqueeze.com/wp-content/uploads/2017/03/YourLogoHere.png', :class => "logo" %>
+      <% end %>
+
+  <%= form.label _("Upload Company Logo") %>
+  <%= form.file_field :logo, accept: 'image/png, image/gif, image/jpg, image/jpeg' %>
+</div>
+  <br><br>
+
+  <div class="actions">
+    <%= form.submit _("Udate Settings") %>
+  </div>
+
+  
+
+<% end %>

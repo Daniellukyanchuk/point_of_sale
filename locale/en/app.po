@@ -17,7 +17,76 @@ msgstr ""
 "Plural-Forms: nplurals=; plural=;\n"
 "\n"
 
+msgid " Import Products From File"
+msgstr ""
+
+msgid "(itemized by product)"
+msgstr ""
+
 msgid "+ Add to Inventory"
+msgstr ""
+
+msgid "+ New Client"
+msgstr ""
+
+msgid "+ New Order"
+msgstr ""
+
+msgid "+ New Product"
+msgstr ""
+
+msgid "+ New Production Order"
+msgstr ""
+
+msgid "+ New Purchase Order"
+msgstr ""
+
+msgid "+ New Recipe"
+msgstr ""
+
+msgid "+ New Supplier"
+msgstr ""
+
+msgid "AND"
+msgstr ""
+
+msgid "Actual CPU"
+msgstr ""
+
+msgid "Actual Order"
+msgstr ""
+
+msgid "Actual Quantity"
+msgstr ""
+
+msgid "Actual Subtotal"
+msgstr ""
+
+msgid "Actual cost"
+msgstr ""
+
+msgid "Actual quantity"
+msgstr ""
+
+msgid "Actual total:"
+msgstr ""
+
+msgid "Add Ingredient"
+msgstr ""
+
+msgid "Add Product"
+msgstr ""
+
+msgid "Address"
+msgstr ""
+
+msgid "Address:"
+msgstr ""
+
+msgid "Amount (g)"
+msgstr ""
+
+msgid "Are you sure?"
 msgstr ""
 
 msgid "Avg. Spent"
@@ -26,13 +95,37 @@ msgstr ""
 msgid "Back"
 msgstr ""
 
+msgid "Batch Qty"
+msgstr ""
+
+msgid "Choose Product"
+msgstr ""
+
+msgid "City"
+msgstr ""
+
+msgid "City:"
+msgstr ""
+
 msgid "Client"
+msgstr ""
+
+msgid "Client (id)"
+msgstr ""
+
+msgid "Client ID"
 msgstr ""
 
 msgid "Client Name"
 msgstr ""
 
+msgid "Client Purchase Report"
+msgstr ""
+
 msgid "Client Report"
+msgstr ""
+
+msgid "Client:"
 msgstr ""
 
 msgid "Clients"
@@ -50,19 +143,157 @@ msgstr ""
 msgid "Client|Phone"
 msgstr ""
 
+msgid "Column headers must be in the correct order match headers in the database. HINT: Export existing products to file for reference."
+msgstr ""
+
 msgid "Cost per Unit"
+msgstr ""
+
+msgid "Cost per Unit (CPU)"
+msgstr ""
+
+msgid "Cost per Unit:"
+msgstr ""
+
+msgid "Cost per kg"
+msgstr ""
+
+msgid "Create Client"
+msgstr ""
+
+msgid "Create Inventory"
+msgstr ""
+
+msgid "Create Product"
+msgstr ""
+
+msgid "Create Production"
+msgstr ""
+
+msgid "Create Purchase"
+msgstr ""
+
+msgid "Create Recipe"
+msgstr ""
+
+msgid "Create Supplier"
+msgstr ""
+
+msgid "Date Ordered"
+msgstr ""
+
+msgid "Date Received"
 msgstr ""
 
 msgid "Date added"
 msgstr ""
 
+msgid "Date ordered:"
+msgstr ""
+
+msgid "Date received:"
+msgstr ""
+
 msgid "Destroy"
+msgstr ""
+
+msgid "Download as Excel"
 msgstr ""
 
 msgid "Edit"
 msgstr ""
 
+msgid "Editing Inventory Record"
+msgstr ""
+
+msgid "Editing Order"
+msgstr ""
+
+msgid "Editing Product"
+msgstr ""
+
+msgid "Editing Production"
+msgstr ""
+
+msgid "Editing Purchase Order"
+msgstr ""
+
+msgid "Editing Recipe"
+msgstr ""
+
+msgid "Editing Supplier"
+msgstr ""
+
+msgid "Estimate"
+msgstr ""
+
+msgid "Estimated CPU"
+msgstr ""
+
+msgid "Estimated Quantity"
+msgstr ""
+
+msgid "Estimated Subtotal"
+msgstr ""
+
+msgid "Estimated cost"
+msgstr ""
+
+msgid "Estimated quantity"
+msgstr ""
+
+msgid "Estimated subtotal"
+msgstr ""
+
+msgid "Estimated total:"
+msgstr ""
+
+msgid "Expected Arrival"
+msgstr ""
+
+msgid "Expected delivery"
+msgstr ""
+
+msgid "Files must be one of the following formats: xls or xlsx"
+msgstr ""
+
+msgid "From:"
+msgstr ""
+
+msgid "Grams per Unit:"
+msgstr ""
+
+msgid "Grams per unit"
+msgstr ""
+
+msgid "Grand Total"
+msgstr ""
+
+msgid "Grand total:"
+msgstr ""
+
+msgid "ID"
+msgstr ""
+
 msgid "Id"
+msgstr ""
+
+msgid "Import Products"
+msgstr ""
+
+msgid "Import from Excel"
+msgstr ""
+
+msgid "Ingredient Cost"
+msgstr ""
+
+msgid "Ingredients"
+msgstr ""
+
+msgid "Instructions"
+msgstr ""
+
+msgid "Instructions:"
 msgstr ""
 
 msgid "Inventory"
@@ -71,10 +302,16 @@ msgstr ""
 msgid "Inventory Id"
 msgstr ""
 
+msgid "Inventory Id:"
+msgstr ""
+
 msgid "Inventory Records"
 msgstr ""
 
 msgid "Inventory Report"
+msgstr ""
+
+msgid "Inventory Value"
 msgstr ""
 
 msgid "Inventory|Cost per unit"
@@ -83,10 +320,58 @@ msgstr ""
 msgid "Inventory|Remaining quantity"
 msgstr ""
 
+msgid "Name"
+msgstr ""
+
+msgid "Name:"
+msgstr ""
+
+msgid "New Client"
+msgstr ""
+
+msgid "New Inventory Record"
+msgstr ""
+
+msgid "New Order"
+msgstr ""
+
+msgid "New Product"
+msgstr ""
+
+msgid "New Production Order"
+msgstr ""
+
+msgid "New Purchase Order"
+msgstr ""
+
+msgid "New Recipe"
+msgstr ""
+
+msgid "New Supplier"
+msgstr ""
+
 msgid "Order"
 msgstr ""
 
+msgid "Order Date"
+msgstr ""
+
+msgid "Order History"
+msgstr ""
+
+msgid "Order Id"
+msgstr ""
+
+msgid "Order Id:"
+msgstr ""
+
+msgid "Order placed"
+msgstr ""
+
 msgid "Order product"
+msgstr ""
+
+msgid "Order received"
 msgstr ""
 
 msgid "OrderProduct|Quantity"
@@ -98,6 +383,9 @@ msgstr ""
 msgid "OrderProduct|Subtotal"
 msgstr ""
 
+msgid "Ordered on"
+msgstr ""
+
 msgid "Orders"
 msgstr ""
 
@@ -107,7 +395,22 @@ msgstr ""
 msgid "Order|Grand total"
 msgstr ""
 
+msgid "P.O."
+msgstr ""
+
 msgid "P.O. Product Id"
+msgstr ""
+
+msgid "Phone"
+msgstr ""
+
+msgid "Phone:"
+msgstr ""
+
+msgid "Place Order"
+msgstr ""
+
+msgid "Price:"
 msgstr ""
 
 msgid "Product"
@@ -116,13 +419,40 @@ msgstr ""
 msgid "Product Id"
 msgstr ""
 
+msgid "Product Id:"
+msgstr ""
+
 msgid "Product Name"
+msgstr ""
+
+msgid "Product Name:"
+msgstr ""
+
+msgid "Product id:"
+msgstr ""
+
+msgid "Product name:"
+msgstr ""
+
+msgid "Product:"
 msgstr ""
 
 msgid "Production"
 msgstr ""
 
+msgid "Production Cost"
+msgstr ""
+
 msgid "Production Id"
+msgstr ""
+
+msgid "Production quantity:"
+msgstr ""
+
+msgid "Production total cost:"
+msgstr ""
+
+msgid "Productions"
 msgstr ""
 
 msgid "Production|Production quantity"
@@ -156,6 +486,27 @@ msgid "Purchase"
 msgstr ""
 
 msgid "Purchase Id"
+msgstr ""
+
+msgid "Purchase Id:"
+msgstr ""
+
+msgid "Purchase Order Id"
+msgstr ""
+
+msgid "Purchase Order Id:"
+msgstr ""
+
+msgid "Purchase Order Product Id:"
+msgstr ""
+
+msgid "Purchase Report"
+msgstr ""
+
+msgid "Purchase Total"
+msgstr ""
+
+msgid "Purchase price"
 msgstr ""
 
 msgid "Purchase product"
@@ -200,10 +551,34 @@ msgstr ""
 msgid "Purchasing Report"
 msgstr ""
 
+msgid "Quantity"
+msgstr ""
+
+msgid "Quantity:"
+msgstr ""
+
+msgid "Received on"
+msgstr ""
+
 msgid "Recipe"
 msgstr ""
 
+msgid "Recipe Id"
+msgstr ""
+
+msgid "Recipe Name"
+msgstr ""
+
+msgid "Recipe cost"
+msgstr ""
+
+msgid "Recipe cost:"
+msgstr ""
+
 msgid "Recipe product"
+msgstr ""
+
+msgid "Recipe:"
 msgstr ""
 
 msgid "RecipeProduct|Amount"
@@ -233,16 +608,94 @@ msgstr ""
 msgid "Recipe|Yield"
 msgstr ""
 
+msgid "Remaining Qt:"
+msgstr ""
+
 msgid "Remaining Qty"
+msgstr ""
+
+msgid "Remove"
+msgstr ""
+
+msgid "Requirements"
+msgstr ""
+
+msgid "Sale Price"
+msgstr ""
+
+msgid "Sale Price:"
+msgstr ""
+
+msgid "Sale price"
 msgstr ""
 
 msgid "Sales Report"
 msgstr ""
 
+msgid "Sales Summary"
+msgstr ""
+
+msgid "Search"
+msgstr ""
+
+msgid "Select Client"
+msgstr ""
+
+msgid "Select File"
+msgstr ""
+
+msgid "Select Ingredient"
+msgstr ""
+
+msgid "Select Recipe"
+msgstr ""
+
+msgid "Select a product"
+msgstr ""
+
+msgid "Select supplier"
+msgstr ""
+
+msgid "Setting"
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid "Setting|Company address"
+msgstr ""
+
+msgid "Setting|Company name"
+msgstr ""
+
+msgid "Setting|Company phone"
+msgstr ""
+
 msgid "Show"
 msgstr ""
 
+msgid "Subtotal"
+msgstr ""
+
+msgid "Subtotal:"
+msgstr ""
+
 msgid "Supplier"
+msgstr ""
+
+msgid "Supplier ID"
+msgstr ""
+
+msgid "Supplier Name"
+msgstr ""
+
+msgid "Supplier name"
+msgstr ""
+
+msgid "Supplier name:"
+msgstr ""
+
+msgid "Supplier:"
 msgstr ""
 
 msgid "Suppliers"
@@ -257,8 +710,59 @@ msgstr ""
 msgid "Supplier|Supplier name"
 msgstr ""
 
+msgid "Total"
+msgstr ""
+
+msgid "Total Revenue"
+msgstr ""
+
 msgid "Total Spent"
 msgstr ""
 
+msgid "Udate Settings"
+msgstr ""
+
+msgid "Unit"
+msgstr ""
+
+msgid "Unit:"
+msgstr ""
+
+msgid "Units"
+msgstr ""
+
+msgid "Units Sold"
+msgstr ""
+
+msgid "Units in Stock"
+msgstr ""
+
+msgid "Units produced"
+msgstr ""
+
+msgid "Upload Company Logo"
+msgstr ""
+
+msgid "Weighted CPU"
+msgstr ""
+
+msgid "Weighted PPU"
+msgstr ""
+
+msgid "Yield"
+msgstr ""
+
+msgid "Yield:"
+msgstr ""
+
 msgid "en"
+msgstr ""
+
+msgid "prevented us from importing your spreadsheet. Please update your spreadsheet and try agin."
+msgstr ""
+
+msgid "select product"
+msgstr ""
+
+msgid "to:"
 msgstr ""

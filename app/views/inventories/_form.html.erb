@@ -11,55 +11,55 @@
     </div>
   <% end %>
 
-<h2>Add Inventory from Purchase</h2><hr>
+<hr>
 <div  class="inventory_form">
 
        
         <div class="field">
-          <%= form.label "Choose Product" %>       
+          <%= form.label _("Choose Product") %>       
           <%= form.collection_select(:purchase_product_id, PurchaseProduct.joins(:product).where("purchase_products.id not in (SELECT purchase_product_id
           FROM inventories where purchase_product_id is not null)"), :id, :p_o_name, {}, {class: "source"}) %>
         </div>
 
         <div class="field">
-          <%= form.label "Purchase Order Id" %>
+          <%= form.label _("Purchase Order Id") %>
           <%= form.text_field :purchase_id, id: "purchase_id", class: "purchase-id greyed_out", :readonly => true %>
         </div>
 
         <div class="field">
-          <%= form.label "Product Id" %>
+          <%= form.label _("Product Id") %>
           <%= form.text_field :product_id, id: "product_id", class: "product-id greyed_out", :readonly => true %>
         </div>
 
         <div class="field">
-          <%= form.label "Supplier" %>
+          <%= form.label _("Supplier") %>
           <%= form.text_field :supplier_name, id: "supplier", class: "supplier greyed_out", :readonly => true %>
         </div>
 
         <div class="field">
-          <%= form.label "Product" %>
+          <%= form.label _("Product") %>
           <%= form.text_field :product_name, id: "product_name", class: "product-name greyed_out", :readonly => true %>
         </div>                
 
         <div class="field">
-          <%= form.label "Quantity" %>
+          <%= form.label _("Quantity") %>
           <%= form.text_field :remaining_quantity, id: "qt_received", class: "qt-received greyed_out", :readonly => true %>
         </div>
 
         <div class="field">
-          <%= form.label "Purchase price" %>
+          <%= form.label _("Purchase price") %>
           <%= form.text_field :purchase_price, id: "cost", class: "cost greyed_out", :readonly => true %>
         </div>
 
         <div class="field">
-          <%= form.label "Subtotal" %>
+          <%= form.label _("Subtotal") %>
           <%= form.text_field :purchase_subtotal, id: "subtotal", class: "subtotal greyed_out", :readonly => true %>
         </div>
 
           
         
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit _("Create Inventory"), :class => 'btn btn-success' %>
   </div>
 </div>
 

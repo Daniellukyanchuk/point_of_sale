@@ -4,40 +4,40 @@
     <%= form.hidden_field :_destroy %>
 
       <div class="field">
-      <%= form.label "select product" %>
+      <%= form.label _("select product") %>
           <%= form.collection_select :product_id, Product.all, :id, :product_name %>
       </div>
       <br>
 
     <div class="indent">
         <div class="field">
-          <%= form.label "Estimated quantity" %>
+          <%= form.label _("Estimated quantity") %>
           <%= form.number_field :estimated_quantity, id: 'estimated_quantity', class: 'est_qt' %>
         </div>
         <div class="field">
-          <%= form.label 'Estimated cost' %>
+          <%= form.label _('Estimated cost') %>
           <%= form.number_field :estimated_cost, id: 'estimated_cost', class: 'est_cost' %>
         </div>   
         <div class="field">
-          <%= form.label "Estimated subtotal" %>
+          <%= form.label _("Estimated subtotal") %>
           <%= form.number_field :estimated_subtotal, id: 'estimated_subtotal', class: 'estimated_subtotal greyed_out', :readonly => true  %>
         </div><br>
 
         <div class="field">
-          <%= form.label "Actual quantity" %>
+          <%= form.label _("Actual quantity") %>
           <%= form.number_field :purchase_quantity, id: 'actual_quantity', class: 'act_qt' %>
         </div>
         <div class="field">
-          <%= form.label "Actual cost" %>
+          <%= form.label _("Actual cost") %>
           <%= form.number_field :purchase_price, id: 'actual_price', class: 'act_cost' %>
         </div>
         <div class="field">
-          <%= form.label "Actual Subtotal" %>
+          <%= form.label _("Actual Subtotal") %>
           <%= form.number_field :purchase_subtotal, id: 'actual_subtotal', class: 'actual_subtotal greyed_out', :readonly => true  %>
         </div>
 
         <div class="field">
-          <%= link_to "Remove", "#", class: "remove_fields" %>
+          <%= link_to _("Remove"), "#", class: "remove_fields btn btn-danger btn-small" %>
         </div>
     </div>
 </div>

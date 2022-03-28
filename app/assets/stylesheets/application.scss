@@ -1,0 +1,344 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+body {
+    padding:  0;
+    margin:  0 0 0 0px;
+    display: flex;
+}
+
+ .align_right {
+     text-align: right;
+     padding-left: 20px;
+ }
+
+ .align_center {
+     text-align: center;
+     padding: 0 10px 0 10px;
+ }
+
+ .align_left {
+     text-align: left;
+     padding-right: 20px;
+ }
+
+tr:nth-child(even) {
+     background-color: #f7f7f7;
+}
+
+input.greyed_out
+{
+    background-color: #f3f3f3;
+}
+
+.field, .inline
+{
+    display: inline-block;
+}
+
+select {
+    padding: 2px 0px 1px 0px;
+}
+
+.bold
+{
+    font-weight: 600;
+}
+
+th {
+   padding-bottom: 5px;
+}
+
+td {
+    padding: 6px 4px;
+    line-height: 21px;
+}
+
+th, td {
+    padding-right: 3em;
+}
+
+
+
+label {
+    font-size: 11px;
+}
+
+.indent {
+    margin-left:  23px;
+    margin-bottom:  20px;
+}
+
+.pad-bottom {
+    padding-bottom: 30px;
+}
+
+.hidden {
+    display: none;
+}
+
+
+#lang_switcher {
+    position: absolute;
+    right: 0px;
+    padding: 2.75rem 2rem;
+    z-index: 9999;
+}
+
+.navbar {
+    display:  inline-block;
+    vertical-align: top;
+    padding: 0 !important;
+    height: 100vh;
+    position: fixed;
+}
+
+.navbar-expand-lg {
+    max-width: 12.3rem;
+}
+
+.navbar-expand-lg>.container-fluid {
+    flex-wrap: wrap;
+    ms-flex-wrap: wrap;
+    padding-left: 0;
+}
+
+ul {
+    margin-bottom: 0rem;
+    padding-left: 0;
+}
+
+.collapse> {
+    padding-bottom: 0px !important
+}
+
+.dropdown-menu.show {
+    display: block;
+    left: 12.2rem;
+    padding: 0;
+    top: -0.1rem;
+}
+
+.dropdown-toggle::after {    
+    position: relative;
+    left: 3.7rem;    
+}
+
+#main {
+    display: inline-block;
+    flex-flow: row;
+    flex-grow: 1;
+    margin-left: 14.3rem;
+}
+
+#notice {
+    margin: 0;
+}
+
+.logo {
+    height: 4.2rem;
+    margin-bottom: 0.8rem;
+    padding-left: 1.6rem;
+    margin-top: 1rem;
+}
+
+.nav {
+  width: 12.3rem;
+}
+
+td.nav {
+    padding: 0px;
+    margin: 0px;
+    border: none;
+}
+
+:root {
+    --primary: #4384cf !important;
+    --secondary: #57ad7e !important;
+    --success: #9fcc4a !important;
+    --info: #f51202 !important;
+    --warning: #f5c102 !important;
+    --danger: #f51202 !important;    
+}
+
+.bg-primary{
+    background-color: #4384cf !important;
+}
+
+.text-primary{
+   color: #4384cf !important;
+}
+
+.btn-primary{
+    background-color: #4384cf !important;
+    border-color: #4384cf !important;
+}
+
+.bg-secondary{
+    background-color: #57ad7e !important;
+}
+
+.text-secondary{
+   color: #57ad7e !important;
+}
+
+.btn-secondary{
+    background-color: #57ad7e !important;
+    border-color: #57ad7e !important;
+}
+
+.bg-success{
+    background-color: #9fcc4a !important;
+}
+
+.text-success{
+   color: #9fcc4a !important;
+}
+
+.btn-success{
+    background-color: #9fcc4a !important;
+    border-color: #9fcc4a !important;
+}
+
+.bg-info{
+    background-color: #9cc7af !important;
+}
+
+.text-info{
+   color: #9cc7af !important;
+}
+
+.btn-info{
+    background-color: #9cc7af !important;
+    border-color: #9cc7af !important;
+}
+
+.bg-warning{
+    background-color: #f5c102 !important;
+}
+
+.text-warning{
+   color: #f5c102 !important;
+}
+
+.btn-warning{
+    background-color: #f5c102 !important;
+    border-color: #f5c102 !important;
+}
+
+.bg-danger{
+    background-color: #f51202 !important;
+}
+
+.text-danger{
+   color: #f51202 !important;
+}
+
+.btn-danger{
+    background-color: #f51202 !important;
+    border-color: #f51202 !important;
+}
+
+.bg-light{
+    background-color: #dde0e3 !important;
+}
+
+.btn-primary, .btn-secondary, .btn-warning, .btn-success {
+    color: #ffffff !important;
+}
+
+.btn:hover {
+    opacity: .8;
+}
+
+.btn-small {
+    font-size: smaller;
+    padding: 2px 8px;
+    vertical-align: bottom;
+}
+
+
+a.text-light, a.text-dark{
+height: 100%;
+width: 100%;
+border-bottom: dotted 0.1rem;
+}
+
+a.bg-info:focus, a.bg-info:hover, button.bg-info:focus, button.bg-info:hover {
+    background-color: #b3d9c4 !important;
+}
+
+.dropdown-menu {
+    border-radius: 0;
+    font-size: .8rem;
+}
+
+a.nav {
+    padding: 1.3rem 1.8rem !important;
+}
+
+a.nav ::before {
+    padding-right: 9px;
+    position: relative;
+    top: 2px;
+    font-size: 16px;
+}
+
+a.text-light:focus, a.text-light:hover {
+    color: #ffffff !important;
+    background: #ffffff1c; 
+    text-decoration: none;
+}
+
+a.text-dark:focus, a.text-dark:hover {
+    color: #2a2a2a !important;
+    background: #0000001c;
+    text-decoration: none;
+}
+ 
+a:hover {
+background-color: transparent;
+}
+
+td .text-primary {
+    padding-left: 25px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-family: tahoma;
+    font-weight: 800;
+    line-height: 1.82;
+    color: #5b7c6a;
+    background: #31496614;
+    padding: 1.05rem 2rem;
+    margin-bottom: 1.8rem;
+    position: relative;
+    left: -2rem;
+    width: 102%;
+}
+h2 {
+    font-size: 1.8rem;
+    font-family: tahoma;
+    font-weight: 600;
+    line-height: 1.5;
+    color: #a5a5a5;
+}
+
+.remove_fields {
+    top: 2px;
+    position: relative;
+}
