@@ -328,7 +328,7 @@ h1 {
     margin-bottom: 1.8rem;
     position: relative;
     left: -2rem;
-    width: 102%;
+    width: 105%;
 }
 h2 {
     font-size: 1.8rem;
@@ -339,6 +339,88 @@ h2 {
 }
 
 .remove_fields {
-    top: 2px;
+    top: -.17rem;
     position: relative;
+}
+
+
+
+// Breakpoints //
+
+@media only screen and (max-width: 992px) {
+    .navbar-brand {
+        display: none;
+    }
+
+    #main {
+        margin-left: 2.5rem;
+    }
+
+    .navbar {
+        height: auto;
+    }
+
+    h1 {
+        padding: 1.05rem 1rem 1rem 7.5rem;
+        margin-bottom: 1.8rem;
+        z-index: 1;
+    }
+
+    .navbar-light .navbar-toggler {
+        float: left;
+        position: absolute;
+        font-size: 1rem;
+        top: 2.5rem;
+        left: 1.5rem;
+        background-color: #5b7c6a;
+        
+    }
+
+    .navbar-light .navbar-toggler:hover,  .navbar-light .navbar-toggler:active  {
+        background-color: #57ad7e ;
+    }
+
+    .navbar-light .navbar-toggler-icon {
+        background-image: none;
+        color: white;
+        position: relative;
+        top: .3rem;
+    }
+
+    .navbar {
+        z-index: 999999;
+    }
+
+    .navbar-collapse {
+        position: relative;
+        top: 6.5rem;
+    }
+
+    nav.bg-light {
+        background-color: transparent !important;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    #lang_switcher {
+        position: fixed;
+        display: block;
+        text-align: center;
+        padding: 0.3rem 2rem;
+        z-index: 9999;
+        background: lightgray;
+        width: 100%;
+    }
+    
+    h1 {
+        padding: 2.05rem 1rem 1rem 7.5rem;
+    }
+
+    .navbar-light .navbar-toggler {
+        top: 3.5rem;
+    }
+
+    .navbar-collapse {
+        top: 7.5rem;
+    }
 }

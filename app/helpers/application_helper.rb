@@ -8,7 +8,7 @@ module ApplicationHelper
         render(association.to_s.singularize + "_fields", form: builder)
     end
 
-    link_to(name, '#', class: "add_fields btn btn-small btn-primary", data: {id: id, fields: fields.gsub("\n", "")})
+    link_to(name, '#', class: "add_fields btn btn-primary", data: {id: id, fields: fields.gsub("\n", "")})
 
   end
 
