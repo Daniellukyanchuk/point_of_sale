@@ -1,3 +1,6 @@
+<script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script>
+<link href="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.min.css" rel="stylesheet"/>
+
 <div class="container">
   <p id="notice"><%= notice %></p>
 
@@ -19,7 +22,7 @@
         <%= submit_tag _("Search"), :name => nil %>
       </p>
     <% end %>
-    <%= link_to _('New Order'), new_order_path, class: "marginLeftOnly text-light btn btn-primary btn-sm" %>
+    <%= link_to _('New Order'), new_order_path, class: "marginLeftOnly text-light btn fa-solid fa-plus btn-primary btn-sm" %>
 
   <script>
       $( function() {
