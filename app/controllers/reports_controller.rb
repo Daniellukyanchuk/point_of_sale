@@ -17,7 +17,7 @@ class ReportsController < ApplicationController
     end
 
     def inventory_report 
-
+        stop
         if params[:from_date].blank?
             params[:from_date] = (Date.today-360).strftime('%m/%d/%Y')
         end
@@ -78,13 +78,7 @@ class ReportsController < ApplicationController
         params[:search]
     end
 
-    def pick_client
-        params[:client_select]
-    end
-
-    def pick_product
-        params[:product_select]
-    end
+   
             
 end
 
