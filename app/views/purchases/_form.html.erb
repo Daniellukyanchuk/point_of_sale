@@ -1,3 +1,4 @@
+
 <%= form_with(model: purchase, id: "new_purchase", class: "purchase-order-form",  local: true) do |form| %>
   <% if purchase.errors.any? %>
   <div id="error_explanation">
@@ -50,6 +51,7 @@
         <label for="date_received"><%= _('Received on') %></label>
         <input type="text" class="datepicker form-control" id="date_received" name="purchase[date_received]" 
               autocomplete = 'off' value = "<%= purchase.date_received.strftime("%m-%d-%Y") unless purchase.date_received.blank? %>"></div>
+
 
 
   <div> 

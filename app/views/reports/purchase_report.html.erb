@@ -1,50 +1,74 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.css">
+<script src="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.js"></script>
+
 <p id="notice"><%= notice %></p>
 
 <h1><%= _('Purchase Report') %></h1>
 
-<%= form_tag reports_purchase_report_path, :method => 'get' do %>
-  
-  <%= text_field_tag :search, params[:search] %> 
-  <%= _("AND") %>
-  <% options = Product.all.collect{ |p| [p.product_name, p.id] } %>
-  <% options = [["Show All", nil]] + options %>
-  <%= select_tag 'product_select[]', options_for_select(options, params[:product_select]), :multiple => :multiple, :size => 10, :class => "chosen-select" %>
-  <br><br>
+<%# keyword and product-selector %>
 
-      <%= _("From:") %> <input type="text" class="datepicker" id="from" name="from_date" 
-              autocomplete = 'off' value = "<%= params[:from_date] %>">
-      <%= _("to:") %> <input type="text" class="datepicker" id="to" name="to_date" 
-              autocomplete = 'off' value = "<%= params[:to_date] %>">
+<div class="w-100 d-inline-block mb-5">
+  <div class="d-inline-flex w-50 px-0 mb-4 h-auto">
+    <div class="col-3 px-0">
+      <%= form_tag reports_purchase_report_path, :method => 'get', :class => "form-group" do %>  
+      <%= text_field_tag :search, params[:search], :placeholder => _("enter keyword(s)"), :class => "form-control" %> 
+      
+    </div>      
+      <div class="col pr-0">      
+        <% options = Product.all.collect{ |p| [p.product_name, p.id] } %>
+        <% options = [["Show All", nil]] + options %>
+        <%= select_tag 'product_select[]', options_for_select(options, params[:product_select]), :multiple => :multiple, :size => 10, :id => "choices-multiple-remove-button", :placeholder => "select products" %>    
+      </div>
+  </div>
 
-  <%= button_tag(type: "submit", class: "btn btn-warning btn-small") do %>
-    Search <i class="fa-solid fa-magnifying-glass"></i>
+  <div class="w-50 d-inline-flex pl-0 mb-4" style="height: 2.5rem;">
+    <div class="input-group-prepend input-group rounded-left">
+
+      <span class="input-group-text justify-content-center col">
+        <%= _("from:") %> <input type="text" class="datepicker pl-2" id="from" name="from_date" 
+                autocomplete = 'off' value = "<%= params[:from_date] %>">
+      </span>
+
+      <span class="input-group-text justify-content-center col">
+        <%= _("to:") %> <input type="text" class="datepicker pl-2" id="to" name="to_date" 
+                autocomplete = 'off' value = "<%= params[:to_date] %>">
+      </span>
+
+      <div class="input-group-append">
+        <%= button_tag(type: "submit", class: "btn btn-warning") do %>
+        <%= _("Search") %> <i class="fa-solid fa-magnifying-glass"></i>
+        <% end %>
+      </div>
+    </div>
+    
     <% end %>
-<% end %>
+  </div>
+</div>
 
-<br>
+  
+
 <h2> Purchase Summary </h2>
 <table>
   <thead>
     <tr>
-    <th class="align_left"><%= sortable "product_id", _("Id") %></th>
-    <th class="align_left"><%= sortable "product_name", _("Product Name") %></th>
-    <th class="align_right"><%= sortable "current_inventory", _("Units in Stock") %></th>
-    <th><%= sortable "unit", "Unit" %></th>
-    <th class="align_right"><%= sortable "cost_per_unit", _("Weighted CPU") %></th>
-    <th class="align_right"><%= sortable "current_inventory_value", _("Inventory Value") %></th>
-    <th colspan="5"></th>
+      <th class="align_left col-2"><%= sortable "product_id", _("Id") %></th>
+      <th class="align_left col-2"><%= sortable "product_name", _("Product Name") %></th>
+      <th class="align_right col-2"><%= sortable "current_inventory", _("Units in Stock") %></th>
+      <th class="col-2"><%= sortable "unit", "Unit" %></th>
+      <th class="align_right col-2"><%= sortable "cost_per_unit", _("Weighted CPU") %></th>
+      <th class="align_right col-2"><%= sortable "current_inventory_value", _("Inventory Value") %></th>
     </tr>
   </thead>
 
   <tbody>
     <% @purchase_reports.each do |p_report| %> 
       <tr>     
-        <td><%= p_report["product_id"] %></td>
-        <td><%= p_report["product_name"] %></td>
-        <td class="align_right"><%= p_report["current_inventory"] %></td>
-        <td><%= p_report["unit"] %></td>
-        <td class="align_right"><%= number_with_precision(p_report["cost_per_unit"], precision: 2, delimiter: ' ') %></td>
-        <td class="align_right"><%= number_with_precision(p_report["current_inventory_value"], precision: 2, delimiter: ' ') %></td>
+        <td class="col-2"><%= p_report["product_id"] %></td>
+        <td class="col-2"><%= p_report["product_name"] %></td>
+        <td class="align_right col-2"><%= p_report["current_inventory"] %></td>
+        <td class="col-2" ><%= p_report["unit"] %></td>
+        <td class="align_right col-2"><%= number_with_precision(p_report["cost_per_unit"], precision: 2, delimiter: ' ') %></td>
+        <td class="align_right col-2"><%= number_with_precision(p_report["current_inventory_value"], precision: 2, delimiter: ' ') %></td>
         </tr>
       <% end %>
   </tbody>
@@ -57,37 +81,45 @@
 <table>
   <thead>
     <tr>
-    <th><%= sortable "purchase_order_id", _("P.O.") %></th>
-    <th><%= sortable "supplier_name", _("Supplier") %></th>
-    <th><%= sortable "product_name", _("Product Name") %></th>
-    <th><%= sortable "estimated_quantity", _("Estimated Quantity") %></th>
-    <th><%= sortable "estimated_cost", _("Estimated CPU") %></th>
-    <th><%= sortable "estimated_subtotal", _("Estimated Subtotal") %></th>
-    <th><%= sortable "actual_quantity", _("Actual Quantity") %></th>
-    <th><%= sortable "actual_cost", _("Actual CPU") %></th>
-    <th><%= sortable "actual_subtotal", _("Order Total") %></th>
-    <th><%= sortable "date_ordered", _("Order placed") %></th>
-    <th><%= sortable "date_expected", _("Expected delivery") %></th>
-    <th><%= sortable "date_received", _("Order received") %></th>
+    <th class=""><%= sortable "purchase_order_id", _("P.O. ID") %></th> 
+    <th class=""><%= sortable "supplier_name", _("Supplier") %> </th>
+    <th class=""><%= sortable "product_name", _("Product Name") %></th>
+    <th class="align_right"><%= sortable "estimated_quantity", _("Estimated Quantity") %></th>
+    <th class="align_right"><%= sortable "estimated_cost", _("Estimated CPU") %></th>
+    <th class="align_right"><%= sortable "estimated_subtotal", _("Estimated Subtotal") %></th>
+    <th class="align_right"><%= sortable "actual_quantity", _("Actual Quantity") %></th>
+    <th class="align_right"><%= sortable "actual_cost", _("Actual CPU") %></th>
+    <th class="align_right"><%= sortable "actual_subtotal", _("Order Total") %></th>
+    <th class="align_right"><%= sortable "date_ordered", _("Order placed") %></th>
+    <th class="align_right"><%= sortable "date_expected", _("Expected delivery") %></th>
+    <th class="align_right"><%= sortable "date_received", _("Order received") %></th>
     <th colspan="5"></th>
     </tr>
   </thead>
   <tbody>
     <% @purchase_records.each do |pr| %> 
-      <tr>  
+      <tr>
+      <div class="col-5">  
         <td><%= pr["purchase_order_id"] %></td>   
         <td><%= pr["supplier_name"] %> </td>
         <td><%= pr["product_name"] %></td>
-        <td class="align_right"><%= pr["estimated_quantity"] %><%= pr["unit"] %></td>
-        <td class="align_right"><%= pr["estimated_cost"] %></td>
-        <td class="align_right"><%= pr["estimated_subtotal"] %></td>
+      </div> 
+      <div class="col-2"> 
+        <td class="align_right d-none d-lg-table-cell "><%= pr["estimated_quantity"] %><%= pr["unit"] %></td>
+        <td class="align_right d-none d-lg-table-cell "><%= pr["estimated_cost"] %></td>
+        <td class="align_right d-none d-lg-table-cell "><%= pr["estimated_subtotal"] %></td>
+      </div>
+      <div class="col-2"> 
         <td class="align_right"><%= pr["actual_quantity"] %><%= pr["unit"] %></td>
         <td class="align_right"><%= pr["actual_cost"] %></td>
         <td class="align_right"><%= pr["actual_subtotal"] %></td> 
+      </div>
+      <div class="col-2"> 
         <td class="align_right"><%= if pr["date_ordered"].blank? then pr["date_ordered"] = "n/e" else pr["date_ordered"].to_date.strftime("%d %b %Y") end %></td>
         <td class="align_right"><%= if pr["date_expected"].blank? then pr["date_expected"] = "n/e" else pr["date_expected"].to_date.strftime("%d %b %Y") end %></td>
         <td class="align_right"><%= if pr["date_received"].blank? then pr["date_received"] = "n/e" else pr["date_received"].to_date.strftime("%d %b %Y") end %></td>
-        <td><div><%= link_to 'Go to P.O.', edit_purchase_path(pr["purchase_order_id"]), class: "blue button" %></div></td>
+      </div>
+        <td class="col-1"><%= link_to _('Go to P.O.'), edit_purchase_path(pr["purchase_order_id"]), class: "btn btn-secondary" %></div></td>
 
         
         </tr>
@@ -97,6 +129,15 @@
 
 <script type="text/javascript">
 
+$(document).ready(function(){
+
+  var multipleCancelButton = new Choices('#choices-multiple-remove-button', {
+  removeItemButton: true,
+  maxItemCount:10,
+  searchResultLimit:100,
+  renderChoiceLimit:10
+  });
+});
 
   $( function() {
     var dateFormat = "mm/dd/yy",
@@ -125,11 +166,6 @@
  
       return date;
     }
-  } );
-
-
-$(".chosen-select").chosen({
-  no_results_text: "Oops, nothing found!"
-})
+  } );  
 
 </script>

@@ -22,17 +22,14 @@ body {
 
  .align_right {
      text-align: right;
-     padding-left: 20px;
  }
 
  .align_center {
      text-align: center;
-     padding: 0 10px 0 10px;
  }
 
  .align_left {
      text-align: left;
-     padding-right: 20px;
  }
 
 tr:nth-child(even) {
@@ -63,12 +60,12 @@ th {
 }
 
 td {
-    padding: 6px 4px;
-    line-height: 21px;
+    padding: 6px 2px;
+    line-height: 20px;
 }
 
 th, td {
-    padding-right: 3em;
+    padding-right: 1rem;
 }
 
 
@@ -108,6 +105,7 @@ label {
 
 .navbar-expand-lg {
     max-width: 12.3rem;
+    z-index: 999;
 }
 
 .navbar-expand-lg>.container-fluid {
@@ -135,6 +133,14 @@ ul {
 .dropdown-toggle::after {    
     position: relative;
     left: 3.7rem;    
+}
+
+.choices {
+    z-index: 99;
+}
+
+.choices__input {
+    width: auto !important;
 }
 
 #main {
@@ -313,9 +319,7 @@ a:hover {
 background-color: transparent;
 }
 
-td .text-primary {
-    padding-left: 25px;
-}
+
 
 h1 {
     font-size: 2.5rem;
@@ -328,8 +332,8 @@ h1 {
     margin-bottom: 1.8rem;
     position: relative;
     left: -2rem;
-    width: 105%;
-}
+    width: calc(100% + 2rem)
+    }
 h2 {
     font-size: 1.8rem;
     font-family: tahoma;
@@ -343,7 +347,9 @@ h2 {
     position: relative;
 }
 
-
+.input-group-text {
+    border: 0px;
+}
 
 // Breakpoints //
 
@@ -423,4 +429,11 @@ h2 {
     .navbar-collapse {
         top: 7.5rem;
     }
+}
+
+.input-group-sm>.custom-select, .input-group-sm>.form-control, .input-group-sm>.input-group-append>.btn, .input-group-sm>.input-group-append>.input-group-text, .input-group-sm>.input-group-prepend>.btn, .input-group-sm>.input-group-prepend>.input-group-text {
+    padding: 0.25rem 0.5rem;
+    font-size: .9rem;
+    line-height: 1rem;
+    border-radius: 0 0.5rem 0.5rem 0rem;
 }

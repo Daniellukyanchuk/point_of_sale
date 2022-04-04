@@ -4,24 +4,53 @@
 
 <h1><%= _('Client Purchase Report') %></h1>
 
-<%= form_tag reports_client_report_path, :method => 'get' do %>
-  
-  <%= text_field_tag :search, params[:search] %>
-  <%= _("AND") %>
-  <% options = Client.all.collect{ |c| [c.name, c.id] } %>
-  <% options = [["Show All", nil]] + options %>
-  <%= select_tag 'client_select[]', options_for_select(options, params[:client_select]), :multiple => :multiple, :size => 10, :class => "chosen-select" %>
-  <br><br>
+<%# keyword and product-selector %>
 
-  <%= _("From:") %> <input type="text" class="datepicker" id="from" name="from_date" 
-              autocomplete = 'off' value = "<%= params[:from_date] %>">
-      <%= _("to:") %> <input type="text" class="datepicker" id="to" name="to_date" 
-              autocomplete = 'off' value = "<%= params[:to_date] %>">
+<div class="w-100 d-inline-block mb-5">
+  <div class="d-inline-flex w-50 px-0 mb-4" style="height: 2.5rem;">
+    <div class="col-6 px-0">
+      <%= form_tag reports_purchase_report_path, :method => 'get', :class => "form-group" do %>  
+      <%= text_field_tag :search, params[:search], :placeholder => _("enter keyword(s)"), :class => "form-control" %> 
+    </div>
+    <div class="drop-down drop-down-sm input-group input-group-prepend px-0">  
+      <span class="input-group-text rounded-0 col-2">
+          <%= _("AND") %>
+      </span>
+      <button type="button" class="col btn btn-warning dropdown-toggle dropdown-toggle" data-toggle="dropdown">  
+        <%= _("Select Products") %>  
+      </button>      
+      <div class="dropdown-menu col-10">
+        <% options = Product.all.collect{ |p| [p.product_name, p.id] } %>
+        <% options = [["Show All", nil]] + options %>
+        <%= select_tag 'product_select[]', options_for_select(options, params[:product_select]), :multiple => :multiple, :size => 10, :class => "form-control select-item" %>
+      </div>       
+    </div>
+    
+  </div>
 
- <%= button_tag(type: "submit", class: "btn btn-warning btn-small") do %>
-    Search <i class="fa-solid fa-magnifying-glass"></i>
+  <div class="w-50 d-inline-flex pl-0 mb-4" style="height: 2.5rem;">
+    <div class="input-group-prepend input-group rounded-left">
+
+      <span class="input-group-text justify-content-center col">
+        <%= _("from:") %> <input type="text" class="datepicker pl-2" id="from" name="from_date" 
+                autocomplete = 'off' value = "<%= params[:from_date] %>">
+      </span>
+
+      <span class="input-group-text justify-content-center col">
+        <%= _("to:") %> <input type="text" class="datepicker pl-2" id="to" name="to_date" 
+                autocomplete = 'off' value = "<%= params[:to_date] %>">
+      </span>
+
+      <div class="input-group-append">
+        <%= button_tag(type: "submit", class: "btn btn-warning") do %>
+        <%= _("Search") %> <i class="fa-solid fa-magnifying-glass"></i>
+        <% end %>
+      </div>
+    </div>
+    
     <% end %>
-  <% end %><br><br>  
+  </div>
+</div>
 
 <table>
   <thead>

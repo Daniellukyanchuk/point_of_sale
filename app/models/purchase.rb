@@ -150,7 +150,7 @@ end
 #column sorting (sortable & sort_direction)
 
       if !["supplier_name", "supplier_id", "product_name", "estimated_quantity", "actual_quantity", "estimated_cost", 
-        "actual_cost", "estimated_subtotal", "actual_subtotal", "date_ordered", "date_expected", "date_received"].include?(sortable)
+        "actual_cost", "estimated_subtotal", "actual_subtotal", "date_ordered", "date_expected", "date_received", "product_id"].include?(sortable)
         sortable = "date_ordered"
       end
 
@@ -165,7 +165,7 @@ end
               SELECT supplier_id, purchase_id AS purchase_order_id, supplier_name, product_name, 
               estimated_quantity, purchase_quantity AS actual_quantity, estimated_cost, purchase_price AS actual_cost,
               estimated_subtotal, purchase_subtotal AS actual_subtotal,
-              date_ordered, date_expected, date_received
+              date_ordered, date_expected, date_received, product_id
               FROM purchases
               LEFT OUTER JOIN purchase_products ON purchase_id = purchases.id
               LEFT OUTER JOIN products ON product_id = products.id

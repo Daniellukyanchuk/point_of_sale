@@ -2,29 +2,34 @@
 
 <h1><%= _("Products") %></h1>
 
-<%= link_to _('+ New Product'), new_product_path, :class => 'btn btn-secondary' %>
-<%= link_to _('<i class="fa-solid fa-download"></i> Export as Excel').html_safe , products_path(format: :xlsx), class: "btn btn-primary btn-small" %>
-<%= link_to _('<i class="fa-solid fa-file-import"></i> Import from Excel').html_safe , new_products_import_path, class: "btn btn-primary btn-small" %>
 
-<br><br>
+<div class="ml-3">
+  <%= link_to _('+ New Product'), new_product_path, :class => 'btn btn-secondary mr-1 mb-3' %>
+  <%= link_to _('<i class="fa-solid fa-download"></i> Export as Excel').html_safe , products_path(format: :xlsx), class: "btn btn-primary mr-1 mb-3" %>
+  <%= link_to _('<i class="fa-solid fa-file-import"></i> Import from Excel').html_safe , new_products_import_path, class: "btn btn-primary mr-1 mb-3" %>
+</div>
 
-<%= form_tag products_path, :method => 'get' do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= button_tag(type: "submit", class: "btn btn-warning btn-small") do %>
-    Search <i class="fa-solid fa-magnifying-glass"></i>
-    <% end %>
-  </p>
-<% end %>
+<div class="">
+  <%= form_tag products_path, :method => 'get' do %>
+    <div class="input-group input-group-sm mb-3  col-10 col-xl-5 col-lg-6 col-md-7 col-sm-10">
+      <%= text_field_tag :search, params[:search], class: 'form-control' %>
+        <div class="input-group-append">
+          <%= button_tag(type: "submit", class: "btn btn-warning") do %>
+          <%= _("Search") %> <i class="fa-solid fa-magnifying-glass"></i>
+          <% end %>
+        </div>
+    </div> 
+  <% end %>
+</div>
 
 <table>
   <thead>
     <tr>
-    <th class="align_left"><%= sortable "id", _("Id") %></th>
-      <th class="align_left"><%= sortable "product_name", _("Product Name") %></th>
-      <th class="align_right"><%= sortable "price", _("Sale price") %></th>
-      <th class="align_right"><%= sortable "grams_per_unit", _("Grams per unit") %></th>
-      <th><%= sortable "unit", _("Unit") %></th>      
+    <th class="align_left col-1"><%= sortable "id", _("Id") %></th>
+      <th class="align_left col-3"><%= sortable "product_name", _("Product Name") %></th>
+      <th class="align_right col-2"><%= sortable "price", _("Sale price") %></th>
+      <th class="align_right col-2"><%= sortable "grams_per_unit", _("Grams per unit") %></th>
+      <th class="col-2"><%= sortable "unit", _("Unit") %></th>      
       <th colspan="5"></th>
     </tr>
   </thead>
@@ -32,23 +37,22 @@
   <tbody>
     <% @products.each do |pi| %>
       <tr>
-        <td><%= pi["id"] %></td>
-        <td><%= pi["product_name"] %></td>
-        <td class="align_right"><%= pi["price"] %></td>
-        <td class="align_right"><%= number_with_precision(pi["grams_per_unit"], :precision => 1, delimiter: ' ') %>g</td>
-        <td><%= pi["unit"] %></td>
-        
-        <td><%= link_to '<i class="fa-solid fa-eye"></i>'.html_safe, pi, class: "text-primary" %></td>
-        <td><%= link_to '<i class="fa-solid fa-pencil"></i>'.html_safe,  edit_product_path(pi), class: "text-secondary" %></td>
-        <td><%= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, pi, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-danger" %></td>
-        
+        <td class="col-1"><%= pi["id"] %></td>
+        <td class="col-3"><%= pi["product_name"] %></td>
+        <td class="align_right col-2"><%= pi["price"] %></td>
+        <td class="align_right col-2"><%= number_with_precision(pi["grams_per_unit"], :precision => 1, delimiter: ' ') %>g</td>
+        <td class="col-2"><%= pi["unit"] %></td>        
+        <td class="col-2">
+          <%= link_to '<i class="fa-solid fa-eye"></i>'.html_safe, pi, class: "text-primary m-2" %>
+          <%= link_to '<i class="fa-solid fa-pencil"></i>'.html_safe,  edit_product_path(pi), class: "text-secondary m-2" %>
+          <%= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, pi, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-danger m-2" %>
+        </td>        
       </tr>
-    <% end %>
-        
+    <% end %>        
   </tbody>
 </table>
 
-<br>
+
 
 
 
