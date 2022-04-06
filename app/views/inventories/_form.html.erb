@@ -14,12 +14,12 @@
 
       <div class="field">
         <%= form.label :purchase_product %>
-        <%= form.collection_select(:purchase_product_id, PurchaseProduct.all, :id, :display_text, {}, {class: "purchase-picker"}) %>
+        <%= form.collection_select(:purchase_product_id, PurchaseProduct.all, :id, :display_text, {}, {class: "purchase-picker form-control"}) %>
       </div>
 
       <div class="field">
         <%= form.label _('Product') %>
-        <%= form.collection_select(:product_id, Product.all, :id, :product_name, {}, {class: "product_name"}) %>
+        <%= form.collection_select(:product_id, Product.all, :id, :product_name, {}, {class: "product_name form-control"}) %>
       </div>
 
       <div class="field">
@@ -29,17 +29,17 @@
 
       <div class="field">
         <%= form.label _('Amount') %>
-        <%= form.number_field :amount, class: "quantity", :readonly => true %>
+        <%= form.number_field :amount, class: "quantity form-control", :readonly => true %>
       </div>
 
       <div class="field">
         <%= form.label _('Price_per_unit') %>
-        <%= form.text_field :price_per_unit, class: "price_per_unit", :readonly => true %>
+        <%= form.text_field :price_per_unit, class: "price_per_unit form-control", :readonly => true %>
       </div>
 
       <div class="field">
         <%= form.label _('Costs') %>
-        <%= form.text_field :costs, class: "est_subtotal", :readonly => true %>
+        <%= form.text_field :costs, class: "est_subtotal form-control", :readonly => true %>
       </div>
 
       <% if !inventory.purchase_product.blank? %>

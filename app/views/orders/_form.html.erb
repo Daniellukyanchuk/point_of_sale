@@ -13,6 +13,7 @@
       <% end %>
 
       <%= form.collection_select :client_id, Client.all, :id, :name %>
+      <hr>
      
       <%= form.fields_for :order_products do |builder| %>
           <%= render 'order_product_fields', form: builder %>
@@ -22,7 +23,7 @@
 
       <div class="field">
         <%= form.label _('Grand total') %>
-        <%= form.text_field :grand_total, :readonly => true %>
+        <%= form.text_field :grand_total, :readonly => true, :class => "form-control" %>
       </div>
 
       <div class="actions">

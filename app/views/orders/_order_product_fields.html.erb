@@ -1,29 +1,54 @@
+ 
   <div class="nested-fields">
-    <%= form.hidden_field :_destroy %>
-    <h2><%= _('Add Product') %></h2>
+    
+
+        <div id="custombutton" class="sob btn btn-info" data-toggle="modal" data-target="#myModal">Info!</div>
+        <!-- modal window -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5>This is my first modal!</h5>
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure assumenda corporis pariatur expedita itaque quo saepe iste deserunt obcaecati tempore?
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button class="btn btn-success">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     <div class="field">
-        <%= form.collection_select :product_id, Product.all, :id, :product_name, {}, {class: "product-picker"} %>
+
+        <%= form.collection_select :product_id, Product.all, :id, :product_name, {}, {class: "product-picker form-control"} %>
     </div>
   
     <div class="field">
       <%= form.label _('Quantity') %>
-      <%= form.number_field :quantity %>
+      <%= form.number_field :quantity, class: "form-control" %>
     </div>
 
     <div class="field">
       <%= form.label _('Sale price') %>
-      <%= form.number_field :sale_price, class: "sale-price-field", :readonly => true %>
+      <%= form.number_field :sale_price, class: "sale-price-field form-control", :readonly => true %>
     </div>
 
     <div class="field">
       <%= form.label _('Subtotal') %>
-      <%= form.number_field :subtotal, :readonly => true %>
+      <%= form.number_field :subtotal, :readonly => true, class: "form-control" %>
     </div>
-    
-    <div>
-      <%= link_to _("Remove"), '#', class: "remove_fields" %>
+
+    <div class="field">
+      <%= form.hidden_field :_destroy %>
+      <%= link_to _("Remove"), '#', class: "remove_fields btn btn-danger" %>
     </div>
+    <hr>
   </div>
 
   

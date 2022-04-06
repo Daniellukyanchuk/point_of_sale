@@ -1,43 +1,54 @@
 <div class="nested-fields">
-    <%= form.hidden_field :_destroy %>
-    <h2><%= _('Add Product') %></h2>
+    
 
     <div class="field">
-        <%= form.collection_select :product_id, Product.all, :id, :product_name, {}, {class: "product-picker"} %>
+        <%= form.collection_select :product_id, Product.all, :id, :product_name, {}, {class: "product-picker form-control"} %>
     </div>
   
   <p>
-    <strong>Estimates:</strong>
+
+    <div class="field">
+      <h5>Estimates:</h5>
+    </div>
+    
     <div class="field">
       <%= form.label _('Quantity') %>
-      <%= form.number_field :estimated_quantity, class: "est_quantity" %>
+      <%= form.number_field :estimated_quantity, class: "est_quantity form-control" %>
     </div>
 
     <div class="field">
       <%= form.label _('Price per unit') %>
-      <%= form.number_field :estimated_price_per_unit, class: "sale-price-field est_price" %>
+      <%= form.number_field :estimated_price_per_unit, class: "sale-price-field est_price form-control" %>
     </div>  
 
     <div class="field">
       <%= form.label _('Subtotal') %>
-      <%= form.number_field :estimated_subtotal, class: "est_subtotal", :readonly => true %>
+      <%= form.number_field :estimated_subtotal, class: "est_subtotal form-control", :readonly => true %>
     </div>
  
   <p>
-    <strong>Actuals:</strong>
+    <div class="field">
+      <h5>Actuals:</h5>
+    </div>
+    
     <div class="field">
       <%= form.label _('Quantity') %>
-      <%= form.number_field :actual_quantity, class: "act_quantity" %>
+      <%= form.number_field :actual_quantity, class: "act_quantity form-control" %>
     </div>
 
     <div class="field">
       <%= form.label _('Price per unit') %>
-      <%= form.number_field :actual_price_per_unit, class: "sale-price-field act_price" %>
+      <%= form.number_field :actual_price_per_unit, class: "sale-price-field act_price form-control" %>
     </div>
 
     <div class="field">
       <%= form.label _('Subtotal') %>
-      <%= form.number_field :actual_subtotal, class: "act_subtotal", :readonly => true %>
+      <%= form.number_field :actual_subtotal, class: "act_subtotal form-control", :readonly => true %>
+    </div>
+
+    <div class="field">
+        <%= form.hidden_field :_destroy %>
+        <%= link_to _("Remove"), '#', class: "remove_fields btn btn-danger" %>
     </div>
 
     <% form.object.inventories.each do |inv| %>
@@ -45,8 +56,5 @@
     <% end %>
   </p>
   
-    <div>
-      <%= link_to _("Remove"), '#', class: "remove_fields" %>
-    </div>
 <hr>
 </div>

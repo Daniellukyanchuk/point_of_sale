@@ -15,7 +15,12 @@
 //= require turbolinks
 //= require_tree .
 
-
+function page_ready(){
+  $(".chosen-select").chosen({
+    no_results_text: "Oops, nothing found!"
+    })
+} 
+ 
 
 
 jQuery(function() {
@@ -24,7 +29,7 @@ jQuery(function() {
   
     $(document).off('click', 'form .remove_fields').on('click', 'form .remove_fields', function(event) {
       $(this).prev('input[type=hidden]').val('1');
-      $(this).closest('fieldsset').hide();
+      $(this).closest('.nested-fields').hide();
       return event.preventDefault();
     });
     $(document).off('click', 'form .add_fields').on('click', 'form .add_fields', function(event) {
@@ -50,6 +55,9 @@ $(function() {
   });
 });
 
+
+$(document).ready(page_ready);
+window.addEventListener('turbolinks:load', page_ready);
   
 
 
