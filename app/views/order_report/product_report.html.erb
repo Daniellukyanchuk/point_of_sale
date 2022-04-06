@@ -1,24 +1,25 @@
 <script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script>
 <link href="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.min.css" rel="stylesheet"/>
-
-<h1><%= _("Product's Report") %></h1>
-
-<%= form_tag product_report_path, :method => 'get' do %>
-    <p><%= _('Search for One') %>:
-      <%= text_field_tag :search, params[:search], placeholder: "ID, Name etc." %>
-       <%= _('Search for Multiple') %>:
-      <% options = Product.all.collect{ |u| [u.product_name, u.id] } %>
-        <% options = [["Select All", nil]] + options %>
-      <%= select_tag 'product_select[]', options_for_select(options, params[:product_select]), :multiple => :multiple, :class => "chosen-select"%>
-       <%= _('From') %>:
-        <% start_date_value = 1.month.ago.strftime("%d - %m - %Y") %>
-        <% end_date_value = Date.today.strftime("%d - %m - %Y") %>
-        <%= text_field_tag 'start_date', params[:start_date], :class => "datepicker", :autocomplete => "off" %>
-        <%= _('To') %>:
-        <%= text_field_tag 'end_date', params[:end_date], :class => "datepicker", :autocomplete => "off" %>
-        <%= submit_tag _("Search"), :name => nil %>        
-    </p>
-<% end %>
+  <div class="container ml-3">
+    <h1><%= _("Product's Report") %></h1>
+  
+    <%= form_tag product_report_path, :method => 'get' do %>
+        <p><%= _('Search for One') %>:
+          <%= text_field_tag :search, params[:search], placeholder: "ID, Name etc." %>
+           <%= _('Search for Multiple') %>:
+          <% options = Product.all.collect{ |u| [u.product_name, u.id] } %>
+            <% options = [["Select All", nil]] + options %>
+          <%= select_tag 'product_select[]', options_for_select(options, params[:product_select]), :multiple => :multiple, :class => "chosen-select"%>
+           <%= _('From') %>:
+            <% start_date_value = 1.month.ago.strftime("%d - %m - %Y") %>
+            <% end_date_value = Date.today.strftime("%d - %m - %Y") %>
+            <%= text_field_tag 'start_date', params[:start_date], :class => "datepicker", :autocomplete => "off" %>
+            <%= _('To') %>:
+            <%= text_field_tag 'end_date', params[:end_date], :class => "datepicker", :autocomplete => "off" %>
+            <%= submit_tag _("Search"), :name => nil, :class => "btn btn-outline-primary btn-sm" %>        
+        </p>
+    <% end %>
+  </div>
 
 <script>
     $( function() {
@@ -26,7 +27,7 @@
     } );
 </script>
 
-<table class="hoverTable">  
+<table class="table" style="width: 90%">  
   <thead>
     <tr class="active">
       <th><%= sortable "product_id", _("PRODUCT ID") %></th>

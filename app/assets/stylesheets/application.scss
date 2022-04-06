@@ -43,25 +43,26 @@
 .main-content {
   display: inline-block;
   vertical-align: top;
+  float: right;
 }
 
 .field {
     display: inline-block;
 }
 
-.hoverTable{
+.table{
   border-collapse: collapse;
-  width: 100%;
   margin: 40px;
 }
 
-.hoverTable th, td{
-  padding: 3px;
-  text-align: left;
+.table th, td{  
+  padding: 0.25rem;
   border-bottom: 1px solid #ddd;
+  border-top: 0;
+  box-sizing: 0;
 }
 
-.hoverTable tr:hover:not(.active){background-color: lightgrey;}
+.table tr:hover:not(.active){background-color: lightgrey;}
 
 .marginRight {
   margin: 40px;
@@ -70,6 +71,24 @@
 .marginLeftOnly {
   margin-left: 40px;
 }
+
+i {
+  font-size: 20px;
+}
+
+@media (max-width: 1200px) {
+  
+  nav#sidebarMenu {
+    position: absolute;
+    z-index: 3;
+  }
+
+}
+
+.hren {
+  right: 0;
+}
+
 
 
 

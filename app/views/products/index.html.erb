@@ -1,39 +1,44 @@
 <p id="notice"><%= notice %></p>
+<div class="container ml-3">
+  <h1><%= _('Products') %></h1>
 
-<h1><%= _('Products') %></h1>
   <%= form_tag products_path, :method => 'get' do %>
     <p>
       <%= text_field_tag :search, params[:search] %>
-      <%= submit_tag _("Search"), :name => nil %>
+      <%= submit_tag _("Search"), :name => nil, :class => "btn btn-outline-primary btn-sm" %>
     </p>
   <% end %>
-  <%= link_to _('New Product'), new_product_path, class: "marginLeftOnly text-light btn btn-primary btn-sm" %>
 
-<table class="hoverTable">
-  <thead>
-    <tr class="active">
-      <th><%= sortable "id", _("ID") %></th>
-      <th><%= sortable "product_name", _("NAME") %></th>
-      <th><%= sortable "price", _("PRICE") %></th>
-      <th><%= sortable "unit", _("UNIT") %></th>
-      <th colspan="4"></th>
-    </tr>
-  </thead>
+  <%= link_to _('New Product'), new_product_path, class: "text-light btn btn-primary btn-sm" %>
+</div>
+  
+    <table class="table" style="width: 90%">
+      <thead class="table-light">
+        <tr class="active">
+          <th scope="col"><%= sortable "id", _("ID") %></th>
+          <th scope="col"><%= sortable "product_name", _("NAME") %></th>
+          <th scope="col"><%= sortable "price", _("PRICE") %></th>
+          <th scope="col"><%= sortable "unit", _("UNIT") %></th>
+          <th colspan="4"></th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <% @products.each do |product| %>
-      <tr>
-        <td><%= product.id %></td>
-        <td><%= product.product_name %></td>
-        <td>&#8381 <%= product.price %></td>
-        <td><%= product.unit %></td>
-        <td><%= link_to _('Show'), product, class: "btn btn-outline-primary btn-sm" %></td>
-        <td><%= link_to _('Edit'), edit_product_path(product), class: "btn btn-outline-primary btn-sm" %></td>
-        <td><%= link_to _('Destroy'), product, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-primary btn-sm" %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <tbody>
+        <% @products.each do |product| %>
+          <tr>
+            <td><%= product.id %></td>
+            <td><%= product.product_name %></td>
+            <td>&#8381 <%= product.price %></td>
+            <td><%= product.unit %></td>
+            <td><%= link_to _('Show'), product, class: "btn btn-outline-primary btn-sm" %></td>
+            <td><%= link_to _('Edit'), edit_product_path(product), class: "btn btn-outline-primary btn-sm" %></td>
+            <td><%= link_to _('Destroy'), product, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-primary btn-sm" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  
+
 
 <br>
 

@@ -2,26 +2,28 @@
 <link href="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.min.css" rel="stylesheet"/>
 
 <p id="notice"><%= notice %></p>
-
-<h1><%= _('Purchases') %></h1>
-
-<%= form_tag purchases_path, :method => 'get' do %>
-  <p><%= _('Search for one') %>:
-    <%= text_field_tag :search, params[:search], placeholder: "ID, name etc." %>    
-    <%= _('Search for multiple') %>: 
-      <% options = Supplier.all.collect{ |u| [u.suppliers_name, u.id] } %>
-        <% options = [["Select All", nil]] + options %>
-      <%= select_tag 'supplier_select[]', options_for_select(options, params[:supplier_select]), :multiple => :multiple, :class => "chosen-select"%>      
-    <%= _('From') %>:
-      <% start_date_value = 1.month.ago.strftime("%d - %m - %Y") %>
-      <% end_date_value = Date.today.strftime("%d - %m - %Y") %>
-      <%= text_field_tag 'start_date', params[:start_date], :class => "datepicker", :autocomplete => "off" %>
-      <%= _('To') %>:
-      <%= text_field_tag 'end_date', params[:end_date], :class => "datepicker", :autocomplete => "off" %>
-      <%= submit_tag _("Search"), :name => nil %>
-  </p>
-<% end %>
-<%= link_to _('New Purchase'), new_purchase_path, class: "marginLeftOnly text-light btn btn-primary btn-sm" %>
+<div class="container ml-3">
+    <h1><%= _('Purchases') %></h1>
+  
+    <%= form_tag purchases_path, :method => 'get' do %>
+      <p><%= _('Search for one') %>:
+        <%= text_field_tag :search, params[:search], placeholder: "ID, name etc." %>    
+        <%= _('Search for multiple') %>: 
+          <% options = Supplier.all.collect{ |u| [u.suppliers_name, u.id] } %>
+            <% options = [["Select All", nil]] + options %>
+          <%= select_tag 'supplier_select[]', options_for_select(options, params[:supplier_select]), :multiple => :multiple, :class => "chosen-select"%>      
+        <%= _('From') %>:
+          <% start_date_value = 1.month.ago.strftime("%d - %m - %Y") %>
+          <% end_date_value = Date.today.strftime("%d - %m - %Y") %>
+          <%= text_field_tag 'start_date', params[:start_date], :class => "datepicker", :autocomplete => "off" %>
+          <%= _('To') %>:
+          <%= text_field_tag 'end_date', params[:end_date], :class => "datepicker", :autocomplete => "off" %>
+          <%= submit_tag _("Search"), :name => nil, :class => "btn btn-outline-primary btn-sm" %>
+      </p>
+    <% end %>
+  
+    <%= link_to _('New Purchase'), new_purchase_path, class: "text-light btn btn-primary btn-sm" %>
+</div>
 
 <script>
     $( function() {
@@ -29,7 +31,7 @@
     } );
 </script>  
 
-<table class="hoverTable">
+<table class="table" style="width: 90%">
   <thead>
     <tr class="active">
       <th><%= sortable "id", _("ID") %></th>

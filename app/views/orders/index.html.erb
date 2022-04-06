@@ -1,11 +1,10 @@
 <script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script>
 <link href="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.min.css" rel="stylesheet"/>
 
-<div class="container">
   <p id="notice"><%= notice %></p>
-
-  <h1><%= _('Orders') %></h1>
-    
+<div class="container ml-3">
+    <h1><%= _('Orders') %></h1>
+  
     <%= form_tag orders_path, :method => 'get' do %>
       <p><%= _('Search for One:') %>
         <%= text_field_tag :search, params[:search], placeholder: "ID, name etc." %>
@@ -19,10 +18,12 @@
         <%= text_field_tag 'start_date', params[:start_date], :class => "datepicker", :autocomplete => "off" %>
         <%= _('To:') %>
         <%= text_field_tag 'end_date', params[:end_date], :class => "datepicker", :autocomplete => "off" %>
-        <%= submit_tag _("Search"), :name => nil %>
+        <%= submit_tag _("Search"), :name => nil, :class => "btn btn-outline-primary btn-sm" %>
       </p>
     <% end %>
-    <%= link_to _('New Order'), new_order_path, class: "marginLeftOnly text-light btn fa-solid fa-plus btn-primary btn-sm" %>
+  
+    <%= link_to _('New Order'), new_order_path, class: "text-light btn fa-solid fa-plus btn-primary btn-sm" %>
+</div>
 
   <script>
       $( function() {
@@ -30,7 +31,7 @@
       } );
   </script>  
 
-  <table class="hoverTable">
+  <table class="table px-0" style="width: 90%">
     <thead>
       <tr class="active">
         <th><%= sortable "id", _("ID")%></th>

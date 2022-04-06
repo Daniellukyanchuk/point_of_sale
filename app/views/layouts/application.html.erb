@@ -6,35 +6,7 @@
     <%= csp_meta_tag %>
     
       
-        <div class="vertical-menu">
-          <div class="marginLeftOnly">
-            <% my_logo = Setting.first %>
-            <% if !my_logo.nil? %>
-              <% if my_logo.logo.attached? %>
-                <image src="<%=(url_for(my_logo.logo))%>" width="100" height="100">
-              <% end %>
-            <% else %>
-              <%= image_tag 'http://divisqueeze.com/wp-content/uploads/2017/03/YourLogoHere.png' %>
-            <% end %>
-          </div>
-          <a class="active">Menu</a>
-          <a href="<%= orders_path %>"><i class="fa-solid fa-basket-shopping"></i> <%= _('Orders') %></a>
-          <a href="<%= clients_path %>"><i class="fa-solid fa-user-tie"></i> <%= _('Clients') %></a>
-          <a href="<%= products_path %>"><i class="fa-brands fa-product-hunt"></i> <%= _("Products") %></a>
-          <a href="<%= purchases_path %>"><i class="fa-solid fa-cart-shopping"></i> <%= _('Purchases') %></a>
-          <a href="<%= suppliers_path %>"><i class="fa-solid fa-truck-field"></i> <%= _('Suppliers') %></a>
-          <a href="<%= inventories_path %>"><i class="fa-solid fa-warehouse"></i> <%= _('Inventories') %></a>
-          <a href="<%= recipes_path %>"><i class="fa-solid fa-book-skull"></i> <%= _('Recipes') %></a>
-          <a href="<%= productions_path %>"><i class="fa-solid fa-bread-slice"></i> <%= _('Productions') %></a>
-          <a href="<%= client_report_path %>"><i class="fa-solid fa-chart-column"></i> <%= _('Clients Report') %></a>
-          <a href="<%= product_report_path %>"><i class="fa-solid fa-chart-column"></i> <%= _('Products Report') %></a>
-          <a href="<%= settings_path %>/1/edit"><i class="fa-solid fa-bars"></i> <%= _('Settings') %></a>
-          <div>
-            <i class="fa-solid fa-earth-europe"></i>
-            <a href="http://localhost:3000/en/orders">en</a>
-            <a href="http://localhost:3000/ru/orders">ru</a>
-          </div>
-        </div>
+        
        
         <!-- Bootstraps cdn -->
         <!-- CSS -->
@@ -64,11 +36,123 @@
 
 
 
-      <body data-no-turbolink="true">
-        <div class="main-content">
-          <%= yield %>
-        </div>
+      <body data-no-turbolink="true" class="m-0">
+
+          <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+            <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3 justify-content-end ml-sm-5" href="#">Polar Bear</a>
+            <button class="navbar-toggler position-absolute d-xl-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="hren mr-5 position-absolute">
+              <a class="text-white" href="http://localhost:3000/en/orders">en</a> <span class="text-white">|</span>
+              <a class="text-white" href="http://localhost:3000/ru/orders">ru</a>
+            </div> 
+          </nav>
+        
+          <div class="container-fluid">
+            <div class="row">
+              <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-xl-block bg-light sidebar collapse">
+                <div class="sidebar-sticky pt-3">
+                  <ul class="nav flex-column">
+                    <li class="nav-item">
+                      <a class="nav-link active" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                        Dashboard <span class="sr-only">(current)</span>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="<%= orders_path %>">
+                        <i class="fa-solid fa-basket-shopping"></i> <%= _('Orders') %>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="<%= products_path %>">
+                        <i class="fa-brands fa-product-hunt"></i> <%= _('Products') %>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="<%= clients_path %>">
+                        <i class="fa-solid fa-user-tie"></i> <%= _('Clients') %>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="<%= purchases_path %>">
+                        <i class="fa-solid fa-cart-shopping"></i> <%= _('Purchases') %>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="<%= suppliers_path %>">
+                        <i class="fa-solid fa-truck-field"></i> <%= _('Suppliers') %>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="<%= inventories_path %>">
+                        <i class="fa-solid fa-warehouse"></i> <%= _('Inventories') %>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="<%= recipes_path %>">
+                        <i class="fa-solid fa-book-skull"></i> <%= _('Recipes') %>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="<%= productions_path %>">
+                        <i class="fa-solid fa-bread-slice"></i> <%= _('Productions') %>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="<%= settings_path %>/1/edit">
+                        <i class="fa-solid fa-bars"></i> <%= _('Settings') %>
+                      </a>
+                    </li>
+                  </ul>
+
+                  <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                    <span>Saved reports</span>
+                    <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+                    </a>
+                  </h6>
+                  <ul class="nav flex-column mb-2">
+                    <li class="nav-item">
+                      <a class="nav-link" href="<%= client_report_path %>">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                        Client's
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="<%= product_report_path %>">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                        Product's
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                        Social engagement
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                        Year-end sale
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
+              <div class="main-content col-10 p-0">
+                <%= yield %>
+              </div>
+            </div>
+          </div>
+
+          
+            
+          
       </body>
+
+
     
 </html>
 
