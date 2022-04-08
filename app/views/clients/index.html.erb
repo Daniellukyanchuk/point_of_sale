@@ -5,18 +5,24 @@
 
   <%= form_tag clients_path, :method => 'get' do %>
     <p>
-      <%= text_field_tag :search, params[:search] %>
-      <%= submit_tag _("Search"), :name => nil, :class => "btn btn-outline-primary btn-sm" %>
+      <div class="field">
+        <%= text_field_tag :search, params[:search], class: "form-control" %>
+      </div>
+      <%= submit_tag _("Search"), :name => nil, :class => "searchtag btn btn-outline-primary btn-md" %>
+      
+      <h2 class="mt-5">Import Clients</h2>
+      <%= link_to 'Upload from Excel', new_clients_import_path, class: "text-light btn btn-secondary" %>
+      <%= link_to 'Download as Excel', clients_path(format: :xlsx), class: "text-light btn btn-secondary" %>
+      <%= link_to _('New Client'), new_client_path, class: "text-light btn btn-primary" %>
     </p>
   <% end %>
 
-  <%= link_to _('New Client'), new_client_path, class: "text-light btn btn-primary btn-sm" %>
+  
 
 
-  <h2 class="marginLeftOnly">Import Clients</h2>
+  
 
-  <%= link_to 'Upload from Excel', new_clients_import_path, class: "text-light btn btn-secondary btn-sm" %>
-  <%= link_to 'Download as Excel', clients_path(format: :xlsx), class: "text-light btn btn-secondary btn-sm" %>
+    
 </div>
 
   

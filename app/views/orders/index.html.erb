@@ -5,23 +5,36 @@
     <h1><%= _('Orders') %></h1>
   
     <%= form_tag orders_path, :method => 'get' do %>
-      <p><%= _('Search for One:') %>
-        <%= text_field_tag :search, params[:search], placeholder: "ID, name etc." %>
-         <%= _('Search for Multiple:') %>
-        <% options = Client.all.collect{ |u| [u.name, u.id] } %>
-          <% options = [["Select All", nil]] + options %>
-        <%= select_tag 'client_select[]', options_for_select(options, params[:client_select]), :multiple => :multiple, :class => "chosen-select"%> 
-         <%= _('From:') %>
-        <% start_date_value = 1.month.ago.strftime("%d - %m - %Y") %>
-        <% end_date_value = Date.today.strftime("%d - %m - %Y") %>
-        <%= text_field_tag 'start_date', params[:start_date], :class => "datepicker", :autocomplete => "off" %>
-        <%= _('To:') %>
-        <%= text_field_tag 'end_date', params[:end_date], :class => "datepicker", :autocomplete => "off" %>
-        <%= submit_tag _("Search"), :name => nil, :class => "btn btn-outline-primary btn-sm" %>
-      </p>
+      <div>
+        <div class="field">
+            <%= text_field_tag :search, params[:search], placeholder: "ID, name etc.", class: "form-control" %>
+        </div>
+
+        <div class="field">
+            <% options = Client.all.collect{ |u| [u.name, u.id] } %>
+              <% options = [["Select All", nil]] + options %>
+            <%= select_tag 'client_select[]', options_for_select(options, params[:client_select]), :multiple => :multiple, :class => "chosen-select"%> 
+        </div>
+
+             <%= _('From:') %>
+        <div class="field">
+            <% start_date_value = 1.month.ago.strftime("%d - %m - %Y") %>
+            <% end_date_value = Date.today.strftime("%d - %m - %Y") %>
+            <%= text_field_tag 'start_date', params[:start_date], :class => "datepicker form-control", :autocomplete => "off" %>
+        </div>
+            <%= _('To:') %>
+        <div class="field">
+            <%= text_field_tag 'end_date', params[:end_date], :class => "datepicker form-control", :autocomplete => "off" %>
+        </div>
+
+        <div class="field mb-3">
+            <%= submit_tag _("Search"), :name => nil, :class => "searchtag btn btn-outline-primary" %>
+        </div>
+        
+      </div>
     <% end %>
   
-    <%= link_to _('New Order'), new_order_path, class: "text-light btn fa-solid fa-plus btn-primary btn-sm" %>
+    <%= link_to _('New Order'), new_order_path, class: "text-light btn fa-solid fa-plus btn-primary" %>
 </div>
 
   <script>

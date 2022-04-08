@@ -4,12 +4,15 @@
 
   <%= form_tag products_path, :method => 'get' do %>
     <p>
-      <%= text_field_tag :search, params[:search] %>
-      <%= submit_tag _("Search"), :name => nil, :class => "btn btn-outline-primary btn-sm" %>
+      <div class="field">
+        <%= text_field_tag :search, params[:search], class: "form-control" %>
+      </div>
+        <%= submit_tag _("Search"), :name => nil, :class => "searchtag btn btn-outline-primary" %>
+
     </p>
   <% end %>
 
-  <%= link_to _('New Product'), new_product_path, class: "text-light btn btn-primary btn-sm" %>
+  <%= link_to _('New Product'), new_product_path, class: "text-light btn btn-primary" %>
 </div>
   
     <table class="table" style="width: 90%">

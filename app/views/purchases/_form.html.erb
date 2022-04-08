@@ -11,16 +11,19 @@
           </ul>
         </div>
       <% end %>
-
-      <%= form.collection_select :supplier_id, Supplier.all, :id, :suppliers_name %>
+      <div class="field">
+        <%= form.collection_select :supplier_id, Supplier.all, :id, :suppliers_name, {}, {:class => "form-control"} %>
+      </div>
 
       <hr>
      
       <%= form.fields_for :purchase_products do |builder| %>
           <%= render 'purchase_product_fields', form: builder %>
       <% end %>
-
-      <%= link_to_add_fields _("Add Product"), form, :purchase_products %>
+      
+      <div class="mb-3">
+        <%= link_to_add_fields _("Add Product"), form, :purchase_products %>
+      </div>
 
       <div class="field">
         <%= form.label _('Date of the order') %>
@@ -47,7 +50,7 @@
       </div>
 
       <form action="/html/tags/html_form_tag_action.cfm" method="post">
-        <textarea name="comments" id="comments" style="width:20%;height:90px;background-color:lightgrey;color:slategrey;border:groove;padding:2%;font:22px/30px sans-serif;">
+        <textarea class="form-control">
         </textarea>
       </form>
     </script>

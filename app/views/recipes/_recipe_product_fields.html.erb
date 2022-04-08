@@ -1,10 +1,10 @@
 <div class="nested-fields">
     
-    <h2><%= _('Add Ingredient') %></h2>
-  <p>
+  
     <div class="field">
-        <%= form.collection_select :product_id, Product.all, :id, :product_name %>
+        <%= form.collection_select :product_id, Product.all, :id, :product_name, {}, {:class => "form-control"} %>
     </div>
+  <p>
     <div class="field">
       <%= form.label _('Product amount') %>
       <%= form.text_field :product_amount, :class => "form-control" %>
@@ -19,7 +19,7 @@
     </div>
     <div class="field">
       <%= form.hidden_field :_destroy %>
-      <%= link_to _("Remove"), '#', class: "remove_fields btn btn-sm btn-danger" %>
+      <%= link_to _("Remove"), '#', class: "remove_fields btn btn-danger" %>
     </div>
   </p> 
     

@@ -11,15 +11,18 @@
           </ul>
         </div>
       <% end %>
-
-      <%= form.collection_select :client_id, Client.all, :id, :name %>
+      <div class="field">
+        <%= form.collection_select :client_id, Client.all, :id, :name, {}, {:class => "form-control"} %>
+      </div>
       <hr>
      
       <%= form.fields_for :order_products do |builder| %>
           <%= render 'order_product_fields', form: builder %>
       <% end %>
 
-      <%= link_to_add_fields _("Add Product"), form, :order_products %>
+      <div class="mb-3">
+        <%= link_to_add_fields _("Add Product"), form, :order_products %>
+      </div>
 
       <div class="field">
         <%= form.label _('Grand total') %>

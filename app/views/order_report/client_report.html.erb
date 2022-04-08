@@ -4,13 +4,14 @@
     <h1><%= _("Client's Report") %></h1>
 
     <%= form_tag client_report_path, :method => 'get' do %>
-        <p><%= _('Search for One') %>:   
-          <%= text_field_tag :search, params[:search], placeholder: "ID, name etc." %>
-           <%= _('Search for Multiple') %>:
+        <p> 
+        <div class="field"> 
+          <%= text_field_tag :search, params[:search], placeholder: "ID, name etc.", class: "form-control" %>
+        </div>
           <% options = Client.all.collect{ |u| [u.name, u.id] } %>
             <% options = [["Select All", nil]] + options %>
           <%= select_tag 'client_select[]', options_for_select(options, params[:client_select]), :multiple => :multiple, :class => "chosen-select"%>
-          <%= submit_tag _("Search"), :name => nil, :class => "btn btn-outline-primary btn-sm" %>
+          <%= submit_tag _("Search"), :name => nil, :class => "btn btn-outline-primary" %>
         </p>
     <% end %>
 </div>
