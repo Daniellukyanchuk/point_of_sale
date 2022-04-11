@@ -14,8 +14,10 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <h6>Current amount in the inventory: </h6>
-
+                      <div class="field">
+                        <label for="current_inventory" class=" h6">Current amount in the inventory:</label>
+                        <input id="current_inventory" class="current_amount_field form-control" readonly>
+                      </div>
                     </div>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -51,6 +53,25 @@
     </p>
     <hr>
   </div>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+          function updateSelectedAmount(){
+            $.ajax({ 
+                url: "/inventories/current_amount_left",
+                data: { id: $(this).val()  },
+                type: "GET",
+                success: function(data){
+                    $('.current_amount_field').val(data['current_amount_left']);
+                }
+            });
+          }
+
+          $(document).on('change', '.product-picker', updateSelectedAmount);
+          $(".product-picker").each(updateSelectedAmount);
+        });
+    </script>
 
   
 

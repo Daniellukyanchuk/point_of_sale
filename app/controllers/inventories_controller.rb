@@ -23,6 +23,13 @@ class InventoriesController < ApplicationController
   # GET /inventories/1/edit
   def edit
   end
+  
+  def get_product_amount_info
+    
+    inventory_product_amount = Inventory.where(product_id: params[:id]).sum(&:current_amount_left) 
+   
+    render json: {current_amount_left: inventory_product_amount }
+  end
 
   # POST /inventories or /inventories.json
   def create

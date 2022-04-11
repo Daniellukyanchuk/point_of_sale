@@ -1,6 +1,7 @@
 <script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script>
 <link href="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.min.css" rel="stylesheet"/>
-<div class="container ml-3">
+<div class="jumbomax container jumbotron m-0 p-0">
+  <div class="ml-4">
     <h1><%= _("Client's Report") %></h1>
 
     <%= form_tag client_report_path, :method => 'get' do %>
@@ -14,6 +15,8 @@
           <%= submit_tag _("Search"), :name => nil, :class => "btn btn-outline-primary" %>
         </p>
     <% end %>
+  </div>
+    <hr>
 </div>
 
 <table class="table" style="width: 90%">

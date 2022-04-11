@@ -8,7 +8,11 @@ Rails.application.routes.draw do
     resources :productions
     resources :suppliers
     resources :my_models
+    
+    get '/inventories/current_amount_left', to: 'inventories#get_product_amount_info'
+
     resources :inventories
+
     get 'order_report/client_report', to:'order_report#client_report', as: :client_report
     get 'order_report/product_report', to: 'order_report#product_report', as: :product_report
     resources :orders
