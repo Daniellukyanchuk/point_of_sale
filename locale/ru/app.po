@@ -37,7 +37,7 @@ msgid "+ New Production Order"
 msgstr "+ Новый производственный заказ"
 
 msgid "+ New Purchase Order"
-msgstr "+ Новый заказ на покупку"
+msgstr "+ Новый заказ на зокупку"
 
 msgid "+ New Recipe"
 msgstr "+ новый рецепт"
@@ -55,25 +55,25 @@ msgid "AND"
 msgstr "и"
 
 msgid "Actual CPU"
-msgstr "фактическая стоимость за единицу"
+msgstr "факт. стоимость за единицу"
 
 msgid "Actual Order"
-msgstr "фактический заказ"
+msgstr "факт. заказ"
 
 msgid "Actual Quantity"
-msgstr "фактическое количество"
+msgstr "факт. <br> кол-во"
 
 msgid "Actual Subtotal"
-msgstr "фактическая промежуточная сумма"
+msgstr "факт. пром. сумма"
 
 msgid "Actual cost"
-msgstr "фактическая стоимость за единицу"
+msgstr "факт. стоимость за единицу"
 
 msgid "Actual quantity"
-msgstr "фактическое количество"
+msgstr "факт. кол-тво"
 
 msgid "Actual total:"
-msgstr "фактический итог"
+msgstr "факт. итог"
 
 msgid "Add Ingredient"
 msgstr "добавить ингредиента"
@@ -124,7 +124,7 @@ msgid "Client Name"
 msgstr "ФИО клиента"
 
 msgid "Client Purchase Report"
-msgstr "отчет о покупки клиентах"
+msgstr "отчет о закупки клиентах"
 
 msgid "Client Report"
 msgstr "отчёт клиентов"
@@ -175,7 +175,7 @@ msgid "Create Production"
 msgstr "создать производство"
 
 msgid "Create Purchase"
-msgstr "создать покупку"
+msgstr "создать закупку"
 
 msgid "Create Recipe"
 msgstr "создать рецепта"
@@ -214,7 +214,7 @@ msgid "Editing Production"
 msgstr "редактирование производства"
 
 msgid "Editing Purchase Order"
-msgstr "редактирование заказа на покупки"
+msgstr "редактирование заказа на закупки"
 
 msgid "Editing Recipe"
 msgstr "редактирование рецепта"
@@ -226,37 +226,37 @@ msgid "Estimate"
 msgstr "оценка"
 
 msgid "Estimated CPU"
-msgstr "ориентировочная стоимость за единицу"
+msgstr "ор. стоимость за единицу"
 
 msgid "Estimated Quantity"
-msgstr "приблизительное количество"
+msgstr "приблиз. кол-во"
 
 msgid "Estimated Subtotal"
-msgstr "приблизительный промежуточный итог"
+msgstr "приблиз. пром. итог"
 
 msgid "Estimated cost"
-msgstr "ориентировочная стоимость"
+msgstr "ор. стоимость"
 
 msgid "Estimated quantity"
-msgstr "приблизительное количество"
+msgstr "приблиз. <br> кол-во"
 
 msgid "Estimated subtotal"
-msgstr "приблизительный промежуточный итог"
+msgstr "приблиз. пром. итог"
 
 msgid "Estimated total:"
-msgstr "приблизительный итог"
+msgstr "приблиз. итог"
 
 msgid "Expected Arrival"
-msgstr "ожидаемая дата прибытия"
+msgstr "ожид. дата прибытия"
 
 msgid "Expected delivery"
-msgstr "ожидаемая дата доставки"
+msgstr "ожид. дата доставки"
 
 msgid "Files must be one of the following formats: xls or xlsx"
 msgstr "Файлы должны быть одного из следующих форматов: xls. или .xlsx"
 
 msgid "Go to P.O."
-msgstr "переидти на пакупку"
+msgstr "переидти на закупку"
 
 msgid "Grams per Unit:"
 msgstr "грамм на единицу:"
@@ -307,13 +307,13 @@ msgid "Inventory Report"
 msgstr "отчёт инвентара"
 
 msgid "Inventory Value"
-msgstr "инвентарь"
+msgstr "стоймость инвентара"
 
 msgid "Inventory|Cost per unit"
 msgstr "цена за единицу"
 
 msgid "Inventory|Remaining quantity"
-msgstr "оставшееся количество"
+msgstr "оставшееся кол-во"
 
 msgid "Name"
 msgstr "Имя"
@@ -337,7 +337,7 @@ msgid "New Production Order"
 msgstr "новый производственный заказ"
 
 msgid "New Purchase Order"
-msgstr "Новый заказ на покупку"
+msgstr "Новый заказ на закупку"
 
 msgid "New Recipe"
 msgstr "новый рецепт"
@@ -352,7 +352,7 @@ msgid "Order Date"
 msgstr "дата заказа"
 
 msgid "Order History"
-msgstr "История заказов"
+msgstr "история заказов"
 
 msgid "Order Id"
 msgstr "ID заказа"
@@ -481,19 +481,19 @@ msgid "Product|Unit"
 msgstr "единица"
 
 msgid "Purchase"
-msgstr "Покупка"
+msgstr "закупка"
 
 msgid "Purchase Id"
-msgstr "ID покупки"
+msgstr "ID закупки"
 
 msgid "Purchase Id:"
-msgstr "ID покупки:"
+msgstr "ID закупки:"
 
 msgid "Purchase Order Id"
-msgstr "ID заказа на покупку"
+msgstr "ID заказа на закупку"
 
 msgid "Purchase Order Id:"
-msgstr "ID заказа на покупку:"
+msgstr "ID заказа на закупку:"
 
 msgid "Purchase Order Product Id:"
 msgstr "ID продукт заказа на поставку"
@@ -502,19 +502,19 @@ msgid "Purchase Report"
 msgstr "отчет о закупках"
 
 msgid "Purchase Total"
-msgstr "итог покупки"
+msgstr "итог закупки"
 
 msgid "Purchase price"
 msgstr "закупочная цена"
 
 msgid "Purchase product"
-msgstr "продукт покупки"
+msgstr "продукт закупки"
 
 msgid "PurchaseProduct|Estimated cost"
 msgstr "ориентировочная стоимость"
 
 msgid "PurchaseProduct|Estimated quantity"
-msgstr "расчетное количество"
+msgstr "расчетное кол-во"
 
 msgid "PurchaseProduct|Estimated subtotal"
 msgstr "расчетный промежуточный итог"
@@ -523,13 +523,13 @@ msgid "PurchaseProduct|Purchase price"
 msgstr "закупочная цена"
 
 msgid "PurchaseProduct|Purchase quantity"
-msgstr "количество покупки"
+msgstr "кол-во закупки"
 
 msgid "PurchaseProduct|Purchase subtotal"
-msgstr "промежуточный итог покупки"
+msgstr "промежуточный итог закупки"
 
 msgid "Purchases"
-msgstr "покупок"
+msgstr "закупок"
 
 msgid "Purchase|Date expected"
 msgstr "дата ожидаемой доставки"
@@ -544,7 +544,7 @@ msgid "Purchase|Estimated total"
 msgstr "расчетная сумма"
 
 msgid "Purchase|Purchase total"
-msgstr "итог покупки"
+msgstr "итог закупки"
 
 msgid "Purchasing Report"
 msgstr "отчет о закупках"

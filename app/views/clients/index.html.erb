@@ -22,11 +22,11 @@
 <table>
   <thead>
     <tr>
-    <th><%= sortable "name", _("Name") %></th>
-    <th><%= sortable "phone", _("Phone") %></th>
-    <th><%= sortable "address", _("Address") %></th>
-    <th><%= sortable "city", _("City") %></th>
-      <th colspan="4"></th>
+    <th class="col-3 px-0"><%= sortable "name", _("Name") %></th>
+    <th class="col-3 px-0"><%= sortable "phone", _("Phone") %></th>
+    <th class="col-2 px-0"><%= sortable "address", _("Address") %></th>
+    <th class="col-2 px-0"><%= sortable "city", _("City") %></th>
+    <th class="col-2"></th>
     </tr>
   </thead>
 
@@ -37,9 +37,11 @@
         <td><%= client.phone %></td>
         <td><%= client.address %></td>
         <td><%= client.city %></td>
-        <td><%= link_to '<i class="fa-solid fa-eye"></i>'.html_safe, client, class: "text-primary" %></td>
-        <td><%= link_to '<i class="fa-solid fa-pencil"></i>'.html_safe, edit_client_path(client), class: "text-secondary" %></td>
-        <td><%= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, client, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-danger" %></td>
+        <td>
+          <%= link_to '<i class="fa-solid fa-eye"></i>'.html_safe, client, class: "text-primary m-2" %>
+          <%= link_to '<i class="fa-solid fa-pencil"></i>'.html_safe, edit_client_path(client), class: "text-secondary m-2" %>
+          <%= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, client, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-danger m-2" %>
+        </td>
       </tr>
     <% end %>
   </tbody>

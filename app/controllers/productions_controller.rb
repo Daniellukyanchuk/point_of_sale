@@ -1,7 +1,7 @@
 class ProductionsController < ApplicationController
   before_action :set_production, only: %i[ show edit update destroy ]
   
-
+  
 
 
   # GET /productions or /productions.json

@@ -3,7 +3,6 @@ class InventoriesController < ApplicationController
 
   # GET /inventories or /inventories.json
   def index
-    # stop
     @inventories = Inventory.all.order("id desc")
   end
 

@@ -34,4 +34,7 @@ class Production < ApplicationRecord
 		end
 			Inventory.add_inventory(id, self.recipe.product_id, production_yield.to_f, production_total_cost)
 	end
+
+	
+
  end

@@ -62,13 +62,17 @@ th {
 td {
     padding: 6px 2px;
     line-height: 20px;
+    
 }
 
 th, td {
     padding-right: 1rem;
 }
 
-
+.keyword {
+    min-height: 44px;
+    font-size: .9rem;
+}
 
 label {
     font-size: 11px;
@@ -310,7 +314,7 @@ a.text-light:focus, a.text-light:hover {
 }
 
 a.text-dark:focus, a.text-dark:hover {
-    color: #2a2a2a !important;
+    color: #000 !important;
     background: #0000001c;
     text-decoration: none;
 }

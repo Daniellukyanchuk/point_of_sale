@@ -7,43 +7,44 @@
 
 <%# keyword and product-selector %>
 
-<div class="w-100 d-inline-block mb-5">
-  <div class="d-inline-flex w-50 px-0 mb-4 h-auto">
-    <div class="col-3 px-0">
-      <%= form_tag reports_inventory_report_path, :method => 'get', :class => "form-group" do %>  
-      <%= text_field_tag :search, params[:search], :placeholder => _("enter keyword(s)"), :class => "form-control" %> 
-      
-    </div>      
-      <div class="col pr-0">      
-        <% options = Product.all.collect{ |p| [p.product_name, p.id] } %>
-        <% options = [["Show All", nil]] + options %>
-        <%= select_tag 'product_select[]', options_for_select(options, params[:product_select]), :multiple => :multiple, :size => 10, :id => "choices-multiple-remove-button", :placeholder => "select products" %>    
-      </div>
-  </div>
 
-  <div class="w-50 d-inline-flex pl-0 mb-4" style="height: 2.5rem;">
-    <div class="input-group-prepend input-group rounded-left">
-
-      <span class="input-group-text justify-content-center col">
-        <%= _("from:") %> <input type="text" class="datepicker pl-2" id="from" name="from_date" 
-                autocomplete = 'off' value = "<%= params[:from_date] %>">
-      </span>
-
-      <span class="input-group-text justify-content-center col">
-        <%= _("to:") %> <input type="text" class="datepicker pl-2" id="to" name="to_date" 
-                autocomplete = 'off' value = "<%= params[:to_date] %>">
-      </span>
-
-      <div class="input-group-append">
-        <%= button_tag(type: "submit", class: "btn btn-warning") do %>
-        <%= _("Search") %> <i class="fa-solid fa-magnifying-glass"></i>
-        <% end %>
-      </div>
+<%= form_tag reports_inventory_report_path, :method => 'get', :class => "form-group" do %>  
+  <div class="w-100 d-inline-block mb-5">
+    <div class="d-inline-flex w-50 px-0 mb-4 h-auto">
+      <div class="col-3 px-0">
+        <%= text_field_tag :search, params[:search], :placeholder => _("enter keyword(s)"), :class => "form-control pl-2 pr-0 keyword" %>         
+      </div>      
+        <div class="col pr-0">      
+          <% options = Product.all.collect{ |p| [p.product_name, p.id] } %>
+          <% options = [["Show All", nil]] + options %>
+          <%= select_tag 'product_select[]', options_for_select(options, params[:product_select]), :multiple => :multiple, :size => 10, :id => "choices-multiple-remove-button", :placeholder => _("select products") %>    
+        </div>
     </div>
-    
-    <% end %>
+
+    <div class="w-50 d-inline-flex pl-0 mb-4" style="height: 2.5rem;">
+      <div class="input-group-prepend input-group rounded-left">
+
+        <span class="input-group-text justify-content-center col">
+          <%= _("from:") %> <input type="text" class="datepicker pl-2" id="from" name="from_date" 
+                  autocomplete = 'off' value = "<%= params[:from_date] %>">
+        </span>
+
+        <span class="input-group-text justify-content-center col">
+          <%= _("to:") %> <input type="text" class="datepicker pl-2" id="to" name="to_date" 
+                  autocomplete = 'off' value = "<%= params[:to_date] %>">
+        </span>
+
+        <div class="input-group-append">
+          <%= button_tag(type: "submit", class: "btn btn-warning") do %>
+            <%= _("Search") %> <i class="fa-solid fa-magnifying-glass"></i>
+          <% end %>
+        </div>
+      </div>
+      
+      
+    </div>
   </div>
-</div>
+<% end %>
 
 <table>
   <thead>

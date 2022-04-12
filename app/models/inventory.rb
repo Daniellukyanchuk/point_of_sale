@@ -109,9 +109,9 @@ class Inventory < ApplicationRecord
       end 
   end
 
-  def set_cost_per_unit
+  def set_cost_per_unit    
     if
-      production_id.blank? && !purchase_id.blank?
+      production_id.blank? && !purchase_product_id.blank?
       self.cost_per_unit = purchase_product.purchase_price
     end
 

@@ -3,11 +3,16 @@ class RecipesController < ApplicationController
   before_action :set_recipe, only: %i[ show edit update destroy ]
 
   def get_production_info
-     @recipe_cost = Recipe.get_recipe_cost(params[:id].to_i).first
+      @recipe_cost = Recipe.get_recipe_cost(params[:id].to_i).first
       render json: {recipe_cost: @recipe_cost["usage_cost"], units: @recipe_cost["units"], yield: @recipe_cost["yield"], 
       product_id: @recipe_cost["product_id"] }
-  end
+  end 
   
+  #get ingredient amounts for modal in "create new production"
+  def get_usage_info 
+    @usage_info = Recipe.get_usage_info(params[:id].to_i).first
+    render json: {product_name: @usage_info["product_name"], usage_amount: @usage_info["usage_amount_kg"] }
+  end
 
   # GET /recipes or /recipes.json
   def index

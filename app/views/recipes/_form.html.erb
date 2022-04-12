@@ -73,7 +73,7 @@ $(document).ready(function() {
   function updateIngredientInfo(){
               var self = this;
               $.ajax({ 
-                  url: "/recipe_products/recipe_info",
+                  url: "<%= products_get_recipe_info_path %>",
                   data: { id: $(this).val() },
                   type: "GET",
                   success: function(data) {
@@ -85,7 +85,7 @@ $(document).ready(function() {
   function loadIngredientInfo(){
               var self = this;
               $.ajax({ 
-                  url: "/recipe_products/recipe_info",
+                  url: "<%= products_get_recipe_info_path %>",
                   data: { id: $(this).val() },
                   type: "GET",
                   success: function(data) {
@@ -96,7 +96,7 @@ $(document).ready(function() {
 
     function getUnit() {
                 $.ajax({ 
-                  url: "/recipe/unit",
+                  url: "<%= products_get_unit_path %>",
                   data: { id: $(this).val() },
                   type: "GET",
                   success: function(data) {

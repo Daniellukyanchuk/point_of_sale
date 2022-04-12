@@ -12,24 +12,24 @@
       <th class="col-2"><%= _('Recipe Name') %></th>
       <th class="col-1"><%= _('Product Id') %></th>
       <th class="col-2"><%= _('Product Name') %></th>
-      <th class="col-2 align_right"><%= _('Recipe cost') %></th>
+      <th class="col-1 align_right"><%= _('Recipe cost') %></th>
       <th class="col-1 align_right"><%= _('Yield') %></th>
-      <th class="col-2"><%= _('Instructions') %></th>
-      <th colspan="7"></th>
+      <th class="col-3"><%= _('Instructions') %></th>
+      <th class="col-1"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @recipes.each do |recipe| %>
       <tr>
-        <td class="col-1"><%= recipe.id %></td>
-        <td class="col-2"><%= recipe.recipe_name %></td>
-        <td class="col-1"><%= recipe.product_id %></td>
-        <td class="col-2"><%= recipe.product.product_name %></td>
-        <td class="col-2 align_right"><%= number_with_precision(recipe.recipe_cost, :precision => 2) %></td>
-        <td class="col-1 align_right"><%= recipe.yield %></td>
-        <td class="col-2"><%= recipe.instructions %></td>
-        <td class="col-1">
+        <td><%= recipe.id %></td>
+        <td><%= recipe.recipe_name %></td>
+        <td><%= recipe.product_id %></td>
+        <td><%= recipe.product.product_name %></td>
+        <td class="align_right"><%= number_with_precision(recipe.recipe_cost, :precision => 2) %></td>
+        <td class="align_right"><%= recipe.yield %></td>
+        <td><%= recipe.instructions %></td>
+        <td>
           <%= link_to '<i class="fa-solid fa-eye"></i>'.html_safe, recipe, class: "text-primary m-2" %>
           <%= link_to '<i class="fa-solid fa-pencil"></i>'.html_safe, edit_recipe_path(recipe), class: "text-secondary m-2" %>
           <%= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, recipe, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-danger m-2" %>

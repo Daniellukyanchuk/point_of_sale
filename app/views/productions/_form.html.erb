@@ -11,47 +11,95 @@
     </div>
   <% end %>
 
+<div class="col-11 col-xl-6">
   <div class="field">
     <%= form.label _("Select Recipe") %>
-    <%= form.select :recipe_id, options_for_select(Recipe.all.map{|r| [r.recipe_name, r.id]}), {}, {class: "recipe"} %>     
+    <%= form.select :recipe_id, options_for_select(Recipe.all.map{|r| [r.recipe_name, r.id]}), {}, {class: "recipe form-control-sm"} %>     
   </div>
 
   <div class="field">
     <%= form.label :recipe_cost %>
-    <%= form.number_field :recipe_cost, class: "recipe-cost greyed_out", :readonly => true %>
+    <%= form.number_field :recipe_cost, class: "recipe-cost greyed_out form-control-sm", :readonly => true %>
   </div>
 
   <div class="field">
     <%= form.label :production_quantity %>
-    <%= form.number_field :production_quantity, class: "production-quantity" %>
+    <%= form.number_field :production_quantity, class: "production-quantity form-control-sm" %>
   </div>
 
   <div class="field">
     <%= form.label :production_total_cost %>
-    <%= form.number_field :production_total_cost, class: "total-production-cost greyed_out", :readonly => true %>
+    <%= form.number_field :production_total_cost, class: "total-production-cost greyed_out form-control-sm", :readonly => true %>
   </div>
-
-  <%= form.number_field :recipe_yield, class: "recipe-yield hidden", :readonly => true %>
+</div>
+<div class="col-11 col-xl-6 mb-3">
 
   <div class="field">
-    <%= form.label :yield %>
-    <%= form.number_field :production_yield, class: "yield greyed_out", :readonly => true %>
+  <%= form.label :recipe_yield %>
+  <%= form.number_field :recipe_yield, class: "recipe-yield greyed_out form-control-sm", :readonly => true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :production_yield %>
+    <%= form.number_field :production_yield, class: "production_yield greyed_out form-control-sm", :readonly => true %>
   </div>
 
   <div class="field">
     <%= form.label :units %>
-    <%= form.text_field :units, class: "units greyed_out", :readonly => true %>
+    <%= form.text_field :units, class: "units greyed_out form-control-sm", :readonly => true %>
   </div>
 
   <div class="field">
     <%= form.label _("Product Id") %>
-    <%= form.text_field :product_id, class: "product-id greyed_out", :readonly => true %>
+    <%= form.text_field :product_id, class: "product-id greyed_out form-control-sm", :readonly => true %>
   </div>
-
-  <div class="actions">
+</div>
+<div class="col-11 col-xl-8">
+  <div class="actions d-inline-block">
     <%= form.submit _('Create Production'), :class => 'btn btn-success' %>
   </div>
+
+    <!-- Button trigger modal -->
+  <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">
+    <i class="fa-solid fa-calculator"></i> <%= _("Calculate Ingredients Needed") %>
+  </button>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Ingredient Calculator</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table id="usage_info">
+          <thead>
+            <tr>
+              <th>Ingredient</th>
+              <th>Amount needed</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>              
+            </tr>
+          </tbody>
+         </table> 
+       
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 <% end %>
+
+<br>
 
 
 <script type="text/javascript">
@@ -61,12 +109,15 @@
  
 $(document).ready(function() {
   $(document).on("change", ".recipe, .production-quantity", getRecipeInfo);
-  $(document).on("change", ".production-quantity, .recipe", calcProductionTotal); 
-  $(document).on("change", ".production-quantity, .recipe", calcYieldTotal); 
+  $(document).on("change", ".recipe", getUsageInfo);
+  $(document).on("change", ".recipe, .production-quantity", calcProductionTotal); 
+  $(document).on("change", ".recipe, .production-quantity", calcYieldTotal); 
+
+  
   
   function getRecipeInfo() {
                 $.ajax({ 
-                  url: "/recipe/production_info",
+                  url: "<%= recipes_get_production_info_path %>",
                   data: { id: $(this).val() },
                   type: "GET",
                   success: function(data) {
@@ -74,6 +125,18 @@ $(document).ready(function() {
                     $(".units").val(data["units"]);
                     $(".recipe-yield").val(data["yield"]);  
                     $(".product-id").val(data["product_id"]);                            
+                    }
+                  });
+                };
+
+function getUsageInfo() {
+                $.ajax({ 
+                  url: "<%= recipes_get_usage_info_path %>",
+                  data: { id: $(this).val() },
+                  type: "GET",
+                  success: 
+                  function(data) {
+                      $('#usage_info > tbody:last-child').append('<tr><td>' + data.product_name + '</td><td>' + data.usage_amount + ' kg</td></tr>');                                         
                     }
                   });
                 };
@@ -87,14 +150,10 @@ $(document).ready(function() {
   function calcYieldTotal() {
       var recipe_yield = $(".recipe-yield").val()
       var qt = $(".production-quantity").val()
-          $(".yield").val((recipe_yield*qt).toFixed(2))
+          $(".production_yield").val((recipe_yield*qt).toFixed(2))
   }
 
   
-
-  $(".chosen-select").chosen({
-    no_results_text: "Oops, nothing found!"
-  })
 });
 </script>
 

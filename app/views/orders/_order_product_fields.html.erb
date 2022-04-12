@@ -2,30 +2,31 @@
    
   
    <div class="nested-fields">
-    <%= form.hidden_field :_destroy %>
-
       <div class="field">
-      <%= form.label _('Select a product') %>
-          <%= form.collection_select :product_id, Product.all, :id, :product_name, {}, {class: "product-select"} %>
+        <%= form.label _('Select a product') %>
+        <%= form.collection_select :product_id, Product.all, :id, :product_name, {}, {class: "product-select form-control"} %>
       </div>
 
       <div class="field">
         <%= form.label :quantity %>
-        <%= form.number_field :quantity, id: "quantity" %>
+        <%= form.number_field :quantity, id: "quantity", class: "form-control" %>
       </div>
 
       <div class="field">
         <%= form.label :sale_price %>
-        <%= form.number_field :sale_price, class: "sale-price" %>
+        <%= form.number_field :sale_price, class: "sale-price form-control" %>
       </div>
 
       <div class="field">
         <%= form.label :subtotal %>
-        <%= form.number_field :subtotal, id: "subtotal", :class => "greyed_out", :readonly => true  %>
+        <%= form.number_field :subtotal, id: "subtotal", :class => "greyed_out form-control", :readonly => true  %>
       </div>
+
       <div class="field">
-        <%= link_to _("Remove"), "#", class: "remove_fields btn btn-small btn-danger" %>
+        <%= form.hidden_field :_destroy, class: "nested-field-destroy" %>
+        <%= link_to _("Remove"), "#", class: "remove_fields btn btn-danger" %>
       </div>
+      
   </div>
 
 

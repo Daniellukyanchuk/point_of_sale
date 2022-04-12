@@ -11,49 +11,38 @@
     </div>
   <% end %>
 
-<hr>
 <div  class="inventory_form">
 
        
         <div class="field">
           <%= form.label _("Choose Product") %>       
           <%= form.collection_select(:purchase_product_id, PurchaseProduct.joins(:product).where("purchase_products.id not in (SELECT purchase_product_id
-          FROM inventories where purchase_product_id is not null)"), :id, :p_o_name, {}, {class: "source"}) %>
-        </div>
-
-        <div class="field">
-          <%= form.label _("Purchase Order Id") %>
-          <%= form.text_field :purchase_id, id: "purchase_id", class: "purchase-id greyed_out", :readonly => true %>
+          FROM inventories where purchase_product_id is not null)"), :id, :p_o_name, {}, {class: "source form-control"}) %>
         </div>
 
         <div class="field">
           <%= form.label _("Product Id") %>
-          <%= form.text_field :product_id, id: "product_id", class: "product-id greyed_out", :readonly => true %>
+          <%= form.text_field :product_id, id: "product_id", class: "product-id greyed_out form-control", :readonly => true %>
         </div>
 
         <div class="field">
           <%= form.label _("Supplier") %>
-          <%= form.text_field :supplier_name, id: "supplier", class: "supplier greyed_out", :readonly => true %>
-        </div>
-
-        <div class="field">
-          <%= form.label _("Product") %>
-          <%= form.text_field :product_name, id: "product_name", class: "product-name greyed_out", :readonly => true %>
-        </div>                
+          <%= form.text_field :supplier_name, id: "supplier", class: "supplier greyed_out form-control", :readonly => true %>
+        </div>               
 
         <div class="field">
           <%= form.label _("Quantity") %>
-          <%= form.text_field :remaining_quantity, id: "qt_received", class: "qt-received greyed_out", :readonly => true %>
+          <%= form.text_field :remaining_quantity, id: "qt_received", class: "qt-received greyed_out form-control", :readonly => true %>
         </div>
 
         <div class="field">
           <%= form.label _("Purchase price") %>
-          <%= form.text_field :purchase_price, id: "cost", class: "cost greyed_out", :readonly => true %>
+          <%= form.text_field :purchase_price, id: "cost", class: "cost greyed_out form-control", :readonly => true %>
         </div>
 
         <div class="field">
-          <%= form.label _("Subtotal") %>
-          <%= form.text_field :purchase_subtotal, id: "subtotal", class: "subtotal greyed_out", :readonly => true %>
+          <%= form.label _("Total") %>
+          <%= form.text_field :purchase_subtotal, id: "subtotal", class: "subtotal greyed_out form-control", :readonly => true %>
         </div>
 
           
@@ -74,16 +63,14 @@
 $(document).ready(function() {
         function updateProductInfo(){
                 $.ajax({ 
-                url: "/purchases/product_info",
+                url: "<%= purchases_get_product_info_path %>", 
                 data: { id: $(this).val() },
                 type: "GET",
                 success: function(data) {
-                  $(".product-name").val(data["product_name"]);
                   $(".qt-received").val(data["qt"]);
                   $(".cost").val(data["cost"]);
                   $(".supplier").val(data["supplier"]);
                   $(".subtotal").val(data["subtotal"]);
-                  $(".purchase-id").val(data["purchase_id"]);
                   $(".product-id").val(data["product_id"]);
                   }
             });
@@ -92,9 +79,6 @@ $(document).ready(function() {
       $(".source").each(updateProductInfo);
   });  
 
-$(".chosen-select").chosen({
-  no_results_text: "Oops, nothing found!"
-})
 
 </script>
 

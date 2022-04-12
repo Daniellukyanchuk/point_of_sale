@@ -1,33 +1,30 @@
   
    
 <div class="nested-fields">
-    <%= form.hidden_field :_destroy %>
-
       <div class="field">
       <%= form.label _("Select Ingredient") %>
           <%= form.collection_select :product_id, Product.all, :id, :product_name, {}, {class: "ingredient"} %>
       </div>
-      
+      <div class="field">
+        <%= form.label _("Amount (g)") %>
+        <%= form.number_field :amount, id: 'amount', class: 'amount' %>
+      </div>
+      <div class="field">
+        <%= form.label _("Cost per kg") %>
+        <%= form.number_field :cost_per_kg, class: 'cost-per-kg greyed_out', :readonly => true %>
+      </div>
+      <div class="field">
+        <%= form.label _("Ingredient Cost") %>
+        <%= form.number_field :ingredient_total, id: 'ingredient_total', class: 'ingredient-total greyed_out', :readonly => true %>
+      </div>
+      <div class="field">
+        <%= form.hidden_field :_destroy, class: "nested-field-destroy" %>
+        <%= link_to _("Remove"), "#", class: "remove_fields btn btn-small btn-danger" %>
+      </div>
+    <hr>
+    <br>
+</div>
 
-        <div class="field">
-          <%= form.label _("Amount (g)") %>
-          <%= form.number_field :amount, id: 'amount', class: 'amount' %>
-        </div>
-        <div class="field">
-          <%= form.label _("Cost per kg") %>
-          <%= form.number_field :cost_per_kg, class: 'cost-per-kg greyed_out', :readonly => true %>
-        </div>
-        <div class="field">
-          <%= form.label _("Ingredient Cost") %>
-          <%= form.number_field :ingredient_total, id: 'ingredient_total', class: 'ingredient-total greyed_out', :readonly => true %>
-        </div>
-
-        <div class="field">
-          <%= link_to _("Remove"), "#", class: "remove_fields btn btn-small btn-danger" %>
-        </div>
-    </div>
-<hr>
-<br>
 
 
   

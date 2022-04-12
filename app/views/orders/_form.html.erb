@@ -13,20 +13,20 @@
     <% end %>
 
      <%= form.label _("Select Client") %>
-     <%= form.collection_select :client_id, Client.all, :id, :name %>
+     <%= form.collection_select :client_id, Client.all, :id, :name, {}, :class => "form-control col-8 col-lg-6 col-xl-3 " %>
 
       <h2><%= _('Products') %></h2><hr>
 
     <%= form.fields_for :order_products do |builder| %>
       <%= render 'order_product_fields', form: builder %>
     <% end %>
-  
-      <%= link_to_add_fields _("Add Product"), form, :order_products %>
+ 
+      <%= link_to_add_fields _("Add Product"), form, :order_products %><br><br><hr>
       
-  <br><br>
+  
   <div class="field">
     <%= form.label :grand_total %>
-    <%= form.text_field :grand_total, :class => "greyed_out", :readonly => true %>
+    <%= form.text_field :grand_total, :class => "greyed_out form-control", :readonly => true %>
   </div>
 
   <div> 
