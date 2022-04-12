@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     get '/tests', to: 'tests#index'
     get '/products/price', to: 'products#get_price'
     get '/recipes/grand_total', to: 'recipes#get_recipe_price'
+    get '/recipes/product_amount', to: 'recipes#get_product_amount'
     resources :recipes
     resources :products 
     get '/purchases/estimates', to: 'purchases#get_purchase_product_info'

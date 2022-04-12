@@ -21,6 +21,17 @@ class RecipesController < ApplicationController
   def edit
   end
 
+  def get_product_amount
+    recipe_products = RecipeProduct.where(recipe_id: params[:id])
+    result = []
+
+    recipe_products.each do |rp|
+      result.push({product_name: rp.product.product_name, product_amount: rp.product_amount})
+    end
+    # result = [{product_name: recipe_products, product_amount: recipe_products},{product_name: 'flour', product_amount: 0.175}]
+    render json: result
+  end
+
   def get_recipe_price
     recipe_id = params[:id]
     @recipe_row = Recipe.find(recipe_id.to_i)

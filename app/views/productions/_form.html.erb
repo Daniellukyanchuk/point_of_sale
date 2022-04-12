@@ -17,29 +17,71 @@
         <%= form.collection_select :recipe_id, Recipe.all, :id, :recipe_name, {}, {class: "product-picker form-control"} %>
       </div>
 
-      <div class="field">
-        <%= form.label _('Product amount') %>
-        <%= form.number_field :product_amount, :class => "form-control" %>
-      </div>
+      <p>
+        <div class="field">
+          <%= form.label _('Product amount') %>
+          <%= form.number_field :product_amount, :class => "form-control" %>
+        </div>
+
+        <div class="field">
+           <%= form.label _('Recipe price') %>
+           <%= form.number_field :recipe_price, class: "recipe-price-field form-control", :readonly => true %>
+        </div>    
+
+        <div class="field">
+          <%= form.label _('Total') %>
+          <%= form.text_field :grand_total, :readonly => true, :class => "form-control" %>
+        </div>
+
+        <div class="field">
+          <%= form.label _('Cost to make') %>
+          <%= form.text_field :cost_to_make, :readonly => true, :class => "form-control" %>
+        </div>
+      
+        <div class="field">
+          <%= form.submit 'Create Production', :class => 'searchtag text-light btn btn-primary' %>
+        </div>
+      </p>
 
       <div class="field">
-         <%= form.label _('Recipe price') %>
-         <%= form.number_field :recipe_price, class: "recipe-price-field form-control", :readonly => true %>
-      </div>    
+        <div id="custombutton" class="sob btn btn-info searchtag" data-toggle="modal" data-target="#myModal">Info!</div>
+        <!-- modal window -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h6>The amount of ingredients that are used to produce the product</h6>
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
 
-      <div class="field">
-        <%= form.label _('Total') %>
-        <%= form.text_field :grand_total, :readonly => true, :class => "form-control" %>
-      </div>
+                    <div class="modal-body">
+                      <div class="">
+                        <div class="row">
+                          <div class="col-10">
+                            <table id="ing_amount_modal_table" class="table">
+                              <thead>
+                                <tr>
+                                  <th scope="col">Name</th>
+                                  <th scope="col">Amount</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                
+                              </tbody>   
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
 
-      <div class="field">
-        <%= form.label _('Cost to make') %>
-        <%= form.text_field :cost_to_make, :readonly => true, :class => "form-control" %>
-      </div>
-
-
-      <div class="actions">
-        <%= form.submit 'Create Production', :class => 'text-light btn btn-primary btn-sm' %>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
       </div>
     <% end %>
 
@@ -57,8 +99,19 @@
             });
           }
 
-          $(document).on('change', '.product-picker', updateSelectedPrice);
-          $(".product-picker").each(updateSelectedPrice);
+          function updateProductAmountTable(){
+              $.ajax({
+                url: "/recipes/product_amount",
+                data: { id: $(this).val() },
+                type: "GET",
+                success: function(data){
+                    $('#ing_amount_modal_table tbody').append('<tr><td>{0}</td><td>{1}</td></tr>'.format(product_name, product_amount))
+                }
+              });
+          }
+
+          $(document).on('change', '.product-picker', updateSelectedPrice, updateProductAmountTable);
+          $(".product-picker").each(updateSelectedPrice, updateProductAmountTable);
         });
     </script>
 </div>
