@@ -10,8 +10,8 @@ class RecipesController < ApplicationController
   
   #get ingredient amounts for modal in "create new production"
   def get_usage_info 
-    @usage_info = Recipe.get_usage_info(params[:id].to_i).first
-    render json: {product_name: @usage_info["product_name"], usage_amount: @usage_info["usage_amount_kg"] }
+    usage_info = Recipe.get_usage_info(params[:id].to_i).values   
+    render json: usage_info
   end
 
   # GET /recipes or /recipes.json

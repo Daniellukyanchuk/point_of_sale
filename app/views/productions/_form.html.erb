@@ -85,8 +85,7 @@
           </thead>
 
           <tbody>
-            <tr>              
-            </tr>
+            
           </tbody>
          </table> 
        
@@ -108,15 +107,16 @@
 
  
 $(document).ready(function() {
-  $(document).on("change", ".recipe, .production-quantity", getRecipeInfo);
-  $(document).on("change", ".recipe", getUsageInfo);
+  $(document).on("change", ".recipe", getRecipeInfo);
+  $(document).on("change", ".recipe, .production-quantity", getUsageInfo);
   $(document).on("change", ".recipe, .production-quantity", calcProductionTotal); 
   $(document).on("change", ".recipe, .production-quantity", calcYieldTotal); 
+  $(document).on("change", ".recipe, .production-quantity", calcTotalUsage); 
 
   
   
   function getRecipeInfo() {
-                $.ajax({ 
+                  $.ajax({ 
                   url: "<%= recipes_get_production_info_path %>",
                   data: { id: $(this).val() },
                   type: "GET",
@@ -129,17 +129,23 @@ $(document).ready(function() {
                   });
                 };
 
-function getUsageInfo() {
-                $.ajax({ 
+
+function getUsageInfo() {  
+                var pq = $(".production-quantity").val()               
+                  $.ajax({ 
                   url: "<%= recipes_get_usage_info_path %>",
-                  data: { id: $(this).val() },
+                  data: { id: $(".recipe").val() },
                   type: "GET",
-                  success: 
-                  function(data) {
-                      $('#usage_info > tbody:last-child').append('<tr><td>' + data.product_name + '</td><td>' + data.usage_amount + ' kg</td></tr>');                                         
-                    }
+                  success: function(result){
+                      // clear table data
+                      $("#usage_info").find("tr:gt(0)").remove(); 
+                      ingredient_row = "";
+                      //append ingredients
+                      $.each(result, function(i, item){ ingredient_row += "<tr><td>" + item[0] + "</td><td>" + (item[1]*pq).toFixed(2) + " kg</td></tr>"})                    
+                      $("#usage_info > tbody:last-child").append(ingredient_row);
+                  }
                   });
-                };
+                };          
 
   function calcProductionTotal() {
       var price = $(".recipe-cost").val()
