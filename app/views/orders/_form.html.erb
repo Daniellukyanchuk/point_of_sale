@@ -42,6 +42,7 @@
     $(document).on('change', '.product-select', updateSelectedPrice);   
     $(document).on('change', '.quantity, .sale-price, .product-select', calcSubtotal);
     $(document).on('change', '.quantity, .sale-price, .product-select', calcGrandTotal); 
+    $(document).on('click', '.remove_fields', calcGrandTotal);
 
     function updateSelectedPrice(){
       var current_picker = $(this);
@@ -58,19 +59,17 @@
     function calcGrandTotal() {
         var grandTotal = 0
           $(".subtotal").each(function() {
-              grandTotal += parseFloat($(this).val());
+              if ( $(this).parents(".nested-fields").is(':visible') ) {
+                grandTotal += parseFloat($(this).val());
+              } 
           $(".grand-total").val(grandTotal);
       });
     };   
       
     function calcSubtotal() {
-      var subtotal = 0
-
-      if $(this).parents(".nested-fields").filter:not( ":hidden" );
-        var qt = $(this).parents(".nested-fields").find(".quantity").val();
-        var price = $(this).parents(".nested-fields").find(".sale-price").val();
-        subtotal = (price || 0) * (qt || 0);            
-     
+      var qt = $(this).parents(".nested-fields").find(".quantity").val();
+      var price = $(this).parents(".nested-fields").find(".sale-price").val();
+      var subtotal = (price || 0) * (qt || 0);
       $(this).parents(".nested-fields").find(".subtotal").val(subtotal)
     };
 

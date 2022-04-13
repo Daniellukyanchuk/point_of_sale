@@ -14,7 +14,7 @@
 <div class="col-11 col-xl-6">
   <div class="field">
     <%= form.label _("Select Recipe") %>
-    <%= form.select :recipe_id, options_for_select(Recipe.all.map{|r| [r.recipe_name, r.id]}), {}, {class: "recipe form-control-sm"} %>     
+    <%= form.select :recipe_id, options_for_select(Recipe.all.map{|r| [r.recipe_name, r.id]}), {:prompt => _("Select Recipe")}, {class: "recipe form-control-sm"} %>     
   </div>
 
   <div class="field">
