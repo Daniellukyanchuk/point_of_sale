@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     resources :inventories
     resources :inventory_summaries
     resources :orders
-    get '/products/price', to: 'products#get_price'
+    get '/products/price', to: 'products#get_price', as: :products_get_price
     resources :products     
     resources :order_products
     resources :product_reports

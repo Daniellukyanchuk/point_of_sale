@@ -116,36 +116,37 @@ $(document).ready(function() {
   
   
   function getRecipeInfo() {
-                  $.ajax({ 
-                  url: "<%= recipes_get_production_info_path %>",
-                  data: { id: $(this).val() },
-                  type: "GET",
-                  success: function(data) {
-                    $(".recipe-cost").val((data["recipe_cost"]).toFixed(5));
-                    $(".units").val(data["units"]);
-                    $(".recipe-yield").val(data["yield"]);  
-                    $(".product-id").val(data["product_id"]);                            
-                    }
-                  });
-                };
+      $.ajax({ 
+      url: "<%= recipes_get_production_info_path %>",
+      data: { id: $(this).val() },
+      type: "GET",
+      success: function(data) {
+        $(".recipe-cost").val((data["recipe_cost"]).toFixed(5));
+        $(".units").val(data["units"]);
+        $(".recipe-yield").val(data["yield"]);  
+        $(".product-id").val(data["product_id"]);                            
+        }
+      });
+    };
 
 
-function getUsageInfo() {  
-                var pq = $(".production-quantity").val()               
-                  $.ajax({ 
-                  url: "<%= recipes_get_usage_info_path %>",
-                  data: { id: $(".recipe").val() },
-                  type: "GET",
-                  success: function(result){
-                      // clear table data
-                      $("#usage_info").find("tr:gt(0)").remove(); 
-                      ingredient_row = "";
-                      //append ingredients
-                      $.each(result, function(i, item){ ingredient_row += "<tr><td>" + item[0] + "</td><td>" + (item[1]*pq).toFixed(2) + " kg</td></tr>"})                    
-                      $("#usage_info > tbody:last-child").append(ingredient_row);
-                  }
-                  });
-                };          
+  function getUsageInfo() {
+      // gets production qt  
+      var pq = $(".production-quantity").val()               
+        $.ajax({ 
+        url: "<%= recipes_get_usage_info_path %>",
+        data: { id: $(".recipe").val() },
+        type: "GET",
+        success: function(result){
+            // clears table data
+            $("#usage_info").find("tr:gt(0)").remove(); 
+            ingredient_row = "";
+            //appends ingredients as table rows in modal
+            $.each(result, function(i, item){ ingredient_row += "<tr><td>" + item[0] + "</td><td>" + (item[1]*pq).toFixed(2) + " kg</td></tr>"})                    
+            $("#usage_info > tbody:last-child").append(ingredient_row);
+        }
+        });
+      };          
 
   function calcProductionTotal() {
       var price = $(".recipe-cost").val()

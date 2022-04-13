@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: app 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-04 09:45+0600\n"
-"PO-Revision-Date: 2022-04-04 09:45+0600\n"
+"POT-Creation-Date: 2022-04-13 11:06+0600\n"
+"PO-Revision-Date: 2022-04-13 11:06+0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -48,13 +48,13 @@ msgstr ""
 msgid "+ New Supplier"
 msgstr ""
 
+msgid "<i class=\"fa-solid fa-chevron-left\"></i> Go back"
+msgstr ""
+
 msgid "<i class=\"fa-solid fa-download\"></i> Export as Excel"
 msgstr ""
 
 msgid "<i class=\"fa-solid fa-file-import\"></i> Import from Excel"
-msgstr ""
-
-msgid "AND"
 msgstr ""
 
 msgid "Actual CPU"
@@ -103,6 +103,9 @@ msgid "Back"
 msgstr ""
 
 msgid "Batch Qty"
+msgstr ""
+
+msgid "Calculate Ingredients Needed"
 msgstr ""
 
 msgid "Choose Product"
@@ -486,13 +489,13 @@ msgstr ""
 msgid "Purchase"
 msgstr ""
 
+msgid "Purchase History"
+msgstr ""
+
 msgid "Purchase Id"
 msgstr ""
 
 msgid "Purchase Id:"
-msgstr ""
-
-msgid "Purchase Order Id"
 msgstr ""
 
 msgid "Purchase Order Id:"
@@ -502,6 +505,9 @@ msgid "Purchase Order Product Id:"
 msgstr ""
 
 msgid "Purchase Report"
+msgstr ""
+
+msgid "Purchase Summary"
 msgstr ""
 
 msgid "Purchase Total"
@@ -651,9 +657,6 @@ msgstr ""
 msgid "Select Ingredient"
 msgstr ""
 
-msgid "Select Products"
-msgstr ""
-
 msgid "Select Recipe"
 msgstr ""
 
@@ -679,9 +682,6 @@ msgid "Setting|Company phone"
 msgstr ""
 
 msgid "Show"
-msgstr ""
-
-msgid "Subtotal"
 msgstr ""
 
 msgid "Subtotal:"
@@ -774,7 +774,13 @@ msgstr ""
 msgid "prevented us from importing your spreadsheet. Please update your spreadsheet and try agin."
 msgstr ""
 
+msgid "select clients"
+msgstr ""
+
 msgid "select product"
+msgstr ""
+
+msgid "select products"
 msgstr ""
 
 msgid "to:"

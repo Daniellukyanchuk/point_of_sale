@@ -26,7 +26,7 @@
   
   <div class="field">
     <%= form.label :grand_total %>
-    <%= form.text_field :grand_total, :class => "greyed_out form-control", :readonly => true %>
+    <%= form.text_field :grand_total, :class => "grand-total greyed_out form-control", :readonly => true %>
   </div>
 
   <div> 
@@ -38,20 +38,44 @@
 <script type="text/javascript">
 
   $(document).ready(function() {
-          function updateSelectedPrice(){
-            var current_picker = $(this);
-              $.ajax({ 
-                  url: "/products/price",
-                  data: { product_id: $(this).val() },
-                  type: "GET",
-                  success: function(data) {
-                    current_picker.parents(".nested-fields").find('.sale-price').val(data["price"]);
-                  }
-              });
+
+    $(document).on('change', '.product-select', updateSelectedPrice);   
+    $(document).on('change', '.quantity, .sale-price, .product-select', calcSubtotal);
+    $(document).on('change', '.quantity, .sale-price, .product-select', calcGrandTotal); 
+
+    function updateSelectedPrice(){
+      var current_picker = $(this);
+        $.ajax({ 
+          url: "<%= products_get_price_path %>",
+          data: { product_id: $(this).val() },
+          type: "GET",
+          success: function(data) {
+            current_picker.parents(".nested-fields").find('.sale-price').val(data["price"]);
           }
-        $(document).on('change', ".product-select", updateSelectedPrice);
-        $(".product-select").each(updateSelectedPrice);
-    });  
+        });
+    }
+
+    function calcGrandTotal() {
+        var grandTotal = 0
+          $(".subtotal").each(function() {
+              grandTotal += parseFloat($(this).val());
+          $(".grand-total").val(grandTotal);
+      });
+    };   
+      
+    function calcSubtotal() {
+      var subtotal = 0
+
+      if $(this).parents(".nested-fields").filter:not( ":hidden" );
+        var qt = $(this).parents(".nested-fields").find(".quantity").val();
+        var price = $(this).parents(".nested-fields").find(".sale-price").val();
+        subtotal = (price || 0) * (qt || 0);            
+     
+      $(this).parents(".nested-fields").find(".subtotal").val(subtotal)
+    };
+
+  });  
+  
 </script>
 
 
