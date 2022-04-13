@@ -18,10 +18,11 @@ Rails.application.routes.draw do
     resources :orders
 
     get '/tests', to: 'tests#index'
-    get '/products/price', to: 'products#get_price'
+    
     get '/recipes/grand_total', to: 'recipes#get_recipe_price'
-    get '/recipes/product_amount', to: 'recipes#get_product_amount'
+    get '/recipes/product_amount', to: 'recipes#get_product_amount', as: :get_product_amount_info
     resources :recipes
+    get '/products/price', to: 'products#get_price'
     resources :products 
     get '/purchases/estimates', to: 'purchases#get_purchase_product_info'
     resources :purchases

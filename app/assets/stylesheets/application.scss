@@ -76,7 +76,7 @@ i {
   font-size: 20px;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1195px) {
   
   nav#sidebarMenu {
     position: absolute;
@@ -110,6 +110,10 @@ i {
 .jumbomax.jumbotron {
   max-width: 100%;
   border-radius: 0;
+}
+
+.searcheight {
+  height: calc(1.9em + 0.75rem + 2px);
 }
 
 

@@ -5,7 +5,7 @@
       <%= form_tag recipes_path, :method => 'get' do %>
           <p>
             <div class="field">
-              <%= text_field_tag :search, params[:search], class: "form-control" %>
+              <%= text_field_tag :search, params[:search], :size => 50, placeholder: "ID, name etc.", class: "form-control" %>
             </div>
             <%= submit_tag _("Search"), :name => nil, :class => "searchtag btn btn-outline-primary" %>
           </p>

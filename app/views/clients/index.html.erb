@@ -13,10 +13,12 @@
 
         <div class="col-6 justify-content-end">
           <h1><%=_('Clients')%></h1>
-          <div class="field">
-            <%= text_field_tag :search, params[:search], class: "form-control" %>
+          <div class="field p-0">
+            <%= text_field_tag :search, params[:search], :size => 40, placeholder: "ID, name etc.", class: "form-control" %>
           </div>
-          <%= submit_tag _("Search"), :name => nil, :class => "searchtag btn btn-outline-primary btn-md" %>
+
+            <%= submit_tag _("Search"), :name => nil, :class => "searchtag btn btn-outline-primary btn-md" %>
+          
         </div>
       </div>
     <hr>
