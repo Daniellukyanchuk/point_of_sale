@@ -1,24 +1,31 @@
-<div class="jumbomax container jumbotron m-0 p-0">
-  <div class="container ml-3">
-    
-
+<div class="jumbotron m-0 p-0">
+  <div class="mr-4">
     <%= form_tag clients_path, :method => 'get' do %>
       <div class="row">
         <div class="col-6">
-          <h1>Import Clients</h1>
-          <%= link_to 'Upload from Excel', new_clients_import_path, class: "text-light btn btn-secondary" %>
-          <%= link_to 'Download as Excel', clients_path(format: :xlsx), class: "text-light btn btn-secondary" %>
-          <%= link_to _('+ New Client'), new_client_path, class: "text-light btn btn-primary" %>
+          <h1 class="ml-4">Import Clients</h1>
+          <div class="row ml-4">
+            <div class="col-4 p-0">
+              <%= link_to 'Upload from Excel', new_clients_import_path, class: "text-light btn btn-secondary" %>
+            </div>
+
+            <div class="col-4 p-0">
+              <%= link_to 'Download as Excel', clients_path(format: :xlsx), class: "text-light btn btn-secondary" %>  
+            </div>
+
+            <div class="col-4 p-0">
+              <%= link_to _('+ New Client'), new_client_path, class: "text-light btn btn-primary" %>  
+            </div>
+          </div>
         </div>
 
-        <div class="col-6 justify-content-end">
-          <h1><%=_('Clients')%></h1>
-          <div class="field p-0">
-            <%= text_field_tag :search, params[:search], :size => 40, placeholder: "ID, name etc.", class: "form-control" %>
-          </div>
-
-            <%= submit_tag _("Search"), :name => nil, :class => "searchtag btn btn-outline-primary btn-md" %>
-          
+        <div class="col-6">
+          <div class="row justify-content-end mt-2">
+            <div class="field p-0 col-6">
+              <%= text_field_tag :search, params[:search], :size => 40, placeholder: "ID, name etc.", class: "form-control searcheight" %>
+            </div>
+            <%= submit_tag _("Search"), :name => nil, :class => "searcheight btn btn-outline-primary" %>
+          </div> 
         </div>
       </div>
     <hr>

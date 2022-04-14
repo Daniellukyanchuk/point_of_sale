@@ -1,15 +1,24 @@
-<div class="jumbomax container jumbotron m-0 p-0">
-  <div class="container ml-3">
-    <h1><%= _('Products') %></h1>
-
-    <%= form_tag products_path, :method => 'get' do %>
-      <p>
-        <div class="field">
-          <%= text_field_tag :search, params[:search], :size => 50, placeholder: "ID, name etc.", class: "form-control" %>
+<div class="jumbotron m-0 p-0">
+  <div class="mr-4">
+      
+    <%= form_tag products_path, :method => 'get' do %> 
+    <div class="row">
+      <div class="col-6">
+        <h1 class="ml-3"><%= _('Products') %></h1>
+      </div>
+      
+      <div class="col-6">
+        <div class="row justify-content-end mt-2">
+          <div class="field p-0 col-6">
+            <%= text_field_tag :search, params[:search], :size => 70, placeholder: "ID, name etc.", class: "form-control searcheight" %>
+          </div>
+          <%= submit_tag _("Search"), :name => nil, :class => "searcheight btn btn-outline-primary" %>
         </div>
-          <%= submit_tag _("Search"), :name => nil, :class => "searchtag btn btn-outline-primary" %>
-      </p>
-      <hr>
+      </div> 
+    </div>  
+          
+
+    <hr>
     <% end %>
   </div>
 </div>

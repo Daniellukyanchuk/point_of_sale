@@ -1,24 +1,29 @@
 <form>  
-  <div class="jumbomax container jumbotron m-0 p-0">
-    <div class="ml-4">
+  <div class="jumbotron m-0 p-0">
+    <div>
       <div class="row">
-        <h1 class="col-6"><%= _('Orders') %></h1>
-            <div class="row justify-content-end">
-               <%= _('From:') %>
+        <div class="col-6">
+          <h1 class="ml-2"><%= _('Orders') %></h1>
+        </div>
+        <div class="col-6">
+          <div class="row justify-content-end mr-1">
+              <%= _('From:') %>
               <div class="field col-4">
                 <% start_date_value = 1.month.ago.strftime("%d - %m - %Y") %>
                 <% end_date_value = Date.today.strftime("%d - %m - %Y") %>
                 <%= text_field_tag 'start_date', params[:start_date], :class => "datepicker form-control", :autocomplete => "off" %>
               </div>
+
               <%= _('To:') %>
               <div class="field col-4">
                 <%= text_field_tag 'end_date', params[:end_date], :class => "datepicker form-control", :autocomplete => "off" %>
               </div>
-            </div>
+          </div>
+        </div>                  
       </div>
 
       <%= form_tag orders_path, :method => 'get' do %>
-        <div>
+        <div class="ml-4">
           <div class="row mt-3">
             <div class="field col-4 p-0">
               <%= text_field_tag :search, params[:search], placeholder: "ID, name etc.", class: "searcheight form-control" %>
