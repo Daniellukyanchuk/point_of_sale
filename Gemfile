@@ -69,8 +69,8 @@ gem 'gettext_i18n_rails'
 gem 'gettext', '>=3.0.2', :require => false
 gem 'ruby_parser', :require => false, :group => :development
 gem 'roo'
-gem 'rubyzip', '>= 1.2.1'
+gem 'rubyzip', '>=1.2.1'
 gem 'axlsx', git: 'https://github.com/randym/axlsx.git', ref: 'c8ac844'
 gem 'caxlsx_rails'
-gem 'bootstrap' '>= 5.1.3'
-gem 'popper_js' '>= 2.9.3, < 3'
+gem 'bootstrap' '>=5.1.3'
+gem 'popper_js' '>=2.9.3,<3'
