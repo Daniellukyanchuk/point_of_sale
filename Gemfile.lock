@@ -300,7 +300,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   pg
-  popper_js
+  popper_js (~> 2.9, >= 2.9.3)
   puma (~> 3.11)
   rails (~> 5.2.6)
   roo
