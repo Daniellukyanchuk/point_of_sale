@@ -1,6 +1,7 @@
 Rails.application.routes.draw do  
   
   scope "/:locale" do
+    root to: "products#index"
     get 'tests', to: 'tests#index'
     resources :settings
     resources :products_imports, only: [:new, :create]
