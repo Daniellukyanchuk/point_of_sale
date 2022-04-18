@@ -91,3 +91,7 @@ gem 'bootstrap', '~> 5.1.3'
 
 gem 'pg'
 
+group :production do    
+    gem 'rails_12factor'
+    gem 'heroku-deflater'   
+end
