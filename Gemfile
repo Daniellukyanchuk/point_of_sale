@@ -80,9 +80,6 @@ gem 'roo'
 gem 'faker', '~> 1.6', '>= 1.6.6'
 
 gem 'rubyzip', '>= 1.2.1'
-gem 'axlsx', git: 'https://github.com/randym/axlsx.git', ref:
-'c8ac844'
-gem 'axlsx_rails'
 gem 'caxlsx_rails'
 gem 'active_storage_validations'
 gem 'image_processing', '~> 1.2'
