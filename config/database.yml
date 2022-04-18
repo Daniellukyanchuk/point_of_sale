@@ -27,4 +27,6 @@ test:
 
 production:
   <<: *default
-  database: <%= ENV['DATABASE_URL'] %>
+  database: point-of-sale-application
+  username: point-of-sale-application
+  password: <%= ENV['POINT-OF-SALE-APPLICATION_DATABASE_PASSWORD'] %>
