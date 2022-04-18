@@ -74,11 +74,8 @@ group :assets do
 end
 
 gem 'simplecov', require: false, group: :test
-
 gem 'roo'
-
 gem 'faker', '~> 1.6', '>= 1.6.6'
-
 gem 'rubyzip', '>= 1.2.1'
 
 gem 'caxlsx'
@@ -87,7 +84,6 @@ gem 'active_storage_validations'
 gem 'image_processing', '~> 1.2'
 
 gem 'bootstrap', '~> 5.1.3'
-
 gem 'rails_12factor'
 gem 'heroku-deflater'   
-
+gem 'webpacker'
