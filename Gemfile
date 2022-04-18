@@ -80,6 +80,8 @@ gem 'roo'
 gem 'faker', '~> 1.6', '>= 1.6.6'
 
 gem 'rubyzip', '>= 1.2.1'
+
+gem 'caxlsx'
 gem 'caxlsx_rails'
 gem 'active_storage_validations'
 gem 'image_processing', '~> 1.2'
