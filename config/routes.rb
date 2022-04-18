@@ -1,5 +1,5 @@
 Rails.application.routes.draw do  
-  root to: "en/products#index"  
+  root to: "products#index"  
   scope "/:locale" do    
     get 'tests', to: 'tests#index'
     resources :settings
