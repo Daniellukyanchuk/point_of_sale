@@ -27,6 +27,5 @@ test:
 production:
   <<: *default
   database: bigbertha
-  username: bigbertha_user
   password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
 

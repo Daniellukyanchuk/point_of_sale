@@ -1,8 +1,8 @@
 class CreateAddInventoryTables < ActiveRecord::Migration[5.2]
 
-  def change
-    remove_column :supply_products, :remaining_quantity, :float
-  end
+  # def change
+  #   remove_column :supply_products, :remaining_quantity, :float
+  # end
 
   # def change
   #   create_table :inventory_records do |t|
