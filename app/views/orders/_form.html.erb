@@ -59,11 +59,11 @@
     function calcGrandTotal() {
         var grandTotal = 0
           $(".subtotal").each(function() {
-              if ( $(this).parents(".nested-fields").is(':visible') ) {
-                grandTotal += parseFloat($(this).val());
-              } 
-          $(".grand-total").val(grandTotal);
-      });
+            if ( $(this).parents(".nested-fields").is(':visible') ) {
+              grandTotal += parseFloat($(this).val());
+            } 
+            $(".grand-total").val(grandTotal);
+          });
     };   
       
     function calcSubtotal() {

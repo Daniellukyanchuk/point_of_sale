@@ -32,7 +32,6 @@ class Product < ApplicationRecord
               WHERE products.id = #{recipe_product_id.to_i}
               GROUP BY products.id, product_name 
           ) report 
-
           
     """
 

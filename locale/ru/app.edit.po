@@ -102,9 +102,8 @@ msgstr "назад"
 msgid "Batch Qty"
 msgstr "кол-во партии"
 
-#, fuzzy
 msgid "Calculate Ingredients Needed"
-msgstr "ингредиенты"
+msgstr "рассчитать необходимые ингредиенты"
 
 msgid "Choose Product"
 msgstr "выбрать продукт"
@@ -487,9 +486,8 @@ msgstr "единица"
 msgid "Purchase"
 msgstr "закупка"
 
-#, fuzzy
 msgid "Purchase History"
-msgstr "закупка"
+msgstr "история закупкок"
 
 msgid "Purchase Id"
 msgstr "ID закупки"
@@ -506,9 +504,8 @@ msgstr "ID продукт заказа на поставку"
 msgid "Purchase Report"
 msgstr "отчет о закупках"
 
-#, fuzzy
 msgid "Purchase Summary"
-msgstr "закупка"
+msgstr "сводка по покупке"
 
 msgid "Purchase Total"
 msgstr "итог закупки"
@@ -657,11 +654,18 @@ msgstr "выбрать файл"
 msgid "Select Ingredient"
 msgstr "выбрать ингредиента"
 
+#, fuzzy
+msgid "Select Product"
+msgstr "выберите продукт"
+
 msgid "Select Recipe"
 msgstr "рецепт"
 
 msgid "Select a product"
 msgstr "выбрать продукта"
+
+msgid "Select product produced"
+msgstr ""
 
 msgid "Select supplier"
 msgstr "выбрать постовщика"
@@ -774,28 +778,14 @@ msgstr "от:"
 msgid "prevented us from importing your spreadsheet. Please update your spreadsheet and try agin."
 msgstr "помешал нам импортировать вашу таблицу. Обновите таблицу и повторите попытку."
 
-#, fuzzy
 msgid "select clients"
 msgstr "выбрать клиента"
 
 msgid "select product"
-msgstr "выбрать продукта"
+msgstr "выберите продукт"
 
-#, fuzzy
 msgid "select products"
-msgstr "выбрать продукта"
+msgstr "выбрать продукты"
 
 msgid "to:"
 msgstr "до:"
-
-#~ msgid "AND"
-#~ msgstr "и"
-
-#~ msgid "Purchase Order Id"
-#~ msgstr "ID заказа на закупку"
-
-#~ msgid "Select Products"
-#~ msgstr "выбрать продукта"
-
-#~ msgid "Subtotal"
-#~ msgstr "промежуточный итог"

@@ -20,5 +20,5 @@
   <%= @recipe.instructions %>
 </p>
 
-<%= link_to _('Edit'), edit_recipe_path(@recipe) %> |
-<%= link_to _('Back'), recipes_path %>
+<%= link_to _('<i class="fa-solid fa-chevron-left"></i> Go back'), recipes_path, :class => "btn btn-primary mt-3" %>
+

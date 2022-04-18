@@ -13,17 +13,17 @@
 
   <div class="field">
     <%= form.label :company_name %>
-    <%= form.text_field :company_name %>
+    <%= form.text_field :company_name, class: "form-control" %>
   </div>
 
   <div class="field">
     <%= form.label :company_address %>
-    <%= form.text_field :company_address %>
+    <%= form.text_field :company_address, class: "form-control" %>
   </div>
 
   <div class="field">
     <%= form.label :company_phone %>
-    <%= form.text_field :company_phone %>
+    <%= form.text_field :company_phone, class: "form-control" %>
   </div>
   <br><br>
   <div>
@@ -33,16 +33,16 @@
           <%= image_tag url_for(custom_logo.logo), :class => "logo" %>
         <% end %>
       <% else %>
-        <%= image_tag 'http://divisqueeze.com/wp-content/uploads/2017/03/YourLogoHere.png', :class => "logo" %>
+        <%= image_tag 'http://divisqueeze.com/wp-content/uploads/2017/03/YourLogoHere.png', :class => "logo form-control" %>
       <% end %>
 
   <%= form.label _("Upload Company Logo") %>
-  <%= form.file_field :logo, accept: 'image/png, image/gif, image/jpg, image/jpeg' %>
-</div>
+    <%= form.file_field :logo, accept: 'image/png, image/gif, image/jpg, image/jpeg' %>
+  </div>
   <br><br>
 
   <div class="actions">
-    <%= form.submit _("Udate Settings") %>
+    <%= form.submit _("Udate Settings"), class: "btn btn-primary" %>
   </div>
 
   

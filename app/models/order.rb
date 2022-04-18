@@ -28,6 +28,8 @@ class Order < ApplicationRecord
       end    
     end
 
+# SALES REPORT
+
     def self.product_report(search_product, pick_product, datefilter_start, datefilter_end, sortable, sort_direction)
 
       
@@ -89,6 +91,7 @@ class Order < ApplicationRecord
         
     end
 
+# SALES RECORDS
     def self.sales_record(search_product, pick_product, datefilter_start, datefilter_end, sortable, sort_direction)
 
       
@@ -148,7 +151,7 @@ class Order < ApplicationRecord
         
     end
 
-      
+ # CLIENT REPORT     
     def self.client_report(search_client, pick_client, datefilter_start, datefilter_end, sortable, sort_direction)
 
       datefilter_start = Date.strptime( datefilter_start, '%m/%d/%Y')       

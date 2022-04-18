@@ -19,40 +19,38 @@
 
     <h2><%= _('Products') %></h2><hr>
 
-        <%= form.fields_for :purchase_products do |builder| %>
-          <%= render 'purchase_product_fields', form: builder %>
-        <% end %>      
+      <%= form.fields_for :purchase_products do |builder| %>
+        <%= render 'purchase_product_fields', form: builder %>
+      <% end %>      
 
-        <div class="pad-bottom"> 
-            <%= link_to_add_fields _("Add Product"), form, :purchase_products %>
-        </div>
+      <div class="pad-bottom"> 
+          <%= link_to_add_fields _("Add Product"), form, :purchase_products %>
+      </div>
 
-        <div class="field">
-          <%= form.label :estimated_total %>
-          <%= form.text_field :estimated_total, id: "estimated_total", class: "estimated-total greyed_out form-control", :readonly => true %>
-        </div>
-       
-        <div class="field">
-          <%= form.label :purchase_total %>
-          <%= form.text_field :purchase_total, id: "actual_total", class: "actual-total greyed_out form-control", :readonly => true %>
-        </div>
+      <div class="field">
+        <%= form.label :estimated_total %>
+        <%= form.text_field :estimated_total, id: "estimated_total", class: "estimated-total greyed_out form-control", :readonly => true %>
+      </div>
+      
+      <div class="field">
+        <%= form.label :purchase_total %>
+        <%= form.text_field :purchase_total, id: "actual_total", class: "actual-total greyed_out form-control", :readonly => true %>
+      </div>
 
-        <div class="field">
-        <label for="date_ordered"><%= _('Ordered on') %></label>
-        <input type="text" class="datepicker form-control" id="date_ordered" name="purchase[date_ordered]" 
-              autocomplete = 'off' value = "<%= purchase.date_ordered.strftime("%m-%d-%Y") unless purchase.date_ordered.blank? %>"></div>
+      <div class="field">
+      <label for="date_ordered"><%= _('Ordered on') %></label>
+      <input type="text" class="datepicker form-control" id="date_ordered" name="purchase[date_ordered]" 
+            autocomplete = 'off' value = "<%= purchase.date_ordered.strftime("%m-%d-%Y") unless purchase.date_ordered.blank? %>"></div>
 
-        <div class="field">      
-        <label for="date_expected"><%= _('Expected Arrival') %></label>
-        <input type="text" class="datepicker form-control" id="date_expected" name="purchase[date_expected]" 
-              autocomplete = 'off' value = "<%= purchase.date_expected.strftime("%m-%d-%Y") unless purchase.date_expected.blank? %>"></div>
+      <div class="field">      
+      <label for="date_expected"><%= _('Expected Arrival') %></label>
+      <input type="text" class="datepicker form-control" id="date_expected" name="purchase[date_expected]" 
+            autocomplete = 'off' value = "<%= purchase.date_expected.strftime("%m-%d-%Y") unless purchase.date_expected.blank? %>"></div>
 
-        <div class="field">
-        <label for="date_received"><%= _('Received on') %></label>
-        <input type="text" class="datepicker form-control" id="date_received" name="purchase[date_received]" 
-              autocomplete = 'off' value = "<%= purchase.date_received.strftime("%m-%d-%Y") unless purchase.date_received.blank? %>"></div>
-
-
+      <div class="field">
+      <label for="date_received"><%= _('Received on') %></label>
+      <input type="text" class="datepicker form-control" id="date_received" name="purchase[date_received]" 
+            autocomplete = 'off' value = "<%= purchase.date_received.strftime("%m-%d-%Y") unless purchase.date_received.blank? %>"></div>
 
   <div> 
     <%= form.submit _("Create Purchase"), :class => 'btn btn-success'%>
@@ -66,84 +64,92 @@
 
 //////////////////  SUBTOTAL AUTO-CALC  /////////////////////
 
-        $(document).on('change', '.est_cost, .est_qt', function() {
-            var estTotal = 0
-              $(".estimated_subtotal").each(function() {
-                  estTotal += parseFloat($(this).val());
-              $("#estimated_total").val(estTotal);
-          });
-        });      
-    
-        $(document.body).on("change", ".est_cost, .est_qt", function() {
+$(document).ready(function() {
+  $(document).on('change', ".est_cost, .est_qt", calcEstSubtotal);
+  $(document).on('change', '.est_cost, .est_qt', calcEstTotal); 
+  $(document).on('click', '.remove_fields', calcEstTotal);  
+  $(document).on('change', ".act_cost, .act_qt", calcActualSubtotal);
+  $(document).on('change', '.act_cost, .act_qt', calcActualTotal); 
+  $(document).on('click', '.remove_fields', calcActualTotal);     
+  
+    function calcEstSubtotal() {
+      var estimatedCost = parseFloat($(this).parents(".nested-fields").find(".est_cost").val());
+      var estimatedQt = parseFloat($(this).parents(".nested-fields").find(".est_qt").val());
+      var estimatedSubtotal = (estimatedQt || 0) * (estimatedCost || 0);
+      $(this).parents(".nested-fields").find(".estimated_subtotal").val(estimatedSubtotal);                
+    };
 
-              var estimatedCost = parseFloat($(this).parents(".nested-fields").find(".est_cost").val());
-              var estimatedQt = parseFloat($(this).parents(".nested-fields").find(".est_qt").val());
-              var estimatedSubtotal = (estimatedQt || 0) * (estimatedCost || 0);
+    function calcEstTotal() {
+      var estTotal = 0
+      $(".estimated_subtotal").each(function() {
+        if ( $(this).parents(".nested-fields").is(':visible') ) {
+          estTotal += parseFloat($(this).val());
+        }
+      $("#estimated_total").val(estTotal);
+      });
+    };
 
-              $(this).parents(".nested-fields").find(".estimated_subtotal").val(estimatedSubtotal);                
+    function calcActualSubtotal() {
+      var actualQt = $(this).parents(".nested-fields").find(".act_qt").val();
+      var actualCost = $(this).parents(".nested-fields").find(".act_cost").val();
+      var actualSubtotal = (actualQt || 0) * (actualCost || 0);
+      $(this).parents(".nested-fields").find(".actual_subtotal").val(actualSubtotal)
+    };
 
-        });
-
-        $(document).on('change', '.act_cost, .act_qt', function() {
-                    var actTotal = 0
-                      $(".actual_subtotal").each(function() {
-                          actTotal += parseFloat($(this).val());
-                      $("#actual_total").val(actTotal);
-                  });
-                });   
+    function calcActualTotal() {
+      var actTotal = 0
+      $(".actual_subtotal").each(function() {
+        if ( $(this).parents(".nested-fields").is(':visible') ) {
+        actTotal += parseFloat($(this).val());
+        }
+      $("#actual_total").val(actTotal);
+      });
+    }; 
+});  
       
-        $(document.body).on("change", ".act_cost, .act_qt", function() {
-          var actualQt = $(this).parents(".nested-fields").find(".act_qt").val();
-          var actualCost = $(this).parents(".nested-fields").find(".act_cost").val();
-          var actualSubtotal = (actualQt || 0) * (actualCost || 0);
-          $(this).parents(".nested-fields").find(".actual_subtotal").val(actualSubtotal)
-        });
+    
 
         
 
 //////////////////  DATE PICKER  ///////////////////// 
 
 $(function() {
-      var dateFormat = "mm/dd/yy",
-      //first time picker//
-            ordered = $( "#date_ordered" ).datepicker({
-              changeMonth: true, 
-              numberOfMonths: 1})
-            .on( "change", function() {
-            ordered.datepicker( "option", getDate( this ) );
-          }),
-
-      //second date picker
-
-            expected = $( "#date_expected" ).datepicker({
-              changeMonth: true,
-              numberOfMonths: 1
-            })
-            .on( "change", function() {
-              expected.datepicker( "option", getDate( this ) );
-            });
-
-      //third date picker
-
-            received = $( "#date_received" ).datepicker({
-                changeMonth: true,
-                numberOfMonths: 1
-              })
-              .on( "change", function() {
-                received.datepicker( "option", getDate( this ) );
-              });
-  
-      function getDate( element ) {
-        var date;
-        try {
-          date = $.datepicker.parseDate( dateFormat, element.value );
-        } catch( error ) {
-          //date = null;
-        }
-  
-        return date;
-      }
+  var dateFormat = "mm/dd/yy",
+  //first time picker//
+  ordered = $( "#date_ordered" ).datepicker({
+    changeMonth: true, 
+    numberOfMonths: 1})
+  .on( "change", function() {
+  ordered.datepicker( "option", getDate( this ) );
+  }),
+  //second date picker
+  expected = $( "#date_expected" ).datepicker({
+    changeMonth: true,
+    numberOfMonths: 1
+  })
+  .on( "change", function() {
+    expected.datepicker( "option", getDate( this ) );
   });
+  //third date picker
+  received = $( "#date_received" ).datepicker({
+    changeMonth: true,
+    numberOfMonths: 1
+  })
+  .on( "change", function() {
+    received.datepicker( "option", getDate( this ) );
+  });
+
+  function getDate( element ) {
+    var date;
+    try {
+      date = $.datepicker.parseDate( dateFormat, element.value );
+    } catch( error ) {
+      //date = null;
+    }
+
+    return date;
+  }
+});
 
 
 

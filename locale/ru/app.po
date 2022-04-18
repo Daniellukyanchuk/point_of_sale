@@ -46,7 +46,7 @@ msgid "+ New Supplier"
 msgstr "+ новый постовщик"
 
 msgid "<i class=\"fa-solid fa-chevron-left\"></i> Go back"
-msgstr ""
+msgstr "<i class=\"fa-solid fa-chevron-left\"></i> назад"
 
 msgid "<i class=\"fa-solid fa-download\"></i> Export as Excel"
 msgstr "<i class=\"fa-solid fa-download\"></i> експортировать в Excel"
@@ -654,11 +654,17 @@ msgstr "выбрать файл"
 msgid "Select Ingredient"
 msgstr "выбрать ингредиента"
 
+msgid "Select Product"
+msgstr "выберите продукт"
+
 msgid "Select Recipe"
 msgstr "рецепт"
 
 msgid "Select a product"
 msgstr "выбрать продукта"
+
+msgid "Select product produced"
+msgstr "выберите произведенный продукт"
 
 msgid "Select supplier"
 msgstr "выбрать постовщика"
@@ -745,7 +751,7 @@ msgid "Units produced"
 msgstr "произведено единиц"
 
 msgid "Upload Company Logo"
-msgstr ""
+msgstr "загрузить логотип"
 
 msgid "Weighted CPU"
 msgstr "взвешенная стоимость за единицу"

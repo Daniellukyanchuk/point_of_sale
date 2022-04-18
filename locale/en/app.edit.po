@@ -655,10 +655,16 @@ msgstr ""
 msgid "Select Ingredient"
 msgstr ""
 
+msgid "Select Product"
+msgstr ""
+
 msgid "Select Recipe"
 msgstr ""
 
 msgid "Select a product"
+msgstr ""
+
+msgid "Select product produced"
 msgstr ""
 
 msgid "Select supplier"

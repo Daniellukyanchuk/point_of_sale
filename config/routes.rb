@@ -1,8 +1,7 @@
-Rails.application.routes.draw do
- 
-  
+Rails.application.routes.draw do  
   
   scope "/:locale" do
+    get 'tests', to: 'tests#index'
     resources :settings
     resources :products_imports, only: [:new, :create]
     get '/recipe_products/recipe_info', to: 'products#get_recipe_info', as: :products_get_recipe_info

@@ -13,12 +13,12 @@
 
   <div class="field">
     <%= form.label :recipe_name %>
-    <%= form.text_field :recipe_name, class: "recipe-name" %>
+    <%= form.text_field :recipe_name, class: "recipe-name form-control" %>
   </div>
 
   <div class="field">
-    <%= form.label _("Select Recipe") %>
-    <%= form.collection_select :product_id, Product.all, :id, :product_name, {}, {class: "recipe"} %>
+    <%= form.label _("Select product produced") %>
+    <%= form.collection_select :product_id, Product.all, :id, :product_name, {}, {class: "recipe form-control"} %>
   </div>
 
         <h2><%= _("Ingredients") %></h2><hr>
@@ -34,17 +34,17 @@
 
   <div class="field">
     <%= form.label :yield %>
-    <%= form.number_field :yield, class: "yield" %>
+    <%= form.number_field :yield, class: "yield form-control" %>
   </div>
 
   <div class="field">
     <%= form.label :units %>
-    <%= form.text_field :units, class: "units greyed_out", :readonly => true %>
+    <%= form.text_field :units, class: "units greyed_out form-control", :readonly => true %>
   </div>
 
   <div class="field">
     <%= form.label :recipe_cost %>
-    <%= form.text_field :recipe_cost, id: "recipe_total", class: "recipe-cost greyed_out", :readonly => true %>
+    <%= form.text_field :recipe_cost, id: "recipe_total", class: "recipe-cost greyed_out form-control", :readonly => true %>
   </div>
 <br>
   <div class="field">
@@ -69,67 +69,58 @@ $(document).ready(function() {
   $(document.body).on("change load", ".amount, .ingredient", calcIngredientTotals);
   $(document).on("change load", ".amount, .ingredient", calcRecipeTotal);
 
-
   function updateIngredientInfo(){
-              var self = this;
-              $.ajax({ 
-                  url: "<%= products_get_recipe_info_path %>",
-                  data: { id: $(this).val() },
-                  type: "GET",
-                  success: function(data) {
-                    $(self).parents(".nested-fields").find(".cost-per-kg").val(data["price_per_kg"]);                  
-                  }
-              });
-          }
+    var self = this;
+    $.ajax({ 
+      url: "<%= products_get_recipe_info_path %>",
+      data: { id: $(this).val() },
+      type: "GET",
+      success: function(data) {
+        $(self).parents(".nested-fields").find(".cost-per-kg").val(data["price_per_kg"]);                  
+      }
+    });
+  }
 
   function loadIngredientInfo(){
-              var self = this;
-              $.ajax({ 
-                  url: "<%= products_get_recipe_info_path %>",
-                  data: { id: $(this).val() },
-                  type: "GET",
-                  success: function(data) {
-                    $(self).parents(".nested-fields").find(".cost-per-kg").val(data["price_per_kg"]);                  
-                  }
-              });
-          }
+    var self = this;
+    $.ajax({ 
+      url: "<%= products_get_recipe_info_path %>",
+      data: { id: $(this).val() },
+      type: "GET",
+      success: function(data) {
+        $(self).parents(".nested-fields").find(".cost-per-kg").val(data["price_per_kg"]);                  
+      }
+    });
+  }
 
-    function getUnit() {
-                $.ajax({ 
-                  url: "<%= products_get_unit_path %>",
-                  data: { id: $(this).val() },
-                  type: "GET",
-                  success: function(data) {
-                    $(".units").val(data["unit"]);
-                    }
-                  });
-                };
-        
-         
+  function getUnit() {
+    $.ajax({ 
+      url: "<%= products_get_unit_path %>",
+      data: { id: $(this).val() },
+      type: "GET",
+      success: function(data) {
+        $(".units").val(data["unit"]);
+      }
+    });
+  };        
 
   //////////////////  TOTALS AUTO-CALC  /////////////////////
 
-    function calcRecipeTotal() {
-        var recipeTotal = 0
-          $(".ingredient-total").each(function() {
-              recipeTotal += parseFloat($(this).val());
-          $("#recipe_total").val(recipeTotal);
-      });
-    };      
+  function calcRecipeTotal() {
+    var recipeTotal = 0
+    $(".ingredient-total").each(function() {
+        recipeTotal += parseFloat($(this).val());
+    $("#recipe_total").val(recipeTotal);
+    });
+  };      
 
-     function calcIngredientTotals() {
+  function calcIngredientTotals() {
+    var ingredientCost = parseFloat($(this).parents(".nested-fields").find(".cost-per-kg").val());
+    var ingredientAmount = parseFloat($(this).parents(".nested-fields").find(".amount").val());
+    var ingredientTotal = ((ingredientAmount || 0)/1000) * (ingredientCost || 0);
+    $(this).parents(".nested-fields").find(".ingredient-total").val(ingredientTotal);                
+  };
 
-          var ingredientCost = parseFloat($(this).parents(".nested-fields").find(".cost-per-kg").val());
-          var ingredientAmount = parseFloat($(this).parents(".nested-fields").find(".amount").val());
-          var ingredientTotal = ((ingredientAmount || 0)/1000) * (ingredientCost || 0);
-
-          $(this).parents(".nested-fields").find(".ingredient-total").val(ingredientTotal);                
-      };
-
-          
-  $(".chosen-select").chosen({
-    no_results_text: "Oops, nothing found!"
-  })
 });
 </script>
 
