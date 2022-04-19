@@ -16,12 +16,12 @@ Rails.application.routes.draw do
     get '/purchases/product_info', to: 'purchases#get_product_info', as: :purchases_get_product_info
     resources :purchases
     resources :purchase_products
-    resources :purchase_reports
     resources :suppliers
-    get 'reports/client_report'
-    get 'reports/product_report' 
-    get 'reports/purchase_report'
-    get '/reports/inventory_report'
+    get 'reports/client_report', as: :client_report
+    get 'reports/product_report', as: :product_report 
+    get 'reports/purchase_report', as: :purchase_report
+    get '/reports/inventory_report', as: :inventory_report
+    resources :purchase_reports
     resources :inventories
     resources :inventory_summaries
     resources :orders
