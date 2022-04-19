@@ -1,0 +1,32 @@
+<form>
+  <div class="d-flex justify-content-start ml-5 mt-3">
+    <div class="row">
+      <div>
+        <div class="header">
+          <h1>Forgot your password?</h1>
+        </div>
+        <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
+          <div class="">
+            <div class="form-group clearfix">
+              <%= f.label :email %>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: 'e.g.jon@snow.com' %>
+            </div>
+          </div>
+
+          
+          <div >
+            <div class="actions">
+              <%= f.submit "Send me reset password instructions", class: "btn btn-info" %>
+            </div>
+          </div>
+          
+          <div class="devise-links">
+            <%= render "devise/shared/links" %>
+          </div>
+        <% end %>        
+      </div>
+    </div>
+  </div>
+</form>
+

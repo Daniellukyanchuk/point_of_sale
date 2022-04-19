@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
   
-  get 'clients_imports/new'
-  get 'clients_imports/create'
+  
   scope "(:locale)", locale: /en|ru/ do 
     
+    devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}
+
+    get 'clients_imports/new'
+    get 'clients_imports/create'
     resources :settings
     resources :productions
     resources :suppliers
@@ -16,6 +19,7 @@ Rails.application.routes.draw do
     get 'order_report/client_report', to:'order_report#client_report', as: :client_report
     get 'order_report/product_report', to: 'order_report#product_report', as: :product_report
     resources :orders
+   
 
     get '/tests', to: 'tests#index'
     
@@ -28,11 +32,8 @@ Rails.application.routes.draw do
     resources :purchases
     resources :clients 
     resources :clients_imports, only: [:new, :create]
-
-    root to: 'clients#index'
+    
     root to: 'orders#index'
-    root to: 'purchases#index'
-    root to: 'products#index'
 
   end
 

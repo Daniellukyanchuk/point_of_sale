@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+
+  before_action :authenticate_user!
   before_action :set_order, only: %i[ show edit update destroy ]
   helper_method :sort_column, :sort_direction
   # GET /orders or /orders.json

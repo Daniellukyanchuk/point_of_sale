@@ -8,3 +8,7 @@
 if Setting.count == 0
 	Setting.create(company_name: "My Company")
 end
+
+if User.count == 0 
+  User.create(email: "daniellukyanchuk@gmail.com", password: "12345678")
+end

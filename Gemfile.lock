@@ -52,6 +52,7 @@ GEM
     arel (9.0.0)
     autoprefixer-rails (10.4.2.0)
       execjs (~> 2)
+    bcrypt (3.1.17)
     better_errors (2.9.1)
       coderay (>= 1.0.0)
       erubi (>= 1.0.0)
@@ -96,6 +97,12 @@ GEM
     concurrent-ruby (1.1.9)
     crass (1.0.6)
     debug_inspector (1.1.0)
+    devise (4.8.1)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 4.1.0)
+      responders
+      warden (~> 1.2.3)
     diff-lcs (1.5.0)
     docile (1.4.0)
     erubi (1.10.0)
@@ -153,6 +160,7 @@ GEM
       racc (~> 1.4)
     nokogiri (1.13.1-x86_64-linux)
       racc (~> 1.4)
+    orm_adapter (0.5.0)
     pg (1.3.1)
     popper_js (2.9.3)
     prime (0.1.2)
@@ -200,6 +208,9 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     regexp_parser (2.2.0)
+    responders (3.0.1)
+      actionpack (>= 5.0)
+      railties (>= 5.0)
     rexml (3.2.5)
     roo (2.8.3)
       nokogiri (~> 1)
@@ -281,6 +292,8 @@ GEM
       thread_safe (~> 0.1)
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
+    warden (1.2.9)
+      rack (>= 2.0.9)
     web-console (3.7.0)
       actionview (>= 5.0)
       activemodel (>= 5.0)
@@ -316,6 +329,7 @@ DEPENDENCIES
   caxlsx
   caxlsx_rails
   coffee-rails (~> 4.2)
+  devise
   factory_bot_rails
   faker (~> 1.6, >= 1.6.6)
   gettext (>= 3.0.2)

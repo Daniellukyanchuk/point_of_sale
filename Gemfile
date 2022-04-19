@@ -87,3 +87,6 @@ gem 'bootstrap', '~> 5.1.3'
 gem 'rails_12factor'
 gem 'heroku-deflater'   
 gem 'webpacker'
+
+gem 'devise'
+

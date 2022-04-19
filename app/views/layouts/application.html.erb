@@ -34,16 +34,28 @@
       </head>
 
       <body data-no-turbolink="true" class="m-0">
+          
+
           <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
             <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3 justify-content-end ml-sm-5" href="#"><h4>Polar Bear</h4></a>
 
             <button class="navbar-toggler position-absolute d-xl-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="hren mr-5 position-absolute">
-              <a class="text-white" href="http://localhost:3000/en/orders">en</a> <span class="text-white">|</span>
-              <a class="text-white" href="http://localhost:3000/ru/orders">ru</a>
-            </div> 
+            <div class="hren mr-5 position-absolute text-white">
+              <div id="user_nav">
+                <% if user_signed_in? %>
+                  Logged in as <strong><%= current_user.email %></strong>.
+                  <%= link_to 'Edit profile', edit_user_registration_path %> |
+                  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+                <% else %>
+                  <%= link_to "Login", new_user_session_path, class: "text-light mr-5" %>
+                <% end %>
+                
+                <a class="text-white" href="http://localhost:3000/en/orders">en</a> <span class="text-white">|</span>
+                <a class="text-white" href="http://localhost:3000/ru/orders">ru</a>
+              </div>
+            </div>
           </nav>
         
           <div class="container-fluid">
@@ -138,7 +150,10 @@
                   </ul>
                 </div>
               </nav>
+
               <div class="main-content col-12 p-0 col-xl-10">
+                <p class=”notice”><%= notice %></p>
+                <p class=”alert”><%= alert %></p>
                 <%= yield %>
               </div>
             </div>

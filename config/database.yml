@@ -26,6 +26,6 @@ test:
   database: pos_test
 
 production:
-  
+  <<: *default
   database: <%= ENV['DATABASE_URL'] %>
   
