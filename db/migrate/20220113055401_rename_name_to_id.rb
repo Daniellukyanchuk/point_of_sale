@@ -1,6 +1,7 @@
 class RenameNameToId < ActiveRecord::Migration[5.2]
   
   def change
-    rename_column :recipes, :recipe_name, :product_id
+    remove_column :recipes, :recipe_name
+    add_column :recipes, :product_id, :integer
   end
 end
