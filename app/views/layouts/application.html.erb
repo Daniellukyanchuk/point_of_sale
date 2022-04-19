@@ -40,18 +40,19 @@
             <button class="navbar-toggler position-absolute d-xl-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="hren mr-5 position-absolute text-white">
+            <div class="hren position-absolute text-white">
               <div id="user_nav">
                 <% if user_signed_in? %>
-                  Logged in as <strong><%= current_user.email %></strong>.
-                  <%= link_to 'Edit profile', edit_user_registration_path %> |
-                  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+                  <div class="btn btn-sm btn-info mr-3">Logged in as <strong><%= current_user.email %></strong>.</div>
+
+                  <div class="btn btn-sm btn-info"><%= link_to 'Edit profile', edit_user_registration_path %></div> |
+                  <div class="btn btn-sm btn-info mr-5"><%= link_to "Logout", destroy_user_session_path, method: :delete %></div>
                 <% else %>
                   <%= link_to "Login", new_user_session_path, class: "text-light mr-5" %>
                 <% end %>
                 
                 <a class="text-white" href="http://localhost:3000/en/orders">en</a> <span class="text-white">|</span>
-                <a class="text-white" href="http://localhost:3000/ru/orders">ru</a>
+                <a class="text-white mr-4" href="http://localhost:3000/ru/orders">ru</a>
               </div>
             </div>
           </nav>
