@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-  
+  devise_for :users
+  root to: 'orders#index'
   
   scope "(:locale)", locale: /en|ru/ do 
     
-    devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}
+    
 
     get 'clients_imports/new'
     get 'clients_imports/create'

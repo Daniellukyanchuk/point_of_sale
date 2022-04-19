@@ -11,3 +11,6 @@ log/
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+tmp/cache/bootsnap/load-path-cache
+*.pid
+tmp/pids/server.pid

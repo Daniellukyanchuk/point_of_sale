@@ -10,5 +10,5 @@ if Setting.count == 0
 end
 
 if User.count == 0 
-  User.create(email: "daniellukyanchuk@gmail.com", password: "12345678")
+  User.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
 end
