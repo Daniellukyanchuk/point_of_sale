@@ -27,6 +27,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit _("Create Supplier"), :class => 'btn btn-success'%>
+    <%= form.submit "#{supplier.id.nil? ? _("Create Supplier") : _("Update Supplier")}" , :class => "btn btn-success" %>
   </div>
 <% end %>
