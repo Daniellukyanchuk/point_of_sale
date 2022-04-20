@@ -15,3 +15,4 @@ tmp/cache/bootsnap/load-path-cache
 *.pid
 tmp/pids/server.pid
 tmp/pids/server.pid
+tmp/cache/bootsnap/load-path-cache
