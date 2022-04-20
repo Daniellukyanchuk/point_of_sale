@@ -93,9 +93,15 @@ label {
 
 
 #lang_switcher {
+    text-align: center;
+    padding-top: 1rem;
+    z-index: 9999;
+}
+
+#login_links {
     position: absolute;
     right: 0px;
-    padding: 2.75rem 2rem;
+    padding: 1.6rem 2rem;
     z-index: 9999;
 }
 
@@ -156,6 +162,10 @@ ul {
 
 #notice {
     margin: 0;
+}
+
+.login .field {
+    vertical-align: top;
 }
 
 .logo {

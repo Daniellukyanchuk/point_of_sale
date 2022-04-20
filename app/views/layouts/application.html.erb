@@ -36,8 +36,19 @@
   </head>
 
   <body>
-      <div id="lang_switcher"><a href="http://localhost:3000/en/products" class="text-dark">English</a> | <a href="http://localhost:3000/ru/products" class="text-dark">Русски</a></div> 
+      <div id="login_links">
+        <div class="pb-2">
+        <% if user_signed_in? %>
+          Logged in as <strong><%= current_user.email %></strong>.
+          <%= link_to 'Edit profile', edit_user_registration_path %> |
+          <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+        <% else %>          
+          <%= link_to "Sign In", new_user_session_path, class: "btn btn-primary col" %> <br>          
+        <% end %>
+        </div>
+      </div> 
 
+      
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
@@ -78,22 +89,31 @@
               <a href="<%= product_report_path %>" class="text-dark nav bg-info dropdown-item"> <%= _("Sales Report") %>  </a> 
               <a href="<%= purchase_report_path %>" class="text-dark nav bg-info dropdown-item"> <%= _("Purchasing Report") %> </a> 
               <a href="<%= client_report_path %>" class="text-dark nav bg-info dropdown-item"> <%= _("Client Report") %>  </a> 
-                 
             </div>
           </li> 
-          <li class="bg-light nav"> <a href="http://localhost:3000/<%= _("en") %>/settings" class="text-dark nav"> <i class="fa-solid fa-screwdriver-wrench"></i> <%= _("Settings") %>  </a>
+          <li class="nav-item dropdown bg-light nav">
+            <a class="nav-link dropdown-toggle nav text-dark" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+              <i class="fa-solid fa-screwdriver-wrench"></i> <%= _("Users & Settings") %>
+            </a> 
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a href="<%= settings_path %>" class="text-dark nav bg-light dropdown-item"> <%= _("Settings") %>  </a> 
+              <a href="<%= my_users_path %>" class="text-dark nav bg-light dropdown-item"> <%= _("Users") %>  </a> 
+            </div>                   
           </li>
+          <div id="lang_switcher">
+            <a href="https://joergs-pos.herokuapp.com/en/products" class="text-dark">English</a> | <a href="https://joergs-pos.herokuapp.com/ru/products" class="text-dark">Русски</a>
+          </div>
         </ul>
 
       
     </div>
   </div>
 </nav>
-
-
-
-  <div id="main">
+  <div id="main">      
       <%= yield %>
+      <div class="notice text-warning"><p><%= notice %></p></div>
+      <div class="alert text-danger"><p><%= alert %></p></div>
+      
   </div>
   </body>
 </html>
