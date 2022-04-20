@@ -141,8 +141,8 @@ ul {
 }
 
 .dropdown-toggle::after {    
-    position: relative;
-    left: 3.7rem;    
+     float: right;
+     margin-top: .5rem; 
 }
 
 .choices {
@@ -307,7 +307,7 @@ a.bg-info:focus, a.bg-info:hover, button.bg-info:focus, button.bg-info:hover {
 }
 
 a.nav {
-    padding: 1.3rem 1.8rem !important;
+    padding: 1.3rem 1rem 1.3rem 1.3rem !important
 }
 
 a.nav ::before {

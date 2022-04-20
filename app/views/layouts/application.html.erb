@@ -38,13 +38,12 @@
   <body>
       <div id="login_links">
         <div class="pb-2">
-        <% if user_signed_in? %>
-          Logged in as <strong><%= current_user.email %></strong>.
-          <%= link_to 'Edit profile', edit_user_registration_path %> |
-          <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-        <% else %>          
-          <%= link_to "Sign In", new_user_session_path, class: "btn btn-primary col" %> <br>          
-        <% end %>
+          <% if user_signed_in? %>
+            Logged in as <strong><%= current_user.user_name %></strong>. 
+            <%= link_to 'Edit profile', edit_user_registration_path %> |
+            <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+                  
+          <% end %>
         </div>
       </div> 
 
@@ -97,7 +96,7 @@
             </a> 
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a href="<%= settings_path %>" class="text-dark nav bg-light dropdown-item"> <%= _("Settings") %>  </a> 
-              <a href="<%= my_users_path %>" class="text-dark nav bg-light dropdown-item"> <%= _("Users") %>  </a> 
+              <a href="<%= users_path  %>" class="text-dark nav bg-light dropdown-item"> <%= _("Users") %>  </a> 
             </div>                   
           </li>
           <div id="lang_switcher">

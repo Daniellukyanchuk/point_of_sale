@@ -1,6 +1,12 @@
 Rails.application.routes.draw do  
-  root to: "products#index"  
-  scope "/:locale" do    
+  root to: "products#index"
+  
+  scope "/:locale" do      
+    devise_for :users, controllers: { sessions: "users/sessions" }, :path_prefix => 'devise'
+    devise_scope :users do 
+      get '/devise/users/sign_out' => 'sessions#destroy'
+    end
+    resources :users  
     get 'tests', to: 'tests#index'
     resources :settings
     resources :products_imports, only: [:new, :create]
