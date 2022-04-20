@@ -30,7 +30,7 @@
       </div>
 
       <div class="actions">
-        <%= form.submit 'Create Order', :class => 'text-light btn btn-primary' %>
+        <%= form.submit "#{order.id.nil? ? "Create" : "Update"} Order", :class => 'text-light btn btn-primary' %>
       </div>
     <% end %>
 

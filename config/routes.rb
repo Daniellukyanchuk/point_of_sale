@@ -1,13 +1,12 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { sessions: 'users/sessions' }
-  root to: 'orders#index'
+
+  devise_for :users, controllers: { sessions: 'users/sessions' }, path_prefix: "devise"
   
   scope "(:locale)", locale: /en|ru/ do 
     
-    
-
     get 'clients_imports/new'
     get 'clients_imports/create'
+    resources :users
     resources :settings
     resources :productions
     resources :suppliers

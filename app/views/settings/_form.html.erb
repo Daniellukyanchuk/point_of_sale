@@ -54,7 +54,11 @@
 
   <div class="col-4 mt-0">
     <h1>User Settings</h1>
-    <div><%= link_to 'Edit profile', edit_user_registration_path, class: "btn btn-info" %></div>
+    <div>
+      <%= link_to 'Edit profile', edit_user_registration_path, class: "btn btn-info" %>
+      <%= link_to 'Create User', new_user_path, class: "btn btn-info" %>
+    </div>
+    
   </div>
 </div>
 

@@ -39,7 +39,7 @@
         </div>
       
         <div class="field">
-          <%= form.submit 'Create Production', :class => 'searchtag text-light btn btn-primary' %>
+          <%= form.submit "#{production.id.nil? ? "Create" : "Update"} Production", :class => 'searchtag text-light btn btn-primary' %>
         </div>
       </p>
 

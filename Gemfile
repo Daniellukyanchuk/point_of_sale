@@ -89,4 +89,5 @@ gem 'heroku-deflater'
 gem 'webpacker'
 
 gem 'devise'
+gem 'cancancan'
 

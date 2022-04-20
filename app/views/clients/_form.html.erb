@@ -1,4 +1,4 @@
-<div class="marginRight">
+<div class="row ml-4">
     <%= form_with(model: client, local: true) do |form| %>
       <% if client.errors.any? %>
         <div id="error_explanation">
@@ -12,33 +12,33 @@
         </div>
       <% end %>
 
-      <div class="field">
+      <div class="form-group">
         <%= form.label _('Name') %>
-        <%= form.text_field :name, :class => "form-control" %>
+        <%= form.text_field :name, :class => "form-control", size: 30 %>
       </div>
 
-      <div class="field">
+      <div class="form-group">
         <%= form.label _('Phone') %>
         <%= form.text_field :phone, :class => "form-control" %>
       </div>
 
-      <div class="field">
+      <div class="form-group">
         <%= form.label _('Address') %>
         <%= form.text_field :address, :class => "form-control" %>
       </div>
 
-      <div class="field">
+      <div class="form-group">
         <%= form.label _('City') %>
         <%= form.text_field :city, :class => "form-control" %>
       </div>
 
-      <div class="field">
+      <div class="form-group">
         <%= form.label _('Country') %>
         <%= form.text_field :country, :class => "form-control" %>
       </div>
 
       <div class="actions">
-        <%= form.submit 'Create Client', :class => 'text-light btn btn-primary' %>
+        <%= form.submit "#{client.id.nil? ? "Create" : "Update"} Client", :class => 'text-light btn btn-primary' %>
       </div>
     <% end %>
 </div>
