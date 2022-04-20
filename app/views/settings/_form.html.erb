@@ -1,4 +1,6 @@
-<div class="marginRight">
+<div class="row">
+  <div class="col-4 ml-3">
+    <h1>Settings</h1>
     <%= form_with(model: setting, local: true) do |form| %>
       <% if setting.errors.any? %>
         <div id="error_explanation">
@@ -12,29 +14,32 @@
         </div>
       <% end %>
 
-      <div class="field">
-        <%= form.label :company_name %>
-        <%= form.text_field :company_name %>
+
+      <div class="">
+        <div class="form-group">
+          <%= form.label :company_name %>
+          <%= form.text_field :company_name, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :company_address %>
+          <%= form.text_field :company_address, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :country %>
+          <%= form.text_field :country, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :city %>
+          <%= form.text_field :city, class: "form-control" %>
+        </div>
       </div>
 
-      <div class="field">
-        <%= form.label :company_address %>
-        <%= form.text_field :company_address %>
-      </div>
-
-      <div class="field">
-        <%= form.label :country %>
-        <%= form.text_field :country %>
-      </div>
-
-      <div class="field">
-        <%= form.label :city %>
-        <%= form.text_field :city %>
-      </div>
-
-      <div class='form-group'>
+      <div class='field'>
         <% if @setting.logo.attached? %>
-          <%= image_tag @setting.logo, style: "width: 200px; height: 200px" %>
+          <%= image_tag @setting.logo, style: "width: 200px; height: 200px", class: "form-control" %>
         <% end %>
 
         <%= form.label :logo %>
@@ -42,7 +47,17 @@
       </div>
 
       <div class="actions">
-        <%= form.submit 'Update settings', :class => 'text-light btn btn-primary btn-sm' %>
+        <%= form.submit 'Update settings', :class => 'text-light btn btn-primary' %>
       </div>
     <% end %>
+  </div>
+
+  <div class="col-4 mt-0">
+    <h1>User Settings</h1>
+    <div><%= link_to 'Edit profile', edit_user_registration_path, class: "btn btn-info" %></div>
+  </div>
 </div>
+
+
+<hr>
+
