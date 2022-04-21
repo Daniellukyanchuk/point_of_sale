@@ -9,3 +9,7 @@
 if User.count == 0
     User.create(email: "quickfoxcreative@gmail.com", password: "123456")
 end
+
+if Setting.count == 0
+    Setting.create(company_name: "Company Name", company_address: "Company Address", company_phone: "+999 (999) 999 999")
+end
