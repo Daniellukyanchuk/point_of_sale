@@ -1,4 +1,4 @@
-<div class="marginRight">
+<div class="row ml-4">
     <%= form_with(model: inventory, local: true) do |form| %>
       <% if inventory.errors.any? %>
         <div id="error_explanation">
@@ -12,32 +12,32 @@
         </div>
       <% end %>
 
-      <div class="field">
+      <div class="form-group">
         <%= form.label :purchase_product %>
         <%= form.collection_select(:purchase_product_id, PurchaseProduct.all, :id, :display_text, {}, {class: "purchase-picker form-control"}) %>
       </div>
 
-      <div class="field">
+      <div class="form-group">
         <%= form.label _('Product') %>
         <%= form.collection_select(:product_id, Product.all, :id, :product_name, {}, {class: "product_name form-control"}) %>
       </div>
 
-      <div class="field">
-        <%= form.label :date %>
-        <%= form.date_select :date %>
+      <div class="form-group">
+        <%= form.label _('Date') %>
+        <%= text_field_tag 'date', params[:date], :class => "datepicker form-control", :autocomplete => "off", :placeholder => "Pick a date" %>
       </div>
 
-      <div class="field">
+      <div class="form-group">
         <%= form.label _('Amount') %>
         <%= form.number_field :amount, class: "quantity form-control", :readonly => true %>
       </div>
 
-      <div class="field">
+      <div class="form-group">
         <%= form.label _('Price_per_unit') %>
         <%= form.text_field :price_per_unit, class: "price_per_unit form-control", :readonly => true %>
       </div>
 
-      <div class="field">
+      <div class="form-group">
         <%= form.label _('Costs') %>
         <%= form.text_field :costs, class: "est_subtotal form-control", :readonly => true %>
       </div>
@@ -67,6 +67,10 @@
             }
         $(document).on('change', '.purchase-picker', updateSelectedPurchaseProduct);
         $(".purchase-picker").each(updateSelectedPurchaseProduct);
+        });
+
+        $( function() {
+          $( ".datepicker" ).datepicker({ dateFormat: 'dd-mm-yy'});
         });
       </script>
     <% end %>

@@ -1,4 +1,4 @@
-<div class="marginRight">
+<div class="row ml-4">
     <%= form_with(model: supplier, local: true) do |form| %>
       <% if supplier.errors.any? %>
         <div id="error_explanation">
@@ -12,32 +12,32 @@
         </div>
       <% end %>
 
-      <div class="field">
+      <div class="form-group">
         <%= form.label _('Suppliers name') %>
-        <%= form.text_field :suppliers_name, :class => "form-control" %>
+        <%= form.text_field :suppliers_name, :class => "form-control", size: 30 %>
       </div>
 
-      <div class="field">
+      <div class="form-group">
         <%= form.label _('City') %>
         <%= form.text_field :city, :class => "form-control" %>
       </div>
 
-      <div class="field">
+      <div class="form-group">
         <%= form.label _('Country') %>
         <%= form.text_field :country, :class => "form-control" %>
       </div>
 
-      <div class="field">
+      <div class="form-group">
         <%= form.label _('Address') %>
         <%= form.text_field :address, :class => "form-control" %>
       </div>
 
-      <div class="field">
+      <div class="form-group">
         <%= form.label _('Supply product') %>
         <%= form.number_field :supply_product_id, :class => "form-control" %>
       </div>
 
-      <div class="field">
+      <div class="form-group">
         <%= form.label _('Phone number') %>
         <%= form.number_field :phone_number, :class => "form-control" %>
       </div>

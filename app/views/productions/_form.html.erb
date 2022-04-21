@@ -1,4 +1,4 @@
-<div class="marginRight">
+<div class="row ml-4">
     <%= form_with(model: production, local: true) do |form| %>
       <% if production.errors.any? %>
         <div id="error_explanation">
@@ -12,28 +12,28 @@
         </div>
       <% end %>
 
-      <div class="field">
+      <div class="form-group">
         <%= form.label _('Recipe') %>
         <%= form.collection_select :recipe_id, Recipe.all, :id, :recipe_name, {}, {class: "product-picker form-control"} %>
       </div>
 
-      <p>
-        <div class="field">
+    
+        <div class="form-group">
           <%= form.label _('Product amount') %>
           <%= form.number_field :product_amount, :class => "prod_amount form-control" %>
         </div>
 
-        <div class="field">
+        <div class="form-group">
            <%= form.label _('Recipe price') %>
            <%= form.number_field :recipe_price, class: "recipe-price-field form-control", :readonly => true %>
         </div>    
 
-        <div class="field">
+        <div class="form-group">
           <%= form.label _('Total') %>
-          <%= form.text_field :grand_total, :readonly => true, :class => "form-control" %>
+          <%= form.text_field :grand_total, :readonly => true, :class => "form-control", size: 30 %>
         </div>
 
-        <div class="field">
+        <div class="form-group">
           <%= form.label _('Cost to make') %>
           <%= form.text_field :cost_to_make, :readonly => true, :class => "form-control" %>
         </div>
@@ -41,7 +41,7 @@
         <div class="field">
           <%= form.submit "#{production.id.nil? ? "Create" : "Update"} Production", :class => 'searchtag text-light btn btn-primary' %>
         </div>
-      </p>
+   
 
       <div class="field">
         <div id="custombutton" class="sob btn btn-info searchtag" data-toggle="modal" data-target="#myModal">Info!</div>

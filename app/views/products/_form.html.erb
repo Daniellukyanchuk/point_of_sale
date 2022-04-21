@@ -1,4 +1,4 @@
-<div class="marginRight">
+<div class="row ml-4">
     <%= form_with(model: product, local: true) do |form| %>
       <% if product.errors.any? %>
         <div id="error_explanation">
@@ -11,24 +11,26 @@
           </ul>
         </div>
       <% end %>
+      
+      
+        <div class="form-group">
+          <%= form.label _('Product name') %>
+          <%= form.text_field :product_name, class: "form-control", size: 30 %>
+        </div>
 
-      <div class="field">
-        <%= form.label _('Product name') %>
-        <%= form.text_field :product_name, class: "form-control" %>
-      </div>
+        <div class="form-group">
+          <%= form.label _('Price') %>
+          <%= form.text_field :price, :class => "form-control" %>
+        </div>
 
-      <div class="field">
-        <%= form.label _('Price') %>
-        <%= form.text_field :price, :class => "form-control" %>
-      </div>
+        <div class="form-group">
+          <%= form.label _('Unit') %>
+          <%= form.text_field :unit, class: "form-control" %>
+        </div>
+        
+        <div class="actions">
+          <%= form.submit "#{product.id.nil? ? "Create" : "Update"} Product", :class => 'text-light btn btn-primary'%>
+        </div>
 
-      <div class="field">
-        <%= form.label _('Unit') %>
-        <%= form.text_field :unit, class: "form-control" %>
-      </div>
-
-      <div class="actions">
-        <%= form.submit "#{product.id.nil? ? "Create" : "Update"} Product", :class => 'text-light btn btn-primary'%>
-      </div>
     <% end %>
 </div>

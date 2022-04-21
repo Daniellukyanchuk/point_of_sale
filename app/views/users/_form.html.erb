@@ -11,10 +11,10 @@
         </ul>
       </div>
     <% end %>
-  <div class="">
+  
     <div class="form-group">
       <%= form.label :user_name %>
-      <%= form.text_field :user_name, :class => "form-control" %>
+      <%= form.text_field :user_name, :class => "form-control", size: 30 %>
     </div>
 
     <div class="form-group">
@@ -30,6 +30,6 @@
     <div class="actions">
       <%= form.submit "#{user.id.nil? ? "Create" : "Update"} User", :class => 'text-light btn btn-primary' %>
     </div>
-  </div>
+
   <% end %>
 </div>
