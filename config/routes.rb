@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :roles
   devise_for :users, controllers: { sessions: 'users/sessions' }, path_prefix: "devise"
   
   scope "(:locale)", locale: /en|ru/ do 

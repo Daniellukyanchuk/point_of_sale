@@ -107,14 +107,26 @@
                       </a>
                     </li>
                     <li class="nav-item mb-3">
-                      <a class="nav-link" href="<%= users_path %>">
-                        <i class="fa-solid fa-users"></i> <%= _('Users') %>
-                      </a>
-                    </li>
-                    <li class="nav-item mb-3">
-                      <a class="nav-link" href="<%= settings_path %>/1/edit">
-                        <i class="fa-solid fa-bars"></i> <%= _('Settings') %>
-                      </a>
+                      <div class="btn-group dropright">
+                        <button>
+                          <a class="nav-link" href="<%= settings_path %>/1/edit">
+                            <i class="fa-solid fa-bars"></i> <%= _('Settings') %>
+                          </a>
+                        </button>
+                        <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <span class="sr-only">Toggle Dropright</span>
+                        </button>
+                        <div class="dropdown-menu">
+                          <a class="nav-link" href="<%= users_path %>">
+                            <i class="fa-solid fa-users"></i> <%= _('Users') %>
+                          </a>
+                          <hr>
+                          <a class="nav-link" href="<%= roles_path %>">
+                            <i class="fa-solid fa-briefcase"></i> <%= _('Roles') %>
+                          </a>
+                        </div>
+                      </div>
+                      
                     </li>
                   </ul>
 

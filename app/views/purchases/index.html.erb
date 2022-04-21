@@ -83,7 +83,7 @@
         <td><%= purchase.expected_date_of_delivery %></td>
         <td><%= link_to _('Show'), purchase, class: "btn btn-outline-primary btn-sm" %></td>
         <td><%= link_to _('Edit'), edit_purchase_path(purchase), class: "btn btn-outline-primary btn-sm" %></td>
-        <td><%= link_to _('Destroy'), purchase, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-primary btn-sm" %></td>
+        <td><%= link_to _('Destroy'), purchase, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-sm" %></td>
       </tr>
     <% end %>
   </tbody>

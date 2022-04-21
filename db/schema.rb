@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_20_100458) do
+ActiveRecord::Schema.define(version: 2022_04_21_083925) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,6 +76,11 @@ ActiveRecord::Schema.define(version: 2022_04_20_100458) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "permissions", force: :cascade do |t|
+    t.string "table"
+    t.string "action"
+  end
+
   create_table "productions", force: :cascade do |t|
     t.decimal "grand_total"
     t.datetime "created_at", null: false
@@ -134,6 +139,22 @@ ActiveRecord::Schema.define(version: 2022_04_20_100458) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "product_id"
+  end
+
+  create_table "role_permissions", force: :cascade do |t|
+    t.integer "role_id"
+    t.integer "permission_id"
+  end
+
+  create_table "role_users", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "role_id"
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string "role_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "settings", force: :cascade do |t|
