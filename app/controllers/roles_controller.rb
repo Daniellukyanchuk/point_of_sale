@@ -13,6 +13,7 @@ class RolesController < ApplicationController
   # GET /roles/new
   def new
     @role = Role.new
+    @role.role_permissions.new
   end
 
   # GET /roles/1/edit

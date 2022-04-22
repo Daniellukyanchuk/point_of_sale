@@ -1,5 +1,5 @@
 class Permission < ApplicationRecord
-  belongs_to :role, through: :role_permission 
-
+  has_many :roles, through: :role_permissions
+  has_many :role_permissions
 
 end
