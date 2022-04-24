@@ -70,7 +70,15 @@
     
     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
         <ul>
-          <li class="bg-success nav"><a href="<%= products_path %>"  class="text-dark nav"> <i class="fa-solid fa-bread-slice"></i> <%= _("Products") %> </a> </li>
+          <li class="nav-item dropdown bg-success nav">
+            <a class="nav-link dropdown-toggle nav text-dark" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+              <i class="fa-solid fa-bread-slice"></i> <%= _("Products") %>
+            </a> 
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a href="<%= products_path %>" class="text-dark nav bg-success dropdown-item"> <%= _("Products") %>  </a> 
+              <a href="<%= product_categories_path  %>" class="text-dark nav bg-success dropdown-item"> <%= _("Product Categories") %>  </a> 
+            </div>                   
+          </li>
           <li class="bg-success nav"><a href="<%= recipes_path %>"  class="text-dark nav"> <i class="fa-solid fa-book"></i> <%= _("Recipes") %>  </a> </li>
           <li class="bg-success nav"><a href="<%= clients_path %>"  class="text-dark nav"> <i class="fa-solid fa-user-group"></i> <%= _("Clients") %>  </a> </li>
           <li class="bg-success nav"><a href="<%= suppliers_path %>"  class="text-dark nav"> <i class="fa-solid fa-truck"></i> <%= _("Suppliers") %>  </a> </li>
@@ -97,6 +105,7 @@
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a href="<%= settings_path %>" class="text-dark nav bg-light dropdown-item"> <%= _("Settings") %>  </a> 
               <a href="<%= users_path  %>" class="text-dark nav bg-light dropdown-item"> <%= _("Users") %>  </a> 
+              <a href="<%= roles_path  %>" class="text-dark nav bg-light dropdown-item"> <%= _("Roles") %>  </a>
             </div>                   
           </li>
           <div id="lang_switcher">

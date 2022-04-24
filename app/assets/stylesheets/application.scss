@@ -91,11 +91,22 @@ label {
     display: none;
 }
 
+div.field {
+   vertical-align: top;
+}
 
 #lang_switcher {
     text-align: center;
     padding-top: 1rem;
     z-index: 9999;
+}
+
+a.bg-light:focus, a.bg-light:hover, button.bg-light:focus, button.bg-light:hover {
+    background-color: #c9c9c966!important;
+}
+
+a.bg-success:focus, a.bg-success:hover, button.bg-success:focus, button.bg-success:hover {
+    background-color: #b8db76!important;
 }
 
 #login_links {

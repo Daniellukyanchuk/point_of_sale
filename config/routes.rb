@@ -1,4 +1,5 @@
 Rails.application.routes.draw do  
+  
   root to: "products#index"
   
   scope "/:locale" do      
@@ -6,7 +7,12 @@ Rails.application.routes.draw do
     devise_scope :users do 
       get '/devise/users/sign_out' => 'sessions#destroy'
     end
+    resources :product_categories
     resources :users  
+    resources :roles
+    resources :permissions
+    resources :role_permissions
+    resources :role_users
     get 'tests', to: 'tests#index'
     resources :settings
     resources :products_imports, only: [:new, :create]

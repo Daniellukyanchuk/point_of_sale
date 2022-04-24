@@ -4,7 +4,7 @@ class OrdersController < ApplicationController
     
   # GET /orders or /orders.json
   def autofill_price
-      @price = Product.where("id = ?", params[:id]).take
+    @price = Product.where("id = ?", params[:id]).take
   end
   
   def index
