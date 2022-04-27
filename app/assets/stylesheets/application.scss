@@ -20,6 +20,8 @@ body {
     display: flex;
 }
 
+
+
  .align_right {
      text-align: right;
  }
@@ -173,6 +175,11 @@ ul {
 
 #notice {
     margin: 0;
+    margin-left: -2rem;
+    padding-left: 2rem;
+    float: left;
+    width: calc(100% + 2rem);
+    background-color: #44e30a40;
 }
 
 .login .field {
@@ -359,12 +366,26 @@ h1 {
     left: -2rem;
     width: calc(100% + 2rem)
     }
+
 h2 {
     font-size: 1.8rem;
     font-family: tahoma;
     font-weight: 600;
     line-height: 1.5;
     color: #a5a5a5;
+}
+
+h4 {
+    font-size: 1.2rem;
+    font-family: tahoma;
+    font-weight: 600;
+    line-height: 1.5;
+    color: #a5a5a5;
+}
+
+.form-control-lg {
+    width: 1.4rem;
+    height: 1.4rem;
 }
 
 .remove_fields {

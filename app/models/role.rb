@@ -3,28 +3,29 @@ class Role < ApplicationRecord
     has_many :role_users
     has_many :role_permissions
     has_many :permissions, through: :role_permissions
-    accepts_nested_attributes_for :role_permissions , allow_destroy: true
+    accepts_nested_attributes_for :role_permissions , allow_destroy: true    
+   
+    def add_role_permissions(params)
+        permission_ids = params["role"]["role_permissions_attributes"]["permissions_id"].values
+                
+        permission_ids.each do |p_id|
+            role_permissions.push(RolePermission.new(permission_id: p_id))
+        end
+    end
 
-    def self.get_permissions
-        sql =     
-             """
-             SELECT tablename
-             FROM pg_catalog.pg_tables
-             WHERE   schemaname != 'pg_catalog' AND 
-                     schemaname != 'information_schema' AND
-                     tablename NOT IN ('schema_migrations', 'ar_internal_metadata');
-             """
-             results = ActiveRecord::Base.connection.execute(sql)
+    def update_role_permissions(params)        
+        permission_ids = params["role"]["role_permissions_attributes"]["permissions_id"].values
+
+        #find all existing permissions for this role
+        permissions_to_clear = RolePermission.where("role_id = ?", params[:id].to_i)
+        #delete all existing permissions for this role
+        RolePermission.destroy(permissions_to_clear.ids)
      
-             results.each do |table|
-                 table_permissions = []
-                     table_permissions.push([table["tablename"], "read"])
-                     table_permissions.push([table["tablename"], "write"])
-                     table_permissions.push([table["tablename"], "destroy"])
-                     table_permissions.push([table["tablename"], "all"])
-                    
-                 return table_permissions 
-                 
-             end
-         end
+        #create role permissions according to new params      
+        permission_ids.each do |p_id|
+            role_permissions.push(RolePermission.new(permission_id: p_id))
+        end
+    end
 end
+
+

@@ -18,11 +18,11 @@
 
         <h2><%= _("Permissions") %></h2><hr>
 
-        <%= form.fields_for :recipe_products do |builder| %>
-          <%= render 'role_permissions', form: builder %>
-        <% end %>      
+        <%= form.fields_for :role_permission do |builder| %>
+          <%= render 'role_permissions_fields', form: builder %>
+        <% end %>
 
-        
+  <br><br>   
   <div class="actions">
     <%= form.submit "#{role.id.nil? ? _("Create Role") : _("Update Role")}" , :class => "btn btn-success" %>
   </div>

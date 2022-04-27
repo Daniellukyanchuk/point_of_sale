@@ -1,0 +1,16 @@
+<table>
+ <thead>
+  <tr>
+    <th><h4>Role</h4></th>
+  </tr>
+  <tbody>
+  <% Role.all.each do |ru| %>
+  <tr>
+    <td>
+        <%= check_box_tag ru["role_name"], ru.id , RoleUser.exists?(:role_id => ru.id, :user_id => @user.id), class: "d-inline-block form-control-lg" %>            
+        <%= label_tag ru["role_name"], ru["role_name"], class: "d-inline-block" %>
+    </td>
+  </tr>
+  <% end %>
+  </tbody>
+</table>

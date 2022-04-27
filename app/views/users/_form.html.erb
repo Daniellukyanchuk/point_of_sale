@@ -25,6 +25,12 @@
     <%= form.label :password %>
     <%= form.password_field :password, class: "form-control"%>
   </div>
+  <div><hr>
+        
+        <%= form.fields_for :role_user do |builder| %>
+          <%= render 'role_user_fields', form: builder %>
+        <% end %>
+  </div>
 
   <div class="actions">
     <%= form.submit "#{user.id.nil? ? _("Create User") : _("Update User")}" , :class => "btn btn-success" %>
