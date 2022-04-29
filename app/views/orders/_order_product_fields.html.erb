@@ -1,35 +1,32 @@
- 
-  <div class="nested-fields">
-    
-
-        <div id="custombutton" class="sob btn btn-info searchtag" data-toggle="modal" data-target="#myModal">Info!</div>
-        <!-- modal window -->
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5>Information about the product</h5>
-                        <button type="button" class="close" data-dismiss="modal">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                      <div class="field">
-                        <label for="current_inventory" class=" h6">Current amount in the inventory:</label>
-                        <input id="current_inventory" class="current_amount_field form-control" readonly>
-                      </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    </div>
+<div class="nested-fields">
+    <div id="custombutton" class="sob btn btn-info searchtag" data-toggle="modal" data-target="#myModal">Info!</div>
+    <!-- modal window -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5>Information about the product</h5>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                  <div class="field">
+                    <label for="current_inventory" class=" h6">Current amount in the inventory:</label>
+                    <input id="current_inventory" class="current_amount_field form-control" readonly>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
+    </div>
 
     <div class="field">
-
         <%= form.collection_select :product_id, Product.all, :id, :product_name, {}, {class: "product-picker form-control"} %>
     </div>
+
     <p>
         <div class="field">
           <%= form.label _('Quantity') %>
@@ -51,8 +48,8 @@
           <%= link_to _("Remove"), '#', class: "remove_fields btn btn-danger" %>
         </div>
     </p>
-    <hr>
-  </div>
+<hr>
+</div>
 
     <script type="text/javascript">
         $(document).ready(function() {
@@ -68,7 +65,7 @@
             });
           }
 
-          $(document).on('change', '.product-picker', updateSelectedAmount);
+        $(document).on('change', '.product-picker', updateSelectedAmount);
           $(".product-picker").each(updateSelectedAmount);
         });
     </script>

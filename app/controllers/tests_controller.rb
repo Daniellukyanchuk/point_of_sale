@@ -2,6 +2,7 @@ class TestsController < ApplicationController
 
 	def index
 
+		ab = Ability.new(current_user)
 fdss
 
 		# orders = Order.where("CAST(created_at as date) = ? AND grand_total => ?", Date.today - 1.day, 5000)

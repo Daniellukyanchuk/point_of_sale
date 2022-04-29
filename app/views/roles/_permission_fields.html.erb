@@ -1,0 +1,22 @@
+<div class="nested_fields">
+  <table class="table" style="width: 90%">
+    <thead>
+      <tr>
+		    <th><%= "Table" %></th>
+		    <th><%= "Actions" %></th>
+      </tr>
+    </thead>
+		
+		<tbody> 
+			<% @permissions.each_with_index do |p, i| %>
+			  <tr>
+				  	<td><%= p.table  %></td>
+				  	<td>
+				  		<%= check_box_tag "role[role_permissions_attributes[permissions_id[#{i}]]]", p.id, RolePermission.exists?(:role_id => params[:id].to_i, :permission_id => p.id) %>
+				  	  <%= label_tag p.action %>
+				  	</td>
+			<% end %>	
+				</tr>
+		</tbody>
+  </table>
+</div>

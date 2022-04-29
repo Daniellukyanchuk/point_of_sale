@@ -27,9 +27,12 @@
       <%= form.password_field :password, autocomplete: "current-password", class: "form-control" %>
     </div>
 
+    <%= form.fields_for :role_user do |builder| %>
+      <%= render 'role_user_permissions_fields', form: builder %>
+    <% end %>
+
     <div class="actions">
       <%= form.submit "#{user.id.nil? ? "Create" : "Update"} User", :class => 'text-light btn btn-primary' %>
     </div>
-
   <% end %>
 </div>

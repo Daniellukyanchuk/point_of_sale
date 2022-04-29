@@ -2,6 +2,24 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
+
+    # 
+    users = [{id: 1, permissions: [["Order", "read".to_sym], ["Product", "read"]]}, {id: 2, permissions: [[:order, :write]]}]
+
+    users.each do |u|
+      next if u[:id] != user.id
+
+      u[:permissions].each do |p|
+
+        can p[1], p[0].constantize, user: user
+
+      end
+# http://localhost:3000/orders/new
+
+    end
+
+    # can :write, Order, user: user
+
     # Define abilities for the passed in user here. For example:
     #
     #   user ||= User.new # guest user (not logged in)

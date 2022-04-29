@@ -1,0 +1,19 @@
+<div class="nested_fields">
+  <table class="table" style="width: 50%">
+		<thead>
+		  <tr>
+			  <th>Role</th>
+			  <th>Role Names</th>
+		  </tr>
+		</thead>
+	  <tbody>
+	    <% @roles.each_with_index do |r, i| %>
+				<tr>
+			    <td><%= check_box_tag "role[role_user_attributes[role_user_id[#{i}]]]", r.id, RoleUser.exists?(:role_id => r.id, :user_id => @user.id) %></td>
+				  <td><%= label_tag r.role_name %></td>	
+				</tr>
+			<% end %>
+	  </tbody>
+  </table>
+</div>
+

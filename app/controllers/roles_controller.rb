@@ -1,5 +1,7 @@
 class RolesController < ApplicationController
   before_action :set_role, only: %i[ show edit update destroy ]
+  before_action :get_permissions
+  before_action :set_permissions
 
   # GET /roles or /roles.json
   def index
@@ -23,7 +25,7 @@ class RolesController < ApplicationController
   # POST /roles or /roles.json
   def create
     @role = Role.new(role_params)
-
+    @role.create_permissions(params)
     respond_to do |format|
       if @role.save
         format.html { redirect_to role_url(@role), notice: "Role was successfully created." }
@@ -37,6 +39,7 @@ class RolesController < ApplicationController
 
   # PATCH/PUT /roles/1 or /roles/1.json
   def update
+    @role.update_permissions(params)
     respond_to do |format|
       if @role.update(role_params)
         format.html { redirect_to role_url(@role), notice: "Role was successfully updated." }
@@ -64,8 +67,20 @@ class RolesController < ApplicationController
       @role = Role.find(params[:id])
     end
 
+    def get_permissions
+      @get_permissions = Role.get_permissions
+      
+      @get_permissions.each do |row|
+        @get_permissions = Permission.create(table: row[0], action: row[1])
+      end
+    end
+
+    def set_permissions
+      @permissions = Permission.all
+    end
+
     # Only allow a list of trusted parameters through.
     def role_params
-      params.require(:role).permit(:role_name)
+      params.require(:role).permit(:role_name, role_permissions_attributes: [:id, :table, :action])
     end
 end

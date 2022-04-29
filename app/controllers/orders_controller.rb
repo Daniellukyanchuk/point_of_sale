@@ -19,6 +19,13 @@ class OrdersController < ApplicationController
 
   # GET /orders/new
   def new
+    ab = Ability.new(current_user)
+
+    if !(can? :write, Order)
+      flash[:danger] = "You are not authorized"
+      redirect_to action: :index
+    end
+
     @order = Order.new
     @order.order_products.new
   end
