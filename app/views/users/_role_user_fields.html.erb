@@ -1,16 +1,19 @@
-<table>
+<table  class="mb-4">
  <thead>
   <tr>
     <th><h4>Role</h4></th>
   </tr>
   <tbody>
-  <% Role.all.each do |ru| %>
+  <% @roles.each_with_index do |ru, ind| %>
   <tr>
     <td>
-        <%= check_box_tag ru["role_name"], ru.id , RoleUser.exists?(:role_id => ru.id, :user_id => @user.id), class: "d-inline-block form-control-lg" %>            
-        <%= label_tag ru["role_name"], ru["role_name"], class: "d-inline-block" %>
+        <%= check_box_tag "role_users_attributes[role_id[#{ind}]]", ru.id , RoleUser.exists?(:role_id => ru.id, :user_id => @user.id), class: "d-inline-block form-control-lg" %>
+        <%= label_tag :role, ru["role_name"], class: "d-inline-block role-label" %>
+     
     </td>
   </tr>
   <% end %>
   </tbody>
 </table>
+
+

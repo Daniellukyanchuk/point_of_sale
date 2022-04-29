@@ -119,6 +119,9 @@
 </nav>
   <div id="main">      
       <%= yield %>
+      <% flash.each do |type, msg| %>
+        <div class="flash_msg bg-danger text-white"><%= msg %></div>
+      <% end %>
       <div class="notice text-warning"><p><%= notice %></p></div>
       <div class="alert text-danger"><p><%= alert %></p></div>
       

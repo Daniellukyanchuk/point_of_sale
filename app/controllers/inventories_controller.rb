@@ -1,7 +1,9 @@
 class InventoriesController < ApplicationController
-  before_action :set_inventory, only: %i[ show edit update destroy ]
-
+  # before_action :set_inventory, only: %i[ show edit update destroy ]
+  load_and_authorize_resource
+  
   # GET /inventories or /inventories.json
+  
   def index
     @inventories = Inventory.all.order("id desc")
   end

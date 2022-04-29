@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[ show edit update destroy ]
+  # before_action :set_user, only: %i[ show edit update destroy ]
+  load_and_authorize_resource
+  before_action :set_roles
 
   # GET /users or /users.json
   def index
@@ -22,6 +24,7 @@ class UsersController < ApplicationController
   # POST /users or /users.json
   def create
     @user = User.new(user_params)
+    @user.add_role_users(params)
 
     respond_to do |format|
       if @user.save
@@ -38,6 +41,8 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
+        @user.update_role_users(params)
+        
         format.html { redirect_to users_path, notice: "User was successfully updated." }
         format.json { render :show, status: :ok, location: @user }
       else
@@ -63,9 +68,14 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
     end
 
+    def set_roles
+      @roles = Role.all
+    end
+
     # Only allow a list of trusted parameters through.
     def user_params
-      up = params.require(:user).permit(:user_name, :email, :password)
+      up = params.require(:user).permit(:user_name, :email, :password, 
+      role_users_attributes: [:user_id, :role_id])
       if up[:password].blank?
       up.delete(:password)
       end

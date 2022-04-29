@@ -1,7 +1,6 @@
 class PurchasesController < ApplicationController
-
-    before_action :set_purchase, only: %i[ show edit update destroy ]
-
+  # before_action :set_purchase, only: %i[ show edit update destroy ]
+  load_and_authorize_resource
 
   def get_product_info
     @purchase_product_data = PurchaseProduct.find(params[:id].to_i) 

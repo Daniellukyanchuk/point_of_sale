@@ -9,10 +9,11 @@ class Permission < ApplicationRecord
                 FROM pg_catalog.pg_tables
                 WHERE   schemaname != 'pg_catalog' AND 
                         schemaname != 'information_schema' AND
-                        tablename NOT IN ('schema_migrations', 'ar_internal_metadata');
+                        tablename NOT IN ('schema_migrations', 'ar_internal_metadata', 'active_storage_blobs', 'active_storage_attachments', 'category_products', 'order_products', 'purchase_products', 'recipe_products');
              """
         results = ActiveRecord::Base.connection.execute(sql)
         results = results.values.flatten 
+       
 
         def self.remove_existing(tablenames)
             tablenames.each do |p|      
@@ -29,9 +30,10 @@ class Permission < ApplicationRecord
         new_permissions.each do |p|
             permission_row = []
             permission_row.push([p, "read"])
-            permission_row.push([p, "write"])
+            permission_row.push([p, "create"])
+            permission_row.push([p, "update"])
             permission_row.push([p, "destroy"])
-            permission_row.push([p, "all"])
+            permission_row.push([p, "manage"])
             permissions_to_add.push(permission_row)
         end
         return permissions_to_add            

@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
-  before_action :set_order, only: %i[ show edit update destroy ]
+  # before_action :set_order, only: %i[ show edit update destroy ]
+  load_and_authorize_resource  
   helper_method :sort_column, :sort_direction
     
   # GET /orders or /orders.json

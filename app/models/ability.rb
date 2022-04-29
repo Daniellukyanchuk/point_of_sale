@@ -4,9 +4,21 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-
-    
-
+    user
+      if user.roles.first.role_name == "System Admin" 
+        can :manage, :all
+      else
+        #fetch role permissions for this user
+        role_permissions = user.role_users.first.role.role_permissions
+        #generate can statements      
+        user_permissions = role_permissions.each do |rp|
+          action = rp.permission.action.to_sym
+          table = rp.permission.table.classify.constantize   
+          can action, table        
+        end
+      end
+       
+  
     # Define abilities for the passed in user here. For example:
     #
     #   user ||= User.new # guest user (not logged in)

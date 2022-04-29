@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: %i[ show edit update destroy ]
+  # before_action :set_product, only: %i[ show edit update destroy ]
+  load_and_authorize_resource  
   helper_method :sort_column, :sort_direction
 
 

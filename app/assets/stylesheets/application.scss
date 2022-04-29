@@ -80,6 +80,21 @@ label {
     font-size: 11px;
 }
 
+.flash_msg {
+    position: fixed;
+    top: 0px;
+    float: left;
+    margin-left: -2rem;
+    padding-left: 2rem;
+    width: 100%;
+}
+
+.role-label {
+    font-size: 17px;
+    vertical-align: top;
+    padding-top: 2px;
+}
+
 .indent {
     margin-left:  23px;
     margin-bottom:  20px;

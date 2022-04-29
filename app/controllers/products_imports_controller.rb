@@ -1,4 +1,5 @@
 class ProductsImportsController < ApplicationController
+  
   def new
     @products_import = ProductsImport.new
   end
