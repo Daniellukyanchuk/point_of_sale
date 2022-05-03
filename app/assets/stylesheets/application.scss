@@ -80,12 +80,15 @@ label {
     font-size: 11px;
 }
 
-.flash_msg {
+.alert {
     position: fixed;
     top: 0px;
+    border-radius: 0;
     float: left;
     margin-left: -2rem;
     padding-left: 2rem;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
     width: 100%;
 }
 
@@ -404,7 +407,6 @@ h4 {
 }
 
 .remove_fields {
-    top: -.17rem;
     position: relative;
 }
 

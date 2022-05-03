@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   # before_action :set_product, only: %i[ show edit update destroy ]
   load_and_authorize_resource  
+  before_action :set_product_categories
   helper_method :sort_column, :sort_direction
 
 
@@ -60,10 +61,10 @@ end
   # POST /products or /products.json
   def create
     @product = Product.new(product_params)
-
+    @product.add_product_categories(params)
     respond_to do |format|
       if @product.save
-        format.html { redirect_to @product, notice: "Product was successfully created." }
+        format.html { redirect_to products_path, notice: "Product was successfully created." }
         format.json { render :show, status: :created, location: @product }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -76,7 +77,8 @@ end
   def update
     respond_to do |format|
       if @product.update(product_params)
-        format.html { redirect_to @product, notice: "Product was successfully updated." }
+        @product.update_product_categories(params)
+        format.html { redirect_to products_path, notice: "Product was successfully updated." }
         format.json { render :show, status: :ok, location: @product }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -100,9 +102,17 @@ end
       @product = Product.find(params[:id])
     end
 
+    def set_product_categories
+      @product_categories = ProductCategory.all
+    end
+
+    # def set_products_w_category
+    #   @categorized_products = Product.categorized_products
+    # end
+
     # Only allow a list of trusted parameters through.
     def product_params
-      params.require(:product).permit(:id, :product_name, :price, :unit, :units_purchased, :units_sold, :inventory, :grams_per_unit)
+      params.require(:product).permit(:id, :product_name, :price, :unit, :units_purchased, :units_sold, :inventory, :grams_per_unit, category_products_attributes: [:product_category_id, :product_id])
     end
 
     def sort_column
