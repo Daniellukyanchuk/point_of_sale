@@ -1,6 +1,7 @@
 class PurchasesController < ApplicationController
   before_action :set_purchase, only: %i[ show edit update destroy ]
   helper_method :sort_column, :sort_direction
+  load_and_authorize_resource
 
   # GET /purchases or /purchases.json
   def index

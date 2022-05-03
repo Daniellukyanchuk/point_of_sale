@@ -1,6 +1,7 @@
 class InventoriesController < ApplicationController
   before_action :set_inventory, only: %i[ show edit update destroy ]
   helper_method :sort_column, :sort_direction
+  load_and_authorize_resource
   # GET /inventories or /inventories.json
   def index
     params[:start_date] = 1.month.ago.strftime("%d-%m-%Y") if params[:start_date].blank?

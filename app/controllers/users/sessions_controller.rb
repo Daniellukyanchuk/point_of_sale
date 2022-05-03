@@ -2,6 +2,8 @@
 
 class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
+  # skip_before_action :load_and_authorize_resource, only: [:new]
+  # skip_authorization_check
 
   # GET /resource/sign_in
   # def new

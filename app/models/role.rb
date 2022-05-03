@@ -1,8 +1,11 @@
 class Role < ApplicationRecord
-	has_many :users, through: :role_user 
+	
 	has_many :role_users
-	has_many :permissions, through: :role_permissions
+	has_many :users, through: :role_user 
+	
 	has_many :role_permissions
+	has_many :permissions, through: :role_permissions
+	
 	accepts_nested_attributes_for :role_permissions, allow_destroy: true
 	
    def self.get_permissions
@@ -31,9 +34,10 @@ class Role < ApplicationRecord
       permissions = []
       new_tables.each do |et|
       	permissions.push([et, 'read'])
-      	permissions.push([et, 'write'])
+      	permissions.push([et, 'create'])
+      	permissions.push([et, 'update'])
       	permissions.push([et, 'destroy'])
-      	permissions.push([et, 'all'])
+      	permissions.push([et, 'manage'])
       end
       return permissions
 	end
@@ -43,7 +47,7 @@ class Role < ApplicationRecord
 
 		permissions_v.each do |pi|
 		   role_permissions.push(RolePermission.new(permission_id: pi))
-      end
+        end
 	end
 
 	def update_permissions(params_ids)

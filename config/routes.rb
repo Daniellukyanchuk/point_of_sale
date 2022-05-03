@@ -2,9 +2,9 @@ Rails.application.routes.draw do
 
   resources :roles
   devise_for :users, controllers: { sessions: 'users/sessions' }, path_prefix: "devise"
+
   
   scope "(:locale)", locale: /en|ru/ do 
-    
     get 'clients_imports/new'
     get 'clients_imports/create'
     resources :users
@@ -14,16 +14,13 @@ Rails.application.routes.draw do
     resources :my_models
     
     get '/inventories/current_amount_left', to: 'inventories#get_product_amount_info'
-
     resources :inventories
 
     get 'order_report/client_report', to:'order_report#client_report', as: :client_report
     get 'order_report/product_report', to: 'order_report#product_report', as: :product_report
     resources :orders
    
-
     get '/tests', to: 'tests#index'
-    
     get '/recipes/grand_total', to: 'recipes#get_recipe_price'
     get '/recipes/product_amount', to: 'recipes#get_product_amount', as: :get_product_amount_info
     resources :recipes
@@ -35,7 +32,6 @@ Rails.application.routes.draw do
     resources :clients_imports, only: [:new, :create]
     
     root to: 'orders#index'
-
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

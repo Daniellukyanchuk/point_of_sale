@@ -1,6 +1,7 @@
 class ClientsController < ApplicationController
   before_action :set_client, only: %i[ show edit update destroy ]
   helper_method :sort_column, :sort_direction
+  load_and_authorize_resource
 
   # GET /clients or /clients.json
   def index

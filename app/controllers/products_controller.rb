@@ -1,6 +1,8 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: %i[ show edit update destroy ]
   helper_method :sort_column, :sort_direction
+  load_and_authorize_resource
+
   def index
     @products = Product.search(params[:search]).order(sort_column + " " + sort_direction)
   end

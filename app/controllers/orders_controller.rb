@@ -1,9 +1,11 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: %i[ show edit update destroy ]
   helper_method :sort_column, :sort_direction
+  
+  load_and_authorize_resource
+
   # GET /orders or /orders.json
   def index
-
     @orders = Order.all
 
     params[:start_date] = 1.month.ago.strftime("%d-%m-%Y") if params[:start_date].blank?
@@ -14,17 +16,11 @@ class OrdersController < ApplicationController
 
   # GET /orders/1 or /orders/1.json
   def show
-
   end
 
   # GET /orders/new
   def new
     ab = Ability.new(current_user)
-
-    if !(can? :write, Order)
-      flash[:danger] = "You are not authorized"
-      redirect_to action: :index
-    end
 
     @order = Order.new
     @order.order_products.new

@@ -1,6 +1,7 @@
 class SuppliersController < ApplicationController
   before_action :set_supplier, only: %i[ show edit update destroy ]
   helper_method :sort_column, :sort_direction
+  load_and_authorize_resource
 
   # GET /suppliers or /suppliers.json
   def index
