@@ -29,7 +29,6 @@ if User.count == 0
   User.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
 end
 
-# Create a role with permissions, and assign that role to the user 'admin@example.com'.
 
 
 
