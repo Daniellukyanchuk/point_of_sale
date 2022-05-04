@@ -24,7 +24,7 @@ user = User.new(email: 'daniellukyanchuk@gmail.com', password: "12345pass", pass
 user.role = role
 user.save!
 
-if User.count == 0 
+if User.count == 'Super Admin' 
   User.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
 end
 
