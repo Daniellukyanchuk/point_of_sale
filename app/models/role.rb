@@ -13,7 +13,8 @@ class Role < ApplicationRecord
         end
     end
 
-    def update_role_permissions(params)        
+    def update_role_permissions(params)     
+        stop   
         permission_ids = params["role"]["role_permissions_attributes"]["permissions_id"].values
 
         #find all existing permissions for this role

@@ -6,9 +6,16 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-if User.count == 0
-    Role.create(role_name: "System Admin")
-    User.create(email: "quickfoxcreative@gmail.com", password: "123456", role_users_attributes: [user_id: 1, role_id: 1])
+if User.count == 0    
+
+    #add admin role
+    admin_role = Role.new(role_name: "System Admin")
+    admin_role.save!
+    #add admin user w/ admin role
+    role_id = Role.where("role_name = ?", "System Admin").first.id
+    admin_user = User.new(:user_name => "System Admin", :email => "quickfoxcreative@gmail.com", :password => "123456")
+    admin_user.role_users.push(:role_id => role_id)
+    admin_user.save!
 end
 
 if Setting.count == 0
