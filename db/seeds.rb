@@ -9,20 +9,19 @@
 unless Role.exists?(:role_name => "System Admin")
     #create admin role
     admin_role = Role.create(:role_name => "System Admin")
-    #get id of admin role
-    role_id = admin_role.id
 end
     
 
 unless User.exists?(:user_name => "Admin")
     #create admin user
     admin_user = User.create(:user_name => "Admin", :email => "quickfoxcreative@gmail.com", :password => "123456")
-    #get id of admin user
-    user_id = admin_user.id
 end
 
+user_id = User.where(:user_name => "Admin").first.id
+role_id = Role.where(:role_name => "System Admin").first.id
+
 unless RoleUser.exists?(:role_id => role_id, :user_id => user_id)    
-    #assign role to user
+    #create role user
     RoleUser.create(:user_id => user_id, :role_id => role_id)
 end
 
