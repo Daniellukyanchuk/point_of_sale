@@ -17,7 +17,7 @@ if Permission.count == 0
 	Permission.create!(table: "all", action: "manage")
 end
 
-role = Role.find_by_name('Admin')
+role = Role.where('Admin')
 role.permissions << Permission.find(table: "all", action: "manage")
 
 
