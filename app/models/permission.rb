@@ -37,6 +37,33 @@ class Permission < ApplicationRecord
             permissions_to_add.push(permission_row)
         end
         return permissions_to_add            
-    end         
+    end
+    
+    def self.organize_permissions
+        permissions = Permission.all
+
+        table = []
+        read = []
+        create = []
+        update = []
+        destroy = []
+        manage = []
+
+        permissions.each do |p|
+            if p.action == "read" 
+                table.push(p.table)
+                read.push(p.id)                
+            elsif p.action == "create" 
+                create.push(p.id)
+            elsif p.action == "update" 
+                update.push(p.id)
+            elsif p.action == "destroy" 
+                destroy.push(p.id)
+            elsif p.action == "manage" 
+                manage.push(p.id)
+            end
+        end
+        return sorted_permissions = [table, read, create, update, destroy, manage].transpose
+    end
 end
 

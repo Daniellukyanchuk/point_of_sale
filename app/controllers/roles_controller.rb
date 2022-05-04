@@ -77,6 +77,7 @@ class RolesController < ApplicationController
     
     def get_permissions
       @permissions = Permission.all
+      @organized_permissions = Permission.organize_permissions
     end
 
     # Only allow a list of trusted parameters through.
