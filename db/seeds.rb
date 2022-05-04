@@ -14,10 +14,10 @@ unless Role.exists?(role_name: 'Admin')
 end
 role_id = Role.where(role_name: 'Admin').first.id
 
-unless User.exists?(user_name: 'Daniel')
-	User.create!(user_name: 'Daniel', email: 'daniellukyanchuk@gmail.com', password: "12345pass", password_confirmation: "12345pass")
+unless User.exists?(user_name: 'St.Joerg')
+	User.create!(user_name: 'St.Joerg', email: 'daniellukyanchuk@gmail.com', password: "12345pass", password_confirmation: "12345pass")
 end
-user_id = User.where(user_name: 'Daniel').first.id
+user_id = User.where(user_name: 'St.Joerg').first.id
 
 unless RoleUser.exists?(user_id: user_id, role_id: role_id)
 	RoleUser.create!(user_id: user_id, role_id: role_id)
