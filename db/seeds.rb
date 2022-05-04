@@ -7,7 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 if User.count == 0
-    User.create(email: "quickfoxcreative@gmail.com", password: "123456")
+    Role.create(role_name: "System Admin")
+    User.create(email: "quickfoxcreative@gmail.com", password: "123456", role_users_attributes: [user_id: 1, role_id: 1]))
 end
 
 if Setting.count == 0
