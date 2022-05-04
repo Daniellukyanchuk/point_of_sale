@@ -8,28 +8,28 @@ class Role < ApplicationRecord
 	
 	accepts_nested_attributes_for :role_permissions, allow_destroy: true
 	
-   def self.get_permissions
-		sql = """ 
-			SELECT tablename
-		   FROM pg_catalog.pg_tables
-			WHERE schemaname != 'pg_catalog' 
-			AND schemaname != 'information_schema' AND tablename 
-			NOT IN ('schema_migrations', 'ar_internal_metadata', 'active_storage_attachments', 'active_storage_blobs');
-		"""
-		tables = ActiveRecord::Base.connection.execute(sql)
+    def self.get_permissions
+	  sql = """ 
+		SELECT tablename
+	    FROM pg_catalog.pg_tables
+		WHERE schemaname != 'pg_catalog' 
+		AND schemaname != 'information_schema' AND tablename 
+		NOT IN ('schema_migrations', 'ar_internal_metadata', 'active_storage_attachments', 'active_storage_blobs');
+	  """
+	  tables = ActiveRecord::Base.connection.execute(sql)
 
-		tables = tables.values.flatten
-		
-		def self.remove_existing(tables)
-			tables.each do |t|
-				if Permission.exists?(:table => t)
-					tables.delete(t)
-					self.remove_existing(tables)
-				end
-			end
+	  tables = tables.values.flatten
+	
+	  def self.remove_existing(tables)
+		tables.each do |t|
+		  if Permission.exists?(:table => t)
+			tables.delete(t)
+			self.remove_existing(tables)
+		  end
 		end
+	  end
 
-		new_tables = self.remove_existing(tables)
+	  new_tables = self.remove_existing(tables)
 
       permissions = []
       new_tables.each do |et|

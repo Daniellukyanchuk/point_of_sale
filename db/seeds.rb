@@ -9,27 +9,24 @@ if Setting.count == 0
 	Setting.create(company_name: "My Company")
 end
 
-if Role.count == 0
+unless Role.exists?(role_name: 'Admin')
 	Role.create!(role_name: 'Admin')
 end
+role_id = Role.where(role_name: 'Admin').first.id
 
-if Permission.count == 0
-	Permission.create!(table: "all", action: "manage")
+unless User.exists?(user_name: 'Daniel')
+	User.create!(user_name: 'Daniel', email: 'daniellukyanchuk@gmail.com', password: "12345pass", password_confirmation: "12345pass")
 end
+user_id = User.where(user_name: 'Daniel').first.id
 
-role = Role.where('Admin')
-permissions = Permission.where(table: "all", action: "manage")
-role.permissions = permissions
-
-user = User.new(email: 'daniellukyanchuk@gmail.com', password: "12345pass", password_confirmation: "12345pass")
-user.role = role
-user.save!
+unless RoleUser.exists?(user_id: user_id, role_id: role_id)
+	RoleUser.create!(user_id: user_id, role_id: role_id)
+end
 
 if User.count == 0
   User.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
 end
 
-# Create a role with permissions, and assign that role to the user 'admin@example.com'.
 
 
 
