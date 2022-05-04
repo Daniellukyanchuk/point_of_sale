@@ -10,3 +10,7 @@ if User.count == 0
     Role.create(role_name: "System Admin")
     User.create(email: "quickfoxcreative@gmail.com", password: "123456", role_users_attributes: [user_id: 1, role_id: 1]))
 end
+
+if Setting.count == 0
+    Setting.create(company_name: "Company Name", company_address: "Company Address", company_phone: "+999 (999) 999 999")
+end
