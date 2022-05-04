@@ -2,9 +2,6 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    # this_is_snake_case
-    # ThisIsPascalCase
-    # thisIsCamalCase
     # Look through all roles the user has
     # Look through all the permissions on every role
     user.roles.each do |role|
