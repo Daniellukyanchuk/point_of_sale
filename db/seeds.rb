@@ -7,15 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 if User.count == 0    
-
     #add admin role
-    admin_role = Role.new(role_name: "System Admin")
-    admin_role.save!
+    admin_role = Role.create(:role_name => "System Admin")
     #add admin user w/ admin role
     role_id = Role.where("role_name = ?", "System Admin").first.id
-    admin_user = User.new(:user_name => "System Admin", :email => "quickfoxcreative@gmail.com", :password => "123456")
-    admin_user.role_users.push(:role_id => role_id)
-    admin_user.save!
+    admin_user = User.create(:user_name => "POS Admin", :email => "quickfoxcreative@gmail.com", :password => "123456")
+    user_id = User.where("user_name = ?", "POS Admin").first.id
+    RoleUser.create(:user_id => user_id, :role_id => role_id)
 end
 
 if Setting.count == 0
