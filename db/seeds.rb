@@ -9,13 +9,27 @@ if Setting.count == 0
 	Setting.create(company_name: "My Company")
 end
 
+if Role.count == 0
+	Role.create!(role_name: 'Admin')
+end
+
+if Permission.count == 0
+	Permission.create!(table: "all", action: "manage")
+end
+
+role = Role.find_by_name('Admin')
+role.permissions << Permission.find(table: "all", action: "manage")
+
+
+user = User.new(email: 'daniellukyanchuk@gmail.com.com', password: "12345pass", password_confirmation: "12345pass")
+user.role = role
+user.save!
+
 if User.count == 0 
   User.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
 end
 
 # Create a role with permissions, and assign that role to the user 'admin@example.com'.
 
-if Role.count == 0
-	Role.create!(role_name: 'admin')
-end
+
 
