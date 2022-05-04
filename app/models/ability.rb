@@ -2,23 +2,18 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    # this_is_snake_case
-    # ThisIsPascalCase
-    # thisIsCamalCase
     # Look through all roles the user has
     # Look through all the permissions on every role
     user.roles.each do |role|
-      role.permissions.each do |permission|
-        if role.role_name == "Admin"
-          can :manage, :all
-        else
+      if role.role_name == "Admin"
+        can :manage, :all
+      else
+        role.permissions.each do |permission|
           can permission.action.to_sym, permission.table.classify.constantize
         end
       end   
     end 
-
- 
-
+    
     # users = [{id: 1, permissions: [["Order", "read".to_sym], ["Product", "read"]]}, {id: 2, permissions: [[:order, :write]]}]
 
     # users.each do |u|
