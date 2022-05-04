@@ -18,13 +18,14 @@ if Permission.count == 0
 end
 
 role = Role.where('Admin')
-role.role_permissions << Permission.where(table: "all", action: "manage")
+permissions = Permission.where(table: "all", action: "manage")
+role.permissions = permissions
 
 user = User.new(email: 'daniellukyanchuk@gmail.com', password: "12345pass", password_confirmation: "12345pass")
 user.role = role
 user.save!
 
-if User.count == 'Super Admin' 
+if User.count == 0
   User.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
 end
 
