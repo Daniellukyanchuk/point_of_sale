@@ -1,0 +1,17 @@
+<table  class="mb-4">
+ <thead>
+  <tr>
+    <th><h4>Categories</h4></th>
+  </tr>
+  <tbody>
+  <% @product_categories.each_with_index do |pc, ind| %>
+  <tr>
+    <td>
+        <%= check_box_tag "category_products_attributes[product_id[#{ind}]]", pc.id , CategoryProduct.exists?(:product_category_id => pc.id, :product_id => @product.id), class: "d-inline-block form-control-lg" %>
+        <%= label_tag :product_category, pc["category_name"], class: "d-inline-block role-label" %>
+     
+    </td>
+  </tr>
+  <% end %>
+  </tbody>
+</table>

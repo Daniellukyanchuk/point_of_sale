@@ -20,6 +20,8 @@ body {
     display: flex;
 }
 
+
+
  .align_right {
      text-align: right;
  }
@@ -78,6 +80,24 @@ label {
     font-size: 11px;
 }
 
+.alert {
+    position: fixed;
+    top: 0px;
+    border-radius: 0;
+    float: left;
+    margin-left: -2rem;
+    padding-left: 2rem;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+    width: 100%;
+}
+
+.role-label {
+    font-size: 17px;
+    vertical-align: top;
+    padding-top: 2px;
+}
+
 .indent {
     margin-left:  23px;
     margin-bottom:  20px;
@@ -91,11 +111,22 @@ label {
     display: none;
 }
 
+div.field {
+   vertical-align: top;
+}
 
 #lang_switcher {
     text-align: center;
     padding-top: 1rem;
     z-index: 9999;
+}
+
+a.bg-light:focus, a.bg-light:hover, button.bg-light:focus, button.bg-light:hover {
+    background-color: #c9c9c966!important;
+}
+
+a.bg-success:focus, a.bg-success:hover, button.bg-success:focus, button.bg-success:hover {
+    background-color: #b8db76!important;
 }
 
 #login_links {
@@ -162,6 +193,11 @@ ul {
 
 #notice {
     margin: 0;
+    margin-left: -2rem;
+    padding-left: 2rem;
+    float: left;
+    width: calc(100% + 2rem);
+    background-color: #44e30a40;
 }
 
 .login .field {
@@ -348,6 +384,7 @@ h1 {
     left: -2rem;
     width: calc(100% + 2rem)
     }
+
 h2 {
     font-size: 1.8rem;
     font-family: tahoma;
@@ -356,8 +393,20 @@ h2 {
     color: #a5a5a5;
 }
 
+h4 {
+    font-size: 1.2rem;
+    font-family: tahoma;
+    font-weight: 600;
+    line-height: 1.5;
+    color: #a5a5a5;
+}
+
+.form-control-lg {
+    width: 1.4rem;
+    height: 1.4rem;
+}
+
 .remove_fields {
-    top: -.17rem;
     position: relative;
 }
 

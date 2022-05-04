@@ -3,7 +3,7 @@
 *.log
 *.log
 tmp/cache/
-log/
+log/*.*
 
 /public/packs
 /public/packs-test
@@ -11,3 +11,5 @@ log/
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+tmp/cache/bootsnap/load-path-cache
+log/development.log

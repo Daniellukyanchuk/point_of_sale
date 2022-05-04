@@ -1,10 +1,11 @@
 class OrdersController < ApplicationController
-  before_action :set_order, only: %i[ show edit update destroy ]
+  # before_action :set_order, only: %i[ show edit update destroy ]
+  load_and_authorize_resource  
   helper_method :sort_column, :sort_direction
     
   # GET /orders or /orders.json
   def autofill_price
-      @price = Product.where("id = ?", params[:id]).take
+    @price = Product.where("id = ?", params[:id]).take
   end
   
   def index
@@ -27,8 +28,7 @@ class OrdersController < ApplicationController
 
   # POST /orders or /orders.json
   def create
-    @order = Order.new(order_params)
-    
+    @order = Order.new(order_params)    
     respond_to do |format|
       if @order.save
         format.html { redirect_to @order, notice: "Order was successfully created." }
@@ -42,7 +42,7 @@ class OrdersController < ApplicationController
 
   # PATCH/PUT /orders/1 or /orders/1.json
   def update
-    respond_to do |format|
+     respond_to do |format|
       if @order.update(order_params)
         format.html { redirect_to @order, notice: "Order was successfully updated." }
         format.json { render :show, status: :ok, location: @order }

@@ -1,6 +1,6 @@
 class ProductionsController < ApplicationController
-  before_action :set_production, only: %i[ show edit update destroy ]
-  
+  # before_action :set_production, only: %i[ show edit update destroy ]
+  load_and_authorize_resource  
   
 
 

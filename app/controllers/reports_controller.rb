@@ -1,5 +1,4 @@
-class ReportsController < ApplicationController
-    
+class ReportsController < ApplicationController  
 
     def product_report
         if params[:from_date].blank?

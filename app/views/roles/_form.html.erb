@@ -1,0 +1,29 @@
+<%= form_with(model: role, local: true) do |form| %>
+  <% if role.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(role.errors.count, "error") %> prohibited this role from being saved:</h2>
+
+      <ul>
+      <% role.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :role_name %>
+    <%= form.text_field :role_name, class: "form-control" %>
+  </div>
+
+        <h2><%= _("Permissions") %></h2><hr>
+
+        <%= form.fields_for :role_permission do |builder| %>
+          <%= render 'role_permissions_fields', form: builder %>
+        <% end %>
+
+  <br><br>   
+  <div class="actions">
+    <%= form.submit "#{role.id.nil? ? _("Create Role") : _("Update Role")}" , :class => "btn btn-success" %>
+  </div>
+<% end %>

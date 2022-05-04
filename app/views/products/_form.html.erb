@@ -30,6 +30,14 @@
     <%= form.label :grams_per_unit %>
     <%= form.text_field :grams_per_unit, class: "form-control" %>
   </div>
+<hr>
+  <h4> Product Categories </h4>
+
+  <div>
+    <%= form.fields_for :category_product do |builder| %>
+      <%= render 'category_product_fields', form: builder %>
+    <% end %>
+  </div>
 
   <div class="actions">
     <%= form.submit "#{product.id.nil? ? _("Create Product") : _("Update Product")}" , :class => "btn btn-success" %>

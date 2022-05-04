@@ -1,0 +1,25 @@
+<table>
+ <thead>
+  <tr>
+    <th><h4>Table Name</h4></th>
+    <th colspan="4"><h4>Actions</h4></th>
+  </tr>
+  <tbody>
+  <% @permissions.each_with_index do |p, ind| %>
+  <tr>
+    <td>  <b><%= p.table %>:</b> 
+    </td>
+    <td>
+    <div class="d-inline-block">
+      <div class="d-inline-block">
+        <%= check_box_tag "role[role_permissions_attributes[permissions_id[#{ind}]]]", p.id , RolePermission.exists?(:permission_id => p.id, :role_id => params["id"].to_i), class: "d-inline-block form-control-lg" %>            
+        <%= label_tag p.action, p.action, class: "d-inline-block" %>
+      </div>
+    </td>
+  </tr>
+  <% end %>
+  </tbody>
+</table>
+
+
+

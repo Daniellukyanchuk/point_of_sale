@@ -1,7 +1,7 @@
 class RecipesController < ApplicationController
-
-  before_action :set_recipe, only: %i[ show edit update destroy ]
-
+  # before_action :set_recipe, only: %i[ show edit update destroy ]
+  load_and_authorize_resource
+  
   def get_production_info
       @recipe_cost = Recipe.get_recipe_cost(params[:id].to_i).first
       render json: {recipe_cost: @recipe_cost["usage_cost"], units: @recipe_cost["units"], yield: @recipe_cost["yield"], 

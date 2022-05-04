@@ -2,5 +2,4 @@
 
 <%= render 'form', user: @user %>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+<%= link_to _('<i class="fa-solid fa-chevron-left"></i> Go back'), users_path, :class => "btn btn-primary mt-3" %>

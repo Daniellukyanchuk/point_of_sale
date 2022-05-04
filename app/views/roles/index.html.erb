@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Roles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Role name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @roles.each do |role| %>
+      <tr>
+        <td><%= role.role_name %></td>
+        <td class="col-2">
+          <%= link_to '<i class="fa-solid fa-pencil"></i>'.html_safe, edit_role_path(role), class: "text-secondary m-2" %>
+          <%= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, role, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-danger m-2" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to _('+ New Role'), new_role_path, class: "btn btn-secondary" %>
