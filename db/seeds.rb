@@ -13,7 +13,8 @@ if User.count == 0
   User.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password', user_role: [user_id: 1, role_id: 1])
 end
 
-# Create a role with permissions, and assign that role to the user 'admin@example.com'.
+# Create a role and assign that role to the user 'admin@example.com'.
+# Heroku is throwing an error 'ERR_TOO_MANY_REDIRECTS'.
 
 if Role.count == 0
 	Role.create!(role_name: 'admin')
