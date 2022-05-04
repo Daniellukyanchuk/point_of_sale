@@ -8,10 +8,10 @@ class Ability
     # Look through all roles the user has
     # Look through all the permissions on every role
     user.roles.each do |role|
-      role.permissions.each do |permission|
-        if role.role_name == "Admin"
-          can :manage, :all
-        else
+      if role.role_name == "Admin"
+        can :manage, :all
+      else
+        role.permissions.each do |permission|
           can permission.action.to_sym, permission.table.classify.constantize
         end
       end   
