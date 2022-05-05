@@ -20,8 +20,6 @@ body {
     display: flex;
 }
 
-
-
  .align_right {
      text-align: right;
  }
@@ -90,6 +88,10 @@ label {
     padding-top: 0.2rem;
     padding-bottom: 0.2rem;
     width: 100%;
+}
+
+.alert-notice {
+    background: #a1c0e4;
 }
 
 .role-label {
