@@ -43,7 +43,13 @@ msgstr ""
 msgid "+ New Recipe"
 msgstr ""
 
+msgid "+ New Role"
+msgstr ""
+
 msgid "+ New Supplier"
+msgstr ""
+
+msgid "+ New User"
 msgstr ""
 
 msgid "<i class=\"fa-solid fa-chevron-left\"></i> Go back"
@@ -106,6 +112,9 @@ msgstr ""
 msgid "Calculate Ingredients Needed"
 msgstr ""
 
+msgid "Categories"
+msgstr ""
+
 msgid "Choose Product"
 msgstr ""
 
@@ -166,10 +175,16 @@ msgstr ""
 msgid "Cost per kg"
 msgstr ""
 
+msgid "Create Category"
+msgstr ""
+
 msgid "Create Client"
 msgstr ""
 
 msgid "Create Inventory"
+msgstr ""
+
+msgid "Create Order"
 msgstr ""
 
 msgid "Create Product"
@@ -178,13 +193,19 @@ msgstr ""
 msgid "Create Production"
 msgstr ""
 
-msgid "Create Purchase"
+msgid "Create Purchase Order"
 msgstr ""
 
 msgid "Create Recipe"
 msgstr ""
 
+msgid "Create Role"
+msgstr ""
+
 msgid "Create Supplier"
+msgstr ""
+
+msgid "Create User"
 msgstr ""
 
 msgid "Date Ordered"
@@ -224,6 +245,12 @@ msgid "Editing Recipe"
 msgstr ""
 
 msgid "Editing Supplier"
+msgstr ""
+
+msgid "Email"
+msgstr ""
+
+msgid "Enter registered email address"
 msgstr ""
 
 msgid "Estimate"
@@ -346,6 +373,9 @@ msgstr ""
 msgid "New Recipe"
 msgstr ""
 
+msgid "New Role"
+msgstr ""
+
 msgid "New Supplier"
 msgstr ""
 
@@ -403,19 +433,22 @@ msgstr ""
 msgid "P.O. Product Id"
 msgstr ""
 
+msgid "Permissions"
+msgstr ""
+
 msgid "Phone"
 msgstr ""
 
 msgid "Phone:"
 msgstr ""
 
-msgid "Place Order"
-msgstr ""
-
 msgid "Price:"
 msgstr ""
 
 msgid "Product"
+msgstr ""
+
+msgid "Product Categories"
 msgstr ""
 
 msgid "Product Id"
@@ -613,6 +646,9 @@ msgstr ""
 msgid "Recipe|Yield"
 msgstr ""
 
+msgid "Register"
+msgstr ""
+
 msgid "Remaining Qt:"
 msgstr ""
 
@@ -626,6 +662,12 @@ msgid "Reports"
 msgstr ""
 
 msgid "Requirements"
+msgstr ""
+
+msgid "Role(s)"
+msgstr ""
+
+msgid "Roles"
 msgstr ""
 
 msgid "Sale Price"
@@ -751,7 +793,43 @@ msgstr ""
 msgid "Units produced"
 msgstr ""
 
+msgid "Update Category"
+msgstr ""
+
+msgid "Update Client"
+msgstr ""
+
+msgid "Update Order"
+msgstr ""
+
+msgid "Update Product"
+msgstr ""
+
+msgid "Update Purchase Order"
+msgstr ""
+
+msgid "Update Recipe"
+msgstr ""
+
+msgid "Update Role"
+msgstr ""
+
+msgid "Update Supplier"
+msgstr ""
+
+msgid "Update User"
+msgstr ""
+
 msgid "Upload Company Logo"
+msgstr ""
+
+msgid "User name"
+msgstr ""
+
+msgid "Users"
+msgstr ""
+
+msgid "Users & Settings"
 msgstr ""
 
 msgid "Weighted CPU"
@@ -766,7 +844,7 @@ msgstr ""
 msgid "Yield:"
 msgstr ""
 
-msgid "en"
+msgid "You don't have permission to do that"
 msgstr ""
 
 msgid "enter keyword(s)"

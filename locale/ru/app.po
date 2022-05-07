@@ -42,8 +42,16 @@ msgstr "+ Новый заказ на зокупку"
 msgid "+ New Recipe"
 msgstr "+ новый рецепт"
 
+#, fuzzy
+msgid "+ New Role"
+msgstr "+ новый рецепт"
+
 msgid "+ New Supplier"
 msgstr "+ новый постовщик"
+
+#, fuzzy
+msgid "+ New User"
+msgstr "+ новый заказ"
 
 msgid "<i class=\"fa-solid fa-chevron-left\"></i> Go back"
 msgstr "<i class=\"fa-solid fa-chevron-left\"></i> назад"
@@ -105,6 +113,9 @@ msgstr "кол-во партии"
 msgid "Calculate Ingredients Needed"
 msgstr "рассчитать необходимые ингредиенты"
 
+msgid "Categories"
+msgstr ""
+
 msgid "Choose Product"
 msgstr "выбрать продукт"
 
@@ -165,11 +176,19 @@ msgstr "расход за единицу"
 msgid "Cost per kg"
 msgstr "стоимость за кг"
 
+#, fuzzy
+msgid "Create Category"
+msgstr "cоздать инвентара"
+
 msgid "Create Client"
 msgstr "cоздать клиента"
 
 msgid "Create Inventory"
 msgstr "cоздать инвентара"
+
+#, fuzzy
+msgid "Create Order"
+msgstr "заказ"
 
 msgid "Create Product"
 msgstr "создать продукта"
@@ -177,14 +196,22 @@ msgstr "создать продукта"
 msgid "Create Production"
 msgstr "создать производство"
 
-msgid "Create Purchase"
+#, fuzzy
+msgid "Create Purchase Order"
 msgstr "создать закупку"
 
 msgid "Create Recipe"
 msgstr "создать рецепта"
 
+#, fuzzy
+msgid "Create Role"
+msgstr "создать рецепта"
+
 msgid "Create Supplier"
 msgstr "создать постовщика"
+
+msgid "Create User"
+msgstr ""
 
 msgid "Date Ordered"
 msgstr "дата заказа"
@@ -224,6 +251,12 @@ msgstr "редактирование рецепта"
 
 msgid "Editing Supplier"
 msgstr "редактирование постовщика"
+
+msgid "Email"
+msgstr ""
+
+msgid "Enter registered email address"
+msgstr ""
 
 msgid "Estimate"
 msgstr "оценка"
@@ -345,6 +378,9 @@ msgstr "Новый заказ на закупку"
 msgid "New Recipe"
 msgstr "новый рецепт"
 
+msgid "New Role"
+msgstr ""
+
 msgid "New Supplier"
 msgstr "новый постовщик"
 
@@ -402,19 +438,23 @@ msgstr "ID ЗнП"
 msgid "P.O. Product Id"
 msgstr "ID продуктa ЗнП"
 
+msgid "Permissions"
+msgstr ""
+
 msgid "Phone"
 msgstr "телефон"
 
 msgid "Phone:"
 msgstr "телефон:"
 
-msgid "Place Order"
-msgstr "оформить заказ"
-
 msgid "Price:"
 msgstr "цена:"
 
 msgid "Product"
+msgstr "продукт"
+
+#, fuzzy
+msgid "Product Categories"
 msgstr "продукт"
 
 msgid "Product Id"
@@ -612,6 +652,9 @@ msgstr "единица"
 msgid "Recipe|Yield"
 msgstr "выход"
 
+msgid "Register"
+msgstr ""
+
 msgid "Remaining Qt:"
 msgstr "оставшееся кол-во:"
 
@@ -626,6 +669,12 @@ msgstr "отчёты"
 
 msgid "Requirements"
 msgstr "требования"
+
+msgid "Role(s)"
+msgstr ""
+
+msgid "Roles"
+msgstr ""
 
 msgid "Sale Price"
 msgstr "цена продаже"
@@ -750,8 +799,51 @@ msgstr "единиц на складе"
 msgid "Units produced"
 msgstr "произведено единиц"
 
+msgid "Update Category"
+msgstr ""
+
+#, fuzzy
+msgid "Update Client"
+msgstr "cоздать клиента"
+
+#, fuzzy
+msgid "Update Order"
+msgstr "заказ"
+
+#, fuzzy
+msgid "Update Product"
+msgstr "создать продукта"
+
+#, fuzzy
+msgid "Update Purchase Order"
+msgstr "редактирование заказа на закупки"
+
+#, fuzzy
+msgid "Update Recipe"
+msgstr "создать рецепта"
+
+msgid "Update Role"
+msgstr ""
+
+#, fuzzy
+msgid "Update Supplier"
+msgstr "создать постовщика"
+
+msgid "Update User"
+msgstr ""
+
 msgid "Upload Company Logo"
 msgstr "загрузить логотип"
+
+msgid "User name"
+msgstr ""
+
+msgid "Users"
+msgstr ""
+
+#, fuzzy
+msgid "Users & Settings"
+msgstr "настройки"
 
 msgid "Weighted CPU"
 msgstr "взвешенная стоимость за единицу"
@@ -765,8 +857,8 @@ msgstr "выход"
 msgid "Yield:"
 msgstr "выход:"
 
-msgid "en"
-msgstr "ru"
+msgid "You don't have permission to do that"
+msgstr ""
 
 msgid "enter keyword(s)"
 msgstr "введите ключевое слово"
