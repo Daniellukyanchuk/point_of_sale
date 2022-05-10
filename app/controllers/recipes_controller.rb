@@ -1,6 +1,9 @@
 class RecipesController < ApplicationController
   # before_action :set_recipe, only: %i[ show edit update destroy ]
   load_and_authorize_resource
+  before_action :find_ingredients
+  before_action :find_finished_products
+  
   
   def get_production_info
       @recipe_cost = Recipe.get_recipe_cost(params[:id].to_i).first
@@ -76,11 +79,28 @@ class RecipesController < ApplicationController
       @recipe = Recipe.find(params[:id])
     end
 
+    def find_ingredients
+      ingredients = CategoryProduct.where("product_category_id = ? or product_category_id = ?", 12, 13)
+      product_ids = []
+      ingredients.each do |ingredient|
+        product_ids.push(ingredient.product_id)
+      end
+      @ingredients = Product.find(product_ids).sort_by &:product_name
+    end
+
+    def find_finished_products
+      finished_products = CategoryProduct.where("product_category_id = ? or product_category_id = ?", 11, 13)
+      product_ids = []
+      finished_products.each do |fin_prod|
+        product_ids.push(fin_prod.product_id)
+      end
+      @finished_products = Product.find(product_ids).sort_by &:product_name
+    end
+
     # Only allow a list of trusted parameters through.
     def recipe_params
       params.require(:recipe).permit( :id, :product_id, :recipe_cost, :yield, :instructions, :units, :recipe_name,
-        recipe_products_attributes: [ :id, :product_id, :recipe_id, :cost_per_kg, :amount, :ingredient_total, :_destroy ])
-        
+        recipe_products_attributes: [ :id, :product_id, :recipe_id, :cost_per_kg, :amount, :ingredient_total, :_destroy ])        
     end
 
     def sort_column

@@ -1,6 +1,7 @@
 class PurchasesController < ApplicationController
   # before_action :set_purchase, only: %i[ show edit update destroy ]
   load_and_authorize_resource
+  before_action :find_products
 
   def get_product_info
     @purchase_product_data = PurchaseProduct.find(params[:id].to_i) 
@@ -71,6 +72,15 @@ class PurchasesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_purchase
       @purchase = Purchase.find(params[:id])
+    end
+
+    def find_products
+      products = CategoryProduct.where("product_category_id = ?", 12)
+      product_ids = []
+      products.each do |product|
+        product_ids.push(product.product_id)
+      end
+      @raw_products = Product.find(product_ids).sort_by &:product_name
     end
 
     # Only allow a list of trusted parameters through.

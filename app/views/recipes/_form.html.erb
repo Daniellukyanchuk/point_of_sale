@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= form.label _("Select product produced") %>
-    <%= form.collection_select :product_id, Product.all, :id, :product_name, {}, {class: "recipe form-control"} %>
+    <%= form.collection_select :product_id, @finished_products, :id, :product_name, {}, {class: "recipe form-control"} %>
   </div>
 
         <h2><%= _("Ingredients") %></h2><hr>

@@ -22,13 +22,13 @@
   <tbody>
     <% @recipes.each do |recipe| %>
       <tr>
-        <td><%= recipe.id %></td>
-        <td><%= recipe.recipe_name %></td>
-        <td><%= recipe.product_id %></td>
-        <td><%= recipe.product.product_name %></td>
-        <td class="align_right"><%= number_with_precision(recipe.recipe_cost, :precision => 2) %></td>
-        <td class="align_right"><%= recipe.yield %></td>
-        <td><%= recipe.instructions %></td>
+        <td class="col-1"><%= recipe.id %></td>
+        <td class="col-2"><%= recipe.recipe_name %></td>
+        <td class="col-1"><%= recipe.product_id %></td>
+        <td class="col-2"><%= recipe.product.product_name %></td>
+        <td class="col-1 align_right"><%= number_with_precision(recipe.recipe_cost, :precision => 2) %></td>
+        <td class="col-1 align_right"><%= recipe.yield %></td>
+        <td class="col-3"><%= recipe.instructions %></td>
         <td>
           <%= link_to '<i class="fa-solid fa-eye"></i>'.html_safe, recipe, class: "text-primary m-2" %>
           <%= link_to '<i class="fa-solid fa-pencil"></i>'.html_safe, edit_recipe_path(recipe), class: "text-secondary m-2" %>

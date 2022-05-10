@@ -4,7 +4,7 @@
    <div class="nested-fields">
       <div class="field">
         <%= form.label _('Select a product') %>
-        <%= form.collection_select :product_id, Product.all, :id, :product_name, {:prompt => _("Select Product")}, {class: "product-select form-control"} %>
+        <%= form.collection_select :product_id, @finished_products, :id, :product_name, {:prompt => _("Select Product")}, {class: "product-select form-control"} %>
       </div>
 
       <div class="field">

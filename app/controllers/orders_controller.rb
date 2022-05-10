@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
   # before_action :set_order, only: %i[ show edit update destroy ]
   load_and_authorize_resource  
   helper_method :sort_column, :sort_direction
+  before_action :find_finished_products
     
   # GET /orders or /orders.json
   def autofill_price
@@ -66,6 +67,15 @@ class OrdersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_order
       @order = Order.find(params[:id])
+    end
+
+    def find_finished_products
+      finished_products = CategoryProduct.where("product_category_id = ? or product_category_id = ?", 11, 13)
+      product_ids = []
+      finished_products.each do |finished_product|
+        product_ids.push(finished_product.product_id)
+      end
+      @finished_products = Product.find(product_ids).sort_by &:product_name
     end
 
     # Only allow a list of trusted parameters through.

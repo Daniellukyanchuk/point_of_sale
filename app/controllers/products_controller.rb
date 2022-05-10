@@ -106,9 +106,7 @@ end
       @product_categories = ProductCategory.all
     end
 
-    # def set_products_w_category
-    #   @categorized_products = Product.categorized_products
-    # end
+   
 
     # Only allow a list of trusted parameters through.
     def product_params

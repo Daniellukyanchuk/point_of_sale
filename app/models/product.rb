@@ -8,7 +8,7 @@ class Product < ApplicationRecord
     has_many :orders, through: :order_products
     has_many :clients, through: :orders
     has_many :suppliers, through: :purchases
-    has_many :category_products
+    has_many :category_products, dependent: :destroy
     has_many :product_categories, through: :category_products
     accepts_nested_attributes_for :category_products
     validates :product_name, :price, :unit, :grams_per_unit, presence: true
