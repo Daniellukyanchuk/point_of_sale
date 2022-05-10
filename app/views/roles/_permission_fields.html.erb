@@ -3,17 +3,23 @@
     <thead>
       <tr>
 		    <th><%= "Table" %></th>
-		    <th><%= "Actions" %></th>
+		    <th class="mb-0"><%= "Actions" %></th>
       </tr>
     </thead>
 		
 		<tbody> 
 			<% @permissions.each_with_index do |p, i| %>
 			  <tr>
-				  	<td><%= p.table  %></td>
+				  	<td><b><%= p.table  %></b></td>
 				  	<td>
-				  		<%= check_box_tag "role[role_permissions_attributes[permissions_id[#{i}]]]", p.id, RolePermission.exists?(:role_id => params[:id].to_i, :permission_id => p.id) %>
-				  	  <%= label_tag p.action %>
+				  		<div class="row">
+				  			<div class="col-3">
+				  				  <%= check_box_tag "role[role_permissions_attributes[permissions_id[#{i}]]]", p.id, RolePermission.exists?(:role_id => params[:id].to_i, :permission_id => p.id) %>
+				  			</div>  			
+				  		  <div class="col-4">
+				  		  	<%= label_tag p.action %>	
+				  		  </div>  
+				  		</div>
 				  	</td>
 			<% end %>	
 				</tr>
