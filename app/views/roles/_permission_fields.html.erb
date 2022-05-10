@@ -3,24 +3,49 @@
     <thead>
       <tr>
 		    <th><%= "Table" %></th>
-		    <th class="mb-0"><%= "Actions" %></th>
+		    <th><%= "read" %></th>
+		    <th><%= "create" %></th>
+		    <th><%= "update" %></th>
+		    <th><%= "destroy" %></th>
+		    <th><%= "manage" %></th>
       </tr>
     </thead>
 		
 		<tbody> 
-			<% @permissions.each_with_index do |p, i| %>
-			  <tr>
-				  	<td><b><%= p.table  %></b></td>
-				  	<td>
-				  		<div class="row">
-				  			<div class="col-3">
-				  				  <%= check_box_tag "role[role_permissions_attributes[permissions_id[#{i}]]]", p.id, RolePermission.exists?(:role_id => params[:id].to_i, :permission_id => p.id) %>
-				  			</div>  			
-				  		  <div class="col-4">
-				  		  	<%= label_tag p.action %>	
-				  		  </div>  
-				  		</div>
-				  	</td>
+			<% @organized_permissions.each_with_index do |p, i| %>
+			  <tr>		  	  
+		  		<div class="row">
+		  			<td>
+		  				<div class="col-3">
+		  				  <%= p[5] %>
+		  				</div>
+		  			</td>
+		  		  <td>
+			  			<div class="col-3">
+			  				  <%= check_box_tag "role[role_permissions_attributes[permissions_id[#{i}]]]", p[0], RolePermission.exists?(:role_id => params[:id].to_i, :permission_id => p[0]) %>
+			  			</div> 
+		  			</td> 
+		  			<td>
+			  			<div class="col-3">
+			  				  <%= check_box_tag "role[role_permissions_attributes[permissions_id[#{i}]]]", p[1], RolePermission.exists?(:role_id => params[:id].to_i, :permission_id => p[1]) %>
+			  			</div> 
+		  			</td> 
+		  			<td>
+			  			<div class="col-3">
+			  				  <%= check_box_tag "role[role_permissions_attributes[permissions_id[#{i}]]]", p[2], RolePermission.exists?(:role_id => params[:id].to_i, :permission_id => p[2]) %>
+			  			</div> 
+		  			</td> 
+		  			<td>
+			  			<div class="col-3">
+			  				  <%= check_box_tag "role[role_permissions_attributes[permissions_id[#{i}]]]", p[3], RolePermission.exists?(:role_id => params[:id].to_i, :permission_id => p[3]) %>
+			  			</div>
+		  			</td>
+		  			<td> 
+			  			<div class="col-3">
+			  				  <%= check_box_tag "role[role_permissions_attributes[permissions_id[#{i}]]]", p[4], RolePermission.exists?(:role_id => params[:id].to_i, :permission_id => p[4]) %>
+			  			</div>
+		  			</td>   			  
+		  		</div>
 			<% end %>	
 				</tr>
 		</tbody>
