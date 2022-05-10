@@ -1,7 +1,8 @@
 class RolesController < ApplicationController
-  before_action :set_role, only: %i[ show edit update destroy ]
+  # before_action :set_role, only: %i[ show edit update destroy ]
   before_action :get_permissions
   before_action :set_permissions
+  before_action :organize_permissions
   load_and_authorize_resource
 
   # GET /roles or /roles.json
@@ -78,6 +79,10 @@ class RolesController < ApplicationController
 
     def set_permissions
       @permissions = Permission.all
+    end
+
+    def organize_permissions
+      @organized_permissions = Role.organize_permissions
     end
 
     # Only allow a list of trusted parameters through.

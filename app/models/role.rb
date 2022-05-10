@@ -42,6 +42,35 @@ class Role < ApplicationRecord
       return permissions
 	end
 
+	def self.organize_permissions
+		# Take an array permissions and make it organized. 
+		# Instead of displaying permissions in different rows, display it in one row. 
+        permissions = Permission.all
+
+        read_action = []
+        create_action = []
+        update_action = []
+        destroy_action = []
+        manage_action = []
+        table_name = []
+
+        permissions.each do |per|
+        	if per.action == "read"
+        		read_action.push(per.id)
+        		table_name.push(per.table)
+            elsif per.action == "create"
+            	create_action.push(per.id)
+            elsif per.action == "update"
+            	update_action.push(per.id)
+            elsif per.action == "destroy"
+            	destroy_action.push(per.id)
+            else per.action == "manage"
+            	manage_action.push(per.id)
+            end
+        end
+        sorted_permissions = [read_action, create_action, update_action, destroy_action, manage_action, table_name].transpose
+	end
+
 	def create_permissions(permission_ids)
 		permissions_v = permission_ids[:role][:role_permissions_attributes][:permissions_id].values
 
