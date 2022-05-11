@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :set_gettext_locale
   around_action :switch_locale
   before_action :authenticate_user!
+  protect_from_forgery with: :exception
   skip_authorization_check 
   add_flash_types :danger, :info, :warning, :success, :messages
 

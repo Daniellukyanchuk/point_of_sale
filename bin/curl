@@ -1,0 +1,21 @@
+create_client() {
+  curl -X POST \
+    -H "Content-Type: application/json" \
+    -d '{"client": {"name": "Lobster the Mobster", "phone": "+573 377 397 723"}}' \
+    http://localhost:3000/api/clients 
+}
+
+get_client() {
+  curl -X GET \
+    -H "Content-Type: application/json" \
+    http://localhost:3000/api/clients 
+}
+
+update_client() {
+  curl -X PATCH \
+    -H "Content-Type: application/json" \
+    -d '{"client": {"name": "Bobby"}}' \
+    http://localhost:3000/api/clients/171 
+}
+
+$1

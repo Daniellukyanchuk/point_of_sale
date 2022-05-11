@@ -1,8 +1,13 @@
 Rails.application.routes.draw do  
   
   root to: "products#index"
+  get '/api/clients', to: 'api/api_clients#index'
+  post '/api/clients', to: 'api/api_clients#create'
+  patch '/api/clients/:id', to: 'api/api_clients#update'
+
   
-  scope "/:locale" do      
+  scope "/:locale" do
+    
     devise_for :users, controllers: { sessions: "users/sessions" }, :path_prefix => 'devise'
     devise_scope :users do 
       get '/devise/users/sign_out' => 'sessions#destroy'
