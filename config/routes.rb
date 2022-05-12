@@ -2,6 +2,9 @@ Rails.application.routes.draw do
 
   resources :roles
   devise_for :users, controllers: { sessions: 'users/sessions' }, path_prefix: "devise"
+  post '/api/clients', to: 'api/api_clients#create'
+  patch '/api/clients/:id', to: 'api/api_clients#update'
+  get '/api/clients', to: 'api/api_clients#index'
 
   
   scope "(:locale)", locale: /en|ru/ do 

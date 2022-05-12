@@ -1,0 +1,29 @@
+create_client() {
+	curl -X POST \
+	    -H "Content-Type: application/json" \
+	    -d @bin/client.json \
+	    http://localhost:3000/api/clients
+}
+  
+get_client() {
+	curl -X GET \
+	-H "Content-Type: application/json" \
+	http://localhost:3000/api/clients
+}   
+
+update_client() {
+    curl -X PATCH \
+    -H 'Content-Type: application/json' \
+    -d '{"client": { "name": "Daniel" }}' \
+    http://localhost:3000/api/clients/33
+}
+
+get_exchange() {
+    curl -X GET \
+	-H "Content-Type: application/json" \
+	https://www.nbkr.kg/XML/daily.xml
+}
+ 
+$1
+
+
