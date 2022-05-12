@@ -112,7 +112,7 @@
             <a href="https://joergs-pos.herokuapp.com/en/products" class="text-dark">English</a> | <a href="https://joergs-pos.herokuapp.com/ru/products" class="text-dark">Русски</a>
           </div>
           <div id="exchange_rate" class="col-1" style="max-width: 12rem;">
-          <h6><%= _("Current Exchange Rate") %></h6> <%= number_field_tag 'rate', @exchange_rate, id: "rate", class: "d-none" %>
+          <h6><%= _("Current Exchange Rate") %></h6> 
             <%= _("USD") %>  
             <%= number_field_tag 'usd', 1, id: "usd", class: "form-control w-100" %>  
             <%= _("KGS")  %> 
@@ -144,14 +144,12 @@ $(document).ready(function() {
   
     function calcSom() {
       var usd = $("#usd").val();
-      var rate = $("#rate").val();
-      $("#kgs").val(usd * rate);
+      $("#kgs").val(usd * <%= @exchange_rate %>);
     };
 
     function calcUsd() {
       var som = $("#kgs").val();
-      var rate = $("#rate").val();
-      $("#usd").val(som / rate);
+      $("#usd").val(som / <%= @exchange_rate %>);
     };
 
 });  
