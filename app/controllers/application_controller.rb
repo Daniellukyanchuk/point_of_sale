@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   protect_from_forgery with: :exception
   skip_authorization_check 
-  after_action :get_exchange_rate
+  before_action :get_exchange_rate
   add_flash_types :danger, :info, :warning, :success, :messages
 
 	rescue_from CanCan::AccessDenied do |exception|

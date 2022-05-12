@@ -108,11 +108,15 @@
               <a href="<%= roles_path  %>" class="text-dark nav bg-light dropdown-item"> <%= _("Roles") %>  </a>
             </div>                   
           </li>
-          <div id="lang_switcher">
+          <div id="lang_switcher" class="pb-3">
             <a href="https://joergs-pos.herokuapp.com/en/products" class="text-dark">English</a> | <a href="https://joergs-pos.herokuapp.com/ru/products" class="text-dark">Русски</a>
           </div>
           <div id="exchange_rate" class="col-1" style="max-width: 12rem;">
-            <%= _("USD") %>  <%= number_field_tag 'usd', class: "form-control w-100" %>  <%= _("KGS")  %> <%= number_field_tag 'som', class: "form-control w-100" %>
+          <h6><%= _("Current Exchange Rate") %></h6> <%= number_field_tag 'rate', @exchange_rate, id: "rate", class: "d-none" %>
+            <%= _("USD") %>  
+            <%= number_field_tag 'usd', 1, id: "usd", class: "form-control w-100" %>  
+            <%= _("KGS")  %> 
+            <%= number_field_tag 'som', @exchange_rate, id: "kgs", class: "form-control w-100" %>
           </div>
         </ul>
 
@@ -128,3 +132,28 @@
   </div>
   </body>
 </html>
+
+<script type="text/javascript">
+
+//////////////////  SUBTOTAL AUTO-CALC  /////////////////////
+
+$(document).ready(function() {
+  $(document).on('change', "#usd", calcSom);
+  $(document).on('change', '#kgs', calcUsd); 
+       
+  
+    function calcSom() {
+      var usd = $("#usd").val();
+      var rate = $("#rate").val();
+      $("#kgs").val(usd * rate);
+    };
+
+    function calcUsd() {
+      var som = $("#kgs").val();
+      var rate = $("#rate").val();
+      $("#usd").val(som / rate);
+    };
+
+});  
+
+</script>
