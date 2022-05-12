@@ -111,6 +111,9 @@
           <div id="lang_switcher">
             <a href="https://joergs-pos.herokuapp.com/en/products" class="text-dark">English</a> | <a href="https://joergs-pos.herokuapp.com/ru/products" class="text-dark">Русски</a>
           </div>
+          <div id="exchange_rate" class="col-1" style="max-width: 12rem;">
+            <%= _("USD") %>  <%= number_field_tag 'usd', class: "form-control w-100" %>  <%= _("KGS")  %> <%= number_field_tag 'som', class: "form-control w-100" %>
+          </div>
         </ul>
 
       

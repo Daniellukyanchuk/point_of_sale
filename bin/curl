@@ -18,4 +18,10 @@ update_client() {
     http://localhost:3000/api/clients/171 
 }
 
+get_exchange() {
+  curl -X GET \
+    -H "Content-Type: application/json" \
+    https://www.nbkr.kg/XML/daily.xml
+}
+
 $1
