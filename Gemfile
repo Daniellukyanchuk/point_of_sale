@@ -91,3 +91,5 @@ gem 'webpacker'
 gem 'devise'
 gem 'cancancan'
 
+gem 'stripe'
+

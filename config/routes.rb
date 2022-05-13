@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   resources :roles
+  post "checkout/create", to: "checkout#create"
   devise_for :users, controllers: { sessions: 'users/sessions' }, path_prefix: "devise"
   post '/api/clients', to: 'api/api_clients#create'
   patch '/api/clients/:id', to: 'api/api_clients#update'
@@ -36,6 +37,4 @@ Rails.application.routes.draw do
     
     root to: 'orders#index'
   end
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
