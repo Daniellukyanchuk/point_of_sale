@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get '/api/clients', to: 'api/api_clients#index'
   post '/api/clients', to: 'api/api_clients#create'
   patch '/api/clients/:id', to: 'api/api_clients#update'
-
+  post "checkout/create", to: "checkout#create"
   
   scope "/:locale" do
     
@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       get '/devise/users/sign_out' => 'sessions#destroy'
     end
     resources :product_categories
+    
     resources :users  
     resources :roles
     resources :permissions

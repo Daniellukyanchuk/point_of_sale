@@ -29,8 +29,12 @@
       <th class="align_left col-2"><%= sortable "product_name", _("Product Name") %></th>
       <th class="align_right col-2"><%= sortable "price", _("Sale price") %></th>
       <th class="align_right col-2"><%= sortable "grams_per_unit", _("Grams per unit") %></th>      
-      <th class="col-2"><%= sortable "unit", _("Unit") %></th>
+      <th class="col-1"><%= sortable "unit", _("Unit") %></th>
       <th class="col-2"><%= _("Categories") %></th>
+      <th class="col-1"><%= _("Buy") %></th>
+      <th class="col-1"></td>
+
+
       
     </tr>
   </thead>
@@ -42,14 +46,15 @@
         <td class="col-2"><%= pi["product_name"] %></td>
         <td class="align_right col-2"><%= pi["price"] %></td>
         <td class="align_right col-2"><%= number_with_precision(pi["grams_per_unit"], :precision => 1, delimiter: ' ') %>g</td>
-        <td class="col-2"><%= pi["unit"] %></td>
+        <td class="col-1"><%= pi["unit"] %></td>
         <td class="col-2">
         <%= category_names = []
             pi.product_categories.each do |pc| 
               category_names.push(pc.category_name) 
-            end               
+            end
           category_names.join(', ') %>
         </td>        
+        <td class="col-1"><%= button_to "Buy now", checkout_create_path, params: {id: pi.id}, remote: true, class: "btn btn-primary" %></td>
         <td class="col-1">
           <%= link_to '<i class="fa-solid fa-pencil"></i>'.html_safe,  edit_product_path(pi), class: "text-secondary m-2" %>
           <%= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, pi, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-danger m-2" %>

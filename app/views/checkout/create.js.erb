@@ -1,0 +1,11 @@
+var stripe = Stripe('pk_test_51KypIwC4dzgYHnYBcDFTjfQviqCgev1NQ7MocDpcZ9LYCf63Nmig0mweWgE13bCH26GjvbxKJ9cVGwp1qOQH4brA001duUbSjF');
+
+var checkoutButton = document.getElementById('checkout-button');
+
+checkoutButton.addEventListener('click', function() {
+  stripe.redirectToCheckout({    
+    sessionId: '{{CHECKOUT_SESSION_ID}}'
+  }).then(function (result) {
+    
+  });
+});
