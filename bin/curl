@@ -24,4 +24,12 @@ get_exchange() {
     https://www.nbkr.kg/XML/daily.xml
 }
 
+get_prices() {
+  curl https://api.stripe.com/v1/prices \
+  -u sk_test_51KypIwC4dzgYHnYBC63xE679j3pONeHBVcZI2lE8YycpzSIJR8aKk0S95ZE1CuNPoOIQY1cnOtTfq1Wtb52A155t00wcvQUn2f: \
+  -d currency=usd \
+  -d unit_amount=120000 \
+  -d "product_data[name]"="a lemon"
+}
+
 $1
