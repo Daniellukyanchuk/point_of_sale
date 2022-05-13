@@ -10,25 +10,53 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, class: "form-control" %>
+  <div>
+    <div class="field">
+      <%= form.label :last_name %>
+      <%= form.text_field :last_name, class: "form-control" %>
+    </div>
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name, class: "form-control" %>
+    </div>
+    <div class="field">
+      <%= form.label :middle_name %>
+      <%= form.text_field :middle_name, class: "form-control" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :phone %>
-    <%= form.text_field :phone, class: "form-control" %>
+  <div>
+    <div class="field">
+      <%= form.label :email %>
+      <%= form.text_field :email, class: "form-control" %>
+    </div>
+    <div class="field">
+      <%= form.label :phone %>
+      <%= form.text_field :phone, class: "form-control" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_field :address, class: "form-control" %>
+  <div>
+    <div class="field">
+      <%= form.label :gender %>
+      <%= form.text_field :gender, class: "form-control" %>
+    </div>
+    <div class="field">
+      <%= form.label :date_of_birth %>
+      <%= form.text_field :date_of_birth, class: "form-control" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :city %>
-    <%= form.text_field :city, class: "form-control" %>
+  <div>
+    <div class="field">
+      <%= form.label :address %>
+      <%= form.text_field :address, class: "form-control" %>
+    </div>
+    <div class="field">
+      <%= form.label :city %>
+      <%= form.text_field :city, class: "form-control" %>
+    </div>
+    <div class="field">
+      <%= form.label :zip_code %>
+      <%= form.text_field :zip_code, class: "form-control" %>
+    </div>
   </div>
 
   <div class="actions">

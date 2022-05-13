@@ -22,21 +22,30 @@
 <table>
   <thead>
     <tr>
-    <th class="col-3 px-0"><%= sortable "name", _("Name") %></th>
-    <th class="col-3 px-0"><%= sortable "phone", _("Phone") %></th>
-    <th class="col-2 px-0"><%= sortable "address", _("Address") %></th>
-    <th class="col-2 px-0"><%= sortable "city", _("City") %></th>
+    <th class="col-2 px-0"><%= sortable "name", _("Name") %></th>
+    <th class="col-1 px-0"><%= sortable "email", _("Email") %></th>
+    <th class="col-1 px-0"><%= sortable "phone", _("Phone") %></th>
+    <th class="col-1 px-0"><%= sortable "gender", _("Gender") %></th>
+    <th class="col-1 px-0"><%= sortable "date_of_birth", _("DoB") %></th>
+    <th class="col-1 px-0"><%= sortable "address", _("Address") %></th>
+    <th class="col-1 px-0"><%= sortable "city", _("City") %></th>
+    <th class="col-1 px-0"><%= sortable "zip_code", _("Zip Code") %></th>
     <th class="col-2"></th>
+    
     </tr>
   </thead>
 
   <tbody>
     <% @clients.each do |client| %>
       <tr>
-        <td><%= client.name %></td>
+        <td><%= client.last_name %>, <%= client.name %> <%= client.middle_name %></td>
+        <td><%= client.email %></td>
         <td><%= client.phone %></td>
+        <td><%= client.gender %></td>
+        <td><%= client.date_of_birth %></td>
         <td><%= client.address %></td>
         <td><%= client.city %></td>
+        <td><%= client.zip_code %></td>
         <td>
           <%= link_to '<i class="fa-solid fa-eye"></i>'.html_safe, client, class: "text-primary m-2" %>
           <%= link_to '<i class="fa-solid fa-pencil"></i>'.html_safe, edit_client_path(client), class: "text-secondary m-2" %>
