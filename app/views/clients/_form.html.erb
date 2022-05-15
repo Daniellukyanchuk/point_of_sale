@@ -10,56 +10,74 @@
       </ul>
     </div>
   <% end %>
-  <div>
-    <div class="field">
-      <%= form.label :last_name %>
-      <%= form.text_field :last_name, class: "form-control" %>
+  
+  <div class="container ml-0" style="max-width: 50rem;">
+    <div class="row">
+      <div class="field col-4 pl-0">
+        <%= form.label :last_name %>
+        <%= form.text_field :last_name, class: "form-control" %>
+      </div>
+      <div class="field col-4 pl-0">
+        <%= form.label _("First Name") %>
+        <%= form.text_field ":name", class: "form-control" %>
+      </div>
+      <div class="field col-4 pl-0">
+        <%= form.label :middle_name %>
+        <%= form.text_field :middle_name, class: "form-control" %>
+      </div>
     </div>
-    <div class="field">
-      <%= form.label :name %>
-      <%= form.text_field :name, class: "form-control" %>
+    <div class="row">
+      <div class="field col-4 pl-0">
+        <%= form.label :email %>
+        <%= form.text_field :email, class: "form-control" %>
+      </div>
+      <div class="field col-4 pl-0">
+        <%= form.label :phone %>
+        <%= form.text_field :phone, class: "form-control" %>
+      </div>
+      <div class="field col-4 pl-0">
+        <%= form.label _('Preferred contact method') %>
+        <%= form.select :contact_method, ["whatsapp", "telegram", "email"], {}, { :class => 'form-control' } %>
+      </div>
     </div>
-    <div class="field">
-      <%= form.label :middle_name %>
-      <%= form.text_field :middle_name, class: "form-control" %>
+    <div class="row">   
+    <%= form.label _("Date of Birth"), class: "w-100" %>
+      <div class="row col-8 pr-0">       
+        <div class="field col-3 pl-0">
+          <%= form.label _("day (dd)") %>
+          <%= form.text_field :dob_day, maxlength: 2, class: "form-control", placeholder: '23' %>
+        </div>
+        <div class="field col-3 pl-0">
+          <%= form.label _("month (mm)") %>
+          <%= form.text_field :dob_month, maxlength: 2, class: "form-control", placeholder: '05' %>
+        </div>
+        <div class="field col-6 pl-0">
+          <%= form.label _("year (yyyy)") %>
+          <%= form.text_field :dob_year, maxlength: 4, class: "form-control", placeholder: '1985' %>
+        </div>
+      </div>
+       <div class="field col-4 pl-5">
+        <%= form.label :gender %>
+        <%= form.radio_button :gender, 'male' %> <%= _("male") %>  <%= form.radio_button :gender, 'female' %> <%= _("female") %><br />
+      </div>
     </div>
-  </div>
-  <div>
-    <div class="field">
-      <%= form.label :email %>
-      <%= form.text_field :email, class: "form-control" %>
+    <div class="row">
+      <div class="field col-4 pl-0">
+        <%= form.label :address %>
+        <%= form.text_field :address, class: "form-control" %>
+      </div>
+      <div class="field col-4 pl-0">
+        <%= form.label :city %>
+        <%= form.text_field :city, class: "form-control" %>
+      </div>
+      <div class="field col-4 pl-0">
+        <%= form.label :zip_code %>
+        <%= form.text_field :zip_code, class: "form-control" %>
+      </div>
     </div>
-    <div class="field">
-      <%= form.label :phone %>
-      <%= form.text_field :phone, class: "form-control" %>
-    </div>
-  </div>
-  <div>
-    <div class="field">
-      <%= form.label :gender %>
-      <%= form.text_field :gender, class: "form-control" %>
-    </div>
-    <div class="field">
-      <%= form.label :date_of_birth %>
-      <%= form.text_field :date_of_birth, class: "form-control" %>
-    </div>
-  </div>
-  <div>
-    <div class="field">
-      <%= form.label :address %>
-      <%= form.text_field :address, class: "form-control" %>
-    </div>
-    <div class="field">
-      <%= form.label :city %>
-      <%= form.text_field :city, class: "form-control" %>
-    </div>
-    <div class="field">
-      <%= form.label :zip_code %>
-      <%= form.text_field :zip_code, class: "form-control" %>
-    </div>
-  </div>
 
-  <div class="actions">
-    <%= form.submit "#{client.id.nil? ? _("Create Client") : _("Update Client")}" , :class => "btn btn-success" %>
-  </div>
-<% end %>
+    <div class="row pt-3">
+      <%= form.submit "#{client.id.nil? ? _("Create Client") : _("Update Client")}" , :class => "btn btn-success btn-big" %>
+    </div>
+  <% end %>
+</div>

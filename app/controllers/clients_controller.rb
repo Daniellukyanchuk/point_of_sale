@@ -3,6 +3,7 @@ class ClientsController < ApplicationController
   load_and_authorize_resource  
   helper_method :sort_column, :sort_direction
 
+
   # GET /clients or /clients.json
   def index
     @clients = Client.search(params[:search]).order(sort_column + " " + sort_direction)
@@ -66,7 +67,8 @@ class ClientsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def client_params
-      params.require(:client).permit(:id, :name, :phone, :address, :city)
+      params = Client.compile_date(@_params) 
+      params.require(:client).permit(:id, :name, :last_name, :middle_name, :email, :phone, :address, :city, :zip_code, :gender, :date_of_birth, :contact_method)
     end
 
     def sort_column

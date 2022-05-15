@@ -55,9 +55,10 @@ ActiveRecord::Schema.define(version: 2022_05_12_171911) do
     t.string "last_name"
     t.string "middle_name"
     t.string "gender"
-    t.string "date_of_birth"
+    t.date "date_of_birth"
     t.string "zip_code"
     t.string "email"
+    t.string "contact_method"
   end
 
   create_table "inventories", force: :cascade do |t|
