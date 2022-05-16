@@ -77,8 +77,14 @@ gem 'roo'
 gem 'rubyzip', '>=1.2.1'
 gem 'axlsx', git: 'https://github.com/randym/axlsx.git', ref: 'c8ac844'
 gem 'caxlsx_rails'
+
 gem 'bootstrap', '~> 5.1', '>= 5.1.3'
 gem 'popper_js', '~> 2.9', '>= 2.9.3'
+
 gem 'devise'
 gem 'cancancan'
+
 gem 'stripe'
+
+gem 'http'
+gem 'net-ssh'

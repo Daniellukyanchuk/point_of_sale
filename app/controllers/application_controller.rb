@@ -1,3 +1,6 @@
+require 'net/http'
+require 'open-uri'
+
 class ApplicationController < ActionController::Base
   before_action :set_locale
   before_action :set_gettext_locale
@@ -13,26 +16,25 @@ class ApplicationController < ActionController::Base
 		# flash["info"] = exception.message    
 		# flash["warning"] = exception.message        
 		flash["danger"] = _("You don't have permission to do that")
-			# redirect_back(fallback_location: '/orders')
+			redirect_back(fallback_location: '/orders')
 	end
 
-  	def default_url_options
-  		{ locale: I18n.locale }
+	def default_url_options
+		{ locale: I18n.locale }
 	end
- 
+
 	def set_locale
-	  I18n.locale = params[:locale] || I18n.default_locale
+		I18n.locale = params[:locale] || I18n.default_locale
 	end	
 
 	def switch_locale(&action)
-	  locale = params[:locale] || I18n.default_locale
-	  I18n.with_locale(locale, &action)
+		locale = params[:locale] || I18n.default_locale
+		I18n.with_locale(locale, &action)
 	end
 
 	def get_exchange_rate
-		# res_xml = URI.parse('https://www.nbkr.kg/XML/daily.xml').read
-		ex_rate_info_xml = %x{ curl -X GET -H "Content-Type: application/json" https://www.nbkr.kg/XML/daily.xml }
-		ex_rate_info_json = Hash.from_xml(ex_rate_info_xml).to_json
+		res_xml = URI.parse('https://www.nbkr.kg/XML/daily.xml').read
+		ex_rate_info_json = Hash.from_xml(res_xml).to_json
 		ex_rates = JSON.parse(ex_rate_info_json)
 		usd_to_som_rate = ex_rates["CurrencyRates"]["Currency"][0]["Value"].gsub(/,/, ".").to_f
 		@exchange_rate = usd_to_som_rate
