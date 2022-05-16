@@ -4,7 +4,7 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    user
+    return
       user.roles.each do |r|
         if r.role_name == "System Admin" 
           can :manage, :all
