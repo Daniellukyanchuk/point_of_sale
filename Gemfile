@@ -92,4 +92,5 @@ gem 'devise'
 gem 'cancancan'
 
 gem 'stripe'
+gem 'http'
 
