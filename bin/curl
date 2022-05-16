@@ -1,11 +1,2 @@
-stripe_test() {
-    curl https://api.stripe.com/v1/prices \
-	    -u sk_test_51KypT8D3KmyDHguIsKdKkXLuAR5GIyxXiUEzxOjnCEeTxnUF6KabksYJVPzFyIh5LKThJIyMVXRnFyAvi2EYyB2z00N8lK9S2K: \
-	    -d currency=usd \
-	    -d unit_amount=120000 \
-	    -d "product_data[name]"="stand up paddleboard"
-}
- 
-$1
 
 

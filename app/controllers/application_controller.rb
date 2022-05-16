@@ -1,3 +1,6 @@
+require 'net/http'
+require 'open-uri'
+
 class ApplicationController < ActionController::Base
 	before_action :set_gettext_textdomain
 	before_action :set_gettext_locale
@@ -36,9 +39,6 @@ class ApplicationController < ActionController::Base
 
 	def curl_commands
 		# Getting a all clients (curl)
-		require 'net/http'
-		require 'uri'
-
 		uri = URI.parse("http://localhost:3000/api/clients")
 		request = Net::HTTP::Get.new(uri)
 		request.content_type = "application/json"
@@ -51,10 +51,7 @@ class ApplicationController < ActionController::Base
 		  http.request(request)
 		end
         
-        # Creating a client (curl)
-		require 'net/http'
-		require 'uri'
-
+        # Creating a client (curl)	
 		uri = URI.parse("http://localhost:3000/api/clients")
 		request = Net::HTTP::Post.new(uri)
 		request.content_type = "application/json"
@@ -70,8 +67,6 @@ class ApplicationController < ActionController::Base
 		end
 
 		# Update client (curl)
-		require 'net/http'
-		require 'uri'
 		require 'json'
 
 		uri = URI.parse("http://localhost:3000/api/clients/33")

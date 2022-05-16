@@ -93,4 +93,5 @@ gem 'cancancan'
 
 gem 'stripe'
 gem 'http'
+gem "net-ssh"
 
