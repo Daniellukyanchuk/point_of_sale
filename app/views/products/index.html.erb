@@ -37,6 +37,7 @@
           <th scope="col"><%= sortable "product_name", _("NAME") %></th>
           <th scope="col"><%= sortable "price", _("PRICE") %></th>
           <th scope="col"><%= sortable "unit", _("UNIT") %></th>
+          <th>Categories</th>
           <th>Payment</th>
           <th>Sales Count</th>
           <th colspan="4"></th>
@@ -50,6 +51,7 @@
             <td><%= product.product_name %></td>
             <td>&#8381 <%= product.price %></td>
             <td><%= product.unit %></td>
+            <td><%= product.categories %></td>
             <td><%= button_to "Buy now!", checkout_create_path, params: {id: product.id}, remote: true %></td>
             <td><%= product.sales_count %></td>
             <td><%= link_to _('Show'), product, class: "btn btn-outline-primary btn-sm" %></td>

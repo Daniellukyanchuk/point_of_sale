@@ -1,3 +1,6 @@
+require 'net/http'
+require 'open-uri'
+
 class ApplicationController < ActionController::Base
 	before_action :set_gettext_textdomain
 	before_action :set_gettext_locale
@@ -22,7 +25,8 @@ class ApplicationController < ActionController::Base
 	end 
 
 	def get_exchange_rate	
-		currency_rates = %x{ curl -X GET -H "Content-Type: application/json" https://www.nbkr.kg/XML/daily.xml }
+        # Getting exchange currency (curl)
+		currency_rates = URI.parse('https://www.nbkr.kg/XML/daily.xml').read
 		currency_json = Hash.from_xml(currency_rates).to_json
 		currency_hash = JSON.parse(currency_json)
 
@@ -31,6 +35,56 @@ class ApplicationController < ActionController::Base
 
 		@exchange_rate_usd = currency_usd.gsub(/[.,]/, '.' => '', ',' => '.').to_f
 		@exchange_rate_eur = currency_eur.gsub(/[.,]/, '.' => '', ',' => '.').to_f
+	end
+
+	def curl_commands
+		# Getting a all clients (curl)
+		uri = URI.parse("http://localhost:3000/api/clients")
+		request = Net::HTTP::Get.new(uri)
+		request.content_type = "application/json"
+
+		req_options = {
+		  use_ssl: uri.scheme == "https",
+		}
+
+		response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
+		  http.request(request)
+		end
+        
+        # Creating a client (curl)	
+		uri = URI.parse("http://localhost:3000/api/clients")
+		request = Net::HTTP::Post.new(uri)
+		request.content_type = "application/json"
+		request.body = ""
+		request.body << File.read("bin/client.json").delete("\r\n")
+
+		req_options = {
+		  use_ssl: uri.scheme == "https",
+		}
+
+		response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
+		  http.request(request)
+		end
+
+		# Update client (curl)
+		require 'json'
+
+		uri = URI.parse("http://localhost:3000/api/clients/33")
+		request = Net::HTTP::Patch.new(uri)
+		request.content_type = "application/json"
+		request.body = JSON.dump({
+		  "client" => {
+		    "name" => "Daniel"
+		  }
+		})
+
+		req_options = {
+		  use_ssl: uri.scheme == "https",
+		}
+
+		response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
+		  http.request(request)
+		end
 	end
 
 
