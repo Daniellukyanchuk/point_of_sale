@@ -11,13 +11,13 @@ class ApplicationController < ActionController::Base
   before_action :get_exchange_rate
   add_flash_types :danger, :info, :warning, :success, :messages
 
-	# rescue_from CanCan::AccessDenied do |exception|
-	# 	# flash["success"] = exception.message    
-	# 	# flash["info"] = exception.message    
-	# 	# flash["warning"] = exception.message        
-	# 	flash["danger"] = _("You don't have permission to do that")
-	# 		redirect_back(fallback_location: '/orders')
-	# end
+	rescue_from CanCan::AccessDenied do |exception|
+		# flash["success"] = exception.message    
+		# flash["info"] = exception.message    
+		# flash["warning"] = exception.message        
+		flash["danger"] = _("You don't have permission to do that")
+			redirect_back(fallback_location: 'http://localhost:3000/devise/users/sign_in')
+	end
 
 	def default_url_options
 		{ locale: I18n.locale }
