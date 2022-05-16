@@ -6,10 +6,9 @@ class CheckoutController < ApplicationController
 		  payment_method_types: ['card'],
 		  line_items: [{
 		  	name: product.product_name,
-		  	amount: product.price.to_i, 
+		  	amount: product.price.to_i , 
 		  	currency: "usd",
 		  	quantity: 1
-
 		  }],
 		  mode: 'payment',
 		  success_url: root_url,

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   post "checkout/create", to: "checkout#create"
   devise_for :users, controllers: { sessions: 'users/sessions' }, path_prefix: "devise"
   post '/api/clients', to: 'api/api_clients#create'
+  resources :webhooks, only: [:create]
   patch '/api/clients/:id', to: 'api/api_clients#update'
   get '/api/clients', to: 'api/api_clients#index'
 

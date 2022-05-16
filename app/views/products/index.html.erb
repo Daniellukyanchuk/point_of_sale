@@ -38,6 +38,7 @@
           <th scope="col"><%= sortable "price", _("PRICE") %></th>
           <th scope="col"><%= sortable "unit", _("UNIT") %></th>
           <th>Payment</th>
+          <th>Sales Count</th>
           <th colspan="4"></th>
         </tr>
       </thead>
@@ -50,6 +51,7 @@
             <td>&#8381 <%= product.price %></td>
             <td><%= product.unit %></td>
             <td><%= button_to "Buy now!", checkout_create_path, params: {id: product.id}, remote: true %></td>
+            <td><%= product.sales_count %></td>
             <td><%= link_to _('Show'), product, class: "btn btn-outline-primary btn-sm" %></td>
             <td><%= link_to _('Edit'), edit_product_path(product), class: "btn btn-outline-primary btn-sm" %></td>
             <td><%= link_to _('Destroy'), product, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-sm" %></td>
