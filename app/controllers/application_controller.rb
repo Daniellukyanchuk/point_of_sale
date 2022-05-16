@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
 		# flash["info"] = exception.message    
 		# flash["warning"] = exception.message        
 		flash["danger"] = _("You don't have permission to do that")
-			redirect_back(fallback_location: '/orders')
+			# redirect_back(fallback_location: '/orders')
 	end
 
   	def default_url_options
@@ -30,6 +30,7 @@ class ApplicationController < ActionController::Base
 	end
 
 	def get_exchange_rate
+		# res_xml = URI.parse('https://www.nbkr.kg/XML/daily.xml').read
 		ex_rate_info_xml = %x{ curl -X GET -H "Content-Type: application/json" https://www.nbkr.kg/XML/daily.xml }
 		ex_rate_info_json = Hash.from_xml(ex_rate_info_xml).to_json
 		ex_rates = JSON.parse(ex_rate_info_json)
