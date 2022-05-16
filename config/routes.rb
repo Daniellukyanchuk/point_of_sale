@@ -47,7 +47,7 @@ Rails.application.routes.draw do
     resources :clients
     resources :client_reports
   end
-  root to: "products#index"
+  root "products#index"
 end
 
 
