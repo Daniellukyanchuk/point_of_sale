@@ -13,9 +13,7 @@ class Ability
         end
       end   
     end 
-
- 
-
+    
     # users = [{id: 1, permissions: [["Order", "read".to_sym], ["Product", "read"]]}, {id: 2, permissions: [[:order, :write]]}]
 
     # users.each do |u|
