@@ -8,7 +8,6 @@ class WebhooksController < ApplicationController
 		payload = request.body.read 
 		sig_header = request.env['HTTP_STRIPE_SIGNATURE']
 		event = nil
-        stop 
 		begin
 			event = Stripe::Webhook.construct_event(
 				payload, sig_header, Rails.application.credentials[:stripe][:webhook]
