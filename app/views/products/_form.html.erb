@@ -31,8 +31,6 @@
     <%= form.text_field :grams_per_unit, class: "form-control" %>
   </div>
 <hr>
-  <h4> Product Categories </h4>
-
   <div>
     <%= form.fields_for :category_product do |builder| %>
       <%= render 'category_product_fields', form: builder %>
