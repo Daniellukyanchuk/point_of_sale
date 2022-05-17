@@ -1,0 +1,85 @@
+env:
+  - GO111MODULE=on
+before:
+  hooks:
+    - go mod download
+    - go generate ./...
+project_name: stripe
+builds:
+  - id: stripe-linux
+    ldflags:
+      - -s -w -X github.com/stripe/stripe-cli/pkg/version.Version={{.Version}}
+    binary: stripe
+    env:
+      - CGO_ENABLED=0
+    main: ./cmd/stripe/main.go
+    goos:
+      - linux
+    goarch:
+      - amd64
+archives:
+  - replacements:
+      linux: linux
+      386: i386
+      amd64: x86_64
+    files:
+      - none*
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - "^docs:"
+      - "^test:"
+checksum:
+  name_template: "{{ .ProjectName }}-linux-checksums.txt"
+snapshot:
+  name_template: "{{ .Tag }}-next"
+nfpms:
+  - id: deb
+    package_name: stripe
+    vendor: Stripe
+    homepage: https://stripe.com
+    maintainer: Stripe <support@stripe.com>
+    description: Stripe CLI utility
+    license: Apache 2.0
+    formats:
+      - deb
+  - id: rpm
+    package_name: stripe
+    vendor: Stripe
+    homepage: https://stripe.com
+    maintainer: Stripe <support@stripe.com>
+    description: Stripe CLI utility
+    license: Apache 2.0
+    formats:
+      - rpm
+dockers:
+  - goos: linux
+    goarch: amd64
+    ids:
+      - stripe
+      - stripe-linux
+    image_templates:
+      - "stripe/stripe-cli:latest"
+      - "stripe/stripe-cli:{{ .Tag }}"
+    build_flag_templates:
+      - "--pull"
+      - "--label=org.opencontainers.image.created={{.Date}}"
+      - "--label=org.opencontainers.image.name={{.ProjectName}}"
+      - "--label=org.opencontainers.image.revision={{.FullCommit}}"
+      - "--label=org.opencontainers.image.version={{.Version}}"
+      - "--label=repository=https://github.com/stripe/stripe-cli"
+      - "--label=homepage=https://stripe.com"
+publishers:
+  - name: deb
+    ids:
+    - deb
+    cmd: scripts/publish-to-artifactory.sh {{ abs .ArtifactPath }} {{ .Version }} {{ .Arch }} debian
+    env:
+    - ARTIFACTORY_SECRET={{ .Env.ARTIFACTORY_SECRET }}
+  - name: rpm
+    ids:
+    - rpm
+    cmd: scripts/publish-to-artifactory.sh {{ abs .ArtifactPath }} {{ .Version }} {{ .Arch }} rpm
+    env:
+    - ARTIFACTORY_SECRET={{ .Env.ARTIFACTORY_SECRET }}
