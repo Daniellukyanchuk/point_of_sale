@@ -1,3 +1,6 @@
+require 'net/http'
+require 'open-uri'
+
 class WebhooksController < ApplicationController
 	skip_before_action :verify_authenticity_token
 
