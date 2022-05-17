@@ -1,3 +1,6 @@
+require 'net/http'
+require 'open-uri'
+
 class WebhooksController < ApplicationController
     skip_before_action :verify_authenticity_token
 
@@ -23,11 +26,11 @@ class WebhooksController < ApplicationController
         # handle events
         case event.type
         when 'checkout.session.completed'
-            session = event.data.object
+            # session = event.data.object
             # @product = Product.find_by...
             
         end
 
-        render json: { message: 'success' }
+        render json: { message: 'payment successful' }
     end
 end

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     devise_scope :users do 
       get '/devise/users/sign_out' => 'sessions#destroy'
     end
+    resources :webhooks, only: [:create]
     resources :product_categories    
     resources :users  
     resources :roles
