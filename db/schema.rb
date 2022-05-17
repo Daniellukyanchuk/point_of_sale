@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_22_080838) do
+ActiveRecord::Schema.define(version: 2022_05_17_081447) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,13 @@ ActiveRecord::Schema.define(version: 2022_04_22_080838) do
     t.string "city"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "last_name"
+    t.string "middle_name"
+    t.string "gender"
+    t.date "date_of_birth"
+    t.string "zip_code"
+    t.string "email"
+    t.string "contact_method"
   end
 
   create_table "inventories", force: :cascade do |t|
@@ -113,6 +120,8 @@ ActiveRecord::Schema.define(version: 2022_04_22_080838) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "grams_per_unit"
+    t.string "product_code"
+    t.integer "pv"
   end
 
   create_table "purchase_products", force: :cascade do |t|
@@ -205,6 +214,7 @@ ActiveRecord::Schema.define(version: 2022_04_22_080838) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "user_name"
+    t.string "stripe_customer_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

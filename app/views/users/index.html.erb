@@ -10,7 +10,8 @@
       <th><%= _("User name") %></th>
       <th><%= _("Email") %></th>
       <th><%= _("Role(s)") %></th>
-      <th colspan="3"></th>
+      <th><%= _("Stripe Id")%></th>
+      <th colspan="4"></th>
     </tr>
   </thead>
   
@@ -25,6 +26,7 @@
                 end 
               
               role_names.join(', ') %></td>
+        <td><%= user.stripe_customer_id %></td>
         <td>
           <%= link_to '<i class="fa-solid fa-pencil"></i>'.html_safe, edit_user_path(user), class: "text-secondary m-2" %>
           <%= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, user, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-danger m-2" %>

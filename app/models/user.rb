@@ -28,4 +28,14 @@ class User < ApplicationRecord
           role_users.push(RoleUser.new(role_id: r_id))
       end
   end
+
+  def to_s
+    email
+  end
+
+  after_create do
+    customer = Stripe::Customer.create(email: email)
+    update(stripe_customer_id: customer.id)
+  end
+
 end
