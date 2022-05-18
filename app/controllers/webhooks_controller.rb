@@ -23,9 +23,9 @@ class WebhooksController < ApplicationController
 		# Handle the event
 		case event.type 
 		when 'checkout.session.completed'
-			# session = event.data.object 
-			# @product = Product.find_by(price: session.amount_total.to_i)
-			# @product.increment!(:sales_count)
+			session = event.data.object 
+			@product = Product.find_by(price: session.amount_total.to_i)
+			@product.increment!(:sales_count)
 		end
 
 		render json: { message: 'success' }
