@@ -49,7 +49,6 @@
                 <% if user_signed_in? %>
                   <div class="btn btn-sm btn-info mr-1">Logged in as <strong><%= current_user.email %></strong>.</div>
                   <div class="btn btn-sm mr-3"><%= link_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-danger p-1" %></div>
-                  <div class="btn btn-sm mr-3 text-white"><%= current_user.stripe_customer_id %></div>
                 <% else %>
                   <%= link_to "Login", new_user_session_path, class: "text-light mr-5" %>
                 <% end %>
