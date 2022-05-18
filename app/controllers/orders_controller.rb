@@ -1,8 +1,8 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: %i[ show edit update destroy ]
   helper_method :sort_column, :sort_direction
-  
-  load_and_authorize_resource
+  load_and_authorize_resource :except => [:processing_payment]
+  skip_before_action :authenticate_user!, :only => [:processing_payment]
 
   # GET /orders or /orders.json
   def index
@@ -69,6 +69,10 @@ class OrdersController < ApplicationController
       format.html { redirect_to orders_url, notice: "Order was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def processing_payment 
+    
   end
 
   private
