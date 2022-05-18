@@ -11,8 +11,8 @@ class CheckoutController < ApplicationController
                 quantity: 1
             }],
             mode: 'payment',
-            success_url: root_url,
-            cancel_url: root_url,
+            success_url: product_report_url,
+            cancel_url: product_report_url,
         })
         respond_to do |format|
             format.js
