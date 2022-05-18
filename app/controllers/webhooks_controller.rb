@@ -1,9 +1,6 @@
-require 'net/http'
-require 'open-uri'
-require 'json'
-
 class WebhooksController < ApplicationController
     skip_before_action :verify_authenticity_token
+    skip_before_action :authenticate_user!, :only => [:create]
 
     def create
         payload = request.body.read
@@ -12,7 +9,7 @@ class WebhooksController < ApplicationController
 
         begin
             event = Stripe::Webhook.construct_event(
-                payload, sig_header, Rails.application.credentials[Rails.env.to_sym][:stripe][:webhook]
+                payload, sig_header, Rails.application.credentials[:stripe][:webhook]
             )
         rescue JSON::ParseError => e
             status 400
