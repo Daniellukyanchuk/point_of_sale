@@ -62,12 +62,12 @@ ActiveRecord::Schema.define(version: 2022_05_15_120101) do
   end
 
   create_table "inventories", force: :cascade do |t|
-    t.integer "purchase_id"
+    t.integer "supply_id"
     t.integer "product_id"
     t.float "remaining_quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "purchase_product_id"
+    t.integer "supply_product_id"
     t.integer "production_id"
     t.float "cost_per_unit"
   end
@@ -104,6 +104,7 @@ ActiveRecord::Schema.define(version: 2022_05_15_120101) do
   end
 
   create_table "productions", force: :cascade do |t|
+    t.string "recipe_name"
     t.float "production_quantity"
     t.float "production_total_cost"
     t.datetime "created_at", null: false
@@ -126,7 +127,7 @@ ActiveRecord::Schema.define(version: 2022_05_15_120101) do
 
   create_table "purchase_products", force: :cascade do |t|
     t.integer "product_id"
-    t.integer "purchase_id"
+    t.integer "supply_id"
     t.float "purchase_quantity"
     t.float "purchase_price"
     t.float "purchase_subtotal"
