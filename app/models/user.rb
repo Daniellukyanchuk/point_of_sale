@@ -34,7 +34,6 @@ class User < ApplicationRecord
   end
 
   after_create do
-    stop
     customer = Stripe::Customer.create(email: email)
     update(stripe_customer_id: customer.id)
   end
