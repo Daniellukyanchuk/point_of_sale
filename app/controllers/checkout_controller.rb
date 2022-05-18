@@ -1,5 +1,4 @@
 class CheckoutController < ApplicationController
-
 	def create
 		product = Product.find(params[:id])
         @session = Stripe::Checkout::Session.create({
