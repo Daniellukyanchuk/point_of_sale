@@ -6,7 +6,7 @@
 #
 default: &default
   adapter: postgresql
-  database: bigbertha
+  database: atomydb
   encoding: unicode
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
@@ -14,7 +14,7 @@ default: &default
 
 development:
   <<: *default
-  database: bigbertha
+  database: atomydb
   port: 5432
 
 # Warning: The database defined as "test" will be erased and
@@ -22,10 +22,10 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: bigbertha
+  database: atomydb
 
 production:
   <<: *default
-  database: bigbertha
+  database: atomydb
   password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
 
