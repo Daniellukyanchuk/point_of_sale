@@ -27,10 +27,13 @@
     <tr>
     <th class="align_left col-1"><%= sortable "id", _("Id") %></th>
       <th class="align_left col-2"><%= sortable "product_name", _("Product Name") %></th>
-      <th class="align_right col-2"><%= sortable "price", _("Sale price") %></th>
-      <th class="align_right col-2"><%= sortable "grams_per_unit", _("Grams per unit") %></th>      
-      <th class="col-2"><%= sortable "unit", _("Unit") %></th>
+      <th class="col-1"><%= sortable "product_code", _("Product Code") %></th>
+      <th class="align_right col-1"><%= sortable "price", _("Sale price") %></th>
+      <th class="col-1"><%= sortable "pv", _("PV") %></th>
+      <th class="align_right col-1"><%= sortable "grams_per_unit", _("Grams per unit") %></th>      
+      <th class="col-1"><%= sortable "unit", _("Unit") %></th>
       <th class="col-2"><%= _("Categories") %></th>
+      <th></th>
       
     </tr>
   </thead>
@@ -40,9 +43,11 @@
       <tr>
         <td class="col-1"><%= pi["id"] %></td>
         <td class="col-2"><%= pi["product_name"] %></td>
-        <td class="align_right col-2"><%= pi["price"] %></td>
-        <td class="align_right col-2"><%= number_with_precision(pi["grams_per_unit"], :precision => 1, delimiter: ' ') %>g</td>
-        <td class="col-2"><%= pi["unit"] %></td>
+        <td class="col-1"><%= pi["product_code"] %></td>
+        <td class="align_right col-1"><%= number_with_precision(pi["price"], :precision => 2 ) %></td>        
+        <td class="col-1"><%= number_with_precision(pi["pv"], :precision => 0,  delimiter: ' ') %></td>   
+        <td class="align_right col-1"> <%= number_with_precision(pi["grams_per_unit"], :precision => 0, delimiter: ' ') %>g </td>
+        <td class="col-1"><%= pi["unit"] %></td>
         <td class="col-2">
         <%= category_names = []
             pi.product_categories.each do |pc| 

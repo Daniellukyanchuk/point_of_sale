@@ -33,14 +33,8 @@ msgstr "+ новый заказ"
 msgid "+ New Product"
 msgstr "+ новый продукт"
 
-msgid "+ New Production Order"
-msgstr "+ Новый производственный заказ"
-
 msgid "+ New Purchase Order"
 msgstr "+ Новый заказ на зокупку"
-
-msgid "+ New Recipe"
-msgstr "+ новый рецепт"
 
 #, fuzzy
 msgid "+ New Role"
@@ -71,20 +65,8 @@ msgstr "факт. заказ"
 msgid "Actual Quantity"
 msgstr "факт. <br> кол-во"
 
-msgid "Actual Subtotal"
-msgstr "факт. пром. сумма"
-
-msgid "Actual cost"
-msgstr "факт. стоимость за единицу"
-
-msgid "Actual quantity"
-msgstr "факт. кол-тво"
-
 msgid "Actual total:"
 msgstr "факт. итог"
-
-msgid "Add Ingredient"
-msgstr "добавить ингредиента"
 
 msgid "Add Product"
 msgstr "добавить продукта"
@@ -95,23 +77,11 @@ msgstr "адрес"
 msgid "Address:"
 msgstr "адрес:"
 
-msgid "Amount (g)"
-msgstr "кол-во (г)"
-
-msgid "Are you sure?"
-msgstr "Вы уверены?"
-
 msgid "Avg. Spent"
 msgstr "средный чек"
 
 msgid "Back"
 msgstr "назад"
-
-msgid "Batch Qty"
-msgstr "кол-во партии"
-
-msgid "Calculate Ingredients Needed"
-msgstr "рассчитать необходимые ингредиенты"
 
 msgid "Categories"
 msgstr ""
@@ -164,6 +134,9 @@ msgstr "телефон"
 msgid "Column headers must be in the correct order match headers in the database. HINT: Export existing products to file for reference."
 msgstr "Заголовки столбцов должны быть в правильном порядке и соответствовать заголовкам в базе данных. СОВЕТ: Экспортируйте существующие продукты в файл для справки."
 
+msgid "Cost"
+msgstr ""
+
 msgid "Cost per Unit"
 msgstr "расход за единицу"
 
@@ -172,9 +145,6 @@ msgstr "расход за единицу"
 
 msgid "Cost per Unit:"
 msgstr "расход за единицу"
-
-msgid "Cost per kg"
-msgstr "стоимость за кг"
 
 #, fuzzy
 msgid "Create Category"
@@ -193,15 +163,9 @@ msgstr "заказ"
 msgid "Create Product"
 msgstr "создать продукта"
 
-msgid "Create Production"
-msgstr "создать производство"
-
 #, fuzzy
 msgid "Create Purchase Order"
 msgstr "создать закупку"
-
-msgid "Create Recipe"
-msgstr "создать рецепта"
 
 #, fuzzy
 msgid "Create Role"
@@ -222,11 +186,25 @@ msgstr "дата получение"
 msgid "Date added"
 msgstr "дата добавленно"
 
+msgid "Date of Birth"
+msgstr ""
+
+#, fuzzy
+msgid "Date ordered"
+msgstr "дата заказен:"
+
 msgid "Date ordered:"
 msgstr "дата заказен:"
 
+#, fuzzy
+msgid "Date received"
+msgstr "дата получение:"
+
 msgid "Date received:"
 msgstr "дата получение:"
+
+msgid "DoB"
+msgstr ""
 
 msgid "Edit"
 msgstr "редактировать"
@@ -240,14 +218,8 @@ msgstr "редактирование заказа"
 msgid "Editing Product"
 msgstr "редактирование продукта"
 
-msgid "Editing Production"
-msgstr "редактирование производства"
-
 msgid "Editing Purchase Order"
 msgstr "редактирование заказа на закупки"
-
-msgid "Editing Recipe"
-msgstr "редактирование рецепта"
 
 msgid "Editing Supplier"
 msgstr "редактирование постовщика"
@@ -270,26 +242,21 @@ msgstr "приблиз. кол-во"
 msgid "Estimated Subtotal"
 msgstr "приблиз. пром. итог"
 
-msgid "Estimated cost"
-msgstr "ор. стоимость"
-
-msgid "Estimated quantity"
-msgstr "приблиз. <br> кол-во"
-
-msgid "Estimated subtotal"
-msgstr "приблиз. пром. итог"
-
 msgid "Estimated total:"
 msgstr "приблиз. итог"
-
-msgid "Expected Arrival"
-msgstr "ожид. дата прибытия"
 
 msgid "Expected delivery"
 msgstr "ожид. дата доставки"
 
 msgid "Files must be one of the following formats: xls or xlsx"
 msgstr "Файлы должны быть одного из следующих форматов: xls. или .xlsx"
+
+#, fuzzy
+msgid "First Name"
+msgstr "Имя"
+
+msgid "Gender"
+msgstr ""
 
 msgid "Go to P.O."
 msgstr "переидти на закупку"
@@ -314,18 +281,6 @@ msgstr "ID"
 
 msgid "Import Products"
 msgstr "импортировать продукты"
-
-msgid "Ingredient Cost"
-msgstr "стоимость ингредиента"
-
-msgid "Ingredients"
-msgstr "ингредиенты"
-
-msgid "Instructions"
-msgstr "инструкции"
-
-msgid "Instructions:"
-msgstr "инструкции:"
 
 msgid "Inventory"
 msgstr "инвентарь"
@@ -369,14 +324,8 @@ msgstr "новый заказ"
 msgid "New Product"
 msgstr "новый продукт"
 
-msgid "New Production Order"
-msgstr "новый производственный заказ"
-
 msgid "New Purchase Order"
 msgstr "Новый заказ на закупку"
-
-msgid "New Recipe"
-msgstr "новый рецепт"
 
 msgid "New Role"
 msgstr ""
@@ -420,9 +369,6 @@ msgstr "цена продажи"
 msgid "OrderProduct|Subtotal"
 msgstr "промежуточный итог"
 
-msgid "Ordered on"
-msgstr "заказен на"
-
 msgid "Orders"
 msgstr "заказов"
 
@@ -438,6 +384,9 @@ msgstr "ID ЗнП"
 msgid "P.O. Product Id"
 msgstr "ID продуктa ЗнП"
 
+msgid "PV"
+msgstr ""
+
 msgid "Permissions"
 msgstr ""
 
@@ -447,6 +396,9 @@ msgstr "телефон"
 msgid "Phone:"
 msgstr "телефон:"
 
+msgid "Preferred contact method"
+msgstr ""
+
 msgid "Price:"
 msgstr "цена:"
 
@@ -455,6 +407,10 @@ msgstr "продукт"
 
 #, fuzzy
 msgid "Product Categories"
+msgstr "продукт"
+
+#, fuzzy
+msgid "Product Code"
 msgstr "продукт"
 
 msgid "Product Id"
@@ -475,26 +431,11 @@ msgstr "ID продукта:"
 msgid "Product name:"
 msgstr "название продукта:"
 
-msgid "Product:"
-msgstr "продукт:"
-
 msgid "Production"
 msgstr "производство"
 
-msgid "Production Cost"
-msgstr "стоимость производства"
-
 msgid "Production Id"
 msgstr "ID производства"
-
-msgid "Production quantity:"
-msgstr "кол-во производства:"
-
-msgid "Production total cost:"
-msgstr "обший стоимость производства:"
-
-msgid "Productions"
-msgstr "производство"
 
 msgid "Production|Production quantity"
 msgstr "объем производства"
@@ -601,29 +542,11 @@ msgstr "колечество"
 msgid "Quantity:"
 msgstr "колечество:"
 
-msgid "Received on"
-msgstr "получил на"
-
 msgid "Recipe"
 msgstr "рецепт"
 
-msgid "Recipe Id"
-msgstr "ID рецепта"
-
-msgid "Recipe Name"
-msgstr "название рецепта"
-
-msgid "Recipe cost"
-msgstr "стоимость рецепта"
-
-msgid "Recipe cost:"
-msgstr "стоимость рецепта:"
-
 msgid "Recipe product"
 msgstr "прокукт пецепта"
-
-msgid "Recipe:"
-msgstr "рецепт:"
 
 msgid "RecipeProduct|Amount"
 msgstr "количество"
@@ -633,9 +556,6 @@ msgstr "стоимость за кг"
 
 msgid "RecipeProduct|Ingredient total"
 msgstr "ингредиент итог"
-
-msgid "Recipes"
-msgstr "рецепты"
 
 msgid "Recipe|Instructions"
 msgstr "инструкции"
@@ -700,20 +620,11 @@ msgstr "выбрать клиента"
 msgid "Select File"
 msgstr "выбрать файл"
 
-msgid "Select Ingredient"
-msgstr "выбрать ингредиента"
-
 msgid "Select Product"
 msgstr "выберите продукт"
 
-msgid "Select Recipe"
-msgstr "рецепт"
-
 msgid "Select a product"
 msgstr "выбрать продукта"
-
-msgid "Select product produced"
-msgstr "выберите произведенный продукт"
 
 msgid "Select supplier"
 msgstr "выбрать постовщика"
@@ -735,6 +646,10 @@ msgstr "телефон компании"
 
 msgid "Show"
 msgstr "показать"
+
+#, fuzzy
+msgid "Subtotal"
+msgstr "промежуточный итог:"
 
 msgid "Subtotal:"
 msgstr "промежуточный итог:"
@@ -796,9 +711,6 @@ msgstr "проданных единиц"
 msgid "Units in Stock"
 msgstr "единиц на складе"
 
-msgid "Units produced"
-msgstr "произведено единиц"
-
 msgid "Update Category"
 msgstr ""
 
@@ -817,10 +729,6 @@ msgstr "создать продукта"
 #, fuzzy
 msgid "Update Purchase Order"
 msgstr "редактирование заказа на закупки"
-
-#, fuzzy
-msgid "Update Recipe"
-msgstr "создать рецепта"
 
 msgid "Update Role"
 msgstr ""
@@ -851,20 +759,29 @@ msgstr "взвешенная стоимость за единицу"
 msgid "Weighted PPU"
 msgstr "взвешенная цена за единицу"
 
-msgid "Yield"
-msgstr "выход"
-
-msgid "Yield:"
-msgstr "выход:"
-
 msgid "You don't have permission to do that"
+msgstr ""
+
+msgid "Zip Code"
+msgstr ""
+
+msgid "day (dd)"
 msgstr ""
 
 msgid "enter keyword(s)"
 msgstr "введите ключевое слово"
 
+msgid "female"
+msgstr ""
+
 msgid "from:"
 msgstr "от:"
+
+msgid "male"
+msgstr ""
+
+msgid "month (mm)"
+msgstr ""
 
 msgid "prevented us from importing your spreadsheet. Please update your spreadsheet and try agin."
 msgstr "помешал нам импортировать вашу таблицу. Обновите таблицу и повторите попытку."
@@ -881,11 +798,141 @@ msgstr "выбрать продукты"
 msgid "to:"
 msgstr "до:"
 
-#~ msgid "Create Purchase"
-#~ msgstr "создать закупку"
+msgid "year (yyyy)"
+msgstr ""
 
-#~ msgid "Place Order"
-#~ msgstr "оформить заказ"
+#~ msgid "+ New Production Order"
+#~ msgstr "+ Новый производственный заказ"
 
-#~ msgid "en"
-#~ msgstr "ru"
+#~ msgid "+ New Recipe"
+#~ msgstr "+ новый рецепт"
+
+#~ msgid "Actual Subtotal"
+#~ msgstr "факт. пром. сумма"
+
+#~ msgid "Actual cost"
+#~ msgstr "факт. стоимость за единицу"
+
+#~ msgid "Actual quantity"
+#~ msgstr "факт. кол-тво"
+
+#~ msgid "Add Ingredient"
+#~ msgstr "добавить ингредиента"
+
+#~ msgid "Amount (g)"
+#~ msgstr "кол-во (г)"
+
+#~ msgid "Are you sure?"
+#~ msgstr "Вы уверены?"
+
+#~ msgid "Batch Qty"
+#~ msgstr "кол-во партии"
+
+#~ msgid "Calculate Ingredients Needed"
+#~ msgstr "рассчитать необходимые ингредиенты"
+
+#~ msgid "Cost per kg"
+#~ msgstr "стоимость за кг"
+
+#~ msgid "Create Production"
+#~ msgstr "создать производство"
+
+#~ msgid "Create Recipe"
+#~ msgstr "создать рецепта"
+
+#~ msgid "Editing Production"
+#~ msgstr "редактирование производства"
+
+#~ msgid "Editing Recipe"
+#~ msgstr "редактирование рецепта"
+
+#~ msgid "Estimated cost"
+#~ msgstr "ор. стоимость"
+
+#~ msgid "Estimated quantity"
+#~ msgstr "приблиз. <br> кол-во"
+
+#~ msgid "Estimated subtotal"
+#~ msgstr "приблиз. пром. итог"
+
+#~ msgid "Expected Arrival"
+#~ msgstr "ожид. дата прибытия"
+
+#~ msgid "Ingredient Cost"
+#~ msgstr "стоимость ингредиента"
+
+#~ msgid "Ingredients"
+#~ msgstr "ингредиенты"
+
+#~ msgid "Instructions"
+#~ msgstr "инструкции"
+
+#~ msgid "Instructions:"
+#~ msgstr "инструкции:"
+
+#~ msgid "New Production Order"
+#~ msgstr "новый производственный заказ"
+
+#~ msgid "New Recipe"
+#~ msgstr "новый рецепт"
+
+#~ msgid "Ordered on"
+#~ msgstr "заказен на"
+
+#~ msgid "Product:"
+#~ msgstr "продукт:"
+
+#~ msgid "Production Cost"
+#~ msgstr "стоимость производства"
+
+#~ msgid "Production quantity:"
+#~ msgstr "кол-во производства:"
+
+#~ msgid "Production total cost:"
+#~ msgstr "обший стоимость производства:"
+
+#~ msgid "Productions"
+#~ msgstr "производство"
+
+#~ msgid "Received on"
+#~ msgstr "получил на"
+
+#~ msgid "Recipe Id"
+#~ msgstr "ID рецепта"
+
+#~ msgid "Recipe Name"
+#~ msgstr "название рецепта"
+
+#~ msgid "Recipe cost"
+#~ msgstr "стоимость рецепта"
+
+#~ msgid "Recipe cost:"
+#~ msgstr "стоимость рецепта:"
+
+#~ msgid "Recipe:"
+#~ msgstr "рецепт:"
+
+#~ msgid "Recipes"
+#~ msgstr "рецепты"
+
+#~ msgid "Select Ingredient"
+#~ msgstr "выбрать ингредиента"
+
+#~ msgid "Select Recipe"
+#~ msgstr "рецепт"
+
+#~ msgid "Select product produced"
+#~ msgstr "выберите произведенный продукт"
+
+#~ msgid "Units produced"
+#~ msgstr "произведено единиц"
+
+#, fuzzy
+#~ msgid "Update Recipe"
+#~ msgstr "создать рецепта"
+
+#~ msgid "Yield"
+#~ msgstr "выход"
+
+#~ msgid "Yield:"
+#~ msgstr "выход:"

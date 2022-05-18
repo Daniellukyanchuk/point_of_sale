@@ -110,7 +110,7 @@ end
 
     # Only allow a list of trusted parameters through.
     def product_params
-      params.require(:product).permit(:id, :product_name, :price, :unit, :units_purchased, :units_sold, :inventory, :grams_per_unit, category_products_attributes: [:product_category_id, :product_id])
+      params.require(:product).permit(:id, :product_name, :price, :unit, :pv, :product_code, :units_purchased, :units_sold, :inventory, :grams_per_unit, category_products_attributes: [:product_category_id, :product_id])
     end
 
     def sort_column

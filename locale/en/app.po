@@ -34,13 +34,7 @@ msgstr ""
 msgid "+ New Product"
 msgstr ""
 
-msgid "+ New Production Order"
-msgstr ""
-
 msgid "+ New Purchase Order"
-msgstr ""
-
-msgid "+ New Recipe"
 msgstr ""
 
 msgid "+ New Role"
@@ -70,19 +64,7 @@ msgstr ""
 msgid "Actual Quantity"
 msgstr ""
 
-msgid "Actual Subtotal"
-msgstr ""
-
-msgid "Actual cost"
-msgstr ""
-
-msgid "Actual quantity"
-msgstr ""
-
 msgid "Actual total:"
-msgstr ""
-
-msgid "Add Ingredient"
 msgstr ""
 
 msgid "Add Product"
@@ -94,22 +76,10 @@ msgstr ""
 msgid "Address:"
 msgstr ""
 
-msgid "Amount (g)"
-msgstr ""
-
-msgid "Are you sure?"
-msgstr ""
-
 msgid "Avg. Spent"
 msgstr ""
 
 msgid "Back"
-msgstr ""
-
-msgid "Batch Qty"
-msgstr ""
-
-msgid "Calculate Ingredients Needed"
 msgstr ""
 
 msgid "Categories"
@@ -163,6 +133,9 @@ msgstr ""
 msgid "Column headers must be in the correct order match headers in the database. HINT: Export existing products to file for reference."
 msgstr ""
 
+msgid "Cost"
+msgstr ""
+
 msgid "Cost per Unit"
 msgstr ""
 
@@ -170,9 +143,6 @@ msgid "Cost per Unit (CPU)"
 msgstr ""
 
 msgid "Cost per Unit:"
-msgstr ""
-
-msgid "Cost per kg"
 msgstr ""
 
 msgid "Create Category"
@@ -190,13 +160,7 @@ msgstr ""
 msgid "Create Product"
 msgstr ""
 
-msgid "Create Production"
-msgstr ""
-
 msgid "Create Purchase Order"
-msgstr ""
-
-msgid "Create Recipe"
 msgstr ""
 
 msgid "Create Role"
@@ -217,10 +181,22 @@ msgstr ""
 msgid "Date added"
 msgstr ""
 
+msgid "Date of Birth"
+msgstr ""
+
+msgid "Date ordered"
+msgstr ""
+
 msgid "Date ordered:"
 msgstr ""
 
+msgid "Date received"
+msgstr ""
+
 msgid "Date received:"
+msgstr ""
+
+msgid "DoB"
 msgstr ""
 
 msgid "Edit"
@@ -235,13 +211,7 @@ msgstr ""
 msgid "Editing Product"
 msgstr ""
 
-msgid "Editing Production"
-msgstr ""
-
 msgid "Editing Purchase Order"
-msgstr ""
-
-msgid "Editing Recipe"
 msgstr ""
 
 msgid "Editing Supplier"
@@ -265,25 +235,19 @@ msgstr ""
 msgid "Estimated Subtotal"
 msgstr ""
 
-msgid "Estimated cost"
-msgstr ""
-
-msgid "Estimated quantity"
-msgstr ""
-
-msgid "Estimated subtotal"
-msgstr ""
-
 msgid "Estimated total:"
-msgstr ""
-
-msgid "Expected Arrival"
 msgstr ""
 
 msgid "Expected delivery"
 msgstr ""
 
 msgid "Files must be one of the following formats: xls or xlsx"
+msgstr ""
+
+msgid "First Name"
+msgstr ""
+
+msgid "Gender"
 msgstr ""
 
 msgid "Go to P.O."
@@ -308,18 +272,6 @@ msgid "Id"
 msgstr ""
 
 msgid "Import Products"
-msgstr ""
-
-msgid "Ingredient Cost"
-msgstr ""
-
-msgid "Ingredients"
-msgstr ""
-
-msgid "Instructions"
-msgstr ""
-
-msgid "Instructions:"
 msgstr ""
 
 msgid "Inventory"
@@ -364,13 +316,7 @@ msgstr ""
 msgid "New Product"
 msgstr ""
 
-msgid "New Production Order"
-msgstr ""
-
 msgid "New Purchase Order"
-msgstr ""
-
-msgid "New Recipe"
 msgstr ""
 
 msgid "New Role"
@@ -415,9 +361,6 @@ msgstr ""
 msgid "OrderProduct|Subtotal"
 msgstr ""
 
-msgid "Ordered on"
-msgstr ""
-
 msgid "Orders"
 msgstr ""
 
@@ -433,6 +376,9 @@ msgstr ""
 msgid "P.O. Product Id"
 msgstr ""
 
+msgid "PV"
+msgstr ""
+
 msgid "Permissions"
 msgstr ""
 
@@ -442,6 +388,9 @@ msgstr ""
 msgid "Phone:"
 msgstr ""
 
+msgid "Preferred contact method"
+msgstr ""
+
 msgid "Price:"
 msgstr ""
 
@@ -449,6 +398,9 @@ msgid "Product"
 msgstr ""
 
 msgid "Product Categories"
+msgstr ""
+
+msgid "Product Code"
 msgstr ""
 
 msgid "Product Id"
@@ -469,25 +421,10 @@ msgstr ""
 msgid "Product name:"
 msgstr ""
 
-msgid "Product:"
-msgstr ""
-
 msgid "Production"
 msgstr ""
 
-msgid "Production Cost"
-msgstr ""
-
 msgid "Production Id"
-msgstr ""
-
-msgid "Production quantity:"
-msgstr ""
-
-msgid "Production total cost:"
-msgstr ""
-
-msgid "Productions"
 msgstr ""
 
 msgid "Production|Production quantity"
@@ -595,28 +532,10 @@ msgstr ""
 msgid "Quantity:"
 msgstr ""
 
-msgid "Received on"
-msgstr ""
-
 msgid "Recipe"
 msgstr ""
 
-msgid "Recipe Id"
-msgstr ""
-
-msgid "Recipe Name"
-msgstr ""
-
-msgid "Recipe cost"
-msgstr ""
-
-msgid "Recipe cost:"
-msgstr ""
-
 msgid "Recipe product"
-msgstr ""
-
-msgid "Recipe:"
 msgstr ""
 
 msgid "RecipeProduct|Amount"
@@ -626,9 +545,6 @@ msgid "RecipeProduct|Cost per kg"
 msgstr ""
 
 msgid "RecipeProduct|Ingredient total"
-msgstr ""
-
-msgid "Recipes"
 msgstr ""
 
 msgid "Recipe|Instructions"
@@ -694,19 +610,10 @@ msgstr ""
 msgid "Select File"
 msgstr ""
 
-msgid "Select Ingredient"
-msgstr ""
-
 msgid "Select Product"
 msgstr ""
 
-msgid "Select Recipe"
-msgstr ""
-
 msgid "Select a product"
-msgstr ""
-
-msgid "Select product produced"
 msgstr ""
 
 msgid "Select supplier"
@@ -728,6 +635,9 @@ msgid "Setting|Company phone"
 msgstr ""
 
 msgid "Show"
+msgstr ""
+
+msgid "Subtotal"
 msgstr ""
 
 msgid "Subtotal:"
@@ -790,9 +700,6 @@ msgstr ""
 msgid "Units in Stock"
 msgstr ""
 
-msgid "Units produced"
-msgstr ""
-
 msgid "Update Category"
 msgstr ""
 
@@ -806,9 +713,6 @@ msgid "Update Product"
 msgstr ""
 
 msgid "Update Purchase Order"
-msgstr ""
-
-msgid "Update Recipe"
 msgstr ""
 
 msgid "Update Role"
@@ -838,19 +742,28 @@ msgstr ""
 msgid "Weighted PPU"
 msgstr ""
 
-msgid "Yield"
-msgstr ""
-
-msgid "Yield:"
-msgstr ""
-
 msgid "You don't have permission to do that"
+msgstr ""
+
+msgid "Zip Code"
+msgstr ""
+
+msgid "day (dd)"
 msgstr ""
 
 msgid "enter keyword(s)"
 msgstr ""
 
+msgid "female"
+msgstr ""
+
 msgid "from:"
+msgstr ""
+
+msgid "male"
+msgstr ""
+
+msgid "month (mm)"
 msgstr ""
 
 msgid "prevented us from importing your spreadsheet. Please update your spreadsheet and try agin."
@@ -866,4 +779,7 @@ msgid "select products"
 msgstr ""
 
 msgid "to:"
+msgstr ""
+
+msgid "year (yyyy)"
 msgstr ""
