@@ -1,5 +1,6 @@
 require 'net/http'
 require 'open-uri'
+require 'json'
 
 class WebhooksController < ApplicationController
     skip_before_action :verify_authenticity_token
