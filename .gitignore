@@ -15,3 +15,5 @@ tmp/cache/bootsnap/load-path-cache
 log/development.log
 :po
 assets:precompile
+assets:precompile
+:po
