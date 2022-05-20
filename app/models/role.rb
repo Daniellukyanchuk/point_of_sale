@@ -1,11 +1,8 @@
 class Role < ApplicationRecord
-	
 	has_many :role_users
 	has_many :users, through: :role_user 
-	
 	has_many :role_permissions
 	has_many :permissions, through: :role_permissions
-	
 	accepts_nested_attributes_for :role_permissions, allow_destroy: true
 	
     def self.get_permissions
@@ -43,8 +40,6 @@ class Role < ApplicationRecord
 	end
 
 	def self.organize_permissions
-		# Take an array permissions and make it organized. 
-		# Instead of displaying permissions in different rows, display it in one row. 
         permissions = Permission.all
 
         read_action = []
@@ -87,5 +82,20 @@ class Role < ApplicationRecord
 	   incoming_values.each do |pi|
 		  role_permissions.push(RolePermission.new(permission_id: pi))
        end
+	end
+
+	def self.get_roles_permissions
+		sql = """
+		        SELECT role_name, permissions.table, permissions.action FROM roles
+				JOIN role_permissions ON roles.id=role_permissions.role_id
+				JOIN permissions ON role_permissions.permission_id=permissions.id
+
+			  """
+        result = ActiveRecord::Base.connection.execute(sql)
+	end
+
+	def self.imp_roles_permissions
+
+		
 	end
 end
