@@ -4,6 +4,11 @@ class RolesController < ApplicationController
   before_action :update_permissions
   before_action :get_permissions
 
+  def export 
+    roles_for_export = Role.export_roles.to_json
+    send_data roles_for_export, :type => 'application/json; header=present', :disposition => "attachment; filename=roles.json"
+  end
+
   # GET /roles or /roles.json
   def index
     @roles = Role.all
@@ -58,7 +63,7 @@ class RolesController < ApplicationController
       format.html { redirect_to roles_url, notice: "Role was successfully destroyed." }
       format.json { head :no_content }
     end
-  end
+  end  
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -78,7 +83,7 @@ class RolesController < ApplicationController
     def get_permissions
       @permissions = Permission.all
       @organized_permissions = Permission.organize_permissions
-    end
+    end   
 
     # Only allow a list of trusted parameters through.
     def role_params

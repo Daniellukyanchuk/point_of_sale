@@ -1,0 +1,25 @@
+<h1><%= _(' Import Roles From File') %></h1>
+
+<h3><%= _('Requirements') %></h3>
+<ul>
+  <li><%= _('Files must be one of the following formats: .json') %>
+  <li><%= _('File must be exported from an application witht he same database structure') %> </li>
+ </ul>
+
+<h5><%= _('Select File') %></h5>
+
+<%= form_for @roles_import do |f| %>
+  <% if @roles_import.errors.any? %>
+    <%= pluralize(@roles_import.errors.count, "error") %> 
+    <%= _('prevented us from importing your spreadsheet. Please update your spreadsheet and try agin.') %> 
+    <ul>
+      <% @roles_import.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <%= f.file_field :file %>
+  <%= f.submit _("Import Roles") %>
+<% end %>
+
+

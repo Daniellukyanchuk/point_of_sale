@@ -1,5 +1,9 @@
 
 <h1>Roles</h1>
+<%= link_to _('+ New Role'), new_role_path, class: "btn btn-secondary" %>
+<%= link_to _('<i class="fa-solid fa-download"></i> Export as json').html_safe , role_export_path, class: "btn btn-primary mr-1 mb-3" %>
+<%= link_to _('<i class="fa-solid fa-file-import"></i> Import from json').html_safe , new_roles_import_path , class: "btn btn-primary mr-1 mb-3" %>
+
 
 <table>
   <thead>
@@ -24,4 +28,4 @@
 
 <br>
 
-<%= link_to _('+ New Role'), new_role_path, class: "btn btn-secondary" %>
+

@@ -88,3 +88,5 @@ gem 'stripe'
 
 gem 'http'
 gem 'net-ssh'
+
+gem 'json'

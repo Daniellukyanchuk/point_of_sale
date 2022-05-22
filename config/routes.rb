@@ -12,6 +12,8 @@ Rails.application.routes.draw do
       get '/devise/users/sign_out' => 'sessions#destroy'
     end
     post "checkout/create", to: "checkout#create"
+    get 'roles/export', to: "roles#export", as: :role_export
+    resources :roles_imports, only: [:new, :create]
     resources :product_categories    
     resources :users  
     resources :roles

@@ -13,7 +13,7 @@ class Role < ApplicationRecord
         end
     end
 
-    def update_role_permissions(params)     
+    def update_role_permissions(params) 
         permission_ids = params["role"]["role_permissions_attributes"]["permissions_id"].values
 
         #find all existing permissions for this role
@@ -26,6 +26,27 @@ class Role < ApplicationRecord
             role_permissions.push(RolePermission.new(permission_id: p_id))
         end
     end
+
+    def import_role_permissions(params)
+        permission_ids = params["role"]["role_permissions_attributes"]["permissions_id"].values
+                
+        permission_ids.each do |p_id|
+            role_permissions.push(RolePermission.new(permission_id: p_id))
+        end
+    end
+
+    def self.export_roles
+
+        sql = """
+                select role_name, permissions.table, permissions.action from roles
+                LEFT OUTER JOIN role_permissions ON roles.id = role_id
+                LEFT OUTER JOIN permissions ON permission_id = permissions.id
+    
+              """
+        result = ActiveRecord::Base.connection.execute(sql)
+
+      end
+
 end
 
 
