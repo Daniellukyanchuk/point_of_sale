@@ -91,7 +91,7 @@ class ApplicationController < ActionController::Base
 	protected
 	    rescue_from CanCan::AccessDenied do |exception|       
 		    flash['danger'] = _("You are not authorized to do this action")
-		    redirect_to action: :index
+		    redirect_to client_report_path
 		end
 
 		def configure_permitted_parameters

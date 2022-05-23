@@ -93,9 +93,4 @@ class Role < ApplicationRecord
 			  """
         result = ActiveRecord::Base.connection.execute(sql)
 	end
-
-	def self.imp_roles_permissions
-
-		
-	end
 end

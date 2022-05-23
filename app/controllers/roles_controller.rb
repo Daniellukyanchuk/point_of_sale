@@ -67,14 +67,6 @@ class RolesController < ApplicationController
     send_data roles_json, :type => 'application/json; header=present', :disposition => "attachment; filename=roles.json"
   end
 
-  def import_roles
-    roles_list = JSON.parse(File.read('roles_list.json'))
-
-    roles_list.each do |rolist|
-      Role.create(rolist.to_h)
-    end
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_role
