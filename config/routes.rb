@@ -1,17 +1,18 @@
 Rails.application.routes.draw do
-
-  resources :roles
   post "checkout/create", to: "checkout#create"
   devise_for :users, controllers: { sessions: 'users/sessions' }, path_prefix: "devise"
   post '/api/clients', to: 'api/api_clients#create'
   resources :webhooks, only: [:create]
   patch '/api/clients/:id', to: 'api/api_clients#update'
   get '/api/clients', to: 'api/api_clients#index'
-
   
   scope "(:locale)", locale: /en|ru/ do 
     get 'clients_imports/new'
     get 'clients_imports/create'
+    get 'roles/export', to: 'roles#export_roles', as: :role_export
+    
+    resources :roles_imports, only: [:new, :create]
+    resources :roles
     resources :users
     resources :settings
     resources :productions

@@ -6,7 +6,9 @@
 
 <p id="notice"><%= notice %></p>
 <div class="contaienr ml-3">
-  <%= link_to '+ New Role', new_role_path, class:"text-light btn btn-primary" %>
+  <%= link_to _('<i class="fa-solid fa-plus"></i> New Role').html_safe, new_role_path, class:"text-light btn btn-primary" %>
+  <%= link_to _('<i class="fa-solid fa-file-export"></i> Export to JSON').html_safe , role_export_path, class:"text-light btn btn-primary" %>
+  <%= link_to _('<i class="fa-solid fa-file-import"></i> Import from JSON').html_safe , new_roles_import_path, class:"text-light btn btn-primary" %>
 </div>
 
 

@@ -1,5 +1,4 @@
 class RolesController < ApplicationController
-  # before_action :set_role, only: %i[ show edit update destroy ]
   before_action :get_permissions
   before_action :set_permissions
   before_action :organize_permissions
@@ -61,6 +60,11 @@ class RolesController < ApplicationController
       format.html { redirect_to roles_url, notice: "Role was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def export_roles
+    roles_json = Role.get_roles_permissions.to_json
+    send_data roles_json, :type => 'application/json; header=present', :disposition => "attachment; filename=roles.json"
   end
 
   private
