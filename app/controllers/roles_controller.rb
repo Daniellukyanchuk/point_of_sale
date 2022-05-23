@@ -68,7 +68,11 @@ class RolesController < ApplicationController
   end
 
   def import_roles
-    roles_json = Role.imp_roles_permissions
+    roles_list = JSON.parse(File.read('roles_list.json'))
+
+    roles_list.each do |rolist|
+      Role.create(rolist.to_h)
+    end
   end
 
   private
