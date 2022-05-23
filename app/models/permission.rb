@@ -11,6 +11,7 @@ class Permission < ApplicationRecord
                         schemaname != 'information_schema' AND
                         tablename NOT IN ('schema_migrations', 'ar_internal_metadata', 'active_storage_blobs', 'active_storage_attachments', 'category_products', 'order_products', 'purchase_products', 'recipe_products');
              """
+             
         results = ActiveRecord::Base.connection.execute(sql)
         results = results.values.flatten 
        
