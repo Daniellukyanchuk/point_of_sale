@@ -12,9 +12,14 @@ default: &default
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
+# development:
+  # <<: *default
+  # database: bigbertha
+  # port: 5432
+
 development:
   <<: *default
-  database: bigbertha
+  database: bigbertha_2
   port: 5432
 
 # Warning: The database defined as "test" will be erased and

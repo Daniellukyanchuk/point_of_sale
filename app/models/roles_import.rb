@@ -5,44 +5,60 @@ class RolesImport
 	
 	attr_accessor :file    
 
+    def self.import(file)
+        # check if file is correct format
+        json = get_json(file)
+        # convert json to objects
+        role_objects = JSON.parse(json)
+        # get unique role names
+        role_names = role_names = role_objects.map { |ro| ro['role_name'] }.uniq
+        # check for conflicting role names
+        new_role_names = remove_existing_roles(role_names) 
+        # save roles to database
+        create_roles(new_role_names)
+        # save role_permissions to database
+        create_role_permissions(role_objects)       
+    end
 
-	def initialize(attributes={})
-		attributes.each { |name, value| send("#{name}=", value) }
-	end
-
-	def persisted?
-		false
-	end
-
-	def open_json_file
-		case File.extname(file.original_filename)
-	    when ".json" then file = File.read(file.path)
+    # TODO this method should receive the file name, open the file and return the json
+    def self.get_json(file)
+        case File.extname(file["file"].original_filename)
+	    when ".json" then file = File.read(file["file"].path)
 	    else raise "Unknown file type: #{file.original_filename}"
 	    end
     end
 
-    def import_roles
-	    json_data = File.read(file.path)
-        hash_from_json = JSON.parse(json_data)
-        role_names = hash_from_json.map { |rn| rn['role_name'] }.uniq
-            # remove all role names already existing in the database
-            existing_roles = []
-            role_names.each do |rn|
-                if Role.exists?(['role_name LIKE ?', "%#{rn}%"])
-                    existing_roles.push(rn)
-                end
+    def self.remove_existing_roles(role_names)
+    existing_roles = []
+        role_names.each do |rn|
+            if Role.exists?(['role_name LIKE ?', "%#{rn}%"])
+                existing_roles.push(rn)
             end
+        end
+        new_role_names = role_names - existing_roles
+    end    
 
-        role_names = role_names - existing_roles
-            # add Roles to roles table    
+    def self.create_roles (role_names)
         role_names.each do |role|
             Role.create(:role_name => role)
         end
-
-        hash_from_json.each do |rp|
-            role_id = Role.where("role_name LIKE ?", rp.role_name)
-            permission_id = Permission.where("permissions.table LIKE ? AND permissions.action LIKE ?", rp.table, rp.action)
+    end
+	
+    def self.create_role_permissions (role_objects)
+        role_objects.each do |rp|
+            role_id = Role.where("role_name LIKE ?", rp["role_name"]).first.id
+            permission_id = Permission.where("permissions.table LIKE ? AND permissions.action LIKE ?", rp["table"], rp["action"]).first.id
             RolePermission.create(:role_id => role_id, :permission_id => permission_id)
         end
     end
  end
+
+
+
+
+
+
+
+
+
+

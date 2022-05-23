@@ -5,8 +5,8 @@ class RolesImportsController < ApplicationController
     end
   
     def create
-      @roles_import = RolesImport.new(params[:roles_import])
-      if @roles_import.save
+      @roles_import = RolesImport.import(params[:roles_import])
+      if @roles_import
         redirect_to roles_path
       else
         render :new
