@@ -17,7 +17,7 @@
         <div class="field">
           <%= form.label _("Choose Product") %>       
           <%= form.collection_select(:purchase_product_id, PurchaseProduct.joins(:product).where("purchase_products.id not in (SELECT purchase_product_id
-          FROM inventories where purchase_product_id is not null)"), :id, :p_o_name, {}, {class: "source form-control"}) %>
+          FROM inventories where purchase_product_id is not null)"), :id, :p_o_name, {:prompt => _("Select Product")}, {class: "source form-control"}) %>
         </div>
 
         <div class="field">
