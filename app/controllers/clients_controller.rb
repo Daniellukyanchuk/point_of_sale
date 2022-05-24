@@ -28,7 +28,7 @@ class ClientsController < ApplicationController
 
     respond_to do |format|
       if @client.save
-        format.html { redirect_to @client, success: "Client was successfully created." }
+        format.html { redirect_to clients_path, success: "Client was successfully created." }
         format.json { render :show, status: :created, location: @client }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -41,7 +41,7 @@ class ClientsController < ApplicationController
   def update
     respond_to do |format|
       if @client.update(client_params)
-        format.html { redirect_to @client, success: "Client was successfully updated." }
+        format.html { redirect_to clients_path, success: "Client was successfully updated." }
         format.json { render :show, status: :ok, location: @client }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -68,7 +68,7 @@ class ClientsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def client_params
       params = Client.compile_date(@_params) 
-      params.require(:client).permit(:id, :name, :last_name, :middle_name, :email, :phone, :address, :city, :zip_code, :gender, :date_of_birth, :contact_method)
+      params.require(:client).permit(:id, :name, :last_name, :middle_name, :email, :phone, :address, :city, :zip_code, :gender, :dob_day, :dob_month, :dob_year, :date_of_birth, :contact_method, :registered)
     end
 
     def sort_column

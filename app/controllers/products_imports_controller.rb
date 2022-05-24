@@ -12,4 +12,5 @@ class ProductsImportsController < ApplicationController
       render :new
     end
   end
+
 end

@@ -19,7 +19,7 @@
       </div>
       <div class="field col-4 pl-0">
         <%= form.label _("First Name") %>
-        <%= form.text_field ":name", class: "form-control" %>
+        <%= form.text_field :name, class: "form-control" %>
       </div>
       <div class="field col-4 pl-0">
         <%= form.label :middle_name %>
@@ -45,15 +45,15 @@
       <div class="row col-8 pr-0">       
         <div class="field col-3 pl-0">
           <%= form.label _("day (dd)") %>
-          <%= form.text_field :dob_day, maxlength: 2, class: "form-control", placeholder: '23' %>
+          <%= form.text_field :dob_day, maxlength: 2, class: "form-control" %>
         </div>
         <div class="field col-3 pl-0">
           <%= form.label _("month (mm)") %>
-          <%= form.text_field :dob_month, maxlength: 2, class: "form-control", placeholder: '05' %>
+          <%= form.text_field :dob_month, maxlength: 2, class: "form-control" %>
         </div>
         <div class="field col-6 pl-0">
           <%= form.label _("year (yyyy)") %>
-          <%= form.text_field :dob_year, maxlength: 4, class: "form-control", placeholder: '1985' %>
+          <%= form.text_field :dob_year, maxlength: 4, class: "form-control" %>
         </div>
       </div>
        <div class="field col-4 pl-5">
@@ -75,7 +75,12 @@
         <%= form.text_field :zip_code, class: "form-control" %>
       </div>
     </div>
-
+    <div class="row">
+      <div class="field col-1 pl-0">
+        <%= form.label :registered %>
+        <%= form.check_box :registered, class: "form-control" %>
+      </div>
+    </div>
     <div class="row pt-3">
       <%= form.submit "#{client.id.nil? ? _("Create Client") : _("Update Client")}" , :class => "btn btn-success btn-big" %>
     </div>

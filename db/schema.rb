@@ -59,6 +59,10 @@ ActiveRecord::Schema.define(version: 2022_05_15_120101) do
     t.string "zip_code"
     t.string "email"
     t.string "contact_method"
+    t.boolean "registered"
+    t.string "dob_day"
+    t.string "dob_month"
+    t.string "dob_year"
   end
 
   create_table "inventories", force: :cascade do |t|

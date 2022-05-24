@@ -1,0 +1,5 @@
+<h1><%= _('New Client') %></h1>
+
+<%= render 'form', client_signup: @client_signup, layout: false %>
+
+<%= link_to _('<i class="fa-solid fa-chevron-left"></i> Go back'), client_signups_path, :class => "btn btn-primary mt-3" %>  
