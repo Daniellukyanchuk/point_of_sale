@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_22_080838) do
+ActiveRecord::Schema.define(version: 2022_05_24_090246) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,9 +60,9 @@ ActiveRecord::Schema.define(version: 2022_04_22_080838) do
     t.float "remaining_quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "supply_product_id"
     t.integer "production_id"
     t.float "cost_per_unit"
+    t.integer "purchase_product_id"
   end
 
   create_table "order_products", force: :cascade do |t|
@@ -127,6 +127,7 @@ ActiveRecord::Schema.define(version: 2022_04_22_080838) do
     t.float "estimated_quantity"
     t.float "estimated_cost"
     t.float "estimated_subtotal"
+    t.integer "purchase_id"
   end
 
   create_table "purchases", force: :cascade do |t|

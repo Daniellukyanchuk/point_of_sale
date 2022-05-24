@@ -39,7 +39,7 @@
 
   $(document).ready(function() {
 
-    $(document).on('change', '.product-select', updateSelectedPrice);   
+    $(document).on('change', '.product-select', updateSelectedPrice);
     $(document).on('change', '.quantity, .sale-price, .product-select', calcSubtotal);
     $(document).on('change', '.quantity, .sale-price, .product-select', calcGrandTotal); 
     $(document).on('click', '.remove_fields', calcGrandTotal);

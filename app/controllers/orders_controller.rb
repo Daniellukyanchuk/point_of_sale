@@ -70,7 +70,7 @@ class OrdersController < ApplicationController
     end
 
     def find_finished_products
-      finished_products = CategoryProduct.where("product_category_id = ? or product_category_id = ?", 11, 13)
+      finished_products = CategoryProduct.where("product_category_id = ? or product_category_id = ?", 1,3)
       product_ids = []
       finished_products.each do |finished_product|
         product_ids.push(finished_product.product_id)
