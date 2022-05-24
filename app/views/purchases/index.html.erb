@@ -67,7 +67,7 @@
       <th><%= sortable "actual_total", _("ACTUAL TOTAL") %></th>
       <th><%= sortable "date_of_the_order", _("ORDER DATE") %></th>
       <th><%= sortable "expected_date_of_delivery", _("DELIVERY DATE") %></th>
-      <th colspan="6"></th>
+      <th colspan="7"></th>
     </tr>
   </thead>
 
@@ -81,9 +81,9 @@
         <td>&#8381 <%= purchase.actual_total %></td>
         <td><%= purchase.date_of_the_order %></td>
         <td><%= purchase.expected_date_of_delivery %></td>
-        <td><%= link_to _('Show'), purchase, class: "btn btn-outline-primary btn-sm" %></td>
-        <td><%= link_to _('Edit'), edit_purchase_path(purchase), class: "btn btn-outline-primary btn-sm" %></td>
-        <td><%= link_to _('Destroy'), purchase, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-sm" %></td>
+        <td><%= link_to '<i class="fa-solid fa-circle-info"></i>'.html_safe, purchase, class: "text-info" %></td>
+        <td><%= link_to '<i class="fa-solid fa-pen-to-square"></i>'.html_safe, edit_purchase_path(purchase), class: "text-primary" %></td>
+        <td><%= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, purchase, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-danger" %></td>
       </tr>
     <% end %>
   </tbody>
