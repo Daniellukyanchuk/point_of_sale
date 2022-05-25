@@ -75,7 +75,7 @@
           <td><%= order.client_id %></td>
           <td><%= order.client.name %></td>
           <td>&#8381 <%= order.grand_total %></td>
-          <td><%= link_to '<i class="fa-solid fa-print"></i>'.html_safe, order_invoice_path, class: "text-secondary" %></td>
+          <td><%= link_to '<i class="fa-solid fa-print"></i>'.html_safe, order_invoice_path, class: "text-secondary", target: '_blank' %></td>
           <td><%= link_to '<i class="fa-solid fa-circle-info"></i>'.html_safe, order, class: "text-info" %></td>
           <td><%= link_to '<i class="fa-solid fa-pen-to-square"></i>'.html_safe, edit_order_path(order.id), class: "text-primary" %></td>
           <td><%= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, order_path(order.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "text-danger" %></td>

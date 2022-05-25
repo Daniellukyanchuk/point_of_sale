@@ -70,7 +70,7 @@
 
             <div style="width: 100%">
                 <div style="float: left; width: 100%; text-align: left; margin-top: 5%;">2) Для доставки принял водитель:</div>
-                <div style="float: right; width: 50%; border-bottom: solid 1.5px; margin-right: 5%; margin-top: 8%; margin-bottom: 5%;"></div>
+                <div style="float: right; width: 50%; border-bottom: solid 1.5px; margin-right: 5%; margin-top: 8%; margin-bottom: 6%;"></div>
             </div>
         </div>
 
@@ -78,7 +78,6 @@
             <div style="width: 100%">
                 <div style="float: left; width: 30%; text-align: left;">3) Сдал водитель:</div>
                 <div style="float: left; width: 50%; border-bottom: solid 1.5px; margin-left: 5%; margin-top: 8%;"></div>
-              
             </div>
 
             <div style="width: 100%">
@@ -90,11 +89,19 @@
             </div>
         </div>
     </div>
+    <div style="float: left; vertical-align: bottom; width: 30%;">
+        <%= link_to '<i class="fa-solid fa-circle-left"> Back</i>'.html_safe, orders_path, class: "text-primary" %>
+        <%= link_to '<i class="fa-solid fa-print"> Print</i>'.html_safe, "#", onclick: "printPage()", class: "text-secondary ml-4" %>
+    </div>
 </div>
 
-<div style="float: left; vertical-align: bottom; width: 30%;">
-    <%= link_to '<i class="fa-solid fa-circle-left"> Back</i>'.html_safe, orders_path, class: "text-primary" %>
-</div>
+
+
+<script>
+    function printPage() {
+        window.print()
+    }
+</script>
 
 <style>
     .tableA,
