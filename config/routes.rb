@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     devise_scope :users do 
       get '/devise/users/sign_out' => 'sessions#destroy'
     end
+    get '/orders/order_receipt', to: 'orders#order_receipt', as: :order_receipt
     resources :product_categories
     resources :users  
     resources :roles

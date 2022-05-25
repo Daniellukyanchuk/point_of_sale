@@ -502,3 +502,24 @@ h4 {
     line-height: 1rem;
     border-radius: 0 0.5rem 0.5rem 0rem;
 }
+
+
+table.receipt_table, .receipt_table td {
+    border: solid 1px black;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+table.receipt_table2, .receipt_table2 tr {
+    background-color: white;
+}
+
+table.receipt_table {
+    width: 97%;
+}
+
+@media print {
+    body {
+      background: #FFF;
+   }
+  }

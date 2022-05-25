@@ -3,6 +3,8 @@ class OrdersController < ApplicationController
   load_and_authorize_resource  
   helper_method :sort_column, :sort_direction
   before_action :find_finished_products
+
+  
     
   # GET /orders or /orders.json
   def autofill_price
@@ -61,6 +63,10 @@ class OrdersController < ApplicationController
       format.html { redirect_to orders_url, notice: "Order was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def order_receipt
+    render layout: 'plain'
   end
 
   private

@@ -4,3 +4,4 @@ class ChangeSupplyIdToPurchaseId < ActiveRecord::Migration[5.2]
     add_column :inventories, :purchase_product_id, :integer
   end
 end
+

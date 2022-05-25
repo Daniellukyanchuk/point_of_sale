@@ -17,8 +17,7 @@
 </p>
 
 <% @order.order_products.each do |op| %>
-  <hr>
-    <p>
+      <p>
       <strong><%= _('Product Id:') %> </strong>
       <%= op.product_id %>, 
     </p>
@@ -41,4 +40,9 @@
   <%= @order.grand_total %>
 </p>
 
-<%= link_to _('<i class="fa-solid fa-chevron-left"></i> Go back'), orders_path, :class => "btn btn-primary mt-3" %>h %>
+
+
+
+
+
+

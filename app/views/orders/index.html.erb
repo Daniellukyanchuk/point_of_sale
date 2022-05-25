@@ -1,3 +1,5 @@
+
+
 <p id="notice"><%= notice %></p>
 
 <h1><%= _('Orders') %></h1>
@@ -37,10 +39,10 @@
         <td><%= order.created_at.strftime("%d %b %Y") %></td> 
         <td class="align_center"><%= order.client_id %></td>
         <td><%= order.client.name %></td>
-        <td class="align_right"><%= number_with_precision(order.grand_total, :precision => 2) %></td>
-        <td><%= link_to '<i class="fa-solid fa-eye"></i>'.html_safe, order, class: "text-primary" %></td>
+        <td class="align_right"><%= number_with_precision(order.grand_total, :precision => 2) %></td>        
         <td><%= link_to '<i class="fa-solid fa-pencil"></i>'.html_safe, edit_order_path(order), class: "text-secondary" %></td>
         <td><%= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, order, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-danger" %></td>
+        <td><%= link_to _('Print Receipt'), order_receipt_path, target: "_blank", class: "btn btn-primary btn-small" %></td>
       </tr>
     <% end %>
   </tbody>

@@ -11,7 +11,6 @@ class Inventory < ApplicationRecord
   attr_accessor :purchase_quantity
 
   def set_remaining_quantity
-
     if production_id.blank? && purchase_id.blank?
         self.remaining_quantity = remaining_quantity
 
