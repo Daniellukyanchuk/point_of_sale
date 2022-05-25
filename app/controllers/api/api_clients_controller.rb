@@ -34,7 +34,6 @@ class Api::ApiClientsController < ApplicationController
 
   # PATCH/PUT /clients/1 or /clients/1.json
   def update
-
     respond_to do |format|
 
       c = Client.where("id = ?", params[:id]).first
@@ -52,22 +51,6 @@ class Api::ApiClientsController < ApplicationController
       end
     end
   end
-
-  # def update
-
-  #   c = Client.where("id = ?", params[:id]).first
-
-  #     if c.nil?
-  #       render json: {"error": "No client with ID #{params[:id]}"}
-  #       return
-  #     end
-  #   c.assign_attributes(client_params)
-  #   if c.save
-  #     render json: c, success: "Client was successfully updated!"
-  #   else
-  #     render json: {"error": c.errors.messages.values.join(', ')}
-  #   end
-  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.

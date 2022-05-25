@@ -5,7 +5,6 @@ class Order < ApplicationRecord
   belongs_to :client  
   before_save :set_grand_total
   has_one_attached :cover_picture
-  
       
   def set_grand_total
     self.grand_total = 0
