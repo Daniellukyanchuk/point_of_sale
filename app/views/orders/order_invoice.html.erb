@@ -2,92 +2,98 @@
 <% @setting = Setting.first %>
 
 
+<div style="display: block; margin: auto; margin-top: 150px; max-width: 1240px;">
+    <div style="width:70%; float: left; margin-left: 2%;">
+    	<div style="float: left; width: 20%; text-align: left;" class="h6">Накладная №</div>
+    	<div style="float: left; width: 80%; text-align:left;">
+    		<%= @order.id %>
+    		<br>
+    		24 May 2022		
+    	</div>
+        <div style="float: left; width: 20%; text-align: left;">Кому</div>
+        <div style="float: left; width: 80%; text-align: left; border-bottom: solid 1px">Ибраев Таалай</div>
 
-<div style="width:70%; float: left; margin-left: 2%;">
-	<div style="float: left; width: 20%; text-align: center; ">Накладная №</div>
-	<div style="float: left; width: 80%; text-align:left;">
-		<%= @order.id %>
-		<br>
-		24 May 2022		
-	</div>
-    <div style="float: left; width: 20%; text-align: left;">Кому</div>
-    <div style="float: left; width: 80%; text-align: left; border-bottom: solid 1px">Ибраев Таалай</div>
+        <div style="float: left; width: 20%; text-align: left;">От кого</div>
+        <div style="float: left; width: 40%; text-align: left; border-bottom: solid 1px">Polar Bear</div>
+        <br style="clear:both;">
 
-    <div style="float: left; width: 20%; text-align: left;">От кого</div>
-    <div style="float: left; width: 40%; text-align: left; border-bottom: solid 1px">Polar Bear</div>
+        <div style="float: left; width: 20%; text-align:left;">Вид Платежа</div>
+        <div style="float: left; width: 40%; text-align:left; border-bottom: solid 1px">Касса (KGS)</div>
+        <div style="float: left; width: 20%; text-align:left; margin-left: 5%;">место нахождения</div>
+        <div style="float: left; width: 15%; text-align:left; border-bottom: solid 1px;">Тунгуч</div>
+    </div>
+
+    <div style="float:right; width: 20%;">
+    	<% if @setting.logo.attached? %>
+          <%= image_tag @setting.logo, style: "width: 100px; height: 100px", class: "form-control" %>
+        <% end %>
+    </div>
     <br style="clear:both;">
 
-    <div style="float: left; width: 20%; text-align:left;">Вид Платежа</div>
-    <div style="float: left; width: 40%; text-align:left; border-bottom: solid 1px">Касса (KGS)</div>
-    <div style="float: left; width: 20%; text-align:left; margin-left: 5%;">место нахождения</div>
-    <div style="float: left; width: 15%; text-align:left; border-bottom: solid 1px;">Тунгуч</div>
+    <table class="tableA" style="width: 90%; margin-top: 2%;">
+        <tr>
+            <th rowspan="2" style="vertical-align: bottom;" class="h6">№ п.</th>
+            <th rowspan="2" style="vertical-align: bottom;" class="h6">Наименование</th>
+            <th rowspan="2" style="vertical-align: bottom;" class="h6">Количество</th>
+            <th rowspan="2" style="vertical-align: bottom;" class="h6">кг</th>
+            <th colspan="2" class="h6">Цена</th>
+            <th colspan="2" class="h6">Сумма</th>
+        </tr>
+        <tr>
+            <th class="h6">сом</th>
+            <th class="h6">тый.</th>
+            <th class="h6">сом</th>
+            <th class="h6">тый.</th>  
+        </tr>
+        <tr>
+            <td></td>
+            <td>Credit, expedition, or other costs</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>10</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td colspan="6" style="text-align: right;">Сумма:</td>
+            <td rowspan="2">10</td>
+            <td>0</td>
+        </tr>
+    </table>
+    <div style="display: block; height: 500px;">
+        <div style="width: 40%; float: left; margin-top: 2%; border: 1px solid;">
+            <div style="width: 100%">
+                <div style="float: left; width: 100%; text-align: left;">1) Заведующий складом отпустил:</div>
+                <div style="float: right; width: 50%; border-bottom: solid 1.5px; margin-right: 5%;  margin-top: 8%;"></div>
+            </div>
+
+            <div style="width: 100%">
+                <div style="float: left; width: 100%; text-align: left; margin-top: 5%;">2) Для доставки принял водитель:</div>
+                <div style="float: right; width: 50%; border-bottom: solid 1.5px; margin-right: 5%; margin-top: 8%; margin-bottom: 5%;"></div>
+            </div>
+        </div>
+
+        <div style="width: 45%; float: left; margin-top: 2%; border: 1px solid; margin-left: 5%;">
+            <div style="width: 100%">
+                <div style="float: left; width: 30%; text-align: left;">3) Сдал водитель:</div>
+                <div style="float: left; width: 50%; border-bottom: solid 1.5px; margin-left: 5%; margin-top: 8%;"></div>
+              
+            </div>
+
+            <div style="width: 100%">
+                <div style="float: left; width: 100%; text-align: left; margin-top: 5%;">4) Заведующий складом получил:</div>
+                <div style="float: left; width: 40%; border-bottom: solid 1.5px; margin-top: 8%;"></div>
+                <div style="float: right; width: 40%; border-bottom: solid 1.5px; margin-right: 5%; margin-top: 8%;"></div>
+                <br style="clear:both;">
+                <p style="float: left; vertical-align: top; margin-left: 8%; font-size: 8px;">Ф.И.О принимающего лица</p>
+            </div>
+        </div>
+    </div>
 </div>
 
-<div style="float:right; width: 20%;">
-	<% if @setting.logo.attached? %>
-      <%= image_tag @setting.logo, style: "width: 100px; height: 100px", class: "form-control" %>
-    <% end %>
-</div>
-<br style="clear:both;">
-
-<table class="tableA" style="width: 90%; margin-top: 2%;">
-    <tr>
-        <th rowspan="2" style="vertical-align: bottom;">№ п.</th>
-        <th rowspan="2" style="vertical-align: bottom;">Наименование</th>
-        <th rowspan="2" style="vertical-align: bottom;">Количество</th>
-        <th rowspan="2" style="vertical-align: bottom;">кг</th>
-        <th colspan="2">Цена</th>
-        <th colspan="2">Сумма</th>
-    </tr>
-    <tr>
-        <th>сом</th>
-        <th>тый.</th>
-        <th>сом</th>
-        <th>тый.</th>  
-    </tr>
-    <tr>
-        <td></td>
-        <td>Credit, expedition, or other costs</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td>10</td>
-        <td>0</td>
-    </tr>
-    <tr>
-        <td colspan="6" style="text-align: right;">Сумма:</td>
-        <td rowspan="2">10</td>
-        <td>0</td>
-    </tr>
-</table>
-
-<div style="width: 40%; float: left; margin-top: 2%; border: 1px solid; height: 40%">
-    <div style="width: 100%">
-        <div style="float: left; width: 100%; text-align: left;">1) Заведующий складом отпустил:</div>
-        <div style="float: right; width: 50%; border-bottom: solid 1.5px; margin-right: 5%;  margin-top: 8%;"></div>
-    </div>
-
-    <div style="width: 100%">
-        <div style="float: left; width: 100%; text-align: left; margin-top: 5%;">2) Для доставки принял водитель:</div>
-        <div style="float: right; width: 50%; border-bottom: solid 1.5px; margin-right: 5%; margin-top: 8%; margin-bottom: 2%;"></div>
-    </div>
-</div>
-
-<div style="width: 45%; float: left; margin-top: 2%; border: 1px solid; height: 40%; margin-left: 5%;">
-    <div style="width: 100%">
-        <div style="float: left; width: 30%; text-align: left;">3) Сдал водитель:</div>
-        <div style="float: left; width: 50%; border-bottom: solid 1.5px; margin-left: 5%; margin-top: 8%;"></div>
-      
-    </div>
-
-    <div style="width: 100%">
-        <div style="float: left; width: 100%; text-align: left; margin-top: 5%;">4) Заведующий складом получил:</div>
-        <div style="float: left; width: 40%; border-bottom: solid 1.5px; margin-top: 8%;"></div>
-        <div style="float: right; width: 40%; border-bottom: solid 1.5px; margin-right: 5%; margin-top: 8%;"></div>
-        <br style="clear:both;">
-        <p style="float: left; vertical-align: top; margin-left: 8%; font-size: 8px;">Ф.И.О принимающего лица</p>
-    </div>
+<div style="float: left; vertical-align: bottom; width: 30%;">
+    <%= link_to '<i class="fa-solid fa-circle-left"> Back</i>'.html_safe, orders_path, class: "text-primary" %>
 </div>
 
 <style>
@@ -101,4 +107,6 @@
         border: 1px solid;
     }
 </style>
+
+
 
