@@ -71,8 +71,8 @@ class OrdersController < ApplicationController
     end
   end
 
-  def processing_payment 
-    
+  def order_invoice 
+    render layout: "invoice"
   end
 
   private

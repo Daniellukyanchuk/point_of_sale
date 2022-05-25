@@ -66,7 +66,7 @@
       <th><%= sortable "costs", _("PURCHASED COST") %></th>
       <th><%= sortable "current_amount_left", _("AMOUNT LEFT") %></th>
       <th><%= sortable "purchase_product_id", _("Purchase ID") %></th>
-      <th></th>
+      <th colspan="8"></th>
     </tr>
   </thead>
 
@@ -87,9 +87,9 @@
               <a href="/purchases/<%= inventory.purchase_product.purchase.id %>/edit" ><%= inventory.purchase_product_id %></a>
           </td>
         <% end %>
-        <td><%= link_to _('Show'), inventory, class: "btn btn-outline-primary btn-sm" %></td>
-        <td><%= link_to _('Edit'), edit_inventory_path(inventory), class: "btn btn-outline-primary btn-sm" %></td>
-        <td><%= link_to _('Destroy'), inventory, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-sm" %></td>
+        <td><%= link_to '<i class="fa-solid fa-circle-info"></i>'.html_safe, inventory, class: "text-info" %></td>
+        <td><%= link_to '<i class="fa-solid fa-pen-to-square"></i>'.html_safe, edit_inventory_path(inventory), class: "text-primary" %></td>
+        <td><%= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, inventory, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-danger" %></td>
       </tr>
     <% end %>
   </tbody>

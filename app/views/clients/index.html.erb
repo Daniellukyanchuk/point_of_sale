@@ -59,9 +59,9 @@
             <td><%= client.address %></td>
             <td><%= client.city %></td>
             <td><%= client.country %></td>
-            <td><%= link_to _('Show'), client, class: "btn btn-outline-primary btn-sm" %></td>
-            <td><%= link_to _('Edit'), edit_client_path(client), class: "btn btn-outline-primary btn-sm" %></td>
-            <td><%= link_to _('Destroy'), client, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-sm" %></td>
+            <td><%= link_to '<i class="fa-solid fa-circle-info"></i>'.html_safe, client, class: "text-info" %></td>
+            <td><%= link_to '<i class="fa-solid fa-pen-to-square"></i>'.html_safe, edit_client_path(client), class: "text-primary" %></td>
+            <td><%= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, client, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-danger" %></td>
           </tr>
         <% end %>
       </tbody>

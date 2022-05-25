@@ -24,7 +24,7 @@ Rails.application.routes.draw do
 
     get 'order_report/client_report', to:'order_report#client_report', as: :client_report
     get 'order_report/product_report', to: 'order_report#product_report', as: :product_report
-    get 'orders/processing_payment', to: 'orders#processing_payment', as: :processing_payment
+    get 'orders/order_invoice', to: 'orders#order_invoice', as: :order_invoice
     resources :orders
    
     get '/tests', to: 'tests#index'
