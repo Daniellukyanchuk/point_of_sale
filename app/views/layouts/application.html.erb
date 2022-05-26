@@ -114,13 +114,7 @@
           <div id="lang_switcher" class="pb-3">
             <a href="https://joergs-pos.herokuapp.com/en/products" class="text-dark">English</a> | <a href="https://joergs-pos.herokuapp.com/ru/products" class="text-dark">Русски</a>
           </div>
-          <div id="exchange_rate" class="col-1" style="max-width: 12rem;">
-          <h6><%= _("Current Exchange Rate") %></h6> 
-            <%= _("USD") %>  
-            <%= number_field_tag 'usd', 1, id: "usd", class: "form-control w-100" %>  
-            <%= _("KGS")  %> 
-            <%= number_field_tag 'som', @exchange_rate, id: "kgs", class: "form-control w-100" %>
-          </div>
+          
         </ul>
 
       
@@ -130,6 +124,31 @@
   <div id="main">      
       <%= yield %>
       <%= render "layouts/flash" %>
+
+      <div id="tool_cont">
+        <div id="tools">
+          <button class="openbtn" id="openbtn"><i class="fa-solid fa-calculator"></i></button>
+        </div>
+
+        <div id="mySidebar" class="sidebar">
+          <div id="sidebar_content">
+            <a href="javascript:void(0)" class="closebtn"><i class="fa-solid fa-calculator"></i></a>                  
+            <div id="exchange_rate" class="col-1" style="max-width: 12rem;">
+                <h6><%= _("Current Exchange Rate") %></h6> 
+                <%= _("USD") %>  
+                <%= number_field_tag 'usd', 1, id: "usd", class: "form-control w-100" %>  
+                <%= _("KGS")  %> 
+                <%= number_field_tag 'som', @exchange_rate, id: "kgs", class: "form-control w-100" %>
+              </div>
+            </div>
+          </div>
+        </div>      
+      </div>
+
+      
+
+
+      
       
       
   </div>
@@ -143,18 +162,45 @@
 $(document).ready(function() {
   $(document).on('change', "#usd", calcSom);
   $(document).on('change', '#kgs', calcUsd); 
+  $(document).on('click', '.openbtn', openNav); 
+  $(document).on('click', '.openbtn', getExchangeRate); 
+  $(document).on('click', '.closebtn', closeNav); 
+
        
   
-    function calcSom() {
-      var usd = $("#usd").val();
-      $("#kgs").val(usd * <%= @exchange_rate %>);
-    };
+  function calcSom() {
+    var usd = $("#usd").val();
+    $("#kgs").val(usd * (<%= @exchange_rate || 0 %> ));
+  };
 
-    function calcUsd() {
-      var som = $("#kgs").val();
-      $("#usd").val(som / <%= @exchange_rate %>);
-    };
+  function calcUsd() {
+    var som = $("#kgs").val();
+    $("#usd").val(som / (<%= @exchange_rate || 1 %> ));
+  };
+ 
+  function getExchangeRate() {
+    var current_picker = $(this);
+        $.ajax({ 
+          url: "<%= products_get_price_path %>",
+          data: { product_id: $(this).val() },
+          type: "GET",
+          success: function(data) {
+            <%= @exchange_rate %> ;
+          }
+        });
+  }
 
-});  
+  function openNav() {
+    document.getElementById("mySidebar").style.width = "250px";
+    document.getElementById("mySidebar").style.height = "200px";
+    document.getElementById("openbtn").style.visibility = "hidden";
+  }
+
+  function closeNav() {
+    document.getElementById("mySidebar").style.width = "0";
+    document.getElementById("tools").style.marginRight= "0";
+    document.getElementById("openbtn").style.visibility = "visible";
+  }
+});
 
 </script>

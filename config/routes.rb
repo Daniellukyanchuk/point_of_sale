@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     end
     post "checkout/create", to: "checkout#create"
     get 'roles/export', to: "roles#export", as: :role_export
+    get 'application/get_exchange_rate', to: "application#get_exchange_rate", as: :exchange_rate
     resources :roles_imports, only: [:new, :create]
     resources :product_categories    
     resources :users  

@@ -7,7 +7,6 @@ class ApplicationController < ActionController::Base
   around_action :switch_locale
   before_action :authenticate_user!
   skip_authorization_check 
-#   before_action :get_exchange_rate
   add_flash_types :danger, :info, :warning, :success, :messages
 
 	rescue_from CanCan::AccessDenied do |exception|
