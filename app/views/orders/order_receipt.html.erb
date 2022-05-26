@@ -1,18 +1,18 @@
 
-<div style="max-width: 1240px; margin: auto; margin-top: 150px; position: relative;">
+<div style="max-width: 1240px; margin: auto; margin-top: 50px; position: relative;">
   <div style="position: absolute; right: 15px; top: -20px"><img src="https://static.tildacdn.com/tild3330-3734-4039-b366-653234623332/2016109_FINAL_Logo_R.png" style="width: 180px;"></div>
   <div style="font-size: 1rem; line-height: 1.4rem;  display: block; over-flow: auto;">
     <div style="width: 75%; display: inline-block; padding-bottom: 5px;">
       <div>
         <div style="display: inline-block; width: 33%; text-align: center; vertical-align: top;"> НАКЛАДНАЯ № </div>
-        <div style="display: inline-block; width: 33%; text-align: left;"> 34223 <br> 24 May 2022 </div>
+        <div style="display: inline-block; width: 33%; text-align: left;"> <%= @order.id.to_s.rjust(6, "0") %> <br> <%=  @order.created_at.strftime("%d %B %Y") %> </div>
       </div>
       <div style="padding-bottom: 5px;">
         <div style="display: inline-block; width: 20%; text-align: left; vertical-align: top;"> Кoму <br> От кого <br> Вид Платажа </div>
         <div style="display: inline-block; width: 79%; text-align: left;">
-          <div style="border-bottom: solid 1px;">Ибраев Таалай </div>
+          <div style="border-bottom: solid 1px;"><%= @order.client.name %> </div>
           <div style="display: inline-block; width: 50%;">
-            <div style="border-bottom: solid 1px;">БФ ОсОО ТЛЦ СН "Oазис Агро" </div>
+            <div style="border-bottom: solid 1px;"> Shibon Foods </div>
             <div style="border-bottom: solid 1px;">Касса (KGS)</div>
           </div>
           <div style="display: inline-block; vertical-align: bottom; width: auto; padding-left: 2.5rem;">
@@ -50,14 +50,14 @@
         <td></td>
         <td></td>
         <td></td>
-        <td>10</td>
-        <td>0</td>
+        <td style="text-align: right"> <%= @order.grand_total %> </td>
+        <td style="text-align: right">0</td>
       </tr>
 
       <tr>
         <td colspan="6" style="text-align: right;">Сумма:</td>
-        <td>10</td>
-        <td>0</td>
+        <td style="text-align: right"><%= @order.grand_total %></td>
+        <td style="text-align: right">0</td>
       </tr>
     </table>
   </div>

@@ -34,7 +34,7 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)    
     respond_to do |format|
       if @order.save
-        format.html { redirect_to @order, notice: "Order was successfully created." }
+        format.html { redirect_to orders_path, notice: "Order was successfully created." }
         format.json { render :show, status: :created, location: @order }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -47,7 +47,7 @@ class OrdersController < ApplicationController
   def update
      respond_to do |format|
       if @order.update(order_params)
-        format.html { redirect_to @order, notice: "Order was successfully updated." }
+        format.html { redirect_to orders_path, notice: "Order was successfully updated." }
         format.json { render :show, status: :ok, location: @order }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -67,6 +67,19 @@ class OrdersController < ApplicationController
 
   def order_receipt
     render layout: 'plain'
+  end
+  
+  def set_receipts
+     @receipts = Order.find(params["order_ids"].map(&:to_i))
+     bulk_receipts
+  end
+
+  def bulk_receipts 
+    if @receipts.blank?
+      set_receipts
+    else
+      render layout: 'plain'
+    end
   end
 
   private
