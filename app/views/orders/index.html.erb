@@ -65,7 +65,7 @@
           <th><%= sortable "client_id", _("CLIENTS ID") %></th>
           <th><%= sortable "clients.name", _("NAME") %></th>
           <th><%= sortable "grand_total", _("GRAND TOTAL") %></th>
-          <th></th>
+          <th><%= submit_tag "Print Invoice" %></th>
           <th colspan="4"></th>
         </tr>
       </thead>
@@ -86,7 +86,6 @@
         <% end %>
       </tbody>
     </table>
-    <%= submit_tag "Invoice Submit" %>
   <% end %>
   <br>
 

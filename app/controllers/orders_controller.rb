@@ -72,11 +72,13 @@ class OrdersController < ApplicationController
   end
 
   def order_invoice 
+    @order_invoice = Order.find(params[:id])
     render layout: "invoice"
   end
 
   def bulk_invoice
     @order_bulk_invoices = Order.find(params[:order_ids])
+    render layout: "invoice"
   end
 
   private
