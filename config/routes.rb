@@ -24,7 +24,9 @@ Rails.application.routes.draw do
 
     get 'order_report/client_report', to:'order_report#client_report', as: :client_report
     get 'order_report/product_report', to: 'order_report#product_report', as: :product_report
-    get 'orders/order_invoice', to: 'orders#order_invoice', as: :order_invoice
+
+    get 'orders/:id/order_invoice', to: 'orders#order_invoice', as: :order_invoice
+    get 'orders/bulk_invoice', to: 'orders#bulk_invoice', as: :bulk_invoice
     resources :orders
    
     get '/tests', to: 'tests#index'
