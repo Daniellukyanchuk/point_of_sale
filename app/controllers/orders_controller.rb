@@ -75,6 +75,10 @@ class OrdersController < ApplicationController
     render layout: "invoice"
   end
 
+  def bulk_invoice
+    @order_bulk_invoices = Order.find(params[:order_ids])
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def sort_column
