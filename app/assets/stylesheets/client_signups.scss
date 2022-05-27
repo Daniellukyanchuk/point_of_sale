@@ -1,0 +1,41 @@
+h1 {
+    color: #fb9486;
+    background: #31496614;
+    padding: 0 !important;
+    margin-bottom: 1.8rem !important;
+    left: 0px !important;
+    width: 100% !important;
+    text-align: center;
+}
+
+body {
+    background-color: #f3f3f35b !important;
+}
+
+#main_container {
+    max-width: 1240px; 
+    margin: auto;
+    background-color: #fff;
+    height: 100vh;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 0;
+    margin-left: 15px;
+}
+
+.btn-group-lg>.btn, .btn-lg {
+    padding: 0.5rem 2rem;
+    font-size: 1.8rem;
+    line-height: 1.5;
+    border-radius: 0.3rem;
+    width: 100%;
+    margin-right: 15px;
+}
+
+::placeholder {
+    color: red;
+  }
+

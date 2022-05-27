@@ -16,9 +16,8 @@ Rails.application.routes.draw do
     get 'tests', to: 'tests#index'
     resources :settings
     resources :products_imports, only: [:new, :create]
-    namespace :public do
-      resources :client_signups, controller: 'client_signups', only: [:new, :create], as: :sign_up
-    end
+    # get "/client_signups", to: 'client_signups#client_signup', as: :sign_up
+    resources :client_signups, controller: 'client_signups', only: [:new, :create], as: :sign_up   
     get '/recipe/unit', to: 'products#get_unit', as: :products_get_unit
     get '/purchases/product_info', to: 'purchases#get_product_info', as: :purchases_get_product_info
     resources :purchases
