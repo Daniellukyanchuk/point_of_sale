@@ -1,5 +1,6 @@
 class OrderProduct < ApplicationRecord
     belongs_to :order
+    belongs_to :product
     has_many :purchase_products
     validates :sale_price, :quantity, presence: true
     after_validation :set_subtotal

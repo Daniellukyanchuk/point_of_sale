@@ -1,7 +1,6 @@
 
 <% @receipts.each do |receipt| %>
-
-  <div style="max-width: 1240px; margin: auto; margin-top: 100px; position: relative;">
+  <div style="max-width: 1240px; margin: auto; margin-top: 100px; position: relative; break-inside: avoid;">
     <div style="position: absolute; right: 15px; top: -20px"><img src="https://static.tildacdn.com/tild3330-3734-4039-b366-653234623332/2016109_FINAL_Logo_R.png" style="width: 180px;"></div>
     <div style="font-size: 1rem; line-height: 1.4rem;  display: block; over-flow: auto;">
       <div style="width: 75%; display: inline-block; padding-bottom: 5px;">
@@ -45,17 +44,20 @@
           <td>тый.</td>
         </tr>
 
+      <% receipt.order_products.each do |op| %>
+
         <tr>
           <td></td>
-          <td>Credit, expedition, or other costs</td>
+          <td><%= op.product.product_name %></td>
+          <td align="right"><%= op.quantity %></td>
           <td></td>
           <td></td>
           <td></td>
-          <td></td>
-          <td style="text-align: right"> <%= receipt.grand_total %> </td>
+          <td style="text-align: right"> <%= op.subtotal %> </td>
           <td style="text-align: right">0</td>
         </tr>
 
+      <% end %>
         <tr>
           <td colspan="6" style="text-align: right;">Сумма:</td>
           <td style="text-align: right"><%= receipt.grand_total %></td>
@@ -81,6 +83,8 @@
       </div>
   </div>
 <% end %>
+
+
 
 
 

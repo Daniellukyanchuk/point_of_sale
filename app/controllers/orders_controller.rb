@@ -69,17 +69,11 @@ class OrdersController < ApplicationController
     render layout: 'plain'
   end
   
-  def set_receipts
-     @receipts = Order.find(params["order_ids"].map(&:to_i))
-     bulk_receipts
-  end
-
   def bulk_receipts 
-    if @receipts.blank?
-      set_receipts
-    else
-      render layout: 'plain'
-    end
+    @receipts = Order.find(params["order_ids"].map(&:to_i))    
+
+    render layout: 'plain'
+    
   end
 
   private

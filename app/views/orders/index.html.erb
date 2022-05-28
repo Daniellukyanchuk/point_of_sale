@@ -20,15 +20,14 @@
   <% end %>
 </div>
 
-<%= form_tag bulk_receipts_path, :method => 'get' do %>
+
+<%= form_tag(bulk_receipts_path, :method => "get", :target => "_blank") do %>
   <div class="mb-4 input-group">
     <%= select_tag "bulk_action", raw("<option>Print Receipts</option>"), prompt: "Bulk Action", class:'form-control col-1 input-group' %>  
     <div class="input-group-append">
       <%= button_tag(type: "submit", class: "btn btn-primary input-group-append") do %> Submit <% end %>
     </div>
   </div>
-  
-
 
 <table>
   <thead>

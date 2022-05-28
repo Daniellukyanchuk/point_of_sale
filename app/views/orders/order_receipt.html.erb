@@ -43,17 +43,18 @@
         <td>тый.</td>
       </tr>
 
+<% @order.order_products.each do |order_product| %>
       <tr>
         <td></td>
-        <td>Credit, expedition, or other costs</td>
+        <td><%= order_product.product.product_name %></td>
+        <td align="right"><%= order_product.quantity %></td>
         <td></td>
         <td></td>
         <td></td>
-        <td></td>
-        <td style="text-align: right"> <%= @order.grand_total %> </td>
+        <td style="text-align: right"> <%= order_product.subtotal %> </td>
         <td style="text-align: right">0</td>
       </tr>
-
+<% end %>
       <tr>
         <td colspan="6" style="text-align: right;">Сумма:</td>
         <td style="text-align: right"><%= @order.grand_total %></td>
