@@ -32,7 +32,6 @@
       <th><%= sortable "id", _("ID") %></th>
       <th><%= sortable "suppliers_name", _("NAME") %></th>
       <th><%= sortable "city", _("CITY") %></th>
-      <th><%= sortable "country", _("COUNTRY") %></th>
       <th><%= sortable "address", _("ADDRESS") %></th>
       <th><%= sortable _("phone_number") %></th>
       <th colspan="6"></th>
@@ -45,7 +44,6 @@
         <td><%= supplier.id %></td>
         <td><%= supplier.suppliers_name %></td>        
         <td><%= supplier.city %></td>
-        <td><%= supplier.country %></td>
         <td><%= supplier.address %></td>
         <td><%= supplier.phone_number %></td>
         <td><%= link_to '<i class="fa-solid fa-circle-info"></i>'.html_safe, supplier, class: "text-info" %></td>

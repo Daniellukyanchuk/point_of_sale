@@ -168,6 +168,7 @@ GEM
       mini_mime (>= 0.1.1)
     marcel (1.0.2)
     matrix (0.4.2)
+    memory_profiler (1.0.0)
     method_source (1.0.0)
     mini_magick (4.11.0)
     mini_mime (1.1.2)
@@ -189,6 +190,8 @@ GEM
     puma (3.12.6)
     racc (1.6.0)
     rack (2.2.3)
+    rack-mini-profiler (3.0.0)
+      rack (>= 1.2.0)
     rack-proxy (0.7.2)
       rack
     rack-test (1.1.0)
@@ -300,6 +303,7 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
+    stackprof (0.2.19)
     stripe (6.0.0)
     text (1.3.1)
     thor (1.2.1)
@@ -365,9 +369,11 @@ DEPENDENCIES
   jquery-ui-rails
   json
   listen (>= 3.0.5, < 3.2)
+  memory_profiler
   net-ssh
   pg
   puma (~> 3.11)
+  rack-mini-profiler
   rails (~> 5.2.6)
   rails_12factor
   roo
@@ -379,6 +385,7 @@ DEPENDENCIES
   simplecov
   spring
   spring-watcher-listen (~> 2.0.0)
+  stackprof
   stripe
   turbolinks (~> 5)
   tzinfo-data

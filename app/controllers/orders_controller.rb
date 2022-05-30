@@ -6,7 +6,6 @@ class OrdersController < ApplicationController
 
   # GET /orders or /orders.json
   def index
-    @orders = Order.all
 
     params[:start_date] = 1.month.ago.strftime("%d-%m-%Y") if params[:start_date].blank?
     params[:end_date] = Date.today.strftime("%d-%m-%Y") if params[:end_date].blank?

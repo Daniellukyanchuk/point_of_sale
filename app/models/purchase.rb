@@ -6,11 +6,9 @@ class Purchase < ApplicationRecord
 	before_save :set_actual_total
 	before_save :set_estimated_total
 
+  attr_accessor :new_product_name, :new_product_price
+
 	 def self.search(search, supplier_select, start_date, end_date)
-    # my_hash = {a: "yo", b: "man"}
-    # my_hash.each do |key, value|
-    #   stop
-    # end
     where_statements = []
 
     if !search.blank?
