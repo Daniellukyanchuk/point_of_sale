@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
   # before_action :set_order, only: %i[ show edit update destroy ]
   load_and_authorize_resource  
   helper_method :sort_column, :sort_direction
-  before_action :find_finished_products
+  
 
   
     
@@ -23,6 +23,7 @@ class OrdersController < ApplicationController
   def new
     @order = Order.new
     @order.order_products.new
+    find_finished_products
   end
 
   # GET /orders/1/edit

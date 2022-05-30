@@ -1,8 +1,7 @@
 class PurchasesController < ApplicationController
   # before_action :set_purchase, only: %i[ show edit update destroy ]
   load_and_authorize_resource
-  before_action :find_products
-
+  
   def get_product_info
     @purchase_product_data = PurchaseProduct.find(params[:id].to_i) 
     render json: {qt: @purchase_product_data.purchase_quantity, cost: @purchase_product_data.purchase_price, product_name: @purchase_product_data.product.product_name, 
@@ -24,6 +23,7 @@ class PurchasesController < ApplicationController
   def new
     @purchase = Purchase.new
     @purchase.purchase_products.new
+    find_products
   end
 
   # GET /purchases/1/edit
@@ -31,8 +31,7 @@ class PurchasesController < ApplicationController
   end
 
   # POST /purchases or /purchases.json
-  def create
-    
+  def create    
     @purchase = Purchase.new(purchase_params)
     
 

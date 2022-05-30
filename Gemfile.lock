@@ -177,6 +177,8 @@ GEM
     puma (3.12.6)
     racc (1.6.0)
     rack (2.2.3)
+    rack-mini-profiler (0.10.7)
+      rack (>= 1.2.0)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (5.2.7)
@@ -327,6 +329,7 @@ DEPENDENCIES
   pg
   popper_js (~> 2.9, >= 2.9.3)
   puma (~> 3.11)
+  rack-mini-profiler (~> 0.10.1)
   rails (~> 5.2.6)
   rails_12factor
   roo

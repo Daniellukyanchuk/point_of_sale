@@ -80,7 +80,7 @@ class RecipesController < ApplicationController
     end
 
     def find_ingredients
-      ingredients = CategoryProduct.where("product_category_id = ? or product_category_id = ?", 12, 13)
+      ingredients = CategoryProduct.where("product_category_id = ? or product_category_id = ?", 2, 3)
       product_ids = []
       ingredients.each do |ingredient|
         product_ids.push(ingredient.product_id)
@@ -89,7 +89,7 @@ class RecipesController < ApplicationController
     end
 
     def find_finished_products
-      finished_products = CategoryProduct.where("product_category_id = ? or product_category_id = ?", 11, 13)
+      finished_products = CategoryProduct.where("product_category_id = ? or product_category_id = ?", 1, 3)
       product_ids = []
       finished_products.each do |fin_prod|
         product_ids.push(fin_prod.product_id)

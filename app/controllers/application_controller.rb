@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :set_locale
   before_action :set_gettext_locale
-  around_action :switch_locale
   before_action :authenticate_user!
   skip_authorization_check 
   add_flash_types :danger, :info, :warning, :success, :messages
@@ -21,10 +20,5 @@ class ApplicationController < ActionController::Base
 	def set_locale
 	  I18n.locale = params[:locale] || I18n.default_locale
 	end	
-
-	def switch_locale(&action)
-	  locale = params[:locale] || I18n.default_locale
-	  I18n.with_locale(locale, &action)
-	end
 
 end

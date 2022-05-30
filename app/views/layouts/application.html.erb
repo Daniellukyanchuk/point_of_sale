@@ -54,15 +54,8 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     
-    <a class="navbar-brand" href="#">
-       <% custom_logo = Setting.first %>
-          <% if !custom_logo.nil? %>
-            <% if custom_logo.logo.attached? %>
-              <%= image_tag url_for(custom_logo.logo), :class => "logo" %>
-            <% end %>
-          <% else %>
-            <%= image_tag 'http://divisqueeze.com/wp-content/uploads/2017/03/YourLogoHere.png', :class => "logo" %>
-          <% end %>      
+    <a class="navbar-brand" href="#">      
+      <%= Setting.first.company_name %>            
     </a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" 

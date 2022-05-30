@@ -1,14 +1,7 @@
 class ProductsController < ApplicationController
   # before_action :set_product, only: %i[ show edit update destroy ]
   load_and_authorize_resource  
-  before_action :set_product_categories
   helper_method :sort_column, :sort_direction
-
-
-# def import
-#   Product.import(params[:file])
-#   redirect_to root_url, notice: "Products imported successfully!"
-# end
   
 def get_price
   @price = Product.where("id = ?", params[:product_id]).first.price
@@ -20,7 +13,6 @@ def get_unit
   render json: {unit: @unit}
 end
 
-
 def get_recipe_info
     @price_per_kg = Product.get_price_per_kg(params[:id].to_i)
     if !@price_per_kg.first.blank?
@@ -29,10 +21,9 @@ def get_recipe_info
   end
 end
 
-
   # GET /products or /products.json
   def index
-    @products = Product.search(params[:search]).order(sort_column + " " + sort_direction)
+    @products = Product.search(params[:search]).order(sort_column + " " + sort_direction).includes(:product_categories)
       respond_to do |format|
         format.xlsx {
           response.headers[
@@ -50,12 +41,14 @@ end
   end
 
   # GET /products/new
-  def new
+  def new    
     @product = Product.new
+    set_product_categories
   end
 
   # GET /products/1/edit
   def edit
+    set_product_categories
   end
 
   # POST /products or /products.json
@@ -99,6 +92,7 @@ end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product
+      stop
       @product = Product.find(params[:id])
     end
 
