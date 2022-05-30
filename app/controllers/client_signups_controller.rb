@@ -10,6 +10,7 @@ class ClientSignupsController < ApplicationController
   end
 
   def create
+    stop
     @client_signup = ClientSignup.register(params[:client_signup])
     if @client_signup.save
       redirect_to client_signups_path
