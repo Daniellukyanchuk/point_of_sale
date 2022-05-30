@@ -56,14 +56,14 @@
   <div class="container-fluid">
     
     <a class="navbar-brand" href="#">
-       <% custom_logo = Setting.first %>
-          <% if !custom_logo.nil? %>
-            <% if custom_logo.logo.attached? %>
-              <%= image_tag url_for(custom_logo.logo), :class => "logo" %>
-            <% end %>
-          <% else %>
-            <%= image_tag 'http://divisqueeze.com/wp-content/uploads/2017/03/YourLogoHere.png', :class => "logo" %>
-          <% end %>      
+      <% custom_logo = Setting.first %>
+        <% if !custom_logo.nil? %>
+          <% if custom_logo.logo.attached? %>
+            <%= image_tag url_for(custom_logo.logo), :class => "logo" %>              
+          <% end %>
+        <% else %>
+          <%= Setting.first.company_name %>
+      <% end %>      
     </a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" 
@@ -135,10 +135,11 @@
             <a href="javascript:void(0)" class="closebtn"><i class="fa-solid fa-calculator"></i></a>                  
             <div id="exchange_rate" class="col-1" style="max-width: 12rem;">
                 <h6><%= _("Current Exchange Rate") %></h6> 
+                <%= number_field_tag 'rate', 1, id: "rate", class: "d-none" %>  
                 <%= _("USD") %>  
                 <%= number_field_tag 'usd', 1, id: "usd", class: "form-control w-100" %>  
                 <%= _("KGS")  %> 
-                <%= number_field_tag 'som', @exchange_rate, id: "kgs", class: "form-control w-100" %>
+                <%= number_field_tag 'som', "", id: "kgs", class: "form-control w-100" %>
               </div>
             </div>
           </div>
@@ -170,22 +171,23 @@ $(document).ready(function() {
   
   function calcSom() {
     var usd = $("#usd").val();
-    $("#kgs").val(usd * (<%= @exchange_rate || 0 %> ));
+    var rate = $("#rate").val()
+    $("#kgs").val(usd * rate).toFixed(2);
   };
 
   function calcUsd() {
     var som = $("#kgs").val();
-    $("#usd").val(som / (<%= @exchange_rate || 1 %> ));
+    var rate = $("#rate").val()
+    $("#usd").val(som / rate ).toFixed(2);
   };
  
   function getExchangeRate() {
-    var current_picker = $(this);
         $.ajax({ 
-          url: "<%= products_get_price_path %>",
-          data: { product_id: $(this).val() },
+          url: "<%= exchange_rate_path %>",
           type: "GET",
           success: function(data) {
-            <%= @exchange_rate %> ;
+            $("#rate").val(data["rate"])
+            $("#kgs").val(data["rate"]);
           }
         });
   }

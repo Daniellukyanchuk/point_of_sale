@@ -90,3 +90,5 @@ gem 'http'
 gem 'net-ssh'
 
 gem 'json'
+
+gem 'rack-mini-profiler', '~> 0.10.1'
