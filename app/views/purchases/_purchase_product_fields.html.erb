@@ -1,12 +1,8 @@
 <div class="nested-fields">
-    
-
     <div class="field">
         <%= form.collection_select :product_id, Product.all, :id, :product_name, {}, {class: "product-picker form-control"} %>
     </div>
-  
   <p>
-
     <div class="field">
       <h5>Estimates:</h5>
     </div>
@@ -25,7 +21,6 @@
       <%= form.label _('Subtotal') %>
       <%= form.number_field :estimated_subtotal, class: "est_subtotal form-control", :readonly => true %>
     </div>
- 
   <p>
     <div class="field">
       <h5>Actuals:</h5>
@@ -55,6 +50,5 @@
       <button type="button"><a href="/inventories/<%= inv.id %>/edit" >Inventory: <%= inv.id %></a></button>
     <% end %>
   </p>
-  
 <hr>
 </div>

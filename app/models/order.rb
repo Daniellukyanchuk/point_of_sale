@@ -47,7 +47,7 @@ class Order < ApplicationRecord
     end
     
     where_clause = where_statements.join(" AND ")
-    return Order.joins(:client).where(where_clause)
+    return Order.includes(:client).where(where_clause)
   end
 
   def self.client_report(search_text, client_ids, sortable, sort_direction)       

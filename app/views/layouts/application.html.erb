@@ -46,6 +46,9 @@
             </button>
             <div class="hren position-absolute text-white">
               <div id="user_nav">
+                <a class="text-white" href="http://localhost:3000/en/orders">en</a> <span class="text-white">|</span>
+                <a class="text-white mr-4" href="http://localhost:3000/ru/orders">ru</a>
+                
                 <% if user_signed_in? %>
                   <div class="btn btn-sm btn-info mr-1">Logged in as <strong><%= current_user.email %></strong>.</div>
                   <div class="btn btn-sm mr-3"><%= link_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-danger p-1" %></div>
@@ -53,9 +56,6 @@
                 <% else %>
                   <%= link_to "Login", new_user_session_path, class: "text-light mr-5" %>
                 <% end %>
-                
-                <a class="text-white" href="http://localhost:3000/en/orders">en</a> <span class="text-white">|</span>
-                <a class="text-white mr-4" href="http://localhost:3000/ru/orders">ru</a>
               </div>
             </div>
           </nav>
@@ -161,12 +161,12 @@
 
                 <div id="mySidebar" class="custom-sidebar">
                   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">Close</a>
-                  <div class="p-3">
+                  <div class="custom_ex_rate p-3">
                     <%= label_tag 'USD', 'USD' %>
                     <%= number_field_tag 'USD', 1, class: "usd_amount form-control" %>
 
                     <%= label_tag 'KGS', 'KGS' %>
-                    <%= number_field_tag 'KGS', @exchange_rate_usd, :readonly => true, class: "kgs_rate form-control" %>
+                    <%= number_field_tag 'KGS', session[:exchange_rate], class: "ex_rate form-control" %>
                   </div>
                 </div>
 
@@ -180,25 +180,38 @@
 </html>
 
 <script type="text/javascript">
-    $(document).on('keyup', '.usd_amount', '.kgs_rate', function(){
+    $(document).ready(function() {
+      function updateExchangeRate(){
+        $.ajax({ 
+            url: "/application/exchange",
+            type: "GET",
+            success: function(data){
+              $('.ex_rate').val(data['session_ex_rate']);
+            }
+        });
+      }
+      $(document).on('click', '.openbtn', updateExchangeRate);
+      $(".ex_rate").each(updateExchangeRate);
+    });
+
+    $(document).on('keyup', '.usd_amount', '.ex_rate', function(){
       var dollarAmount = $(this).parents('.container-fluid').find('.usd_amount').val()
-      
-      var total = dollarAmount * <%= @exchange_rate_usd %>
-      $(this).parents('.container-fluid').find('.kgs_rate').val(total).trigger('change')
+      var dollars = dollarAmount * <%= session[:exchange_rate] %>
+      $(this).parents('.container-fluid').find('.ex_rate').val(dollars).trigger('change')
     })
+
+    function openNav() {
+      document.getElementById("mySidebar").style.width = "250px";
+      document.getElementById("main").style.marginRight = "250px";
+    }
+
+    function closeNav() {
+      document.getElementById("mySidebar").style.width = "0";
+      document.getElementById("main").style.marginLeft = "0";
+    }
 </script>
 
-<script>
-  function openNav() {
-    document.getElementById("mySidebar").style.width = "250px";
-    document.getElementById("main").style.marginRight = "250px";
-  }
 
-  function closeNav() {
-    document.getElementById("mySidebar").style.width = "0";
-    document.getElementById("main").style.marginLeft = "0";
-  }
-</script>
 
 
 

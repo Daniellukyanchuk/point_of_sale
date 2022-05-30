@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get '/api/clients', to: 'api/api_clients#index'
   
   scope "(:locale)", locale: /en|ru/ do 
+    get '/application/exchange', to: 'application#get_exchange_rate'
+
     get 'clients_imports/new'
     get 'clients_imports/create'
     get 'roles/export', to: 'roles#export_roles', as: :role_export

@@ -61,9 +61,8 @@
     <table class="table px-0" style="width: 90%">
       <thead>
         <tr class="active">
-          <th><%= sortable "id", _("ID")%></th>
-          <th><%= sortable "client_id", _("CLIENTS ID") %></th>
-          <th><%= sortable "clients.name", _("NAME") %></th>
+          <th><%= sortable "id", "ID"%></th>
+          <th><%= sortable "clients.name", _("CLIENT NAME") %></th>
           <th><%= sortable "grand_total", _("GRAND TOTAL") %></th>
           <th><%= submit_tag "Print Invoice" %></th>
           <th colspan="4"></th>
@@ -74,11 +73,9 @@
         <% @orders.each do |order| %>
           <tr>
             <td><%= order.id %></td>
-            <td><%= order.client_id %></td>
             <td><%= order.client.name %></td>
-            <td>&#8381 <%= order.grand_total %></td>
+            <td><%= order.grand_total %></td>
             <td><%= check_box_tag "order_ids[]", order.id %></td>
-            <td class="d-flex justify-content-end mr-4"><%= link_to '<i class="fa-solid fa-print"></i>'.html_safe, order_invoice_path(order),  class: "text-info", target: '_blank' %></td>
             <td><%= link_to '<i class="fa-solid fa-circle-info"></i>'.html_safe, order, class: "text-info" %></td>
             <td><%= link_to '<i class="fa-solid fa-pen-to-square"></i>'.html_safe, edit_order_path(order), class: "text-primary" %></td>
             <td><%= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, order_path(order.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "text-danger" %></td>

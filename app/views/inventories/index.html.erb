@@ -60,8 +60,7 @@
     <tr class="active">
       <th><%= sortable "id", _("ID") %></th>
       <th><%= sortable "product_name", _("PRODUCTS NAME") %></th>
-      <th><%= sortable "date", _("DATE") %></th>
-      <th><%= sortable "amount", _("AMOUNT PURCHASED/PRODUCED") %></th>
+      <th><%= sortable "amount", _("PUR./PROD.") %></th>
       <th><%= sortable "price_per_unit", _("UNIT PRICE") %></th>
       <th><%= sortable "costs", _("PURCHASED COST") %></th>
       <th><%= sortable "current_amount_left", _("AMOUNT LEFT") %></th>
@@ -75,7 +74,6 @@
       <tr>
         <td><%= inventory.id %></td>
         <td><a href="/products/<%= inventory.product.id  %>/edit" ><%= inventory.product.product_name %></a></td>
-        <td><%= inventory.date.nil? ? "" : inventory.date.strftime("%d-%m-%Y") %></td>
         <td><%= inventory.amount %></td>
         <td>&#8381 <%= inventory.price_per_unit %></td>
         <td>&#8381 <%= inventory.costs %></td>

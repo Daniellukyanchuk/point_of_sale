@@ -1,0 +1,329 @@
+/* line 6, app/assets/stylesheets/order_report.scss */
+.chosen-select {
+  width: 300px;
+}
+/* line 1, app/assets/stylesheets/scaffolds.scss */
+body {
+  background-color: #fff;
+  color: #333;
+  margin: 5px;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* line 10, app/assets/stylesheets/scaffolds.scss */
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* line 16, app/assets/stylesheets/scaffolds.scss */
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+/* line 22, app/assets/stylesheets/scaffolds.scss */
+a {
+  color: #000;
+}
+
+/* line 26, app/assets/stylesheets/scaffolds.scss */
+th {
+  padding-bottom: 5px;
+}
+
+/* line 30, app/assets/stylesheets/scaffolds.scss */
+td {
+  padding: 0 5px 7px;
+}
+
+/* line 35, app/assets/stylesheets/scaffolds.scss */
+div.field, div.actions {
+  margin-bottom: 10px;
+}
+
+/* line 40, app/assets/stylesheets/scaffolds.scss */
+#notice {
+  color: green;
+}
+
+/* line 44, app/assets/stylesheets/scaffolds.scss */
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+/* line 50, app/assets/stylesheets/scaffolds.scss */
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px 7px 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+/* line 57, app/assets/stylesheets/scaffolds.scss */
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px -7px 0;
+  background-color: #c00;
+  color: #fff;
+}
+
+/* line 67, app/assets/stylesheets/scaffolds.scss */
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+/* line 73, app/assets/stylesheets/scaffolds.scss */
+label {
+  display: block;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+/*// Custom bootstrap variables must be set or imported *before* bootstrap.*/
+/* Add a black background color to the top navigation */
+/* line 23, app/assets/stylesheets/application.scss */
+.vertical-menu {
+  width: 200px;
+  display: inline-block;
+}
+
+/* line 28, app/assets/stylesheets/application.scss */
+.vertical-menu a {
+  background-color: #eee;
+  color: black;
+  display: block;
+  padding: 16px;
+  text-decoration: none;
+}
+
+/* line 36, app/assets/stylesheets/application.scss */
+.vertical-menu a:hover {
+  background-color: #ccc;
+}
+
+/* line 40, app/assets/stylesheets/application.scss */
+.vertical-menu a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+/* line 45, app/assets/stylesheets/application.scss */
+.main-content {
+  display: inline-block;
+  vertical-align: top;
+  float: right;
+}
+
+/* line 51, app/assets/stylesheets/application.scss */
+.field {
+  display: inline-block;
+}
+
+/* line 55, app/assets/stylesheets/application.scss */
+.table {
+  border-collapse: collapse;
+  margin: 40px;
+}
+
+/* line 60, app/assets/stylesheets/application.scss */
+.table th, td {
+  padding: 0.25rem;
+  border-bottom: 1px solid #ddd;
+  border-top: 0;
+  box-sizing: 0;
+}
+
+/* line 67, app/assets/stylesheets/application.scss */
+.table tr:hover:not(.active) {
+  background-color: lightgrey;
+}
+
+/* line 69, app/assets/stylesheets/application.scss */
+.marginRight {
+  margin: 40px;
+}
+
+/* line 73, app/assets/stylesheets/application.scss */
+.marginLeftOnly {
+  margin-left: 40px;
+}
+
+/* line 77, app/assets/stylesheets/application.scss */
+i {
+  font-size: 20px;
+}
+
+@media (max-width: 1195px) {
+  /* line 83, app/assets/stylesheets/application.scss */
+  nav#sidebarMenu {
+    position: absolute;
+    z-index: 3;
+  }
+}
+
+/* line 90, app/assets/stylesheets/application.scss */
+.hren {
+  right: 0;
+}
+
+/* line 94, app/assets/stylesheets/application.scss */
+#custombutton.btn {
+  padding: 0.35rem 0.5rem;
+}
+
+/* line 99, app/assets/stylesheets/application.scss */
+.remove_fields {
+  margin-top: -5px;
+}
+
+/* line 103, app/assets/stylesheets/application.scss */
+.searchtag {
+  margin-top: -5px;
+}
+
+/* line 107, app/assets/stylesheets/application.scss */
+.vl {
+  border-left: 6px solid green;
+  height: 500px;
+}
+
+/* line 112, app/assets/stylesheets/application.scss */
+.jumbomax.jumbotron {
+  max-width: 100%;
+  border-radius: 0;
+}
+
+/* line 117, app/assets/stylesheets/application.scss */
+.searcheight {
+  height: calc(1.9em + 0.75rem + 2px);
+}
+
+/* line 121, app/assets/stylesheets/application.scss */
+.signinblue {
+  background-color: coral;
+}
+
+/* line 125, app/assets/stylesheets/application.scss */
+.fielddown {
+  margin-top: 5px;
+}
+
+/* A sidebar for Tools */
+/* line 131, app/assets/stylesheets/application.scss */
+.custom-sidebar {
+  height: 300px;
+  width: 0;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: #778899;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  margin-top: 80px;
+}
+
+/* line 145, app/assets/stylesheets/application.scss */
+.custom-sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #808080;
+  display: block;
+  transition: 0.3s;
+}
+
+/* line 154, app/assets/stylesheets/application.scss */
+.custom-sidebar a:hover {
+  color: #f1f1f1;
+}
+
+/* line 158, app/assets/stylesheets/application.scss */
+.custom-sidebar .closebtn {
+  position: absolute;
+  top: 10px;
+  right: 0;
+  font-size: 20px;
+  margin-left: 50px;
+  color: white;
+}
+
+/* line 167, app/assets/stylesheets/application.scss */
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #778899;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  position: absolute;
+  right: 0;
+  top: 90px;
+}
+
+/* line 179, app/assets/stylesheets/application.scss */
+.openbtn:hover {
+  background-color: #778899;
+}
+
+/* line 183, app/assets/stylesheets/application.scss */
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  /* line 191, app/assets/stylesheets/application.scss */
+  .custom-sidebar {
+    padding-top: 15px;
+  }
+  /* line 192, app/assets/stylesheets/application.scss */
+  .custom-sidebar a {
+    font-size: 18px;
+  }
+}
+
+/* Check_box_tag */
+/* line 197, app/assets/stylesheets/application.scss */
+input[type=checkbox], input[type=radio] {
+  width: 20px;
+  height: 20px;
+}
+
+/* print button in orders */
+/* line 204, app/assets/stylesheets/application.scss */
+.printbtn {
+  font-size: 40px;
+}
+
+/* line 208, app/assets/stylesheets/application.scss */
+.printing {
+  -moz-column-break-inside: avoid;
+       break-inside: avoid;
+}
