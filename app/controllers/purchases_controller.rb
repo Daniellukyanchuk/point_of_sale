@@ -5,9 +5,7 @@ class PurchasesController < ApplicationController
 
   # GET /purchases or /purchases.json
   def index
-
     params[:start_date] = 1.month.ago.strftime("%d-%m-%Y") if params[:start_date].blank?
-    
     params[:end_date] = Date.today.strftime("%d-%m-%Y") if params[:end_date].blank?
 
     @purchases = Purchase.search(params[:search], params[:supplier_select], params[:start_date], params[:end_date])
@@ -95,7 +93,7 @@ class PurchasesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def purchase_params
-      params.require(:purchase).permit(:supplier_id, :date_of_the_order, :expected_date_of_delivery, :estimated_total, :actual_total, purchase_products_attributes: [:id, :product_id, :purchase_id, :estimated_price_per_unit, :actual_price_per_unit, :estimated_quantity, :actual_quantity, :estimated_subtotal, :actual_subtotal, :_destroy])
+      params.require(:purchase).permit(:supplier_id, :date_of_the_order, :expected_date_of_delivery, :estimated_total, :actual_total, purchase_products_attributes: [:id, :product_id, :purchase_id, :estimated_price_per_unit, :actual_price_per_unit, :estimated_quantity, :actual_quantity, :estimated_subtotal, :actual_subtotal, :product_name, :price, :unit, :categories, :_destroy])
     end
 end
 
