@@ -6,8 +6,7 @@ class Purchase < ApplicationRecord
 	before_save :set_actual_total
 	before_save :set_estimated_total
   
-
-	 def self.search(search, supplier_select, start_date, end_date)
+	def self.search(search, supplier_select, start_date, end_date)
     where_statements = []
 
     if !search.blank?
