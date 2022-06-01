@@ -42,7 +42,7 @@ class Purchase < ApplicationRecord
     end
   end    
 
-  def set_estimated_total
+  def set_estimated_total    
     self.estimated_total = 0
     purchase_products.each do |pp|
       pp.set_estimated_subtotal
