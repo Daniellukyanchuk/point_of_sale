@@ -2,7 +2,14 @@ class PurchaseProduct < ApplicationRecord
 	belongs_to :purchase
   has_many :inventories
   belongs_to :product
+  before_save :create_products
   attr_accessor :product_name, :price, :unit, :categories
+
+  def create_products
+     if !:product_name.nil?
+       Product.create(product_name: :product_name, price: :price, unit: :unit, categories: :categories)
+     end
+  end
 
   def set_estimated_subtotal
     self.estimated_subtotal = estimated_quantity * estimated_price_per_unit

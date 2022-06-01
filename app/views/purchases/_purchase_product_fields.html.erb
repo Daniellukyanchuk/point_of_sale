@@ -72,5 +72,9 @@
 </div>
 
 <script>
-  $(".AddNewProduct").hide();
+  $(".AddNewProduct").hide()
+  $(document).on('change', '.product-picker', function() {
+    var value = $('.product-picker').val() == '-1'
+    $(".AddNewProduct").toggle(value)
+  })
 </script>
