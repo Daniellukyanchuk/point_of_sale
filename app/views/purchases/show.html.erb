@@ -12,7 +12,7 @@
       <% if !pp.product.nil? %>
         <p>
           <strong><%= _('Products Name') %>:</strong>
-          <%= link_to edit_product_path(pp.product), pp.product.product_name %>
+          <a href="/products/<%= pp.product.id %>/edit" ><%= pp.product.product_name %></a>
         <p>
       <% end %>
       

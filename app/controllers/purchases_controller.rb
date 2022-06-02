@@ -92,8 +92,7 @@ class PurchasesController < ApplicationController
     end
 
     # Only allow a list of trusted parameters through.
-    def purchase_params
-      
+    def purchase_params  
       if params[:purchase][:purchase_products_attributes]["0"][:product_id] == "-1"
         params[:purchase][:purchase_products_attributes]["0"][:product_id] = nil
       end

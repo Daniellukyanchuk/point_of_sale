@@ -26,7 +26,6 @@
     <div class="field">
         <%= form.collection_select :product_id, Product.all, :id, :product_name, {}, {class: "product-picker form-control"} %>
     </div>
-
     <p>
         <div class="field">
           <%= form.label _('Quantity') %>
@@ -51,24 +50,24 @@
 <hr>
 </div>
 
-    <script type="text/javascript">
-        $(document).ready(function() {
+<script type="text/javascript">
+    $(document).ready(function() {
 
-          function updateSelectedAmount(){
-            $.ajax({ 
-                url: "/inventories/current_amount_left",
-                data: { id: $(this).val()  },
-                type: "GET",
-                success: function(data){
-                    $('.current_amount_field').val(data['current_amount_left']);
-                }
-            });
-          }
-
-        $(document).on('change', '.product-picker', updateSelectedAmount);
-          $(".product-picker").each(updateSelectedAmount);
+      function updateSelectedAmount(){
+        $.ajax({ 
+            url: "/inventories/current_amount_left",
+            data: { id: $(this).val()  },
+            type: "GET",
+            success: function(data){
+                $('.current_amount_field').val(data['current_amount_left']);
+            }
         });
-    </script>
+      }
+
+    $(document).on('change', '.product-picker', updateSelectedAmount);
+      $(".product-picker").each(updateSelectedAmount);
+    });
+</script>
 
   
 
