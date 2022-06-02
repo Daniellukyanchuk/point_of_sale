@@ -93,9 +93,9 @@ class PurchasesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def purchase_params
-      product_id_params = params[:purchase][:purchase_products_attributes]["0"][:product_id]
-      if product_id_params == "-1"
-        product_id_params = nil
+      
+      if params[:purchase][:purchase_products_attributes]["0"][:product_id] == "-1"
+        params[:purchase][:purchase_products_attributes]["0"][:product_id] = nil
       end
       params.require(:purchase).permit(:supplier_id, :date_of_the_order, :expected_date_of_delivery, :estimated_total, :actual_total, 
       purchase_products_attributes: [:id, :product_id, :purchase_id, :estimated_price_per_unit, :actual_price_per_unit, :estimated_quantity, 
