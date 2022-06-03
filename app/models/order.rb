@@ -12,7 +12,6 @@ class Order < ApplicationRecord
     if client_id.nil?
       new_client = Client.create(name: name, phone: phone, address: address, city: city, country: country)
       self.client_id = new_client.id
-      stop
     end
   end
       
@@ -23,9 +22,6 @@ class Order < ApplicationRecord
       self.grand_total = self.grand_total + op.subtotal
     end    
   end
-  # Go through each order_product and put inventory back.
-  # How to put inventory back? 
-  # Add it as a new row in the inventory table. The price of it should be the weighted_average. 
 
   def put_back_inventory_item
     order_products.each do |op|
@@ -40,8 +36,6 @@ class Order < ApplicationRecord
              OR clients.id = #{search.to_i})"
       where_statements.push(tmp)
     end
-
-
 
     if !client_select.blank?
       ids = []
@@ -182,6 +176,4 @@ class Order < ApplicationRecord
       """
     result = ActiveRecord::Base.connection.execute(sql)
   end
-
-
 end

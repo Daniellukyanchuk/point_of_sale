@@ -35,7 +35,6 @@ class PurchasesController < ApplicationController
   # POST /purchases or /purchases.json
   def create
     @purchase = Purchase.new(purchase_params)
-# stop
     respond_to do |format|
       if @purchase.save
         format.html { redirect_to @purchase, notice: "Purchase was successfully created." }
@@ -70,7 +69,7 @@ class PurchasesController < ApplicationController
   end
 
   private
-
+  
     def start_date
       params[:start_date]
     end
