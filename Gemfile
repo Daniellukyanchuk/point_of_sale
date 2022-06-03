@@ -103,3 +103,5 @@ gem 'memory_profiler'
 # For call-stack profiling flamegraphs
 gem 'stackprof'
 
+gem "select2-rails"
+

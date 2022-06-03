@@ -78,7 +78,7 @@
       $('.act_total').val(total)
     });
 
-    $(document.body).on('keyup', '.est_quantity, .est_price' ,function(){
+    $(document.body).on('keyup', '.est_quantity, .est_price', function(){
       var eQuantity = $(this).parents('.nested-fields').find('.est_quantity').val();
       var ePrice = $(this).parents('.nested-fields').find('.est_price').val();
       var cmpSubtotal = eQuantity * ePrice;

@@ -9,10 +9,13 @@
 
     <% @purchase.purchase_products.each do |pp| %>
       <hr>
-      <p>
-        <strong><%= _('Products Name') %>:</strong>
-        <a href="/products/<%= pp.product.id %>/edit" ><%= pp.product.product_name %></a>
-      <p>
+      <% if !pp.product.nil? %>
+        <p>
+          <strong><%= _('Products Name') %>:</strong>
+          <a href="/products/<%= pp.product.id %>/edit" ><%= pp.product.product_name %></a>
+        <p>
+      <% end %>
+      
       
       <p>
         <strong><%= _('Estimated Quantity') %>:</strong>

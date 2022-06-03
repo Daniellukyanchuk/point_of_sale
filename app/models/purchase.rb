@@ -5,10 +5,8 @@ class Purchase < ApplicationRecord
 	accepts_nested_attributes_for :purchase_products, allow_destroy: true
 	before_save :set_actual_total
 	before_save :set_estimated_total
-
-  attr_accessor :new_product_name, :new_product_price
-
-	 def self.search(search, supplier_select, start_date, end_date)
+  
+	def self.search(search, supplier_select, start_date, end_date)
     where_statements = []
 
     if !search.blank?
@@ -44,7 +42,7 @@ class Purchase < ApplicationRecord
     end
   end    
 
-  def set_estimated_total
+  def set_estimated_total    
     self.estimated_total = 0
     purchase_products.each do |pp|
       pp.set_estimated_subtotal

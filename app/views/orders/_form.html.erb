@@ -12,8 +12,32 @@
         </div>
       <% end %>
       <div class="field">
-        <%= form.collection_select :client_id, Client.all, :id, :name, {}, {:class => "form-control"} %>
+        <%= form.select(:client_id, [["+New Client", "-1"]] + Client.all.collect {|c| [c.name, c.id]}, {include_blank: "Select Client"}, {class: "select-client form-control"}) %>
       </div>
+
+      <div class="AddNewClient field" style="display: none;">
+          <div class="field">
+              <%= form.label :name, "Client Name" %>
+              <%= form.text_field(:name, class: "form-control") %>
+          </div>
+          <div class="field">
+              <%= form.label :phone, "Phone" %>
+              <%= form.text_field :phone, class: "form-control" %>
+          </div>
+          <div class="field">
+              <%= form.label :address, "Address" %>
+              <%= form.text_field :address, class: "form-control" %>
+          </div>
+          <div class="field">
+              <%= form.label :city, "City" %>
+              <%= form.text_field :city, class: "form-control" %>
+          </div>
+          <div class="field">
+              <%= form.label :country, "Country" %>
+              <%= form.text_field :country, class: "form-control" %>
+          </div>
+      </div>
+
       <hr>
      
       <%= form.fields_for :order_products do |builder| %>
@@ -36,7 +60,6 @@
 
     <script type="text/javascript">
         $(document).ready(function() {
-
           function updateSelectedPrice(){
             var jquery_prod_picker = $(this);
             $.ajax({ 
@@ -52,6 +75,13 @@
           $(document).on('change', '.product-picker', updateSelectedPrice);
           $(".product-picker").each(updateSelectedPrice);
         });
+    </script>
+
+    <script>
+      $(document).on('change', '.select-client', function() {
+        var value = $(this).val() == "-1"
+        $(this).parents(".marginRight").find(".AddNewClient").toggle(value)
+      })
     </script>
 </div>
 

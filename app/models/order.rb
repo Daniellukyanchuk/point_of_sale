@@ -2,9 +2,18 @@ class Order < ApplicationRecord
   before_destroy :put_back_inventory_item
   has_many :order_products, dependent: :delete_all 
   accepts_nested_attributes_for :order_products, allow_destroy: true
-  belongs_to :client  
+  belongs_to :client, optional: true  
   before_save :set_grand_total
+  before_save :create_clients
   has_one_attached :cover_picture
+  attr_accessor :name, :phone, :address, :city, :country
+
+  def create_clients
+    if client_id.nil?
+      new_client = Client.create(name: name, phone: phone, address: address, city: city, country: country)
+      self.client_id = new_client.id
+    end
+  end
       
   def set_grand_total
     self.grand_total = 0
@@ -13,9 +22,6 @@ class Order < ApplicationRecord
       self.grand_total = self.grand_total + op.subtotal
     end    
   end
-  # Go through each order_product and put inventory back.
-  # How to put inventory back? 
-  # Add it as a new row in the inventory table. The price of it should be the weighted_average. 
 
   def put_back_inventory_item
     order_products.each do |op|
@@ -30,8 +36,6 @@ class Order < ApplicationRecord
              OR clients.id = #{search.to_i})"
       where_statements.push(tmp)
     end
-
-
 
     if !client_select.blank?
       ids = []
@@ -172,6 +176,4 @@ class Order < ApplicationRecord
       """
     result = ActiveRecord::Base.connection.execute(sql)
   end
-
-
 end

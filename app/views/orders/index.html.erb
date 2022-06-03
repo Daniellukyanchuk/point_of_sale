@@ -72,13 +72,15 @@
       <tbody>
         <% @orders.each do |order| %>
           <tr>
-            <td><%= order.id %></td>
-            <td><%= order.client.name %></td>
-            <td><%= order.grand_total %></td>
-            <td><%= check_box_tag "order_ids[]", order.id %></td>
-            <td><%= link_to '<i class="fa-solid fa-circle-info"></i>'.html_safe, order, class: "text-info" %></td>
-            <td><%= link_to '<i class="fa-solid fa-pen-to-square"></i>'.html_safe, edit_order_path(order), class: "text-primary" %></td>
-            <td><%= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, order_path(order.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "text-danger" %></td>
+            <% if !order.client_id.nil? %>
+              <td><%= order.id %></td>
+              <td><%= order.client.name %></td>          
+              <td><%= order.grand_total %></td>
+              <td><%= check_box_tag "order_ids[]", order.id %></td>
+              <td><%= link_to '<i class="fa-solid fa-circle-info"></i>'.html_safe, order, class: "text-info" %></td>
+              <td><%= link_to '<i class="fa-solid fa-pen-to-square"></i>'.html_safe, edit_order_path(order), class: "text-primary" %></td>
+              <td><%= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, order_path(order.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "text-danger" %></td>
+            <% end %>
           </tr>
         <% end %>
       </tbody>

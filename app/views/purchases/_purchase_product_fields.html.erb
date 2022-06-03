@@ -1,6 +1,24 @@
 <div class="nested-fields">
     <div class="field">
-        <%= form.collection_select :product_id, Product.all, :id, :product_name, {}, {class: "product-picker form-control"} %>
+        <%= form.select(:product_id, [["+New Product", "-1"]] + Product.all.collect {|p| [p.product_name, p.id]}, {include_blank: "Select Product"}, {class: "product-picker form-control"}) %>
+    </div>
+    <div class="AddNewProduct field" style="display: none;">
+        <div class="field">
+          <%= form.label :product_name, "Product Name" %>
+          <%= form.text_field :product_name, class: "form-control" %>
+        </div>
+        <div class="field">
+          <%= form.label :price, "Price" %>
+          <%= form.number_field :price, class: "form-control" %>
+        </div>
+        <div class="field">
+          <%= form.label :unit, "Unit" %>
+          <%= form.text_field :unit, class: "form-control" %>
+        </div>
+        <div class="field">
+          <%= form.label :categories, "Category" %>
+          <%= form.text_field :categories, class: "form-control" %>
+        </div>
     </div>
   <p>
     <div class="field">
@@ -52,3 +70,16 @@
   </p>
 <hr>
 </div>
+
+<script>
+  $(document).on('change', '.product-picker', function() {
+    var value = $(this).val() == '-1'
+    
+    // var el = $(this);
+    // var parent = el.parents(".nested-fields")
+    // var addnew = parent.find('.AddNewProduct')
+    // addnew.toggle(value)
+
+    $(this).parents(".nested-fields").find(".AddNewProduct").toggle(value)
+  })
+</script>

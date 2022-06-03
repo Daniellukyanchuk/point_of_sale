@@ -6,7 +6,6 @@ class OrderProduct < ApplicationRecord
   before_save :set_current_amount_left
   validate :has_enough_inventory
   
-    
   # num = 45
   # num2 = 84
   # [num, num2].min

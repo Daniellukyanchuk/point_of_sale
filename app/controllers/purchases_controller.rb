@@ -5,9 +5,7 @@ class PurchasesController < ApplicationController
 
   # GET /purchases or /purchases.json
   def index
-
     params[:start_date] = 1.month.ago.strftime("%d-%m-%Y") if params[:start_date].blank?
-    
     params[:end_date] = Date.today.strftime("%d-%m-%Y") if params[:end_date].blank?
 
     @purchases = Purchase.search(params[:search], params[:supplier_select], params[:start_date], params[:end_date])
@@ -37,7 +35,6 @@ class PurchasesController < ApplicationController
   # POST /purchases or /purchases.json
   def create
     @purchase = Purchase.new(purchase_params)
-
     respond_to do |format|
       if @purchase.save
         format.html { redirect_to @purchase, notice: "Purchase was successfully created." }
@@ -72,7 +69,7 @@ class PurchasesController < ApplicationController
   end
 
   private
-
+  
     def start_date
       params[:start_date]
     end
@@ -94,8 +91,13 @@ class PurchasesController < ApplicationController
     end
 
     # Only allow a list of trusted parameters through.
-    def purchase_params
-      params.require(:purchase).permit(:supplier_id, :date_of_the_order, :expected_date_of_delivery, :estimated_total, :actual_total, purchase_products_attributes: [:id, :product_id, :purchase_id, :estimated_price_per_unit, :actual_price_per_unit, :estimated_quantity, :actual_quantity, :estimated_subtotal, :actual_subtotal, :_destroy])
+    def purchase_params  
+      if params[:purchase][:purchase_products_attributes]["0"][:product_id] == "-1"
+        params[:purchase][:purchase_products_attributes]["0"][:product_id] = nil
+      end
+      params.require(:purchase).permit(:supplier_id, :date_of_the_order, :expected_date_of_delivery, :estimated_total, :actual_total, 
+      purchase_products_attributes: [:id, :product_id, :purchase_id, :estimated_price_per_unit, :actual_price_per_unit, :estimated_quantity, 
+      :actual_quantity, :estimated_subtotal, :actual_subtotal, :product_name, :price, :unit, :categories, :_destroy])
     end
 end
 
