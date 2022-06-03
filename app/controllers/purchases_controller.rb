@@ -95,7 +95,12 @@ class PurchasesController < ApplicationController
       if params[:purchase][:purchase_products_attributes]["0"][:product_id] == "-1"
         params[:purchase][:purchase_products_attributes]["0"][:product_id] = nil
       end
-      params.require(:purchase).permit(:supplier_id, :date_of_the_order, :expected_date_of_delivery, :estimated_total, :actual_total, 
+
+      if params[:purchase][:supplier_id] == "-1"
+        params[:purchase][:supplier_id] = nil
+      end
+
+      params.require(:purchase).permit(:supplier_id, :suppliers_name, :city, :country, :address, :phone_number, :date_of_the_order, :expected_date_of_delivery, :estimated_total, :actual_total, 
       purchase_products_attributes: [:id, :product_id, :purchase_id, :estimated_price_per_unit, :actual_price_per_unit, :estimated_quantity, 
       :actual_quantity, :estimated_subtotal, :actual_subtotal, :product_name, :price, :unit, :categories, :_destroy])
     end

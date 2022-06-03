@@ -1,10 +1,19 @@
 class Purchase < ApplicationRecord
   # dependent: :delete_all allows me to delete orphans that purchase_products would have if I deleted purchase.
  	has_many :purchase_products, dependent: :delete_all
-	belongs_to :supplier
+	belongs_to :supplier, optional: true
 	accepts_nested_attributes_for :purchase_products, allow_destroy: true
 	before_save :set_actual_total
 	before_save :set_estimated_total
+  before_save :create_suppliers
+  attr_accessor :suppliers_name, :city, :country, :address, :phone_number
+
+  def create_suppliers
+    if supplier_id.nil?
+      new_supplier = Supplier.create(suppliers_name: suppliers_name, city: city, country: country, address: address, phone_number: phone_number)
+      self.supplier_id = new_supplier.id
+    end
+  end
   
 	def self.search(search, supplier_select, start_date, end_date)
     where_statements = []
