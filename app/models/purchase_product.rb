@@ -29,6 +29,6 @@ class PurchaseProduct < ApplicationRecord
   end
 
   def display_text
-    return "#{purchase_id} - #{product.product_name} - #{purchase.supplier.suppliers_name} - #{purchase.expected_date_of_delivery}"
+    return "#{purchase_id} - #{product.product_name} - #{purchase.supplier.suppliers_name} - #{purchase.expected_date_of_delivery}"    
   end
 end
