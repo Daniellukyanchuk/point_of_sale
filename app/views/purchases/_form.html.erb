@@ -12,7 +12,30 @@
         </div>
       <% end %>
       <div class="field">
-        <%= form.collection_select :supplier_id, Supplier.all, :id, :suppliers_name, {}, {:class => "form-control"} %>
+        <%= form.select(:supplier_id, [["+New Supplier", "-1"]] + Supplier.all.collect {|s| [s.suppliers_name, s.id]}, {include_blank: "Select Supplier"}, {class: "select-supplier form-control"}) %>
+      </div>
+
+      <div class="AddNewSupplier field" style="display: none;">
+        <div class="field">
+          <%= form.label :suppliers_name, "Supplier Name" %>
+          <%= form.text_field :suppliers_name, class: "form-control" %>
+        </div>
+        <div class="field">
+          <%= form.label :city, "City" %>
+          <%= form.text_field :city, class: "form-control" %>
+        </div>
+        <div class="field">
+          <%= form.label :country, "Country" %>
+          <%= form.text_field :country, class: "form-control" %>
+        </div>
+        <div class="field">
+          <%= form.label :address, "Address" %>
+          <%= form.text_field :address, class: "form-control" %>
+        </div>
+        <div class="field">
+          <%= form.label :phone_number, "Phone Number" %>
+          <%= form.number_field :phone_number, class: "form-control" %>
+        </div>
       </div>
 
       <hr>
@@ -60,6 +83,11 @@
 
 
 <script type="text/javascript">
+    $(document).on('change', '.select-supplier', function() {
+        var value = $(this).val() == "-1"
+        $(this).parents(".marginRight").find(".AddNewSupplier").toggle(value)
+    })
+
     $(document).on('change', '.est_subtotal', function() {     
         var sum = 0
         $('.est_subtotal').each(function() {
