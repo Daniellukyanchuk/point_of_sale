@@ -26,9 +26,9 @@
       <td class="col-3"><%= purchase.supplier.supplier_name %></td>
       <td class="align_right col-2"><%= number_with_precision(purchase.purchase_total, precision: 2, separator: '.', delimiter: ' ') %></td>
       <td class="col-2">
-        <%= link_to '<i class="fa-solid fa-eye"></i>'.html_safe, "/purchases/#{purchase["id"]}", class: "text-primary m-2" %>
+        <%= link_to '<i class="fa-solid fa-eye"></i>'.html_safe, purchase, class: "text-primary m-2" %>
         <%= link_to '<i class="fa-solid fa-pencil"></i>'.html_safe, edit_purchase_path(purchase), class: "text-secondary m-2" %>
-        <%= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, "/purchases/#{purchase["id"]}", method: :delete, data: { confirm: 'Are you sure?' }, class: "text-danger m-2" %>
+        <%= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, purchase, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-danger m-2" %>
       </td>
       
     </tr>
