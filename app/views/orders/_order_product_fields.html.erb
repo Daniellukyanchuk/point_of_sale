@@ -52,20 +52,19 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-
-      function updateSelectedAmount(){
-        $.ajax({ 
+        function updateSelectedAmount(){
+          $.ajax({ 
             url: "/inventories/current_amount_left",
             data: { id: $(this).val()  },
             type: "GET",
             success: function(data){
                 $('.current_amount_field').val(data['current_amount_left']);
             }
-        });
-      }
+          });
+        }
 
-    $(document).on('change', '.product-picker', updateSelectedAmount);
-      $(".product-picker").each(updateSelectedAmount);
+        $(document).on('change', '.product-picker', updateSelectedAmount);
+        $(".product-picker").each(updateSelectedAmount);
     });
 </script>
 

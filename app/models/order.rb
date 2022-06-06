@@ -1,4 +1,4 @@
-class Order < ApplicationRecord
+class Order < ApplicationRecord 
   before_destroy :put_back_inventory_item
   has_many :order_products, dependent: :delete_all 
   accepts_nested_attributes_for :order_products, allow_destroy: true

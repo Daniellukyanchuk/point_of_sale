@@ -7,8 +7,6 @@ class ApplicationController < ActionController::Base
 	before_action :configure_permitted_parameters, if: :devise_controller?
 	protect_from_forgery with: :exception
 	before_action :authenticate_user!
-	 
-	# load_and_authorize_resource
 
 	def load_and_authorize
 	end
@@ -25,16 +23,20 @@ class ApplicationController < ActionController::Base
 
 	def get_exchange_rate	
         # Getting exchange currency (curl)
-        if session[:exchange_rate].nil?
+        
+        if session[:exchange_rate].nil? || session[:exchange_rate] == "null"
 			currency_rates = URI.parse('https://www.nbkr.kg/XML/daily.xml').read
 			currency_json = Hash.from_xml(currency_rates).to_json
 			currency_hash = JSON.parse(currency_json)
 	        currency_usd = currency_hash["CurrencyRates"]["Currency"][0]["Value"]
 			exchange_rate_usd = currency_usd.gsub(/[.,]/, '.' => '', ',' => '.').to_f	
 			session[:exchange_rate] = exchange_rate_usd.to_json
-
+    
+			render json: {session_ex_rate: session[:exchange_rate] }
+		else
 			render json: {session_ex_rate: session[:exchange_rate] }
 		end
+
 	end
 
 	def curl_commands
