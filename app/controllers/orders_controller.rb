@@ -21,14 +21,15 @@ class OrdersController < ApplicationController
 
   # GET /orders/new
   def new
+    find_finished_products
     @order = Order.new
     @order.order_products.new
-    @order.build_client
-    find_finished_products
+    @order.build_client   
   end
 
   # GET /orders/1/edit
   def edit
+    find_finished_products
   end
 
   # POST /orders or /orders.json
