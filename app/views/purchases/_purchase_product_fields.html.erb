@@ -1,12 +1,38 @@
   
    
 <div class="nested-fields">
-   
-
-      <div class="field">
+      <div class="field col-3">
         <%= form.label _("select product") %>
-        <%= form.collection_select :product_id, @raw_products, :id, :product_name, {:prompt => _("Select Product")}, { :class => 'product-select form-control' } %>
+        <%= form.select :product_id, ([['+ Create New Product', '-1']] + @raw_products.map{ |c| [c.product_name, c.id] }), {:prompt => 'Choose a Product'}, :class => "form-control product-select" %>
       </div>
+
+      <div style="display: none;" class="container col-6 mt-3 col-7 mb-3" id="new_product">
+        <%= form.fields_for :product, Product.new do |product_attributes|%>
+        <div class="row">
+          <div class="col-4">
+            <%= product_attributes.label :product_name, "Product Name:" %>
+            <%= product_attributes.text_field :product_name, class: "form-control" %>
+          </div>
+          <div class="col-4">
+            <%= product_attributes.label :price, "Price:" %>
+            <%= product_attributes.text_field :price, class: "form-control" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-4">
+            <%= product_attributes.label :unit, "Unit:" %>
+            <%= product_attributes.text_field :unit, class: "form-control" %>
+          </div>
+          <div class="col-4">
+            <%= product_attributes.label :grams_per_unit, "Grams per unit:" %>
+            <%= product_attributes.text_field :grams_per_unit, class: "form-control" %>
+            <%= product_attributes.fields_for :category_products_attributes, CategoryProduct.new do |category_attributes|%>
+               <%= category_attributes.hidden_field :product_category_id, :value => 2 %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
       <br>
 
     <div class="indent">
@@ -34,7 +60,6 @@
 
 
 
-  
 
 
 

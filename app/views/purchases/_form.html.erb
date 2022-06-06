@@ -2,10 +2,10 @@
 <%= form_with(model: purchase, id: "new_purchase", class: "purchase-order-form",  local: true) do |form| %>
   <% if purchase.errors.any? %>
   <div id="error_explanation">
-    <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
+    <h2><%= pluralize(purchase.errors.count, "error") %> prohibited this purchase from being saved:</h2>
 
     <ul>
-    <% order.errors.full_messages.each do |message| %>
+    <% purchase.errors.full_messages.each do |message| %>
       <li><%= message %></li>
     <% end %>
     </ul>
@@ -24,7 +24,7 @@
       <% end %>      
 
       <div class="pad-bottom"> 
-          <%= link_to_add_fields _("Add Product"), form, :purchase_products %>
+          <%= link_to_add_fields _("+ Add Product"), form, :purchase_products %>
       </div>
 
       <div class="field">
@@ -57,24 +57,35 @@
 $(document).ready(function() {
   $(document).on('change', ".act_cost, .act_qt", calcActualSubtotal);
   $(document).on('change', '.act_cost, .act_qt', calcActualTotal); 
-  $(document).on('click', '.remove_fields', calcActualTotal);     
-  
-    function calcActualSubtotal() {
-      var actualQt = $(this).parents(".nested-fields").find(".act_qt").val();
-      var actualCost = $(this).parents(".nested-fields").find(".act_cost").val();
-      var actualSubtotal = (actualQt || 0) * (actualCost || 0);
-      $(this).parents(".nested-fields").find(".actual_subtotal").val(actualSubtotal)
-    };
+  $(document).on('click', '.remove_fields', calcActualTotal);    
+  $(document).on('change', '.product-select', displayNewProductForm); 
 
-    function calcActualTotal() {
-      var actTotal = 0
-      $(".actual_subtotal").each(function() {
-        if ( $(this).parents(".nested-fields").is(':visible') ) {
-        actTotal += parseFloat($(this).val());
-        }
-      $("#actual_total").val(actTotal);
-      });
-    }; 
+  function displayNewProductForm(){
+      var product = $(".product-select").val()
+      var new_product = "-1"
+      if (product == new_product) {
+      $("#new_product").css('display', 'inline-block');
+      } else {
+        $("#new_product").css('display', 'none');
+      }
+    }
+  
+  function calcActualSubtotal() {
+    var actualQt = $(this).parents(".nested-fields").find(".act_qt").val();
+    var actualCost = $(this).parents(".nested-fields").find(".act_cost").val();
+    var actualSubtotal = (actualQt || 0) * (actualCost || 0);
+    $(this).parents(".nested-fields").find(".actual_subtotal").val(actualSubtotal)
+  };
+
+  function calcActualTotal() {
+    var actTotal = 0
+    $(".actual_subtotal").each(function() {
+      if ( $(this).parents(".nested-fields").is(':visible') ) {
+      actTotal += parseFloat($(this).val());
+      }
+    $("#actual_total").val(actTotal);
+    });
+  }; 
 });  
       
     

@@ -12,8 +12,35 @@
 
     <% end %>
 
-     <%= form.label _("Select Client") %>
-     <%= form.collection_select :client_id, Client.all, :id, :name, {}, :class => "form-control col-8 col-lg-6 col-xl-3 " %>
+    <%= form.label _("Select Client") %>   
+    
+    <%= form.select :client_id, ([['+ Create New Client', '-1']] + Client.all.map{ |c| [c.name, c.id] }), {:prompt => 'Choose a client'}, :class => "form-control col-8 col-lg-6 col-xl-3 client-select" %>
+
+    <div style="display: none;" class="container col-6 mt-3" id="new_client">
+      <%= form.fields_for :owner, Client.new do |client_attributes|%>
+      <div class="row">
+        <div class="col-6">
+          <%= client_attributes.label :name, "Client Name:" %>
+          <%= client_attributes.text_field :name, class: "form-control" %>
+        </div>
+        <div class="col">
+          <%= client_attributes.label :phone, "Phone:" %>
+          <%= client_attributes.text_field :phone, class: "form-control" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <%= client_attributes.label :address, "Address:" %>
+          <%= client_attributes.text_field :address, class: "form-control" %>
+        </div>
+        <div class="col">
+          <%= client_attributes.label :city, "City:" %>
+          <%= client_attributes.text_field :city, class: "form-control" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+
 <hr>
       <h2><%= _('Products') %></h2>
 
@@ -37,12 +64,24 @@
 
 <script type="text/javascript">
 
-  $(document).ready(function() {
+  $(document).ready(function() {  
 
+    $(document).on('change', '.client-select', displayNewClientForm);
     $(document).on('change', '.product-select', updateSelectedPrice);
     $(document).on('change', '.quantity, .sale-price, .product-select', calcSubtotal);
     $(document).on('change', '.quantity, .sale-price, .product-select', calcGrandTotal); 
     $(document).on('click', '.remove_fields', calcGrandTotal);
+
+
+    function displayNewClientForm(){
+      var client = $(".client-select").val()
+      var new_client = "-1"
+      if (client == new_client) {
+      $("#new_client").css('display', 'inline-block');
+      } else {
+        $("#new_client").css('display', 'none');
+      }
+    }
 
     function updateSelectedPrice(){
       var current_picker = $(this);

@@ -23,6 +23,7 @@ class OrdersController < ApplicationController
   def new
     @order = Order.new
     @order.order_products.new
+    @order.build_client
     find_finished_products
   end
 
@@ -95,8 +96,12 @@ class OrdersController < ApplicationController
     # Only allow a list of trusted parameters through.
     def order_params
       # params["order"]
+      if params["order"]["client_id"] == "-1"
+        params["order"]["client_id"] = nil
+      end 
+
        params.require(:order).permit(:client_id, :grand_total, 
-       clients_attributes: [:id, :name, :address, :phone],
+       client_attributes: [:id, :name, :address, :phone, :city],
        order_products_attributes: [:id, :product_id, :order_id, :sale_price, :quantity, :subtotal, :_destroy], 
        products_attributes: [:id, :unit, :price, :product_name])
     end
@@ -110,3 +115,6 @@ class OrdersController < ApplicationController
     end        
 
 end
+
+
+

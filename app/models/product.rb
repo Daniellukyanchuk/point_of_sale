@@ -41,16 +41,6 @@ class Product < ApplicationRecord
     return ActiveRecord::Base.connection.execute(sql)
   end
 
-  # def self.categorized_products
-  #   sql =
-  #   """
-  #   select product_id, product_name, grams_per_unit, unit, category_name from category_products
-  #   LEFT OUTER JOIN products ON product_id = products.id
-  #   LEFT OUTER JOIN product_categories ON product_category_id = product_categories.id
-  #   """
-  #   return ActiveRecord::Base.connection.execute(sql)
-  # end
-
   def add_product_categories(params)
     
     product_ids = params["category_products_attributes"]["product_id"].values

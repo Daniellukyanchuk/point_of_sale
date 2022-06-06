@@ -1,6 +1,7 @@
 class Purchase < ApplicationRecord
   has_many :purchase_products, dependent: :destroy
   has_many :product_reports
+  has_many :products, through: :purchase_products
   belongs_to :supplier
   accepts_nested_attributes_for :purchase_products, allow_destroy: true
   before_save :set_purchase_total

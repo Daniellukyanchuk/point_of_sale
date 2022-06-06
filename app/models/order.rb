@@ -3,10 +3,10 @@ class Order < ApplicationRecord
     has_many :client_reports
     has_many :product_reports
     belongs_to :client  
+    accepts_nested_attributes_for :client, allow_destroy: true
     accepts_nested_attributes_for :order_products, allow_destroy: true
     before_save :set_grand_total
     after_save :remove_from_inventory
-
 
     #remove sold items from inventory 
     def remove_from_inventory   
@@ -17,8 +17,7 @@ class Order < ApplicationRecord
             Inventory.remove_sold_inventory(ri.product_id, amount_to_remove)
             
         end
-    end
-    
+    end    
     
     def set_grand_total
       self.grand_total = 0
@@ -31,11 +30,9 @@ class Order < ApplicationRecord
 # SALES REPORT
 
     def self.product_report(search_product, pick_product, datefilter_start, datefilter_end, sortable, sort_direction)
-
       
       datefilter_start = Date.strptime( datefilter_start, '%m/%d/%Y')       
       datefilter_end = Date.strptime( datefilter_end, '%m/%d/%Y')     
-
 
 #search box (search_product)
 

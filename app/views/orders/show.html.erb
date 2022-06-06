@@ -1,3 +1,5 @@
+<h1><%= _('Order Details') %></h1>
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -15,30 +17,31 @@
   <strong><%= _('Date ordered:') %></strong>
   <%= @order.created_at.strftime("%d %b %Y") %> 
 </p>
+<hr>
 
-<% @order.order_products.each do |op| %>
-      <p>
-      <strong><%= _('Product Id:') %> </strong>
-      <%= op.product_id %>, 
-    </p>
-    <p>
-      <strong><%= _('Quantity:') %> </strong>
-      <%= op.quantity %> 
-    </p>
-    <p>
-      <strong><%= _('Sale Price:') %></strong>
-      <%= op.sale_price %>
-    </p>
-    <p>
-      <strong><%= _('Subtotal:') %> </strong>
-      <%= op.subtotal %>
-    </p>
+<h4> <%= _("Products Ordered") %> </h4>
+<div class="container ml-0">
+  <div class="row">
+    <div class="d-inline col-4 pb-2"> <strong><%= _("Product") %> </strong></div>
+    <div class="d-inline col-2 pb-2"> <strong><%= _("Quantity") %> </strong></div>
+    <div class="d-inline col-3 pb-2"> <strong><%= _("Sale Price") %> </strong></div>
+    <div class="d-inline col-3 pb-2"> <strong><%= _("Subtotal") %> </strong></div>
+  </div>
+
+  <% @order.order_products.each do |op| %>
+  <div class="row">
+    <div class="d-inline col-4 pb-2">(id: <%= op.product_id %>) <%= op.product.product_name %></div>
+    <div class="d-inline col-2 pb-2"><%= op.quantity %> </div>
+    <div class="d-inline col-3 pb-2"><%= op.sale_price %></div>
+    <div class="d-inline col-3 pb-2"><%= op.subtotal %></div>
+  </div>
   <% end %>
+  <div class="d-block col-12 pb-2 text-right">  <strong><%= _('Grand total') %>: <%= @order.grand_total %></strong>  </div>
 
-<p>
-  <strong><%= _('Grand total:') %></strong>
-  <%= @order.grand_total %>
-</p>
+</div> 
+
+
+
 
 
 

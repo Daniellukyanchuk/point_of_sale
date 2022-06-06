@@ -23,7 +23,8 @@ end
 
   # GET /products or /products.json
   def index
-    @products = Product.search(params[:search]).order(sort_column + " " + sort_direction).includes(:product_categories)
+    # @products = Product.search(params[:search]).order(sort_column + " " + sort_direction).includes(:product_categories)
+    categorize_products
       respond_to do |format|
         format.xlsx {
           response.headers[
@@ -34,6 +35,24 @@ end
       end
   end
 
+  def categorize_products
+    products = CategoryProduct.where("product_category_id = ? or product_category_id = ? or product_category_id = ?", 1, 2, 3)
+      raw_ingredient_ids = []
+      semi_finished_product_ids = []
+      finished_product_ids = []
+      products.each do |sort|
+        if sort.product_category_id == 1
+          finished_product_ids.push(sort.product_id)
+        elsif sort.product_category_id == 2
+          raw_ingredient_ids.push(sort.product_id)
+        elsif sort.product_category_id == 3
+          semi_finished_product_ids.push(sort.product_id)
+        end
+      end
+      @raw_ingredients = Product.find(raw_ingredient_ids).sort_by &:product_name
+      @semi_finished_products = Product.find(semi_finished_product_ids).sort_by &:product_name
+      @finished_products = Product.find(finished_product_ids).sort_by &:product_name
+  end
   
 
   # GET /products/1 or /products/1.json
@@ -92,7 +111,6 @@ end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product
-      stop
       @product = Product.find(params[:id])
     end
 

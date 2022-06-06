@@ -138,6 +138,21 @@ a.bg-success:focus, a.bg-success:hover, button.bg-success:focus, button.bg-succe
     z-index: 9999;
 }
 
+.logo_cont {
+    height: 6.7rem;
+    position: relative;
+}
+
+.navbar-light .navbar-brand {
+    font-size: 2.5rem;
+    font-weight: 800;
+    font-family: math;
+}
+
+#logo {
+    padding: 38px 30px;
+}
+
 .navbar {
     display:  inline-block;
     vertical-align: top;
@@ -415,6 +430,8 @@ h4 {
 .input-group-text {
     border: 0px;
 }
+
+
 
 // Breakpoints //
 

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: app 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-05 14:16+0600\n"
-"PO-Revision-Date: 2022-05-05 14:16+0600\n"
+"POT-Creation-Date: 2022-06-01 14:57+0600\n"
+"PO-Revision-Date: 2022-06-01 14:57+0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -72,15 +72,6 @@ msgstr ""
 msgid "Actual Quantity"
 msgstr ""
 
-msgid "Actual Subtotal"
-msgstr ""
-
-msgid "Actual cost"
-msgstr ""
-
-msgid "Actual quantity"
-msgstr ""
-
 msgid "Actual total:"
 msgstr ""
 
@@ -112,9 +103,6 @@ msgid "Batch Qty"
 msgstr ""
 
 msgid "Calculate Ingredients Needed"
-msgstr ""
-
-msgid "Categories"
 msgstr ""
 
 msgid "Choose Product"
@@ -163,6 +151,9 @@ msgid "Client|Phone"
 msgstr ""
 
 msgid "Column headers must be in the correct order match headers in the database. HINT: Export existing products to file for reference."
+msgstr ""
+
+msgid "Cost"
 msgstr ""
 
 msgid "Cost per Unit"
@@ -219,7 +210,13 @@ msgstr ""
 msgid "Date added"
 msgstr ""
 
+msgid "Date ordered"
+msgstr ""
+
 msgid "Date ordered:"
+msgstr ""
+
+msgid "Date received"
 msgstr ""
 
 msgid "Date received:"
@@ -267,19 +264,7 @@ msgstr ""
 msgid "Estimated Subtotal"
 msgstr ""
 
-msgid "Estimated cost"
-msgstr ""
-
-msgid "Estimated quantity"
-msgstr ""
-
-msgid "Estimated subtotal"
-msgstr ""
-
 msgid "Estimated total:"
-msgstr ""
-
-msgid "Expected Arrival"
 msgstr ""
 
 msgid "Expected delivery"
@@ -417,9 +402,6 @@ msgstr ""
 msgid "OrderProduct|Subtotal"
 msgstr ""
 
-msgid "Ordered on"
-msgstr ""
-
 msgid "Orders"
 msgstr ""
 
@@ -445,6 +427,9 @@ msgid "Phone:"
 msgstr ""
 
 msgid "Price:"
+msgstr ""
+
+msgid "Print Receipt"
 msgstr ""
 
 msgid "Product"
@@ -597,9 +582,6 @@ msgstr ""
 msgid "Quantity:"
 msgstr ""
 
-msgid "Received on"
-msgstr ""
-
 msgid "Recipe"
 msgstr ""
 
@@ -730,6 +712,9 @@ msgid "Setting|Company phone"
 msgstr ""
 
 msgid "Show"
+msgstr ""
+
+msgid "Subtotal"
 msgstr ""
 
 msgid "Subtotal:"

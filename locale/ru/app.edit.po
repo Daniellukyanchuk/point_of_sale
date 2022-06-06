@@ -71,15 +71,6 @@ msgstr "факт. заказ"
 msgid "Actual Quantity"
 msgstr "факт. <br> кол-во"
 
-msgid "Actual Subtotal"
-msgstr "факт. пром. сумма"
-
-msgid "Actual cost"
-msgstr "факт. стоимость за единицу"
-
-msgid "Actual quantity"
-msgstr "факт. кол-тво"
-
 msgid "Actual total:"
 msgstr "факт. итог"
 
@@ -112,9 +103,6 @@ msgstr "кол-во партии"
 
 msgid "Calculate Ingredients Needed"
 msgstr "рассчитать необходимые ингредиенты"
-
-msgid "Categories"
-msgstr ""
 
 msgid "Choose Product"
 msgstr "выбрать продукт"
@@ -163,6 +151,9 @@ msgstr "телефон"
 
 msgid "Column headers must be in the correct order match headers in the database. HINT: Export existing products to file for reference."
 msgstr "Заголовки столбцов должны быть в правильном порядке и соответствовать заголовкам в базе данных. СОВЕТ: Экспортируйте существующие продукты в файл для справки."
+
+msgid "Cost"
+msgstr ""
 
 msgid "Cost per Unit"
 msgstr "расход за единицу"
@@ -222,8 +213,16 @@ msgstr "дата получение"
 msgid "Date added"
 msgstr "дата добавленно"
 
+#, fuzzy
+msgid "Date ordered"
+msgstr "дата заказен:"
+
 msgid "Date ordered:"
 msgstr "дата заказен:"
+
+#, fuzzy
+msgid "Date received"
+msgstr "дата получение:"
 
 msgid "Date received:"
 msgstr "дата получение:"
@@ -270,20 +269,8 @@ msgstr "приблиз. кол-во"
 msgid "Estimated Subtotal"
 msgstr "приблиз. пром. итог"
 
-msgid "Estimated cost"
-msgstr "ор. стоимость"
-
-msgid "Estimated quantity"
-msgstr "приблиз. <br> кол-во"
-
-msgid "Estimated subtotal"
-msgstr "приблиз. пром. итог"
-
 msgid "Estimated total:"
 msgstr "приблиз. итог"
-
-msgid "Expected Arrival"
-msgstr "ожид. дата прибытия"
 
 msgid "Expected delivery"
 msgstr "ожид. дата доставки"
@@ -420,9 +407,6 @@ msgstr "цена продажи"
 msgid "OrderProduct|Subtotal"
 msgstr "промежуточный итог"
 
-msgid "Ordered on"
-msgstr "заказен на"
-
 msgid "Orders"
 msgstr "заказов"
 
@@ -449,6 +433,9 @@ msgstr "телефон:"
 
 msgid "Price:"
 msgstr "цена:"
+
+msgid "Print Receipt"
+msgstr ""
 
 msgid "Product"
 msgstr "продукт"
@@ -601,9 +588,6 @@ msgstr "колечество"
 msgid "Quantity:"
 msgstr "колечество:"
 
-msgid "Received on"
-msgstr "получил на"
-
 msgid "Recipe"
 msgstr "рецепт"
 
@@ -735,6 +719,10 @@ msgstr "телефон компании"
 
 msgid "Show"
 msgstr "показать"
+
+#, fuzzy
+msgid "Subtotal"
+msgstr "промежуточный итог:"
 
 msgid "Subtotal:"
 msgstr "промежуточный итог:"
@@ -881,11 +869,29 @@ msgstr "выбрать продукты"
 msgid "to:"
 msgstr "до:"
 
-#~ msgid "Create Purchase"
-#~ msgstr "создать закупку"
+#~ msgid "Actual Subtotal"
+#~ msgstr "факт. пром. сумма"
 
-#~ msgid "Place Order"
-#~ msgstr "оформить заказ"
+#~ msgid "Actual cost"
+#~ msgstr "факт. стоимость за единицу"
 
-#~ msgid "en"
-#~ msgstr "ru"
+#~ msgid "Actual quantity"
+#~ msgstr "факт. кол-тво"
+
+#~ msgid "Estimated cost"
+#~ msgstr "ор. стоимость"
+
+#~ msgid "Estimated quantity"
+#~ msgstr "приблиз. <br> кол-во"
+
+#~ msgid "Estimated subtotal"
+#~ msgstr "приблиз. пром. итог"
+
+#~ msgid "Expected Arrival"
+#~ msgstr "ожид. дата прибытия"
+
+#~ msgid "Ordered on"
+#~ msgstr "заказен на"
+
+#~ msgid "Received on"
+#~ msgstr "получил на"
