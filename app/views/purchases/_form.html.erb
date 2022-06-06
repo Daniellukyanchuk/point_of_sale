@@ -61,12 +61,13 @@ $(document).ready(function() {
   $(document).on('change', '.product-select', displayNewProductForm); 
 
   function displayNewProductForm(){
-      var product = $(".product-select").val()
+      var current_section = $(this)
+      var product = $(this).val()
       var new_product = "-1"
       if (product == new_product) {
-      $("#new_product").css('display', 'inline-block');
+        current_section.parents('.nested-fields').find('.new-product').css('display', 'inline-block');
       } else {
-        $("#new_product").css('display', 'none');
+        current_section.parents('.nested-fields').find('.new-product').css('display', 'none');
       }
     }
   

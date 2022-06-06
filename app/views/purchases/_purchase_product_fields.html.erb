@@ -6,8 +6,8 @@
         <%= form.select :product_id, ([['+ Create New Product', '-1']] + @raw_products.map{ |c| [c.product_name, c.id] }), {:prompt => 'Choose a Product'}, :class => "form-control product-select" %>
       </div>
 
-      <div style="display: none;" class="container col-6 mt-3 col-7 mb-3" id="new_product">
-        <%= form.fields_for :product, Product.new do |product_attributes|%>
+      <div style="display: none;" class="container col-6 mt-3 col-7 mb-3 new-product">
+        <%= form.fields_for :product do |product_attributes|%>
         <div class="row">
           <div class="col-4">
             <%= product_attributes.label :product_name, "Product Name:" %>
@@ -26,14 +26,14 @@
           <div class="col-4">
             <%= product_attributes.label :grams_per_unit, "Grams per unit:" %>
             <%= product_attributes.text_field :grams_per_unit, class: "form-control" %>
-            <%= product_attributes.fields_for :category_products_attributes, CategoryProduct.new do |category_attributes|%>
-               <%= category_attributes.hidden_field :product_category_id, :value => 2 %>
+            <%= product_attributes.fields_for :category_products_attributes do |category_attributes|%>
+               <%= category_attributes.hidden_field '[0][product_category_id]', :value => 2 %>              
             <% end %>
           </div>
         <% end %>
       </div>
     </div>
-      <br>
+    <br>
 
     <div class="indent">
         <div class="field">

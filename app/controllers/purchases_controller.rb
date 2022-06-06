@@ -36,6 +36,7 @@ class PurchasesController < ApplicationController
 
   # POST /purchases or /purchases.json
   def create    
+
     @purchase = Purchase.new(purchase_params)
     
 
@@ -89,10 +90,12 @@ class PurchasesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def purchase_params
+    
       params.require(:purchase).permit(:supplier_id, :purchase_total, :date_ordered, :date_received, 
       purchase_products_attributes: [:id, :product_id, :purchase_quantity, :purchase_price, :purchase_subtotal, :_destroy, 
       product_attributes: [:product_name, :price, :unit, :grams_per_unit, 
-      category_products_attributes: [:product_category_id, :product_id]]])
+      category_products_attributes: [:id, :product_category_id, :product_id]]])
+
     end
 
     def sort_column
