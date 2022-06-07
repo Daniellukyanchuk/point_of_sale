@@ -18,14 +18,14 @@
     <br><br>
 
     <h2><%= _('Products') %></h2><hr>
-
+    <div class="products d-block pb-5">
       <%= form.fields_for :purchase_products do |builder| %>
         <%= render 'purchase_product_fields', form: builder %>
       <% end %>      
 
-      <div class="pad-bottom"> 
-          <%= link_to_add_fields _("+ Add Product"), form, :purchase_products %>
-      </div>
+      
+      <%= link_to_add_fields _("+ Add Product"), form, :purchase_products %>
+    </div>
 
       <div class="field">
         <%= form.label :purchase_total %>

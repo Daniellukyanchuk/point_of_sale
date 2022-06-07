@@ -8,7 +8,7 @@ class Production < ApplicationRecord
 
 	def has_enough_inventory
 		if recipe_products.blank?
-			raise StandardError.new "Not enough Inventory"
+			redirect_to :back, notice: "Not enough ingredients in Inventory."
 		else	
 			#calculates amount of each ingredient needed for the production
 			recipe_products.each do |recipe|
@@ -23,12 +23,6 @@ class Production < ApplicationRecord
 			end
 		end	
     end
-
-	rescue_from Production::has_enough_inventory do |exception|
-		flash["warning"] = _("Not Enough Inventory to complete Production")
-			redirect_back(fallback_location: 'Production')
-	end
-
    
 	def adjust_inventory
 

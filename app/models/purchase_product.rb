@@ -1,6 +1,6 @@
 class PurchaseProduct < ApplicationRecord
     belongs_to :purchase
-    belongs_to :product
+    belongs_to :product, optional: true
     has_one :inventory
     after_validation :set_purchase_subtotal
     accepts_nested_attributes_for :product, allow_destroy: true

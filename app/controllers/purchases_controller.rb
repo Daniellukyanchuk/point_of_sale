@@ -1,6 +1,7 @@
 class PurchasesController < ApplicationController
   # before_action :set_purchase, only: %i[ show edit update destroy ]
   load_and_authorize_resource
+  before_action :find_products
   
   def get_product_info
     @purchase_product_data = PurchaseProduct.find(params[:id].to_i) 
@@ -21,22 +22,20 @@ class PurchasesController < ApplicationController
 
   # GET /purchases/new
   def new
-    find_products
+    
     @purchase = Purchase.new
     @purchase.purchase_products.new
     @purchase.purchase_products.each do |pp|
       pp.build_product
-    end
+    end    
   end
 
   # GET /purchases/1/edit
-  def edit
-    find_products
+  def edit    
   end
 
   # POST /purchases or /purchases.json
-  def create    
-
+  def create  
     @purchase = Purchase.new(purchase_params)
     
 
@@ -90,7 +89,13 @@ class PurchasesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def purchase_params
-    
+      
+      params["purchase"]["purchase_products_attributes"].each do |product|
+        if product[1]["product_id"] == "-1"
+           product[1]["product_id"] = nil
+        end
+      end
+     
       params.require(:purchase).permit(:supplier_id, :purchase_total, :date_ordered, :date_received, 
       purchase_products_attributes: [:id, :product_id, :purchase_quantity, :purchase_price, :purchase_subtotal, :_destroy, 
       product_attributes: [:product_name, :price, :unit, :grams_per_unit, 
