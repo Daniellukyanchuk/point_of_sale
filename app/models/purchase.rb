@@ -6,7 +6,9 @@ class Purchase < ApplicationRecord
 	before_save :set_actual_total
 	before_save :set_estimated_total
   before_save :create_suppliers
+  validates :supplier_id, presence: true
   attr_accessor :suppliers_name, :city, :country, :address, :phone_number
+
 
   def create_suppliers
     if supplier_id.nil?

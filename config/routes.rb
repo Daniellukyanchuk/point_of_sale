@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     resources :suppliers
     resources :my_models
     
-    get '/inventories/current_amount_left', to: 'inventories#get_product_amount_info'
+    get '/inventories/current_amount_left', to: 'inventories#get_product_amount_info', as: :current_amount_left
     resources :inventories
 
     get 'order_report/client_report', to:'order_report#client_report', as: :client_report

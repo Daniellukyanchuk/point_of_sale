@@ -29,17 +29,22 @@
     <p>
         <div class="field">
           <%= form.label _('Quantity') %>
-          <%= form.number_field :quantity, class: "form-control" %>
+          <%= form.number_field :quantity, class: "product_quantity form-control" %>
         </div>
 
         <div class="field">
           <%= form.label _('Sale price') %>
-          <%= form.number_field :sale_price, class: "sale-price-field form-control", :readonly => true %>
+          <%= form.number_field :sale_price, class: "sale-price-field product_price form-control", :readonly => true %>
+        </div>
+
+        <div class="field">
+            <%= form.label 'Discount' %>
+            <%= form.number_field :discount, class: "form-control product_discount" %>
         </div>
 
         <div class="field">
           <%= form.label _('Subtotal') %>
-          <%= form.number_field :subtotal, :readonly => true, class: "form-control" %>
+          <%= form.number_field :subtotal, :readonly => true, class: "product_subtotal form-control" %>
         </div>
 
         <div class="field">
@@ -49,31 +54,3 @@
     </p>
 <hr>
 </div>
-
-<script type="text/javascript">
-    $(document).ready(function() {
-        function updateSelectedAmount(){
-          $.ajax({ 
-            url: "/inventories/current_amount_left",
-            data: { id: $(this).val()  },
-            type: "GET",
-            success: function(data){
-                $('.current_amount_field').val(data['current_amount_left']);
-            }
-          });
-        }
-
-        $(document).on('change', '.product-picker', updateSelectedAmount);
-        $(".product-picker").each(updateSelectedAmount);
-    });
-</script>
-
-  
-
-
-    
-
-   
-
-
-  
