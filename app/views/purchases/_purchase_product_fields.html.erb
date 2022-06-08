@@ -27,9 +27,6 @@
         <div class="col-4">
             <%= product_attributes.label :grams_per_unit, "Grams per unit:" %>
             <%= product_attributes.text_field :grams_per_unit, class: "form-control" %>
-            <%= product_attributes.fields_for :category_products_attributes do |category_attributes|%>
-                <%= category_attributes.hidden_field '[0][product_category_id]', :value => 2 %>              
-            <% end %>
         </div>
         <% end %>
     </div>  
@@ -43,7 +40,7 @@
           <%= form.number_field :purchase_quantity, id: 'actual_quantity', class: 'act_qt form-control' %>
         </div>
         <div class="field">
-          <%= form.label _("Cost") %>
+          <%= form.label _("Cost per Unit") %>
           <%= form.number_field :purchase_price, id: 'actual_price', class: 'act_cost form-control form-control' %>
         </div>
         <div class="field">
@@ -66,7 +63,6 @@
 
 
 
-    
 
   
     

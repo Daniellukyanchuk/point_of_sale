@@ -3,10 +3,12 @@ class Purchase < ApplicationRecord
   has_many :product_reports
   has_many :products, through: :purchase_products
   belongs_to :supplier
+  validates :date_ordered, :date_received, presence: true
   accepts_nested_attributes_for :purchase_products, allow_destroy: true
   before_save :set_purchase_total
+  before_save :add_products
   before_validation :parse_dates
-  
+  attr_accessor :new_product_attributes
 
   def parse_dates
       if !date_ordered.blank?
@@ -32,6 +34,26 @@ class Purchase < ApplicationRecord
               self.purchase_total = self.purchase_total + sp.purchase_subtotal
             end           
       end 
+  end
+
+  def add_products
+    product_ids = []
+    new_product_attributes.each do |pp|    
+      purchase_prods = []
+      if pp[1]["product_id"] == "-1"
+         purchase_prods.push(pp[1])
+      end
+ 
+      purchase_prods.each do |p|
+        prod = Product.create(product_name: p["products"]["product_name"], price: p["products"]["price"], unit: p["products"]["unit"], grams_per_unit: p["products"]["grams_per_unit"])
+        CategoryProduct.create(product_category_id: 2, product_id: prod.id)
+        product_ids.push(prod.id)
+      end
+    end
+   
+    purchase_products.each_with_index do |pr, index|
+      pr.product_id = product_ids[index]
+    end
   end
 
 

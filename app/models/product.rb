@@ -41,6 +41,7 @@ class Product < ApplicationRecord
     return ActiveRecord::Base.connection.execute(sql)
   end
 
+
   def add_product_categories(params)
     
     product_ids = params["category_products_attributes"]["product_id"].values

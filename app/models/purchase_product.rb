@@ -3,6 +3,7 @@ class PurchaseProduct < ApplicationRecord
     belongs_to :product, optional: true
     has_one :inventory
     after_validation :set_purchase_subtotal
+    validates :purchase_quantity, :purchase_price, :product_id, presence: true
     accepts_nested_attributes_for :product, allow_destroy: true
     
    

@@ -33,27 +33,7 @@ end
         }
         format.html { render :index }
       end
-  end
-
-  def categorize_products
-    products = CategoryProduct.where("product_category_id = ? or product_category_id = ? or product_category_id = ?", 1, 2, 3)
-      raw_ingredient_ids = []
-      semi_finished_product_ids = []
-      finished_product_ids = []
-      products.each do |sort|
-        if sort.product_category_id == 1
-          finished_product_ids.push(sort.product_id)
-        elsif sort.product_category_id == 2
-          raw_ingredient_ids.push(sort.product_id)
-        elsif sort.product_category_id == 3
-          semi_finished_product_ids.push(sort.product_id)
-        end
-      end
-      @raw_ingredients = Product.find(raw_ingredient_ids).sort_by &:product_name
-      @semi_finished_products = Product.find(semi_finished_product_ids).sort_by &:product_name
-      @finished_products = Product.find(finished_product_ids).sort_by &:product_name
-  end
-  
+  end  
 
   # GET /products/1 or /products/1.json
   def show
@@ -106,6 +86,25 @@ end
       format.html { redirect_to products_url, notice: "Product was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def categorize_products
+    products = CategoryProduct.where("product_category_id = ? or product_category_id = ? or product_category_id = ?", 1, 2, 3)
+      raw_ingredient_ids = []
+      semi_finished_product_ids = []
+      finished_product_ids = []
+      products.each do |sort|
+        if sort.product_category_id == 1
+          finished_product_ids.push(sort.product_id)
+        elsif sort.product_category_id == 2
+          raw_ingredient_ids.push(sort.product_id)
+        elsif sort.product_category_id == 3
+          semi_finished_product_ids.push(sort.product_id)
+        end
+      end
+      @raw_ingredients = Product.find(raw_ingredient_ids).sort_by &:product_name
+      @semi_finished_products = Product.find(semi_finished_product_ids).sort_by &:product_name
+      @finished_products = Product.find(finished_product_ids).sort_by &:product_name
   end
 
   private

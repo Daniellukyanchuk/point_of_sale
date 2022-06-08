@@ -1,20 +1,22 @@
 class Production < ApplicationRecord
 	has_many :recipe_products
 	belongs_to :recipe
-	validate :recipe_id	
+	validates :recipe_id, presence: true
+	validate :production_quantity_true 	
 	validate :has_enough_inventory
 	after_create :adjust_inventory
 
 
+
 	def has_enough_inventory
 		if recipe_products.blank?
-			redirect_to :back, notice: "Not enough ingredients in Inventory."
+			redirect_to productions_path
+			flash.now[:alert] = "Not enough ingredients in Inventory to produce that amount!"
 		else	
 			#calculates amount of each ingredient needed for the production
 			recipe_products.each do |recipe|
 				amount_needed = recipe.amount * production_quantity
 			#calculates amount of each ingredient available in the inventory
-			stop	
 				amounts_available = Inventory.get_amounts_for(recipe.recipe_products.map{|recipe| recipe.product_id})
 				amount_available = amounts_available.select {|i| i["product_id"] == recipe.product_id }.first["amount_available_in_grams"]
 				if amount_needed > amount_available
@@ -23,9 +25,12 @@ class Production < ApplicationRecord
 			end
 		end	
     end
+
+	def production_quantity_true
+		
+	end
    
 	def adjust_inventory
-
 		recipe_products = RecipeProduct.where("recipe_id = ?", recipe_id)		
 
 		recipe_products.each do |ci|

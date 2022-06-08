@@ -3,6 +3,7 @@ class PurchasesController < ApplicationController
   load_and_authorize_resource
   before_action :find_products
   
+  
   def get_product_info
     @purchase_product_data = PurchaseProduct.find(params[:id].to_i) 
     render json: {qt: @purchase_product_data.purchase_quantity, cost: @purchase_product_data.purchase_price, product_name: @purchase_product_data.product.product_name, 
@@ -21,8 +22,7 @@ class PurchasesController < ApplicationController
   end
 
   # GET /purchases/new
-  def new
-    
+  def new    
     @purchase = Purchase.new
     @purchase.purchase_products.new
     @purchase.purchase_products.each do |pp|
@@ -90,17 +90,13 @@ class PurchasesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def purchase_params
       
-      params["purchase"]["purchase_products_attributes"].each do |product|
-        if product[1]["product_id"] == "-1"
-           product[1]["product_id"] = nil
-        end
-      end
-     
-      params.require(:purchase).permit(:supplier_id, :purchase_total, :date_ordered, :date_received, 
+      ps = params.require(:purchase).permit(:supplier_id, :purchase_total, :date_ordered, :date_received, 
       purchase_products_attributes: [:id, :product_id, :purchase_quantity, :purchase_price, :purchase_subtotal, :_destroy, 
-      product_attributes: [:product_name, :price, :unit, :grams_per_unit, 
-      category_products_attributes: [:id, :product_category_id, :product_id]]])
+      product_attributes: [:product_name, :price, :unit, :grams_per_unit]])
 
+      ps[:new_product_attributes] = params[:purchase][:purchase_products_attributes].as_json
+      
+      return ps
     end
 
     def sort_column
