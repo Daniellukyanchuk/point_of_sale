@@ -1,94 +1,121 @@
 <div class="marginRight">
-    <%= form_with(model: order, local: true) do |form| %>
-        <% if order.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
+  <%= form_with(model: order, local: true) do |form| %>
+    <% if order.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
 
-          <ul>
-          <% order.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-          </ul>
-        </div>
-      <% end %>
-      <div class="field">
-        <%= form.select(:client_id, [["+New Client", "-1"]] + Client.all.collect {|c| [c.name, c.id]}, {include_blank: "Select Client"}, {class: "select-client form-control"}) %>
-      </div>
-
-      <div class="AddNewClient field" style="display: none;">
-          <div class="field">
-              <%= form.label :name, "Client Name" %>
-              <%= form.text_field(:name, class: "form-control") %>
-          </div>
-          <div class="field">
-              <%= form.label :phone, "Phone" %>
-              <%= form.text_field :phone, class: "form-control" %>
-          </div>
-          <div class="field">
-              <%= form.label :address, "Address" %>
-              <%= form.text_field :address, class: "form-control" %>
-          </div>
-          <div class="field">
-              <%= form.label :city, "City" %>
-              <%= form.text_field :city, class: "form-control" %>
-          </div>
-          <div class="field">
-              <%= form.label :country, "Country" %>
-              <%= form.text_field :country, class: "form-control" %>
-          </div>
-      </div>
-
-      <hr>
-     
-      <%= form.fields_for :order_products do |builder| %>
-          <%= render 'order_product_fields', form: builder %>
-      <% end %>
-
-      <div class="mb-3">
-        <%= link_to_add_fields _("Add Product"), form, :order_products %>
-      </div>
-
-      <div class="field">
-        <%= form.label _('Grand total') %>
-        <%= form.text_field :grand_total, :readonly => true, :class => "form-control" %>
-      </div>
-
-      <div class="actions">
-        <%= form.submit "#{order.id.nil? ? "Create" : "Update"} Order", :class => 'text-light btn btn-primary' %>
+        <ul>
+        <% order.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
       </div>
     <% end %>
+    <div class="field">
+      <%= form.select(:client_id, [["+New Client", "-1"]] + Client.all.collect {|c| [c.name, c.id]}, {include_blank: "Select Client"}, {class: "select-client form-control"}) %>
+    </div>
 
-    <script type="text/javascript">
-        $(document).ready(function() {
-          function updateSelectedPrice(){
-            var jquery_prod_picker = $(this);
-            $.ajax({ 
-                url: "/products/price",
-                data: { id: $(this).val()  },
-                type: "GET",
-                success: function(data){
-                    jquery_prod_picker.parents(".nested-fields").find('.sale-price-field').val(data['price']);
-                }
-            });
-          }
+    <div class="AddNewClient field" style="display: none;">
+        <div class="field">
+            <%= form.label :name, "Client Name" %>
+            <%= form.text_field(:name, class: "form-control") %>
+        </div>
+        <div class="field">
+            <%= form.label :phone, "Phone" %>
+            <%= form.text_field :phone, class: "form-control" %>
+        </div>
+        <div class="field">
+            <%= form.label :address, "Address" %>
+            <%= form.text_field :address, class: "form-control" %>
+        </div>
+        <div class="field">
+            <%= form.label :city, "City" %>
+            <%= form.text_field :city, class: "form-control" %>
+        </div>
+        <div class="field">
+            <%= form.label :country, "Country" %>
+            <%= form.text_field :country, class: "form-control" %>
+        </div>
+    </div>
 
-          $(document).on('change', '.product-picker', updateSelectedPrice);
-          $(".product-picker").each(updateSelectedPrice);
-        });
-    </script>
+    <hr>
+    <%= form.fields_for :order_products do |builder| %>
+        <%= render 'order_product_fields', form: builder %>
+    <% end %>
 
-    <script>
-      $(document).on('change', '.select-client', function() {
-        var value = $(this).val() == "-1"
-        $(this).parents(".marginRight").find(".AddNewClient").toggle(value)
-      })
-    </script>
+    <div class="mb-3">
+      <%= link_to_add_fields _("Add Product"), form, :order_products %>
+    </div>
+
+    <div class="field">
+      <%= form.label 'Discount on order' %>
+      <%= form.number_field :order_discount, class: "form-control" %>
+    </div>
+
+    <div class="field">
+      <%= form.label _('Grand total') %>
+      <%= form.text_field :grand_total, :readonly => true, :class => "order_total form-control" %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit "#{order.id.nil? ? "Create" : "Update"} Order", :class => 'text-light btn btn-primary' %>
+    </div>
+  <% end %>
 </div>
 
+<script type="text/javascript">
+  $(document).ready(function() {
+    function updateSelectedPrice(){
+      var jquery_prod_picker = $(this);
+      $.ajax({ 
+          url: "/products/price",
+          data: { id: $(this).val()  },
+          type: "GET",
+          success: function(data){
+              jquery_prod_picker.parents(".nested-fields").find('.sale-price-field').val(data['price']);
+          }
+      });
+    }
+    $(document).on('change', '.product-picker', updateSelectedPrice);
+    $(".product-picker").each(updateSelectedPrice);
+  });
 
+  $(document).ready(function() {
+    function updateSelectedAmount(){
+        $.ajax({ 
+          url: "<%= current_amount_left_path %>",
+          data: { product_id: $(this).val()  },
+          type: "GET",
+          success: function(data){
+              $('.current_amount_field').val(data['current_amount_left']);
+          }
+        });
+      }
+      $(document).on('change', '.product-picker', updateSelectedAmount);
+      $(".product-picker").each(updateSelectedAmount);
+    })
 
+    $(document).on('change', '.select-client', function() {
+      var value = $(this).val() == "-1"
+      $(this).parents(".marginRight").find(".AddNewClient").toggle(value)
+    })
 
+    $(document).on('keyup', '.product_quantity, .product_price, .product_discount', function() {
+      var pQuantity = $(this).parents('.nested-fields').find('.product_quantity').val();
+      var pPrice = $(this).parents('.nested-fields').find('.product_price').val();
+      var pDiscount = $(this).parents('.nested-fields').find('.product_discount').val();
+      var quantityPlusPrice = pQuantity * pPrice;
+      var discountTosubstract = pQuantity * pDiscount;
+      var pSubtotal = quantityPlusPrice - discountTosubstract
 
-
-
-
+      $(this).parents('.nested-fields').find('.product_subtotal').val(pSubtotal).trigger('change');
+    })
+    /* When entered order_discount, burden order_products propotionally */
+    $(document).on('change', '.product_subtotal', function() {
+      var total = 0
+      $(this).parents('.marginRight').find('.product_subtotal').each(function() {
+        total += parseFloat($(this).val());
+      });
+      $(this).parents('.marginRight').find('.order_total').val(total).trigger('change')
+    })
+</script>

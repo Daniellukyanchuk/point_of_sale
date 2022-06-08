@@ -3,6 +3,7 @@ class Production < ApplicationRecord
   has_many :inventories
 	before_save :set_total
   before_save :set_current_amount_left
+  validates :product_amount, presence: true
     
   def self.search(search, recipe_select, start_date, end_date)
     where_statements = []

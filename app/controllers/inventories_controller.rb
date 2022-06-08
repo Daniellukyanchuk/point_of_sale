@@ -26,12 +26,11 @@ class InventoriesController < ApplicationController
   end
   
   def get_product_amount_info
-    
     # ActiveRecord::Base.connection.execute("select product_id, sum(current_amount_left) from inventories where product_id = #{params[:id].to_i}
     #                                        group by product_id")
 
-    inventory_product_amount = Inventory.where(product_id: params[:id]).sum(&:current_amount_left) 
-   
+    inventory_product_amount = Inventory.where(product_id: params[:product_id]).sum(&:current_amount_left) 
+
     render json: {current_amount_left: inventory_product_amount }
   end
 
@@ -94,6 +93,7 @@ class InventoriesController < ApplicationController
     end
     # Use callbacks to share common setup or constraints between actions.
     def set_inventory
+
       @inventory = Inventory.find(params[:id])
     end
 

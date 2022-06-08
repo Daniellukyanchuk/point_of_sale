@@ -5,6 +5,7 @@ class Product < ApplicationRecord
   has_many :inventories  
   has_many :purchase_products
   has_many :recipe_products
+  validates :product_name, :price, presence: true
 
   def self.search(search)
     if !search.blank?
