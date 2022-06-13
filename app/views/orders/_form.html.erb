@@ -49,7 +49,7 @@
 
     <div class="field">
       <%= form.label 'Discount on order' %>
-      <%= form.number_field :order_discount, class: "form-control" %>
+      <%= form.number_field :order_discount, class: "discount_on_order form-control" %>
     </div>
 
     <div class="field">
@@ -108,45 +108,36 @@
 
 
     function updateEverything() {
-   
-
       var grand_total = $('.order_total').val(); 
-
+      var discount_on_order = $('.discount_on_order').val()
       $('.nested-fields').each(function(index, el){
-
-        
         var order_prod_subtotal = $(this).find('.product_subtotal').val();
         var percentage_total = order_prod_subtotal / grand_total;
         $(this).find('.percentage_total').val(percentage_total)
-        // var order_product_sub = $(this).find('.product_quantity').val();
-        // total_subtotal += order_product_sub;
         
-
+        var discount_to_apply = percentage_total * discount_on_order
+        $(this).find('.discount_apply').val(discount_to_apply)
+        
+        var amount = $(this).find('.product_quantity').val()
+        var discount_per_unit = discount_to_apply / amount 
+        $(this).find('.discount_unit').val(discount_per_unit)
       });
-
-    
-      /* Loop through the .product_subtotal.val() */
-      // var pSubtotal = $(this).parents('.nested-fields').find('.product_subtotal').val();
-      // var pTotal = $(this).parents('.marginRight').find('.order_total').val();
-      // var percentage_total = pSubtotal / pTotal 
-      // $(this).parents('.nested-fields').find('.percentage_total').val(percentage_total);
     }
-    $(document).on('change','.product_subtotal, .order_total', updateEverything)
+    $(document).on('change','.product_subtotal, .order_total, .discount_on_order, .product_quantity, .discount_unit', updateEverything)
     
 
     function updateSelectedAmount(){
-        $.ajax({ 
-          url: "<%= current_amount_left_path %>",
-          data: { product_id: $(this).val()  },
-          type: "GET",
-          success: function(data){
-              $('.current_amount_field').val(data['current_amount_left']);
-          }
-        });
+      $.ajax({ 
+        url: "<%= current_amount_left_path %>",
+        data: { product_id: $(this).val()  },
+        type: "GET",
+        success: function(data){
+            $('.current_amount_field').val(data['current_amount_left']);
+        }
+      });
     }
     $(document).on('change', '.product-picker', updateSelectedAmount);
     $(".product-picker").each(updateSelectedAmount);
-
   });
 
   

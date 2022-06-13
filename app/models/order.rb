@@ -3,11 +3,21 @@ class Order < ApplicationRecord
   has_many :order_products, dependent: :delete_all 
   accepts_nested_attributes_for :order_products, allow_destroy: true
   belongs_to :client, optional: true  
+  before_save :set_grand_total
   before_save :create_clients
+  before_save :manage_discounts
   has_one_attached :cover_picture
   validates :client_id, presence: true
   attr_accessor :name, :phone, :address, :city, :country
 
+  def set_grand_total
+    self.grand_total = 0
+    order_prdoucts.each do |op|
+      op.set_subtotal 
+      self.grand_total = self.grand_total + op.subtotal
+    end
+  end
+  
   def create_clients
     if client_id.nil?
       new_client = Client.create(name: name, phone: phone, address: address, city: city, country: country)
@@ -19,6 +29,10 @@ class Order < ApplicationRecord
     order_products.each do |op|
       Inventory.add_inventory(op.product_id, op.quantity, op.sale_price)
     end
+  end
+
+  def manage_discounts
+
   end
   
   def self.search(search, client_select, start_date, end_date)

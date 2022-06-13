@@ -49,17 +49,17 @@
 
         <div class="field">
             <%= form.label 'Percentage of Total' %>
-            <%= form.text_field :percentage_of_total, class: "percentage_total form-control" %>
+            <%= form.text_field :percentage_of_total, max: 5, class: "percentage_total form-control" %>
         </div>
 
         <div class="field">
             <%= form.label 'Discount to Apply' %>
-            <%= form.number_field :discount_to_apply, class: "discount_apply form-control" %>
+            <%= form.text_field :discount_to_apply, class: "discount_apply form-control" %>
         </div>
 
         <div class="field">
             <%= form.label 'Discount per Unit' %>
-            <%= form.number_field :discount_per_unit, class: "discount_unit form-control" %>
+            <%= form.text_field :discount_per_unit, class: "discount_unit form-control" %>
         </div>
 
         <div class="field">

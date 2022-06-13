@@ -6,6 +6,10 @@ class OrderProduct < ApplicationRecord
   before_save :set_current_amount_left
   validate :has_enough_inventory
 
+  def set_subtotal
+    self.subtotal = quantity * sale_price
+  end
+
   # Here I am checking if there is enough inventory for the product.
   def has_enough_inventory
     # total_inv = 0
