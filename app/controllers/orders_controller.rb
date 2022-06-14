@@ -6,7 +6,6 @@ class OrdersController < ApplicationController
 
   # GET /orders or /orders.json
   def index
-
     params[:start_date] = 1.month.ago.strftime("%d-%m-%Y") if params[:start_date].blank?
     params[:end_date] = Date.today.strftime("%d-%m-%Y") if params[:end_date].blank?
     @orders = Order.search(params[:search], params[:client_select], params[:start_date], params[:end_date])
@@ -105,7 +104,7 @@ class OrdersController < ApplicationController
          params[:order][:client_id] = nil 
         end
 
-        params.require(:order).permit(:client_id, :name, :phone, :address, :city, :country, :cover_picture, :grand_total, order_products_attributes: [:id, :product_id, :order_id, :sale_price, :quantity, :subtotal, :_destroy] )    
+        params.require(:order).permit(:client_id, :name, :phone, :address, :city, :country, :cover_picture, :grand_total, :order_discount, order_products_attributes: [:id, :product_id, :order_id, :sale_price, :quantity, :subtotal, :percentage_of_total, :discount_to_apply, :discount_per_unit, :_destroy] )    
     end
 
     def start_date

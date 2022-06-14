@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2022_05_16_075050) do
-=======
-ActiveRecord::Schema.define(version: 2022_06_08_051316) do
->>>>>>> daniel
+ActiveRecord::Schema.define(version: 2022_06_10_041440) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,6 +68,9 @@ ActiveRecord::Schema.define(version: 2022_06_08_051316) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.decimal "discount"
+    t.decimal "percentage_of_total"
+    t.decimal "discount_to_apply"
+    t.decimal "discount_per_unit"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -197,6 +196,7 @@ ActiveRecord::Schema.define(version: 2022_06_08_051316) do
     t.datetime "remember_created_at"
     t.boolean "admin", default: false
     t.string "user_name"
+    t.string "stripe_customer_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

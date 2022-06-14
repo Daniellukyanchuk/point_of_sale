@@ -49,7 +49,7 @@
 
     <div class="field">
       <%= form.label 'Discount on order' %>
-      <%= form.number_field :order_discount, class: "form-control" %>
+      <%= form.number_field :order_discount, class: "discount_on_order form-control" %>
     </div>
 
     <div class="field">
@@ -65,6 +65,7 @@
 
 <script type="text/javascript">
   $(document).ready(function() {
+
     function updateSelectedPrice(){
       var jquery_prod_picker = $(this);
       $.ajax({ 
@@ -78,22 +79,7 @@
     }
     $(document).on('change', '.product-picker', updateSelectedPrice);
     $(".product-picker").each(updateSelectedPrice);
-  });
 
-  $(document).ready(function() {
-    function updateSelectedAmount(){
-        $.ajax({ 
-          url: "<%= current_amount_left_path %>",
-          data: { product_id: $(this).val()  },
-          type: "GET",
-          success: function(data){
-              $('.current_amount_field').val(data['current_amount_left']);
-          }
-        });
-      }
-      $(document).on('change', '.product-picker', updateSelectedAmount);
-      $(".product-picker").each(updateSelectedAmount);
-    })
 
     $(document).on('change', '.select-client', function() {
       var value = $(this).val() == "-1"
@@ -105,11 +91,12 @@
       var pPrice = $(this).parents('.nested-fields').find('.product_price').val();
       var pDiscount = $(this).parents('.nested-fields').find('.product_discount').val();
       var quantityPlusPrice = pQuantity * pPrice;
-      var discountTosubstract = pQuantity * pDiscount;
-      var pSubtotal = quantityPlusPrice - discountTosubstract
+      var discountTosubtract = pQuantity * pDiscount;
+      var pSubtotal = quantityPlusPrice - discountTosubtract
 
       $(this).parents('.nested-fields').find('.product_subtotal').val(pSubtotal).trigger('change');
     })
+      
     /* When entered order_discount, burden order_products propotionally */
     $(document).on('change', '.product_subtotal', function() {
       var total = 0
@@ -118,4 +105,40 @@
       });
       $(this).parents('.marginRight').find('.order_total').val(total).trigger('change')
     })
+
+
+    function updateEverything() {
+      var grand_total = $('.order_total').val(); 
+      var discount_on_order = $('.discount_on_order').val()
+      $('.nested-fields').each(function(index, el){
+        var order_prod_subtotal = $(this).find('.product_subtotal').val();
+        var percentage_total = order_prod_subtotal / grand_total;
+        $(this).find('.percentage_total').val(percentage_total)
+        
+        var discount_to_apply = percentage_total * discount_on_order
+        $(this).find('.discount_apply').val(discount_to_apply)
+        
+        var amount = $(this).find('.product_quantity').val()
+        var discount_per_unit = discount_to_apply / amount 
+        $(this).find('.discount_unit').val(discount_per_unit)
+      });
+    }
+    $(document).on('change','.product_subtotal, .order_total, .discount_on_order, .product_quantity, .discount_unit', updateEverything)
+    
+
+    function updateSelectedAmount(){
+      $.ajax({ 
+        url: "<%= current_amount_left_path %>",
+        data: { product_id: $(this).val()  },
+        type: "GET",
+        success: function(data){
+            $('.current_amount_field').val(data['current_amount_left']);
+        }
+      });
+    }
+    $(document).on('change', '.product-picker', updateSelectedAmount);
+    $(".product-picker").each(updateSelectedAmount);
+  });
+
+  
 </script>
