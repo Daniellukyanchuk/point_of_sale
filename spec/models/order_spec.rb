@@ -67,12 +67,12 @@ RSpec.describe Order, type: :model do
           OrderProduct.new(product_id: croissant.id, quantity: 4, sale_price: 100)
         ], order_discount: 20)
   
-    expect(order.order_products[0].percentage_of_total).to eq(0.38461538461538464)
-    expect(order.order_products[0].discount_to_apply).to eq(7.6923076923076925)
-    expect(order.order_products[0].discount_per_unit).to eq(1.5384615384615385)
+    expect(order.order_products[0].percentage_of_total.to_s).to eq("0.384615384615385")
+    expect(order.order_products[0].discount_to_apply.to_s).to eq("7.6923076923077")
+    expect(order.order_products[0].discount_per_unit.to_s).to eq("1.53846153846154")
 
-    expect(order.order_products[1].percentage_of_total).to eq(0.6153846153846154)
-    expect(order.order_products[1].discount_to_apply).to eq(12.307692307692308)
-    expect(order.order_products[1].discount_per_unit).to eq(3.076923076923077)
+    expect(order.order_products[1].percentage_of_total.to_s).to eq("0.615384615384615")
+    expect(order.order_products[1].discount_to_apply.to_s).to eq("12.3076923076923")
+    expect(order.order_products[1].discount_per_unit.to_s).to eq("3.076923076923075")
   end
 end

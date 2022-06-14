@@ -3,16 +3,15 @@ class Order < ApplicationRecord
   has_many :order_products, dependent: :delete_all 
   accepts_nested_attributes_for :order_products, allow_destroy: true
   belongs_to :client, optional: true  
-  before_save :set_grand_total
-  before_save :create_clients
-  before_save :manage_discounts
+  before_save :set_grand_total, :manage_discounts, :create_clients
   has_one_attached :cover_picture
   validates :client_id, presence: true
+
   attr_accessor :name, :phone, :address, :city, :country
 
   def set_grand_total
     self.grand_total = 0
-    order_prdoucts.each do |op|
+    order_products.each do |op|
       op.set_subtotal 
       self.grand_total = self.grand_total + op.subtotal
     end
@@ -32,7 +31,14 @@ class Order < ApplicationRecord
   end
 
   def manage_discounts
+    order_products.each do |op|
+      op.set_subtotal 
+      op.percentage_of_total = op.subtotal / grand_total
 
+      op.discount_to_apply = op.percentage_of_total * order_discount
+   
+      op.discount_per_unit = op.discount_to_apply / op.quantity
+    end
   end
   
   def self.search(search, client_select, start_date, end_date)

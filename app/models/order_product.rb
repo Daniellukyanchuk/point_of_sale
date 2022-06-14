@@ -10,8 +10,8 @@ class OrderProduct < ApplicationRecord
     self.subtotal = quantity * sale_price
   end
 
-  # Here I am checking if there is enough inventory for the product.
   def has_enough_inventory
+    # Here I am checking if there is enough inventory for the product.
     # total_inv = 0
     # Inventory.where("product_id = ? and current_amount_left > 0", self.product_id).each do |inv|
     #   total_inv = total_inv + inv.current_amount_left 
@@ -23,13 +23,11 @@ class OrderProduct < ApplicationRecord
     end
   end
   
-  def set_current_amount_left   
-    
+  def set_current_amount_left
     # amount_left_to_remove should always be the amount of inventory that we still have to remove
     # make a variable change_in_quantity and set it equal to self.quatity.
     change_in_quantity = self.quantity - (self.quantity_was || 0)
     # make a variable amount_left_to_remove and set it equal to change_in_quantity.
-    
     Inventory.remove_inventory(self.product_id, change_in_quantity)    
   end
 end

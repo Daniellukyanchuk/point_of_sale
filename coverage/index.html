@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2022-06-13T15:56:24+06:00">2022-06-13T15:56:24+06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2022-06-14T13:39:35+06:00">2022-06-14T13:39:35+06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -23,14 +23,14 @@
     <span class="group_name">All Files</span>
     (<span class="covered_percent">
       <span class="red">
-  66.12%
+  68.62%
 </span>
 
      </span>
      covered at
      <span class="covered_strength">
        <span class="red">
-         0.77
+         0.81
        </span>
     </span> hits/line
     )
@@ -43,11 +43,11 @@
   </div>
 
   <div class="t-line-summary">
-    <b>363</b> relevant lines,
-    <span class="green"><b>240</b> lines covered</span> and
-    <span class="red"><b>123</b> lines missed. </span>
+    <b>376</b> relevant lines,
+    <span class="green"><b>258</b> lines covered</span> and
+    <span class="red"><b>118</b> lines missed. </span>
     (<span class="red">
-  66.12%
+  68.62%
 </span>
 )
   </div>
@@ -270,23 +270,23 @@
         
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#8b0ad96dbb91bd0fcced94b3b3cccef9799a281b" class="src_link" title="app/models/order.rb">app/models/order.rb</a></td>
-            <td class="red strong cell--number t-file__coverage">23.81 %</td>
-            <td class="cell--number">171</td>
-            <td class="cell--number">63</td>
-            <td class="cell--number">15</td>
+            <td class="red strong cell--number t-file__coverage">35.14 %</td>
+            <td class="cell--number">191</td>
+            <td class="cell--number">74</td>
+            <td class="cell--number">26</td>
             <td class="cell--number">48</td>
-            <td class="cell--number">0.24</td>
+            <td class="cell--number">0.43</td>
             
           </tr>
         
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#a17445b036d1435716ef6e4afda7171de95c2e11" class="src_link" title="app/models/order_product.rb">app/models/order_product.rb</a></td>
-            <td class="green strong cell--number t-file__coverage">92.86 %</td>
-            <td class="cell--number">47</td>
-            <td class="cell--number">14</td>
-            <td class="cell--number">13</td>
+            <td class="green strong cell--number t-file__coverage">93.75 %</td>
+            <td class="cell--number">49</td>
+            <td class="cell--number">16</td>
+            <td class="cell--number">15</td>
             <td class="cell--number">1</td>
-            <td class="cell--number">1.21</td>
+            <td class="cell--number">1.38</td>
             
           </tr>
         
@@ -600,12 +600,12 @@
         
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#e7d4ca3dd65d1a9a8157ee5acf285358d00dc496" class="src_link" title="spec/models/order_spec.rb">spec/models/order_spec.rb</a></td>
-            <td class="red strong cell--number t-file__coverage">66.67 %</td>
+            <td class="green strong cell--number t-file__coverage">100.00 %</td>
             <td class="cell--number">78</td>
             <td class="cell--number">15</td>
-            <td class="cell--number">10</td>
-            <td class="cell--number">5</td>
-            <td class="cell--number">0.67</td>
+            <td class="cell--number">15</td>
+            <td class="cell--number">0</td>
+            <td class="cell--number">1.00</td>
             
           </tr>
         
@@ -2795,7 +2795,7 @@
     <h3>app/models/order.rb</h3>
     <h4>
       <span class="red">
-  23.81%
+  35.14%
 </span>
 
       lines covered
@@ -2804,8 +2804,8 @@
     
 
     <div class="t-line-summary">
-      <b>63</b> relevant lines.
-      <span class="green"><b>15</b> lines covered</span> and
+      <b>74</b> relevant lines.
+      <span class="green"><b>26</b> lines covered</span> and
       <span class="red"><b>48</b> lines missed.</span>
     </div>
 
@@ -2878,7 +2878,7 @@
 
             
 
-            <code class="ruby">  before_save :create_clients</code>
+            <code class="ruby">  before_save :set_grand_total, :manage_discounts, :create_clients</code>
           </li>
         </div>
       
@@ -2905,18 +2905,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="9">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">  attr_accessor :name, :phone, :address, :city, :country</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="10">
+          <li class="never" data-hits="" data-linenumber="9">
             
             
 
@@ -2927,13 +2916,24 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="11">
+          <li class="covered" data-hits="1" data-linenumber="10">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">  def create_clients</code>
+            <code class="ruby">  attr_accessor :name, :phone, :address, :city, :country</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="11">
+            
+            
+
+            
+
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -2944,51 +2944,51 @@
 
             
 
-            <code class="ruby">    if client_id.nil?</code>
+            <code class="ruby">  def set_grand_total</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="13">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="13">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">      new_client = Client.create(name: name, phone: phone, address: address, city: city, country: country)</code>
+            
+
+            <code class="ruby">    self.grand_total = 0</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="14">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="14">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">      self.client_id = new_client.id</code>
+            
+
+            <code class="ruby">    order_products.each do |op|</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="15">
-            
-            
-
+          <li class="covered" data-hits="2" data-linenumber="15">
+            <span class="hits">2</span>
             
 
-            <code class="ruby">    end</code>
+            
+
+            <code class="ruby">      op.set_subtotal </code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="16">
-            
-            
-
+          <li class="covered" data-hits="2" data-linenumber="16">
+            <span class="hits">2</span>
             
 
-            <code class="ruby">  end</code>
+            
+
+            <code class="ruby">      self.grand_total = self.grand_total + op.subtotal</code>
           </li>
         </div>
       
@@ -2999,56 +2999,12 @@
 
             
 
-            <code class="ruby">      </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="18">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">  def put_back_inventory_item</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="19">
-            
-            
-
-            
-
-            <code class="ruby">    order_products.each do |op|</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="20">
-            
-            
-
-            
-
-            <code class="ruby">      Inventory.add_inventory(op.product_id, op.quantity, op.sale_price)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="21">
-            
-            
-
-            
-
             <code class="ruby">    end</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="22">
+          <li class="never" data-hits="" data-linenumber="18">
             
             
 
@@ -3059,7 +3015,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="23">
+          <li class="never" data-hits="" data-linenumber="19">
             
             
 
@@ -3070,57 +3026,101 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="24">
+          <li class="covered" data-hits="1" data-linenumber="20">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">  def self.search(search, client_select, start_date, end_date)</code>
+            <code class="ruby">  def create_clients</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="25">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="21">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">    where_statements = []</code>
+            
+
+            <code class="ruby">    if client_id.nil?</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="26">
+          <li class="missed" data-hits="0" data-linenumber="22">
             
             
 
             
 
-            <code class="ruby">    if !search.blank?</code>
+            <code class="ruby">      new_client = Client.create(name: name, phone: phone, address: address, city: city, country: country)</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="27">
+          <li class="missed" data-hits="0" data-linenumber="23">
             
             
 
             
 
-            <code class="ruby">      tmp = &quot;(clients.name ILIKE &#39;%#{search}%&#39; </code>
+            <code class="ruby">      self.client_id = new_client.id</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="28">
+          <li class="never" data-hits="" data-linenumber="24">
             
             
 
             
 
-            <code class="ruby">             OR clients.id = #{search.to_i})&quot;</code>
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="25">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="26">
+            
+            
+
+            
+
+            <code class="ruby">      </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="27">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  def put_back_inventory_item</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="28">
+            
+            
+
+            
+
+            <code class="ruby">    order_products.each do |op|</code>
           </li>
         </div>
       
@@ -3131,7 +3131,7 @@
 
             
 
-            <code class="ruby">      where_statements.push(tmp)</code>
+            <code class="ruby">      Inventory.add_inventory(op.product_id, op.quantity, op.sale_price)</code>
           </li>
         </div>
       
@@ -3153,84 +3153,84 @@
 
             
 
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="32">
+            
+            
+
+            
+
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="32">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="33">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">    if !client_select.blank?</code>
+            
+
+            <code class="ruby">  def manage_discounts</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="33">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="34">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">      ids = []</code>
+            
+
+            <code class="ruby">    order_products.each do |op|</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="34">
-            
-            
-
+          <li class="covered" data-hits="2" data-linenumber="35">
+            <span class="hits">2</span>
             
 
-            <code class="ruby">      client_select.each do |cs|</code>
+            
+
+            <code class="ruby">      op.set_subtotal </code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="35">
-            
-            
-
+          <li class="covered" data-hits="2" data-linenumber="36">
+            <span class="hits">2</span>
             
 
-            <code class="ruby">        ids.push(cs.to_i)</code>
+            
+
+            <code class="ruby">      op.percentage_of_total = op.subtotal / grand_total</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="36">
+          <li class="never" data-hits="" data-linenumber="37">
             
             
 
             
 
-            <code class="ruby">      end</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="37">
-            
-            
-
-            
-
-            <code class="ruby">      tmp = &quot;clients.id in (#{SqlHelper.escape_sql_param(ids)})&quot;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="38">
-            
+          <li class="covered" data-hits="2" data-linenumber="38">
+            <span class="hits">2</span>
             
 
             
 
-            <code class="ruby">      where_statements.push(tmp)</code>
+            <code class="ruby">      op.discount_to_apply = op.percentage_of_total * order_discount</code>
           </li>
         </div>
       
@@ -3241,45 +3241,23 @@
 
             
 
-            <code class="ruby">    end </code>
+            <code class="ruby">   </code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="40">
-            
-            
-
+          <li class="covered" data-hits="2" data-linenumber="40">
+            <span class="hits">2</span>
             
 
-            <code class="ruby"></code>
+            
+
+            <code class="ruby">      op.discount_per_unit = op.discount_to_apply / op.quantity</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="41">
-            
-            
-
-            
-
-            <code class="ruby">    if !start_date.blank? &amp;&amp; !end_date.blank?</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="42">
-            
-            
-
-            
-
-            <code class="ruby">      where_statements.push(&quot;(CAST(orders.created_at AS DATE) &gt;= #{SqlHelper.escape_sql_param(start_date.to_date)} AND CAST(orders.created_at AS DATE) &lt;= #{SqlHelper.escape_sql_param(end_date.to_date)})&quot;)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="43">
+          <li class="never" data-hits="" data-linenumber="41">
             
             
 
@@ -3290,40 +3268,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="44">
-            
-            
-
-            
-
-            <code class="ruby">    </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="45">
-            
-            
-
-            
-
-            <code class="ruby">    where_clause = where_statements.join(&quot; AND &quot;)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="46">
-            
-            
-
-            
-
-            <code class="ruby">    return Order.includes(:client).where(where_clause)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="47">
+          <li class="never" data-hits="" data-linenumber="42">
             
             
 
@@ -3334,51 +3279,84 @@
         </div>
       
         <div>
+          <li class="never" data-hits="" data-linenumber="43">
+            
+            
+
+            
+
+            <code class="ruby">  </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="44">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  def self.search(search, client_select, start_date, end_date)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="45">
+            
+            
+
+            
+
+            <code class="ruby">    where_statements = []</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="46">
+            
+            
+
+            
+
+            <code class="ruby">    if !search.blank?</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="47">
+            
+            
+
+            
+
+            <code class="ruby">      tmp = &quot;(clients.name ILIKE &#39;%#{search}%&#39; </code>
+          </li>
+        </div>
+      
+        <div>
           <li class="never" data-hits="" data-linenumber="48">
             
             
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">             OR clients.id = #{search.to_i})&quot;</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="49">
-            <span class="hits">1</span>
+          <li class="missed" data-hits="0" data-linenumber="49">
+            
             
 
             
 
-            <code class="ruby">  def self.client_report(search_text, client_ids, sortable, sort_direction)       </code>
+            <code class="ruby">      where_statements.push(tmp)</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="50">
-            
-            
-
-            
-
-            <code class="ruby">    if ![&quot;client_id&quot;, &quot;clients_name&quot;, &quot;total_money_spent&quot;, &quot;number_of_orders&quot;].include?(sortable)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="51">
-            
-            
-
-            
-
-            <code class="ruby">      sortable = &quot;client_id&quot;  </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="52">
+          <li class="never" data-hits="" data-linenumber="50">
             
             
 
@@ -3389,13 +3367,35 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="53">
+          <li class="never" data-hits="" data-linenumber="51">
             
             
 
             
 
             <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="52">
+            
+            
+
+            
+
+            <code class="ruby">    if !client_select.blank?</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="53">
+            
+            
+
+            
+
+            <code class="ruby">      ids = []</code>
           </li>
         </div>
       
@@ -3406,18 +3406,18 @@
 
             
 
-            <code class="ruby">    if sort_direction == &quot;desc&quot;</code>
+            <code class="ruby">      client_select.each do |cs|</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="55">
+          <li class="missed" data-hits="0" data-linenumber="55">
             
             
 
             
 
-            <code class="ruby">      &quot;desc&quot;       </code>
+            <code class="ruby">        ids.push(cs.to_i)</code>
           </li>
         </div>
       
@@ -3428,7 +3428,7 @@
 
             
 
-            <code class="ruby">    else</code>
+            <code class="ruby">      end</code>
           </li>
         </div>
       
@@ -3439,18 +3439,18 @@
 
             
 
-            <code class="ruby">      sort_direction = &quot;asc&quot;</code>
+            <code class="ruby">      tmp = &quot;clients.id in (#{SqlHelper.escape_sql_param(ids)})&quot;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="58">
+          <li class="missed" data-hits="0" data-linenumber="58">
             
             
 
             
 
-            <code class="ruby">    end</code>
+            <code class="ruby">      where_statements.push(tmp)</code>
           </li>
         </div>
       
@@ -3461,89 +3461,12 @@
 
             
 
-            <code class="ruby">    </code>
+            <code class="ruby">    end </code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="60">
-            
-            
-
-            
-
-            <code class="ruby">    search_text_where = &quot;clients_name ILIKE &#39;%#{search_text}%&#39; </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="61">
-            
-            
-
-            
-
-            <code class="ruby">                         OR total_money_spent = #{search_text.to_d} </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="62">
-            
-            
-
-            
-
-            <code class="ruby">                         OR client_id = #{search_text.to_i} </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="63">
-            
-            
-
-            
-
-            <code class="ruby">                         OR number_of_orders = #{search_text.to_i}&quot;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="64">
-            
-            
-
-            
-
-            <code class="ruby">    if search_text.blank?</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="65">
-            
-            
-
-            
-
-            <code class="ruby">      search_text_where = &quot;&quot;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="66">
-            
-            
-
-            
-
-            <code class="ruby">    end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="67">
+          <li class="never" data-hits="" data-linenumber="60">
             
             
 
@@ -3554,35 +3477,112 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="68">
+          <li class="missed" data-hits="0" data-linenumber="61">
             
             
 
             
 
-            <code class="ruby">    if client_ids.blank? || client_ids == [&quot;&quot;]</code>
+            <code class="ruby">    if !start_date.blank? &amp;&amp; !end_date.blank?</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="69">
+          <li class="missed" data-hits="0" data-linenumber="62">
             
             
 
             
 
-            <code class="ruby">      client_id_where = &quot;&quot;</code>
+            <code class="ruby">      where_statements.push(&quot;(CAST(orders.created_at AS DATE) &gt;= #{SqlHelper.escape_sql_param(start_date.to_date)} AND CAST(orders.created_at AS DATE) &lt;= #{SqlHelper.escape_sql_param(end_date.to_date)})&quot;)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="70">
+          <li class="never" data-hits="" data-linenumber="63">
             
             
 
             
 
-            <code class="ruby">    else</code>
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="64">
+            
+            
+
+            
+
+            <code class="ruby">    </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="65">
+            
+            
+
+            
+
+            <code class="ruby">    where_clause = where_statements.join(&quot; AND &quot;)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="66">
+            
+            
+
+            
+
+            <code class="ruby">    return Order.includes(:client).where(where_clause)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="67">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="68">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="69">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  def self.client_report(search_text, client_ids, sortable, sort_direction)       </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="70">
+            
+            
+
+            
+
+            <code class="ruby">    if ![&quot;client_id&quot;, &quot;clients_name&quot;, &quot;total_money_spent&quot;, &quot;number_of_orders&quot;].include?(sortable)</code>
           </li>
         </div>
       
@@ -3593,7 +3593,7 @@
 
             
 
-            <code class="ruby">      client_id_where = &quot;client_id IN (#{client_ids.join(&quot;, &quot;)})&quot;</code>
+            <code class="ruby">      sortable = &quot;client_id&quot;  </code>
           </li>
         </div>
       
@@ -3626,7 +3626,7 @@
 
             
 
-            <code class="ruby">    where_clause = WhereBuilder.build([client_id_where, search_text_where])</code>
+            <code class="ruby">    if sort_direction == &quot;desc&quot;</code>
           </li>
         </div>
       
@@ -3637,276 +3637,12 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">      &quot;desc&quot;       </code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="76">
-            
-            
-
-            
-
-            <code class="ruby">    sql = &quot;&quot;&quot;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="77">
-            
-            
-
-            
-
-            <code class="ruby">        SELECT *</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="78">
-            
-            
-
-            
-
-            <code class="ruby">        FROM (</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="79">
-            
-            
-
-            
-
-            <code class="ruby">          SELECT DISTINCT(client_id), clients.name AS clients_name,</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="80">
-            
-            
-
-            
-
-            <code class="ruby">          SUM(grand_total) AS total_money_spent,</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="81">
-            
-            
-
-            
-
-            <code class="ruby">          COUNT(orders.id) AS number_of_orders </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="82">
-            
-            
-
-            
-
-            <code class="ruby">          FROM orders           </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="83">
-            
-            
-
-            
-
-            <code class="ruby">          JOIN clients ON orders.client_id=clients.id</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="84">
-            
-            
-
-            
-
-            <code class="ruby">          GROUP BY client_id, clients.name     </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="85">
-            
-            
-
-            
-
-            <code class="ruby">        ) report</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="86">
-            
-            
-
-            
-
-            <code class="ruby">        #{where_clause} </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="87">
-            
-            
-
-            
-
-            <code class="ruby">        ORDER BY #{sortable} #{sort_direction}</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="88">
-            
-            
-
-            
-
-            <code class="ruby">      &quot;&quot;&quot;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="89">
-            
-            
-
-            
-
-            <code class="ruby">    result = ActiveRecord::Base.connection.execute(sql)      </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="90">
-            
-            
-
-            
-
-            <code class="ruby">  end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="91">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="92">
-            
-            
-
-            
-
-            <code class="ruby">    # sortable must be a column in this report</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="93">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">  def self.product_report(search_text, product_ids, start_date, end_date, sortable, sort_direction)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="94">
-            
-            
-
-            
-
-            <code class="ruby">    if ![&quot;product_id&quot;, &quot;product_name&quot;, &quot;price&quot;, &quot;amount_sold&quot;, &quot;amount_made&quot;, &quot;average_unit_price&quot;, &quot;weighted_average_sale_price&quot;].include?(sortable)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="95">
-            
-            
-
-            
-
-            <code class="ruby">      sortable = &quot;product_name&quot;  </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="96">
-            
-            
-
-            
-
-            <code class="ruby">    end      </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="97">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="98">
-            
-            
-
-            
-
-            <code class="ruby">    if sort_direction  == &quot;desc&quot;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="99">
-            
-            
-
-            
-
-            <code class="ruby">      &quot;desc&quot;      </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="100">
+          <li class="never" data-hits="" data-linenumber="76">
             
             
 
@@ -3917,7 +3653,7 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="101">
+          <li class="missed" data-hits="0" data-linenumber="77">
             
             
 
@@ -3928,7 +3664,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="102">
+          <li class="never" data-hits="" data-linenumber="78">
             
             
 
@@ -3939,73 +3675,7 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="103">
-            
-            
-
-            
-
-            <code class="ruby">    search_text_where = &quot; (product_name ILIKE &#39;%#{search_text}%&#39; </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="104">
-            
-            
-
-            
-
-            <code class="ruby">                           OR price = #{search_text.to_d} </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="105">
-            
-            
-
-            
-
-            <code class="ruby">                           OR amount_sold = #{search_text.to_d} </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="106">
-            
-            
-
-            
-
-            <code class="ruby">                           OR amount_made = #{search_text.to_d} </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="107">
-            
-            
-
-            
-
-            <code class="ruby">                           OR average_unit_price = #{search_text.to_d} </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="108">
-            
-            
-
-            
-
-            <code class="ruby">                           OR product_id = #{search_text.to_i} )&quot;     </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="109">
+          <li class="never" data-hits="" data-linenumber="79">
             
             
 
@@ -4016,7 +3686,51 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="110">
+          <li class="missed" data-hits="0" data-linenumber="80">
+            
+            
+
+            
+
+            <code class="ruby">    search_text_where = &quot;clients_name ILIKE &#39;%#{search_text}%&#39; </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="81">
+            
+            
+
+            
+
+            <code class="ruby">                         OR total_money_spent = #{search_text.to_d} </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="82">
+            
+            
+
+            
+
+            <code class="ruby">                         OR client_id = #{search_text.to_i} </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="83">
+            
+            
+
+            
+
+            <code class="ruby">                         OR number_of_orders = #{search_text.to_i}&quot;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="84">
             
             
 
@@ -4027,7 +3741,7 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="111">
+          <li class="missed" data-hits="0" data-linenumber="85">
             
             
 
@@ -4038,7 +3752,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="112">
+          <li class="never" data-hits="" data-linenumber="86">
             
             
 
@@ -4049,13 +3763,299 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="113">
+          <li class="never" data-hits="" data-linenumber="87">
             
             
 
             
 
             <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="88">
+            
+            
+
+            
+
+            <code class="ruby">    if client_ids.blank? || client_ids == [&quot;&quot;]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="89">
+            
+            
+
+            
+
+            <code class="ruby">      client_id_where = &quot;&quot;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="90">
+            
+            
+
+            
+
+            <code class="ruby">    else</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="91">
+            
+            
+
+            
+
+            <code class="ruby">      client_id_where = &quot;client_id IN (#{client_ids.join(&quot;, &quot;)})&quot;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="92">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="93">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="94">
+            
+            
+
+            
+
+            <code class="ruby">    where_clause = WhereBuilder.build([client_id_where, search_text_where])</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="95">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="96">
+            
+            
+
+            
+
+            <code class="ruby">    sql = &quot;&quot;&quot;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="97">
+            
+            
+
+            
+
+            <code class="ruby">        SELECT *</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="98">
+            
+            
+
+            
+
+            <code class="ruby">        FROM (</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="99">
+            
+            
+
+            
+
+            <code class="ruby">          SELECT DISTINCT(client_id), clients.name AS clients_name,</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="100">
+            
+            
+
+            
+
+            <code class="ruby">          SUM(grand_total) AS total_money_spent,</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="101">
+            
+            
+
+            
+
+            <code class="ruby">          COUNT(orders.id) AS number_of_orders </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="102">
+            
+            
+
+            
+
+            <code class="ruby">          FROM orders           </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="103">
+            
+            
+
+            
+
+            <code class="ruby">          JOIN clients ON orders.client_id=clients.id</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="104">
+            
+            
+
+            
+
+            <code class="ruby">          GROUP BY client_id, clients.name     </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="105">
+            
+            
+
+            
+
+            <code class="ruby">        ) report</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="106">
+            
+            
+
+            
+
+            <code class="ruby">        #{where_clause} </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="107">
+            
+            
+
+            
+
+            <code class="ruby">        ORDER BY #{sortable} #{sort_direction}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="108">
+            
+            
+
+            
+
+            <code class="ruby">      &quot;&quot;&quot;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="109">
+            
+            
+
+            
+
+            <code class="ruby">    result = ActiveRecord::Base.connection.execute(sql)      </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="110">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="111">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="112">
+            
+            
+
+            
+
+            <code class="ruby">    # sortable must be a column in this report</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="113">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  def self.product_report(search_text, product_ids, start_date, end_date, sortable, sort_direction)</code>
           </li>
         </div>
       
@@ -4066,7 +4066,7 @@
 
             
 
-            <code class="ruby">    if product_ids.blank? || product_ids == [&quot;&quot;]</code>
+            <code class="ruby">    if ![&quot;product_id&quot;, &quot;product_name&quot;, &quot;price&quot;, &quot;amount_sold&quot;, &quot;amount_made&quot;, &quot;average_unit_price&quot;, &quot;weighted_average_sale_price&quot;].include?(sortable)</code>
           </li>
         </div>
       
@@ -4077,7 +4077,7 @@
 
             
 
-            <code class="ruby">      product_id_where = &quot;&quot;</code>
+            <code class="ruby">      sortable = &quot;product_name&quot;  </code>
           </li>
         </div>
       
@@ -4088,122 +4088,12 @@
 
             
 
-            <code class="ruby">    else</code>
+            <code class="ruby">    end      </code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="117">
-            
-            
-
-            
-
-            <code class="ruby">      product_id_where = &quot;(product_id IN (#{product_ids.join(&quot;, &quot;)}) )&quot;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="118">
-            
-            
-
-            
-
-            <code class="ruby">    end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="119">
-            
-            
-
-            
-
-            <code class="ruby">    </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="120">
-            
-            
-
-            
-
-            <code class="ruby">    date_filter_where = &quot;WHERE created_at &gt;= cast(now() as date) - interval &#39;30&#39; day&quot;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="121">
-            
-            
-
-            
-
-            <code class="ruby">    if start_date.blank? || end_date.blank?</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="122">
-            
-            
-
-            
-
-            <code class="ruby">      date_filter_where = &quot;WHERE created_at &gt;= cast(now() as date) - interval &#39;30&#39; day&quot; </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="123">
-            
-            
-
-            
-
-            <code class="ruby">    else</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="124">
-            
-            
-
-            
-
-            <code class="ruby">      date_filter_where = &quot;WHERE CAST(created_at AS DATE) &gt;= #{SqlHelper.escape_sql_param(start_date.to_date)} </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="125">
-            
-            
-
-            
-
-            <code class="ruby">                           AND CAST(created_at AS DATE) &lt;= #{SqlHelper.escape_sql_param(end_date.to_date)}&quot;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="126">
-            
-            
-
-            
-
-            <code class="ruby">    end  </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="127">
+          <li class="never" data-hits="" data-linenumber="117">
             
             
 
@@ -4214,13 +4104,123 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="128">
+          <li class="missed" data-hits="0" data-linenumber="118">
             
             
 
             
 
-            <code class="ruby">    where_clause = WhereBuilder.build([product_id_where, search_text_where])</code>
+            <code class="ruby">    if sort_direction  == &quot;desc&quot;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="119">
+            
+            
+
+            
+
+            <code class="ruby">      &quot;desc&quot;      </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="120">
+            
+            
+
+            
+
+            <code class="ruby">    else</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="121">
+            
+            
+
+            
+
+            <code class="ruby">      sort_direction = &quot;asc&quot;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="122">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="123">
+            
+            
+
+            
+
+            <code class="ruby">    search_text_where = &quot; (product_name ILIKE &#39;%#{search_text}%&#39; </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="124">
+            
+            
+
+            
+
+            <code class="ruby">                           OR price = #{search_text.to_d} </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="125">
+            
+            
+
+            
+
+            <code class="ruby">                           OR amount_sold = #{search_text.to_d} </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="126">
+            
+            
+
+            
+
+            <code class="ruby">                           OR amount_made = #{search_text.to_d} </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="127">
+            
+            
+
+            
+
+            <code class="ruby">                           OR average_unit_price = #{search_text.to_d} </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="128">
+            
+            
+
+            
+
+            <code class="ruby">                           OR product_id = #{search_text.to_i} )&quot;     </code>
           </li>
         </div>
       
@@ -4236,13 +4236,13 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="130">
+          <li class="missed" data-hits="0" data-linenumber="130">
             
             
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">    if search_text.blank?</code>
           </li>
         </div>
       
@@ -4253,7 +4253,7 @@
 
             
 
-            <code class="ruby">    sql = &quot;&quot;&quot;</code>
+            <code class="ruby">      search_text_where = &quot;&quot;</code>
           </li>
         </div>
       
@@ -4264,7 +4264,7 @@
 
             
 
-            <code class="ruby">          SELECT *</code>
+            <code class="ruby">    end</code>
           </li>
         </div>
       
@@ -4275,29 +4275,29 @@
 
             
 
-            <code class="ruby">          FROM (</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="134">
+          <li class="missed" data-hits="0" data-linenumber="134">
             
             
 
             
 
-            <code class="ruby">                SELECT </code>
+            <code class="ruby">    if product_ids.blank? || product_ids == [&quot;&quot;]</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="135">
+          <li class="missed" data-hits="0" data-linenumber="135">
             
             
 
             
 
-            <code class="ruby">                     sale_prices.product_id,</code>
+            <code class="ruby">      product_id_where = &quot;&quot;</code>
           </li>
         </div>
       
@@ -4308,18 +4308,18 @@
 
             
 
-            <code class="ruby">                     products.product_name,</code>
+            <code class="ruby">    else</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="137">
+          <li class="missed" data-hits="0" data-linenumber="137">
             
             
 
             
 
-            <code class="ruby">                     products.price,</code>
+            <code class="ruby">      product_id_where = &quot;(product_id IN (#{product_ids.join(&quot;, &quot;)}) )&quot;</code>
           </li>
         </div>
       
@@ -4330,7 +4330,7 @@
 
             
 
-            <code class="ruby">                     sale_prices.amount_sold,</code>
+            <code class="ruby">    end</code>
           </li>
         </div>
       
@@ -4341,40 +4341,40 @@
 
             
 
-            <code class="ruby">                     sale_prices.amount_made,</code>
+            <code class="ruby">    </code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="140">
+          <li class="missed" data-hits="0" data-linenumber="140">
             
             
 
             
 
-            <code class="ruby">                     sale_prices.average_unit_price,</code>
+            <code class="ruby">    date_filter_where = &quot;WHERE created_at &gt;= cast(now() as date) - interval &#39;30&#39; day&quot;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="141">
+          <li class="missed" data-hits="0" data-linenumber="141">
             
             
 
             
 
-            <code class="ruby">                     sale_prices.weighted_average_sale_price,</code>
+            <code class="ruby">    if start_date.blank? || end_date.blank?</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="142">
+          <li class="missed" data-hits="0" data-linenumber="142">
             
             
 
             
 
-            <code class="ruby">                     weighted_average_sale.weighted_average</code>
+            <code class="ruby">      date_filter_where = &quot;WHERE created_at &gt;= cast(now() as date) - interval &#39;30&#39; day&quot; </code>
           </li>
         </div>
       
@@ -4385,18 +4385,18 @@
 
             
 
-            <code class="ruby">                FROM products</code>
+            <code class="ruby">    else</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="144">
+          <li class="missed" data-hits="0" data-linenumber="144">
             
             
 
             
 
-            <code class="ruby">                INNER JOIN </code>
+            <code class="ruby">      date_filter_where = &quot;WHERE CAST(created_at AS DATE) &gt;= #{SqlHelper.escape_sql_param(start_date.to_date)} </code>
           </li>
         </div>
       
@@ -4407,7 +4407,7 @@
 
             
 
-            <code class="ruby">                          (</code>
+            <code class="ruby">                           AND CAST(created_at AS DATE) &lt;= #{SqlHelper.escape_sql_param(end_date.to_date)}&quot;</code>
           </li>
         </div>
       
@@ -4418,7 +4418,7 @@
 
             
 
-            <code class="ruby">                           SELECT  </code>
+            <code class="ruby">    end  </code>
           </li>
         </div>
       
@@ -4429,18 +4429,18 @@
 
             
 
-            <code class="ruby">                              SUM(quantity) AS amount_sold, </code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="148">
+          <li class="missed" data-hits="0" data-linenumber="148">
             
             
 
             
 
-            <code class="ruby">                              SUM(subtotal) AS amount_made,</code>
+            <code class="ruby">    where_clause = WhereBuilder.build([product_id_where, search_text_where])</code>
           </li>
         </div>
       
@@ -4451,7 +4451,7 @@
 
             
 
-            <code class="ruby">                              round(AVG(sale_price)::numeric, 2) AS average_unit_price,</code>
+            <code class="ruby">    </code>
           </li>
         </div>
       
@@ -4462,18 +4462,18 @@
 
             
 
-            <code class="ruby">                              product_id,</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="151">
+          <li class="missed" data-hits="0" data-linenumber="151">
             
             
 
             
 
-            <code class="ruby">                              SUM(sale_price * quantity) / SUM(NULLIF(quantity,0)) AS weighted_average_sale_price</code>
+            <code class="ruby">    sql = &quot;&quot;&quot;</code>
           </li>
         </div>
       
@@ -4484,7 +4484,7 @@
 
             
 
-            <code class="ruby">                           FROM order_products</code>
+            <code class="ruby">          SELECT *</code>
           </li>
         </div>
       
@@ -4495,7 +4495,7 @@
 
             
 
-            <code class="ruby">                           #{date_filter_where}</code>
+            <code class="ruby">          FROM (</code>
           </li>
         </div>
       
@@ -4506,7 +4506,7 @@
 
             
 
-            <code class="ruby">                           GROUP BY product_id</code>
+            <code class="ruby">                SELECT </code>
           </li>
         </div>
       
@@ -4517,7 +4517,7 @@
 
             
 
-            <code class="ruby">                          ) sale_prices ON products.id = sale_prices.product_id</code>
+            <code class="ruby">                     sale_prices.product_id,</code>
           </li>
         </div>
       
@@ -4528,7 +4528,7 @@
 
             
 
-            <code class="ruby">                INNER JOIN </code>
+            <code class="ruby">                     products.product_name,</code>
           </li>
         </div>
       
@@ -4539,7 +4539,7 @@
 
             
 
-            <code class="ruby">                          (</code>
+            <code class="ruby">                     products.price,</code>
           </li>
         </div>
       
@@ -4550,7 +4550,7 @@
 
             
 
-            <code class="ruby">                           SELECT </code>
+            <code class="ruby">                     sale_prices.amount_sold,</code>
           </li>
         </div>
       
@@ -4561,7 +4561,7 @@
 
             
 
-            <code class="ruby">                             product_id, </code>
+            <code class="ruby">                     sale_prices.amount_made,</code>
           </li>
         </div>
       
@@ -4572,7 +4572,7 @@
 
             
 
-            <code class="ruby">                             ROUND(SUM(price_per_unit * current_amount_left) / SUM(NULLIF(current_amount_left,0)), 2) AS weighted_average</code>
+            <code class="ruby">                     sale_prices.average_unit_price,</code>
           </li>
         </div>
       
@@ -4583,7 +4583,7 @@
 
             
 
-            <code class="ruby">                           FROM inventories</code>
+            <code class="ruby">                     sale_prices.weighted_average_sale_price,</code>
           </li>
         </div>
       
@@ -4594,7 +4594,7 @@
 
             
 
-            <code class="ruby">                           GROUP BY product_id</code>
+            <code class="ruby">                     weighted_average_sale.weighted_average</code>
           </li>
         </div>
       
@@ -4605,7 +4605,7 @@
 
             
 
-            <code class="ruby">                          ) weighted_average_sale on products.id = weighted_average_sale.product_id</code>
+            <code class="ruby">                FROM products</code>
           </li>
         </div>
       
@@ -4616,7 +4616,7 @@
 
             
 
-            <code class="ruby">                  </code>
+            <code class="ruby">                INNER JOIN </code>
           </li>
         </div>
       
@@ -4627,7 +4627,7 @@
 
             
 
-            <code class="ruby">                ) report</code>
+            <code class="ruby">                          (</code>
           </li>
         </div>
       
@@ -4638,7 +4638,7 @@
 
             
 
-            <code class="ruby">                #{where_clause}</code>
+            <code class="ruby">                           SELECT  </code>
           </li>
         </div>
       
@@ -4649,7 +4649,7 @@
 
             
 
-            <code class="ruby">          ORDER BY #{sortable} #{sort_direction}                      </code>
+            <code class="ruby">                              SUM(quantity) AS amount_sold, </code>
           </li>
         </div>
       
@@ -4660,18 +4660,18 @@
 
             
 
-            <code class="ruby">      &quot;&quot;&quot;</code>
+            <code class="ruby">                              SUM(subtotal) AS amount_made,</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="169">
+          <li class="never" data-hits="" data-linenumber="169">
             
             
 
             
 
-            <code class="ruby">    result = ActiveRecord::Base.connection.execute(sql)</code>
+            <code class="ruby">                              round(AVG(sale_price)::numeric, 2) AS average_unit_price,</code>
           </li>
         </div>
       
@@ -4682,12 +4682,232 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">                              product_id,</code>
           </li>
         </div>
       
         <div>
           <li class="never" data-hits="" data-linenumber="171">
+            
+            
+
+            
+
+            <code class="ruby">                              SUM(sale_price * quantity) / SUM(NULLIF(quantity,0)) AS weighted_average_sale_price</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="172">
+            
+            
+
+            
+
+            <code class="ruby">                           FROM order_products</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="173">
+            
+            
+
+            
+
+            <code class="ruby">                           #{date_filter_where}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="174">
+            
+            
+
+            
+
+            <code class="ruby">                           GROUP BY product_id</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="175">
+            
+            
+
+            
+
+            <code class="ruby">                          ) sale_prices ON products.id = sale_prices.product_id</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="176">
+            
+            
+
+            
+
+            <code class="ruby">                INNER JOIN </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="177">
+            
+            
+
+            
+
+            <code class="ruby">                          (</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="178">
+            
+            
+
+            
+
+            <code class="ruby">                           SELECT </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="179">
+            
+            
+
+            
+
+            <code class="ruby">                             product_id, </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="180">
+            
+            
+
+            
+
+            <code class="ruby">                             ROUND(SUM(price_per_unit * current_amount_left) / SUM(NULLIF(current_amount_left,0)), 2) AS weighted_average</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="181">
+            
+            
+
+            
+
+            <code class="ruby">                           FROM inventories</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="182">
+            
+            
+
+            
+
+            <code class="ruby">                           GROUP BY product_id</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="183">
+            
+            
+
+            
+
+            <code class="ruby">                          ) weighted_average_sale on products.id = weighted_average_sale.product_id</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="184">
+            
+            
+
+            
+
+            <code class="ruby">                  </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="185">
+            
+            
+
+            
+
+            <code class="ruby">                ) report</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="186">
+            
+            
+
+            
+
+            <code class="ruby">                #{where_clause}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="187">
+            
+            
+
+            
+
+            <code class="ruby">          ORDER BY #{sortable} #{sort_direction}                      </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="188">
+            
+            
+
+            
+
+            <code class="ruby">      &quot;&quot;&quot;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="189">
+            
+            
+
+            
+
+            <code class="ruby">    result = ActiveRecord::Base.connection.execute(sql)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="190">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="191">
             
             
 
@@ -4707,7 +4927,7 @@
     <h3>app/models/order_product.rb</h3>
     <h4>
       <span class="green">
-  92.86%
+  93.75%
 </span>
 
       lines covered
@@ -4716,8 +4936,8 @@
     
 
     <div class="t-line-summary">
-      <b>14</b> relevant lines.
-      <span class="green"><b>13</b> lines covered</span> and
+      <b>16</b> relevant lines.
+      <span class="green"><b>15</b> lines covered</span> and
       <span class="red"><b>1</b> lines missed.</span>
     </div>
 
@@ -4817,24 +5037,24 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="9">
-            
-            
-
-            
-
-            <code class="ruby">  # Here I am checking if there is enough inventory for the product.</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="10">
+          <li class="covered" data-hits="1" data-linenumber="9">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">  def has_enough_inventory</code>
+            <code class="ruby">  def set_subtotal</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="4" data-linenumber="10">
+            <span class="hits">4</span>
+            
+
+            
+
+            <code class="ruby">    self.subtotal = quantity * sale_price</code>
           </li>
         </div>
       
@@ -4845,7 +5065,7 @@
 
             
 
-            <code class="ruby">    # total_inv = 0</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -4856,18 +5076,18 @@
 
             
 
-            <code class="ruby">    # Inventory.where(&quot;product_id = ? and current_amount_left &gt; 0&quot;, self.product_id).each do |inv|</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="13">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="13">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">    #   total_inv = total_inv + inv.current_amount_left </code>
+            
+
+            <code class="ruby">  def has_enough_inventory</code>
           </li>
         </div>
       
@@ -4878,18 +5098,18 @@
 
             
 
-            <code class="ruby">    # end</code>
+            <code class="ruby">    # Here I am checking if there is enough inventory for the product.</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="15">
-            <span class="hits">2</span>
+          <li class="never" data-hits="" data-linenumber="15">
+            
             
 
             
 
-            <code class="ruby">    total_inv = Inventory.where(&quot;product_id = ? and current_amount_left &gt; 0&quot;, self.product_id).sum(&amp;:current_amount_left)</code>
+            <code class="ruby">    # total_inv = 0</code>
           </li>
         </div>
       
@@ -4900,40 +5120,40 @@
 
             
 
-            <code class="ruby">    </code>
+            <code class="ruby">    # Inventory.where(&quot;product_id = ? and current_amount_left &gt; 0&quot;, self.product_id).each do |inv|</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="17">
+          <li class="never" data-hits="" data-linenumber="17">
+            
+            
+
+            
+
+            <code class="ruby">    #   total_inv = total_inv + inv.current_amount_left </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="18">
+            
+            
+
+            
+
+            <code class="ruby">    # end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="19">
             <span class="hits">2</span>
             
 
             
 
-            <code class="ruby">    if total_inv.to_d &lt; self.quantity.to_d</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="18">
-            
-            
-
-            
-
-            <code class="ruby">      errors.add(:quantity, &quot;Not enough inventory for this product&quot;)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="19">
-            
-            
-
-            
-
-            <code class="ruby">    end</code>
+            <code class="ruby">    total_inv = Inventory.where(&quot;product_id = ? and current_amount_left &gt; 0&quot;, self.product_id).sum(&amp;:current_amount_left)</code>
           </li>
         </div>
       
@@ -4944,29 +5164,29 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">    </code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="21">
-            
-            
-
+          <li class="covered" data-hits="2" data-linenumber="21">
+            <span class="hits">2</span>
             
 
-            <code class="ruby">  </code>
+            
+
+            <code class="ruby">    if total_inv.to_d &lt; self.quantity.to_d</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="22">
-            <span class="hits">1</span>
+          <li class="missed" data-hits="0" data-linenumber="22">
+            
             
 
             
 
-            <code class="ruby">  def set_current_amount_left   </code>
+            <code class="ruby">      errors.add(:quantity, &quot;Not enough inventory for this product&quot;)</code>
           </li>
         </div>
       
@@ -4977,7 +5197,7 @@
 
             
 
-            <code class="ruby">    </code>
+            <code class="ruby">    end</code>
           </li>
         </div>
       
@@ -4988,7 +5208,7 @@
 
             
 
-            <code class="ruby">    # amount_left_to_remove should always be the amount of inventory that we still have to remove</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -4999,18 +5219,18 @@
 
             
 
-            <code class="ruby">    # make a variable change_in_quantity and set it equal to self.quatity.</code>
+            <code class="ruby">  </code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="26">
-            <span class="hits">2</span>
+          <li class="covered" data-hits="1" data-linenumber="26">
+            <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">    change_in_quantity = self.quantity - (self.quantity_was || 0)</code>
+            <code class="ruby">  def set_current_amount_left</code>
           </li>
         </div>
       
@@ -5021,7 +5241,7 @@
 
             
 
-            <code class="ruby">    # make a variable amount_left_to_remove and set it equal to change_in_quantity.</code>
+            <code class="ruby">    # amount_left_to_remove should always be the amount of inventory that we still have to remove</code>
           </li>
         </div>
       
@@ -5032,7 +5252,7 @@
 
             
 
-            <code class="ruby">    </code>
+            <code class="ruby">    # make a variable change_in_quantity and set it equal to self.quatity.</code>
           </li>
         </div>
       
@@ -5043,7 +5263,7 @@
 
             
 
-            <code class="ruby">    Inventory.remove_inventory(self.product_id, change_in_quantity)    </code>
+            <code class="ruby">    change_in_quantity = self.quantity - (self.quantity_was || 0)</code>
           </li>
         </div>
       
@@ -5054,18 +5274,18 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">    # make a variable amount_left_to_remove and set it equal to change_in_quantity.</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="31">
-            
-            
-
+          <li class="covered" data-hits="2" data-linenumber="31">
+            <span class="hits">2</span>
             
 
-            <code class="ruby">end</code>
+            
+
+            <code class="ruby">    Inventory.remove_inventory(self.product_id, change_in_quantity)    </code>
           </li>
         </div>
       
@@ -5076,7 +5296,7 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -5087,7 +5307,7 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">end</code>
           </li>
         </div>
       
@@ -5098,7 +5318,7 @@
 
             
 
-            <code class="ruby">  </code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -5109,7 +5329,7 @@
 
             
 
-            <code class="ruby"> </code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -5120,7 +5340,7 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">  </code>
           </li>
         </div>
       
@@ -5131,7 +5351,7 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby"> </code>
           </li>
         </div>
       
@@ -5236,6 +5456,28 @@
       
         <div>
           <li class="never" data-hits="" data-linenumber="47">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="48">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="49">
             
             
 
@@ -13756,8 +13998,8 @@
   <div class="header">
     <h3>spec/models/order_spec.rb</h3>
     <h4>
-      <span class="red">
-  66.67%
+      <span class="green">
+  100.0%
 </span>
 
       lines covered
@@ -13767,8 +14009,8 @@
 
     <div class="t-line-summary">
       <b>15</b> relevant lines.
-      <span class="green"><b>10</b> lines covered</span> and
-      <span class="red"><b>5</b> lines missed.</span>
+      <span class="green"><b>15</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
     </div>
 
     
@@ -14544,29 +14786,29 @@
 
             
 
-            <code class="ruby">    expect(order.order_products[0].percentage_of_total).to eq(0.38461538461538464)</code>
+            <code class="ruby">    expect(order.order_products[0].percentage_of_total.to_s).to eq(&quot;0.384615384615385&quot;)</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="71">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="71">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">    expect(order.order_products[0].discount_to_apply).to eq(7.6923076923076925)</code>
+            
+
+            <code class="ruby">    expect(order.order_products[0].discount_to_apply.to_s).to eq(&quot;7.6923076923077&quot;)</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="72">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="72">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">    expect(order.order_products[0].discount_per_unit).to eq(1.5384615384615385)</code>
+            
+
+            <code class="ruby">    expect(order.order_products[0].discount_per_unit.to_s).to eq(&quot;1.53846153846154&quot;)</code>
           </li>
         </div>
       
@@ -14582,35 +14824,35 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="74">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="74">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">    expect(order.order_products[1].percentage_of_total).to eq(0.6153846153846154)</code>
+            
+
+            <code class="ruby">    expect(order.order_products[1].percentage_of_total.to_s).to eq(&quot;0.615384615384615&quot;)</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="75">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="75">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">    expect(order.order_products[1].discount_to_apply).to eq(12.307692307692308)</code>
+            
+
+            <code class="ruby">    expect(order.order_products[1].discount_to_apply.to_s).to eq(&quot;12.3076923076923&quot;)</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="76">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="76">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">    expect(order.order_products[1].discount_per_unit).to eq(3.076923076923077)</code>
+            
+
+            <code class="ruby">    expect(order.order_products[1].discount_per_unit.to_s).to eq(&quot;3.076923076923075&quot;)</code>
           </li>
         </div>
       
