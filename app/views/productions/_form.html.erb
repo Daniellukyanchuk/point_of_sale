@@ -12,28 +12,28 @@
         </div>
       <% end %>
 
-      <div class="form-group">
+      <div class="field">
         <%= form.label _('Recipe') %>
         <%= form.collection_select :recipe_id, Recipe.all, :id, :recipe_name, {}, {class: "product-picker form-control"} %>
       </div>
 
     
-        <div class="form-group">
+        <div class="field">
           <%= form.label _('Product amount') %>
           <%= form.number_field :product_amount, :class => "prod_amount form-control" %>
         </div>
 
-        <div class="form-group">
+        <div class="field">
            <%= form.label _('Recipe price') %>
            <%= form.number_field :recipe_price, class: "recipe-price-field form-control", :readonly => true %>
         </div>    
 
-        <div class="form-group">
+        <div class="field">
           <%= form.label _('Total') %>
-          <%= form.text_field :grand_total, :readonly => true, :class => "form-control", size: 30 %>
+          <%= form.text_field :grand_total, :readonly => true, :class => "form-control" %>
         </div>
 
-        <div class="form-group">
+        <div class="field">
           <%= form.label _('Cost to make') %>
           <%= form.text_field :cost_to_make, :readonly => true, :class => "form-control" %>
         </div>
@@ -103,21 +103,17 @@
       var prod_amount = $('.prod_amount').val()
 
       $("#ing_amount_modal_table").find("tr:gt(0)").remove();
-
-        $.ajax({
-          url: "<%= get_product_amount_info_path %>",
-          data: { id: $('.product-picker').val() },
-          type: "GET",
-          success: function(data){
-            product_row = ""; 
-              $.each(data, function(i, item) {(product_row += '<tr><td>' + item['product_name'] + '</td><td>' + item['product_amount']*prod_amount + '</td></tr>')}
-              );
- 
-              $('#ing_amount_modal_table tbody').append(product_row)
-
-
-          }
-        })
+      $.ajax({
+        url: "<%= get_product_amount_info_path %>",
+        data: { id: $('.product-picker').val() },
+        type: "GET",
+        success: function(data){
+          product_row = ""; 
+          $.each(data, function(i, item) {(product_row += '<tr><td>' + item['product_name'] + '</td><td>' + item['product_amount']*prod_amount + '</td></tr>')}
+          );
+          $('#ing_amount_modal_table tbody').append(product_row)
+        }
+      })
     };
 
     $(document).on('change', '.product-picker', updateSelectedPrice);

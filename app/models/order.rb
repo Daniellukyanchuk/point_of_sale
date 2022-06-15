@@ -34,9 +34,7 @@ class Order < ApplicationRecord
     order_products.each do |op|
       op.set_subtotal 
       op.percentage_of_total = op.subtotal / grand_total
-
       op.discount_to_apply = op.percentage_of_total * order_discount
-   
       op.discount_per_unit = op.discount_to_apply / op.quantity
     end
   end

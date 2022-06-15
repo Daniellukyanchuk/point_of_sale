@@ -1,7 +1,7 @@
 class OrderProduct < ApplicationRecord
   belongs_to :order
   belongs_to :product
-  validates :quantity, :sale_price, presence: true, length: { minimum: 1, maximum: 25}
+  validates :quantity, :sale_price, presence: true, length: {minimum: 1, maximum: 25}
   has_many :inventories
   before_save :set_current_amount_left
   validate :has_enough_inventory
