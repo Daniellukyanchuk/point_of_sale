@@ -1,0 +1,2 @@
+module OrderProductDiscountsHelper
+end

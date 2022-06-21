@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :order_product_discounts
+  resources :discounts
   post "checkout/create", to: "checkout#create"
   devise_for :users, controllers: { sessions: 'users/sessions' }, path_prefix: "devise"
   post '/api/clients', to: 'api/api_clients#create'

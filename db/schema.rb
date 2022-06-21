@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_10_041440) do
+ActiveRecord::Schema.define(version: 2022_06_21_103556) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,17 @@ ActiveRecord::Schema.define(version: 2022_06_10_041440) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "discounts", force: :cascade do |t|
+    t.integer "client_id"
+    t.decimal "discount_per_kilo"
+    t.decimal "expiration_amount"
+    t.date "starting_date"
+    t.date "ending_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.decimal "current_expiration_amount"
+  end
+
   create_table "inventories", force: :cascade do |t|
     t.integer "product_id"
     t.date "date"
@@ -57,6 +68,14 @@ ActiveRecord::Schema.define(version: 2022_06_10_041440) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "purchase_product_id"
+  end
+
+  create_table "order_product_discounts", force: :cascade do |t|
+    t.integer "discount_id"
+    t.integer "order_product_id"
+    t.decimal "discount_quantitu"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "order_products", force: :cascade do |t|
@@ -71,6 +90,7 @@ ActiveRecord::Schema.define(version: 2022_06_10_041440) do
     t.decimal "percentage_of_total"
     t.decimal "discount_to_apply"
     t.decimal "discount_per_unit"
+    t.decimal "client_discount"
   end
 
   create_table "orders", force: :cascade do |t|

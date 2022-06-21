@@ -1,0 +1,68 @@
+<div class="marginRight">
+  <%= form_with(model: discount, local: true) do |form| %>
+    <% if discount.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(discount.errors.count, "error") %> prohibited this discount from being saved:</h2>
+
+        <ul>
+        <% discount.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.select(:client_id, Client.all.collect {|c| [c.name, c.id]}, {include_blank: "Select Client"}, {class: "select-client-discount form-control"}) %>
+    </div>
+
+    <div class="form-group col-7 p-0 m-0">
+      <% options = Product.all.collect{ |u| [u.product_name, u.id]} %>
+      <% options = [["Select All", nil]] + options %>
+      <%= select_tag 'product_select[]', options_for_select(options, params[:product_select]), :multiple => true, :size => 10, :id => "choices-multiple-remove-button", :placeholder => "Select products" %>
+    </div>
+    <p>
+      <div class="field">
+        <%= form.label :discount_per_kilo %>
+        <%= form.text_field :discount_per_kilo, class: "form-control" %>
+      </div>
+
+      <div class="field">
+        <%= form.label :expiration_amount %>
+        <%= form.text_field :expiration_amount, class: "form-control"  %>
+      </div>
+
+      <div class="field">
+        <%= form.label :starting_date %>
+        <%= form.text_field :starting_date, class: "datepicker form-control", :autocomplete => "off", :placeholder => "Discount starts" %>
+      </div>
+
+      <div class="field">
+        <%= form.label :ending_date %>
+        <%= form.text_field :ending_date, class: "datepicker form-control", :autocomplete => "off", :placeholder => "Discount ends" %>
+      </div>
+    </p> 
+
+    <div class="actions">
+      <%= form.submit "#{discount.id.nil? ? "Create" : "Update"} Discount", :class => 'text-light btn btn-primary' %>
+    </div>
+
+    <script>
+      $(document).ready(function(){
+
+         var multipleCancelButton = new Choices('#choices-multiple-remove-button', {
+         removeItemButton: true,
+         maxItemCount:10,
+         searchResultLimit:100,
+         renderChoiceLimit:10
+         });
+      });
+
+      $(function() {
+        $(".datepicker").datepicker({dateFormat: 'yy-mm-dd'});
+      });
+    </script>
+  <% end %>
+</div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.css">
+<script src="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.js"></script>

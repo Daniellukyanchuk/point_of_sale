@@ -60,8 +60,7 @@ class Production < ApplicationRecord
   def set_current_amount_left   
     change_in_quantity = product_amount - (product_amount_was || 0)
 
-    recipe.recipe_products.each do |rp|        
-      
+    recipe.recipe_products.each do |rp|         
       Inventory.remove_inventory(rp.product_id, (rp.product_amount || 0) * change_in_quantity)
     end
     Inventory.add_inventory(recipe.product_id, product_amount, recipe_price) 

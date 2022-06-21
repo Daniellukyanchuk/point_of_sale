@@ -24,7 +24,7 @@
 
       <div class="field">
         <%= form.label _('Date') %>
-        <%= text_field_tag 'date', params[:date], :class => "datepicker form-control", :autocomplete => "off", :placeholder => "Pick a date" %>
+        <%= form.text_field :date, :class => "datepicker form-control", :autocomplete => "off", :placeholder => "Pick a date" %>
       </div>
 
       <div class="field">

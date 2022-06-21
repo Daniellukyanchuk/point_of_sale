@@ -1,6 +1,7 @@
 class Order < ApplicationRecord 
   before_destroy :put_back_inventory_item
   has_many :order_products, dependent: :delete_all 
+  has_many :discounts
   accepts_nested_attributes_for :order_products, allow_destroy: true
   belongs_to :client, optional: true  
   before_save :set_grand_total, :manage_discounts, :create_clients
@@ -31,11 +32,13 @@ class Order < ApplicationRecord
   end
 
   def manage_discounts
-    order_products.each do |op|
-      op.set_subtotal 
-      op.percentage_of_total = op.subtotal / grand_total
-      op.discount_to_apply = op.percentage_of_total * order_discount
-      op.discount_per_unit = op.discount_to_apply / op.quantity
+    if !order_discount.nil?
+      order_products.each do |op|
+        op.set_subtotal 
+        op.percentage_of_total = op.subtotal / grand_total
+        op.discount_to_apply = op.percentage_of_total * order_discount
+        op.discount_per_unit = op.discount_to_apply / op.quantity
+      end
     end
   end
   

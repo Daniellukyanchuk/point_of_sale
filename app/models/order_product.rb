@@ -3,11 +3,18 @@ class OrderProduct < ApplicationRecord
   belongs_to :product
   validates :quantity, :sale_price, presence: true, length: {minimum: 1, maximum: 25}
   has_many :inventories
-  before_save :set_current_amount_left
+  has_many :order_product_discounts
+  before_save :set_current_amount_left, :expiration_amount_valid?
   validate :has_enough_inventory
 
   def set_subtotal
     self.subtotal = quantity * sale_price
+  end
+
+  def expiration_amount_valid?
+    Discount.where("client_id = ? and (start_date is null or start_date < ?) 
+    and (end_date is null or end_date > ?) and (current_expiration_amount > 0 
+    or expiration_amount is null)", client_id, start_date, end_date).order("discount_per_kg desc")
   end
 
   def has_enough_inventory
@@ -25,7 +32,7 @@ class OrderProduct < ApplicationRecord
   
   def set_current_amount_left
     # amount_left_to_remove should always be the amount of inventory that we still have to remove
-    # make a variable change_in_quantity and set it equal to self.quatity.
+    # make a variable change_in_quantity and set it equal to self.quantity.
     change_in_quantity = self.quantity - (self.quantity_was || 0)
     # make a variable amount_left_to_remove and set it equal to change_in_quantity.
     Inventory.remove_inventory(self.product_id, change_in_quantity)    

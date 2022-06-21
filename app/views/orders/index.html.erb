@@ -62,7 +62,7 @@
       <thead>
         <tr class="active">
           <th><%= sortable "id", "ID"%></th>
-          <th><%= sortable "clients.name", _("CLIENT NAME") %></th>
+          <th><%= sortable "clients.name", _("CLIENT") %></th>
           <th><%= sortable "grand_total", _("GRAND TOTAL") %></th>
           <th><%= submit_tag "Print Invoice" %></th>
           <th colspan="4"></th>
@@ -90,7 +90,6 @@
 
   <script type="text/javascript">
     $(document).ready(function(){
-
       var multipleCancelButton = new Choices('#choices-multiple-remove-button', {
       removeItemButton: true,
       maxItemCount:10,
