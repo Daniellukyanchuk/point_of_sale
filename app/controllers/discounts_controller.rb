@@ -19,6 +19,20 @@ class DiscountsController < ApplicationController
   def edit
   end
 
+  def get_client_discount
+    client_id = params[:client_id]
+
+    @discount_row = Discount.where(client_id: client_id.to_i).first
+
+    if @discount_row.nil?
+      render json: {discount_per_kilo: nil}
+      return
+    end
+
+    
+    render json: {discount_per_kilo: @discount_row.discount_per_kilo}
+  end
+
   # POST /discounts or /discounts.json
   def create
     @discount = Discount.new(discount_params)

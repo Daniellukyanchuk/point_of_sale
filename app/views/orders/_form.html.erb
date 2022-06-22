@@ -64,7 +64,21 @@
 </div>
 
 <script type="text/javascript">
+
   $(document).ready(function() {
+
+    $(document).on('change', '.select-client', function() {
+      var jquery_client_discount = $(this);
+      $.ajax({
+        url: "/discounts/discount_per_kilo",
+        data: {client_id: $(this).val()},
+        type: "GET",
+        success: function(data){
+          jquery_client_discount.parents(".marginRight").find(".client_discount").val(data['discount_per_kilo'] + '%');
+        }
+      })
+    })
+
 
     function updateSelectedPrice(){
       var jquery_prod_picker = $(this);
@@ -87,15 +101,15 @@
     })
 
     $(document).on('keyup', '.product_quantity, .product_price, .product_discount', function() {
-      var pQuantity = $(this).parents('.nested-fields').find('.product_quantity').val();
-      var pPrice = $(this).parents('.nested-fields').find('.product_price').val();
-      var pDiscount = $(this).parents('.nested-fields').find('.product_discount').val();
-      var quantityPlusPrice = pQuantity * pPrice;
-      var discountTosubtract = pQuantity * pDiscount;
-      var pSubtotal = quantityPlusPrice - discountTosubtract
+        var pQuantity = $(this).parents('.nested-fields').find('.product_quantity').val();
+        var pPrice = $(this).parents('.nested-fields').find('.product_price').val();
+        var pDiscount = $(this).parents('.nested-fields').find('.product_discount').val();
+        var quantityPlusPrice = pQuantity * pPrice;
+        var discountTosubtract = pQuantity * pDiscount;
+        var pSubtotal = quantityPlusPrice - discountTosubtract
 
-      $(this).parents('.nested-fields').find('.product_subtotal').val(pSubtotal).trigger('change');
-    })
+        $(this).parents('.nested-fields').find('.product_subtotal').val(pSubtotal).trigger('change');
+    });
       
     /* When entered order_discount, burden order_products propotionally */
     $(document).on('change', '.product_subtotal', function() {
@@ -104,7 +118,7 @@
         total += parseFloat($(this).val());
       });
       $(this).parents('.marginRight').find('.order_total').val(total).trigger('change')
-    })
+    });
 
 
     function updateEverything() {

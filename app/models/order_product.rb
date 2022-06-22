@@ -10,7 +10,8 @@ class OrderProduct < ApplicationRecord
   def set_subtotal
     self.subtotal = quantity * sale_price
   end
-
+  
+  # What am I doing here? 
   def expiration_amount_valid?
     Discount.where("client_id = ? and (start_date is null or start_date < ?) 
     and (end_date is null or end_date > ?) and (current_expiration_amount > 0 
