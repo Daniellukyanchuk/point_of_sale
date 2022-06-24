@@ -33,37 +33,32 @@ class OrderProduct < ApplicationRecord
         # d.current_exp_amount is 250
         # amount_left_to_apply is 500
 
+        # second time through loop
+        # second discount per kilo 0.5
+        # d.current_exp_amount is 1000
+        # amount_left_to_apply is 250
 
-        if d.current_expiration_amount >= op.quantity
-          # multiplying d.discount_per_kilo by op.quantity to get how much discount is gonna be 
-          # applied to this order_product. 
+        if d.current_expiration_amount >= amount_left_to_apply_from_discount
+              #0,25                      #250                                #1000            #1
+          op.client_discount += (amount_left_to_apply_from_discount / op.quantity) * d.discount_per_kilo
           
-          op.client_discount = d.discount_per_kilo
-
           # in this case the discount completely satisfied the requirments. So we don't need to look at any more discounts.
           # so just end the discount loop
           break
         else
-
+          #250/#500                   # 250/#500                        # 1000/#750
           amount_to_apply = [d.current_expiration_amount, amount_left_to_apply_from_discount].min
-
-
+           #0.25+#0,5                       #250/#500               #1000/#1000           #1
           op.client_discount += (d.current_expiration_amount / op.quantity) * d.discount_per_kilo
+                 #750/#250                         #250/#500
+          amount_left_to_apply_from_discount -= amount_to_apply
 
-
-          amount_left_to_apply_from_discount -= d.current_expiration_amount
-
-    # d.current_expiration_amount is being set to 0 here, I guess to break the action of applying the discount.
           d.current_expiration_amount = 0
 
-
-
         end
-        d.current_expiration_amount
-        op.client_discount = d.discount_per_unit
+        op.order_product_discounts.push OrderProductDiscount.new(discount_id: discounts.id, discount_quantity: amount_left_to_apply_from_discount)
 
       end
-      # client_discount = op.quantity * .first
     end
     # Set grand_total with a discount. 
     # client_discount * quantity, the sum of that subtracted from subtotal.
