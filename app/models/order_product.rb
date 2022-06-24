@@ -13,9 +13,37 @@ class OrderProduct < ApplicationRecord
   
   # What am I doing here? 
   def expiration_amount_valid?
-    Discount.where("client_id = ? and (start_date is null or start_date < ?) 
-    and (end_date is null or end_date > ?) and (current_expiration_amount > 0 
-    or expiration_amount is null)", client_id, start_date, end_date).order("discount_per_kg desc")
+    discounts = Discount.where("client_id = ? and (starting_date is null or starting_date < ?) 
+    and (ending_date is null or ending_date > ?) and (current_expiration_amount > 0 
+    or expiration_amount is null)", order.client_id, created_at || DateTime.now, created_at || DateTime.now).order("discount_per_kilo desc")
+
+    # Go through order and set order_product.subtotal with a discount.
+    
+    order.order_products.each do |op|
+      stop
+
+      amount_left_to_apply_from_discount = op.quantity
+      op.client_discount = 0 
+      discounts.each do |d|
+        
+        if d.current_expiration_amount >= op.quantity
+
+        else
+          op.client_discount += (d.current_expiration_amount / op.quantity) * d.discount_per_unit
+          amount_left_to_apply_from_discount -= d.current_expiration_amount
+          d.current_expiration_amount = 0
+
+
+
+        end
+        d.current_expiration_amount
+        op.client_discount = d.discount_per_unit
+
+      end
+      # client_discount = op.quantity * .first
+    end
+    # Set grand_total with a discount. 
+    # client_discount * quantity, the sum of that subtracted from subtotal.
   end
 
   def has_enough_inventory

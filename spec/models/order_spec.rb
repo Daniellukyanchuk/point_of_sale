@@ -1,5 +1,7 @@
 require 'rails_helper'
 
+
+# rspec spec/models/order_spec.rb
 RSpec.describe Order, type: :model do
   # it "subtracts products from inventory" do 
   #   maxim = Client.create!(name: "Maxim", city: "Osh")
@@ -76,6 +78,7 @@ RSpec.describe Order, type: :model do
   #   expect(order.order_products[1].discount_per_unit.to_s).to eq("3.076923076923075")
   # end
 
+  # rspec -e"if there is no client_discount"
   it "if there is no client_discount" do 
     # First case: When there is one discount.
     sianna_marie = Client.create!(name: "Sianna-Marie")
@@ -87,17 +90,16 @@ RSpec.describe Order, type: :model do
     Inventory.create!(product_id: croissant.id, amount: 20, current_amount_left: 20)
 
     order = Order.create!(client_id: sianna_marie.id, order_products: [
-      OrderProduct.new(product_id: muffins.id, quantity: 5, sale_price: 50, subtotal: 250, client_discount: 0),
-      OrderProduct.new(product_id: croissant.id, quantity: 4, sale_price: 100, subtotal: 400, client_discount: 0)
-      ], grand_total: 650)
+      OrderProduct.new(product_id: muffins.id, quantity: 5, sale_price: 50, client_discount: 0),
+      OrderProduct.new(product_id: croissant.id, quantity: 4, sale_price: 100, client_discount: 0)
+      ])
 
     expect(order.order_products[0].subtotal.to_s).to eq("250")
     expect(order.order_products[1].subtotal.to_s).to eq("400")
-    expect(order.grand_total.to_s).to eq("650")
-     
-    # client_discount * quantity, the sum of that subtracted from subtotal. 
+    expect(order.grand_total.to_s).to eq("650") 
   end
-
+  
+  # rspec -e"if there is one or multiple client_discounts"
   it "if there is one or multiple client_discounts" do 
 
     # Second case: When there are multiple discounts. 
@@ -115,9 +117,9 @@ RSpec.describe Order, type: :model do
     discount_2 = Discount.create!(client_id: sianna_marie.id, discount_per_kilo: 0.5, expiration_amount: 15, current_expiration_amount: 15, starting_date: '2022-06-23'.to_date, ending_date: '2022-07-23')
 
     order = Order.create!(client_id: sianna_marie.id, order_products: [
-      OrderProduct.new(product_id: muffins.id, quantity: 5, sale_price: 50, subtotal: 250, client_discount: 0.5),
-      OrderProduct.new(product_id: croissant.id, quantity: 4, sale_price: 100, subtotal: 400, client_discount: 0.5)
-      ], grand_total: 645.5)
+      OrderProduct.new(product_id: muffins.id, quantity: 5, sale_price: 50, client_discount: 0.5),
+      OrderProduct.new(product_id: croissant.id, quantity: 4, sale_price: 100, client_discount: 0.5)
+      ])
 
     order.save
     
@@ -129,9 +131,11 @@ RSpec.describe Order, type: :model do
     # I need to check if current_expiration_amount is 41 after creating an order. 
     expect(discount_1.current_expiration_amount.to_s).to eq("0")
     expect(discount_2.current_expiration_amount.to_s).to eq("7")
-
+    
+    # client_discount * quantity, the sum of that subtracted from subtotal.
   end
-
+  
+  # rspec -e"if the order was deleted, the current_expiration_amount is being put back"
   it "if the order was deleted, the current_expiration_amount is being put back" do 
 
     sianna_marie = Client.create!(name: "Sianna-Marie")
@@ -146,8 +150,8 @@ RSpec.describe Order, type: :model do
     discount_2 = Discount.create!(client_id: sianna_marie.id, discount_per_kilo: 0.5, expiration_amount: 15, current_expiration_amount: 15, starting_date: '2022-06-23'.to_date, ending_date: '2022-07-23')
 
     order = Order.create!(client_id: sianna_marie.id, order_products: [
-      OrderProduct.new(product_id: muffins.id, quantity: 5, sale_price: 50, subtotal: 250, client_discount: 0.5),
-      OrderProduct.new(product_id: croissant.id, quantity: 6, sale_price: 100, subtotal: 400, client_discount: 0.5)
+      OrderProduct.new(product_id: muffins.id, quantity: 5, sale_price: 50, client_discount: 0.5),
+      OrderProduct.new(product_id: croissant.id, quantity: 6, sale_price: 100, client_discount: 0.5)
       ])
 
     order.destroy
@@ -155,7 +159,8 @@ RSpec.describe Order, type: :model do
     expect(discount_1.current_expiration_amount.to_s).to eq("10")
     expect(discount_2.current_expiration_amount.to_s).to eq("15")
   end
-
+  
+  # rspec -e"if the client_discount is updated, the current_expiration_amount is either being put back or subtracted more"
   it "if the client_discount is updated, the current_expiration_amount is either being put back or subtracted more" do 
 
     sianna_marie = Client.create!(name: "Sianna-Marie")
@@ -170,23 +175,23 @@ RSpec.describe Order, type: :model do
     discount_2 = Discount.create!(client_id: sianna_marie.id, discount_per_kilo: 0.5, expiration_amount: 15, current_expiration_amount: 15, starting_date: '2022-06-23'.to_date, ending_date: '2022-07-23')
 
     order = Order.create!(client_id: sianna_marie.id, order_products: [
-      OrderProduct.new(product_id: muffins.id, quantity: 5, sale_price: 50, subtotal: 250, client_discount: 0.5),
-      OrderProduct.new(product_id: croissant.id, quantity: 4, sale_price: 100, subtotal: 400, client_discount: 0.5)
+      OrderProduct.new(product_id: muffins.id, quantity: 5, sale_price: 50, client_discount: 0.5),
+      OrderProduct.new(product_id: croissant.id, quantity: 4, sale_price: 100, client_discount: 0.5)
       ])
 
     order_update = order.update(client_id: sianna_marie.id, order_products: [
-      OrderProduct.new(product_id: muffins.id, quantity: 10, sale_price: 50, subtotal: 250, client_discount: 0.5),
-      OrderProduct.new(product_id: croissant.id, quantity: 4, sale_price: 100, subtotal: 400, client_discount: 0.5)
+      OrderProduct.new(product_id: muffins.id, quantity: 10, sale_price: 50, client_discount: 0.5),
+      OrderProduct.new(product_id: croissant.id, quantity: 4, sale_price: 100, client_discount: 0.5)
       ])
 
     expect(discount_1.current_expiration_amount.to_s).to eq("0")
     expect(discount_2.current_expiration_amount.to_s).to eq("11")
   end
-
+  
+  # rspec -e"if a client has a discount for less then he orders"
+  it "if a client has a discount for less then he orders" do 
   # Bob has a discount for 500, he makes an order for 400 and then updates the order to the 600. Does he get his 500 discount right? 
-
-  if "if a client has a discount for less then he orders" do 
-
+  
     vladimir = Client.create!(name: "Vladimir")
     
     muffins = Product.create!(product_name: "muffins", price: 50)
@@ -198,18 +203,22 @@ RSpec.describe Order, type: :model do
     discount_1 = Discount.create!(client_id: vladimir.id, discount_per_kilo: 0.5, expiration_amount: 500, current_expiration_amount: 500, starting_date: '2022-06-23'.to_date, ending_date: '2022-07-23')
     
     order = Order.create!(client_id: vladimir.id, order_products: [
-      OrderProduct.new(product_id: muffins.id, quantity: 200, sale_price: 50, subtotal: 10000, client_discount: 0.5),
-      OrderProduct.new(product_id: croissant.id, quantity: 200, sale_price: 100, subtotal: 20000, client_discount: 0.5)
+      OrderProduct.new(product_id: muffins.id, quantity: 200, sale_price: 50, client_discount: 0.5),
+      OrderProduct.new(product_id: croissant.id, quantity: 200, sale_price: 100, client_discount: 0.5)
       ])
 
+    expect(order.order_products[0].subtotal.to_s).to eq("9900")
+    expect(order.order_products[1].subtotal.to_s).to eq("19900")
+    expect(order.grand_total.to_s).to eq("29800")
+
     order_update = order.update(client_id: vladimir.id, order_products: [
-      OrderProduct.new(product_id: muffins.id, quantity: 300, sale_price: 50, subtotal: 15000, client_discount: 0.5),
-      OrderProduct.new(product_id: croissant.id, quantity: 300, sale_price: 100, subtotal: 30000, client_discount: 0.5)
+      OrderProduct.new(product_id: muffins.id, quantity: 300, sale_price: 50, client_discount: 0.5),
+      OrderProduct.new(product_id: croissant.id, quantity: 300, sale_price: 100, client_discount: 0.5)
       ])
 
     # Check if only 500 units got a discount and other 100 didn't
-
-    
-
+    expect(order.order_products[0].subtotal.to_s).to eq("14850")
+    expect(order.order_products[1].subtotal.to_s).to eq("29900")
+    expect(order.grand_total.to_s).to eq("44750")
   end
 end
