@@ -18,19 +18,42 @@ class OrderProduct < ApplicationRecord
     or expiration_amount is null)", order.client_id, created_at || DateTime.now, created_at || DateTime.now).order("discount_per_kilo desc")
 
     # Go through order and set order_product.subtotal with a discount.
-    
+
     order.order_products.each do |op|
-      stop
+
+      # Buying 500 kilos
 
       amount_left_to_apply_from_discount = op.quantity
       op.client_discount = 0 
-      discounts.each do |d|
-        
-        if d.current_expiration_amount >= op.quantity
 
+      discounts.each do |d|
+
+        # first time through the loop
+        # first discount is 1 som/kg and is good for 250 kilos
+        # d.current_exp_amount is 250
+        # amount_left_to_apply is 500
+
+
+        if d.current_expiration_amount >= op.quantity
+          # multiplying d.discount_per_kilo by op.quantity to get how much discount is gonna be 
+          # applied to this order_product. 
+          
+          op.client_discount = d.discount_per_kilo
+
+          # in this case the discount completely satisfied the requirments. So we don't need to look at any more discounts.
+          # so just end the discount loop
+          break
         else
-          op.client_discount += (d.current_expiration_amount / op.quantity) * d.discount_per_unit
+
+          amount_to_apply = [d.current_expiration_amount, amount_left_to_apply_from_discount].min
+
+
+          op.client_discount += (d.current_expiration_amount / op.quantity) * d.discount_per_kilo
+
+
           amount_left_to_apply_from_discount -= d.current_expiration_amount
+
+    # d.current_expiration_amount is being set to 0 here, I guess to break the action of applying the discount.
           d.current_expiration_amount = 0
 
 
