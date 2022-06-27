@@ -110,29 +110,26 @@ RSpec.describe Order, type: :model do
     muffins = Product.create!(product_name: "muffins", price: 50)
     croissant = Product.create!(product_name: "croissant", price: 100)
 
-    Inventory.create!(product_id: muffins.id, amount: 20, current_amount_left: 20)
-    Inventory.create!(product_id: croissant.id, amount: 20, current_amount_left: 20)
+    Inventory.create!(product_id: muffins.id, amount: 1000, current_amount_left: 1000)
+    Inventory.create!(product_id: croissant.id, amount: 1000, current_amount_left: 1000)
 
-    discount_1 = Discount.create!(client_id: sianna_marie.id, discount_per_kilo: 0.5, expiration_amount: 10, current_expiration_amount: 10, starting_date: '2022-06-23'.to_date, ending_date: '2022-07-23')
-    discount_2 = Discount.create!(client_id: sianna_marie.id, discount_per_kilo: 0.5, expiration_amount: 15, current_expiration_amount: 15, starting_date: '2022-06-23'.to_date, ending_date: '2022-07-23')
+    discount_1 = Discount.create!(client_id: sianna_marie.id, discount_per_kilo: 1, expiration_amount: 250, current_expiration_amount: 250, starting_date: '2022-06-23'.to_date, ending_date: '2022-07-23')
+    discount_2 = Discount.create!(client_id: sianna_marie.id, discount_per_kilo: 0.75, expiration_amount: 500, current_expiration_amount: 500, starting_date: '2022-06-23'.to_date, ending_date: '2022-07-23')
+    discount_3 = Discount.create!(client_id: sianna_marie.id, discount_per_kilo: 0.5, expiration_amount: 1000, current_expiration_amount: 1000, starting_date: '2022-06-23'.to_date, ending_date: '2022-07-23')
 
     order = Order.create!(client_id: sianna_marie.id, order_products: [
-      OrderProduct.new(product_id: muffins.id, quantity: 5, sale_price: 50, client_discount: 0.5),
-      OrderProduct.new(product_id: croissant.id, quantity: 4, sale_price: 100, client_discount: 0.5)
+      OrderProduct.new(product_id: muffins.id, quantity: 500, sale_price: 50, client_discount: 1),
+      OrderProduct.new(product_id: croissant.id, quantity: 500, sale_price: 100, client_discount: 1)
       ])
-
-    order.save
     
     # Check if the subtotal is being calculated correctly after the client_discount is applied. 
-    expect(order.order_products[0].subtotal.to_s).to eq("247.5")
-    expect(order.order_products[1].subtotal.to_s).to eq("398")
-    expect(order.grand_total.to_s).to eq("645.5")
+    expect(order.order_products[0].subtotal.round(2)).to eq(24562.5.round(2))
+    expect(order.order_products[1].subtotal.round(2)).to eq(49687.5.round(2))
+    expect(order.grand_total.round(2)).to eq(74250.round(2))
     
-    # I need to check if current_expiration_amount is 41 after creating an order. 
     expect(discount_1.current_expiration_amount.to_s).to eq("0")
-    expect(discount_2.current_expiration_amount.to_s).to eq("7")
-    
-    # client_discount * quantity, the sum of that subtracted from subtotal.
+    expect(discount_2.current_expiration_amount.to_s).to eq("0")
+    expect(discount_3.current_expiration_amount.to_s).to eq("750")
   end
   
   # rspec -e"if the order was deleted, the current_expiration_amount is being put back"
