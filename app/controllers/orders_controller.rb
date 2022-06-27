@@ -1,10 +1,7 @@
 class OrdersController < ApplicationController
   # before_action :set_order, only: %i[ show edit update destroy ]
   load_and_authorize_resource  
-  helper_method :sort_column, :sort_direction
-  
-
-  
+  helper_method :sort_column, :sort_direction  
     
   # GET /orders or /orders.json
   def autofill_price
@@ -24,7 +21,7 @@ class OrdersController < ApplicationController
     find_finished_products
     @order = Order.new
     @order.order_products.new
-    @order.build_client   
+    @order.build_client
   end
 
   # GET /orders/1/edit
@@ -34,7 +31,9 @@ class OrdersController < ApplicationController
 
   # POST /orders or /orders.json
   def create
-    @order = Order.new(order_params)    
+    find_finished_products
+    @order = Order.new(order_params)   
+
     respond_to do |format|
       if @order.save
         format.html { redirect_to orders_path, notice: "Order was successfully created." }

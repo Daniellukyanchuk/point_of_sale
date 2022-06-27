@@ -3,7 +3,7 @@ class Purchase < ApplicationRecord
   has_many :product_reports
   has_many :products, through: :purchase_products
   belongs_to :supplier
-  validates :date_ordered, :date_received, presence: true
+  validates :date_ordered, :date_received, :supplier_id, presence: true
   accepts_nested_attributes_for :purchase_products, allow_destroy: true
   before_save :set_purchase_total
   before_save :add_products
@@ -42,6 +42,8 @@ class Purchase < ApplicationRecord
       purchase_prods = []
       if pp[1]["product_id"] == "-1"
          purchase_prods.push(pp[1])
+      else
+        product_ids.push(pp[1]["product_id"])
       end
  
       purchase_prods.each do |p|

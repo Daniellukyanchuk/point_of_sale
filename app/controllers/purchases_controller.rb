@@ -22,12 +22,12 @@ class PurchasesController < ApplicationController
   end
 
   # GET /purchases/new
-  def new    
+  def new
     @purchase = Purchase.new
     @purchase.purchase_products.new
     @purchase.purchase_products.each do |pp|
       pp.build_product
-    end    
+    end
   end
 
   # GET /purchases/1/edit
@@ -36,9 +36,7 @@ class PurchasesController < ApplicationController
 
   # POST /purchases or /purchases.json
   def create  
-    @purchase = Purchase.new(purchase_params)
-    
-
+    @purchase = Purchase.new(purchase_params)    
     respond_to do |format|
       if @purchase.save
         format.html { redirect_to @purchase, notice: "purchases were successfully added to inventory." }

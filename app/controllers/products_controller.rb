@@ -41,8 +41,9 @@ end
 
   # GET /products/new
   def new    
-    @product = Product.new
     set_product_categories
+    @product = Product.new
+    
   end
 
   # GET /products/1/edit
@@ -52,8 +53,8 @@ end
 
   # POST /products or /products.json
   def create
+    set_product_categories
     @product = Product.new(product_params)
-    @product.add_product_categories(params)
     respond_to do |format|
       if @product.save
         format.html { redirect_to products_path, notice: "Product was successfully created." }
@@ -93,6 +94,7 @@ end
       raw_ingredient_ids = []
       semi_finished_product_ids = []
       finished_product_ids = []
+            
       products.each do |sort|
         if sort.product_category_id == 1
           finished_product_ids.push(sort.product_id)
@@ -102,9 +104,13 @@ end
           semi_finished_product_ids.push(sort.product_id)
         end
       end
+
+      categorized_products = finished_product_ids + raw_ingredient_ids + semi_finished_product_ids
+
       @raw_ingredients = Product.find(raw_ingredient_ids).sort_by &:product_name
       @semi_finished_products = Product.find(semi_finished_product_ids).sort_by &:product_name
       @finished_products = Product.find(finished_product_ids).sort_by &:product_name
+      @other_products = Product.where.not(id: categorized_products).sort_by &:product_name
   end
 
   private
@@ -115,12 +121,10 @@ end
 
     def set_product_categories
       @product_categories = ProductCategory.all
-    end
-
-   
+    end   
 
     # Only allow a list of trusted parameters through.
-    def product_params
+    def product_params      
       params.require(:product).permit(:id, :product_name, :price, :unit, :units_purchased, :units_sold, :inventory, :grams_per_unit, category_products_attributes: [:product_category_id, :product_id])
     end
 

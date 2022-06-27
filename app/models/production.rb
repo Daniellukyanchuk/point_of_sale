@@ -1,8 +1,7 @@
 class Production < ApplicationRecord
 	has_many :recipe_products
 	belongs_to :recipe
-	validates :recipe_id, presence: true
-	validate :production_quantity_true 	
+	validates :recipe_id, :production_quantity, presence: true
 	validate :has_enough_inventory
 	after_create :adjust_inventory
 
@@ -10,8 +9,7 @@ class Production < ApplicationRecord
 
 	def has_enough_inventory
 		if recipe_products.blank?
-			redirect_to productions_path
-			flash.now[:alert] = "Not enough ingredients in Inventory to produce that amount!"
+			errors.add( :recipe_id, "Not enough ingredients in Inventory to produce that amount!")
 		else	
 			#calculates amount of each ingredient needed for the production
 			recipe_products.each do |recipe|
@@ -26,9 +24,6 @@ class Production < ApplicationRecord
 		end	
     end
 
-	def production_quantity_true
-		
-	end
    
 	def adjust_inventory
 		recipe_products = RecipeProduct.where("recipe_id = ?", recipe_id)		

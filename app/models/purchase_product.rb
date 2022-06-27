@@ -3,10 +3,9 @@ class PurchaseProduct < ApplicationRecord
     belongs_to :product, optional: true
     has_one :inventory
     after_validation :set_purchase_subtotal
-    validates :purchase_quantity, :purchase_price, :product_id, presence: true
+    validates :product_id, :purchase_quantity, :purchase_price, presence: true
     accepts_nested_attributes_for :product, allow_destroy: true
-    
-   
+       
 
     def p_o_name
         "P.O.#{id} | #{product.product_name} | #{created_at.to_date.strftime("%d %b %Y")}"
@@ -19,8 +18,6 @@ class PurchaseProduct < ApplicationRecord
         else
             self.purchase_subtotal = purchase_quantity * purchase_price
         end
-    end
-
-    
+    end   
 
 end

@@ -1,5 +1,5 @@
 class ProductCategoriesController < ApplicationController
-  before_action :set_product_category, only: %i[ show edit update destroy ]
+  load_and_authorize_resource 
 
   # GET /product_categories or /product_categories.json
   def index

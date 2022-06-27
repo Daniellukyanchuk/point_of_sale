@@ -17,7 +17,7 @@
     <%= form.select :client_id, ([['+ Create New Client', '-1']] + Client.all.map{ |c| [c.name, c.id] }), {:prompt => 'Choose a client'}, :class => "form-control col-8 col-lg-6 col-xl-3 client-select" %>
 
     <div style="display: none;" class="container col-6 mt-3" id="new_client">
-      <%= form.fields_for :owner, Client.new do |client_attributes|%>
+      <%= form.fields_for :client, Client.new do |client_attributes|%>
       <div class="row">
         <div class="col-6">
           <%= client_attributes.label :name, "Client Name:" %>

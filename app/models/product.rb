@@ -12,9 +12,16 @@ class Product < ApplicationRecord
     has_many :product_categories, through: :category_products
     accepts_nested_attributes_for :category_products
     validates :product_name, :price, :unit, :grams_per_unit, presence: true
+    before_save :assign_product_categories
+    validate :check_product_name
 
-   
+  def check_product_name
+    if Product.exists?(['product_name ILIKE ?', "%#{product_name}%"])
+      errors.add(:product_id, "This product name is already in use. Please choose a different name!")
+    end
+  end
 
+    
   def self.search(search)
     
     if !search.blank?      
@@ -42,13 +49,13 @@ class Product < ApplicationRecord
   end
 
 
-  def add_product_categories(params)
+  def assign_product_categories
+    category_ids = category_products.ids
     
-    product_ids = params["category_products_attributes"]["product_id"].values
-            
-    product_ids.each do |p_id|
-        category_products.push(CategoryProduct.new(product_category_id: p_id))
+    category_ids.each do |c_id|
+        category_products.push(CategoryProduct.new(product_category_id: c_id))
     end
+    
   end
 
   def update_product_categories(params)   
