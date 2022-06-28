@@ -13,6 +13,7 @@ class DiscountsController < ApplicationController
   # GET /discounts/new
   def new
     @discount = Discount.new
+    @discount.order_product_discounts.new
   end
 
   # GET /discounts/1/edit
@@ -29,7 +30,6 @@ class DiscountsController < ApplicationController
       return
     end
 
-    
     render json: {discount_per_kilo: @discount_row.discount_per_kilo}
   end
 

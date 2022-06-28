@@ -5,6 +5,7 @@ class Discount < ApplicationRecord
 
     # Set current_expiration_amount. 
     def set_current_expiration_amount
+      
       if self.id == nil
       	self.current_expiration_amount = 0
       end

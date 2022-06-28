@@ -101,7 +101,6 @@ RSpec.describe Order, type: :model do
   
   # rspec -e"if there is one or multiple client_discounts"
   it "if there is one or multiple client_discounts" do 
-
     # Second case: When there are multiple discounts. 
     # If there is no more current_expiration_amount left in the first discount, then go to the 
     # next discount if there is one.
@@ -121,15 +120,17 @@ RSpec.describe Order, type: :model do
       OrderProduct.new(product_id: muffins.id, quantity: 500, sale_price: 50, client_discount: 1),
       OrderProduct.new(product_id: croissant.id, quantity: 500, sale_price: 100, client_discount: 1)
       ])
+
+
     
     # Check if the subtotal is being calculated correctly after the client_discount is applied. 
     expect(order.order_products[0].subtotal.round(2)).to eq(24562.5.round(2))
     expect(order.order_products[1].subtotal.round(2)).to eq(49687.5.round(2))
     expect(order.grand_total.round(2)).to eq(74250.round(2))
     
-    expect(discount_1.current_expiration_amount.to_s).to eq("0")
-    expect(discount_2.current_expiration_amount.to_s).to eq("0")
-    expect(discount_3.current_expiration_amount.to_s).to eq("750")
+    expect(Discount.find(discount_1.id).current_expiration_amount.to_s).to eq("0.0")
+    expect(Discount.find(discount_2.id).current_expiration_amount.to_s).to eq("0.0")
+    expect(Discount.find(discount_3.id).current_expiration_amount.to_s).to eq("750.0")
   end
   
   # rspec -e"if the order was deleted, the current_expiration_amount is being put back"
@@ -153,8 +154,8 @@ RSpec.describe Order, type: :model do
 
     order.destroy
 
-    expect(discount_1.current_expiration_amount.to_s).to eq("10")
-    expect(discount_2.current_expiration_amount.to_s).to eq("15")
+    expect(Discount.find(discount_1.id).current_expiration_amount.to_s).to eq("10.0")
+    expect(Discount.find(discount_2.id).current_expiration_amount.to_s).to eq("15.0")
   end
   
   # rspec -e"if the client_discount is updated, the current_expiration_amount is either being put back or subtracted more"
@@ -176,13 +177,13 @@ RSpec.describe Order, type: :model do
       OrderProduct.new(product_id: croissant.id, quantity: 4, sale_price: 100, client_discount: 0.5)
       ])
 
-    order_update = order.update(client_id: sianna_marie.id, order_products: [
+    order_update = order.update!(client_id: sianna_marie.id, order_products: [
       OrderProduct.new(product_id: muffins.id, quantity: 10, sale_price: 50, client_discount: 0.5),
       OrderProduct.new(product_id: croissant.id, quantity: 4, sale_price: 100, client_discount: 0.5)
       ])
 
-    expect(discount_1.current_expiration_amount.to_s).to eq("0")
-    expect(discount_2.current_expiration_amount.to_s).to eq("11")
+    expect(Discount.find(discount_1.id).current_expiration_amount.to_s).to eq("0.0")
+    expect(Discount.find(discount_2.id).current_expiration_amount.to_s).to eq("11.0")
   end
   
   # rspec -e"if a client has a discount for less then he orders"
@@ -217,5 +218,9 @@ RSpec.describe Order, type: :model do
     expect(order.order_products[0].subtotal.to_s).to eq("14850")
     expect(order.order_products[1].subtotal.to_s).to eq("29900")
     expect(order.grand_total.to_s).to eq("44750")
+  end
+
+  it "match the discounts only with the current discounts, not expired or not started once"
+  
   end
 end

@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(version: 2022_06_21_103556) do
   create_table "order_product_discounts", force: :cascade do |t|
     t.integer "discount_id"
     t.integer "order_product_id"
-    t.decimal "discount_quantitu"
+    t.decimal "discount_quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

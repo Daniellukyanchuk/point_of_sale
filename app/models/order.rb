@@ -1,7 +1,6 @@
 class Order < ApplicationRecord 
   before_destroy :put_back_inventory_item
   has_many :order_products, dependent: :delete_all 
-  has_many :discounts
   accepts_nested_attributes_for :order_products, allow_destroy: true
   belongs_to :client, optional: true  
   before_save :set_grand_total, :manage_discounts, :create_clients, :expiration_amount_valid?
@@ -18,7 +17,7 @@ class Order < ApplicationRecord
   
   def expiration_amount_valid?
     discounts = Discount.where("client_id = ? and (starting_date is null or starting_date < ?) 
-    and (ending_date is null or ending_date > ?) and (current_expiration_amount > 0 
+    and (ending_date is null or ending_date < ?) and (expiration_amount > 0 
     or expiration_amount is null)", client_id, created_at || DateTime.now, created_at || DateTime.now).order("discount_per_kilo desc, current_expiration_amount asc")
 
     # Go through order and set order_product.subtotal with a discount.
@@ -26,14 +25,13 @@ class Order < ApplicationRecord
     order_products.each do |op|
       amount_left_to_apply_from_discount = op.quantity
       op.client_discount = 0 
-      subtract_from_grand_total = 0
-
 
       discounts.each do |d|
         if d.current_expiration_amount >= amount_left_to_apply_from_discount
-       
           op.client_discount += (amount_left_to_apply_from_discount / op.quantity) * d.discount_per_kilo
           d.current_expiration_amount -= amount_left_to_apply_from_discount
+          
+          d.save
           break
         else
           amount_to_apply = [d.current_expiration_amount, amount_left_to_apply_from_discount].min
@@ -42,9 +40,10 @@ class Order < ApplicationRecord
           
           amount_left_to_apply_from_discount -= amount_to_apply
 
-          d.current_expiration_amount -= amount_left_to_apply_from_discount
+          d.current_expiration_amount = 0
+          d.save
         end
-        op.order_product_discounts.push OrderProductDiscount.new(discount_id: discounts.first.id, discount_quantitu: amount_left_to_apply_from_discount)
+        op.order_product_discounts.push OrderProductDiscount.new(discount_id: discounts.first.id, discount_quantity: amount_left_to_apply_from_discount)
       end
       op.subtotal -= op.client_discount * op.quantity
       self.grand_total += op.subtotal
@@ -61,6 +60,11 @@ class Order < ApplicationRecord
   def put_back_inventory_item
     order_products.each do |op|
       Inventory.add_inventory(op.product_id, op.quantity, op.sale_price)
+
+# What's the relationship between order_products, discounts and order_product_discounts? 
+
+
+      
     end
   end
 
