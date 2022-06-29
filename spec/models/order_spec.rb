@@ -94,9 +94,9 @@ RSpec.describe Order, type: :model do
       OrderProduct.new(product_id: croissant.id, quantity: 4, sale_price: 100, client_discount: 0)
       ])
 
-    expect(order.order_products[0].subtotal.to_s).to eq("250")
-    expect(order.order_products[1].subtotal.to_s).to eq("400")
-    expect(order.grand_total.to_s).to eq("650") 
+    expect(order.order_products[0].subtotal.to_s).to eq("250.0")
+    expect(order.order_products[1].subtotal.to_s).to eq("400.0")
+    expect(order.grand_total.to_s).to eq("650.0") 
   end
   
   # rspec -e"if there is one or multiple client_discounts"
@@ -151,7 +151,10 @@ RSpec.describe Order, type: :model do
       OrderProduct.new(product_id: muffins.id, quantity: 5, sale_price: 50, client_discount: 0.5),
       OrderProduct.new(product_id: croissant.id, quantity: 6, sale_price: 100, client_discount: 0.5)
       ])
-
+    
+    expect(OrderProductDiscount.count).to eq(3)
+    expect(OrdderProductDiscount.last.discount_quantity.round(2)).to eq(1)
+    
     order.destroy
 
     expect(Discount.find(discount_1.id).current_expiration_amount.to_s).to eq("10.0")
@@ -220,7 +223,7 @@ RSpec.describe Order, type: :model do
     expect(order.grand_total.to_s).to eq("44750")
   end
 
-  it "match the discounts only with the current discounts, not expired or not started once"
+  it "match the discounts only with the current discounts, not expired or not started once" do
   
   end
 end
