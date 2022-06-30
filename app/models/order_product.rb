@@ -10,8 +10,8 @@ class OrderProduct < ApplicationRecord
     
         
     def set_subtotal
-        self.sale_price = sale_price - item_discount.to_i
-        self.subtotal = quantity * sale_price
+        self.sale_price = (sale_price - item_discount.to_i).round(2)
+        self.subtotal = (quantity * sale_price).round(2)
     end    
 
 

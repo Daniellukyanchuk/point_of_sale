@@ -28,7 +28,7 @@ class Order < ApplicationRecord
         op.set_subtotal
         self.grand_total = self.grand_total + op.subtotal
       end 
-      self.grand_total = self.grand_total - self.order_discount.to_i
+      self.grand_total = (self.grand_total - self.order_discount.to_i).round(2)
     end
 
     def set_discounted_sales_prices
