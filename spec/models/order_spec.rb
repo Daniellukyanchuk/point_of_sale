@@ -153,7 +153,7 @@ RSpec.describe Order, type: :model do
       ])
     
     expect(OrderProductDiscount.count).to eq(3)
-    expect(OrdderProductDiscount.last.discount_quantity.round(2)).to eq(1)
+    expect(OrderProductDiscount.last.discount_quantity.round(2)).to eq(1)
     
     order.destroy
 
