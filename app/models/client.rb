@@ -10,6 +10,5 @@ class Client < ApplicationRecord
       else
       Client.all
       end
-    end
-
+    end   
 end

@@ -5,11 +5,15 @@ class OrderProduct < ApplicationRecord
     validates :sale_price, :quantity, :product_id, presence: true
     before_save :set_subtotal
     after_destroy :put_back_in_inventory
+
+    attr_accessor :item_discount
     
         
     def set_subtotal
+        self.sale_price = sale_price - item_discount.to_i
         self.subtotal = quantity * sale_price
     end    
+
 
     def put_back_in_inventory
         # quantity to put back                

@@ -100,9 +100,13 @@ class OrdersController < ApplicationController
         params["order"]["client_id"] = nil
       end 
 
-       params.require(:order).permit(:client_id, :grand_total, 
+      if !params["order"]["client_id"].blank?
+        params[:order].delete :client_attributes        
+      end     
+
+       params.require(:order).permit(:client_id, :grand_total, :order_discount,
        client_attributes: [:id, :name, :address, :phone, :city],
-       order_products_attributes: [:id, :product_id, :order_id, :sale_price, :quantity, :subtotal, :_destroy], 
+       order_products_attributes: [:id, :product_id, :order_id, :sale_price, :quantity, :subtotal, :item_discount, :_destroy], 
        products_attributes: [:id, :unit, :price, :product_name])
     end
 
@@ -112,8 +116,7 @@ class OrdersController < ApplicationController
     
     def sort_direction
       params[:direction] || "asc"
-    end        
-
+    end    
 end
 
 

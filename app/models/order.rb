@@ -6,7 +6,10 @@ class Order < ApplicationRecord
     accepts_nested_attributes_for :client, allow_destroy: true
     accepts_nested_attributes_for :order_products, allow_destroy: true
     before_save :set_grand_total
+    before_save :set_discounted_sales_prices
     after_save :remove_from_inventory
+
+    attr_accessor :order_discount
 
     #remove sold items from inventory 
     def remove_from_inventory   
@@ -24,7 +27,20 @@ class Order < ApplicationRecord
       order_products.each do |op|
         op.set_subtotal
         self.grand_total = self.grand_total + op.subtotal
-      end    
+      end 
+      self.grand_total = self.grand_total - self.order_discount.to_i
+    end
+
+    def set_discounted_sales_prices
+      
+      if !self.order_discount.blank?
+        order_products.each do |sp|
+          percent_of_whole = sp.subtotal / self.grand_total
+          percent_of_whole_per_item = percent_of_whole / sp.quantity
+          som_disount_per_unit = percent_of_whole_per_item * self.order_discount.to_i
+          sp.sale_price = sp.sale_price - som_disount_per_unit
+        end
+      end
     end
 
 # SALES REPORT

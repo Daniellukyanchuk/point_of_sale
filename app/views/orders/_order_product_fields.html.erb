@@ -18,6 +18,11 @@
       </div>
 
       <div class="field">
+        <%= form.label "Item discount (amount in som)" %>
+        <%= form.number_field :item_discount, class: "item-discount form-control" %>
+      </div>
+
+      <div class="field">
         <%= form.label :subtotal %>
         <%= form.number_field :subtotal, id: "subtotal", :class => "subtotal greyed_out form-control", :readonly => true  %>
       </div>
