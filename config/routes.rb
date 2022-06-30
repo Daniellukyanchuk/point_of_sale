@@ -1,5 +1,6 @@
 Rails.application.routes.draw do  
   
+  resources :client_discounts
   root to: "products#index"
   
   scope "/:locale" do      

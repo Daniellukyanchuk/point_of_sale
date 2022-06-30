@@ -8,9 +8,11 @@ class Purchase < ApplicationRecord
   before_save :set_purchase_total
   before_save :add_products
   before_validation :parse_dates
+  
   attr_accessor :new_product_attributes
 
   def parse_dates
+    stop
       if !date_ordered.blank?
       self.date_ordered =  Date.strptime(self.date_ordered.to_s, "%Y-%d-%m")
       end

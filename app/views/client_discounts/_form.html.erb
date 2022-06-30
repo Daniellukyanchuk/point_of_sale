@@ -1,0 +1,92 @@
+<%= form_with(model: client_discount, local: true) do |form| %>
+  <% if client_discount.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(client_discount.errors.count, "error") %> prohibited this client_discount from being saved:</h2>
+
+      <ul>
+      <% client_discount.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :discount_name %>
+    <%= form.text_field :discount_name, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :client_id %>
+       <%= form.select :client_id, Client.all.map{ |c| [c.name, c.id] }, {:prompt => 'Choose a client'}, :class => "form-control product-select" %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Discount per unit (in som)" %>
+    <%= form.text_field :discount_per_unit, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :discounted_units %>
+    <%= form.number_field :discounted_units, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :discounted_units_left %>
+    <%= form.number_field :discounted_units_left, class: "grand-total greyed_out form-control", :readonly => true  %>
+  </div>
+
+  <div class="field">
+    <%= form.label :start_date %>
+    <input type="text" class="datepicker form-control" id="start_date" name="client_discount[start_date]" 
+    autocomplete = 'off' value = "<%= client_discount.start_date.strftime("%m-%d-%Y") unless client_discount.start_date.blank? %>">
+  </div>
+
+  <div class="field">
+    <%= form.label :end_date %>
+    <input type="text" class="datepicker form-control" id="end_date" name="client_discount[end_date]" 
+    autocomplete = 'off' value = "<%= client_discount.end_date.strftime("%m-%d-%Y") unless client_discount.end_date.blank? %>">
+  </div>
+
+  <div class="actions">
+    <%= form.submit "#{client_discount.id.nil? ? _("Create Discount") : _("Update Discount")}" , :class => "btn btn-success"%>
+  </div>
+<% end %>
+
+
+
+<script type="text/javascript"> 
+
+//////////////////  DATE PICKER  ///////////////////// 
+
+  $(function() {
+    var dateFormat = "mm/dd/yy",
+    //first time picker//
+    start = $( "#start_date" ).datepicker({
+      changeMonth: true, 
+      numberOfMonths: 1})
+    .on( "change", function() {
+    start.datepicker( "option", getDate( this ) );
+    }),
+    //second date picker
+    end = $( "#end_date" ).datepicker({
+      changeMonth: true,
+      numberOfMonths: 1
+    })
+    .on( "change", function() {
+      end.datepicker( "option", getDate( this ) );
+    });
+  
+    function getDate( element ) {
+      var date;
+      try {
+        date = $.datepicker.parseDate( dateFormat, element.value );
+      } catch( error ) {
+        //date = null;
+      }
+
+      return date;
+    }
+  });
+
+</script>

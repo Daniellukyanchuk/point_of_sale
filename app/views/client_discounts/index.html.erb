@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Client Discounts</h1>
+
+<%= link_to _('+ New Discount'), new_client_discount_path, :class => 'btn btn-secondary' %><br><br>
+
+<table>
+  <thead>
+    <tr>
+      <th>Discount name</th>
+      <th>Client</th>
+      <th>Discount per unit</th>
+      <th>Discounted units</th>
+      <th>Discounted units left</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @client_discounts.each do |client_discount| %>
+      <tr>
+        <td><%= client_discount.discount_name %></td>
+        <td><%= client_discount.client_id %></td>
+        <td><%= client_discount.discount_per_unit %></td>
+        <td><%= client_discount.discounted_units %></td>
+        <td><%= client_discount.discounted_units_left %></td>
+        <td><%= client_discount.start_date %></td>
+        <td><%= client_discount.end_date %></td>
+        <td><%= link_to 'Show', client_discount %></td>
+        <td><%= link_to 'Edit', edit_client_discount_path(client_discount) %></td>
+        <td><%= link_to 'Destroy', client_discount, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
