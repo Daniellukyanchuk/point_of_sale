@@ -24,33 +24,28 @@
       <tr>
       <th colspan="3"><h3><%= _("Product id:") %> <%= sp.product_id %></h3></th>
     </tr><tr>
-      <th></th><th><%= _("Estimate") %></th><th><%= _("Actual Order") %></th>
+      <th><%= _("Actual Order") %></th>
     </tr>
     </thead><tbody>
       <tr>
         <td><strong><%= _("Quantity:") %></strong></td>
-        <td><%= sp.estimated_quantity %> </td>
+        
         <td><%= sp.purchase_quantity %></td>
       </tr>
       <tr>
         <td><strong><%= _("Cost per Unit (CPU)") %> </strong></td>
-        <td><%= sp.estimated_cost %></td>
+        
         <td><%= sp.purchase_price %></td>
       </tr>
       <tr>
         <td><strong><%= _("Subtotal:") %></strong></td>
-        <td><%= sp.estimated_subtotal %></td>
+        
         <td><%= sp.purchase_subtotal %></td>
       </tr>
       
     </tbody>
   </table>
   <% end %>
-
- <p>
-  <strong><%= _("") %><%= _("Estimated total:") %></strong>
-  <%= @purchase.estimated_total %>
-</p> 
 
 <p>
   <strong><%= _("") %><%= _("Actual total:") %></strong>

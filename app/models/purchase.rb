@@ -3,9 +3,8 @@ class Purchase < ApplicationRecord
     has_many :product_reports
     belongs_to :supplier
     accepts_nested_attributes_for :purchase_products, allow_destroy: true
-    before_save :set_estimated_total
     before_save :set_purchase_total
-    before_validation :parse_dates
+    before_save :parse_dates
     
 
     def parse_dates
@@ -20,16 +19,7 @@ class Purchase < ApplicationRecord
         end
     end
 
-    def set_estimated_total
-
-        self.estimated_total = 0
-        #loop to add up subtotals into estimated total
-        purchase_products.each do |sp|
-          sp.set_estimated_subtotal
-          self.estimated_total = self.estimated_total + sp.estimated_subtotal
-        end  
-    end
-
+    
     def set_purchase_total
 
         if purchase_products.any? {|sp| sp.purchase_quantity.blank? || sp.purchase_price.blank?}
@@ -149,8 +139,8 @@ end
 
 #column sorting (sortable & sort_direction)
 
-      if !["supplier_name", "supplier_id", "product_name", "estimated_quantity", "actual_quantity", "estimated_cost", 
-        "actual_cost", "estimated_subtotal", "actual_subtotal", "date_ordered", "date_expected", "date_received", "product_id"].include?(sortable)
+      if !["supplier_name", "supplier_id", "product_name", "actual_quantity", 
+        "actual_cost", "actual_subtotal", "date_ordered", "date_expected", "date_received", "product_id"].include?(sortable)
         sortable = "date_ordered"
       end
 
@@ -163,8 +153,7 @@ end
       sql = """
             SELECT * FROM (
               SELECT supplier_id, purchase_id AS purchase_order_id, supplier_name, product_name, 
-              estimated_quantity, purchase_quantity AS actual_quantity, estimated_cost, purchase_price AS actual_cost,
-              estimated_subtotal, purchase_subtotal AS actual_subtotal,
+              purchase_quantity AS actual_quantity, purchase_price AS actual_cost, purchase_subtotal AS actual_subtotal,
               date_ordered, date_expected, date_received, product_id
               FROM purchases
               LEFT OUTER JOIN purchase_products ON purchase_id = purchases.id

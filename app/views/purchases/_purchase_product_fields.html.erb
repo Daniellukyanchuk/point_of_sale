@@ -5,7 +5,7 @@
 
       <div class="field">
       <%= form.label _("select product") %>
-          <%= form.collection_select :product_id, @raw_products, :id, :product_name, {:prompt => "Select Product"}, { :class => 'form-control' } %>
+          <%= form.collection_select :product_id, @products, :id, :product_name, {:prompt => "Select Product"}, { :class => 'form-control' } %>
       </div>
       <br>
 

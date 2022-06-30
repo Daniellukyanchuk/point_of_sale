@@ -22,6 +22,7 @@ class PurchasesController < ApplicationController
 
   # GET /purchases/new
   def new
+    find_products
     @purchase = Purchase.new
     @purchase.purchase_products.new
   end
@@ -75,19 +76,14 @@ class PurchasesController < ApplicationController
     end
 
     def find_products
-      products = CategoryProduct.where("product_category_id = ?", 12)
-      product_ids = []
-      products.each do |product|
-        product_ids.push(product.product_id)
-      end
-      @raw_products = Product.find(product_ids).sort_by &:product_name
+      @products = Product.all
     end
 
     # Only allow a list of trusted parameters through.
     def purchase_params
-      params.require(:purchase).permit(:supplier_id, :purchase_total, :estimated_total, :date_ordered, 
+      params.require(:purchase).permit(:supplier_id, :purchase_total, :date_ordered, 
         :date_expected, :date_received, :purchase_product_id, 
-        purchase_products_attributes: [:id, :product_id, :purchase_id, :purchase_quantity, :purchase_price, :purchase_subtotal, :estimated_quantity, :estimated_cost, :estimated_subtotal, :_destroy])
+        purchase_products_attributes: [:product_id, :purchase_quantity, :purchase_price, :purchase_subtotal, :_destroy])
     end
 
     def sort_column
