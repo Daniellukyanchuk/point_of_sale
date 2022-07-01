@@ -15,7 +15,12 @@ class Order < ApplicationRecord
     end
   end
   
+  def clear_old_discounts
+  end
+
   def expiration_amount_valid?
+    clear_old_discounts if !id.nil?
+    
     discounts = Discount.where("client_id = ? and (starting_date is null or starting_date < ?) 
     and (ending_date is null or ending_date > ?) and (expiration_amount > 0 
     or expiration_amount is null)", client_id, created_at || DateTime.now, created_at || DateTime.now).order("discount_per_kilo desc, current_expiration_amount asc")
@@ -28,10 +33,12 @@ class Order < ApplicationRecord
 
       discounts.each do |d|
         if d.current_expiration_amount >= amount_left_to_apply_from_discount
+          byebug
           op.client_discount += (amount_left_to_apply_from_discount / op.quantity) * d.discount_per_kilo
           d.current_expiration_amount -= amount_left_to_apply_from_discount 
           d.save
-          op.order_product_discounts.push OrderProductDiscount.new(discount_id: discounts.first.id, discount_quantity: amount_left_to_apply_from_discount)
+          byebug
+          op.order_product_discounts.push OrderProductDiscount.new(discount_id: d.id, discount_quantity: amount_left_to_apply_from_discount)
           break
         else
           amount_to_apply = [d.current_expiration_amount, amount_left_to_apply_from_discount].min
@@ -40,7 +47,7 @@ class Order < ApplicationRecord
           d.current_expiration_amount -= amount_to_apply
           d.save
         end
-        op.order_product_discounts.push OrderProductDiscount.new(discount_id: discounts.first.id, discount_quantity: amount_to_apply)
+        op.order_product_discounts.push OrderProductDiscount.new(discount_id: d.id, discount_quantity: amount_to_apply)
       end
       op.subtotal -= op.client_discount * op.quantity
       self.grand_total += op.subtotal
@@ -48,19 +55,13 @@ class Order < ApplicationRecord
   end
 
   def put_back_cur_exp_amount
-    # Go through each op.order_product_discounts and add opd.discount_quantity to opd.discount.current_expiration_amount.
-
-    order_products.each do |op|     
+    order_products.each do |op|  
       op.order_product_discounts.each do |opd|
         if !opd.discount.nil?
-          opd.discount.current_expiration_amount += opd.discount_quantity
+          opd.reload_discount
+          opd.discount.current_expiration_amount += opd.discount_quantity     
           opd.discount.save
-          opd.discount_quantity -= opd.discount_quantity
-          opd.save
-          byebug
-          break if opd.discount_quantity == 0.0 
-          
-        end    
+        end  
       end
     end
   end

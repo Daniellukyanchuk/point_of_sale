@@ -179,11 +179,13 @@ RSpec.describe Order, type: :model do
       OrderProduct.new(product_id: muffins.id, quantity: 5, sale_price: 50, client_discount: 0.5),
       OrderProduct.new(product_id: croissant.id, quantity: 4, sale_price: 100, client_discount: 0.5)
       ])
+    
 
-    order_update = order.update!(client_id: sianna_marie.id, order_products: [
-      OrderProduct.new(product_id: muffins.id, quantity: 10, sale_price: 50, client_discount: 0.5),
-      OrderProduct.new(product_id: croissant.id, quantity: 4, sale_price: 100, client_discount: 0.5)
-      ])
+    order.client_id = sianna_marie.id
+    order.order_products.first.assign_attributes({product_id: muffins.id, quantity: 10, sale_price: 50, client_discount: 0.5})
+    order.order_products.last.assign_attributes({product_id: croissant.id, quantity: 4, sale_price: 100, client_discount: 0.5})
+    order.save
+
 
     expect(Discount.find(discount_1.id).current_expiration_amount.to_s).to eq("0.0")
     expect(Discount.find(discount_2.id).current_expiration_amount.to_s).to eq("11.0")
@@ -208,9 +210,9 @@ RSpec.describe Order, type: :model do
       OrderProduct.new(product_id: croissant.id, quantity: 200, sale_price: 100, client_discount: 0.5)
       ])
 
-    expect(order.order_products[0].subtotal.to_s).to eq("9900")
-    expect(order.order_products[1].subtotal.to_s).to eq("19900")
-    expect(order.grand_total.to_s).to eq("29800")
+    expect(order.order_products[0].subtotal.to_s).to eq("9900.0")
+    expect(order.order_products[1].subtotal.to_s).to eq("19900.0")
+    expect(order.grand_total.to_s).to eq("29800.0")
 
     order_update = order.update(client_id: vladimir.id, order_products: [
       OrderProduct.new(product_id: muffins.id, quantity: 300, sale_price: 50, client_discount: 0.5),
