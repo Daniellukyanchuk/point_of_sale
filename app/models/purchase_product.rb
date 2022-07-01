@@ -5,7 +5,6 @@ class PurchaseProduct < ApplicationRecord
     after_validation :set_purchase_subtotal
     validates :product_id, :purchase_quantity, :purchase_price, presence: true
     accepts_nested_attributes_for :product, allow_destroy: true
-       
 
     def p_o_name
         "P.O.#{id} | #{product.product_name} | #{created_at.to_date.strftime("%d %b %Y")}"

@@ -35,7 +35,8 @@ class PurchasesController < ApplicationController
   end
 
   # POST /purchases or /purchases.json
-  def create  
+  def create
+    parse_dates
     @purchase = Purchase.new(purchase_params)    
     respond_to do |format|
       if @purchase.save
@@ -85,15 +86,19 @@ class PurchasesController < ApplicationController
       @raw_products = Product.find(product_ids).sort_by &:product_name
     end
 
+    # parse dates
+    def parse_dates     
+      params["purchase"]["date_ordered"] = "#{Date.strptime((params["purchase"]["date_ordered"]).to_s, '%m/%d/%Y')}"      
+      params["purchase"]["date_received"] = "#{Date.strptime((params["purchase"]["date_received"]).to_s, '%m/%d/%Y')}"     
+    end
+
     # Only allow a list of trusted parameters through.
-    def purchase_params
-      
+    def purchase_params      
       ps = params.require(:purchase).permit(:supplier_id, :purchase_total, :date_ordered, :date_received, 
       purchase_products_attributes: [:id, :product_id, :purchase_quantity, :purchase_price, :purchase_subtotal, :_destroy, 
       product_attributes: [:product_name, :price, :unit, :grams_per_unit]])
 
-      ps[:new_product_attributes] = params[:purchase][:purchase_products_attributes].as_json
-      
+      ps[:new_product_attributes] = params[:purchase][:purchase_products_attributes].as_json      
       return ps
     end
 

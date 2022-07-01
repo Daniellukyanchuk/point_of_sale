@@ -26,11 +26,13 @@
         <td><%= client_discount.discount_per_unit %></td>
         <td><%= client_discount.discounted_units %></td>
         <td><%= client_discount.discounted_units_left %></td>
-        <td><%= client_discount.start_date %></td>
-        <td><%= client_discount.end_date %></td>
-        <td><%= link_to 'Show', client_discount %></td>
-        <td><%= link_to 'Edit', edit_client_discount_path(client_discount) %></td>
-        <td><%= link_to 'Destroy', client_discount, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= client_discount.start_date.strftime("%d %b %Y") %></td>
+        <td><%= client_discount.end_date.strftime("%d %b %Y") %></td>
+        <td class="col-2">
+          <%= link_to '<i class="fa-solid fa-eye"></i>'.html_safe, client_discount, class: "text-primary m-2" %>
+          <%= link_to '<i class="fa-solid fa-pencil"></i>'.html_safe, edit_client_discount_path(client_discount), class: "text-secondary m-2" %>
+          <%= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, client_discount, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-danger m-2" %>
+        </td>        
       </tr>
     <% end %>
   </tbody>

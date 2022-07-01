@@ -21,6 +21,7 @@ class ClientDiscountsController < ApplicationController
 
   # POST /client_discounts or /client_discounts.json
   def create
+    parse_dates
     @client_discount = ClientDiscount.new(client_discount_params)
 
     respond_to do |format|
@@ -58,6 +59,12 @@ class ClientDiscountsController < ApplicationController
   end
 
   private
+
+    def parse_dates     
+      params["client_discount"]["start_date"] = "#{Date.strptime((params["client_discount"]["start_date"]).to_s, '%m/%d/%Y')}"      
+      params["client_discount"]["end_date"] = "#{Date.strptime((params["client_discount"]["end_date"]).to_s, '%m/%d/%Y')}"     
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_client_discount
       @client_discount = ClientDiscount.find(params[:id])

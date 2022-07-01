@@ -7,25 +7,10 @@ class Purchase < ApplicationRecord
   accepts_nested_attributes_for :purchase_products, allow_destroy: true
   before_save :set_purchase_total
   before_save :add_products
-  before_validation :parse_dates
   
   attr_accessor :new_product_attributes
 
-  def parse_dates
-    stop
-      if !date_ordered.blank?
-      self.date_ordered =  Date.strptime(self.date_ordered.to_s, "%Y-%d-%m")
-      end
-      if !date_expected.blank?
-      self.date_expected =  Date.strptime(self.date_expected.to_s, "%Y-%d-%m")
-      end
-      if !date_received.blank?
-      self.date_received =  Date.strptime(self.date_received.to_s, "%Y-%d-%m")
-      end
-  end
-
   def set_purchase_total
-
       if purchase_products.any? {|sp| sp.purchase_quantity.blank? || sp.purchase_price.blank?}
           self.purchase_total = nil        
       else
@@ -164,8 +149,8 @@ class Purchase < ApplicationRecord
 
 #column sorting (sortable & sort_direction)
 
-      if !["supplier_name", "supplier_id", "product_name", "estimated_quantity", "actual_quantity", "estimated_cost", 
-        "actual_cost", "estimated_subtotal", "actual_subtotal", "date_ordered", "date_expected", "date_received", "product_id"].include?(sortable)
+      if !["supplier_name", "supplier_id", "product_name", "actual_quantity", 
+        "actual_cost", "actual_subtotal", "date_ordered", "date_expected", "date_received", "product_id"].include?(sortable)
         sortable = "date_ordered"
       end
 
@@ -178,9 +163,8 @@ class Purchase < ApplicationRecord
       sql = """
             SELECT * FROM (
               SELECT supplier_id, purchase_id AS purchase_order_id, supplier_name, product_name, 
-              estimated_quantity, purchase_quantity AS actual_quantity, estimated_cost, purchase_price AS actual_cost,
-              estimated_subtotal, purchase_subtotal AS actual_subtotal,
-              date_ordered, date_expected, date_received, product_id
+              purchase_quantity AS actual_quantity, purchase_price AS actual_cost,
+              purchase_subtotal AS actual_subtotal, date_ordered, date_expected, date_received, product_id
               FROM purchases
               LEFT OUTER JOIN purchase_products ON purchase_id = purchases.id
               LEFT OUTER JOIN products ON product_id = products.id

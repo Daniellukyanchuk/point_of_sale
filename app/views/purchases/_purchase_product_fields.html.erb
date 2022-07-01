@@ -6,7 +6,7 @@
     <%= form.select :product_id, ([['+ Create New Product', '-1']] + @raw_products.map{ |c| [c.product_name, c.id] }), {:prompt => 'Choose a Product'}, :class => "form-control product-select" %>
   </div>
 
-<%# ----------------------------------New Product------------------------------------- %>
+<%# ----------------------------------Add Product on the fly------------------------------------- %>
   <div style="display: none;" class="container col-6 mt-3 col-7 mb-3 new-product">
     <%= form.fields_for :products do |product_attributes|%>
     <div class="row">
@@ -31,7 +31,7 @@
         <% end %>
     </div>  
   </div>
-  <%# ----------------------------------END New Product------------------------------------- %>
+  <%# ----------------------------------END add Product------------------------------------- %>
   <br>
 
     <div class="indent">

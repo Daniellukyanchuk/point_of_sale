@@ -103,16 +103,8 @@ $(function() {
     numberOfMonths: 1})
   .on( "change", function() {
   ordered.datepicker( "option", getDate( this ) );
-  }),
+  }),  
   //second date picker
-  expected = $( "#date_expected" ).datepicker({
-    changeMonth: true,
-    numberOfMonths: 1
-  })
-  .on( "change", function() {
-    expected.datepicker( "option", getDate( this ) );
-  });
-  //third date picker
   received = $( "#date_received" ).datepicker({
     changeMonth: true,
     numberOfMonths: 1
@@ -132,8 +124,6 @@ $(function() {
     return date;
   }
 });
-
-
 
 
 </script>

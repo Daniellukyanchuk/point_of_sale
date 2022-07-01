@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_30_054714) do
+ActiveRecord::Schema.define(version: 2022_06_30_103941) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -136,9 +136,6 @@ ActiveRecord::Schema.define(version: 2022_06_30_054714) do
     t.float "purchase_subtotal"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.float "estimated_quantity"
-    t.float "estimated_cost"
-    t.float "estimated_subtotal"
     t.integer "purchase_id"
   end
 
@@ -147,7 +144,6 @@ ActiveRecord::Schema.define(version: 2022_06_30_054714) do
     t.float "purchase_total"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.float "estimated_total"
     t.date "date_ordered"
     t.date "date_expected"
     t.date "date_received"
