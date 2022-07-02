@@ -25,12 +25,13 @@
       <div class="field">
         <%= form.label :subtotal %>
         <%= form.number_field :subtotal, id: "subtotal", :class => "subtotal greyed_out form-control", :readonly => true  %>
-      </div>
+      </div>    
 
       <div class="field align-bottom">
         <%= form.hidden_field :_destroy, class: "nested-field-destroy" %>
         <%= link_to _("Remove"), "#", class: "remove_fields btn btn-danger" %>
-      </div>      
+      </div>    
+          
   </div>
 
 

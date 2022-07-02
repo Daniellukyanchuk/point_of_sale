@@ -18,6 +18,7 @@ class OrdersController < ApplicationController
 
   # GET /orders/new
   def new
+    set_client_discount
     find_finished_products
     @order = Order.new
     @order.order_products.new
@@ -82,6 +83,10 @@ class OrdersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_order
       @order = Order.find(params[:id])
+    end
+
+    def set_client_discount
+      @client_discounts = ClientDiscount.all
     end
 
     def find_finished_products

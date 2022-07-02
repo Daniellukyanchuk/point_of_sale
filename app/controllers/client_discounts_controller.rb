@@ -37,6 +37,7 @@ class ClientDiscountsController < ApplicationController
 
   # PATCH/PUT /client_discounts/1 or /client_discounts/1.json
   def update
+    parse_dates
     respond_to do |format|
       if @client_discount.update(client_discount_params)
         format.html { redirect_to client_discount_url(@client_discount), notice: "Client discount was successfully updated." }
@@ -60,9 +61,13 @@ class ClientDiscountsController < ApplicationController
 
   private
 
-    def parse_dates     
-      params["client_discount"]["start_date"] = "#{Date.strptime((params["client_discount"]["start_date"]).to_s, '%m/%d/%Y')}"      
-      params["client_discount"]["end_date"] = "#{Date.strptime((params["client_discount"]["end_date"]).to_s, '%m/%d/%Y')}"     
+    def parse_dates  
+      if !(params["client_discount"]["start_date"]).blank?
+        params["client_discount"]["start_date"] = "#{Date.strptime((params["client_discount"]["start_date"]).to_s, '%m/%d/%Y')}" 
+      end     
+      if !(params["client_discount"]["end_date"]).blank?
+        params["client_discount"]["end_date"] = "#{Date.strptime((params["client_discount"]["end_date"]).to_s, '%m/%d/%Y')}"     
+      end
     end
 
     # Use callbacks to share common setup or constraints between actions.

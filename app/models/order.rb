@@ -5,7 +5,6 @@ class Order < ApplicationRecord
     belongs_to :client  
     accepts_nested_attributes_for :client, allow_destroy: true
     accepts_nested_attributes_for :order_products, allow_destroy: true
-    before_save :set_grand_total
     before_save :set_discounted_sales_prices
     after_save :remove_from_inventory
 
@@ -42,6 +41,10 @@ class Order < ApplicationRecord
         end
       end
     end
+
+    
+
+    
 
 # SALES REPORT
 
