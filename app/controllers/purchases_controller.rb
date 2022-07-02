@@ -75,6 +75,8 @@ class PurchasesController < ApplicationController
       @purchase = Purchase.find(params[:id])
     end
 
+    
+
     def find_products
       @products = Product.all
     end
