@@ -4,22 +4,7 @@ class Purchase < ApplicationRecord
     belongs_to :supplier
     accepts_nested_attributes_for :purchase_products, allow_destroy: true
     before_save :set_purchase_total
-    before_save :parse_dates
-    
-
-    def parse_dates
-        if !date_ordered.blank?
-        self.date_ordered =  Date.strptime(self.date_ordered.to_s, "%Y-%d-%m")
-        end
-        if !date_expected.blank?
-        self.date_expected =  Date.strptime(self.date_expected.to_s, "%Y-%d-%m")
-        end
-        if !date_received.blank?
-        self.date_received =  Date.strptime(self.date_received.to_s, "%Y-%d-%m")
-        end
-    end
-
-    
+        
     def set_purchase_total
 
         if purchase_products.any? {|sp| sp.purchase_quantity.blank? || sp.purchase_price.blank?}

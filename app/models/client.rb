@@ -14,10 +14,17 @@ class Client < ApplicationRecord
     end
 
     def self.compile_date(params)
+      if params["client"] == nil
+        params["client"] = params 
+      end
       date_of_birth = ""
       date_of_birth <<  params[:client][:dob_year].to_s << "-" << params[:client][:dob_month].to_s << "-" << params[:client][:dob_day].to_s
       params[:client][:date_of_birth] = date_of_birth
       return params
+    end
+
+    def signup
+      stop
     end
 
 end

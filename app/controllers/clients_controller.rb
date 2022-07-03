@@ -3,7 +3,7 @@ class ClientsController < ApplicationController
   load_and_authorize_resource  
   helper_method :sort_column, :sort_direction
 
-
+  
   # GET /clients or /clients.json
   def index
     @clients = Client.search(params[:search]).order(sort_column + " " + sort_direction)
@@ -29,6 +29,20 @@ class ClientsController < ApplicationController
     respond_to do |format|
       if @client.save
         format.html { redirect_to clients_path, success: "Client was successfully created." }
+        format.json { render :show, status: :created, location: @client }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @client.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def sign_up
+    @client = Client.new(client_params)
+
+    respond_to do |format|
+      if @client.save
+        format.html { redirect_to "https://atomy-lifestyle.com/", success: "Registration was successful." }
         format.json { render :show, status: :created, location: @client }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -64,6 +78,8 @@ class ClientsController < ApplicationController
     def set_client
       @client = Client.find(params[:id])
     end
+
+    
 
     # Only allow a list of trusted parameters through.
     def client_params

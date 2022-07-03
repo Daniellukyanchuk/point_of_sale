@@ -33,8 +33,8 @@ class PurchasesController < ApplicationController
 
   # POST /purchases or /purchases.json
   def create
-    @purchase = Purchase.new(purchase_params)
-    
+    parse_dates
+    @purchase = Purchase.new(purchase_params)  
 
     respond_to do |format|
       if @purchase.save
@@ -49,6 +49,7 @@ class PurchasesController < ApplicationController
 
   # PATCH/PUT /purchases/1 or /purchases/1.json
   def update
+    parse_dates
     respond_to do |format|
       if @purchase.update(purchase_params)
         format.html { redirect_to @purchase, notice: "Inventory was successfully updated." }
@@ -75,7 +76,12 @@ class PurchasesController < ApplicationController
       @purchase = Purchase.find(params[:id])
     end
 
-    
+    # parse dates
+    def parse_dates     
+      params["purchase"]["date_ordered"] = "#{Date.strptime((params["purchase"]["date_ordered"]).to_s, '%m/%d/%Y')}"      
+      params["purchase"]["date_received"] = "#{Date.strptime((params["purchase"]["date_received"]).to_s, '%m/%d/%Y')}"     
+    end
+
 
     def find_products
       @products = Product.all
