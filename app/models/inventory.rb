@@ -11,8 +11,7 @@ class Inventory < ApplicationRecord
     self.date ||= DateTime.now
     self.price_per_unit ||= 0
   end
-
-
+  
   Purchase.left_outer_joins(:inventories).where(inventories: {inventory_id: nil})
 
   def self.search(search, product_select, start_date, end_date)

@@ -1,0 +1,45 @@
+<form>
+  <div class="jumbotron m-0 p-0">
+    <h1>Discounts</h1>
+   </div>
+</form>
+<p id="notice"><%= notice %></p>
+<div class="container ml-3">
+  <%= link_to _('<i class="fa-solid fa-plus"></i> New Discount').html_safe, new_discount_path, class: "text-light btn btn-primary" %> 
+</div>
+
+<table class="table px-0" style="width: 90%">
+  <thead>
+    <tr class="active">
+      <th>ID</th>
+      <th>Client</th>
+      <th>Discount per kilo</th>
+      <th>Expiration amount</th>
+      <th>Current Expiration amount</th>
+      <th>Starting date</th>
+      <th>Ending date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @discounts.each do |discount| %>
+      <tr>
+        <% if !discount.client_id.nil? %>
+          <td><%= discount.id %></td>
+          <td><%= discount.client.name %></td>
+          <td><%= discount.discount_per_kilo %>%</td>
+          <td><%= discount.expiration_amount %></td>
+          <td><%= discount.current_expiration_amount %></td>
+          <td><%= discount.starting_date %></td>
+          <td><%= discount.ending_date %></td>
+          <td><%= link_to '<i class="fa-solid fa-circle-info"></i>'.html_safe, discount, class: "text-info" %></td>
+          <td><%= link_to '<i class="fa-solid fa-pen-to-square"></i>'.html_safe, edit_discount_path(discount), class: "text-primary" %></td>
+          <td><%= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, discount_path(discount.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "text-danger" %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

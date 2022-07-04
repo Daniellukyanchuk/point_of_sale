@@ -1,22 +1,72 @@
 class Order < ApplicationRecord 
-  before_destroy :put_back_inventory_item
+  before_destroy :put_back_inventory_item, :put_back_cur_exp_amount 
   has_many :order_products, dependent: :delete_all 
   accepts_nested_attributes_for :order_products, allow_destroy: true
   belongs_to :client, optional: true  
-  before_save :set_grand_total, :manage_discounts, :create_clients
+  before_save :set_grand_total, :manage_discounts, :create_clients, :expiration_amount_valid?
   has_one_attached :cover_picture
   validates :client_id, presence: true
 
   attr_accessor :name, :phone, :address, :city, :country
 
   def set_grand_total
-    self.grand_total = 0
     order_products.each do |op|
       op.set_subtotal 
-      self.grand_total = self.grand_total + op.subtotal
     end
   end
   
+  def clear_old_discounts
+    order_products.each do |op|
+      op.order_product_discounts.destroy_all
+    end
+  end
+
+  def expiration_amount_valid? 
+    clear_old_discounts if !id.nil?
+    
+    discounts = Discount.where("client_id = ? and (starting_date is null or starting_date < ?) 
+    and (ending_date is null or ending_date > ?) and (expiration_amount > 0 
+    or expiration_amount is null)", client_id, created_at || DateTime.now, created_at || DateTime.now).order("discount_per_kilo desc, current_expiration_amount asc")
+
+    # Go through order and set order_product.subtotal with a discount.
+    self.grand_total = 0
+    order_products.each do |op|
+      amount_left_to_apply_from_discount = op.quantity
+      op.client_discount = 0   
+
+      discounts.each do |d|
+        if d.current_expiration_amount >= amount_left_to_apply_from_discount
+          op.client_discount += (amount_left_to_apply_from_discount / op.quantity) * d.discount_per_kilo
+          d.current_expiration_amount -= amount_left_to_apply_from_discount 
+          d.save
+          op.order_product_discounts.push OrderProductDiscount.new(discount_id: d.id, discount_quantity: amount_left_to_apply_from_discount)
+          break
+        else
+          amount_to_apply = [d.current_expiration_amount, amount_left_to_apply_from_discount].min
+          op.client_discount += (d.current_expiration_amount / op.quantity) * d.discount_per_kilo
+          amount_left_to_apply_from_discount -= amount_to_apply
+          d.current_expiration_amount -= amount_to_apply
+          d.save
+        end
+        op.order_product_discounts.push OrderProductDiscount.new(discount_id: d.id, discount_quantity: amount_to_apply)
+      end
+      op.subtotal -= op.client_discount * op.quantity
+      self.grand_total += op.subtotal
+    end
+  end
+
+  def put_back_cur_exp_amount
+    order_products.each do |op|  
+      op.order_product_discounts.each do |opd|
+        if !opd.discount.nil?
+          opd.reload_discount
+          opd.discount.current_expiration_amount += opd.discount_quantity     
+          opd.discount.save
+        end  
+      end
+    end
+  end
+
   def create_clients
     if client_id.nil?
       new_client = Client.create(name: name, phone: phone, address: address, city: city, country: country)
@@ -31,13 +81,13 @@ class Order < ApplicationRecord
   end
 
   def manage_discounts
-    order_products.each do |op|
-      op.set_subtotal 
-      op.percentage_of_total = op.subtotal / grand_total
-
-      op.discount_to_apply = op.percentage_of_total * order_discount
-   
-      op.discount_per_unit = op.discount_to_apply / op.quantity
+    if !order_discount.nil?
+      order_products.each do |op|
+        op.set_subtotal 
+        op.percentage_of_total = op.subtotal / grand_total
+        op.discount_to_apply = op.percentage_of_total * order_discount
+        op.discount_per_unit = op.discount_to_apply / op.quantity
+      end
     end
   end
   

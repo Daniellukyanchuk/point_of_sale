@@ -38,6 +38,9 @@ Rails.application.routes.draw do
     get '/products/price', to: 'products#get_price'
     resources :products 
     get '/purchases/estimates', to: 'purchases#get_purchase_product_info'
+    resources :order_product_discounts
+    get '/discounts/discount_per_kilo', to: 'discounts#get_client_discount'
+    resources :discounts
     resources :purchases
     resources :clients 
     resources :clients_imports, only: [:new, :create]

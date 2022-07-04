@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Client:</strong>
+  <%= @discount.client_id %>
+</p>
+
+<p>
+  <strong>Discount per kilo:</strong>
+  <%= @discount.discount_per_kilo %>
+</p>
+
+<p>
+  <strong>Expiration amount:</strong>
+  <%= @discount.expiration_amount %>
+</p>
+
+<p>
+  <strong>Starting date:</strong>
+  <%= @discount.starting_date %>
+</p>
+
+<p>
+  <strong>Ending date:</strong>
+  <%= @discount.ending_date %>
+</p>
+
+<%= link_to 'Edit', edit_discount_path(@discount) %> |
+<%= link_to 'Back', discounts_path %>
