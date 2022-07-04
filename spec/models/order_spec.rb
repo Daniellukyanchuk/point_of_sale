@@ -180,12 +180,10 @@ RSpec.describe Order, type: :model do
       OrderProduct.new(product_id: croissant.id, quantity: 4, sale_price: 100, client_discount: 0.5)
       ])
     
-
     order.client_id = sianna_marie.id
     order.order_products.first.assign_attributes({product_id: muffins.id, quantity: 10, sale_price: 50, client_discount: 0.5})
     order.order_products.last.assign_attributes({product_id: croissant.id, quantity: 4, sale_price: 100, client_discount: 0.5})
     order.save
-
 
     expect(Discount.find(discount_1.id).current_expiration_amount.to_s).to eq("0.0")
     expect(Discount.find(discount_2.id).current_expiration_amount.to_s).to eq("11.0")
@@ -213,16 +211,16 @@ RSpec.describe Order, type: :model do
     expect(order.order_products[0].subtotal.to_s).to eq("9900.0")
     expect(order.order_products[1].subtotal.to_s).to eq("19900.0")
     expect(order.grand_total.to_s).to eq("29800.0")
-
-    order_update = order.update(client_id: vladimir.id, order_products: [
-      OrderProduct.new(product_id: muffins.id, quantity: 300, sale_price: 50, client_discount: 0.5),
-      OrderProduct.new(product_id: croissant.id, quantity: 300, sale_price: 100, client_discount: 0.5)
-      ])
+    
+    order.client_id = vladimir.id
+    order.order_products.first.assign_attributes({product_id: muffins.id, quantity: 300, sale_price: 50, client_discount: 0.5})
+    order.order_products.last.assign_attributes({product_id: croissant.id, quantity: 300, sale_price: 100, client_discount: 0.5})
+    order.save
 
     # Check if only 500 units got a discount and other 100 didn't
-    expect(order.order_products[0].subtotal.to_s).to eq("14850")
-    expect(order.order_products[1].subtotal.to_s).to eq("29900")
-    expect(order.grand_total.to_s).to eq("44750")
+    expect(order.order_products[0].subtotal.to_s).to eq("14850.0")
+    expect(order.order_products[1].subtotal.to_s).to eq("29900.0")
+    expect(order.grand_total.to_s).to eq("44750.0")
   end
 
   it "match the discounts only with the current discounts, not expired or not started once" do

@@ -16,9 +16,12 @@ class Order < ApplicationRecord
   end
   
   def clear_old_discounts
+    order_products.each do |op|
+      op.order_product_discounts.destroy_all
+    end
   end
 
-  def expiration_amount_valid?
+  def expiration_amount_valid? 
     clear_old_discounts if !id.nil?
     
     discounts = Discount.where("client_id = ? and (starting_date is null or starting_date < ?) 
@@ -33,11 +36,9 @@ class Order < ApplicationRecord
 
       discounts.each do |d|
         if d.current_expiration_amount >= amount_left_to_apply_from_discount
-          byebug
           op.client_discount += (amount_left_to_apply_from_discount / op.quantity) * d.discount_per_kilo
           d.current_expiration_amount -= amount_left_to_apply_from_discount 
           d.save
-          byebug
           op.order_product_discounts.push OrderProductDiscount.new(discount_id: d.id, discount_quantity: amount_left_to_apply_from_discount)
           break
         else
