@@ -127,14 +127,14 @@
       $('.nested-fields').each(function(index, el){
         var order_prod_subtotal = $(this).find('.product_subtotal').val();
         var percentage_total = order_prod_subtotal / grand_total;
-        $(this).find('.percentage_total').val(percentage_total)
+        $(this).find('.percentage_total').val(percentage_total.toFixed(2))
         
         var discount_to_apply = percentage_total * discount_on_order
-        $(this).find('.discount_apply').val(discount_to_apply)
+        $(this).find('.discount_apply').val(discount_to_apply.toFixed(2))
         
         var amount = $(this).find('.product_quantity').val()
         var discount_per_unit = discount_to_apply / amount 
-        $(this).find('.discount_unit').val(discount_per_unit)
+        $(this).find('.discount_unit').val(discount_per_unit.toFixed(2))
       });
     }
     $(document).on('change','.product_subtotal, .order_total, .discount_on_order, .product_quantity, .discount_unit', updateEverything)

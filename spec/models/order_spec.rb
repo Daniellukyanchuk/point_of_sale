@@ -222,8 +222,174 @@ RSpec.describe Order, type: :model do
     expect(order.order_products[1].subtotal.to_s).to eq("29900.0")
     expect(order.grand_total.to_s).to eq("44750.0")
   end
-
-  it "match the discounts only with the current discounts, not expired or not started once" do
   
+  # rspec -e"match the discounts only with the current discounts, not expired or not started once"
+  it "match the discounts only with the current discounts, not expired or not started once" do
+    vladimir = Client.create!(name: "Vladimir")
+    
+    muffins = Product.create!(product_name: "muffins", price: 50)
+    croissant = Product.create!(product_name: "croissant", price: 100)
+
+    Inventory.create!(product_id: muffins.id, amount: 1000, current_amount_left: 1000)
+    Inventory.create!(product_id: croissant.id, amount: 1000, current_amount_left: 1000)
+
+    discount_1 = Discount.create!(client_id: vladimir.id, discount_per_kilo: 0.5, expiration_amount: 250, current_expiration_amount: 250, starting_date: '2022-04-23'.to_date, ending_date: '2022-05-23')
+    discount_2 = Discount.create!(client_id: vladimir.id, discount_per_kilo: 0.5, expiration_amount: 500, current_expiration_amount: 500, starting_date: '2022-06-23'.to_date, ending_date: '2022-07-23')
+    discount_3 = Discount.create!(client_id: vladimir.id, discount_per_kilo: 0.5, expiration_amount: 1000, current_expiration_amount: 1000, starting_date: '2022-06-23'.to_date, ending_date: '2022-07-23')
+
+    order = Order.create!(client_id: vladimir.id, order_products: [
+      OrderProduct.new(product_id: muffins.id, quantity: 300, sale_price: 50, client_discount: 0.5),
+      OrderProduct.new(product_id: croissant.id, quantity: 300, sale_price: 100, client_discount: 0.5)
+      ])
+
+    expect(Discount.find(discount_1.id).current_expiration_amount.to_s).to eq("250.0")
+    expect(Discount.find(discount_2.id).current_expiration_amount.to_s).to eq("0.0")
+  end
+  
+  # rspec -e"multiple updates"
+  it "multiple updates" do 
+    sianna_marie = Client.create!(name: "Sianna-Marie")
+
+    muffins = Product.create!(product_name: "muffins", price: 50)
+    croissant = Product.create!(product_name: "croissant", price: 100)
+
+    Inventory.create!(product_id: muffins.id, amount: 1000, current_amount_left: 1000)
+    Inventory.create!(product_id: croissant.id, amount: 1000, current_amount_left: 1000)
+
+    discount_1 = Discount.create!(client_id: sianna_marie.id, discount_per_kilo: 0.5, expiration_amount: 200, current_expiration_amount: 200, starting_date: '2022-06-23'.to_date, ending_date: '2022-07-23')
+    discount_2 = Discount.create!(client_id: sianna_marie.id, discount_per_kilo: 0.5, expiration_amount: 300, current_expiration_amount: 300, starting_date: '2022-06-23'.to_date, ending_date: '2022-07-23')
+    
+    # first current_expiration_amount should equal 110 after the order is created. 
+    order = Order.create!(client_id: sianna_marie.id, order_products: [
+      OrderProduct.new(product_id: muffins.id, quantity: 50, sale_price: 50, client_discount: 0.5),
+      OrderProduct.new(product_id: croissant.id, quantity: 40, sale_price: 100, client_discount: 0.5)
+      ])
+
+    expect(Discount.find(discount_1.id).current_expiration_amount.to_s).to eq("110.0")
+    expect(Discount.find(discount_2.id).current_expiration_amount.to_s).to eq("300.0")
+
+    # after update, first current_expiration_amount should equal 85
+    order.client_id = sianna_marie.id
+    order.order_products.first.assign_attributes({product_id: muffins.id, quantity: 60, sale_price: 50, client_discount: 0.5})
+    order.order_products.last.assign_attributes({product_id: croissant.id, quantity: 55, sale_price: 100, client_discount: 0.5})
+    order.save
+
+    expect(Discount.find(discount_1.id).current_expiration_amount.to_s).to eq("85.0")
+    expect(Discount.find(discount_2.id).current_expiration_amount.to_s).to eq("300.0")
+    
+    # after update, the first current_expiration_amount should equal 0.0, the second should equal 200.0. 
+    order.client_id = sianna_marie.id
+    order.order_products.first.assign_attributes({product_id: muffins.id, quantity: 100, sale_price: 50, client_discount: 0.5})
+    order.order_products.last.assign_attributes({product_id: croissant.id, quantity: 200, sale_price: 100, client_discount: 0.5})
+    order.save
+
+    expect(Discount.find(discount_1.id).current_expiration_amount.to_s).to eq("0.0")
+    expect(Discount.find(discount_2.id).current_expiration_amount.to_s).to eq("200.0")
+  end
+  
+  # rspec -e"when client_id is changed, delete everything and run the code"
+  it "when client_id is changed, delete everything and run the code" do 
+    vladimir = Client.create!(name: "Vladimir")
+    bob_marley = Client.create!(name: "Bob Marley")
+    
+    muffins = Product.create!(product_name: "muffins", price: 50)
+    croissant = Product.create!(product_name: "croissant", price: 100)
+
+    Inventory.create!(product_id: muffins.id, amount: 1000, current_amount_left: 1000)
+    Inventory.create!(product_id: croissant.id, amount: 1000, current_amount_left: 1000)
+
+    discount_1 = Discount.create!(client_id: vladimir.id, discount_per_kilo: 0.5, expiration_amount: 500, current_expiration_amount: 500, starting_date: '2022-06-23'.to_date, ending_date: '2022-07-23')
+    discount_2 = Discount.create!(client_id: bob_marley.id, discount_per_kilo: 0.5, expiration_amount: 600, current_expiration_amount: 500, starting_date: '2022-06-23'.to_date, ending_date: '2022-07-23')
+    
+    order = Order.create!(client_id: vladimir.id, order_products: [
+      OrderProduct.new(product_id: muffins.id, quantity: 200, sale_price: 50, client_discount: 0.5),
+      OrderProduct.new(product_id: croissant.id, quantity: 200, sale_price: 100, client_discount: 0.5)
+      ])
+
+    expect(Discount.find(discount_1.id).current_expiration_amount.to_s).to eq("100.0")
+    expect(Discount.find(discount_2.id).current_expiration_amount.to_s).to eq("600.0")
+    
+    order.client_id = bob_marley.id
+    order.order_products.first.assign_attributes({product_id: muffins.id, quantity: 300, sale_price: 50, client_discount: 0.5})
+    order.order_products.last.assign_attributes({product_id: croissant.id, quantity: 300, sale_price: 100, client_discount: 0.5})
+    order.save
+
+    expect(Discount.find(discount_1.id).current_expiration_amount.to_s).to eq("500.0")
+    expect(Discount.find(discount_2.id).current_expiration_amount.to_s).to eq("0.0")
+  end
+
+  # rspec -e"different discount systems integrate with each other"
+  it "different discount systems integrate with each other" do 
+    # the discount for individual order_product.
+    sianna_marie = Client.create!(name: "Sianna-Marie")
+
+    muffins = Product.create!(product_name: "muffins", price: 50)
+    croissant = Product.create!(product_name: "croissant", price: 100)
+
+    Inventory.create!(product_id: muffins.id, amount: 20, current_amount_left: 20)
+    Inventory.create!(product_id: croissant.id, amount: 20, current_amount_left: 20)
+
+    order = Order.create!(client_id: sianna_marie.id, order_products: [
+          OrderProduct.new(product_id: muffins.id, quantity: 5, sale_price: 50, discount: 5),
+          OrderProduct.new(product_id: croissant.id, quantity: 4, sale_price: 100)
+        ])
+
+    expect(order.order_products[0].subtotal).to eq(225)
+    expect(order.order_products[1].subtotal).to eq(400)
+  end
+  # rspec -e"percentage_of_total changes if discount: 5"
+  it "percentage_of_total changes if discount: 5" do 
+    sianna_marie = Client.create!(name: "Sianna-Marie")
+
+    muffins = Product.create!(product_name: "muffins", price: 50)
+    croissant = Product.create!(product_name: "croissant", price: 100)
+
+    Inventory.create!(product_id: muffins.id, amount: 20, current_amount_left: 20)
+    Inventory.create!(product_id: croissant.id, amount: 20, current_amount_left: 20)
+
+    order = Order.create!(client_id: sianna_marie.id, order_products: [
+          OrderProduct.new(product_id: muffins.id, quantity: 5, sale_price: 50),
+          OrderProduct.new(product_id: croissant.id, quantity: 4, sale_price: 100)
+        ], order_discount: 20)
+  
+    expect(order.order_products[0].percentage_of_total.round(2)).to eq(0.38.round(2))
+    expect(order.order_products[0].discount_to_apply.round(2)).to eq(7.69.round(2))
+    expect(order.order_products[0].discount_per_unit.round(2)).to eq(1.54.round(2))
+    expect(order.order_products[0].subtotal.round(2)).to eq(242.31.round(2))
+
+    expect(order.order_products[1].percentage_of_total.round(2)).to eq(0.62.round(2))
+    expect(order.order_products[1].discount_to_apply.round(2)).to eq(12.31.round(2))
+    expect(order.order_products[1].discount_per_unit.round(2)).to eq(3.08.round(2))
+    expect(order.order_products[1].subtotal.round(2)).to eq(387.69.round(2))
+    expect(order.grand_total).to eq(630.0)
+  end
+  
+  # rspec -e"combining two systems"
+  it "combining two systems" do 
+    # the discount for individual order_product.
+    sianna_marie = Client.create!(name: "Sianna-Marie")
+
+    muffins = Product.create!(product_name: "muffins", price: 50)
+    croissant = Product.create!(product_name: "croissant", price: 100)
+
+    Inventory.create!(product_id: muffins.id, amount: 20, current_amount_left: 20)
+    Inventory.create!(product_id: croissant.id, amount: 20, current_amount_left: 20)
+
+    order = Order.create!(client_id: sianna_marie.id, order_products: [
+          OrderProduct.new(product_id: muffins.id, quantity: 5, sale_price: 50, discount: 5),
+          OrderProduct.new(product_id: croissant.id, quantity: 4, sale_price: 100)
+        ], order_discount: 20)
+
+    expect(order.order_products[0].subtotal).to eq(217.8)
+    expect(order.order_products[1].subtotal).to eq(387.2)
+    expect(order.grand_total).to eq(605.0)
+
+    expect(order.order_products[0].percentage_of_total.round(2)).to eq(0.36.round(2))
+    expect(order.order_products[0].discount_to_apply.round(2)).to eq(7.2.round(2))
+    expect(order.order_products[0].discount_per_unit.round(2)).to eq(1.44.round(2))
+
+    expect(order.order_products[1].percentage_of_total.round(2)).to eq(0.64.round(2))
+    expect(order.order_products[1].discount_to_apply.round(2)).to eq(12.8.round(2))
+    expect(order.order_products[1].discount_per_unit.round(2)).to eq(3.2.round(2))
   end
 end
