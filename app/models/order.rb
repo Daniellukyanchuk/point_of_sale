@@ -6,6 +6,7 @@ class Order < ApplicationRecord
     accepts_nested_attributes_for :client, allow_destroy: true
     accepts_nested_attributes_for :order_products, allow_destroy: true
     before_save :set_discounted_sales_prices
+    before_save :set_grand_total
     after_save :remove_from_inventory
 
     attr_accessor :order_discount
@@ -22,6 +23,7 @@ class Order < ApplicationRecord
     end    
     
     def set_grand_total
+      
       self.grand_total = 0
       order_products.each do |op|
         op.set_subtotal

@@ -6,8 +6,6 @@ class Inventory < ApplicationRecord
 	after_create :set_remaining_quantity
   before_create :set_cost_per_unit
 
-
-
   attr_accessor :purchase_quantity
 
   def set_remaining_quantity
@@ -79,8 +77,8 @@ class Inventory < ApplicationRecord
           #convert remaining grams back to remaining units
           sp.remaining_quantity = sp.remaining_quantity/sp.product.grams_per_unit 
           sp.save! #saves result to database
-          break amount_left_to_remove == 0
-      end 
+          break if amount_left_to_remove == 0
+      end
   end
 
   #removes inventory when they are used up by a Production 

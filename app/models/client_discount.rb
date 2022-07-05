@@ -1,6 +1,6 @@
 class ClientDiscount < ApplicationRecord
 belongs_to :client
-has_many :order_products
+has_many :order_product_discounts
 before_create :set_remaining_amount
 validates :client_id, :discount_per_unit, :discounted_units, presence: true
 

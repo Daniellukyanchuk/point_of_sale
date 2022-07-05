@@ -2,41 +2,58 @@ class OrderProduct < ApplicationRecord
     belongs_to :order
     belongs_to :product
     has_many :purchase_products
-    has_many :client_discounts
+    has_many :order_product_discounts
     validates :sale_price, :quantity, :product_id, presence: true
-    before_save :apply_client_discount
-    after_destroy :put_back_in_inventory
-    
+    after_validation :apply_client_discount
+    after_destroy :put_back_in_inventory    
 
     attr_accessor :item_discount
     
-    def apply_client_discount        
-        
-        client_discounts = ClientDiscount.where("client_id = ? AND (start_date <= ? OR start_date IS null) AND (end_date >= ? OR end_date IS null)", order.client_id, Date.today, Date.today).order('discount_per_unit DESC') 
+    def apply_client_discount       
+         
+        client_discounts = ClientDiscount.where("client_id = ? AND (start_date <= ? OR start_date IS null) AND (end_date >= ? OR end_date IS null) AND discounted_units_left > 0", order.client_id, Date.today, Date.today).order('discount_per_unit DESC') 
         amount_left_to_remove = quantity
         
         if !client_discounts.blank?
             amount_discounted = 0
-            client_discounts.each do |d|                
+            client_discounts.each do |d|
                 amount_to_remove = [amount_left_to_remove, d.discounted_units_left].min
-                amount_discounted = amount_discounted + (amount_to_remove * d.discount_per_unit)
+                amount_discounted += (amount_to_remove * d.discount_per_unit)
                 amount_left_to_remove = amount_left_to_remove - amount_to_remove
                 d.discounted_units_left = d.discounted_units_left - amount_to_remove
                 d.save!
-                break amount_left_to_remove == 0
+                self.order_product_discounts.push OrderProductDiscount.new(client_discount_id: d.id, discounted_qt: amount_to_remove)
+                break if amount_left_to_remove == 0
             end
             amount_discounted_per_unit = amount_discounted / quantity
-            self.sale_price = sale_price - amount_discounted_per_unit            
-            stop
+            self.sale_price = sale_price - amount_discounted_per_unit
         end
-        Order.set_grand_total
     end
-    
+
+    def self.return_discount(op)
+        op.order_product_discounts.each do |rd|
+            stop
+            discount = rd.client_discount 
+            discount.discounted_units_left = discount.discounted_units_left + rd.discounted_qt
+            discount.save
+            rd.delete
+        end
+    end
+
+    def self.update_discount(op)
+        op.order_product_discounts.each do |rd|
+            byebug
+            discount = ClientDiscount.where("id = ?", rd.client_discount_id).first 
+            discount.discounted_units_left = discount.discounted_units_left + rd.discounted_qt
+            discount.save
+            rd.delete
+        end
+    end
+
     def set_subtotal
-        stop
         self.sale_price = (sale_price - item_discount.to_i).round(2)
         self.subtotal = (quantity * sale_price).round(2)
-    end    
+    end
 
 
     def put_back_in_inventory

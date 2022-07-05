@@ -18,7 +18,6 @@ class OrdersController < ApplicationController
 
   # GET /orders/new
   def new
-    set_client_discount
     find_finished_products
     @order = Order.new
     @order.order_products.new
@@ -48,6 +47,7 @@ class OrdersController < ApplicationController
 
   # PATCH/PUT /orders/1 or /orders/1.json
   def update
+    update_discount
      respond_to do |format|
       if @order.update(order_params)
         format.html { redirect_to orders_path, notice: "Order was successfully updated." }
@@ -61,10 +61,23 @@ class OrdersController < ApplicationController
 
   # DELETE /orders/1 or /orders/1.json
   def destroy
+    put_discount_back
     @order.destroy
     respond_to do |format|
       format.html { redirect_to orders_url, notice: "Order was successfully destroyed." }
       format.json { head :no_content }
+    end
+  end
+
+  def put_discount_back
+    OrderProduct.where(order_id: params[:id]).each do |rd|
+      OrderProduct.return_discount(rd)
+    end
+  end
+
+  def update_discount
+    OrderProduct.where(order_id: params[:id]).each do |rd|
+      OrderProduct.update_discount(rd)
     end
   end
 
@@ -83,10 +96,6 @@ class OrdersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_order
       @order = Order.find(params[:id])
-    end
-
-    def set_client_discount
-      @client_discounts = ClientDiscount.all
     end
 
     def find_finished_products
@@ -111,7 +120,8 @@ class OrdersController < ApplicationController
 
        params.require(:order).permit(:client_id, :grand_total, :order_discount,
        client_attributes: [:id, :name, :address, :phone, :city],
-       order_products_attributes: [:id, :product_id, :order_id, :sale_price, :quantity, :subtotal, :item_discount, :_destroy], 
+       order_products_attributes: [:id, :product_id, :order_id, :sale_price, :quantity, :subtotal, :item_discount, :_destroy, 
+        order_product_discounts_attributes: [:order_product_id, :client_discount_id, :discounted_qt]], 
        products_attributes: [:id, :unit, :price, :product_name])
     end
 
