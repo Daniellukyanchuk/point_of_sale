@@ -34,8 +34,8 @@ class OrderProduct < ApplicationRecord
         end
     end
 
-    def self.return_discount(op)
-        op.order_product_discounts.each do |rd|
+    def self.return_discount(ord_product)
+        ord_product.order_product_discounts.each do |rd|
             discount = rd.client_discount 
             discount.discounted_units_left = discount.discounted_units_left + rd.discounted_qt
             discount.save

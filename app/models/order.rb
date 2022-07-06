@@ -23,13 +23,13 @@ class Order < ApplicationRecord
     end    
     
     def set_grand_total
-      
+
       self.grand_total = 0
       order_products.each do |op|
         op.set_subtotal
-        self.grand_total = self.grand_total + op.subtotal
+        self.grand_total += op.subtotal
       end 
-      self.grand_total = (self.grand_total - self.order_discount.to_i).round(2)
+      self.grand_total 
     end
 
     def set_discounted_sales_prices

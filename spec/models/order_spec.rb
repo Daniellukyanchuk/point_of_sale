@@ -54,23 +54,27 @@ require 'rails_helper'
         expect(OrderProduct.where(order_id: ord_1.id).first.sale_price).to eq(42.5)
         expect(ClientDiscount.where(client_id: scrooge_mc_duck.id).sum(:discounted_units_left)).to eq(40)
         expect(Order.find(ord_1.id).grand_total).to eq(850)
-        expect((OrderProductDiscount.joins("LEFT OUTER JOIN client_discounts ON client_discount_id = client_discounts.id")).where("client_discounts.client_id = ?", scrooge_mc_duck.id).sum(:discounted_qt)).to eq(20)
-          
+        expect((OrderProductDiscount.joins("LEFT OUTER JOIN client_discounts ON client_discount_id = client_discounts.id")).where("client_discounts.client_id = ?", scrooge_mc_duck.id).sum(:discounted_qt)).to eq(20)    
 
-    ord_1.client_id = scrooge_mc_duck.id
     ord_1.order_products.first.assign_attributes({quantity: 50})
     ord_1.save
 
       expect(Order.find(ord_1.id).grand_total).to eq(2200)
       expect(ClientDiscount.where(client_id: scrooge_mc_duck.id).sum(:discounted_units_left)).to eq(10)
-      expect(OrderProduct.where(order_id: ord_1.id).first.sale_price).to eq(44.0)     
+      expect(OrderProduct.where(order_id: ord_1.id).first.sale_price).to eq(44.0)
 
+    ord_1.order_discount = 400
+    ord_1.order_products.first.assign_attributes({item_discount: 2})
+    ord_1.save  
 
-      opp = OrderProduct.where(order_id: ord_1.id)
-      opp.each do |rd|
-        OrderProduct.return_discount(rd)
-      end
-      Order.destroy(ord_1.id)
+    expect(Order.find(ord_1.id).grand_total).to eq(1700)
+    expect(OrderProduct.where(order_id: ord_1.id).first.sale_price).to eq(34.0)
+
+    op = OrderProduct.where(order_id: ord_1.id)
+    op.each do |rd|
+      OrderProduct.return_discount(rd)
+    end
+    Order.destroy(ord_1.id)
 
         expect(Order.exists?(:client_id => scrooge_mc_duck.id)).to eq(false)
         expect(ClientDiscount.where(client_id: scrooge_mc_duck.id).sum(:discounted_units_left)).to eq(60)
