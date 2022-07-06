@@ -32,7 +32,7 @@ class OrdersController < ApplicationController
   # POST /orders or /orders.json
   def create
     find_finished_products
-    @order = Order.new(order_params)   
+    @order = Order.new(order_params)
 
     respond_to do |format|
       if @order.save
@@ -46,9 +46,8 @@ class OrdersController < ApplicationController
   end
 
   # PATCH/PUT /orders/1 or /orders/1.json
-  def update
-    update_discount
-     respond_to do |format|
+  def update    
+    respond_to do |format|
       if @order.update(order_params)
         format.html { redirect_to orders_path, notice: "Order was successfully updated." }
         format.json { render :show, status: :ok, location: @order }
@@ -75,10 +74,14 @@ class OrdersController < ApplicationController
     end
   end
 
-  def update_discount
-    OrderProduct.where(order_id: params[:id]).each do |rd|
-      OrderProduct.update_discount(rd)
+  def update_discount(order_params)
+    
+    order_params["order_products_attributes"].each do |rd|
+      updated_order_product = OrderProduct.update_discount(rd[1])
     end
+
+    Order.find(params[:id]).set_grand_total
+
   end
 
   def order_receipt

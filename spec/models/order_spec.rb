@@ -44,22 +44,30 @@ require 'rails_helper'
       fairy_dust = Product.create!(product_name: "fairy_dust", price: 300, grams_per_unit: 50, unit: "vial")
       scrooge_mc_duck = Client.create!(name: "Scrooge McDuck", phone: "+1 (836) 728 973", address: "353 Cabbage Ln.", city: "Las Vegas")
       client_discount1 = ClientDiscount.create!(client_id: scrooge_mc_duck.id, discounted_units: 10, discounted_units_left: 10, discount_per_unit: 10)
-      client_discount2 = ClientDiscount.create!(client_id: scrooge_mc_duck.id, discounted_units: 50, discounted_units_left: 50, discount_per_unit: 5)
+      client_discount2 = ClientDiscount.create!(client_id: scrooge_mc_duck.id, discounted_units: 50, discounted_units_left: 100, discount_per_unit: 5)
 
       ord_1 = Order.create!(client_id: scrooge_mc_duck.id, order_products: 
         [
         OrderProduct.new(product_id: poppyseed_muffins.id, quantity: 20, sale_price: 50)
-        # OrderProduct.new(product_id: fairy_dust.id, quantity: 10, sale_price: 300)
         ])
 
         expect(OrderProduct.where(order_id: ord_1.id).first.sale_price).to eq(42.5)
         expect(ClientDiscount.where(client_id: scrooge_mc_duck.id).sum(:discounted_units_left)).to eq(40)
         expect(Order.find(ord_1.id).grand_total).to eq(850)
-        expect(OrderProductDiscount.all.sum(:discounted_qt)).to eq(20)
-        expect(ClientDiscount.where(client_id: scrooge_mc_duck.id).sum(:discounted_units_left)).to eq(40)
-        
-      op = OrderProduct.where(order_id: ord_1.id)
-      op.each do |rd|
+        expect((OrderProductDiscount.joins("LEFT OUTER JOIN client_discounts ON client_discount_id = client_discounts.id")).where("client_discounts.client_id = ?", scrooge_mc_duck.id).sum(:discounted_qt)).to eq(20)
+          
+
+    ord_1.client_id = scrooge_mc_duck.id
+    ord_1.order_products.first.assign_attributes({quantity: 50})
+    ord_1.save
+
+      expect(Order.find(ord_1.id).grand_total).to eq(2200)
+      expect(ClientDiscount.where(client_id: scrooge_mc_duck.id).sum(:discounted_units_left)).to eq(10)
+      expect(OrderProduct.where(order_id: ord_1.id).first.sale_price).to eq(44.0)     
+
+
+      opp = OrderProduct.where(order_id: ord_1.id)
+      opp.each do |rd|
         OrderProduct.return_discount(rd)
       end
       Order.destroy(ord_1.id)
@@ -68,3 +76,5 @@ require 'rails_helper'
         expect(ClientDiscount.where(client_id: scrooge_mc_duck.id).sum(:discounted_units_left)).to eq(60)
     end
 end
+
+
