@@ -366,7 +366,7 @@ RSpec.describe Order, type: :model do
   
   # rspec -e"combining two systems"
   it "combining two systems" do 
-    # the discount for individual order_product.
+    # check if the order_product discount and order_discount are intergrating with client_discount.
     sianna_marie = Client.create!(name: "Sianna-Marie")
 
     muffins = Product.create!(product_name: "muffins", price: 50)
@@ -391,5 +391,28 @@ RSpec.describe Order, type: :model do
     expect(order.order_products[1].percentage_of_total.round(2)).to eq(0.64.round(2))
     expect(order.order_products[1].discount_to_apply.round(2)).to eq(12.8.round(2))
     expect(order.order_products[1].discount_per_unit.round(2)).to eq(3.2.round(2))
+  end
+  
+  # rspec -e"with discount"
+  it "with discount" do 
+    sianna_marie = Client.create!(name: "Sianna-Marie")
+
+    discount_1 = Discount.create!(client_id: sianna_marie.id, discount_per_kilo: 0.5, expiration_amount: 10, current_expiration_amount: 200, starting_date: '2022-06-23'.to_date, ending_date: '2022-07-23')
+    discount_2 = Discount.create!(client_id: sianna_marie.id, discount_per_kilo: 0.5, expiration_amount: 10, current_expiration_amount: 300, starting_date: '2022-06-23'.to_date, ending_date: '2022-07-23')
+
+    muffins = Product.create!(product_name: "muffins", price: 50)
+    croissant = Product.create!(product_name: "croissant", price: 100)
+
+    Inventory.create!(product_id: muffins.id, amount: 20, current_amount_left: 20)
+    Inventory.create!(product_id: croissant.id, amount: 20, current_amount_left: 20)
+
+    order = Order.create!(client_id: sianna_marie.id, order_products: [
+          OrderProduct.new(product_id: muffins.id, quantity: 5, sale_price: 50, discount: 5, client_discount: 0.5),
+          OrderProduct.new(product_id: croissant.id, quantity: 4, sale_price: 100, client_discount: 0.5)
+        ], order_discount: 20)
+
+    expect(order.order_products[0].subtotal.round(2)).to eq(215.33.round(2))
+    expect(order.order_products[1].subtotal.round(2)).to eq(385.17.round(2))
+    expect(order.grand_total).to eq(600.5)
   end
 end

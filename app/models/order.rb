@@ -3,7 +3,7 @@ class Order < ApplicationRecord
   has_many :order_products, dependent: :delete_all 
   accepts_nested_attributes_for :order_products, allow_destroy: true
   belongs_to :client, optional: true  
-  before_save :set_grand_total, :expiration_amount_valid?, :set_subtotal_with_discount, :manage_discounts, :create_clients
+  before_save :set_grand_total, :expiration_amount_valid?, :manage_discounts, :create_clients
   has_one_attached :cover_picture
   validates :client_id, presence: true
 
@@ -55,6 +55,32 @@ class Order < ApplicationRecord
     end
   end
 
+  def manage_discounts
+    # order_product discount
+    sub_grand_total = 0
+    order_products.each do |op|
+      if !op.discount.nil?
+        discount_sub = op.discount * op.quantity 
+        op.subtotal -= discount_sub
+        sub_grand_total += discount_sub
+      end
+    end
+    
+    # order_discount
+    self.grand_total -= sub_grand_total
+    if !order_discount.nil?
+      sub_from_grand_total = 0
+      order_products.each do |op|
+        op.percentage_of_total = op.subtotal / self.grand_total
+        op.discount_to_apply = op.percentage_of_total * order_discount
+        op.discount_per_unit = op.discount_to_apply / op.quantity
+        op.subtotal -= op.discount_to_apply
+        sub_from_grand_total += op.discount_to_apply
+      end
+      self.grand_total -= sub_from_grand_total
+    end
+  end
+
   def put_back_cur_exp_amount
     order_products.each do |op|  
       op.order_product_discounts.each do |opd|
@@ -80,32 +106,6 @@ class Order < ApplicationRecord
     end
   end
 
-  def set_subtotal_with_discount
-    sub_grand_total = 0
-    order_products.each do |op|
-      if !op.discount.nil?
-        discount_sub = op.discount * op.quantity 
-        op.subtotal -= discount_sub
-        sub_grand_total += discount_sub
-      end
-    end
-    self.grand_total -= sub_grand_total
-  end
-
-  def manage_discounts
-    if !order_discount.nil?
-      sub_from_grand_total = 0
-      order_products.each do |op|
-        op.percentage_of_total = op.subtotal / self.grand_total
-        op.discount_to_apply = op.percentage_of_total * order_discount
-        op.discount_per_unit = op.discount_to_apply / op.quantity
-        op.subtotal -= op.discount_to_apply
-        sub_from_grand_total += op.discount_to_apply
-      end
-      self.grand_total -= sub_from_grand_total
-    end
-  end
-  
   def self.search(search, client_select, start_date, end_date)
     where_statements = []
     if !search.blank?
@@ -212,7 +212,6 @@ class Order < ApplicationRecord
 
     where_clause = WhereBuilder.build([product_id_where, search_text_where])
     
-
     sql = """
           SELECT *
           FROM (
