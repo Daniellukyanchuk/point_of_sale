@@ -3,13 +3,13 @@ class Order < ApplicationRecord
   has_many :order_products, dependent: :delete_all 
   accepts_nested_attributes_for :order_products, allow_destroy: true
   belongs_to :client, optional: true  
-  before_save :set_grand_total, :expiration_amount_valid?, :manage_discounts, :create_clients
+  before_save :set_subtotal_total, :expiration_amount_valid?, :create_clients
   has_one_attached :cover_picture
   validates :client_id, presence: true
 
   attr_accessor :name, :phone, :address, :city, :country
 
-  def set_grand_total
+  def set_subtotal_total
     order_products.each do |op|
       op.set_subtotal 
     end
@@ -28,7 +28,7 @@ class Order < ApplicationRecord
     and (ending_date is null or ending_date > ?) and (expiration_amount > 0 
     or expiration_amount is null)", client_id, created_at || DateTime.now, created_at || DateTime.now).order("discount_per_kilo desc, current_expiration_amount asc")
 
-    # Go through order and set order_product.subtotal with a discount.
+    # client_discount
     self.grand_total = 0
     order_products.each do |op|
       amount_left_to_apply_from_discount = op.quantity
@@ -54,9 +54,7 @@ class Order < ApplicationRecord
       op.set_subtotal
       self.grand_total += op.subtotal
     end
-  end
 
-  def manage_discounts
     # order_product discount
     sub_from_grand_total = self.grand_total
     order_products.each do |op|

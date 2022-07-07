@@ -64,7 +64,6 @@
 </div>
 
 <script type="text/javascript">
-
   $(document).ready(function() {
 
     $(document).on('change', '.select-client', function() {
@@ -78,7 +77,6 @@
         }
       })
     })
-
 
     function updateSelectedPrice(){
       var jquery_prod_picker = $(this);
@@ -100,7 +98,7 @@
       $(this).parents(".marginRight").find(".AddNewClient").toggle(value)
     })
 
-    $(document).on('keyup', '.product_quantity, .product_price, .product_discount', function() {
+    $(document).on('change', '.product_quantity, .product_price, .product_discount', function() {
         var pQuantity = $(this).parents('.nested-fields').find('.product_quantity').val();
         var pPrice = $(this).parents('.nested-fields').find('.product_price').val();
         var pDiscount = $(this).parents('.nested-fields').find('.product_discount').val();
@@ -108,7 +106,7 @@
         var discountTosubtract = pQuantity * pDiscount;
         var pSubtotal = quantityPlusPrice - discountTosubtract
 
-        $(this).parents('.nested-fields').find('.product_subtotal').val(pSubtotal).trigger('change');
+        $(this).parents('.nested-fields').find('.product_subtotal').val(pSubtotal);
     });
       
     /* When entered order_discount, burden order_products propotionally */
@@ -120,31 +118,13 @@
       $(this).parents('.marginRight').find('.order_total').val(total).trigger('change')
     });
 
-
     function updateEverything() {
       var grand_total = $('.order_total').val(); 
       var discount_on_order = $('.discount_on_order').val()
       var g = grand_total - discount_on_order
       $('.order_total').val(g)
-
-      $('.nested-fields').each(function(index, el){
-        var order_prod_subtotal = $(this).find('.product_subtotal').val();
-        var percentage_total = order_prod_subtotal / grand_total;
-        $(this).find('.percentage_total').val(percentage_total.toFixed(2))
-        
-        var discount_to_apply = percentage_total * discount_on_order
-        $(this).find('.discount_apply').val(discount_to_apply.toFixed(2))
-        
-        var amount = $(this).find('.product_quantity').val()
-        var discount_per_unit = discount_to_apply / amount 
-        $(this).find('.discount_unit').val(discount_per_unit.toFixed(2))
-        
-        var subtotal = order_prod_subtotal - discount_to_apply
-        $(this).find('.product_subtotal').val(subtotal.toFixed(2))
-      });
     }
-    $(document).on('change','.product_subtotal, .order_total, .discount_on_order, .product_quantity, .discount_unit', updateEverything)
-    
+    $(document).on('change','.order_total, .discount_on_order', updateEverything)
     
     function updateSelectedAmount(){
       $.ajax({ 
