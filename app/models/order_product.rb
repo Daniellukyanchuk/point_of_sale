@@ -8,13 +8,20 @@ class OrderProduct < ApplicationRecord
     after_destroy :put_back_in_inventory
 
     attr_accessor :item_discount
+    attr_accessor :new_client_id
+
+    def client_change
+        if new_client_id.to_i != Order.find(order.id).client_id
+            apply_client_discount
+        end
+    end
     
     def apply_client_discount
-        
+        stop
         if !id.blank?
             update_discount
         end
-        
+
         client_discounts = ClientDiscount.where("client_id = ? AND (start_date <= ? OR start_date IS null) AND (end_date >= ? OR end_date IS null) AND discounted_units_left > 0", order.client_id, Date.today, Date.today).order('discount_per_unit DESC') 
         amount_left_to_remove = quantity
         

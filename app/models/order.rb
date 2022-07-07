@@ -11,14 +11,15 @@ class Order < ApplicationRecord
 
     attr_accessor :order_discount
 
+    
+
     #remove sold items from inventory 
     def remove_from_inventory   
       
             self.order_products.each do |ri|
                 # quantity to remove
                 amount_to_remove = ri.quantity
-            Inventory.remove_sold_inventory(ri.product_id, amount_to_remove)
-            
+            Inventory.remove_sold_inventory(ri.product_id, amount_to_remove)            
         end
     end    
     
@@ -43,10 +44,6 @@ class Order < ApplicationRecord
         end
       end
     end
-
-    
-
-    
 
 # SALES REPORT
 

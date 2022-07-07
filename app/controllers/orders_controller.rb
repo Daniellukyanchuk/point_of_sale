@@ -46,7 +46,7 @@ class OrdersController < ApplicationController
   end
 
   # PATCH/PUT /orders/1 or /orders/1.json
-  def update    
+  def update
     respond_to do |format|
       if @order.update(order_params)
         format.html { redirect_to orders_path, notice: "Order was successfully updated." }
@@ -72,16 +72,6 @@ class OrdersController < ApplicationController
     OrderProduct.where(order_id: params[:id]).each do |rd|
       OrderProduct.return_discount(rd)
     end
-  end
-
-  def update_discount(order_params)
-    
-    order_params["order_products_attributes"].each do |rd|
-      updated_order_product = OrderProduct.update_discount(rd[1])
-    end
-
-    Order.find(params[:id]).set_grand_total
-
   end
 
   def order_receipt
@@ -123,7 +113,7 @@ class OrdersController < ApplicationController
 
        params.require(:order).permit(:client_id, :grand_total, :order_discount,
        client_attributes: [:id, :name, :address, :phone, :city],
-       order_products_attributes: [:id, :product_id, :order_id, :sale_price, :quantity, :subtotal, :item_discount, :_destroy, 
+       order_products_attributes: [:id, :product_id, :order_id, :sale_price, :quantity, :subtotal, :item_discount, :new_client_id, :_destroy, 
         order_product_discounts_attributes: [:order_product_id, :client_discount_id, :discounted_qt]], 
        products_attributes: [:id, :unit, :price, :product_name])
     end
