@@ -124,6 +124,9 @@
     function updateEverything() {
       var grand_total = $('.order_total').val(); 
       var discount_on_order = $('.discount_on_order').val()
+      var g = grand_total - discount_on_order
+      $('.order_total').val(g)
+
       $('.nested-fields').each(function(index, el){
         var order_prod_subtotal = $(this).find('.product_subtotal').val();
         var percentage_total = order_prod_subtotal / grand_total;
@@ -135,6 +138,9 @@
         var amount = $(this).find('.product_quantity').val()
         var discount_per_unit = discount_to_apply / amount 
         $(this).find('.discount_unit').val(discount_per_unit.toFixed(2))
+        
+        var subtotal = order_prod_subtotal - discount_to_apply
+        $(this).find('.product_subtotal').val(subtotal.toFixed(2))
       });
     }
     $(document).on('change','.product_subtotal, .order_total, .discount_on_order, .product_quantity, .discount_unit', updateEverything)

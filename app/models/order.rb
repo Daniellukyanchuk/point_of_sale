@@ -50,31 +50,35 @@ class Order < ApplicationRecord
         end
         op.order_product_discounts.push OrderProductDiscount.new(discount_id: d.id, discount_quantity: amount_to_apply)
       end
-      op.subtotal -= op.client_discount * op.quantity
+      op.sale_price -= op.client_discount
+      op.set_subtotal
       self.grand_total += op.subtotal
     end
   end
 
   def manage_discounts
     # order_product discount
-    sub_grand_total = 0
+    sub_from_grand_total = self.grand_total
     order_products.each do |op|
       if !op.discount.nil?
-        discount_sub = op.discount * op.quantity 
-        op.subtotal -= discount_sub
-        sub_grand_total += discount_sub
+        op.sale_price -= op.discount 
+        op.set_subtotal
+        sub_from_grand_total -= op.subtotal
+      else
+        sub_from_grand_total -= op.subtotal 
       end
     end
-    
+    self.grand_total -= sub_from_grand_total
+
     # order_discount
-    self.grand_total -= sub_grand_total
     if !order_discount.nil?
       sub_from_grand_total = 0
       order_products.each do |op|
         op.percentage_of_total = op.subtotal / self.grand_total
         op.discount_to_apply = op.percentage_of_total * order_discount
         op.discount_per_unit = op.discount_to_apply / op.quantity
-        op.subtotal -= op.discount_to_apply
+        op.sale_price -= op.discount_per_unit
+        op.subtotal = op.sale_price * op.quantity
         sub_from_grand_total += op.discount_to_apply
       end
       self.grand_total -= sub_from_grand_total

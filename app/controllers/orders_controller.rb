@@ -104,7 +104,7 @@ class OrdersController < ApplicationController
          params[:order][:client_id] = nil 
         end
 
-        params.require(:order).permit(:client_id, :name, :phone, :address, :city, :country, :cover_picture, :grand_total, :order_discount, order_products_attributes: [:id, :product_id, :order_id, :sale_price, :quantity, :subtotal, :percentage_of_total, :discount_to_apply, :discount_per_unit, :_destroy] )    
+        params.require(:order).permit(:client_id, :name, :phone, :address, :city, :country, :cover_picture, :grand_total, :order_discount, order_products_attributes: [:id, :product_id, :order_id, :sale_price, :quantity, :subtotal, :discount, :percentage_of_total, :discount_to_apply, :discount_per_unit, :_destroy] )    
     end
 
     def start_date
