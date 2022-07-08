@@ -39,13 +39,13 @@ class ClientsController < ApplicationController
 
   def sign_up
     @client = Client.new(client_params)
-
+    
     respond_to do |format|
       if @client.save
-        format.html { redirect_to "https://atomy-lifestyle.com/", success: "Registration was successful." }
+        format.html { redirect_to "https://atomy-lifestyle.com/index.php/registration-successful/", success: "Registration was successful." }
         format.json { render :show, status: :created, location: @client }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { redirect_to "https://atomy-system.herokuapp.com/en/client_signups/new" }
         format.json { render json: @client.errors, status: :unprocessable_entity }
       end
     end
