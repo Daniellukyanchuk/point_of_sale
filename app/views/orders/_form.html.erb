@@ -73,7 +73,9 @@
     $(document).on('change', '.client-select', displayNewClientForm);
     $(document).on('change', '.client-select', newClientId);
     $(document).on('change', '.product-select', updateSelectedPrice);
-    $(document).on('change', '.quantity, .sale-price, .item-discount', calcSubtotal);
+    $(document).on('change', '.quantity, .sale-price, .item-discount', function() {
+      calcSubtotal($(this))
+    });
     $(document).on('change', '.quantity, .sale-price, .product-select, .item-discount, .order-discount', calcGrandTotal); 
     $(document).on('click', '.remove_fields', calcGrandTotal);
     $(document).on('load', '.sale-price, .subtotal, .grand-total', setDecimals);
@@ -107,11 +109,7 @@
           success: $.proxy(function(data) {
             current_picker.parents(".nested-fields").find('.sale-price').val(data["price"]);
 
-            var qt = current_picker.parents(".nested-fields").find(".quantity").val();
-            var price = current_picker.parents(".nested-fields").find(".sale-price").val();
-            var item_discount = current_picker.parents(".nested-fields").find(".item-discount").val();
-            var subtotal = (price - item_discount || 0) * (qt || 0);
-            current_picker.parents(".nested-fields").find(".subtotal").val(subtotal.toFixed(2))
+            calcSubtotal(current_picker)
           })
         });
     }
@@ -127,12 +125,13 @@
           });
     };   
       
-    function calcSubtotal() {
-      var qt = $(this).parents(".nested-fields").find(".quantity").val();
-      var price = $(this).parents(".nested-fields").find(".sale-price").val();
-      var item_discount = $(this).parents(".nested-fields").find(".item-discount").val();
+    function calcSubtotal(el) {
+      
+      var qt = $(el).parents(".nested-fields").find(".quantity").val();
+      var price = $(el).parents(".nested-fields").find(".sale-price").val();
+      var item_discount = $(el).parents(".nested-fields").find(".item-discount").val();
       var subtotal = (price - item_discount || 0) * (qt || 0);
-      $(this).parents(".nested-fields").find(".subtotal").val(subtotal.toFixed(2))
+      $(el).parents(".nested-fields").find(".subtotal").val(subtotal.toFixed(2))
     };
 
   });  

@@ -113,7 +113,7 @@ class OrdersController < ApplicationController
 
        params.require(:order).permit(:client_id, :grand_total, :order_discount,
        client_attributes: [:id, :name, :address, :phone, :city],
-       order_products_attributes: [:id, :product_id, :order_id, :sale_price, :quantity, :subtotal, :item_discount, :new_client_id, :_destroy, 
+       order_products_attributes: [:id, :product_id, :order_id, :sale_price, :quantity, :subtotal, :item_discount, :_destroy, 
         order_product_discounts_attributes: [:order_product_id, :client_discount_id, :discounted_qt]], 
        products_attributes: [:id, :unit, :price, :product_name])
     end
