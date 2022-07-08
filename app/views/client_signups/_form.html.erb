@@ -2,52 +2,52 @@
     
     <h1 class="signup"><%= _('ATOMY: Client Registration') %></h1>
     
-    <div class="steps pl-5">
+    <div class="steps pl-2 pl-md-5">
       <h3> How it works: </h3>
       <ul>
         <li><h5>Fill out the form below:</h5>
         <p>Your personal information will be used for registration and internal statistics only.<br> Atomy will not share or sell your personal information.</p></li>
-        <li><h5>Get registered:</h5><p>Once you have submitted the form below, you will be registered by a current Atomy member and become an official member.</p></li>
-        <li><h5>Receive ID and password:</h5><p>Once registered you will receive an ID number and a password via your preferred contact method (see form).</p></li>
+        <li><h5>Get registered:</h5><p>Once you have submitted the form below, you will be registered by a current Atomy member, making you an official member. Don't worry, there are <b>no fees or obligations</b> associated with being a member.</p></li>
+        <li><h5>Get your ID and password:</h5><p>Within a business day of submitting your registration form you will receive an ID number and a password via your preferred contact method (see form). </p></li>
         <li><h5>Start shopping!</h5><p>Now you can <a href="https://www.atomy.com/us/Home/Account/Login"> log in </a> to the <a href="https://www.atomy.com/us/Home/Product/MallMain">Atomy mall</a> and start shopping!</p></li>
-        <li><h5>Start earning!</h5><p>Because you are now an official member, you will also automatically start to accumulate points on any atomy products you, or someone registered below you purchases!
-        <a href="#">Find out more about how the Atomy marketing plan and compensation structure!</a></p></li>
+        <li><h5>Start earning!</h5><p>If you just want to buy products for yourself, that is totally ok, however, as an official member you will also automatically start to accumulate points on any atomy products you, or anyone registered through you buys! </p><p> Most Atomy members earn a little extra through these commissions, but with some effort you can actually turn Atomy into a serious career with a passive income that will keep giving long after you've stopped working!
+        <br><a href="#">Learn more about the Atomy marketing plan and compensation structure!</a></p></li>
 
       <p></p>
     </div>
 
     <div class="container w-100">
         <div class="row">
-          <div class="field col-4 pl-0">
+          <div class="field col-12 col-md-4 pl-0">
             <%= form.label :last_name %>
             <%= form.text_field :last_name, class: "form-control" %>
           </div>
-          <div class="field col-4 pl-0">
+          <div class="field col-6 col-md-4 pl-0">
             <%= form.label _("First Name") %>
             <%= form.text_field :name, class: "form-control" %>
           </div>
-          <div class="field col-4 pl-0">
+          <div class="field col-6 col-md-4 pl-0">
             <%= form.label :middle_name %>
             <%= form.text_field :middle_name, class: "form-control" %>
           </div>
         </div>
         <div class="row">
-          <div class="field col-4 pl-0">
+          <div class="field col-12 col-md-4 pl-0">
             <%= form.label :email %>
             <%= form.text_field :email, class: "form-control" %>
           </div>
-          <div class="field col-4 pl-0">
+          <div class="field col-8 col-md-4 pl-0">
             <%= form.label :phone %>
             <%= form.text_field :phone, class: "form-control" %>
           </div>
-          <div class="field col-4 pl-0">
+          <div class="field col-4 col-md-4 pl-0">
             <%= form.label _('Preferred contact method') %>
             <%= form.select :contact_method, ["whatsapp", "telegram", "email"], {}, { :class => 'form-control' } %>
           </div>
         </div>
-        <div class="row">   
+        <div class="row">
         <%= form.label _("Date of Birth"), class: "w-100 " %>
-          <div class="row col-8 pr-0 pl-0 ml-0">       
+          <div class="row col-12 col-md-8 pr-0 pl-0 ml-0">       
             <div class="field col-3 pl-0">
               <%= form.label _("day (dd)") %>
               <%= form.text_field :dob_day, maxlength: 2, class: "form-control", placeholder: "" %>
@@ -61,21 +61,21 @@
               <%= form.text_field :dob_year, maxlength: 4, class: "form-control", placeholder: "" %>
             </div>
           </div>
-          <div class="field col-4 pl-5">
+          <div class="field col-12 col-md-4 pl-2 md-pl-5 py-2">
             <%= form.label :gender %>
             <%= form.radio_button :gender, 'male' %> <%= _("male") %>  <%= form.radio_button :gender, 'female' %> <%= _("female") %><br />
           </div>
         </div>
         <div class="row">
-          <div class="field col-4 pl-0">
+          <div class="field col-12 col-md-4 pl-0">
             <%= form.label :address %>
             <%= form.text_field :address, class: "form-control" %>
           </div>
-          <div class="field col-4 pl-0">
+          <div class="field col-6 col-md-4 pl-0">
             <%= form.label :city %>
             <%= form.text_field :city, class: "form-control" %>
           </div>
-          <div class="field col-4 pl-0">
+          <div class="field col-6 col-md-4 pl-0">
             <%= form.label :zip_code %>
             <%= form.text_field :zip_code, class: "form-control" %>
           </div>
