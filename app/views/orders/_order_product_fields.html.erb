@@ -24,7 +24,7 @@
     </div>
 
     <div class="field">
-        <%= form.collection_select :product_id, Product.all, :id, :product_name, {}, {class: "product-picker form-control"} %>
+        <%= form.collection_select :product_id, Product.all, :id, :product_name, {:prompt => "Select Product"}, {class: "product-picker form-control"} %>
     </div>
     <p>
         <div class="field">
