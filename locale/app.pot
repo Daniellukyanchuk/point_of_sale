@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: app 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-12 14:01+0600\n"
-"PO-Revision-Date: 2022-07-12 14:01+0600\n"
+"POT-Creation-Date: 2022-07-12 15:05+0600\n"
+"PO-Revision-Date: 2022-07-12 15:05+0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -132,10 +132,43 @@ msgstr ""
 msgid "Client|City"
 msgstr ""
 
+msgid "Client|Contact method"
+msgstr ""
+
+msgid "Client|Date of birth"
+msgstr ""
+
+msgid "Client|Dob day"
+msgstr ""
+
+msgid "Client|Dob month"
+msgstr ""
+
+msgid "Client|Dob year"
+msgstr ""
+
+msgid "Client|Email"
+msgstr ""
+
+msgid "Client|Gender"
+msgstr ""
+
+msgid "Client|Last name"
+msgstr ""
+
+msgid "Client|Middle name"
+msgstr ""
+
 msgid "Client|Name"
 msgstr ""
 
 msgid "Client|Phone"
+msgstr ""
+
+msgid "Client|Registered"
+msgstr ""
+
+msgid "Client|Zip code"
 msgstr ""
 
 msgid "Column headers must be in the correct order match headers in the database. HINT: Export existing products to file for reference."
@@ -396,7 +429,16 @@ msgstr ""
 msgid "PV"
 msgstr ""
 
+msgid "Permission"
+msgstr ""
+
 msgid "Permissions"
+msgstr ""
+
+msgid "Permission|Action"
+msgstr ""
+
+msgid "Permission|Table"
 msgstr ""
 
 msgid "Phone"
@@ -432,28 +474,22 @@ msgstr ""
 msgid "Product Name:"
 msgstr ""
 
+msgid "Product category"
+msgstr ""
+
 msgid "Product id:"
 msgstr ""
 
 msgid "Product name:"
 msgstr ""
 
-msgid "Production"
+msgid "ProductCategory|Category description"
+msgstr ""
+
+msgid "ProductCategory|Category name"
 msgstr ""
 
 msgid "Production Id"
-msgstr ""
-
-msgid "Production|Production quantity"
-msgstr ""
-
-msgid "Production|Production total cost"
-msgstr ""
-
-msgid "Production|Production yield"
-msgstr ""
-
-msgid "Production|Recipe cost"
 msgstr ""
 
 msgid "Products"
@@ -465,7 +501,13 @@ msgstr ""
 msgid "Product|Price"
 msgstr ""
 
+msgid "Product|Product code"
+msgstr ""
+
 msgid "Product|Product name"
+msgstr ""
+
+msgid "Product|Pv"
 msgstr ""
 
 msgid "Product|Unit"
@@ -549,36 +591,6 @@ msgstr ""
 msgid "Quantity:"
 msgstr ""
 
-msgid "Recipe"
-msgstr ""
-
-msgid "Recipe product"
-msgstr ""
-
-msgid "RecipeProduct|Amount"
-msgstr ""
-
-msgid "RecipeProduct|Cost per kg"
-msgstr ""
-
-msgid "RecipeProduct|Ingredient total"
-msgstr ""
-
-msgid "Recipe|Instructions"
-msgstr ""
-
-msgid "Recipe|Recipe cost"
-msgstr ""
-
-msgid "Recipe|Recipe name"
-msgstr ""
-
-msgid "Recipe|Units"
-msgstr ""
-
-msgid "Recipe|Yield"
-msgstr ""
-
 msgid "Register"
 msgstr ""
 
@@ -600,10 +612,16 @@ msgstr ""
 msgid "Requirements"
 msgstr ""
 
+msgid "Role"
+msgstr ""
+
 msgid "Role(s)"
 msgstr ""
 
 msgid "Roles"
+msgstr ""
+
+msgid "Role|Role name"
 msgstr ""
 
 msgid "Sale Price"
@@ -753,6 +771,9 @@ msgstr ""
 msgid "Upload Company Logo"
 msgstr ""
 
+msgid "User"
+msgstr ""
+
 msgid "User name"
 msgstr ""
 
@@ -760,6 +781,24 @@ msgid "Users"
 msgstr ""
 
 msgid "Users & Settings"
+msgstr ""
+
+msgid "User|Email"
+msgstr ""
+
+msgid "User|Encrypted password"
+msgstr ""
+
+msgid "User|Remember created at"
+msgstr ""
+
+msgid "User|Reset password sent at"
+msgstr ""
+
+msgid "User|Reset password token"
+msgstr ""
+
+msgid "User|User name"
 msgstr ""
 
 msgid "Weighted CPU"

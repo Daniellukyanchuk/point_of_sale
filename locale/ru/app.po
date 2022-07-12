@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: app 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-07-12 14:26+0600\n"
+"PO-Revision-Date: 2022-07-12 15:10+0600\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ru\n"
@@ -131,11 +131,44 @@ msgstr "Адрес"
 msgid "Client|City"
 msgstr "Город"
 
+msgid "Client|Contact method"
+msgstr "Предпочтительный способ связи"
+
+msgid "Client|Date of birth"
+msgstr "Дата рождения"
+
+msgid "Client|Dob day"
+msgstr "День"
+
+msgid "Client|Dob month"
+msgstr "Месяц"
+
+msgid "Client|Dob year"
+msgstr "Год"
+
+msgid "Client|Email"
+msgstr "Эмайл"
+
+msgid "Client|Gender"
+msgstr "Пол"
+
+msgid "Client|Last name"
+msgstr "Фамилия"
+
+msgid "Client|Middle name"
+msgstr "Отчество"
+
 msgid "Client|Name"
 msgstr "Имя"
 
 msgid "Client|Phone"
 msgstr "Телефон"
+
+msgid "Client|Registered"
+msgstr "Зарегистрировано"
+
+msgid "Client|Zip code"
+msgstr "Почтовый идекс"
 
 msgid "Column headers must be in the correct order match headers in the database. HINT: Export existing products to file for reference."
 msgstr "Заголовки столбцов должны быть в правильном порядке и соответствовать заголовкам в базе данных. СОВЕТ: Экспортируйте существующие продукты в файл для справки."
@@ -395,8 +428,18 @@ msgstr "ID продуктa ЗнП"
 msgid "PV"
 msgstr "ПВ"
 
+#, fuzzy
+msgid "Permission"
+msgstr "Разрешения"
+
 msgid "Permissions"
 msgstr "Разрешения"
+
+msgid "Permission|Action"
+msgstr "Операция"
+
+msgid "Permission|Table"
+msgstr "Таблица"
 
 msgid "Phone"
 msgstr "Телефон"
@@ -431,29 +474,26 @@ msgstr "Название продукта "
 msgid "Product Name:"
 msgstr "Название продукта: "
 
+#, fuzzy
+msgid "Product category"
+msgstr "Категории продуктов "
+
 msgid "Product id:"
 msgstr "ID продукта:"
 
 msgid "Product name:"
 msgstr "Название продукта: "
 
-msgid "Production"
-msgstr "Производство "
+#, fuzzy
+msgid "ProductCategory|Category description"
+msgstr "Продукт "
+
+#, fuzzy
+msgid "ProductCategory|Category name"
+msgstr "Продукт "
 
 msgid "Production Id"
 msgstr "ID производства"
-
-msgid "Production|Production quantity"
-msgstr "Объем производства "
-
-msgid "Production|Production total cost"
-msgstr "общая стоимость производство"
-
-msgid "Production|Production yield"
-msgstr "Выход продукции "
-
-msgid "Production|Recipe cost"
-msgstr "Стоимость рецепта "
 
 msgid "Products"
 msgstr "Продукты "
@@ -464,8 +504,16 @@ msgstr "Грамм на единицу "
 msgid "Product|Price"
 msgstr "Цена "
 
+#, fuzzy
+msgid "Product|Product code"
+msgstr "Название продукта "
+
 msgid "Product|Product name"
 msgstr "Название продукта "
+
+#, fuzzy
+msgid "Product|Pv"
+msgstr "Продукт "
 
 msgid "Product|Unit"
 msgstr "Единица "
@@ -548,36 +596,6 @@ msgstr "Колечество "
 msgid "Quantity:"
 msgstr "Колечество: "
 
-msgid "Recipe"
-msgstr "Рецепт "
-
-msgid "Recipe product"
-msgstr "Прокукт пецепта "
-
-msgid "RecipeProduct|Amount"
-msgstr "Количество "
-
-msgid "RecipeProduct|Cost per kg"
-msgstr "Стоимость за кг "
-
-msgid "RecipeProduct|Ingredient total"
-msgstr "Ингредиент итог "
-
-msgid "Recipe|Instructions"
-msgstr "Инструкции "
-
-msgid "Recipe|Recipe cost"
-msgstr "Стоимость рецепта "
-
-msgid "Recipe|Recipe name"
-msgstr "Название рецепта "
-
-msgid "Recipe|Units"
-msgstr "Единица "
-
-msgid "Recipe|Yield"
-msgstr "Выход "
-
 msgid "Register"
 msgstr "Регистрироваться"
 
@@ -599,11 +617,17 @@ msgstr "Отчёты "
 msgid "Requirements"
 msgstr "Требования "
 
+msgid "Role"
+msgstr "Роли"
+
 msgid "Role(s)"
 msgstr "Роли "
 
 msgid "Roles"
 msgstr "Роли "
+
+msgid "Role|Role name"
+msgstr "Роль"
 
 msgid "Sale Price"
 msgstr "Цена продаже: "
@@ -752,6 +776,9 @@ msgstr "Обновить пользователя"
 msgid "Upload Company Logo"
 msgstr "Загрузить логотип"
 
+msgid "User"
+msgstr "Пользователи"
+
 msgid "User name"
 msgstr "Имя пользователя"
 
@@ -760,6 +787,24 @@ msgstr "Пользователи"
 
 msgid "Users & Settings"
 msgstr "Настройки"
+
+msgid "User|Email"
+msgstr "Эмайл"
+
+msgid "User|Encrypted password"
+msgstr ""
+
+msgid "User|Remember created at"
+msgstr ""
+
+msgid "User|Reset password sent at"
+msgstr ""
+
+msgid "User|Reset password token"
+msgstr ""
+
+msgid "User|User name"
+msgstr "Имя пользователя"
 
 msgid "Weighted CPU"
 msgstr "Взвешенная стоимость за единицу"
