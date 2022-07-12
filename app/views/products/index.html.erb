@@ -10,7 +10,7 @@
       <div class="col-6">
         <div class="row justify-content-end mt-2">
           <div class="field p-0 col-6">
-            <%= text_field_tag :search, params[:search], :size => 70, placeholder: "ID, name etc.", class: "form-control searcheight" %>
+            <%= text_field_tag :search, params[:search], :size => 70, placeholder: _("ID, name etc."), class: "form-control searcheight" %>
           </div>
           <%= submit_tag _("Search"), :name => nil, :class => "searcheight btn btn-outline-primary" %>
         </div>
@@ -37,9 +37,9 @@
           <th scope="col"><%= sortable "product_name", _("NAME") %></th>
           <th scope="col"><%= sortable "price", _("PRICE") %></th>
           <th scope="col"><%= sortable "unit", _("UNIT") %></th>
-          <th>Category</th>
-          <th>Payment</th>
-          <th>Sales Count</th>
+          <th><%= _('Category') %></th>
+          <th><%= _('Payment') %></th>
+          <th><%= _('Sales Count') %></th>
           <th colspan="4"></th>
         </tr>
       </thead>
@@ -52,11 +52,11 @@
             <td>&#8381 <%= product.price %></td>
             <td><%= product.unit %></td>
             <td><%= product.categories %></td>
-            <td><%= button_to "Buy now!", checkout_create_path, params: {id: product.id}, remote: true %></td>
+            <td><%= button_to _("Buy now!"), checkout_create_path, params: {id: product.id}, remote: true %></td>
             <td><%= product.sales_count %></td>
             <td><%= link_to '<i class="fa-solid fa-circle-info"></i>'.html_safe, product, class: "text-info" %></td>
             <td><%= link_to '<i class="fa-solid fa-pen-to-square"></i>'.html_safe, edit_product_path(product), class: "text-primary" %></td>
-            <td><%= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, product, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-danger" %></td>
+            <td><%= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, product, method: :delete, data: { confirm: _('Are you sure?') }, class: "text-danger" %></td>
           </tr>
         <% end %>
       </tbody>

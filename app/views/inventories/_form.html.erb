@@ -13,7 +13,7 @@
       <% end %>
 
       <div class="field">
-        <%= form.label :purchase_product %>
+        <%= form.label _('Purchase_product') %>
         <%= form.collection_select(:purchase_product_id, PurchaseProduct.all, :id, :display_text, {}, {class: "purchase-picker form-control"}) %>
       </div>
 

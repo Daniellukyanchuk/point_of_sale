@@ -30,6 +30,8 @@ jQuery(function() {
     $(document).off('click', 'form .remove_fields').on('click', 'form .remove_fields', function(event) {
       $(this).prev('input[type=hidden]').val('1');
       $(this).closest('.nested-fields').hide();
+
+      $(this).trigger('after_remove_fields');
       return event.preventDefault();
     });
     $(document).off('click', 'form .add_fields').on('click', 'form .add_fields', function(event) {

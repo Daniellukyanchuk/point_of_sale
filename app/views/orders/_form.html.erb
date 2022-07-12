@@ -12,7 +12,7 @@
       </div>
     <% end %>
     <div class="field">
-      <%= form.select(:client_id, [["+New Client", "-1"]] + Client.all.collect {|c| [c.name, c.id]}, {include_blank: "Select Client"}, {class: "select-client form-control"}) %>
+      <%= form.select(:client_id, [["+New Client", "-1"]] + Client.all.collect {|c| [c.name, c.id]}, {include_blank: _("Select Client")}, {class: "select-client form-control"}) %>
     </div>
 
     <div class="AddNewClient field" style="display: none;">
@@ -48,7 +48,7 @@
     </div>
 
     <div class="field">
-      <%= form.label 'Discount on order' %>
+      <%= form.label _('Discount on order') %>
       <%= form.number_field :order_discount, class: "discount_on_order form-control" %>
     </div>
 
@@ -66,13 +66,13 @@
 <script type="text/javascript">
   $(document).ready(function() {
     $(document).on('change', '.select-client', updateClientDiscount);
-    $(document).on('click', '.add_fields', updateClientDiscount)
+    $(document).on('click', '.add_fields', updateClientDiscount);
     $(document).on('change', '.product-picker', updateSelectedPrice);
     $(document).on('change', '.product_quantity, .product_price, .product_discount', setSubtotal);
-    $(document).on('change','.order_total, .discount_on_order', updateGrandTotal);
     $(document).on('change', '.product-picker', updateSelectedAmount);
-    $(document).on('change', '.product_subtotal', setGrandTotal);
+    $(document).on('change', '.product_quantity, .product_discount, .discount_on_order', setGrandTotal);
     $(document).on('change', '.select-client', addNewClient);
+    $(document).on('after_remove_fields', '.remove_fields', setGrandTotal);
 
     function updateClientDiscount() {
       $.ajax({
@@ -112,20 +112,19 @@
 
       $(this).parents('.nested-fields').find('.product_subtotal').val(pSubtotal).trigger('change');
     };
-
-    function setGrandTotal() {
-      var total = 0
-      $(this).parents('.marginRight').find('.product_subtotal').each(function() {
-        total += parseFloat($(this).val());
-      });
-      $(this).parents('.marginRight').find('.order_total').val(total).trigger('change')
-    };
     
-    function updateGrandTotal() {
-      var grand_total = $('.order_total').val(); 
+    /* When order_product is deleted, put back the grand_total. */
+    function setGrandTotal() {
+      var grand_total = 0
       var discount_on_order = $('.discount_on_order').val()
-      var g = grand_total - discount_on_order
-      $('.order_total').val(g)
+      var destroy = $(this).parents('.nested-fields').find('.remove_fields').val()
+      /* if destroy is false, then run it. */
+      $(this).parents('.marginRight').find('.product_subtotal').each(function() {
+        if(destroy == 'false') {
+          grand_total += parseFloat($(this).val());
+        }
+      });
+      $(this).parents('.marginRight').find('.order_total').val(grand_total - discount_on_order).trigger('change')
     };
      
     function updateSelectedAmount() {

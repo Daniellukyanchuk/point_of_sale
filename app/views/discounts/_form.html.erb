@@ -13,13 +13,13 @@
     <% end %>
 
     <div class="field">
-      <%= form.select(:client_id, Client.all.collect {|c| [c.name, c.id]}, {include_blank: "Select Client"}, {class: "select-client-discount form-control"}) %>
+      <%= form.select(:client_id, Client.all.collect {|c| [c.name, c.id]}, {include_blank: _("Select Client")}, {class: "select-client-discount form-control"}) %>
     </div>
 
     <div class="form-group col-7 p-0 m-0">
       <% options = Product.all.collect{ |u| [u.product_name, u.id]} %>
-      <% options = [["Select All", nil]] + options %>
-      <%= select_tag 'product_select[]', options_for_select(options, params[:product_select]), :multiple => true, :size => 10, :id => "choices-multiple-remove-button", :placeholder => "Select products" %>
+      <% options = [[_("Select All"), nil]] + options %>
+      <%= select_tag 'product_select[]', options_for_select(options, params[:product_select]), :multiple => true, :size => 10, :id => "choices-multiple-remove-button", :placeholder => _("Select products") %>
     </div>
     <p>
       <div class="field">
@@ -34,12 +34,12 @@
 
       <div class="field">
         <%= form.label _('Starting_date') %>
-        <%= form.text_field :starting_date, class: "datepicker form-control", :autocomplete => "off", :placeholder => "Discount starts" %>
+        <%= form.text_field :starting_date, class: "datepicker form-control", :autocomplete => "off", :placeholder => _("Discount starts") %>
       </div>
 
       <div class="field">
         <%= form.label _('Ending_date') %>
-        <%= form.text_field :ending_date, class: "datepicker form-control", :autocomplete => "off", :placeholder => "Discount ends" %>
+        <%= form.text_field :ending_date, class: "datepicker form-control", :autocomplete => "off", :placeholder => _("Discount ends") %>
       </div>
     </p> 
 

@@ -12,7 +12,7 @@
         </div>
       <% end %>
       <div class="field">
-        <%= form.select(:supplier_id, [["+New Supplier", "-1"]] + Supplier.all.collect {|s| [s.suppliers_name, s.id]}, {include_blank: "Select Supplier"}, {class: "select-supplier form-control"}) %>
+        <%= form.select(:supplier_id, [[_("+New Supplier"), "-1"]] + Supplier.all.collect {|s| [s.suppliers_name, s.id]}, {include_blank: _("Select Supplier")}, {class: "select-supplier form-control"}) %>
       </div>
 
       <div class="AddNewSupplier field" style="display: none;">
@@ -50,7 +50,7 @@
 
       <div class="field">
         <%= form.label _('Date of order') %>
-        <%= text_field_tag 'date_of_order', params[:date_of_the_order], :class => "datepicker form-control", :autocomplete => "off", :placeholder => "Pick a date" %>
+        <%= text_field_tag 'date_of_order', params[:date_of_the_order], :class => "datepicker form-control", :autocomplete => "off", :placeholder => _("Pick a date") %>
       </div>
 
       <div class="field">
@@ -65,7 +65,7 @@
 
       <div class="field">
         <%= form.label _('Expected date of delivery') %>
-        <%= text_field_tag 'date_of_delivery', params[:expected_date_of_delivery], :class => "datepicker form-control", :autocomplete => "off", :placeholder => "Pick a date" %>
+        <%= text_field_tag 'date_of_delivery', params[:expected_date_of_delivery], :class => "datepicker form-control", :autocomplete => "off", :placeholder => _("Pick a date") %>
       </div>
 
       <div class="actions">

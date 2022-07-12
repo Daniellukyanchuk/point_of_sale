@@ -10,7 +10,7 @@
         <div class="col-6">
           <div class="row justify-content-end mt-2">
             <div class="field p-0 col-6">
-               <%= text_field_tag :search, params[:search], :size => 50, placeholder: "ID, name etc.", class: "form-control searcheight" %>
+               <%= text_field_tag :search, params[:search], :size => 50, placeholder: _("ID, name etc."), class: "form-control searcheight" %>
             </div>
             <%= submit_tag _("Search"), :name => nil, :class => "searcheight btn btn-outline-primary" %>
           </div>

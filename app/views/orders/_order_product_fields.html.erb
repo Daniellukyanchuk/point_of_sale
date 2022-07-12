@@ -1,30 +1,30 @@
 <div class="nested-fields">
-    <div id="custombutton" class="sob btn btn-info searchtag" data-toggle="modal" data-target="#myModal">Info!</div>
+    <div id="custombutton" class="sob btn btn-info searchtag" data-toggle="modal" data-target="#myModal"><%= _('Info!') %></div>
     <!-- modal window -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5>Information about the product</h5>
+                    <h5><%= _('Information about the product') %></h5>
                     <button type="button" class="close" data-dismiss="modal">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                   <div class="field">
-                    <label for="current_inventory" class=" h6">Current amount in the inventory:</label>
+                    <label for="current_inventory" class=" h6"><%= _('Current amount in the inventory') %>:</label>
                     <input id="current_inventory" class="current_amount_field form-control" readonly>
                   </div>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button class="btn btn-secondary" data-dismiss="modal"><%= _('Close') %></button>
                 </div>
             </div>
         </div>
     </div>
 
     <div class="field">
-        <%= form.collection_select :product_id, Product.all, :id, :product_name, {:prompt => "Select Product"}, {class: "product-picker form-control"} %>
+        <%= form.collection_select :product_id, Product.all, :id, :product_name, {:prompt => _("Select Product")}, {class: "product-picker form-control"} %>
     </div>
     <p>
         <div class="field">
@@ -38,7 +38,7 @@
         </div>
 
         <div class="field">
-            <%= form.label 'Discount' %>
+            <%= form.label _('Discount') %>
             <%= form.number_field :discount, class: "form-control product_discount" %>
         </div>
 
@@ -48,7 +48,7 @@
         </div>
 
         <div class="field">
-            <%= form.label 'Client Discount' %>
+            <%= form.label _('Client Discount') %>
             <%= form.text_field :client_discount, :readonly => true, class: "client_discount form-control" %>
         </div>
 

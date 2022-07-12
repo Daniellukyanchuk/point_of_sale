@@ -3,7 +3,7 @@
     <%= form_tag clients_path, :method => 'get' do %>
       <div class="row">
         <div class="col-6">
-          <h1 class="ml-4">Import Clients</h1>
+          <h1 class="ml-4"><%= _('Import Clients') %></h1>
           <div class="row ml-4">
             <div class="col-4 p-0">
               <%= link_to _('<i class="fa-solid fa-file-import"></i> Import from Excel').html_safe, new_clients_import_path, class: "text-light btn btn-secondary" %>
@@ -22,7 +22,7 @@
         <div class="col-6">
           <div class="row justify-content-end mt-2">
             <div class="field p-0 col-6">
-              <%= text_field_tag :search, params[:search], :size => 40, placeholder: "ID, name etc.", class: "form-control searcheight" %>
+              <%= text_field_tag :search, params[:search], :size => 40, placeholder: _("ID, name etc."), class: "form-control searcheight" %>
             </div>
             <%= submit_tag _("Search"), :name => nil, :class => "searcheight btn btn-outline-primary" %>
           </div> 

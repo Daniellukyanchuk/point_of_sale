@@ -1,6 +1,6 @@
 <div class="nested-fields">
     <div class="field">
-        <%= form.select(:product_id, [["+New Product", "-1"]] + Product.all.collect {|p| [p.product_name, p.id]}, {include_blank: "Select Product"}, {class: "product-picker form-control"}) %>
+        <%= form.select(:product_id, [[_("+New Product"), "-1"]] + Product.all.collect {|p| [p.product_name, p.id]}, {include_blank: _("Select Product")}, {class: "product-picker form-control"}) %>
     </div>
     <div class="AddNewProduct field" style="display: none;">
         <div class="field">
@@ -22,7 +22,7 @@
     </div>
   <p>
     <div class="field">
-      <h5>Estimates:</h5>
+      <h5><%= _('Estimates:') %></h5>
     </div>
     
     <div class="field">
@@ -41,7 +41,7 @@
     </div>
   <p>
     <div class="field">
-      <h5>Actuals:</h5>
+      <h5><%= _('Actuals:') %></h5>
     </div>
     
     <div class="field">

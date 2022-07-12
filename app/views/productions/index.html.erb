@@ -26,13 +26,13 @@
         <div class="ml-4">
           <div class="row mt-3">
             <div class="field col-4 p-0">
-              <%= text_field_tag :search, params[:search], placeholder: "ID, name etc.", class: "form-control searcheight" %>  
+              <%= text_field_tag :search, params[:search], placeholder: _("ID, name etc."), class: "form-control searcheight" %>  
             </div>  
           
             <div class="col-5 p-0">
               <% options = Recipe.all.collect{ |u| [u.recipe_name, u.id] } %>
-                <% options = [["Select All", nil]] + options %>
-              <%= select_tag 'recipe_select[]', options_for_select(options, params[:recipe_select]), :multiple => :multiple, :size => 10, :id => "choices-multiple-remove-button", :placeholder => "Select product" %>
+                <% options = [[_("Select All"), nil]] + options %>
+              <%= select_tag 'recipe_select[]', options_for_select(options, params[:recipe_select]), :multiple => :multiple, :size => 10, :id => "choices-multiple-remove-button", :placeholder => _("Select product") %>
             </div>
 
             <div class="field mb-3 col-3 p-0">

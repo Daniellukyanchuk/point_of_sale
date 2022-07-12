@@ -10,7 +10,7 @@
       <div class="col-6">
         <div class="row justify-content-end mt-2">
           <div class="field p-0 col-6">
-            <%= text_field_tag :search, params[:search], :size => 70, placeholder: "ID, name etc.", class: "form-control searcheight" %>
+            <%= text_field_tag :search, params[:search], :size => 70, placeholder: _("ID, name etc."), class: "form-control searcheight" %>
           </div>
           <%= submit_tag _("Search"), :name => nil, :class => "searcheight btn btn-outline-primary" %>
         </div>
@@ -31,8 +31,8 @@
 <table class="table" style="width: 90%">
   <thead>
     <tr>
-      <th>Users</th>
-      <th>User email</th>
+      <th><%= _('Users') %></th>
+      <th><%= _('User email') %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -42,9 +42,9 @@
       <tr>
         <td><%= user.user_name %></td>
         <td><%= user.email %></td>
-        <td><%= link_to 'Show', user, class: "btn btn-outline-primary btn-sm" %></td>
-        <td><%= link_to 'Edit', edit_user_path(user), class: "btn btn-outline-primary btn-sm" %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-sm" %></td>
+        <td><%= link_to _('Show'), user, class: "btn btn-outline-primary btn-sm" %></td>
+        <td><%= link_to _('Edit'), edit_user_path(user), class: "btn btn-outline-primary btn-sm" %></td>
+        <td><%= link_to _('Destroy'), user, method: :delete, data: { confirm: _('Are you sure?') }, class: "btn btn-outline-danger btn-sm" %></td>
       </tr>
     <% end %>
   </tbody>

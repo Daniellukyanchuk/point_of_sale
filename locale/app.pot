@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: app 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-12 11:20+0600\n"
-"PO-Revision-Date: 2022-07-12 11:20+0600\n"
+"POT-Creation-Date: 2022-07-12 13:47+0600\n"
+"PO-Revision-Date: 2022-07-12 13:47+0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -17,6 +17,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+msgid "+New Product"
+msgstr ""
+
+msgid "+New Supplier"
+msgstr ""
 
 msgid "<i class=\"fa-solid fa-file-export\"></i> Export as Excel"
 msgstr ""
@@ -78,6 +84,9 @@ msgstr ""
 msgid "Actual total"
 msgstr ""
 
+msgid "Actuals:"
+msgstr ""
+
 msgid "Add Product"
 msgstr ""
 
@@ -87,7 +96,13 @@ msgstr ""
 msgid "Amount"
 msgstr ""
 
+msgid "Are you sure?"
+msgstr ""
+
 msgid "Back"
+msgstr ""
+
+msgid "Buy now!"
 msgstr ""
 
 msgid "CITY"
@@ -114,6 +129,9 @@ msgstr ""
 msgid "Client"
 msgstr ""
 
+msgid "Client Discount"
+msgstr ""
+
 msgid "Client's Report"
 msgstr ""
 
@@ -121,6 +139,9 @@ msgid "Client:"
 msgstr ""
 
 msgid "Clients"
+msgstr ""
+
+msgid "Close"
 msgstr ""
 
 msgid "Company address"
@@ -156,6 +177,9 @@ msgstr ""
 msgid "Current Expiration amount"
 msgstr ""
 
+msgid "Current amount in the inventory"
+msgstr ""
+
 msgid "DELIVERY DATE"
 msgstr ""
 
@@ -168,7 +192,22 @@ msgstr ""
 msgid "Date of the order"
 msgstr ""
 
+msgid "Destroy"
+msgstr ""
+
+msgid "Discount"
+msgstr ""
+
+msgid "Discount ends"
+msgstr ""
+
+msgid "Discount on order"
+msgstr ""
+
 msgid "Discount per kilo"
+msgstr ""
+
+msgid "Discount starts"
 msgstr ""
 
 msgid "Discount_per_kilo"
@@ -210,6 +249,9 @@ msgstr ""
 msgid "Estimated total"
 msgstr ""
 
+msgid "Estimates:"
+msgstr ""
+
 msgid "Expected date of delivery"
 msgstr ""
 
@@ -237,6 +279,15 @@ msgstr ""
 msgid "ID"
 msgstr ""
 
+msgid "ID, Name etc."
+msgstr ""
+
+msgid "ID, name etc."
+msgstr ""
+
+msgid "Import Clients"
+msgstr ""
+
 msgid "Import Clients From Excel"
 msgstr ""
 
@@ -244,6 +295,12 @@ msgid "Import File"
 msgstr ""
 
 msgid "Import Roles From JSON"
+msgstr ""
+
+msgid "Info!"
+msgstr ""
+
+msgid "Information about the product"
 msgstr ""
 
 msgid "Inventories"
@@ -258,10 +315,40 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
+msgid "New Client"
+msgstr ""
+
+msgid "New Discount"
+msgstr ""
+
+msgid "New Inventory"
+msgstr ""
+
 msgid "New Order"
 msgstr ""
 
+msgid "New Product"
+msgstr ""
+
+msgid "New Production"
+msgstr ""
+
+msgid "New Purchase"
+msgstr ""
+
+msgid "New Recipe"
+msgstr ""
+
+msgid "New Role"
+msgstr ""
+
 msgid "New Setting"
+msgstr ""
+
+msgid "New Supplier"
+msgstr ""
+
+msgid "New User"
 msgstr ""
 
 msgid "Order:"
@@ -291,6 +378,9 @@ msgstr ""
 msgid "Password"
 msgstr ""
 
+msgid "Payment"
+msgstr ""
+
 msgid "Phone"
 msgstr ""
 
@@ -303,6 +393,9 @@ msgstr ""
 msgid "Phone_number"
 msgstr ""
 
+msgid "Pick a date"
+msgstr ""
+
 msgid "Price"
 msgstr ""
 
@@ -310,6 +403,9 @@ msgid "Price per unit"
 msgstr ""
 
 msgid "Price_per_unit"
+msgstr ""
+
+msgid "Print Invoice"
 msgstr ""
 
 msgid "Product"
@@ -349,6 +445,9 @@ msgid "Products Name"
 msgstr ""
 
 msgid "Purchase ID"
+msgstr ""
+
+msgid "Purchase_product"
 msgstr ""
 
 msgid "Purchased Inventories"
@@ -393,6 +492,18 @@ msgstr ""
 msgid "Requirements"
 msgstr ""
 
+msgid "Role"
+msgstr ""
+
+msgid "Role Names"
+msgstr ""
+
+msgid "Role name"
+msgstr ""
+
+msgid "Role_name"
+msgstr ""
+
 msgid "Roles"
 msgstr ""
 
@@ -408,10 +519,37 @@ msgstr ""
 msgid "Sale price"
 msgstr ""
 
+msgid "Sales Count"
+msgstr ""
+
 msgid "Search"
 msgstr ""
 
+msgid "Select All"
+msgstr ""
+
+msgid "Select Client"
+msgstr ""
+
 msgid "Select File"
+msgstr ""
+
+msgid "Select Product"
+msgstr ""
+
+msgid "Select Supplier"
+msgstr ""
+
+msgid "Select clients"
+msgstr ""
+
+msgid "Select product"
+msgstr ""
+
+msgid "Select products"
+msgstr ""
+
+msgid "Select suppliers"
 msgstr ""
 
 msgid "Settings"
@@ -450,6 +588,12 @@ msgstr ""
 msgid "TOTAL REVENUE"
 msgstr ""
 
+msgid "Table"
+msgstr ""
+
+msgid "The amount of ingredients that are used to produce the product"
+msgstr ""
+
 msgid "To"
 msgstr ""
 
@@ -477,6 +621,9 @@ msgstr ""
 msgid "User Settings"
 msgstr ""
 
+msgid "User email"
+msgstr ""
+
 msgid "User_name"
 msgstr ""
 
@@ -484,4 +631,19 @@ msgid "Users"
 msgstr ""
 
 msgid "You are not authorized to do this action"
+msgstr ""
+
+msgid "create"
+msgstr ""
+
+msgid "destroy"
+msgstr ""
+
+msgid "manage"
+msgstr ""
+
+msgid "read"
+msgstr ""
+
+msgid "update"
 msgstr ""

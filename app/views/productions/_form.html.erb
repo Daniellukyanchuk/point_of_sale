@@ -44,13 +44,13 @@
    
 
       <div class="field">
-        <div id="custombutton" class="sob btn btn-info searchtag" data-toggle="modal" data-target="#myModal">Info!</div>
+        <div id="custombutton" class="sob btn btn-info searchtag" data-toggle="modal" data-target="#myModal"><%= _('Info!') %></div>
         <!-- modal window -->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h6>The amount of ingredients that are used to produce the product</h6>
+                        <h6><%= _('The amount of ingredients that are used to produce the product') %></h6>
                         <button type="button" class="close" data-dismiss="modal">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -63,8 +63,8 @@
                             <table id="ing_amount_modal_table" class="table">
                               <thead>
                                 <tr>
-                                  <th scope="col">Name</th>
-                                  <th scope="col">Amount</th>
+                                  <th scope="col"><%= _('Name') %></th>
+                                  <th scope="col"><%= _('Amount') %></th>
                                 </tr>
                               </thead>
                               <tbody>
@@ -77,7 +77,7 @@
                     </div>
 
                     <div class="modal-footer">
-                        <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button class="btn btn-secondary" data-dismiss="modal"><%= _('Close') %></button>
                     </div>
                 </div>
             </div>
