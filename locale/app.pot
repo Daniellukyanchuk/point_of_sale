@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: app 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-12 11:52+0600\n"
-"PO-Revision-Date: 2022-07-12 11:52+0600\n"
+"POT-Creation-Date: 2022-07-12 13:36+0600\n"
+"PO-Revision-Date: 2022-07-12 13:36+0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -28,9 +28,8 @@ msgid " Get your ID and password: "
 msgstr ""
 
 msgid ""
-" If you just want to buy products for yourself, that is totally ok, however, as an official member you will also automatically start to accumulate points on any atomy products you, or anyone registered \n"
-"        through you buys! </p><p> Most Atomy members earn a little extra through these commissions, but with some effort you can actually turn Atomy into a serious career with a \n"
-"        passive income that will keep giving long after you've stopped working! "
+" If you just want to buy products for yourself, that is totally ok, however, as an official member you \n"
+"        will also automatically start to accumulate points on any atomy products you, or anyone registered through you buys!"
 msgstr ""
 
 msgid " Import Products From File"
@@ -325,6 +324,12 @@ msgid "Inventory|Cost per unit"
 msgstr ""
 
 msgid "Inventory|Remaining quantity"
+msgstr ""
+
+msgid ""
+"Most Atomy members earn a \n"
+"        little extra through these commissions, but with some effort you can actually turn Atomy into a serious career with a passive income that will keep giving \n"
+"        long after you've stopped working!"
 msgstr ""
 
 msgid "Name"

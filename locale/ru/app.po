@@ -6,7 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: app 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2022-07-12 11:58+0600\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2022-07-12 13:39+0600\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ru\n"
@@ -24,12 +25,6 @@ msgstr "Зарегистрируйтесь: "
 
 msgid " Get your ID and password: "
 msgstr " Получите свой идентификатор и пароль: "
-
-msgid ""
-" If you just want to buy products for yourself, that is totally ok, however, as an official member you will also automatically start to accumulate points on any atomy products you, or anyone registered \n"
-"        through you buys! </p><p> Most Atomy members earn a little extra through these commissions, but with some effort you can actually turn Atomy into a serious career with a \n"
-"        passive income that will keep giving long after you've stopped working! "
-msgstr ""
 
 msgid " Import Products From File"
 msgstr " Импортировать продуктов из файла"
@@ -590,7 +585,7 @@ msgid "Recipe|Yield"
 msgstr "выход"
 
 msgid "Register"
-msgstr "гегистрировать"
+msgstr "Регистрироваться"
 
 msgid "Registered"
 msgstr "Регистрировано"
