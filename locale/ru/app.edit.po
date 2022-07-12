@@ -6,7 +6,6 @@ msgid ""
 msgstr ""
 "Project-Id-Version: app 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-12 13:36+0600\n"
 "PO-Revision-Date: 2022-07-12 13:39+0600\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -17,43 +16,11 @@ msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "X-Generator: Poedit 3.0.1\n"
 
-msgid " Fill out the form below: "
-msgstr "Заполните форму ниже: "
-
-msgid " Get registered: "
-msgstr "Зарегистрируйтесь: "
-
-msgid " Get your ID and password: "
-msgstr " Получите свой идентификатор и пароль: "
-
-msgid ""
-" If you just want to buy products for yourself, that is totally ok, however, as an official member you \n"
-"        will also automatically start to accumulate points on any atomy products you, or anyone registered through you buys!"
-msgstr ""
-
 msgid " Import Products From File"
 msgstr " Импортировать продуктов из файла"
 
-msgid " Learn more about the Atomy marketing plan and compensation structure!"
-msgstr " Узнайте больше о маркетинговом плане  Атоми и структуре вознаграждения!"
-
 msgid " Now you can"
 msgstr " Теперь вы можете"
-
-msgid " Once you have submitted the form below, you will be registered by a current Atomy member, making you an official member. Don't worry, there are <b>no fees or obligations</b> associated with being a member. "
-msgstr " После того, как вы отправите форму ниже, вы будете зарегистрированы текущим участником Атоми, что сделает вас официальным участником. Не беспокойтесь, членство в программе <b>никаких сборов или обязательств</b> не связано. "
-
-msgid " Start earning! "
-msgstr " Начать зарабатывать! "
-
-msgid " Start shopping! "
-msgstr " Начать покупки! "
-
-msgid " Within a business day of submitting your registration form you will receive an ID number and a password via your preferred contact method (see form). "
-msgstr " В течение рабочего дня после отправки регистрационной формы вы получите идентификационный номер и пароль, используя предпочитаемый вами способ связи (см. форму). "
-
-msgid " Your personal information will be used for registration and internal statistics only.<br> Atomy will not share or sell your personal information. "
-msgstr " Ваша личная информация будет использоваться только для регистрации и внутренней статистики.<br> Атоми не будет передавать или продавать вашу личную информацию. "
 
 msgid "(itemized by product)"
 msgstr "(распределено по продуктам)"
@@ -268,11 +235,23 @@ msgstr "Ожид. дата доставки"
 msgid "Files must be one of the following formats: xls or xlsx"
 msgstr "Файлы должны быть одного из следующих форматов: xls. или .xlsx"
 
+#, fuzzy
+msgid "Fill out the form below: "
+msgstr "Заполните форму ниже: "
+
 msgid "First Name"
 msgstr "Имя"
 
 msgid "Gender"
 msgstr "Пол"
+
+#, fuzzy
+msgid "Get registered: "
+msgstr "Зарегистрируйтесь: "
+
+#, fuzzy
+msgid "Get your ID and password:"
+msgstr " Получите свой идентификатор и пароль: "
 
 msgid "Go to P.O."
 msgstr "Переидти на закупку"
@@ -297,6 +276,9 @@ msgstr "ID"
 
 msgid "Id"
 msgstr "ID"
+
+msgid "If you just want to buy products for yourself, that is totally ok, however, as an official member you will also automatically start to accumulate points on any atomy products you, or anyone registered through you buys!"
+msgstr ""
 
 msgid "Import Products"
 msgstr "Импортировать продукты"
@@ -325,10 +307,11 @@ msgstr "Расход за единицу"
 msgid "Inventory|Remaining quantity"
 msgstr "Оставшееся кол-во"
 
-msgid ""
-"Most Atomy members earn a \n"
-"        little extra through these commissions, but with some effort you can actually turn Atomy into a serious career with a passive income that will keep giving \n"
-"        long after you've stopped working!"
+#, fuzzy
+msgid "Learn more about the Atomy marketing plan and compensation structure!"
+msgstr " Узнайте больше о маркетинговом плане  Атоми и структуре вознаграждения!"
+
+msgid "Most Atomy members earn a little extra through these commissions, but with some effort you can actually turn Atomy into a serious career with a passive income that will keep giving long after you've stopped working!"
 msgstr ""
 
 msgid "Name"
@@ -357,6 +340,10 @@ msgstr "Новый роль"
 
 msgid "New Supplier"
 msgstr "Новый постовщик"
+
+#, fuzzy
+msgid "Once you have submitted the form below, you will be registered by a current Atomy member, making you an official member. Don't worry, there are <b>no fees or obligations</b> associated with being a member. "
+msgstr " После того, как вы отправите форму ниже, вы будете зарегистрированы текущим участником Атоми, что сделает вас официальным участником. Не беспокойтесь, членство в программе <b>никаких сборов или обязательств</b> не связано. "
 
 msgid "Order"
 msgstr "Заказ"
@@ -673,6 +660,14 @@ msgstr "телефон компании"
 msgid "Show"
 msgstr "показать"
 
+#, fuzzy
+msgid "Start earning! "
+msgstr " Начать зарабатывать! "
+
+#, fuzzy
+msgid "Start shopping! "
+msgstr " Начать покупки! "
+
 msgid "Subtotal"
 msgstr "промежуточный итог"
 
@@ -778,8 +773,16 @@ msgstr "Взвешенная стоимость за единицу"
 msgid "Weighted PPU"
 msgstr "Взвешенная цена за единицу"
 
+#, fuzzy
+msgid "Within a business day of submitting your registration form you will receive an ID number and a password via your preferred contact method (see form). "
+msgstr " В течение рабочего дня после отправки регистрационной формы вы получите идентификационный номер и пароль, используя предпочитаемый вами способ связи (см. форму). "
+
 msgid "You don't have permission to do that"
 msgstr "У вас нет на это разрешения"
+
+#, fuzzy
+msgid "Your personal information will be used for registration and internal statistics only.<br> Atomy will not share or sell your personal information. "
+msgstr " Ваша личная информация будет использоваться только для регистрации и внутренней статистики.<br> Атоми не будет передавать или продавать вашу личную информацию. "
 
 msgid "and start shopping!"
 msgstr "и приступайте к покупкам!"
@@ -825,3 +828,38 @@ msgstr "до:"
 
 msgid "year (yyyy)"
 msgstr "год (ггггг)"
+
+#~ msgid " Fill out the form below: "
+#~ msgstr "Заполните форму ниже: "
+#~ msgid " Get registered: "
+#~ msgstr "Зарегистрируйтесь: "
+#~ msgid " Get your ID and password: "
+#~ msgstr " Получите свой идентификатор и пароль: "
+#~ msgid " Learn more about the Atomy marketing plan and compensation structure!"
+#~ msgstr " Узнайте больше о маркетинговом плане  Атоми и структуре вознаграждения!"
+#~ msgid ""
+#~ " Once you have submitted the form below, you will be registered by a current A"
+#~ "tomy member, making you an official member. Don't worry, there are <b>no fees "
+#~ "or obligations</b> associated with being a member. "
+#~ msgstr ""
+#~ " После того, как вы отправите форму ниже, вы будете зарегистрированы текущим у"
+#~ "частником Атоми, что сделает вас официальным участником. Не беспокойтесь, член"
+#~ "ство в программе <b>никаких сборов или обязательств</b> не связано. "
+#~ msgid " Start earning! "
+#~ msgstr " Начать зарабатывать! "
+#~ msgid " Start shopping! "
+#~ msgstr " Начать покупки! "
+#~ msgid ""
+#~ " Within a business day of submitting your registration form you will receive a"
+#~ "n ID number and a password via your preferred contact method (see form). "
+#~ msgstr ""
+#~ " В течение рабочего дня после отправки регистрационной формы вы получите идент"
+#~ "ификационный номер и пароль, используя предпочитаемый вами способ связи (см. ф"
+#~ "орму). "
+#~ msgid ""
+#~ " Your personal information will be used for registration and internal statisti"
+#~ "cs only.<br> Atomy will not share or sell your personal information. "
+#~ msgstr ""
+#~ " Ваша личная информация будет использоваться только для регистрации и внутренн"
+#~ "ей статистики.<br> Атоми не будет передавать или продавать вашу личную информа"
+#~ "цию. "

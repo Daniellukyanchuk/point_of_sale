@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: app 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-12 13:36+0600\n"
-"PO-Revision-Date: 2022-07-12 13:36+0600\n"
+"POT-Creation-Date: 2022-07-12 14:01+0600\n"
+"PO-Revision-Date: 2022-07-12 14:01+0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -18,42 +18,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-msgid " Fill out the form below: "
-msgstr ""
-
-msgid " Get registered: "
-msgstr ""
-
-msgid " Get your ID and password: "
-msgstr ""
-
-msgid ""
-" If you just want to buy products for yourself, that is totally ok, however, as an official member you \n"
-"        will also automatically start to accumulate points on any atomy products you, or anyone registered through you buys!"
-msgstr ""
-
 msgid " Import Products From File"
 msgstr ""
 
-msgid " Learn more about the Atomy marketing plan and compensation structure!"
-msgstr ""
-
 msgid " Now you can"
-msgstr ""
-
-msgid " Once you have submitted the form below, you will be registered by a current Atomy member, making you an official member. Don't worry, there are <b>no fees or obligations</b> associated with being a member. "
-msgstr ""
-
-msgid " Start earning! "
-msgstr ""
-
-msgid " Start shopping! "
-msgstr ""
-
-msgid " Within a business day of submitting your registration form you will receive an ID number and a password via your preferred contact method (see form). "
-msgstr ""
-
-msgid " Your personal information will be used for registration and internal statistics only.<br> Atomy will not share or sell your personal information. "
 msgstr ""
 
 msgid "(itemized by product)"
@@ -269,10 +237,19 @@ msgstr ""
 msgid "Files must be one of the following formats: xls or xlsx"
 msgstr ""
 
+msgid "Fill out the form below: "
+msgstr ""
+
 msgid "First Name"
 msgstr ""
 
 msgid "Gender"
+msgstr ""
+
+msgid "Get registered: "
+msgstr ""
+
+msgid "Get your ID and password:"
 msgstr ""
 
 msgid "Go to P.O."
@@ -297,6 +274,9 @@ msgid "ID"
 msgstr ""
 
 msgid "Id"
+msgstr ""
+
+msgid "If you just want to buy products for yourself, that is totally ok, however, as an official member you will also automatically start to accumulate points on any atomy products you, or anyone registered through you buys!"
 msgstr ""
 
 msgid "Import Products"
@@ -326,10 +306,10 @@ msgstr ""
 msgid "Inventory|Remaining quantity"
 msgstr ""
 
-msgid ""
-"Most Atomy members earn a \n"
-"        little extra through these commissions, but with some effort you can actually turn Atomy into a serious career with a passive income that will keep giving \n"
-"        long after you've stopped working!"
+msgid "Learn more about the Atomy marketing plan and compensation structure!"
+msgstr ""
+
+msgid "Most Atomy members earn a little extra through these commissions, but with some effort you can actually turn Atomy into a serious career with a passive income that will keep giving long after you've stopped working!"
 msgstr ""
 
 msgid "Name"
@@ -357,6 +337,9 @@ msgid "New Role"
 msgstr ""
 
 msgid "New Supplier"
+msgstr ""
+
+msgid "Once you have submitted the form below, you will be registered by a current Atomy member, making you an official member. Don't worry, there are <b>no fees or obligations</b> associated with being a member. "
 msgstr ""
 
 msgid "Order"
@@ -674,6 +657,12 @@ msgstr ""
 msgid "Show"
 msgstr ""
 
+msgid "Start earning! "
+msgstr ""
+
+msgid "Start shopping! "
+msgstr ""
+
 msgid "Subtotal"
 msgstr ""
 
@@ -779,7 +768,13 @@ msgstr ""
 msgid "Weighted PPU"
 msgstr ""
 
+msgid "Within a business day of submitting your registration form you will receive an ID number and a password via your preferred contact method (see form). "
+msgstr ""
+
 msgid "You don't have permission to do that"
+msgstr ""
+
+msgid "Your personal information will be used for registration and internal statistics only.<br> Atomy will not share or sell your personal information. "
 msgstr ""
 
 msgid "and start shopping!"
