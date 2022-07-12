@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-4 ml-3">
-    <h1>Settings</h1>
+    <h1><%= _('Settings') %></h1>
     <%= form_with(model: setting, local: true) do |form| %>
       <% if setting.errors.any? %>
         <div id="error_explanation">
@@ -17,22 +17,22 @@
 
       <div class="">
         <div class="form-group">
-          <%= form.label :company_name %>
+          <%= form.label _('Company_name') %>
           <%= form.text_field :company_name, class: "form-control" %>
         </div>
 
         <div class="form-group">
-          <%= form.label :company_address %>
+          <%= form.label _('Company_address') %>
           <%= form.text_field :company_address, class: "form-control" %>
         </div>
 
         <div class="form-group">
-          <%= form.label :country %>
+          <%= form.label _('Country') %>
           <%= form.text_field :country, class: "form-control" %>
         </div>
 
         <div class="form-group">
-          <%= form.label :city %>
+          <%= form.label _('City') %>
           <%= form.text_field :city, class: "form-control" %>
         </div>
       </div>
@@ -47,16 +47,16 @@
       </div>
 
       <div class="actions">
-        <%= form.submit 'Update settings', :class => 'text-light btn btn-primary' %>
+        <%= form.submit _('Update settings'), :class => 'text-light btn btn-primary' %>
       </div>
     <% end %>
   </div>
 
   <div class="col-4 mt-0">
-    <h1>User Settings</h1>
+    <h1><%= _('User Settings') %></h1>
     <div>
-      <%= link_to 'Edit profile', edit_user_registration_path, class: "btn btn-info" %>
-      <%= link_to 'Create User', new_user_path, class: "btn btn-info" %>
+      <%= link_to _('Edit profile'), edit_user_registration_path, class: "btn btn-info" %>
+      <%= link_to _('Create User'), new_user_path, class: "btn btn-info" %>
     </div>
     
   </div>

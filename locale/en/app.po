@@ -17,6 +17,51 @@ msgstr ""
 "Plural-Forms: nplurals=; plural=;\n"
 "\n"
 
+msgid "<i class=\"fa-solid fa-file-export\"></i> Export as Excel"
+msgstr ""
+
+msgid "<i class=\"fa-solid fa-file-export\"></i> Export to JSON"
+msgstr ""
+
+msgid "<i class=\"fa-solid fa-file-import\"></i> Import from Excel"
+msgstr ""
+
+msgid "<i class=\"fa-solid fa-file-import\"></i> Import from JSON"
+msgstr ""
+
+msgid "<i class=\"fa-solid fa-plus\"></i> New Client"
+msgstr ""
+
+msgid "<i class=\"fa-solid fa-plus\"></i> New Discount"
+msgstr ""
+
+msgid "<i class=\"fa-solid fa-plus\"></i> New Inventory"
+msgstr ""
+
+msgid "<i class=\"fa-solid fa-plus\"></i> New Order"
+msgstr ""
+
+msgid "<i class=\"fa-solid fa-plus\"></i> New Product"
+msgstr ""
+
+msgid "<i class=\"fa-solid fa-plus\"></i> New Production"
+msgstr ""
+
+msgid "<i class=\"fa-solid fa-plus\"></i> New Purchase"
+msgstr ""
+
+msgid "<i class=\"fa-solid fa-plus\"></i> New Recipe"
+msgstr ""
+
+msgid "<i class=\"fa-solid fa-plus\"></i> New Role"
+msgstr ""
+
+msgid "<i class=\"fa-solid fa-plus\"></i> New Supplier"
+msgstr ""
+
+msgid "<i class=\"fa-solid fa-plus\"></i> New User"
+msgstr ""
+
 msgid "ACTUAL TOTAL"
 msgstr ""
 
@@ -26,16 +71,10 @@ msgstr ""
 msgid "AMOUNT LEFT"
 msgstr ""
 
-msgid "AMOUNT PURCHASED/PRODUCED"
-msgstr ""
-
 msgid "AVERAGE UNIT PRICE"
 msgstr ""
 
 msgid "Actual total"
-msgstr ""
-
-msgid "Add Ingredient"
 msgstr ""
 
 msgid "Add Product"
@@ -53,6 +92,9 @@ msgstr ""
 msgid "CITY"
 msgstr ""
 
+msgid "CLIENT"
+msgstr ""
+
 msgid "CLIENTS ID"
 msgstr ""
 
@@ -62,7 +104,13 @@ msgstr ""
 msgid "COUNTRY"
 msgstr ""
 
+msgid "Category"
+msgstr ""
+
 msgid "City"
+msgstr ""
+
+msgid "Client"
 msgstr ""
 
 msgid "Client's Report"
@@ -74,7 +122,16 @@ msgstr ""
 msgid "Clients"
 msgstr ""
 
-msgid "Clients Report"
+msgid "Company address"
+msgstr ""
+
+msgid "Company name"
+msgstr ""
+
+msgid "Company_address"
+msgstr ""
+
+msgid "Company_name"
 msgstr ""
 
 msgid "Cooking instructions"
@@ -92,7 +149,10 @@ msgstr ""
 msgid "Country"
 msgstr ""
 
-msgid "DATE"
+msgid "Create User"
+msgstr ""
+
+msgid "Current Expiration amount"
 msgstr ""
 
 msgid "DELIVERY DATE"
@@ -101,19 +161,40 @@ msgstr ""
 msgid "Date"
 msgstr ""
 
+msgid "Date of order"
+msgstr ""
+
 msgid "Date of the order"
 msgstr ""
 
-msgid "Destroy"
+msgid "Discount per kilo"
 msgstr ""
 
-msgid "ESTIMATED TOTAL"
+msgid "Discount_per_kilo"
+msgstr ""
+
+msgid "Discounts"
+msgstr ""
+
+msgid "Dowload sample"
 msgstr ""
 
 msgid "Edit"
 msgstr ""
 
+msgid "Edit profile"
+msgstr ""
+
 msgid "Editing Order"
+msgstr ""
+
+msgid "Email"
+msgstr ""
+
+msgid "Ending date"
+msgstr ""
+
+msgid "Ending_date"
 msgstr ""
 
 msgid "Estimated Price Per Unit"
@@ -129,6 +210,12 @@ msgid "Estimated total"
 msgstr ""
 
 msgid "Expected date of delivery"
+msgstr ""
+
+msgid "Expiration amount"
+msgstr ""
+
+msgid "Expiration_amount"
 msgstr ""
 
 msgid "From"
@@ -149,6 +236,15 @@ msgstr ""
 msgid "ID"
 msgstr ""
 
+msgid "Import Clients From Excel"
+msgstr ""
+
+msgid "Import File"
+msgstr ""
+
+msgid "Import Roles From JSON"
+msgstr ""
+
 msgid "Inventories"
 msgstr ""
 
@@ -161,31 +257,10 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-msgid "New Client"
-msgstr ""
-
-msgid "New Inventory"
-msgstr ""
-
 msgid "New Order"
 msgstr ""
 
-msgid "New Product"
-msgstr ""
-
-msgid "New Production"
-msgstr ""
-
-msgid "New Purchase"
-msgstr ""
-
-msgid "New Recipe"
-msgstr ""
-
-msgid "New Supplier"
-msgstr ""
-
-msgid "ORDER DATE"
+msgid "New Setting"
 msgstr ""
 
 msgid "Order:"
@@ -200,13 +275,19 @@ msgstr ""
 msgid "PRICE"
 msgstr ""
 
+msgid "PRODUCT"
+msgstr ""
+
 msgid "PRODUCT ID"
 msgstr ""
 
-msgid "PRODUCTS NAME"
+msgid "PUR./PROD."
 msgstr ""
 
 msgid "PURCHASED COST"
+msgstr ""
+
+msgid "Password"
 msgstr ""
 
 msgid "Phone"
@@ -216,6 +297,9 @@ msgid "Phone Number"
 msgstr ""
 
 msgid "Phone number"
+msgstr ""
+
+msgid "Phone_number"
 msgstr ""
 
 msgid "Price"
@@ -263,9 +347,6 @@ msgstr ""
 msgid "Products Name"
 msgstr ""
 
-msgid "Products Report"
-msgstr ""
-
 msgid "Purchase ID"
 msgstr ""
 
@@ -308,13 +389,16 @@ msgstr ""
 msgid "Remove"
 msgstr ""
 
+msgid "Requirements"
+msgstr ""
+
+msgid "Roles"
+msgstr ""
+
 msgid "SALE PRICE"
 msgstr ""
 
-msgid "SUPPLIER ID"
-msgstr ""
-
-msgid "SUPPLIER NAME"
+msgid "SUPPLIER"
 msgstr ""
 
 msgid "Sale Price:"
@@ -326,25 +410,19 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-msgid "Search for Multiple"
+msgid "Select File"
 msgstr ""
 
-msgid "Search for Multiple:"
-msgstr ""
-
-msgid "Search for One"
-msgstr ""
-
-msgid "Search for One:"
-msgstr ""
-
-msgid "Search for multiple"
-msgstr ""
-
-msgid "Search for one"
+msgid "Settings"
 msgstr ""
 
 msgid "Show"
+msgstr ""
+
+msgid "Starting date"
+msgstr ""
+
+msgid "Starting_date"
 msgstr ""
 
 msgid "Subtotal"
@@ -392,5 +470,17 @@ msgstr ""
 msgid "Unit"
 msgstr ""
 
-msgid "phone_number"
+msgid "Update settings"
+msgstr ""
+
+msgid "User Settings"
+msgstr ""
+
+msgid "User_name"
+msgstr ""
+
+msgid "Users"
+msgstr ""
+
+msgid "You are not authorized to do this action"
 msgstr ""

@@ -1,17 +1,17 @@
 <div class="marginRight">
-    <h1>Import Clients From Excel</h1>
+    <h1><%= _('Import Clients From Excel') %></h1>
 
     <p> 
     Note: Only import spreadsheets that were previously downloaded from this application. 
     </p>
 
-    <h3>Requirements</h3>
+    <h3><%= _('Requirements') %></h3>
     <ul> 
     	<li>Here you could list the validations you have in place for your model</li>
     	<li>That way your user has a better chance of successful import</li>
     </ul>
 
-    <h5>Select File</h5>
+    <h5><%= _('Select File') %></h5>
     <%= form_for @clients_import do |f| %>
       <% if @clients_import.errors.any? %>
         <%= pluralize(@clients_import.errors.count, "error") %> prevented us from importing your spreadsheet. Please update your spreadsheet and try again. 
@@ -23,8 +23,8 @@
       <% end %>
 
       <%= f.file_field :file %>
-      <%= f.submit "Import File", :class => 'text-light btn btn-primary btn-sm' %>
+      <%= f.submit _("Import File"), :class => 'text-light btn btn-primary btn-sm' %>
     <% end %>
 
-    <%= link_to 'Dowload sample',"/sample-excel.xlsx" %>
+    <%= link_to _('Dowload sample'),"/sample-excel.xlsx" %>
 </div> 

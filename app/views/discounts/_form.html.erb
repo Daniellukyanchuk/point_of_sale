@@ -23,22 +23,22 @@
     </div>
     <p>
       <div class="field">
-        <%= form.label :discount_per_kilo %>
+        <%= form.label _('Discount_per_kilo') %>
         <%= form.text_field :discount_per_kilo, class: "form-control" %>
       </div>
 
       <div class="field">
-        <%= form.label :expiration_amount %>
+        <%= form.label _('Expiration_amount') %>
         <%= form.text_field :expiration_amount, class: "form-control"  %>
       </div>
 
       <div class="field">
-        <%= form.label :starting_date %>
+        <%= form.label _('Starting_date') %>
         <%= form.text_field :starting_date, class: "datepicker form-control", :autocomplete => "off", :placeholder => "Discount starts" %>
       </div>
 
       <div class="field">
-        <%= form.label :ending_date %>
+        <%= form.label _('Ending_date') %>
         <%= form.text_field :ending_date, class: "datepicker form-control", :autocomplete => "off", :placeholder => "Discount ends" %>
       </div>
     </p> 

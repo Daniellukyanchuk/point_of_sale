@@ -7,8 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: app 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-14 14:54+0600\n"
-"PO-Revision-Date: 2022-03-14 14:52+0600\n"
+"PO-Revision-Date: 2022-03-14 14:56+0600\n"
 "Last-Translator: \n"
 "Language-Team: Russian\n"
 "Language: ru\n"
@@ -17,6 +16,59 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=; plural=;\n"
 "X-Generator: Poedit 3.0.1\n"
+
+msgid "<i class=\"fa-solid fa-file-export\"></i> Export as Excel"
+msgstr ""
+
+msgid "<i class=\"fa-solid fa-file-export\"></i> Export to JSON"
+msgstr ""
+
+msgid "<i class=\"fa-solid fa-file-import\"></i> Import from Excel"
+msgstr ""
+
+msgid "<i class=\"fa-solid fa-file-import\"></i> Import from JSON"
+msgstr ""
+
+#, fuzzy
+msgid "<i class=\"fa-solid fa-plus\"></i> New Client"
+msgstr "Добавить Клиента"
+
+msgid "<i class=\"fa-solid fa-plus\"></i> New Discount"
+msgstr ""
+
+#, fuzzy
+msgid "<i class=\"fa-solid fa-plus\"></i> New Inventory"
+msgstr "Добавить Инвентарь"
+
+#, fuzzy
+msgid "<i class=\"fa-solid fa-plus\"></i> New Order"
+msgstr "Добавить Заказ"
+
+#, fuzzy
+msgid "<i class=\"fa-solid fa-plus\"></i> New Product"
+msgstr "Добавить продукт"
+
+#, fuzzy
+msgid "<i class=\"fa-solid fa-plus\"></i> New Production"
+msgstr "Добавить продукт"
+
+#, fuzzy
+msgid "<i class=\"fa-solid fa-plus\"></i> New Purchase"
+msgstr "Добавить покупку"
+
+#, fuzzy
+msgid "<i class=\"fa-solid fa-plus\"></i> New Recipe"
+msgstr "Добавить рецепт"
+
+msgid "<i class=\"fa-solid fa-plus\"></i> New Role"
+msgstr ""
+
+#, fuzzy
+msgid "<i class=\"fa-solid fa-plus\"></i> New Supplier"
+msgstr "Добавить Поставщика"
+
+msgid "<i class=\"fa-solid fa-plus\"></i> New User"
+msgstr ""
 
 msgid "ACTUAL TOTAL"
 msgstr "Фактическая сумма"
@@ -27,17 +79,11 @@ msgstr "Адрес"
 msgid "AMOUNT LEFT"
 msgstr "Оставшееся кол-во"
 
-msgid "AMOUNT PURCHASED/PRODUCED"
-msgstr "Купленное кол-во/произведенное"
-
 msgid "AVERAGE UNIT PRICE"
 msgstr "Средняя цена"
 
 msgid "Actual total"
 msgstr "Фактическая сумма"
-
-msgid "Add Ingredient"
-msgstr "Добавить ингредиент"
 
 msgid "Add Product"
 msgstr "Добавить продукт"
@@ -54,6 +100,9 @@ msgstr "Назад"
 msgid "CITY"
 msgstr "Город"
 
+msgid "CLIENT"
+msgstr ""
+
 msgid "CLIENTS ID"
 msgstr "ID Клиента"
 
@@ -63,8 +112,15 @@ msgstr "Цена за блок"
 msgid "COUNTRY"
 msgstr "Страна"
 
+msgid "Category"
+msgstr ""
+
 msgid "City"
 msgstr "Город"
+
+#, fuzzy
+msgid "Client"
+msgstr "Клиент:"
 
 #, fuzzy
 msgid "Client's Report"
@@ -76,8 +132,17 @@ msgstr "Клиент:"
 msgid "Clients"
 msgstr "Клиенты"
 
-msgid "Clients Report"
-msgstr "Отчет по клиентам"
+msgid "Company address"
+msgstr ""
+
+msgid "Company name"
+msgstr ""
+
+msgid "Company_address"
+msgstr ""
+
+msgid "Company_name"
+msgstr ""
 
 msgid "Cooking instructions"
 msgstr "Инструкции по готовке"
@@ -95,8 +160,11 @@ msgstr "Цена"
 msgid "Country"
 msgstr "Страна"
 
-msgid "DATE"
-msgstr "Дата"
+msgid "Create User"
+msgstr ""
+
+msgid "Current Expiration amount"
+msgstr ""
 
 msgid "DELIVERY DATE"
 msgstr "Дата поставки"
@@ -104,20 +172,43 @@ msgstr "Дата поставки"
 msgid "Date"
 msgstr "Дата"
 
+#, fuzzy
+msgid "Date of order"
+msgstr "Дата заказа"
+
 msgid "Date of the order"
 msgstr "Дата заказа"
 
-msgid "Destroy"
-msgstr "Удалить"
+msgid "Discount per kilo"
+msgstr ""
 
-msgid "ESTIMATED TOTAL"
-msgstr "Расчетная сумма"
+msgid "Discount_per_kilo"
+msgstr ""
+
+msgid "Discounts"
+msgstr ""
+
+msgid "Dowload sample"
+msgstr ""
 
 msgid "Edit"
 msgstr "Изменить"
 
+#, fuzzy
+msgid "Edit profile"
+msgstr "Изменить"
+
 msgid "Editing Order"
 msgstr "Изменить Заказ"
+
+msgid "Email"
+msgstr ""
+
+msgid "Ending date"
+msgstr ""
+
+msgid "Ending_date"
+msgstr ""
 
 msgid "Estimated Price Per Unit"
 msgstr "Расчетная цена за блок"
@@ -133,6 +224,12 @@ msgstr "Расчетная сумма"
 
 msgid "Expected date of delivery"
 msgstr "Ожидаемая дата поставки"
+
+msgid "Expiration amount"
+msgstr ""
+
+msgid "Expiration_amount"
+msgstr ""
 
 msgid "From"
 msgstr "От"
@@ -152,6 +249,17 @@ msgstr "Итоговая стоимость:"
 msgid "ID"
 msgstr "ID"
 
+#, fuzzy
+msgid "Import Clients From Excel"
+msgstr "Клиенты"
+
+msgid "Import File"
+msgstr ""
+
+#, fuzzy
+msgid "Import Roles From JSON"
+msgstr "От"
+
 msgid "Inventories"
 msgstr "Инвентарь"
 
@@ -164,33 +272,11 @@ msgstr "Кол-во заказов"
 msgid "Name"
 msgstr "Имя"
 
-msgid "New Client"
-msgstr "Добавить Клиента"
-
-msgid "New Inventory"
-msgstr "Добавить Инвентарь"
-
 msgid "New Order"
 msgstr "Добавить Заказ"
 
-msgid "New Product"
-msgstr "Добавить продукт"
-
-#, fuzzy
-msgid "New Production"
-msgstr "Добавить продукт"
-
-msgid "New Purchase"
-msgstr "Добавить покупку"
-
-msgid "New Recipe"
-msgstr "Добавить рецепт"
-
-msgid "New Supplier"
-msgstr "Добавить Поставщика"
-
-msgid "ORDER DATE"
-msgstr "Дата заказа"
+msgid "New Setting"
+msgstr ""
 
 msgid "Order:"
 msgstr "Заказы:"
@@ -204,14 +290,21 @@ msgstr "Телефон"
 msgid "PRICE"
 msgstr "Цена"
 
+#, fuzzy
+msgid "PRODUCT"
+msgstr "ID Продукта"
+
 msgid "PRODUCT ID"
 msgstr "ID Продукта"
 
-msgid "PRODUCTS NAME"
-msgstr "Наименование продукта"
+msgid "PUR./PROD."
+msgstr ""
 
 msgid "PURCHASED COST"
 msgstr "Цена покупки"
+
+msgid "Password"
+msgstr ""
 
 msgid "Phone"
 msgstr "Телефон"
@@ -221,6 +314,10 @@ msgstr "Телефон"
 
 #, fuzzy
 msgid "Phone number"
+msgstr "Телефон"
+
+#, fuzzy
+msgid "Phone_number"
 msgstr "Телефон"
 
 msgid "Price"
@@ -275,9 +372,6 @@ msgstr "Продукты"
 msgid "Products Name"
 msgstr "Наименование продукта"
 
-msgid "Products Report"
-msgstr "Отчет о продукции"
-
 msgid "Purchase ID"
 msgstr "ID Покупок"
 
@@ -321,14 +415,18 @@ msgstr "Рецепты"
 msgid "Remove"
 msgstr "Удалить"
 
+msgid "Requirements"
+msgstr ""
+
+msgid "Roles"
+msgstr ""
+
 msgid "SALE PRICE"
 msgstr "Цена продажи"
 
-msgid "SUPPLIER ID"
+#, fuzzy
+msgid "SUPPLIER"
 msgstr "ID Поставщика"
-
-msgid "SUPPLIER NAME"
-msgstr "Имя Поставщика"
 
 msgid "Sale Price:"
 msgstr "Цена:"
@@ -339,34 +437,24 @@ msgstr "Цена продажи"
 msgid "Search"
 msgstr "Поиск"
 
-#, fuzzy
-msgid "Search for Multiple"
-msgstr "Поиск по нескольким:"
+msgid "Select File"
+msgstr ""
 
-msgid "Search for Multiple:"
-msgstr "Поиск по нескольким:"
-
-#, fuzzy
-msgid "Search for One"
-msgstr "Поиск по одному:"
-
-msgid "Search for One:"
-msgstr "Поиск по одному:"
-
-#, fuzzy
-msgid "Search for multiple"
-msgstr "Поиск по нескольким:"
-
-#, fuzzy
-msgid "Search for one"
-msgstr "Поиск по одному:"
+msgid "Settings"
+msgstr ""
 
 msgid "Show"
 msgstr "Показать"
 
+msgid "Starting date"
+msgstr ""
+
+msgid "Starting_date"
+msgstr ""
+
 #, fuzzy
 msgid "Subtotal"
-msgstr "СубЦена:"
+msgstr "СубЦена"
 
 msgid "Subtotal:"
 msgstr "СубЦена:"
@@ -384,7 +472,7 @@ msgid "Supply product"
 msgstr ""
 
 msgid "TOTAL MONEY SPENT"
-msgstr "Общий расход "
+msgstr "Общая израсходованная сумма"
 
 msgid "TOTAL REVENUE"
 msgstr "Общая выручка"
@@ -410,5 +498,68 @@ msgstr "Блоков продано"
 msgid "Unit"
 msgstr "Блок"
 
-msgid "phone_number"
-msgstr "Телефон"
+msgid "Update settings"
+msgstr ""
+
+msgid "User Settings"
+msgstr ""
+
+msgid "User_name"
+msgstr ""
+
+msgid "Users"
+msgstr ""
+
+msgid "You are not authorized to do this action"
+msgstr ""
+
+#~ msgid "phone_number"
+#~ msgstr "Телефон"
+#~ msgid "AMOUNT PURCHASED/PRODUCED"
+#~ msgstr "Купленное кол-во/произведенное"
+#~ msgid "Add Ingredient"
+#~ msgstr "Добавить ингредиент"
+#~ msgid "Clients Report"
+#~ msgstr "Отчет по клиентам"
+#~ msgid "DATE"
+#~ msgstr "Дата"
+#~ msgid "Destroy"
+#~ msgstr "Удалить"
+#~ msgid "ESTIMATED TOTAL"
+#~ msgstr "Расчетная сумма"
+#~ msgid "New Client"
+#~ msgstr "Добавить Клиента"
+#~ msgid "New Inventory"
+#~ msgstr "Добавить Инвентарь"
+#~ msgid "New Product"
+#~ msgstr "Добавить продукт"
+#~ msgid "New Production"
+#~ msgstr "Добавить продукт"
+#~ msgid "New Purchase"
+#~ msgstr "Добавить покупку"
+#~ msgid "New Recipe"
+#~ msgstr "Добавить рецепт"
+#~ msgid "New Supplier"
+#~ msgstr "Добавить Поставщика"
+#~ msgid "ORDER DATE"
+#~ msgstr "Дата заказа"
+#~ msgid "PRODUCTS NAME"
+#~ msgstr "Наименование продукта"
+#~ msgid "Products Report"
+#~ msgstr "Отчет о продукции"
+#~ msgid "SUPPLIER ID"
+#~ msgstr "ID Поставщика"
+#~ msgid "SUPPLIER NAME"
+#~ msgstr "Имя Поставщика"
+#~ msgid "Search for Multiple"
+#~ msgstr "Поиск по нескольким:"
+#~ msgid "Search for Multiple:"
+#~ msgstr "Поиск по нескольким:"
+#~ msgid "Search for One"
+#~ msgstr "Поиск по одному:"
+#~ msgid "Search for One:"
+#~ msgstr "Поиск по одному:"
+#~ msgid "Search for multiple"
+#~ msgstr "Поиск по нескольким:"
+#~ msgid "Search for one"
+#~ msgstr "Поиск по одному:"
