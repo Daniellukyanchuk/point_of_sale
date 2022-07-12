@@ -6,8 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: app 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-05-17 23:23+0600\n"
+"PO-Revision-Date: 2022-07-12 11:58+0600\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ru\n"
@@ -17,8 +16,44 @@ msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "X-Generator: Poedit 3.0.1\n"
 
+msgid " Fill out the form below: "
+msgstr "Заполните форму ниже: "
+
+msgid " Get registered: "
+msgstr "Зарегистрируйтесь: "
+
+msgid " Get your ID and password: "
+msgstr " Получите свой идентификатор и пароль: "
+
+msgid ""
+" If you just want to buy products for yourself, that is totally ok, however, as an official member you will also automatically start to accumulate points on any atomy products you, or anyone registered \n"
+"        through you buys! </p><p> Most Atomy members earn a little extra through these commissions, but with some effort you can actually turn Atomy into a serious career with a \n"
+"        passive income that will keep giving long after you've stopped working! "
+msgstr ""
+
 msgid " Import Products From File"
 msgstr " Импортировать продуктов из файла"
+
+msgid " Learn more about the Atomy marketing plan and compensation structure!"
+msgstr " Узнайте больше о маркетинговом плане  Атоми и структуре вознаграждения!"
+
+msgid " Now you can"
+msgstr " Теперь вы можете"
+
+msgid " Once you have submitted the form below, you will be registered by a current Atomy member, making you an official member. Don't worry, there are <b>no fees or obligations</b> associated with being a member. "
+msgstr " После того, как вы отправите форму ниже, вы будете зарегистрированы текущим участником Атоми, что сделает вас официальным участником. Не беспокойтесь, членство в программе <b>никаких сборов или обязательств</b> не связано. "
+
+msgid " Start earning! "
+msgstr " Начать зарабатывать! "
+
+msgid " Start shopping! "
+msgstr " Начать покупки! "
+
+msgid " Within a business day of submitting your registration form you will receive an ID number and a password via your preferred contact method (see form). "
+msgstr " В течение рабочего дня после отправки регистрационной формы вы получите идентификационный номер и пароль, используя предпочитаемый вами способ связи (см. форму). "
+
+msgid " Your personal information will be used for registration and internal statistics only.<br> Atomy will not share or sell your personal information. "
+msgstr " Ваша личная информация будет использоваться только для регистрации и внутренней статистики.<br> Атоми не будет передавать или продавать вашу личную информацию. "
 
 msgid "(itemized by product)"
 msgstr "(распределено по продуктам)"
@@ -56,50 +91,53 @@ msgstr "<i class=\"fa-solid fa-download\"></i> експортировать в E
 msgid "<i class=\"fa-solid fa-file-import\"></i> Import from Excel"
 msgstr "<i class=\"fa-solid fa-file-import\"></i> импортировать из Excel"
 
+msgid "ATOMY: Client Registration"
+msgstr "Атоми: Регистрации Клиента"
+
 msgid "Actual CPU"
-msgstr "факт. стоимость за единицу"
+msgstr "Факт. стоимость за единицу"
 
 msgid "Actual Order"
-msgstr "факт. заказ"
+msgstr "Факт. заказ"
 
 msgid "Actual Quantity"
-msgstr "факт. кол-во"
+msgstr "Факт. кол-во"
 
 msgid "Actual total:"
-msgstr "факт. итог:"
+msgstr "Факт. итог:"
 
 msgid "Add Product"
-msgstr "добавить продукт"
+msgstr "Добавить продукт"
 
 msgid "Address"
-msgstr "адрес"
+msgstr "Адрес"
 
 msgid "Address:"
-msgstr "адрес:"
+msgstr "Адрес:"
+
+msgid "Atomy mall"
+msgstr "ТЦ Атоми"
 
 msgid "Avg. Spent"
-msgstr "средный чек"
+msgstr "Средный чек"
 
 msgid "Back"
-msgstr "назад"
+msgstr "Назад"
 
 msgid "Categories"
-msgstr "категории продуктов"
+msgstr "Категории продуктов"
 
 msgid "Choose Product"
-msgstr "выбрать продукт"
-
-msgid "City"
-msgstr "город"
+msgstr "Выбрать продукт"
 
 msgid "City:"
-msgstr "город:"
+msgstr "Город:"
 
 msgid "Client"
-msgstr "клиент"
+msgstr "Клиент"
 
 msgid "Client (id)"
-msgstr "клиент (ID)"
+msgstr "Клиент (ID)"
 
 msgid "Client ID"
 msgstr "ID клиента"
@@ -108,163 +146,151 @@ msgid "Client Name"
 msgstr "ФИО клиента"
 
 msgid "Client Purchase Report"
-msgstr "отчет о закупки клиентах"
+msgstr "Отчет о закупки клиентах"
 
 msgid "Client Report"
-msgstr "отчёт о клиентов"
+msgstr "Отчёт о клиентов"
 
 msgid "Client:"
-msgstr "клиент:"
+msgstr "Клиент:"
 
 msgid "Clients"
-msgstr "клиентов"
+msgstr "Клиентов"
 
 msgid "Client|Address"
-msgstr "адрес"
+msgstr "Адрес"
 
 msgid "Client|City"
-msgstr "город"
+msgstr "Город"
 
 msgid "Client|Name"
-msgstr "ФИО клиента"
+msgstr "Имя"
 
 msgid "Client|Phone"
-msgstr "телефон"
+msgstr "Телефон"
 
 msgid "Column headers must be in the correct order match headers in the database. HINT: Export existing products to file for reference."
 msgstr "Заголовки столбцов должны быть в правильном порядке и соответствовать заголовкам в базе данных. СОВЕТ: Экспортируйте существующие продукты в файл для справки."
 
 msgid "Cost"
-msgstr "расход"
+msgstr "Расход"
 
 msgid "Cost per Unit"
-msgstr "расход за единицу"
+msgstr "Расход за единицу"
 
 msgid "Cost per Unit (CPU)"
-msgstr "расход за единицу"
+msgstr "Расход за единицу"
 
 msgid "Cost per Unit:"
-msgstr "расход за единицу"
+msgstr "Расход за единицу:"
 
 msgid "Create Category"
-msgstr "cоздать категории "
+msgstr "Создать категории"
 
 msgid "Create Client"
-msgstr "cоздать клиента"
+msgstr "Создать клиента"
 
 msgid "Create Inventory"
-msgstr "cоздать инвентара"
+msgstr "Создать инвентарь"
 
 msgid "Create Order"
-msgstr "создать заказ"
+msgstr "Создать заказ"
 
 msgid "Create Product"
-msgstr "создать продукта"
+msgstr "Создать продукта"
 
 msgid "Create Purchase Order"
-msgstr "создать заказ на закупку"
+msgstr "Создать заказ на закупку"
 
 msgid "Create Role"
-msgstr "создать роль"
+msgstr "Создать роль"
 
 msgid "Create Supplier"
-msgstr "создать постовщика"
+msgstr "Создать поставщика"
 
 msgid "Create User"
-msgstr "создать пользователь"
+msgstr "Создать пользователя"
 
 msgid "Date Ordered"
-msgstr "дата заказа"
+msgstr "Дата заказа"
 
 msgid "Date Received"
-msgstr "дата получение"
+msgstr "Дата получение"
 
 msgid "Date added"
-msgstr "дата добавленно"
+msgstr "Дата добавления"
 
 msgid "Date of Birth"
-msgstr "дата рождения"
+msgstr "Дата рождения"
 
 msgid "Date ordered"
-msgstr "дата заказан"
+msgstr "Дата заказа"
 
 msgid "Date ordered:"
-msgstr "дата заказен:"
+msgstr "Дата заказа:"
 
 msgid "Date received"
-msgstr "дата получение"
+msgstr "Дата получения"
 
 msgid "Date received:"
-msgstr "дата получение:"
+msgstr "Дата получения:"
 
 msgid "DoB"
-msgstr "дата рождения"
+msgstr "Дата рождения"
 
 msgid "Edit"
-msgstr "редактировать"
+msgstr "Редактировать"
 
 msgid "Editing Inventory Record"
-msgstr "редактирование инвентарной записи"
+msgstr "Редактирование инвентарной записи"
 
 msgid "Editing Order"
-msgstr "редактирование заказа"
+msgstr "Редактирование заказа"
 
 msgid "Editing Product"
-msgstr "редактирование продукта"
+msgstr "Редактирование продукта"
 
 msgid "Editing Purchase Order"
-msgstr "редактирование заказа на закупки"
+msgstr "Редактирование заказа на закупки"
 
 msgid "Editing Supplier"
-msgstr "редактирование постовщика"
+msgstr "Редактирование поставщика"
 
 msgid "Email"
-msgstr "емайл"
+msgstr "Емайл"
 
 msgid "Enter registered email address"
 msgstr "Введите зарегистрированный адрес электронной почты"
 
-msgid "Estimate"
-msgstr "оценка"
-
-msgid "Estimated CPU"
-msgstr "ор. стоимость за единицу"
-
-msgid "Estimated Quantity"
-msgstr "приблиз. кол-во"
-
-msgid "Estimated Subtotal"
-msgstr "приблиз. пром. итог"
-
-msgid "Estimated total:"
-msgstr "приблиз. итог"
-
 msgid "Expected delivery"
-msgstr "ожид. дата доставки"
+msgstr "Ожид. дата доставки"
 
 msgid "Files must be one of the following formats: xls or xlsx"
 msgstr "Файлы должны быть одного из следующих форматов: xls. или .xlsx"
 
 msgid "First Name"
-msgstr "имя"
+msgstr "Имя"
 
 msgid "Gender"
-msgstr "пол"
+msgstr "Пол"
 
 msgid "Go to P.O."
-msgstr "переидти на закупку"
+msgstr "Переидти на закупку"
 
 msgid "Grams per Unit:"
-msgstr "грамм на единицу:"
+msgstr "Грамм на единицу:"
 
 msgid "Grams per unit"
-msgstr "грамм на единицу"
+msgstr "Грамм на единицу"
 
 msgid "Grand Total"
-msgstr "общая сумма"
+msgstr "Общая сумма"
 
 msgid "Grand total:"
-msgstr "общая сумма:"
+msgstr "Общая сумма:"
+
+msgid "How it works:"
+msgstr "Как это работает:"
 
 msgid "ID"
 msgstr "ID"
@@ -273,10 +299,10 @@ msgid "Id"
 msgstr "ID"
 
 msgid "Import Products"
-msgstr "импортировать продукты"
+msgstr "Импортировать продукты"
 
 msgid "Inventory"
-msgstr "инвентарь"
+msgstr "Инвентарь"
 
 msgid "Inventory Id"
 msgstr "ID инвентара"
@@ -285,19 +311,19 @@ msgid "Inventory Id:"
 msgstr "ID инвентара:"
 
 msgid "Inventory Records"
-msgstr "инвентаризационные записи"
+msgstr "Инвентаризационные записи"
 
 msgid "Inventory Report"
-msgstr "отчёт инвентара"
+msgstr "Отчёт инвентаризации"
 
 msgid "Inventory Value"
-msgstr "стоймость инвентара"
+msgstr "Стоимость инвентаря"
 
 msgid "Inventory|Cost per unit"
-msgstr "цена за единицу"
+msgstr "Расход за единицу"
 
 msgid "Inventory|Remaining quantity"
-msgstr "оставшееся кол-во"
+msgstr "Оставшееся кол-во"
 
 msgid "Name"
 msgstr "Имя"
@@ -306,34 +332,34 @@ msgid "Name:"
 msgstr "Имя:"
 
 msgid "New Client"
-msgstr "новый клиент"
+msgstr "Новый клиент"
 
 msgid "New Inventory Record"
-msgstr "новый инвентаризационный запис"
+msgstr "Новый инвентаризационный запис"
 
 msgid "New Order"
-msgstr "новый заказ"
+msgstr "Новый заказ"
 
 msgid "New Product"
-msgstr "новый продукт"
+msgstr "Новый продукт"
 
 msgid "New Purchase Order"
 msgstr "Новый заказ на закупку"
 
 msgid "New Role"
-msgstr "новый роль"
+msgstr "Новый роль"
 
 msgid "New Supplier"
-msgstr "новый постовщик"
+msgstr "Новый постовщик"
 
 msgid "Order"
-msgstr "заказ"
+msgstr "Заказ"
 
 msgid "Order Date"
-msgstr "дата заказа"
+msgstr "Дата заказа"
 
 msgid "Order History"
-msgstr "история заказов"
+msgstr "История заказов"
 
 msgid "Order Id"
 msgstr "ID заказа"
@@ -342,16 +368,16 @@ msgid "Order Id:"
 msgstr "ID заказа:"
 
 msgid "Order Total"
-msgstr "итог заказа"
+msgstr "Итог заказа"
 
 msgid "Order placed"
-msgstr "дата заказа"
+msgstr "Дата заказа"
 
 msgid "Order product"
-msgstr "продукт заказа"
+msgstr "Продукт заказа"
 
 msgid "Order received"
-msgstr "дата получение"
+msgstr "Дата получение"
 
 msgid "OrderProduct|Quantity"
 msgstr "колечество"
@@ -566,6 +592,9 @@ msgstr "выход"
 msgid "Register"
 msgstr "гегистрировать"
 
+msgid "Registered"
+msgstr "Регистрировано"
+
 msgid "Remaining Qt:"
 msgstr "оставшееся кол-во:"
 
@@ -723,31 +752,31 @@ msgid "Update Supplier"
 msgstr "обновить поставщика"
 
 msgid "Update User"
-msgstr "обновить пользователя "
+msgstr "Обновить пользователя "
 
 msgid "Upload Company Logo"
-msgstr "загрузить логотип"
+msgstr "Загрузить логотип"
 
 msgid "User name"
-msgstr "имя пользователя "
+msgstr "Имя пользователя "
 
 msgid "Users"
-msgstr "пользователи "
+msgstr "Пользователи "
 
 msgid "Users & Settings"
-msgstr "настройки"
+msgstr "Настройки"
 
 msgid "Weighted CPU"
-msgstr "взвешенная стоимость за единицу"
+msgstr "Взвешенная стоимость за единицу"
 
 msgid "Weighted PPU"
-msgstr "взвешенная цена за единицу"
+msgstr "Взвешенная цена за единицу"
 
 msgid "You don't have permission to do that"
-msgstr "у вас нет на это разрешения"
+msgstr "У вас нет на это разрешения"
 
-msgid "Zip Code"
-msgstr "почтовый индекс"
+msgid "and start shopping!"
+msgstr "и приступайте к покупкам!"
 
 msgid "day (dd)"
 msgstr "день (дд)"
@@ -760,6 +789,9 @@ msgstr "женский"
 
 msgid "from:"
 msgstr "от:"
+
+msgid "log in"
+msgstr "авторизоваться"
 
 msgid "male"
 msgstr "мужской"
@@ -778,6 +810,9 @@ msgstr "выберите продукт"
 
 msgid "select products"
 msgstr "выбрать продукты"
+
+msgid "to the"
+msgstr "к"
 
 msgid "to:"
 msgstr "до:"

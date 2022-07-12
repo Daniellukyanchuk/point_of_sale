@@ -91,10 +91,6 @@
     <th class="" style="max-width: 17%;"><%= sortable "supplier_name", _("Supplier") %> </th>
     <th class="" style="max-width: 17%;"><%= sortable "product_name", _("Product Name") %></th>
 
-    <th class="align_right" style="max-width: 6%; width: 6%;"><%= sortable "estimated_quantity", _("Estimated Quantity") %></th>
-    <th class="align_right" style="max-width: 7%; width: 7%;"><%= sortable "estimated_cost", _("Estimated CPU") %></th>
-    <th class="align_right" style="max-width: 7%; width: 7%;"><%= sortable "estimated_subtotal", _("Estimated Subtotal") %></th>
-
     <th class="align_right" style="max-width: 7%; width: 7%;"><%= sortable "actual_quantity", _("Actual Quantity") %></th>
     <th class="align_right" style="max-width: 7%; width: 7%;"><%= sortable "actual_cost", _("Actual CPU") %></th>
     <th class="align_right" style="max-width: 7%; width: 7%;"><%= sortable "actual_subtotal", _("Order Total") %></th>
@@ -113,10 +109,6 @@
 
         <td class=""><%= pr["supplier_name"] %> </td>
         <td class=""><%= pr["product_name"] %></td>
-      
-        <td class="align_right text-muted"><%= pr["estimated_quantity"] %><%= pr["unit"] %></td>
-        <td class="align_right text-muted"><%= pr["estimated_cost"] %></td>
-        <td class="align_right text-muted"><%= pr["estimated_subtotal"] %></td>
       
         <td class="align_right"><%= pr["actual_quantity"] %><%= pr["unit"] %></td>
         <td class="align_right"><%= pr["actual_cost"] %></td>

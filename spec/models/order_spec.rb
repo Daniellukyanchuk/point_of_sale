@@ -36,10 +36,3 @@ require 'rails_helper'
     end
 end
 
-# bakery_supply = Supplier.create!(supplier_name: "Bakery Supply", phone: "+997 382 928")
-
-      # p1 = Purchase.create!(supplier_id: bakery_supply.id, date_ordered: "02/03/2022", date_expected: "02/03/2022", date_received: "02/03/2022", purchase_products: 
-      #   [
-      #   PurchaseProduct.new(product_id: flour.id, estimated_quantity: 50, estimated_cost: 38, estimated_subtotal: 1900, purchase_quantity: 50, purchase_price: 38, purchase_subtotal: 1900),
-      #   PurchaseProduct.new(product_id: eggs.id, estimated_quantity: 10, estimated_cost: 200, estimated_subtotal: 2000, purchase_quantity: 10, purchase_price: 200, purchase_subtotal: 2000)
-      #   ])

@@ -16,7 +16,43 @@ msgstr ""
 "Plural-Forms: nplurals=; plural=;\n"
 "\n"
 
+msgid " Fill out the form below: "
+msgstr ""
+
+msgid " Get registered: "
+msgstr ""
+
+msgid " Get your ID and password: "
+msgstr ""
+
+msgid ""
+" If you just want to buy products for yourself, that is totally ok, however, as an official member you will also automatically start to accumulate points on any atomy products you, or anyone registered \n"
+"        through you buys! </p><p> Most Atomy members earn a little extra through these commissions, but with some effort you can actually turn Atomy into a serious career with a \n"
+"        passive income that will keep giving long after you've stopped working! "
+msgstr ""
+
 msgid " Import Products From File"
+msgstr ""
+
+msgid " Learn more about the Atomy marketing plan and compensation structure!"
+msgstr ""
+
+msgid " Now you can"
+msgstr ""
+
+msgid " Once you have submitted the form below, you will be registered by a current Atomy member, making you an official member. Don't worry, there are <b>no fees or obligations</b> associated with being a member. "
+msgstr ""
+
+msgid " Start earning! "
+msgstr ""
+
+msgid " Start shopping! "
+msgstr ""
+
+msgid " Within a business day of submitting your registration form you will receive an ID number and a password via your preferred contact method (see form). "
+msgstr ""
+
+msgid " Your personal information will be used for registration and internal statistics only.<br> Atomy will not share or sell your personal information. "
 msgstr ""
 
 msgid "(itemized by product)"
@@ -55,6 +91,9 @@ msgstr ""
 msgid "<i class=\"fa-solid fa-file-import\"></i> Import from Excel"
 msgstr ""
 
+msgid "ATOMY: Client Registration"
+msgstr ""
+
 msgid "Actual CPU"
 msgstr ""
 
@@ -76,6 +115,9 @@ msgstr ""
 msgid "Address:"
 msgstr ""
 
+msgid "Atomy mall"
+msgstr ""
+
 msgid "Avg. Spent"
 msgstr ""
 
@@ -86,9 +128,6 @@ msgid "Categories"
 msgstr ""
 
 msgid "Choose Product"
-msgstr ""
-
-msgid "City"
 msgstr ""
 
 msgid "City:"
@@ -223,21 +262,6 @@ msgstr ""
 msgid "Enter registered email address"
 msgstr ""
 
-msgid "Estimate"
-msgstr ""
-
-msgid "Estimated CPU"
-msgstr ""
-
-msgid "Estimated Quantity"
-msgstr ""
-
-msgid "Estimated Subtotal"
-msgstr ""
-
-msgid "Estimated total:"
-msgstr ""
-
 msgid "Expected delivery"
 msgstr ""
 
@@ -263,6 +287,9 @@ msgid "Grand Total"
 msgstr ""
 
 msgid "Grand total:"
+msgstr ""
+
+msgid "How it works:"
 msgstr ""
 
 msgid "ID"
@@ -565,6 +592,9 @@ msgstr ""
 msgid "Register"
 msgstr ""
 
+msgid "Registered"
+msgstr ""
+
 msgid "Remaining Qt:"
 msgstr ""
 
@@ -745,7 +775,7 @@ msgstr ""
 msgid "You don't have permission to do that"
 msgstr ""
 
-msgid "Zip Code"
+msgid "and start shopping!"
 msgstr ""
 
 msgid "day (dd)"
@@ -758,6 +788,9 @@ msgid "female"
 msgstr ""
 
 msgid "from:"
+msgstr ""
+
+msgid "log in"
 msgstr ""
 
 msgid "male"
@@ -776,6 +809,9 @@ msgid "select product"
 msgstr ""
 
 msgid "select products"
+msgstr ""
+
+msgid "to the"
 msgstr ""
 
 msgid "to:"
