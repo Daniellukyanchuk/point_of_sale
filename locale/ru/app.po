@@ -6,8 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: app 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-07-12 15:10+0600\n"
+"PO-Revision-Date: 2022-07-12 15:20+0600\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ru\n"
@@ -98,6 +97,9 @@ msgstr "Категории продуктов"
 msgid "Choose Product"
 msgstr "Выбрать продукт"
 
+msgid "City"
+msgstr "Город"
+
 msgid "City:"
 msgstr "Город:"
 
@@ -125,50 +127,65 @@ msgstr "Клиент:"
 msgid "Clients"
 msgstr "Клиентов"
 
+#, fuzzy
 msgid "Client|Address"
 msgstr "Адрес"
 
+#, fuzzy
 msgid "Client|City"
-msgstr "Город"
+msgstr "Клиент"
 
+#, fuzzy
 msgid "Client|Contact method"
 msgstr "Предпочтительный способ связи"
 
+#, fuzzy
 msgid "Client|Date of birth"
 msgstr "Дата рождения"
 
+#, fuzzy
 msgid "Client|Dob day"
 msgstr "День"
 
+#, fuzzy
 msgid "Client|Dob month"
 msgstr "Месяц"
 
+#, fuzzy
 msgid "Client|Dob year"
 msgstr "Год"
 
+#, fuzzy
 msgid "Client|Email"
-msgstr "Эмайл"
+msgstr "Клиент"
 
+#, fuzzy
 msgid "Client|Gender"
-msgstr "Пол"
+msgstr "Клиент"
 
+#, fuzzy
 msgid "Client|Last name"
 msgstr "Фамилия"
 
+#, fuzzy
 msgid "Client|Middle name"
 msgstr "Отчество"
 
+#, fuzzy
 msgid "Client|Name"
-msgstr "Имя"
+msgstr "ФИО клиента"
 
+#, fuzzy
 msgid "Client|Phone"
-msgstr "Телефон"
+msgstr "Клиент"
 
+#, fuzzy
 msgid "Client|Registered"
-msgstr "Зарегистрировано"
+msgstr "Регистрировано"
 
+#, fuzzy
 msgid "Client|Zip code"
-msgstr "Почтовый идекс"
+msgstr "Почтовый индекс"
 
 msgid "Column headers must be in the correct order match headers in the database. HINT: Export existing products to file for reference."
 msgstr "Заголовки столбцов должны быть в правильном порядке и соответствовать заголовкам в базе данных. СОВЕТ: Экспортируйте существующие продукты в файл для справки."
@@ -235,6 +252,10 @@ msgstr "Дата получения"
 
 msgid "Date received:"
 msgstr "Дата получения:"
+
+#, fuzzy
+msgid "Day (dd)"
+msgstr "день (дд)"
 
 msgid "DoB"
 msgstr "Дата рождения"
@@ -338,8 +359,20 @@ msgstr "Расход за единицу"
 msgid "Inventory|Remaining quantity"
 msgstr "Оставшееся кол-во"
 
+#, fuzzy
+msgid "Last_name"
+msgstr "Фамилия"
+
 msgid "Learn more about the Atomy marketing plan and compensation structure!"
 msgstr "Узнайте больше о маркетинговом плане  Атоми и структуре вознаграждения!"
+
+#, fuzzy
+msgid "Middle_name"
+msgstr "Отчество"
+
+#, fuzzy
+msgid "Month (mm)"
+msgstr "месяц (мм)"
 
 msgid "Most Atomy members earn a little extra through these commissions, but with some effort you can actually turn Atomy into a serious career with a passive income that will keep giving long after you've stopped working!"
 msgstr "Большинство членов Atomy зарабатывают немного больше за счет этих комиссий, но приложив некоторые усилия, вы действительно можете превратить Atomy в серьезную карьеру с пассивным доходом, который будет приносить еще долго после того, как вы перестанете работать!"
@@ -347,8 +380,9 @@ msgstr "Большинство членов Atomy зарабатывают не�
 msgid "Name"
 msgstr "Имя"
 
+#, fuzzy
 msgid "Name:"
-msgstr "Имя:"
+msgstr "Имя"
 
 msgid "New Client"
 msgstr "Новый клиент"
@@ -428,7 +462,6 @@ msgstr "ID продуктa ЗнП"
 msgid "PV"
 msgstr "ПВ"
 
-#, fuzzy
 msgid "Permission"
 msgstr "Разрешения"
 
@@ -451,16 +484,16 @@ msgid "Preferred contact method"
 msgstr "Предпочтительный способ связи "
 
 msgid "Price:"
-msgstr "Цена: "
+msgstr "Цена:"
 
 msgid "Product"
-msgstr "Продукт "
+msgstr "Продукт"
 
 msgid "Product Categories"
-msgstr "Категории продуктов "
+msgstr "Категории продуктов"
 
 msgid "Product Code"
-msgstr "Код продукта "
+msgstr "Код продукта"
 
 msgid "Product Id"
 msgstr "ID продукта"
@@ -469,60 +502,55 @@ msgid "Product Id:"
 msgstr "ID продукта:"
 
 msgid "Product Name"
-msgstr "Название продукта "
+msgstr "Название продукта"
 
 msgid "Product Name:"
-msgstr "Название продукта: "
+msgstr "Название продукта:"
 
-#, fuzzy
 msgid "Product category"
-msgstr "Категории продуктов "
+msgstr "Категории продуктов"
 
 msgid "Product id:"
 msgstr "ID продукта:"
 
 msgid "Product name:"
-msgstr "Название продукта: "
+msgstr "Название продукта:"
 
-#, fuzzy
 msgid "ProductCategory|Category description"
-msgstr "Продукт "
+msgstr "Описание категории "
 
-#, fuzzy
 msgid "ProductCategory|Category name"
-msgstr "Продукт "
+msgstr "Название категории "
 
 msgid "Production Id"
 msgstr "ID производства"
 
 msgid "Products"
-msgstr "Продукты "
+msgstr "Продукты"
 
 msgid "Product|Grams per unit"
-msgstr "Грамм на единицу "
+msgstr "Грамм на единицу"
 
 msgid "Product|Price"
-msgstr "Цена "
+msgstr "Цена"
 
-#, fuzzy
 msgid "Product|Product code"
-msgstr "Название продукта "
+msgstr "Название продукта"
 
 msgid "Product|Product name"
-msgstr "Название продукта "
+msgstr "Название продукта"
 
-#, fuzzy
 msgid "Product|Pv"
-msgstr "Продукт "
+msgstr "Pv"
 
 msgid "Product|Unit"
-msgstr "Единица "
+msgstr "Единица"
 
 msgid "Purchase"
-msgstr "Закупка "
+msgstr "Закупка"
 
 msgid "Purchase History"
-msgstr "История закупкок "
+msgstr "История закупкок"
 
 msgid "Purchase Id"
 msgstr "ID закупки"
@@ -534,67 +562,67 @@ msgid "Purchase Order Id:"
 msgstr "ID заказа на закупку:"
 
 msgid "Purchase Order Product Id:"
-msgstr "ID продукт заказа на поставку: "
+msgstr "ID продукт заказа на поставку:"
 
 msgid "Purchase Report"
-msgstr "Отчет о закупках "
+msgstr "Отчет о закупках"
 
 msgid "Purchase Summary"
-msgstr "Сводка по покупке "
+msgstr "Сводка по покупке"
 
 msgid "Purchase Total"
-msgstr "Итог закупки "
+msgstr "Итог закупки"
 
 msgid "Purchase price"
-msgstr "Закупочная цена "
+msgstr "Закупочная цена"
 
 msgid "Purchase product"
-msgstr "Продукт закупки "
+msgstr "Продукт закупки"
 
 msgid "PurchaseProduct|Estimated cost"
-msgstr "Ориентировочная стоимость "
+msgstr "Ориентировочная стоимость"
 
 msgid "PurchaseProduct|Estimated quantity"
-msgstr "Расчетное кол-во "
+msgstr "Расчетное кол-во"
 
 msgid "PurchaseProduct|Estimated subtotal"
-msgstr "Расчетный промежуточный итог "
+msgstr "Расчетный промежуточный итог"
 
 msgid "PurchaseProduct|Purchase price"
-msgstr "Закупочная цена "
+msgstr "Закупочная цена"
 
 msgid "PurchaseProduct|Purchase quantity"
-msgstr "Кол-во закупки "
+msgstr "Кол-во закупки"
 
 msgid "PurchaseProduct|Purchase subtotal"
-msgstr "Промежуточный итог закупки "
+msgstr "Промежуточный итог закупки"
 
 msgid "Purchases"
-msgstr "Закупок "
+msgstr "Закупок"
 
 msgid "Purchase|Date expected"
-msgstr "Дата ожидаемой доставки "
+msgstr "Дата ожидаемой доставки"
 
 msgid "Purchase|Date ordered"
-msgstr "Дата заказа "
+msgstr "Дата заказа"
 
 msgid "Purchase|Date received"
-msgstr "Дата получения "
+msgstr "Дата получения"
 
 msgid "Purchase|Estimated total"
-msgstr "Расчетная сумма "
+msgstr "Расчетная сумма"
 
 msgid "Purchase|Purchase total"
-msgstr "Итог закупки "
+msgstr "Итог закупки"
 
 msgid "Purchasing Report"
-msgstr "Отчёт о закупках "
+msgstr "Отчёт о закупках"
 
 msgid "Quantity"
-msgstr "Колечество "
+msgstr "Колечество"
 
 msgid "Quantity:"
-msgstr "Колечество: "
+msgstr "Колечество:"
 
 msgid "Register"
 msgstr "Регистрироваться"
@@ -603,97 +631,97 @@ msgid "Registered"
 msgstr "Регистрировано"
 
 msgid "Remaining Qt:"
-msgstr "Оставшееся кол-во: "
+msgstr "Оставшееся кол-во:"
 
 msgid "Remaining Qty"
-msgstr "Оставшееся кол-во "
+msgstr "Оставшееся кол-во"
 
 msgid "Remove"
-msgstr "Убрать "
+msgstr "Убрать"
 
 msgid "Reports"
-msgstr "Отчёты "
+msgstr "Отчёты"
 
 msgid "Requirements"
-msgstr "Требования "
+msgstr "Требования"
 
 msgid "Role"
 msgstr "Роли"
 
 msgid "Role(s)"
-msgstr "Роли "
+msgstr "Роли"
 
 msgid "Roles"
-msgstr "Роли "
+msgstr "Роли"
 
 msgid "Role|Role name"
 msgstr "Роль"
 
 msgid "Sale Price"
-msgstr "Цена продаже: "
+msgstr "Цена продаже:"
 
 msgid "Sale Price:"
-msgstr "Цена продаже: "
+msgstr "Цена продаже:"
 
 msgid "Sale price"
-msgstr "Цена продаже "
+msgstr "Цена продаже"
 
 msgid "Sales Report"
-msgstr "Отчёт по продаже "
+msgstr "Отчёт по продаже"
 
 msgid "Sales Summary"
-msgstr "Сводка продаж "
+msgstr "Сводка продаж"
 
 msgid "Search"
-msgstr "Поиск "
+msgstr "Поиск"
 
 msgid "Select Client"
-msgstr "Выбрать клиента "
+msgstr "Выбрать клиента"
 
 msgid "Select File"
-msgstr "Выбрать файл "
+msgstr "Выбрать файл"
 
 msgid "Select Product"
-msgstr "Выберите продукт "
+msgstr "Выберите продукт"
 
 msgid "Select a product"
-msgstr "Выбрать продукта "
+msgstr "Выбрать продукта"
 
 msgid "Select supplier"
-msgstr "Выбрать постовщика "
+msgstr "Выбрать постовщика"
 
 msgid "Setting"
-msgstr "Настройки "
+msgstr "Настройки"
 
 msgid "Settings"
-msgstr "Настройки "
+msgstr "Настройки"
 
 msgid "Setting|Company address"
-msgstr "Адрес компании "
+msgstr "Адрес компании"
 
 msgid "Setting|Company name"
-msgstr "Название компании "
+msgstr "Название компании"
 
 msgid "Setting|Company phone"
-msgstr "Телефон компании "
+msgstr "Телефон компании"
 
 msgid "Show"
-msgstr "Показать "
+msgstr "Показать"
 
 msgid "Start earning! "
-msgstr "Начать зарабатывать! "
+msgstr "Начать зарабатывать!"
 
 msgid "Start shopping! "
-msgstr "Начать покупки! "
+msgstr "Начать покупки!"
 
 msgid "Subtotal"
-msgstr "Промежуточный итог "
+msgstr "Промежуточный итог"
 
 msgid "Subtotal:"
-msgstr "Промежуточный итог: "
+msgstr "Промежуточный итог:"
 
 msgid "Supplier"
-msgstr "Постовщик "
+msgstr "Постовщик"
 
 msgid "Supplier ID"
 msgstr "ID постовщика"
@@ -708,22 +736,22 @@ msgid "Supplier name:"
 msgstr "ФИО постовщика:"
 
 msgid "Supplier:"
-msgstr "Постовщик: "
+msgstr "Постовщик:"
 
 msgid "Suppliers"
 msgstr "Постовщики"
 
 msgid "Supplier|Address"
-msgstr "Адрес "
+msgstr "Адрес"
 
 msgid "Supplier|Phone"
-msgstr "Телефон "
+msgstr "Телефон"
 
 msgid "Supplier|Supplier name"
 msgstr "ФИО поставщика"
 
 msgid "Total"
-msgstr "Итог "
+msgstr "Итог"
 
 msgid "Total Revenue"
 msgstr "Общий доход"
@@ -732,43 +760,43 @@ msgid "Total Spent"
 msgstr "Всего потрачено"
 
 msgid "Udate Settings"
-msgstr "Обновить настройки "
+msgstr "Обновить настройки"
 
 msgid "Unit"
-msgstr "Единица измерения "
+msgstr "Единица измерения"
 
 msgid "Unit:"
-msgstr "Единица измерения: "
+msgstr "Единица измерения:"
 
 msgid "Units"
-msgstr "Единицы "
+msgstr "Единицы"
 
 msgid "Units Sold"
-msgstr "Проданных единиц "
+msgstr "Проданных единиц"
 
 msgid "Units in Stock"
-msgstr "Единиц на складе "
+msgstr "Единиц на складе"
 
 msgid "Update Category"
-msgstr "Обновить категори "
+msgstr "Обновить категори"
 
 msgid "Update Client"
-msgstr "Обновить клиента "
+msgstr "Обновить клиента"
 
 msgid "Update Order"
-msgstr "Обновить заказа "
+msgstr "Обновить заказа"
 
 msgid "Update Product"
-msgstr "Обновить продукта "
+msgstr "Обновить продукта"
 
 msgid "Update Purchase Order"
-msgstr "Обновить заказа на закупки "
+msgstr "Обновить заказа на закупки"
 
 msgid "Update Role"
-msgstr "Обновить роль "
+msgstr "Обновить роль"
 
 msgid "Update Supplier"
-msgstr "Обновить поставщика "
+msgstr "Обновить поставщика"
 
 msgid "Update User"
 msgstr "Обновить пользователя"
@@ -792,16 +820,16 @@ msgid "User|Email"
 msgstr "Эмайл"
 
 msgid "User|Encrypted password"
-msgstr ""
+msgstr "Зашифрованный пароль"
 
 msgid "User|Remember created at"
-msgstr ""
+msgstr "Помните, создано в"
 
 msgid "User|Reset password sent at"
-msgstr ""
+msgstr "Сброс пароля отправлен на"
 
 msgid "User|Reset password token"
-msgstr ""
+msgstr "Сброс пароля отправлен на"
 
 msgid "User|User name"
 msgstr "Имя пользователя"
@@ -815,11 +843,19 @@ msgstr "Взвешенная цена за единицу"
 msgid "Within a business day of submitting your registration form you will receive an ID number and a password via your preferred contact method (see form). "
 msgstr "В течение рабочего дня после отправки регистрационной формы вы получите идентификационный номер и пароль, используя предпочитаемый вами способ связи (см. форму). "
 
+#, fuzzy
+msgid "Year (yyyy)"
+msgstr "год (ггггг)"
+
 msgid "You don't have permission to do that"
 msgstr "У вас нет на это разрешения"
 
 msgid "Your personal information will be used for registration and internal statistics only.<br> Atomy will not share or sell your personal information. "
 msgstr "Ваша личная информация будет использоваться только для регистрации и внутренней статистики.<br> Атоми не будет передавать или продавать вашу личную информацию. "
+
+#, fuzzy
+msgid "Zip_code"
+msgstr "Почтовый индекс"
 
 msgid "and start shopping!"
 msgstr "и приступайте к покупкам!"

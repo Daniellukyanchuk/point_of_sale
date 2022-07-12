@@ -97,6 +97,9 @@ msgstr ""
 msgid "Choose Product"
 msgstr ""
 
+msgid "City"
+msgstr ""
+
 msgid "City:"
 msgstr ""
 
@@ -235,6 +238,9 @@ msgstr ""
 msgid "Date received:"
 msgstr ""
 
+msgid "Day (dd)"
+msgstr ""
+
 msgid "DoB"
 msgstr ""
 
@@ -337,7 +343,16 @@ msgstr ""
 msgid "Inventory|Remaining quantity"
 msgstr ""
 
+msgid "Last_name"
+msgstr ""
+
 msgid "Learn more about the Atomy marketing plan and compensation structure!"
+msgstr ""
+
+msgid "Middle_name"
+msgstr ""
+
+msgid "Month (mm)"
 msgstr ""
 
 msgid "Most Atomy members earn a little extra through these commissions, but with some effort you can actually turn Atomy into a serious career with a passive income that will keep giving long after you've stopped working!"
@@ -808,10 +823,16 @@ msgstr ""
 msgid "Within a business day of submitting your registration form you will receive an ID number and a password via your preferred contact method (see form). "
 msgstr ""
 
+msgid "Year (yyyy)"
+msgstr ""
+
 msgid "You don't have permission to do that"
 msgstr ""
 
 msgid "Your personal information will be used for registration and internal statistics only.<br> Atomy will not share or sell your personal information. "
+msgstr ""
+
+msgid "Zip_code"
 msgstr ""
 
 msgid "and start shopping!"
