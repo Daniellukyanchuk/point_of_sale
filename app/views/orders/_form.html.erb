@@ -18,7 +18,7 @@
     <div class="AddNewClient field" style="display: none;">
         <div class="field">
             <%= form.label :name, "Client Name" %>
-            <%= form.text_field(:name, class: "form-control") %>
+            <%= form.text_field :name, class: "form-control" %>
         </div>
         <div class="field">
             <%= form.label :phone, "Phone" %>
@@ -36,6 +36,11 @@
             <%= form.label :country, "Country" %>
             <%= form.text_field :country, class: "form-control" %>
         </div>
+    </div>
+
+    <div class="field">
+      <%= form.label _('Client Discount') %>
+      <%= form.text_field :client_discount, :readonly => true, class: "client_discount form-control", size: 10 %>
     </div>
 
     <hr>
@@ -119,8 +124,8 @@
       $('.nested-fields').each(function() {   
         var destroy = $(this).find('.remove').val()   
         if(destroy != "1"){
-          var subtotal = $(this).find('.product_subtotal').val()
-          grand_total += parseFloat(subtotal);
+          var subtotal = $(this).find('.product_subtotal').val() || 0
+            grand_total += parseFloat(subtotal);  
         }
       })
       $(this).parents('.marginRight').find('.order_total').val(grand_total - discount_on_order).trigger('change')

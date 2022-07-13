@@ -38,18 +38,13 @@
         </div>
 
         <div class="field">
-            <%= form.label _('Discount') %>
+            <%= form.label :discount, _('Discount') %>
             <%= form.number_field :discount, class: "form-control product_discount" %>
         </div>
 
         <div class="field">
           <%= form.label _('Subtotal') %>
           <%= form.number_field :subtotal, :readonly => true, class: "product_subtotal form-control" %>
-        </div>
-
-        <div class="field">
-            <%= form.label _('Client Discount') %>
-            <%= form.text_field :client_discount, :readonly => true, class: "client_discount form-control" %>
         </div>
 
         <div class="field">

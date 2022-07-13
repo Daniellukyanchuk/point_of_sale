@@ -78,8 +78,8 @@ RSpec.describe Order, type: :model do
   #   expect(order.order_products[1].discount_per_unit.to_s).to eq("3.076923076923075")
   # end
 
-  # rspec -e"if there is no client_discount"
-  it "if there is no client_discount" do 
+  # rspec -e"if there is no discounts"
+  it "if there is no discounts" do 
     # First case: When there is one discount.
     sianna_marie = Client.create!(name: "Sianna-Marie")
 
@@ -223,8 +223,8 @@ RSpec.describe Order, type: :model do
     expect(order.grand_total.to_s).to eq("44750.0")
   end
   
-  # rspec -e"match the discounts only with the current discounts, not expired or not started once"
-  it "match the discounts only with the current discounts, not expired or not started once" do
+  # rspec -e"match the discounts only with the current discounts, not with expired or not started ones"
+  it "match the discounts only with the current discounts, not with expired or not started ones" do
     vladimir = Client.create!(name: "Vladimir")
     
     muffins = Product.create!(product_name: "muffins", price: 50)
@@ -287,8 +287,8 @@ RSpec.describe Order, type: :model do
     expect(Discount.find(discount_2.id).current_expiration_amount.to_s).to eq("200.0")
   end
   
-  # rspec -e"when client_id is changed, delete everything and run the code"
-  it "when client_id is changed, delete everything and run the code" do 
+  # rspec -e"when client_id is changed, delete everything and run the code again"
+  it "when client_id is changed, delete everything and run the code again" do 
     vladimir = Client.create!(name: "Vladimir")
     bob_marley = Client.create!(name: "Bob Marley")
     
@@ -318,8 +318,8 @@ RSpec.describe Order, type: :model do
     expect(Discount.find(discount_2.id).current_expiration_amount.to_s).to eq("0.0")
   end
 
-  # rspec -e"different discount systems integrate with each other"
-  it "different discount systems integrate with each other" do 
+  # rspec -e"subtotal changes if discount: 5"
+  it "subtotal changes if discount: 5" do 
     # the discount for individual order_product.
     sianna_marie = Client.create!(name: "Sianna-Marie")
 
@@ -337,8 +337,8 @@ RSpec.describe Order, type: :model do
     expect(order.order_products[0].subtotal).to eq(225)
     expect(order.order_products[1].subtotal).to eq(400)
   end
-  # rspec -e"percentage_of_total changes if discount: 5"
-  it "percentage_of_total changes if discount: 5" do 
+  # rspec -e"if order_discount works"
+  it "if order_discount works" do 
     sianna_marie = Client.create!(name: "Sianna-Marie")
 
     muffins = Product.create!(product_name: "muffins", price: 50)
@@ -364,8 +364,8 @@ RSpec.describe Order, type: :model do
     expect(order.grand_total).to eq(630.0)
   end
   
-  # rspec -e"combining two systems"
-  it "combining two systems" do 
+  # rspec -e"if two discount systems integrate with each other"
+  it "if two discount systems integrate with each other" do 
     # check if the order_product discount and order_discount are intergrating with client_discount.
     sianna_marie = Client.create!(name: "Sianna-Marie")
 
@@ -393,8 +393,8 @@ RSpec.describe Order, type: :model do
     expect(order.order_products[1].discount_per_unit.round(2)).to eq(3.2.round(2))
   end
   
-  # rspec -e"with discount"
-  it "with discount" do 
+  # rspec -e"if all the discounts systems integerate with each other"
+  it "if all the discount systems integerate with each other" do 
     sianna_marie = Client.create!(name: "Sianna-Marie")
 
     discount_1 = Discount.create!(client_id: sianna_marie.id, discount_per_kilo: 0.5, expiration_amount: 10, current_expiration_amount: 200, starting_date: '2022-06-23'.to_date, ending_date: '2022-07-23')

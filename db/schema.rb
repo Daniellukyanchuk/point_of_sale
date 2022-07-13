@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_21_103556) do
+ActiveRecord::Schema.define(version: 2022_07_13_111319) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -86,7 +86,6 @@ ActiveRecord::Schema.define(version: 2022_06_21_103556) do
     t.float "subtotal"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.decimal "discount"
     t.decimal "percentage_of_total"
     t.decimal "discount_to_apply"
     t.decimal "discount_per_unit"
@@ -98,7 +97,6 @@ ActiveRecord::Schema.define(version: 2022_06_21_103556) do
     t.float "grand_total"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.decimal "order_discount"
   end
 
   create_table "permissions", force: :cascade do |t|
