@@ -2,6 +2,8 @@ class ClientsController < ApplicationController
   # before_action :set_client, only: %i[ show edit update destroy ]
   load_and_authorize_resource  
   helper_method :sort_column, :sort_direction
+  before_action :send_client_registration_update
+
 
   
   # GET /clients or /clients.json
@@ -77,6 +79,15 @@ class ClientsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_client
       @client = Client.find(params[:id])
+    end
+
+    def send_client_registration_update
+      unregistered_client_count = Client.where("registered IS NOT ?", true).count
+
+      if unregistered_client_count > 0
+        send email
+      end
+    
     end
 
     
