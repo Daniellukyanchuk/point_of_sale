@@ -70,7 +70,7 @@
     $(document).on('change', '.product-picker', updateSelectedPrice);
     $(document).on('change', '.product_quantity, .product_price, .product_discount', setSubtotal);
     $(document).on('change', '.product-picker', updateSelectedAmount);
-    $(document).on('change', '.product_quantity, .product_discount, .discount_on_order', setGrandTotal);
+    $(document).on('change', '.product_quantity, .product_discount, .discount_on_order, .product_price', setGrandTotal);
     $(document).on('change', '.select-client', addNewClient);
     $(document).on('after_remove_fields', '.remove_fields', setGrandTotal);
 
@@ -112,25 +112,24 @@
 
       $(this).parents('.nested-fields').find('.product_subtotal').val(pSubtotal).trigger('change');
     };
-    
-    /* When order_product is deleted, put back the grand_total. */
+  
     function setGrandTotal() {
       var grand_total = 0
       var discount_on_order = $('.discount_on_order').val()
-      var destroy = $(this).parents('.nested-fields').find('.remove_fields').val()
-      /* if destroy is false, then run it. */
-      $(this).parents('.marginRight').find('.product_subtotal').each(function() {
-        if(destroy == 'false') {
-          grand_total += parseFloat($(this).val());
+      $('.nested-fields').each(function() {   
+        var destroy = $(this).find('.remove').val()   
+        if(destroy != "1"){
+          var subtotal = $(this).find('.product_subtotal').val()
+          grand_total += parseFloat(subtotal);
         }
-      });
+      })
       $(this).parents('.marginRight').find('.order_total').val(grand_total - discount_on_order).trigger('change')
     };
      
     function updateSelectedAmount() {
       $.ajax({ 
         url: "<%= current_amount_left_path %>",
-        data: { product_id: $(this).val()  },
+        data: { product_id: $(this).val() },
         type: "GET",
         success: function(data){
           $('.current_amount_field').val(data['current_amount_left']);

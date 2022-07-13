@@ -2,7 +2,7 @@
     
   
     <div class="field">
-        <%= form.collection_select :product_id, Product.all, :id, :product_name, {}, {:class => "form-control"} %>
+        <%= form.collection_select :product_id, Product.all, :id, :product_name, {:prompt => _('Select Product')}, {:class => "form-control"} %>
     </div>
   <p>
     <div class="field">

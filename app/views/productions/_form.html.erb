@@ -14,7 +14,7 @@
 
       <div class="field">
         <%= form.label _('Recipe') %>
-        <%= form.collection_select :recipe_id, Recipe.all, :id, :recipe_name, {}, {class: "product-picker form-control"} %>
+        <%= form.collection_select :recipe_id, Recipe.all, :id, :recipe_name, {:prompt => _('Select Recipe')}, {class: "product-picker form-control"} %>
       </div>
 
     
