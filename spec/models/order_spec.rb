@@ -34,12 +34,51 @@ require 'rails_helper'
 
       expect(Inventory.where(product_id: poppyseed_muffins.id).sum(:remaining_quantity)).to eq(65)
     end
+    
+    # rspec -e"should cycle through all available discounts until all units are discounted or there are no more available discounts"
+
+    it "should cycle through all available discounts until all units are discounted or there are no more available discounts" do
+
+      #create mock products for test
+      poppyseed_muffins = Product.create!(product_name: "poppyseed_muffins", price: 50, grams_per_unit: 110, unit: "muffin")
+      fairy_dust = Product.create!(product_name: "fairy_dust", price: 300, grams_per_unit: 50, unit: "vial")
+      scrooge_mc_duck = Client.create!(name: "Scrooge McDuck", phone: "+1 (836) 728 973", address: "353 Cabbage Ln.", city: "Las Vegas")
+      client_discount1 = ClientDiscount.create!(client_id: scrooge_mc_duck.id, discounted_units: 10, discounted_units_left: 10, discount_per_unit: 10)
+      client_discount2 = ClientDiscount.create!(client_id: scrooge_mc_duck.id, discounted_units: 50, discounted_units_left: 100, discount_per_unit: 5)
+
+      ord_1 = Order.create!(client_id: scrooge_mc_duck.id, order_products: 
+        [
+        OrderProduct.new(product_id: poppyseed_muffins.id, quantity: 20, sale_price: 50)
+        ])
+
+        expect(OrderProduct.where(order_id: ord_1.id).first.sale_price).to eq(42.5)
+        expect(ClientDiscount.where(client_id: scrooge_mc_duck.id).sum(:discounted_units_left)).to eq(40)
+        expect(Order.find(ord_1.id).grand_total).to eq(850)
+        expect((OrderProductDiscount.joins("LEFT OUTER JOIN client_discounts ON client_discount_id = client_discounts.id")).where("client_discounts.client_id = ?", scrooge_mc_duck.id).sum(:discounted_qt)).to eq(20)    
+
+    ord_1.order_products.first.assign_attributes({quantity: 50})
+    ord_1.save
+
+      expect(Order.find(ord_1.id).grand_total).to eq(2200)
+      expect(ClientDiscount.where(client_id: scrooge_mc_duck.id).sum(:discounted_units_left)).to eq(10)
+      expect(OrderProduct.where(order_id: ord_1.id).first.sale_price).to eq(44.0)
+
+    ord_1.order_discount = 400
+    ord_1.order_products.first.assign_attributes({item_discount: 2})
+    ord_1.save  
+
+    expect(Order.find(ord_1.id).grand_total).to eq(1700)
+    expect(OrderProduct.where(order_id: ord_1.id).first.sale_price).to eq(34.0)
+
+    op = OrderProduct.where(order_id: ord_1.id)
+    op.each do |rd|
+      OrderProduct.return_discount(rd)
+    end
+    Order.destroy(ord_1.id)
+
+        expect(Order.exists?(:client_id => scrooge_mc_duck.id)).to eq(false)
+        expect(ClientDiscount.where(client_id: scrooge_mc_duck.id).sum(:discounted_units_left)).to eq(60)
+    end
 end
 
-# bakery_supply = Supplier.create!(supplier_name: "Bakery Supply", phone: "+997 382 928")
 
-      # p1 = Purchase.create!(supplier_id: bakery_supply.id, date_ordered: "02/03/2022", date_expected: "02/03/2022", date_received: "02/03/2022", purchase_products: 
-      #   [
-      #   PurchaseProduct.new(product_id: flour.id, estimated_quantity: 50, estimated_cost: 38, estimated_subtotal: 1900, purchase_quantity: 50, purchase_price: 38, purchase_subtotal: 1900),
-      #   PurchaseProduct.new(product_id: eggs.id, estimated_quantity: 10, estimated_cost: 200, estimated_subtotal: 2000, purchase_quantity: 10, purchase_price: 200, purchase_subtotal: 2000)
-      #   ])

@@ -2,17 +2,26 @@ class OrderProduct < ApplicationRecord
     belongs_to :order
     belongs_to :product
     has_many :purchase_products
+    has_many :order_product_discounts
     validates :sale_price, :quantity, :product_id, presence: true
-    before_save :set_subtotal
     after_destroy :put_back_in_inventory
 
     attr_accessor :item_discount
     
-        
-    def set_subtotal
-        self.sale_price = (sale_price - item_discount.to_i).round(2)
-        self.subtotal = (quantity * sale_price).round(2)
-    end    
+    
+    def self.return_discount(ord_product)
+        ord_product.order_product_discounts.each do |rd|
+            discount = rd.client_discount 
+            discount.discounted_units_left = discount.discounted_units_left + rd.discounted_qt
+            discount.save
+            rd.delete
+        end
+    end
+
+    def set_subtotal        
+        self.sale_price = (sale_price - item_discount.to_i)
+        self.subtotal = (quantity * sale_price)
+    end
 
 
     def put_back_in_inventory
@@ -38,9 +47,11 @@ class OrderProduct < ApplicationRecord
 
         result = ActiveRecord::Base.connection.execute(sql)
         
-        cost_per_unit = result.first["weighted_cpu"]        
+        if !result.first.blank?
+            cost_per_unit = result.first["weighted_cpu"]        
 
-        Inventory.return_inventory(product_id, order_id, quantity_to_put_back, cost_per_unit)            
+            Inventory.return_inventory(product_id, order_id, quantity_to_put_back, cost_per_unit)            
+            end
         end
     end
 

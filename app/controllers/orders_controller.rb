@@ -32,7 +32,7 @@ class OrdersController < ApplicationController
   # POST /orders or /orders.json
   def create
     find_finished_products
-    @order = Order.new(order_params)   
+    @order = Order.new(order_params)
 
     respond_to do |format|
       if @order.save
@@ -47,7 +47,7 @@ class OrdersController < ApplicationController
 
   # PATCH/PUT /orders/1 or /orders/1.json
   def update
-     respond_to do |format|
+    respond_to do |format|
       if @order.update(order_params)
         format.html { redirect_to orders_path, notice: "Order was successfully updated." }
         format.json { render :show, status: :ok, location: @order }
@@ -60,10 +60,17 @@ class OrdersController < ApplicationController
 
   # DELETE /orders/1 or /orders/1.json
   def destroy
+    put_discount_back
     @order.destroy
     respond_to do |format|
       format.html { redirect_to orders_url, notice: "Order was successfully destroyed." }
       format.json { head :no_content }
+    end
+  end
+
+  def put_discount_back
+    OrderProduct.where(order_id: params[:id]).each do |rd|
+      OrderProduct.return_discount(rd)
     end
   end
 
@@ -106,7 +113,8 @@ class OrdersController < ApplicationController
 
        params.require(:order).permit(:client_id, :grand_total, :order_discount,
        client_attributes: [:id, :name, :address, :phone, :city],
-       order_products_attributes: [:id, :product_id, :order_id, :sale_price, :quantity, :subtotal, :item_discount, :_destroy], 
+       order_products_attributes: [:id, :product_id, :order_id, :sale_price, :quantity, :subtotal, :item_discount, :_destroy, 
+        order_product_discounts_attributes: [:order_product_id, :client_discount_id, :discounted_qt]], 
        products_attributes: [:id, :unit, :price, :product_name])
     end
 
