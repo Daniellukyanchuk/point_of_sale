@@ -7,6 +7,8 @@ class OrderProduct < ApplicationRecord
   before_save :set_current_amount_left
   validate :has_enough_inventory
 
+  attr_accessor :discount
+
   def set_subtotal
     self.subtotal = quantity * sale_price
   end

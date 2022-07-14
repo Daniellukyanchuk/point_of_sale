@@ -32,7 +32,7 @@
 
     <div class="field">
       <%= form.label _('Price per unit') %>
-      <%= form.number_field :estimated_price_per_unit, class: "sale-price-field est_price form-control" %>
+      <%= form.number_field :estimated_price_per_unit, class: "product_price form-control", :readonly => true %>
     </div>  
 
     <div class="field">
@@ -51,7 +51,7 @@
 
     <div class="field">
       <%= form.label _('Price per unit') %>
-      <%= form.number_field :actual_price_per_unit, class: "sale-price-field act_price form-control" %>
+      <%= form.number_field :actual_price_per_unit, class: "product_price form-control", :readonly => true %>
     </div>
 
     <div class="field">

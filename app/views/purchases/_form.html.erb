@@ -50,7 +50,12 @@
 
       <div class="field">
         <%= form.label _('Date of order') %>
-        <%= text_field_tag 'date_of_order', params[:date_of_the_order], :class => "datepicker form-control", :autocomplete => "off", :placeholder => _("Pick a date") %>
+        <%= form.text_field :date_of_the_order, :class => "datepicker form-control", :autocomplete => "off", :placeholder => _("Pick a date") %>
+      </div>
+
+      <div class="field">
+        <%= form.label _('Expected date of delivery') %>
+        <%= form.text_field :expected_date_of_delivery, :class => "datepicker form-control", :autocomplete => "off", :placeholder => _("Pick a date") %>
       </div>
 
       <div class="field">
@@ -61,11 +66,6 @@
       <div class="field">
         <%= form.label _('Actual total') %>
         <%= form.text_field :actual_total, class: "act_total", :readonly => true, :class => "act_total form-control" %>
-      </div>
-
-      <div class="field">
-        <%= form.label _('Expected date of delivery') %>
-        <%= text_field_tag 'date_of_delivery', params[:expected_date_of_delivery], :class => "datepicker form-control", :autocomplete => "off", :placeholder => _("Pick a date") %>
       </div>
 
       <div class="actions">
@@ -83,77 +83,63 @@
 
 
 <script type="text/javascript">
+  $(document).ready(function() {
+    $(document).on('change', '.product-picker', updateSelectedPrice);
+    $(document).on('change', '.est_quantity, .product_price', EstimatedSubtotal);
+    $(document).on('change', '.act_quantity, .product_price', ActualSubtotal);
+    $(document).on('change', '.est_subtotal', EstimatedTotal);
+    $(document).on('change', '.act_subtotal', ActualTotal);
+
     $(document).on('change', '.select-supplier', function() {
-        var value = $(this).val() == "-1"
-        $(this).parents(".marginRight").find(".AddNewSupplier").toggle(value)
+      var value = $(this).val() == "-1"
+      $(this).parents(".marginRight").find(".AddNewSupplier").toggle(value)
     });
 
-    $(document).ready(function() {
-      function updateSelectedPrice(){
-        var jquery_prod_picker = $(this);
-        $.ajax({ 
-            url: "/products/price",
-            data: { id: $(this).val()  },
-            type: "GET",
-            success: function(data){
-                jquery_prod_picker.parents(".nested-fields").find('.sale-price-field').val(data['price']);
-            }
-        });
-      }
-      $(document).on('change', '.product-picker', updateSelectedPrice);
-      $(".product-picker").each(updateSelectedPrice);
-    });
-
-    $(document.body).on('keyup', '.est_quantity, .est_price', function(){
+    function updateSelectedPrice(){
+      var jquery_prod_picker = $(this);
+      $.ajax({ 
+        url: "/products/price",
+        data: { id: $(this).val()  },
+        type: "GET",
+        success: function(data){
+          jquery_prod_picker.parents(".nested-fields").find('.product_price').val(data['price']).trigger('change');
+        }
+      });
+    }
+    
+    function EstimatedSubtotal() {
       var eQuantity = $(this).parents('.nested-fields').find('.est_quantity').val();
-      var ePrice = $(this).parents('.nested-fields').find('.est_price').val();
+      var ePrice = $(this).parents('.nested-fields').find('.product_price').val();
       var cmpSubtotal = eQuantity * ePrice;
-      $(this).parents('.nested-fields').find('.est_subtotal').val(cmpSubtotal).trigger('change');    
-    });
+      $(this).parents('.nested-fields').find('.est_subtotal').val(cmpSubtotal).trigger('change'); 
+    }
 
-    $(document.body).on('keyup', '.act_quantity, .act_price', function(){
+    function ActualSubtotal(){
       var aQuantity = $(this).parents('.nested-fields').find('.act_quantity').val();
-      var aPrice = $(this).parents('.nested-fields').find('.act_price').val();
+      var aPrice = $(this).parents('.nested-fields').find('.product_price').val();
       var cmpSubtotal = aQuantity * aPrice;
       $(this).parents('.nested-fields').find('.act_subtotal').val(cmpSubtotal).trigger('change');    
-    });  
+    };  
 
-    $(document).on('change', '.est_subtotal', function() {     
-        var sum = 0
-        $(this).parents('.marginRight').find('.est_subtotal').each(function() {
-          sum += parseFloat($(this).val());
-        });
-     
-      $(this).parents('.marginRight').find('.est_total').val(sum)
-    });
-
-    $(document.body).on('change', '.act_subtotal', function() {
-        var total = 0
-        $('.act_subtotal').each(function() {
-          total += parseFloat($(this).val());
-        });
-      
-      $('.act_total').val(total)
-    });
-
-    $(document).on('change', '.est_subtotal', function() {
-      var est_total = 0
+    function EstimatedTotal() {     
+      var sum = 0
       $(this).parents('.marginRight').find('.est_subtotal').each(function() {
-        est_total += parseFloat($(this).val());
-      })
-      $(this).parents('.marginRight').find('.est_total').val(est_total).trigger('change')
-    });
+        sum += parseFloat($(this).val());
+      });
+      $(this).parents('.marginRight').find('.est_total').val(sum)
+    };
 
-    $(document).on('change', '.act_subtotal', function() {
-      var act_total = 0
-      $(this).parents('.marginRight').find('.act_subtotal').each(function() {
-        act_total += parseFloat($(this).val());
-      })
-      $(this).parents('.marginRight').find('.act_total').val(act_total).trigger('change')
-    });
+    function ActualTotal() {
+      var total = 0
+      $('.act_subtotal').each(function() {
+        total += parseFloat($(this).val());
+      });
+      $('.act_total').val(total)
+    };
 
     $( function() {
       $( ".datepicker" ).datepicker({ dateFormat: 'dd-mm-yy'});
     });
+  });
 </script> 
 

@@ -132,15 +132,16 @@
     };
      
     function updateSelectedAmount() {
+      /* not working */
+      var current_selector = $(this);
       $.ajax({ 
         url: "<%= current_amount_left_path %>",
         data: { product_id: $(this).val() },
         type: "GET",
         success: function(data){
-          $('.current_amount_field').val(data['current_amount_left']);
+          current_selector.parents('.nested-fields').find('.current_amount_field').val(data['current_amount_left']);
         }
       })
     };
-    $(".product-picker").each(updateSelectedAmount);
   });
 </script>

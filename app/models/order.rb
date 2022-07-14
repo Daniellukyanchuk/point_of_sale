@@ -7,7 +7,7 @@ class Order < ApplicationRecord
   has_one_attached :cover_picture
   validate :client_id_is_set
 
-  attr_accessor :name, :phone, :address, :city, :country, :order_discount, :discount
+  attr_accessor :name, :phone, :address, :city, :country, :order_discount
 
   def set_subtotal_total
     order_products.each do |op|
@@ -61,7 +61,7 @@ class Order < ApplicationRecord
     order_products.each do |op|
       if op._destroy == false
         if !op.discount.nil?
-          op.sale_price -= op.discount 
+          op.sale_price -= op.discount.to_d 
           op.set_subtotal
           sub_from_grand_total -= op.subtotal
         else
@@ -76,7 +76,7 @@ class Order < ApplicationRecord
       order_products.each do |op|
         if op._destroy == false
           op.percentage_of_total = op.subtotal / self.grand_total
-          op.discount_to_apply = op.percentage_of_total * order_discount
+          op.discount_to_apply = op.percentage_of_total * order_discount.to_d
           op.discount_per_unit = op.discount_to_apply / op.quantity
           op.sale_price -= op.discount_per_unit
           op.subtotal = op.sale_price * op.quantity

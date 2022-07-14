@@ -38,6 +38,8 @@ class PurchaseProduct < ApplicationRecord
   end
 
   def display_text
-    return "#{purchase_id} - #{product.product_name} - #{purchase.supplier.suppliers_name} - #{purchase.expected_date_of_delivery}"    
+    if !Inventory.exists?('inventories.purchase_product_id' => id) 
+      return "#{purchase_id} - #{purchase.supplier.suppliers_name} - #{purchase.expected_date_of_delivery}" 
+    end  
   end
 end

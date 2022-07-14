@@ -14,7 +14,7 @@
 
       <div class="field">
         <%= form.label _('Purchase_product') %>
-        <%= form.collection_select(:purchase_product_id, PurchaseProduct.all, :id, :display_text, {}, {class: "purchase-picker form-control"}) %>
+        <%= form.collection_select(:purchase_product_id, PurchaseProduct.where("id not in (select purchase_product_id from inventories)"), :id, :display_text, {}, {class: "purchase-picker form-control"}) %>
       </div>
 
       <div class="field">
@@ -24,7 +24,7 @@
 
       <div class="field">
         <%= form.label _('Date') %>
-        <%= form.text_field :date, :class => "datepicker form-control", :autocomplete => "off", :placeholder => "Pick a date" %>
+        <%= form.text_field :date, :class => "date datepicker form-control", :autocomplete => "off", :placeholder => "Pick a date" %>
       </div>
 
       <div class="field">
@@ -54,14 +54,15 @@
         $(document).ready(function() {
             function updateSelectedPurchaseProduct(){
               $.ajax({ 
-                url: "/purchases/estimates",
-                data: { id: $(this).val() },
+                url: "/purchases/actuals",
+                data: { purchase_id: $(this).val() },
                 type: "GET",
                 success: function(data) {
-                  $('.quantity').val(data['estimated_quantity']);
-                  $('.price_per_unit').val(data['estimated_price_per_unit']);
+                  $('.quantity').val(data['actual_quantity']);
+                  $('.price_per_unit').val(data['actual_price_per_unit']);
                   $('#inventory_product_id').val(data['product_id']);
-                  $('.est_subtotal').val(data['estimated_subtotal']);
+                  $('.est_subtotal').val(data['actual_subtotal']);
+                  $('.date').val(data['expected_date_of_delivery'])
                 }
               });
             }
