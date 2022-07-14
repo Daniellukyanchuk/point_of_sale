@@ -129,7 +129,7 @@
         var grandTotal = 0
         var orderDiscount = $(".order-discount").val()
           $(".subtotal").each(function() {
-            var subtotal = $(this).val()
+            var subtotal = $(this).val() || 0
             if ( $(this).parents(".nested-fields").is(':visible') ) {
               grandTotal += parseFloat(subtotal);
             } 
