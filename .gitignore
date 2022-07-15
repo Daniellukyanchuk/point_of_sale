@@ -17,3 +17,5 @@ log/development.log
 assets:precompile
 assets:precompile
 :po
+
+/config/master.key

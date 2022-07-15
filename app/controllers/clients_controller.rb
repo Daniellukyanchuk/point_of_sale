@@ -85,7 +85,7 @@ class ClientsController < ApplicationController
       unregistered_client_count = Client.where("registered IS NOT ?", true).count
 
       if unregistered_client_count > 0
-        send email
+        ClientMailer.registration_update_email(unregistered_client_count)
       end
     
     end
