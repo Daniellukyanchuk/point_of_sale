@@ -13,3 +13,5 @@ yarn-debug.log*
 .yarn-integrity
 tmp/cache/bootsnap/load-path-cache
 log/development.log
+
+/config/master.key
