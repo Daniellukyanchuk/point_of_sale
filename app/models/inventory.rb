@@ -5,10 +5,12 @@ class Inventory < ApplicationRecord
   belongs_to :production, optional: true
 	after_create :set_remaining_quantity
   before_create :set_cost_per_unit
+  
 
   attr_accessor :purchase_quantity
 
   def set_remaining_quantity
+    
     if production_id.blank? && purchase_id.blank?
         self.remaining_quantity = remaining_quantity
 
@@ -23,6 +25,7 @@ class Inventory < ApplicationRecord
     end
     
   end
+
 
   # takes an array of product_ids and returns a hash of the amount left in inventory
   def self.get_amounts_for(product_ids)

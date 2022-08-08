@@ -2,6 +2,10 @@
  <thead>
   </thead>
   <tbody>
+  <% if @product_categories.blank?
+     @product_categories = ProductCategory.all 
+     end %>
+
   <% @product_categories.each_with_index do |pc, ind| %>
   <tr>
     <td>

@@ -1,8 +1,17 @@
 class InventoriesController < ApplicationController
   # before_action :set_inventory, only: %i[ show edit update destroy ]
-  load_and_authorize_resource
+  load_and_authorize_resource :except => [:get_inventory_info]
   
   # GET /inventories or /inventories.json
+
+   
+  def get_inventory_info
+    @purchase_product_data = PurchaseProduct.find(params[:id].to_i) 
+    render json: {qt: @purchase_product_data.purchase_quantity, cost: @purchase_product_data.purchase_price, product_name: @purchase_product_data.product.product_name, 
+      supplier: @purchase_product_data.purchase.supplier.supplier_name, subtotal: @purchase_product_data.purchase_subtotal, purchase_id: @purchase_product_data.purchase_id, 
+      product_id: @purchase_product_data.product_id }
+  end
+
   
   def index
     @inventories = Inventory.all.order("id desc")

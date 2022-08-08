@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   # before_action :set_recipe, only: %i[ show edit update destroy ]
-  load_and_authorize_resource
+  load_and_authorize_resource :except => [:get_production_info]
   before_action :find_ingredients
   before_action :find_finished_products
   

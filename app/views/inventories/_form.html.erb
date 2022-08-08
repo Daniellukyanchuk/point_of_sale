@@ -12,10 +12,9 @@
   <% end %>
 
 <div  class="inventory_form">
-
        
         <div class="field">
-          <%= form.label _("Choose Product") %>       
+          <%= form.label _("Choose Product") %>
           <%= form.collection_select(:purchase_product_id, PurchaseProduct.joins(:product).where("purchase_products.id not in (SELECT purchase_product_id
           FROM inventories where purchase_product_id is not null)"), :id, :p_o_name, {}, {class: "source form-control"}) %>
         </div>
@@ -44,8 +43,6 @@
           <%= form.label _("Total") %>
           <%= form.text_field :purchase_subtotal, id: "subtotal", class: "subtotal greyed_out form-control", :readonly => true %>
         </div>
-
-          
         
   <div class="actions">
     <%= form.submit _("Create Inventory"), :class => 'btn btn-success' %>
@@ -54,29 +51,30 @@
 
 <% end %>
 
-
 <script type="text/javascript">
 
 /////////////////  INVENTORY AUTO-FILL //////////////////////
 
 
 $(document).ready(function() {
-        function updateProductInfo(){
-                $.ajax({ 
-                url: "<%= purchases_get_product_info_path %>", 
-                data: { id: $(this).val() },
-                type: "GET",
-                success: function(data) {
-                  $(".qt-received").val(data["qt"]);
-                  $(".cost").val(data["cost"]);
-                  $(".supplier").val(data["supplier"]);
-                  $(".subtotal").val(data["subtotal"]);
-                  $(".product-id").val(data["product_id"]);
-                  }
-            });
-        }
-      $(document).on('change', ".source", updateProductInfo);
-      $(".source").each(updateProductInfo);
+  $(document).on('change', ".source", updateProductInfo);
+  $(".source").each(updateProductInfo);
+
+    function updateProductInfo(){
+            $.ajax({ 
+            url: "<%= inventories_get_inventory_info_path %>", 
+            data: { id: $(this).val() },
+            type: "GET",
+            success: function(data) {
+              $(".qt-received").val(data["qt"]);
+              $(".cost").val(data["cost"]);
+              $(".supplier").val(data["supplier"]);
+              $(".subtotal").val(data["subtotal"]);
+              $(".product-id").val(data["product_id"]);
+              }
+        });
+    }
+      
   });  
 
 
