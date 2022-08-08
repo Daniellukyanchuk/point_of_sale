@@ -119,7 +119,7 @@ $(document).ready(function() {
       data: { id: $(this).val() },
       type: "GET",
       success: function(data) {
-        $(".recipe-cost").val((data["recipe_cost"]).toFixed(5));
+        $(".recipe-cost").val((data["recipe_cost"]).toFixed(3));
         $(".units").val(data["units"]);
         $(".recipe-yield").val(data["yield"]);  
         $(".product-id").val(data["product_id"]);                            

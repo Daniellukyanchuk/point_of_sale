@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     devise_scope :users do 
       get '/devise/users/sign_out' => 'sessions#destroy'
     end
+    get 'inventories/inventory_info', to: 'inventories#get_inventory_info', as: :inventories_get_inventory_info
     get '/orders/:id/order_receipt', to: 'orders#order_receipt', as: :order_receipt
     get '/orders/bulk_receipts', to: 'orders#bulk_receipts', as: :bulk_receipts
     resources :product_categories
@@ -27,8 +28,7 @@ Rails.application.routes.draw do
     resources :production_params
     resources :recipes
     resources :recipe_products
-    resources :productions
-    get '/purchases/product_info', to: 'purchases#get_product_info', as: :purchases_get_product_info
+    resources :productions    
     resources :purchases
     resources :purchase_products
     resources :suppliers

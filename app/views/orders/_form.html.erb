@@ -76,7 +76,7 @@
     $(document).on('change', '.quantity, .sale-price, .item-discount', function() {
       calcSubtotal($(this))
     });
-    $(document).on('change', '.quantity, .sale-price, .product-select, .item-discount, .order-discount', calcGrandTotal); 
+    $(document).on('change', '.order-discount', calcGrandTotal); 
     $(document).on('click', '.remove_fields', calcGrandTotal);
     $(document).on('load', '.sale-price, .subtotal, .grand-total', setDecimals);
 
@@ -114,17 +114,6 @@
         });
     }
 
-    function calcGrandTotal() {
-        var grandTotal = 0
-        var orderDiscount = $(".order-discount").val()
-          $(".subtotal").each(function() {
-            if ( $(this).parents(".nested-fields").is(':visible') ) {
-              grandTotal += parseFloat($(this).val());
-            } 
-            $(".grand-total").val((grandTotal - orderDiscount).toFixed(2));
-          });
-    };   
-      
     function calcSubtotal(el) {
       
       var qt = $(el).parents(".nested-fields").find(".quantity").val();
@@ -132,6 +121,20 @@
       var item_discount = $(el).parents(".nested-fields").find(".item-discount").val();
       var subtotal = (price - item_discount || 0) * (qt || 0);
       $(el).parents(".nested-fields").find(".subtotal").val(subtotal.toFixed(2))
+
+      calcGrandTotal()
+    };
+
+    function calcGrandTotal() {
+        var grandTotal = 0
+        var orderDiscount = $(".order-discount").val()
+          $(".subtotal").each(function() {
+            var subtotal = $(this).val() || 0
+            if ( $(this).parents(".nested-fields").is(':visible') ) {
+              grandTotal += parseFloat(subtotal);
+            } 
+            $(".grand-total").val((grandTotal - orderDiscount).toFixed(2));
+          });
     };
 
   });  

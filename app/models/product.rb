@@ -15,9 +15,15 @@ class Product < ApplicationRecord
     before_save :assign_product_categories
     validate :check_product_name
 
+  def product_details 
+    "#{@raw_products.map{ |c| [c.product_name, c.id,]}} (#{@raw_products.unit})"
+  end
+
   def check_product_name
-    if Product.exists?(['product_name ILIKE ?', "%#{product_name}%"])
-      errors.add(:product_id, "This product name is already in use. Please choose a different name!")
+    if id.blank?
+      if Product.exists?(['product_name ILIKE ?', "%#{product_name}%"])
+        errors.add(:product_id, "This product name is already in use. Please choose a different name!")
+      end
     end
   end
 
@@ -35,7 +41,8 @@ class Product < ApplicationRecord
       
     sql = """
           SELECT * FROM (
-              SELECT products.id, product_name, ((SUM(purchase_price*remaining_quantity))/(SUM(remaining_quantity)))/(grams_per_unit/1000) AS weighted_price_per_kg
+              SELECT products.id, product_name, ((SUM(purchase_price*remaining_quantity))/(SUM(remaining_quantity)))/(grams_per_unit/1000) AS weighted_price_per_kg,
+              (price/(grams_per_unit/1000)) AS price_per_kg
               FROM products
               LEFT OUTER JOIN purchase_products ON products.id = purchase_products.product_id
               LEFT OUTER JOIN inventories ON products.id = inventories.product_id

@@ -77,11 +77,12 @@ class Order < ApplicationRecord
     end    
     
     def set_grand_total
-
       self.grand_total = 0
       order_products.each do |op|
+        if op._destroy == false
         op.set_subtotal
         self.grand_total += op.subtotal
+        end
       end 
       self.grand_total 
     end

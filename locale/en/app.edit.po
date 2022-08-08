@@ -22,10 +22,16 @@ msgstr ""
 msgid "(itemized by product)"
 msgstr ""
 
+msgid "+ Add Product"
+msgstr ""
+
 msgid "+ Add to Inventory"
 msgstr ""
 
 msgid "+ New Client"
+msgstr ""
+
+msgid "+ New Discount"
 msgstr ""
 
 msgid "+ New Order"
@@ -151,9 +157,6 @@ msgstr ""
 msgid "Column headers must be in the correct order match headers in the database. HINT: Export existing products to file for reference."
 msgstr ""
 
-msgid "Cost"
-msgstr ""
-
 msgid "Cost per Unit"
 msgstr ""
 
@@ -170,6 +173,9 @@ msgid "Create Category"
 msgstr ""
 
 msgid "Create Client"
+msgstr ""
+
+msgid "Create Discount"
 msgstr ""
 
 msgid "Create Inventory"
@@ -220,6 +226,9 @@ msgstr ""
 msgid "Date received:"
 msgstr ""
 
+msgid "Discounts"
+msgstr ""
+
 msgid "Edit"
 msgstr ""
 
@@ -262,9 +271,6 @@ msgstr ""
 msgid "Estimated Subtotal"
 msgstr ""
 
-msgid "Estimated total:"
-msgstr ""
-
 msgid "Expected delivery"
 msgstr ""
 
@@ -283,7 +289,7 @@ msgstr ""
 msgid "Grand Total"
 msgstr ""
 
-msgid "Grand total:"
+msgid "Grand total"
 msgstr ""
 
 msgid "ID"
@@ -368,6 +374,9 @@ msgid "Order"
 msgstr ""
 
 msgid "Order Date"
+msgstr ""
+
+msgid "Order Details"
 msgstr ""
 
 msgid "Order History"
@@ -488,6 +497,9 @@ msgid "Production|Recipe cost"
 msgstr ""
 
 msgid "Products"
+msgstr ""
+
+msgid "Products Ordered"
 msgstr ""
 
 msgid "Product|Grams per unit"
@@ -655,9 +667,6 @@ msgstr ""
 msgid "Sale Price"
 msgstr ""
 
-msgid "Sale Price:"
-msgstr ""
-
 msgid "Sale price"
 msgstr ""
 
@@ -782,6 +791,9 @@ msgid "Update Category"
 msgstr ""
 
 msgid "Update Client"
+msgstr ""
+
+msgid "Update Discount"
 msgstr ""
 
 msgid "Update Order"

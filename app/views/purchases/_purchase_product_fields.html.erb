@@ -3,7 +3,7 @@
 <div class="nested-fields">
   <div class="field col-3">
     <%= form.label _("select product") %>
-    <%= form.select :product_id, ([['+ Create New Product', '-1']] + @raw_products.map{ |c| [c.product_name, c.id] }), {:prompt => 'Choose a Product'}, :class => "form-control product-select" %>
+    <%= form.select :product_id, ([['+ Create New Product', '-1']] + @raw_products.map{ |c| [c.product_name, c.id,]}), {:prompt => 'Choose a Product'}, :class => "form-control product-select" %>
   </div>
 
 <%# ----------------------------------Add Product on the fly------------------------------------- %>
@@ -39,9 +39,14 @@
           <%= form.label _("Quantity") %>
           <%= form.number_field :purchase_quantity, id: 'actual_quantity', class: 'act_qt form-control' %>
         </div>
+        
         <div class="field">
           <%= form.label _("Cost per Unit") %>
           <%= form.number_field :purchase_price, id: 'actual_price', class: 'act_cost form-control form-control' %>
+        </div>
+        <div class="field">
+          <%= form.label _("Unit") %>
+          <%= form.number_field :unit, id: 'unit', class: 'unit form-control', disabled: true %>
         </div>
         <div class="field">
           <%= form.label _("Subtotal") %>

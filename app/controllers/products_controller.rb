@@ -14,10 +14,12 @@ def get_unit
 end
 
 def get_recipe_info
-    @price_per_kg = Product.get_price_per_kg(params[:id].to_i)
-    if !@price_per_kg.first.blank?
-    render json: {price_per_kg: @price_per_kg.first["weighted_price_per_kg"] }
-    else @price_per_kg.first == 0
+  
+    @price_per_kg = Product.get_price_per_kg(params[:id].to_i).first
+    if !@price_per_kg["weighted_price_per_kg"].blank?
+      render json: {price_per_kg: @price_per_kg["weighted_price_per_kg"] }
+    else 
+      render json: {price_per_kg: @price_per_kg["price_per_kg"] }
   end
 end
 
@@ -42,8 +44,7 @@ end
   # GET /products/new
   def new    
     set_product_categories
-    @product = Product.new
-    
+    @product = Product.new    
   end
 
   # GET /products/1/edit
@@ -121,7 +122,7 @@ end
 
     def set_product_categories
       @product_categories = ProductCategory.all
-    end   
+    end
 
     # Only allow a list of trusted parameters through.
     def product_params      

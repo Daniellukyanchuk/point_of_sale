@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: app 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-07-13 10:12+0600\n"
+"PO-Revision-Date: 2022-08-07 16:45+0600\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ru\n"
@@ -23,11 +23,18 @@ msgstr " Импортировать продуктов из файла"
 msgid "(itemized by product)"
 msgstr "(распределено по продуктам)"
 
+#, fuzzy
+msgid "+ Add Product"
+msgstr "добавить продукта"
+
 msgid "+ Add to Inventory"
 msgstr "+ добавить на инвентарь"
 
 msgid "+ New Client"
 msgstr "+ новый клиент"
+
+msgid "+ New Discount"
+msgstr ""
 
 msgid "+ New Order"
 msgstr "+ новый заказ"
@@ -152,9 +159,6 @@ msgstr "телефон"
 msgid "Column headers must be in the correct order match headers in the database. HINT: Export existing products to file for reference."
 msgstr "Заголовки столбцов должны быть в правильном порядке и соответствовать заголовкам в базе данных. СОВЕТ: Экспортируйте существующие продукты в файл для справки."
 
-msgid "Cost"
-msgstr ""
-
 msgid "Cost per Unit"
 msgstr "расход за единицу"
 
@@ -172,6 +176,9 @@ msgstr "Создать категорию"
 
 msgid "Create Client"
 msgstr "cоздать клиента"
+
+msgid "Create Discount"
+msgstr ""
 
 msgid "Create Inventory"
 msgstr "cоздать инвентара"
@@ -221,6 +228,9 @@ msgstr "Дата получения"
 msgid "Date received:"
 msgstr "дата получение:"
 
+msgid "Discounts"
+msgstr ""
+
 msgid "Edit"
 msgstr "редактировать"
 
@@ -263,9 +273,6 @@ msgstr "приблиз. кол-во"
 msgid "Estimated Subtotal"
 msgstr "приблиз. пром. итог"
 
-msgid "Estimated total:"
-msgstr "приблиз. итог"
-
 msgid "Expected delivery"
 msgstr "ожид. дата доставки"
 
@@ -284,8 +291,8 @@ msgstr "грамм на единицу"
 msgid "Grand Total"
 msgstr "общая сумма"
 
-msgid "Grand total:"
-msgstr "общая сумма:"
+msgid "Grand total"
+msgstr "Общая сумма"
 
 msgid "ID"
 msgstr "ID"
@@ -370,6 +377,9 @@ msgstr "заказ"
 
 msgid "Order Date"
 msgstr "дата заказа"
+
+msgid "Order Details"
+msgstr "Подробности заказа"
 
 msgid "Order History"
 msgstr "история заказов"
@@ -490,6 +500,9 @@ msgstr "стоимость рецепта"
 
 msgid "Products"
 msgstr "продукты"
+
+msgid "Products Ordered"
+msgstr "Заказанные продукты"
 
 msgid "Product|Grams per unit"
 msgstr "грамм на единицу"
@@ -656,9 +669,6 @@ msgstr "Роли"
 msgid "Sale Price"
 msgstr "Цена продаже"
 
-msgid "Sale Price:"
-msgstr "Цена продаже:"
-
 msgid "Sale price"
 msgstr "Цена продаже"
 
@@ -785,8 +795,11 @@ msgstr "Обновить категорию"
 msgid "Update Client"
 msgstr "Обновить клиент"
 
+msgid "Update Discount"
+msgstr "Обновить скидку"
+
 msgid "Update Order"
-msgstr "Обновить заказ "
+msgstr "Порядок обновления"
 
 msgid "Update Product"
 msgstr "Обновить продукт"
