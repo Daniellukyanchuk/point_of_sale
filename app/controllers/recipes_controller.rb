@@ -6,9 +6,16 @@ class RecipesController < ApplicationController
   
   
   def get_production_info
-      @recipe_cost = Recipe.get_recipe_cost(params[:id].to_i).first
-      render json: {recipe_cost: @recipe_cost["usage_cost"], units: @recipe_cost["units"], yield: @recipe_cost["yield"], 
-      product_id: @recipe_cost["product_id"] }
+    @recipe_cost = Recipe.get_recipe_cost(params[:id].to_i).first
+
+    Recipe.find(params[:id]).recipe_products.each do |r|
+      if r.product.inventories.blank?
+        render json: {recipe_cost: @recipe_cost["default_usage_cost"], units: @recipe_cost["units"], yield: @recipe_cost["yield"], product_id: @recipe_cost["product_id"] }
+        return
+      end
+    end
+             
+    render json: {recipe_cost: @recipe_cost["usage_cost"], units: @recipe_cost["units"], yield: @recipe_cost["yield"], product_id: @recipe_cost["product_id"] }
   end 
   
   #get ingredient amounts for modal in "create new production"
