@@ -1,0 +1,721 @@
+/* line 5, app/assets/stylesheets/orders.scss */
+input[type=checkbox] {
+  width: 18px;
+  height: 18px;
+}
+/* line 5, app/assets/stylesheets/recipes.scss */
+.instructions {
+  width: 513px;
+  height: 200px;
+}
+/* line 5, app/assets/stylesheets/reports.scss */
+.date_entry {
+  width: 108px;
+}
+/* line 1, app/assets/stylesheets/scaffolds.scss */
+body {
+  background-color: #fff;
+  color: #333;
+  margin: 33px;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* line 10, app/assets/stylesheets/scaffolds.scss */
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* line 16, app/assets/stylesheets/scaffolds.scss */
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+/* line 22, app/assets/stylesheets/scaffolds.scss */
+a {
+  color: #000;
+}
+
+/* line 29, app/assets/stylesheets/scaffolds.scss */
+a:hover {
+  color: #797979;
+  background-color: #000;
+}
+
+/* line 36, app/assets/stylesheets/scaffolds.scss */
+div.field, div.actions {
+  margin-bottom: 10px;
+  min-height: 25px;
+}
+
+/* line 42, app/assets/stylesheets/scaffolds.scss */
+#notice {
+  color: green;
+}
+
+/* line 46, app/assets/stylesheets/scaffolds.scss */
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+}
+
+/* line 51, app/assets/stylesheets/scaffolds.scss */
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px 7px 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+/* line 58, app/assets/stylesheets/scaffolds.scss */
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px -7px 0;
+  background-color: #c00;
+  color: #fff;
+}
+
+/* line 68, app/assets/stylesheets/scaffolds.scss */
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+/* line 74, app/assets/stylesheets/scaffolds.scss */
+label {
+  display: block;
+}
+/* line 5, app/assets/stylesheets/uploads.scss */
+.uploads_preview {
+  width: 100px;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+/* line 18, app/assets/stylesheets/application.scss */
+body {
+  padding: 0;
+  margin: 0 0 0 0px;
+  display: flex;
+}
+
+/* line 24, app/assets/stylesheets/application.scss */
+.align_right {
+  text-align: right;
+}
+
+/* line 28, app/assets/stylesheets/application.scss */
+.align_center {
+  text-align: center;
+}
+
+/* line 32, app/assets/stylesheets/application.scss */
+.align_left {
+  text-align: left;
+}
+
+/* line 36, app/assets/stylesheets/application.scss */
+tr:nth-child(even) {
+  background-color: #f7f7f7;
+}
+
+/* line 40, app/assets/stylesheets/application.scss */
+input.greyed_out {
+  background-color: #f3f3f3;
+}
+
+/* line 45, app/assets/stylesheets/application.scss */
+.field, .inline {
+  display: inline-block;
+  width: 100%;
+}
+
+/* line 51, app/assets/stylesheets/application.scss */
+select {
+  padding: 2px 0px 1px 0px;
+}
+
+/* line 55, app/assets/stylesheets/application.scss */
+.bold {
+  font-weight: 600;
+}
+
+/* line 60, app/assets/stylesheets/application.scss */
+th {
+  padding-bottom: 5px;
+}
+
+/* line 64, app/assets/stylesheets/application.scss */
+td {
+  padding: 6px 2px;
+  line-height: 20px;
+}
+
+/* line 70, app/assets/stylesheets/application.scss */
+th, td {
+  padding-right: 1rem;
+}
+
+/* line 74, app/assets/stylesheets/application.scss */
+.keyword {
+  min-height: 44px;
+  font-size: .9rem;
+}
+
+/* line 79, app/assets/stylesheets/application.scss */
+label {
+  font-size: 11px;
+}
+
+/* line 83, app/assets/stylesheets/application.scss */
+.alert {
+  position: fixed;
+  top: 0px;
+  border-radius: 0;
+  float: left;
+  margin-left: -2rem;
+  padding-left: 2rem;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+  width: 100%;
+}
+
+/* line 95, app/assets/stylesheets/application.scss */
+.alert-notice {
+  background: #a1c0e4;
+}
+
+/* line 99, app/assets/stylesheets/application.scss */
+.role-label {
+  font-size: 17px;
+  vertical-align: top;
+  padding-top: 2px;
+}
+
+/* line 105, app/assets/stylesheets/application.scss */
+.indent {
+  margin-left: 23px;
+  margin-bottom: 20px;
+}
+
+/* line 110, app/assets/stylesheets/application.scss */
+.pad-bottom {
+  padding-bottom: 30px;
+}
+
+/* line 114, app/assets/stylesheets/application.scss */
+.hidden {
+  display: none;
+}
+
+/* line 118, app/assets/stylesheets/application.scss */
+div.field {
+  vertical-align: top;
+}
+
+/* line 122, app/assets/stylesheets/application.scss */
+#lang_switcher {
+  text-align: center;
+  padding-top: 1rem;
+  z-index: 9999;
+}
+
+/* line 128, app/assets/stylesheets/application.scss */
+a.bg-light:focus, a.bg-light:hover, button.bg-light:focus, button.bg-light:hover {
+  background-color: #c9c9c966 !important;
+}
+
+/* line 132, app/assets/stylesheets/application.scss */
+a.bg-success:focus, a.bg-success:hover, button.bg-success:focus, button.bg-success:hover {
+  background-color: #b8db76 !important;
+}
+
+/* line 136, app/assets/stylesheets/application.scss */
+#login_links {
+  position: absolute;
+  right: 0px;
+  padding: 1.6rem 2rem;
+  z-index: 9999;
+}
+
+/* line 143, app/assets/stylesheets/application.scss */
+.logo_cont {
+  height: 6.7rem;
+  position: relative;
+}
+
+/* line 148, app/assets/stylesheets/application.scss */
+.navbar-light .navbar-brand {
+  font-size: 2.5rem;
+  font-weight: 800;
+  font-family: math;
+}
+
+/* line 154, app/assets/stylesheets/application.scss */
+#logo {
+  padding: 38px 30px;
+}
+
+/* line 158, app/assets/stylesheets/application.scss */
+.navbar {
+  display: inline-block;
+  vertical-align: top;
+  padding: 0 !important;
+  height: 100vh;
+  position: fixed;
+}
+
+/* line 166, app/assets/stylesheets/application.scss */
+.navbar-expand-lg {
+  max-width: 12.3rem;
+  z-index: 999;
+}
+
+/* line 171, app/assets/stylesheets/application.scss */
+.navbar-expand-lg > .container-fluid {
+  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  padding-left: 0;
+}
+
+/* line 177, app/assets/stylesheets/application.scss */
+ul {
+  margin-bottom: 0rem;
+  padding-left: 0;
+}
+
+/* line 182, app/assets/stylesheets/application.scss */
+.collapse > {
+  padding-bottom: 0px !important;
+}
+
+/* line 186, app/assets/stylesheets/application.scss */
+.dropdown-menu.show {
+  display: block;
+  left: 12.2rem;
+  padding: 0;
+  top: -0.1rem;
+}
+
+/* line 193, app/assets/stylesheets/application.scss */
+.dropdown-toggle::after {
+  float: right;
+  margin-top: .5rem;
+}
+
+/* line 198, app/assets/stylesheets/application.scss */
+.choices {
+  z-index: 99;
+}
+
+/* line 202, app/assets/stylesheets/application.scss */
+.choices__input {
+  width: auto !important;
+}
+
+/* line 206, app/assets/stylesheets/application.scss */
+#main {
+  display: inline-block;
+  flex-flow: row;
+  flex-grow: 1;
+  margin-left: 14.3rem;
+}
+
+/* line 213, app/assets/stylesheets/application.scss */
+#notice {
+  margin: 0;
+  margin-left: -2rem;
+  padding-left: 2rem;
+  float: left;
+  width: calc(100% + 2rem);
+  background-color: #44e30a40;
+}
+
+/* line 222, app/assets/stylesheets/application.scss */
+.login .field {
+  vertical-align: top;
+}
+
+/* line 226, app/assets/stylesheets/application.scss */
+.logo {
+  height: 4.2rem;
+  margin-bottom: 0.8rem;
+  padding-left: 1.6rem;
+  margin-top: 1rem;
+}
+
+/* line 233, app/assets/stylesheets/application.scss */
+.nav {
+  width: 12.3rem;
+}
+
+/* line 237, app/assets/stylesheets/application.scss */
+td.nav {
+  padding: 0px;
+  margin: 0px;
+  border: none;
+}
+
+/* line 243, app/assets/stylesheets/application.scss */
+:root {
+  --primary: #4384cf !important;
+  --secondary: #57ad7e !important;
+  --success: #9fcc4a !important;
+  --info: #f51202 !important;
+  --warning: #f5c102 !important;
+  --danger: #f51202 !important;
+}
+
+/* line 252, app/assets/stylesheets/application.scss */
+.bg-primary {
+  background-color: #4384cf !important;
+}
+
+/* line 256, app/assets/stylesheets/application.scss */
+.text-primary {
+  color: #4384cf !important;
+}
+
+/* line 260, app/assets/stylesheets/application.scss */
+.btn-primary {
+  background-color: #4384cf !important;
+  border-color: #4384cf !important;
+}
+
+/* line 265, app/assets/stylesheets/application.scss */
+.bg-secondary {
+  background-color: #57ad7e !important;
+}
+
+/* line 269, app/assets/stylesheets/application.scss */
+.text-secondary {
+  color: #57ad7e !important;
+}
+
+/* line 273, app/assets/stylesheets/application.scss */
+.btn-secondary {
+  background-color: #57ad7e !important;
+  border-color: #57ad7e !important;
+}
+
+/* line 278, app/assets/stylesheets/application.scss */
+.bg-success {
+  background-color: #9fcc4a !important;
+}
+
+/* line 282, app/assets/stylesheets/application.scss */
+.text-success {
+  color: #9fcc4a !important;
+}
+
+/* line 286, app/assets/stylesheets/application.scss */
+.btn-success {
+  background-color: #9fcc4a !important;
+  border-color: #9fcc4a !important;
+}
+
+/* line 291, app/assets/stylesheets/application.scss */
+.bg-info {
+  background-color: #9cc7af !important;
+}
+
+/* line 295, app/assets/stylesheets/application.scss */
+.text-info {
+  color: #9cc7af !important;
+}
+
+/* line 299, app/assets/stylesheets/application.scss */
+.btn-info {
+  background-color: #9cc7af !important;
+  border-color: #9cc7af !important;
+}
+
+/* line 304, app/assets/stylesheets/application.scss */
+.bg-warning {
+  background-color: #f5c102 !important;
+}
+
+/* line 308, app/assets/stylesheets/application.scss */
+.text-warning {
+  color: #f5c102 !important;
+}
+
+/* line 312, app/assets/stylesheets/application.scss */
+.btn-warning {
+  background-color: #f5c102 !important;
+  border-color: #f5c102 !important;
+}
+
+/* line 317, app/assets/stylesheets/application.scss */
+.bg-danger {
+  background-color: #f51202 !important;
+}
+
+/* line 321, app/assets/stylesheets/application.scss */
+.text-danger {
+  color: #f51202 !important;
+}
+
+/* line 325, app/assets/stylesheets/application.scss */
+.btn-danger {
+  background-color: #f51202 !important;
+  border-color: #f51202 !important;
+}
+
+/* line 330, app/assets/stylesheets/application.scss */
+.bg-light {
+  background-color: #dde0e3 !important;
+}
+
+/* line 334, app/assets/stylesheets/application.scss */
+.btn-primary, .btn-secondary, .btn-warning, .btn-success {
+  color: #ffffff !important;
+}
+
+/* line 338, app/assets/stylesheets/application.scss */
+.btn:hover {
+  opacity: .8;
+}
+
+/* line 342, app/assets/stylesheets/application.scss */
+.btn-small {
+  font-size: smaller;
+  padding: 2px 8px;
+  vertical-align: bottom;
+}
+
+/* line 349, app/assets/stylesheets/application.scss */
+a.text-light, a.text-dark {
+  height: 100%;
+  width: 100%;
+  border-bottom: dotted 0.1rem;
+}
+
+/* line 355, app/assets/stylesheets/application.scss */
+a.bg-info:focus, a.bg-info:hover, button.bg-info:focus, button.bg-info:hover {
+  background-color: #b3d9c4 !important;
+}
+
+/* line 359, app/assets/stylesheets/application.scss */
+.dropdown-menu {
+  border-radius: 0;
+  font-size: .8rem;
+}
+
+/* line 364, app/assets/stylesheets/application.scss */
+a.nav {
+  padding: 1.3rem 1rem 1.3rem 1.3rem !important;
+}
+
+/* line 368, app/assets/stylesheets/application.scss */
+a.nav ::before {
+  padding-right: 9px;
+  position: relative;
+  top: 2px;
+  font-size: 16px;
+}
+
+/* line 375, app/assets/stylesheets/application.scss */
+a.text-light:focus, a.text-light:hover {
+  color: #ffffff !important;
+  background: #ffffff1c;
+  text-decoration: none;
+}
+
+/* line 381, app/assets/stylesheets/application.scss */
+a.text-dark:focus, a.text-dark:hover {
+  color: #000 !important;
+  background: #0000001c;
+  text-decoration: none;
+}
+
+/* line 387, app/assets/stylesheets/application.scss */
+a:hover {
+  background-color: transparent;
+}
+
+/* line 393, app/assets/stylesheets/application.scss */
+h1 {
+  font-size: 2.5rem;
+  font-family: tahoma;
+  font-weight: 800;
+  line-height: 1.82;
+  color: #5b7c6a;
+  background: #31496614;
+  padding: 1.05rem 2rem;
+  margin-bottom: 1.8rem;
+  position: relative;
+  left: -2rem;
+  width: calc(100% + 2rem);
+}
+
+/* line 407, app/assets/stylesheets/application.scss */
+h2 {
+  font-size: 1.8rem;
+  font-family: tahoma;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #a5a5a5;
+}
+
+/* line 415, app/assets/stylesheets/application.scss */
+h4 {
+  font-size: 1.2rem;
+  font-family: tahoma;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #a5a5a5;
+}
+
+/* line 423, app/assets/stylesheets/application.scss */
+.form-control-lg {
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+/* line 428, app/assets/stylesheets/application.scss */
+.remove_fields {
+  position: relative;
+}
+
+/* line 432, app/assets/stylesheets/application.scss */
+.input-group-text {
+  border: 0px;
+}
+
+/* line 436, app/assets/stylesheets/application.scss */
+a.bg-secondary:hover, button.bg-secondary:focus, button.bg-secondary:hover {
+  background-color: #76b793 !important;
+}
+
+@media only screen and (max-width: 992px) {
+  /* line 445, app/assets/stylesheets/application.scss */
+  .navbar-brand {
+    display: none;
+  }
+  /* line 449, app/assets/stylesheets/application.scss */
+  #main {
+    margin-left: 2.5rem;
+  }
+  /* line 453, app/assets/stylesheets/application.scss */
+  .navbar {
+    height: auto;
+  }
+  /* line 457, app/assets/stylesheets/application.scss */
+  h1 {
+    padding: 1.05rem 1rem 1rem 7.5rem;
+    margin-bottom: 1.8rem;
+    z-index: 1;
+  }
+  /* line 463, app/assets/stylesheets/application.scss */
+  .navbar-light .navbar-toggler {
+    float: left;
+    position: absolute;
+    font-size: 1rem;
+    top: 2.5rem;
+    left: 1.5rem;
+    background-color: #5b7c6a;
+  }
+  /* line 473, app/assets/stylesheets/application.scss */
+  .navbar-light .navbar-toggler:hover, .navbar-light .navbar-toggler:active {
+    background-color: #57ad7e;
+  }
+  /* line 477, app/assets/stylesheets/application.scss */
+  .navbar-light .navbar-toggler-icon {
+    background-image: none;
+    color: white;
+    position: relative;
+    top: .3rem;
+  }
+  /* line 484, app/assets/stylesheets/application.scss */
+  .navbar {
+    z-index: 999999;
+  }
+  /* line 488, app/assets/stylesheets/application.scss */
+  .navbar-collapse {
+    position: relative;
+    top: 6.5rem;
+  }
+  /* line 493, app/assets/stylesheets/application.scss */
+  nav.bg-light {
+    background-color: transparent !important;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  /* line 499, app/assets/stylesheets/application.scss */
+  #lang_switcher {
+    position: fixed;
+    display: block;
+    text-align: center;
+    padding: 0.3rem 2rem;
+    z-index: 9999;
+    background: lightgray;
+    width: 100%;
+  }
+  /* line 509, app/assets/stylesheets/application.scss */
+  h1 {
+    padding: 2.05rem 1rem 1rem 7.5rem;
+  }
+  /* line 513, app/assets/stylesheets/application.scss */
+  .navbar-light .navbar-toggler {
+    top: 3.5rem;
+  }
+  /* line 517, app/assets/stylesheets/application.scss */
+  .navbar-collapse {
+    top: 7.5rem;
+  }
+}
+
+/* line 522, app/assets/stylesheets/application.scss */
+.input-group-sm > .custom-select, .input-group-sm > .form-control, .input-group-sm > .input-group-append > .btn, .input-group-sm > .input-group-append > .input-group-text, .input-group-sm > .input-group-prepend > .btn, .input-group-sm > .input-group-prepend > .input-group-text {
+  padding: 0.25rem 0.5rem;
+  font-size: .9rem;
+  line-height: 1rem;
+  border-radius: 0 0.5rem 0.5rem 0rem;
+}
+
+/* line 530, app/assets/stylesheets/application.scss */
+table.receipt_table, .receipt_table td {
+  border: solid 1px black;
+  border-collapse: collapse;
+  background-color: white;
+}
+
+/* line 536, app/assets/stylesheets/application.scss */
+table.receipt_table2, .receipt_table2 tr {
+  background-color: white;
+}
+
+/* line 540, app/assets/stylesheets/application.scss */
+table.receipt_table {
+  width: 97%;
+}
+
+@media print {
+  /* line 545, app/assets/stylesheets/application.scss */
+  body {
+    background: #FFF;
+  }
+}
