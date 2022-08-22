@@ -1,0 +1,52 @@
+<%= form_with(model: employee, local: true) do |form| %>
+  <% if employee.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
+
+      <ul>
+      <% employee.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="row">
+  <div class="col-6 col-lg-2">
+    <div class="field">
+      <%= form.label :last_name %>
+      <%= form.text_field :last_name, class: "form-control" %>
+    </div>
+  </div>
+  <div class="col-6 col-lg-2">
+    <div class="field">
+      <%= form.label :first_name %>
+      <%= form.text_field :first_name, class: "form-control" %>
+    </div>
+  </div>
+  <div class="col-6 col-lg-2">
+    <div class="field">
+      <%= form.label :middle_name %>
+      <%= form.text_field :middle_name, class: "form-control" %>
+    </div>
+  </div>
+  <div class="col-6 col-lg-2">
+    <div class="field">
+      <%= form.label :phone %>
+      <%= form.text_field :phone, class: "form-control" %>
+    </div>
+  </div>
+  <div class="col-6 col-lg-2">
+    <div class="field">
+      <%= form.label :hire_date %>
+      <%= form.date_select :hire_date, class: "form-control" %>
+    </div>
+  </div> 
+</div>
+<div class="row">
+  <div class="col-6 col-lg-2">
+    <div class="actions">
+      <%= form.submit _("Create Employee"), :class => 'btn btn-success'%>
+    </div>
+  </div>
+<% end %>
+</div>

@@ -1,7 +1,7 @@
 class Production < ApplicationRecord
 	has_many :recipe_products
 	belongs_to :recipe
-	validates :recipe_id, :production_quantity, presence: true
+	validates :recipe_id, :production_quantity, :employee_id, presence: true
 	validate :has_enough_inventory
 	after_create :adjust_inventory
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_04_065243) do
+ActiveRecord::Schema.define(version: 2022_08_21_163932) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,16 @@ ActiveRecord::Schema.define(version: 2022_07_04_065243) do
     t.string "phone"
     t.string "address"
     t.string "city"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "employees", force: :cascade do |t|
+    t.string "last_name"
+    t.string "first_name"
+    t.string "middle_name"
+    t.string "phone"
+    t.date "hire_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -125,6 +135,7 @@ ActiveRecord::Schema.define(version: 2022_07_04_065243) do
     t.integer "recipe_id"
     t.float "recipe_cost"
     t.integer "production_yield"
+    t.integer "employee_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -176,6 +187,7 @@ ActiveRecord::Schema.define(version: 2022_07_04_065243) do
     t.integer "product_id"
     t.string "units"
     t.string "recipe_name"
+    t.integer "labor_cost"
   end
 
   create_table "role_permissions", force: :cascade do |t|

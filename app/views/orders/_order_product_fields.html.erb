@@ -2,36 +2,44 @@
    
   
    <div class="nested-fields">
-      <div class="field">
-        <%= form.label _('Select a product') %>
-        <%= form.collection_select :product_id, @finished_products, :id, :product_name, {:prompt => _("Select Product")}, {class: "product-select form-control"} %>
+    <div class="row">
+      <div class="col-6 col-lg-2">
+        <div class="field">
+          <%= form.label _('Select a product') %>
+          <%= form.collection_select :product_id, @finished_products, :id, :product_name, {:prompt => _("Select Product")}, {class: "product-select form-control"} %>
+        </div>
       </div>
-
-      <div class="field">
-        <%= form.label :quantity %>
-        <%= form.number_field :quantity, id: "quantity", class: "quantity form-control" %>
+      <div class="col-6 col-lg-2">
+        <div class="field">
+          <%= form.label :quantity %>
+          <%= form.number_field :quantity, id: "quantity", class: "quantity form-control" %>
+        </div>
       </div>
-
-      <div class="field">
-        <%= form.label :sale_price %>
-        <%= form.number_field :sale_price, class: "sale-price form-control greyed_out", readonly: true %>
+      <div class="col-6 col-lg-2">
+        <div class="field">
+          <%= form.label :sale_price %>
+          <%= form.number_field :sale_price, class: "sale-price form-control greyed_out", readonly: true %>
+        </div>
       </div>
-
-      <div class="field">
-        <%= form.label "Item discount (amount in som)" %>
-        <%= form.number_field :item_discount, class: "item-discount form-control" %>
+      <div class="col-6 col-lg-2">
+        <div class="field">
+          <%= form.label "Item discount (amount in som)" %>
+          <%= form.number_field :item_discount, class: "item-discount form-control" %>
+        </div>
       </div>
-
-      <div class="field">
-        <%= form.label :subtotal %>
-        <%= form.number_field :subtotal, id: "subtotal", :class => "subtotal greyed_out form-control", :readonly => true  %>
-      </div>    
-
-      <div class="field align-bottom">
-        <%= form.hidden_field :_destroy, class: "nested-field-destroy" %>
-        <%= link_to _("Remove"), "#", class: "remove_fields btn btn-danger" %>
-      </div>    
-          
+      <div class="col-6 col-lg-2">
+        <div class="field">
+          <%= form.label :subtotal %>
+          <%= form.number_field :subtotal, id: "subtotal", :class => "subtotal greyed_out form-control", :readonly => true  %>
+        </div> 
+      </div>
+      <div class="col-6 col-lg-2 pt-4">
+        <div class="field align-bottom">
+          <%= form.hidden_field :_destroy, class: "nested-field-destroy" %>
+          <%= link_to _("Remove"), "#", class: "remove_fields btn btn-danger" %>
+        </div> 
+      </div>
+    </div>         
   </div>
 
 

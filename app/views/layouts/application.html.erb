@@ -77,19 +77,30 @@
               <a href="<%= product_categories_path  %>" class="text-dark nav bg-success dropdown-item"> <%= _("Product Categories") %>  </a> 
             </div>                   
           </li>
-          <li class="bg-success nav"><a href="<%= recipes_path %>"  class="text-dark nav"> <i class="fa-solid fa-book"></i> <%= _("Recipes") %>  </a> </li>
-          <li class="bg-success nav"><a href="<%= clients_path %>"  class="text-dark nav"> <i class="fa-solid fa-user-group"></i> <%= _("Clients") %>  </a> </li>
-          <li class="bg-success nav"><a href="<%= suppliers_path %>"  class="text-dark nav"> <i class="fa-solid fa-truck"></i> <%= _("Suppliers") %>  </a> </li>
+          <li class="bg-success nav"><a href="<%= recipes_path %>"  class="text-dark nav"> <i class="fa-solid fa-book"></i> <%= _("Recipes") %>  </a> </li>  
+          <li class="bg-success nav"><a href="<%= employees_path %>"  class="text-dark nav"> <i class="fa-solid fa-user-group"></i> <%= _("Employees") %>  </a> </li>
+
+                 
           <li class="nav-item dropdown bg-secondary nav">
             <a class="nav-link dropdown-toggle nav text-dark" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
               <i class="fa-solid fa-file-lines"></i> <%= _("Orders") %>
             </a> 
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a href="<%= orders_path %>" class="text-dark nav bg-secondary dropdown-item"> <%= _("Orders") %>  </a> 
-              <a href="<%= client_discounts_path  %>" class="text-dark nav bg-secondary dropdown-item"> <%= _("Discounts") %>  </a> 
+              <a href="<%= clients_path %>"  class="text-dark nav bg-secondary"> <i class="fa-solid fa-user-group"></i> <%= _("Clients") %>  </a>
             </div>                   
           </li>
-          <li class="bg-secondary nav"><a href="<%= purchases_path %>" class="text-dark nav"> <i class="fa-solid fa-basket-shopping"></i> <%= _("Purchases") %>  </a> </li>
+          <li class="nav-item dropdown bg-secondary nav">
+            <a class="nav-link dropdown-toggle nav text-dark" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+              <i class="fa-solid fa-basket-shopping"></i> <%= _("Purchases") %>
+            </a> 
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a href="<%= purchases_path %>" class="text-dark nav bg-secondary"> <i class="fa-solid fa-basket-shopping"></i> <%= _("Purchases") %>  </a> 
+              <a href="<%= suppliers_path %>"  class="text-dark nav bg-secondary"> <i class="fa-solid fa-truck"></i> <%= _("Suppliers") %>  </a>
+            </div>                   
+          </li>        
+
+
           <li class="bg-secondary nav"><a href="<%= productions_path %>" class="text-dark nav"> <i class="fa-solid fa-gears"></i> <%= _("Production") %>  </a> </li>
           <li class="bg-secondary nav"><a href="<%= inventories_path %>" class="text-dark nav"> <i class="fa-solid fa-warehouse"></i> <%= _("Inventory") %>  </a> </li>
   
@@ -115,7 +126,7 @@
             </div>                   
           </li>
           <div id="lang_switcher">
-            <a href="https://joergs-pos.herokuapp.com/en/products" class="text-dark">English</a> | <a href="https://joergs-pos.herokuapp.com/ru/products" class="text-dark">Русски</a>
+            <a href="https://shibon-system.herokuapp.com/en/products" class="text-dark">English</a> | <a href="https://shibon-system.herokuapp.com/ru/products" class="text-dark">Русски</a>
           </div>
         </ul>
 

@@ -4,7 +4,7 @@ class Recipe < ApplicationRecord
 	belongs_to :product
 	has_many :productions
 	accepts_nested_attributes_for :recipe_products, allow_destroy: true
-  validates :yield, :recipe_name, presence: true
+  validates :yield, :recipe_name, :labor_cost, presence: true
   validates :product_id, presence: { message: "Product Produced can't be blank!"}
 	
   def self.get_recipe_cost(recipe_id)

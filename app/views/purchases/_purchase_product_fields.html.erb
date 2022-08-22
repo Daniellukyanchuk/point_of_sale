@@ -1,30 +1,30 @@
   
    
 <div class="nested-fields">
-  <div class="field col-3">
+  <div class="field col-7 col-lg-3">
     <%= form.label _("select product") %>
     <%= form.select :product_id, ([['+ Create New Product', '-1']] + @raw_products.map{ |c| [c.product_name, c.id,]}), {:prompt => 'Choose a Product'}, :class => "form-control product-select" %>
   </div>
 
 <%# ----------------------------------Add Product on the fly------------------------------------- %>
-  <div style="display: none;" class="container col-6 mt-3 col-7 mb-3 new-product">
+  <div style="display: none;" class="container col-lg-5 mt-3 mb-3 new-product">
     <%= form.fields_for :products do |product_attributes|%>
     <div class="row">
-        <div class="col-4">
+        <div class="col-lg-4">
             <%= product_attributes.label :product_name, "Product Name:" %>
             <%= product_attributes.text_field :product_name, class: "form-control" %>
         </div>
-        <div class="col-4">
+        <div class="col-lg-4">
             <%= product_attributes.label :price, "Price:" %>
             <%= product_attributes.text_field :price, class: "form-control" %>
         </div>
     </div>
     <div class="row">
-        <div class="col-4">
+        <div class="col-lg-4">
             <%= product_attributes.label :unit, "Unit:" %>
             <%= product_attributes.text_field :unit, class: "form-control" %>
         </div>
-        <div class="col-4">
+        <div class="col-lg-4">
             <%= product_attributes.label :grams_per_unit, "Grams per unit:" %>
             <%= product_attributes.text_field :grams_per_unit, class: "form-control" %>
         </div>
@@ -35,28 +35,38 @@
   <br>
 
     <div class="indent">
-        <div class="field">
-          <%= form.label _("Quantity") %>
-          <%= form.number_field :purchase_quantity, id: 'actual_quantity', class: 'act_qt form-control' %>
+      <div class="row">
+        <div class="col-5 col-lg-2"> 
+          <div class="field">
+            <%= form.label _("Quantity") %>
+            <%= form.number_field :purchase_quantity, id: 'actual_quantity', class: 'act_qt form-control' %>
+          </div>
         </div>
-        
-        <div class="field">
-          <%= form.label _("Cost per Unit") %>
-          <%= form.number_field :purchase_price, id: 'actual_price', class: 'act_cost form-control form-control' %>
+        <div class="col-6 col-lg-2">   
+          <div class="field">
+            <%= form.label _("Cost per Unit") %>
+            <%= form.number_field :purchase_price, id: 'actual_price', class: 'act_cost form-control form-control' %>
+          </div>
         </div>
-        <div class="field">
-          <%= form.label _("Unit") %>
-          <%= form.number_field :unit, id: 'unit', class: 'unit form-control', disabled: true %>
+        <div class="col-5 col-lg-2">
+          <div class="field">
+            <%= form.label _("Unit") %>
+            <%= form.text_field :unit, id: 'unit', class: 'unit form-control', disabled: true %>
+          </div>
         </div>
-        <div class="field">
-          <%= form.label _("Subtotal") %>
-          <%= form.number_field :purchase_subtotal, id: 'actual_subtotal', class: 'actual_subtotal greyed_out form-control', :readonly => true  %>
+        <div class="col-6 col-lg-2">
+          <div class="field">
+            <%= form.label _("Subtotal") %>
+            <%= form.number_field :purchase_subtotal, id: 'actual_subtotal', class: 'actual_subtotal greyed_out form-control', :readonly => true  %>
+          </div>
         </div>
-
-        <div class="field align-bottom">
-          <%= form.hidden_field :_destroy, class: "nested-field-destroy" %>
-          <%= link_to _("Remove"), "#", class: "remove_fields btn btn-danger text-light" %>
+        <div class="pt-4">
+          <div class="field align-bottom">
+            <%= form.hidden_field :_destroy, class: "nested-field-destroy" %>
+            <%= link_to _("Remove"), "#", class: "remove_fields btn btn-danger text-light" %>
+          </div>
         </div>
+      </div>
     </div>
     <hr>
   <br>

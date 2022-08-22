@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Employees</h1>
+<%= link_to _('+ Add New Employee'), new_employee_path, :class => "btn btn-secondary" %><br><br>
+<table>
+  <thead>
+    <tr>
+      <th>Last name</th>
+      <th>First name</th>
+      <th>Middle name</th>
+      <th>Phone</th>
+      <th>Hire date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @employees.each do |employee| %>
+      <tr>
+        <td><%= employee.last_name %></td>
+        <td><%= employee.first_name %></td>
+        <td><%= employee.middle_name %></td>
+        <td><%= employee.phone %></td>
+        <td><%= employee.hire_date %></td>
+        <td><%= link_to 'Show', employee %></td>
+        <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
+        <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

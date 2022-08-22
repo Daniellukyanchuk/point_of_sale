@@ -10,26 +10,33 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :product_name %>
-    <%= form.text_field :product_name, class: "form-control" %>
+<div class="row">
+  <div class="col-6 col-lg-2">
+    <div class="field">
+      <%= form.label :product_name %>
+      <%= form.text_field :product_name, class: "form-control" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price, class: "form-control" %>
+  <div class="col-6 col-lg-2">  
+    <div class="field">
+      <%= form.label :price %>
+      <%= form.text_field :price, class: "form-control" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :unit %>
-    <%= form.text_field :unit, class: "form-control" %>
+  <div class="col-6 col-lg-2">  
+    <div class="field">
+      <%= form.label :unit %>
+      <%= form.text_field :unit, class: "form-control" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :grams_per_unit %>
-    <%= form.text_field :grams_per_unit, class: "form-control" %>
+  <div class="col-6 col-lg-2">  
+    <div class="field">
+      <%= form.label :grams_per_unit %>
+      <%= form.text_field :grams_per_unit, class: "form-control" %>
+    </div>
   </div>
+</div>
+
 <hr>
   <h4> Product Categories </h4>
 

@@ -27,21 +27,28 @@
       <%= link_to_add_fields _("+ Add Product"), form, :purchase_products %>
     </div>
 
+  <div class="row">
+    <div class="col-10 col-lg-2">
       <div class="field">
         <%= form.label :purchase_total %>
         <%= form.text_field :purchase_total, id: "actual_total", class: "actual-total greyed_out form-control", :readonly => true %>
       </div>
-
+    </div>
+    <div class="col-5 col-lg-2">
       <div class="field">
-      <label for="date_ordered"><%= _('Date ordered') %></label>
-      <input type="text" class="datepicker form-control" id="date_ordered" name="purchase[date_ordered]" 
-            autocomplete = 'off' value = "<%= purchase.date_ordered.strftime("%m-%d-%Y") unless purchase.date_ordered.blank? %>"></div>
-
+        <label for="date_ordered"><%= _('Date ordered') %></label>
+        <input type="text" class="datepicker form-control" id="date_ordered" name="purchase[date_ordered]" 
+              autocomplete = 'off' value = "<%= purchase.date_ordered.strftime("%m-%d-%Y") unless purchase.date_ordered.blank? %>">
+      </div>
+    </div>
+    <div class="col-5 col-lg-2">
       <div class="field">
-      <label for="date_received"><%= _('Date received') %></label>
-      <input type="text" class="datepicker form-control" id="date_received" name="purchase[date_received]" 
-            autocomplete = 'off' value = "<%= purchase.date_received.strftime("%m-%d-%Y") unless purchase.date_received.blank? %>"></div>
-
+        <label for="date_received"><%= _('Date received') %></label>
+        <input type="text" class="datepicker form-control" id="date_received" name="purchase[date_received]" 
+              autocomplete = 'off' value = "<%= purchase.date_received.strftime("%m-%d-%Y") unless purchase.date_received.blank? %>">
+      </div>
+    </div>
+  </div>
   <div> 
     <%= form.submit "#{purchase.id.nil? ? _("Create Purchase Order") : _("Update Purchase Order")}" , :class => "btn btn-success" %>
   </div>
@@ -59,6 +66,7 @@ $(document).ready(function() {
   $(document).on('change', '.act_cost, .act_qt', calcActualTotal); 
   $(document).on('click', '.remove_fields', calcActualTotal);    
   $(document).on('change', '.product-select', displayNewProductForm); 
+  $(document).on('change', '.product-select', getUnit);
 
   function displayNewProductForm(){
       var current_section = $(this)
@@ -87,6 +95,18 @@ $(document).ready(function() {
     $("#actual_total").val(actTotal);
     });
   }; 
+
+  function getUnit() {
+    var picker = $(this)
+    $.ajax({ 
+          url: "<%= products_get_unit_path %>", 
+          data: { id: $(this).val() },
+          type: "GET",
+          success: function(data) {
+            picker.parents(".nested-fields").find(".unit").val(data.unit);
+            }
+        });
+  };
 });          
 
 //////////////////  DATE PICKER  ///////////////////// 

@@ -16,54 +16,64 @@
     
     <%= form.select :client_id, ([['+ Create New Client', '-1']] + Client.all.map{ |c| [c.name, c.id] }), {:prompt => 'Choose a client'}, :class => "form-control col-8 col-lg-6 col-xl-3 client-select" %>
 
-    <div style="display: none;" class="container col-6 mt-3" id="new_client">
+    <div style="display: none;" class="container col-lg-6 mt-3" id="new_client">
       <%= form.fields_for :client, Client.new do |client_attributes|%>
       <div class="row">
-        <div class="col-6">
+        <div class="col-6 ">
           <%= client_attributes.label :name, "Client Name:" %>
           <%= client_attributes.text_field :name, class: "form-control" %>
         </div>
-        <div class="col">
+        <div class="col-6 ">
           <%= client_attributes.label :phone, "Phone:" %>
           <%= client_attributes.text_field :phone, class: "form-control" %>
         </div>
       </div>
       <div class="row">
-        <div class="col-6">
+        <div class="col-6 ">
           <%= client_attributes.label :address, "Address:" %>
           <%= client_attributes.text_field :address, class: "form-control" %>
         </div>
-        <div class="col">
+        <div class="col-6 ">
           <%= client_attributes.label :city, "City:" %>
           <%= client_attributes.text_field :city, class: "form-control" %>
+        </div>
+        <% end %>
       </div>
-      <% end %>
     </div>
-  </div>
 
 <hr>
-      <h2><%= _('Products') %></h2>
 
-    <%= form.fields_for :order_products do |builder| %>
-      <%= render 'order_product_fields', form: builder %>
-    <% end %>
- 
-      <%= link_to_add_fields _("Add Product"), form, :order_products %><br><br><hr>
-      
-  <div class="field">
-    <%= form.label "order_discount (amount in som)" %>
-    <%= form.number_field :order_discount, :class => "order-discount form-control" %>
+<h2><%= _('Products') %></h2>
+
+<%= form.fields_for :order_products do |builder| %>
+  <%= render 'order_product_fields', form: builder %>
+<% end %>  
+
+<div class="mt-2">  
+  <%= link_to_add_fields _("+ Add Product"), form, :order_products %><br><br><hr>
+</div>
+    
+<div class="row">
+  <div class="col-6 col-lg-2">      
+    <div class="field">
+      <%= form.label "order_discount (amount in som)" %>
+      <%= form.number_field :order_discount, :class => "order-discount form-control" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :grand_total %>
-    <%= form.text_field :grand_total, :class => "grand-total greyed_out form-control", :readonly => true %>
+  <div class="col-6 col-lg-2">
+    <div class="field">
+      <%= form.label :grand_total %>
+      <%= form.text_field :grand_total, :class => "grand-total greyed_out form-control", :readonly => true %>
+    </div>
   </div>
-
-  <div> 
-    <%= form.submit "#{order.id.nil? ? _("Create Order") : _("Update Order")}" , :class => "btn btn-success" %>
-  </div>
-
+</div>
+<div class="row">
+  <div class="col-6 col-lg-2">
+    <div> 
+      <%= form.submit "#{order.id.nil? ? _("Create Order") : _("Update Order")}" , :class => "btn btn-success" %>
+    </div>  
+  </div>  
+</div>
 <% end %>
 
 <script type="text/javascript">

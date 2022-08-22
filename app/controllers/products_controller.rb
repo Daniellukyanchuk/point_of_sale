@@ -56,6 +56,7 @@ end
   def create
     set_product_categories
     @product = Product.new(product_params)
+    @product.update_product_categories(params)
     respond_to do |format|
       if @product.save
         format.html { redirect_to products_path, notice: "Product was successfully created." }
@@ -71,7 +72,7 @@ end
   def update
     respond_to do |format|
       if @product.update(product_params)
-        @product.update_product_categories(params)
+         @product.update_product_categories(params)
         format.html { redirect_to products_path, notice: "Product was successfully updated." }
         format.json { render :show, status: :ok, location: @product }
       else
